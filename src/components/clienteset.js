@@ -76,7 +76,8 @@ const ClienteSet = () => {
 
     const fetchData = useCallback(async () => {
         // deixar o allfat, pois usa os outros dados na hora de imprimir
-        const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
+        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfat')
+        //const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
         const json = await res.json()
         setClientes(json)
         //setClientesFiltrados(json)
