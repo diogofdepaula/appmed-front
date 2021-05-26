@@ -39,7 +39,7 @@ const EditorAppBar = () => {
 
   const fetchDataLME = useCallback(async () => {
 
-    const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoEdit.lmeId}`)
+    const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/one/${prescricaoEdit.lmeId}`)
     const json = await res.json();
     // o findOne do Sequelize não tras os includes, por isso usou-se findAll
     let lmeupdate = json[0]
@@ -69,10 +69,10 @@ const EditorAppBar = () => {
 
     // submit do insert e update , da prescricoes e lme juntos
 
-    let prespost = [`http://localhost:4001/api.appmed/prescricoes`, 'post', prescricaoEdit]
-    let lmepost = [`http://localhost:4001/api.appmed/lmes`, 'post', lmeEdit]
-    let presput = prescricaoEdit ? [`http://localhost:4001/api.appmed/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit] : []
-    let lmeput = lmeEdit ? [`http://localhost:4001/api.appmed/lmes/${lmeEdit.id}`, 'put', lmeEdit] : []
+    let prespost = [process.env.REACT_APP_API_URL + `/prescricoes`, 'post', prescricaoEdit]
+    let lmepost = [process.env.REACT_APP_API_URL + `/lmes`, 'post', lmeEdit]
+    let presput = prescricaoEdit ? [process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit] : []
+    let lmeput = lmeEdit ? [process.env.REACT_APP_API_URL + `/lmes/${lmeEdit.id}`, 'put', lmeEdit] : []
 
     let submitvar
 
@@ -119,7 +119,7 @@ const EditorAppBar = () => {
 
   // const handleSubmit = event => {
   //   event.preventDefault();
-  //   fetch(`http://localhost:4001/api.appmed/prescricoes`, {
+  //   fetch(process.env.REACT_APP_API_URL + `/prescricoes`, {
   //     method: 'post',
   //     headers: { 'Content-Type': 'application/json' },
   //     body: JSON.stringify(prescricaoEdit)

@@ -9,7 +9,7 @@ const PrescricaoDelete = () => {
     const [change, setChange] = useState(0)
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/one/${prescricaoOnDuty.lmeId}`)
+        const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/one/${prescricaoOnDuty.lmeId}`)
         const json = await res.json();
         setLme(json[0]);
     }, [prescricaoOnDuty])
@@ -23,7 +23,7 @@ const PrescricaoDelete = () => {
     const handleDeletePrescricao = () => event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoOnDuty.id}`, {
+        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'delete',
         }).then(data => {
             if (data.ok) {
@@ -36,7 +36,7 @@ const PrescricaoDelete = () => {
     const handleDeletePrescricaoLME = () => event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/lmes/${prescricaoOnDuty.lmeId}`, {
+        fetch(process.env.REACT_APP_API_URL + `/lmes/${prescricaoOnDuty.lmeId}`, {
             method: 'delete',
         }).then(data => {
             if (data.ok) {
@@ -57,7 +57,7 @@ const PrescricaoDelete = () => {
 
     const updateEmUso = useCallback(async () => {
 
-        fetch(`http://localhost:4001/api.appmed/prescricoes/${prescricaoOnDuty.id}`, {
+        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(prescricaoOnDuty)

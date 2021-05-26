@@ -37,8 +37,8 @@ const ClientesAppBar = () => {
 
         // submit do insert e update , da prescricoes e lme juntos
 
-        let clipost = [`http://localhost:4001/api.appmed/clientes`, 'post', clienteEdit]
-        let cliput = [`http://localhost:4001/api.appmed/clientes/${clienteEdit.id}`, 'put', clienteEdit]
+        let clipost = [process.env.REACT_APP_API_URL + `/clientes`, 'post', clienteEdit]
+        let cliput = [process.env.REACT_APP_API_URL + `/clientes/${clienteEdit.id}`, 'put', clienteEdit]
 
         let submitvar
 
@@ -70,7 +70,7 @@ const ClientesAppBar = () => {
 
     const fetchDelete = () => {
 
-        fetch(`http://localhost:4001/api.appmed/clientes/${clienteOnDuty.id}`, {
+        fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteOnDuty.id}`, {
             method: 'delete'
         }).then(data => {
             if (data.ok) {

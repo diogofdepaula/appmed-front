@@ -9,7 +9,7 @@ const LMEDelete = () => {
     const handleDeleteLME = () => event => {
 
         event.preventDefault();
-        fetch(`http://localhost:4001/api.appmed/lmes/${lmeOnDuty.id}`, {
+        fetch(process.env.REACT_APP_API_URL + `/lmes/${lmeOnDuty.id}`, {
             method: 'delete',
         }).then(data => {
             if (data.ok) {

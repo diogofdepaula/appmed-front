@@ -8,7 +8,7 @@ const MedicamentoData = () => {
     const { medicamentoOnDuty, medicamentoEdit, setMedicamentoEdit } = useContext(MedicamentosContext)
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${medicamentoOnDuty.id}`)
+        const res = await fetch(process.env.REACT_APP_API_URL + `/medicamentos/${medicamentoOnDuty.id}`)
         const json = await res.json();
         // tive que colocar no medicamentoEdit, mesmo que não Edit para
         // não ter que fazer uma nova busca caso venha a edita o medicamento

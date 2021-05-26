@@ -10,7 +10,7 @@ const LMESet = () => {
     const [lmes, setLmes] = useState([])
 
     const fetchDataLmes = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/lmes/allfat/${clienteContext.id}`)
+        const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/allfat/${clienteContext.id}`)
         const json = await res.json();
         setLmes(json);
     }, [clienteContext])

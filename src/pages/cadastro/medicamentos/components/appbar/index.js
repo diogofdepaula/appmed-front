@@ -40,8 +40,8 @@ const MedicamentosAppBar = () => {
 
         // submit do insert e update , da prescricoes e lme juntos
 
-        let medpost = [`http://localhost:4001/api.appmed/medicamentos`, 'post', medicamentoEdit]
-        let medput = [`http://localhost:4001/api.appmed/medicamentos/${medicamentoEdit.id}`, 'put', medicamentoEdit]
+        let medpost = [process.env.REACT_APP_API_URL + `/medicamentos`, 'post', medicamentoEdit]
+        let medput = [process.env.REACT_APP_API_URL + `/medicamentos/${medicamentoEdit.id}`, 'put', medicamentoEdit]
 
         let submitvar
 
@@ -73,7 +73,7 @@ const MedicamentosAppBar = () => {
 
     const handleDelete = () => {
 
-        fetch(`http://localhost:4001/api.appmed/medicamentos/${medicamentoOnDuty.id}`, {
+        fetch(process.env.REACT_APP_API_URL + `/medicamentos/${medicamentoOnDuty.id}`, {
             method: 'delete'
         }).then(data => {
             if (data.ok) {

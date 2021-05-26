@@ -7,7 +7,7 @@ const ApresentacaoSet = () => {
     const { prescricaoEdit, setPrescricaoEdit, setStep, medicamentoEdit, setMedicamentoEdit, } = useContext(AtendimentoContext)
 
     const fetchData = useCallback(async () => {
-        const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/${prescricaoEdit.medicamentoId}`)
+        const res = await fetch(process.env.REACT_APP_API_URL + `/medicamentos/${prescricaoEdit.medicamentoId}`)
         const json = await res.json();
         setMedicamentoEdit(json)
     }, [prescricaoEdit, setMedicamentoEdit])

@@ -10,7 +10,7 @@ const MedicamentoMain = () => {
   const [medicamentosFiltrados, setMedicamentosFiltrados] = useState([])
 
   const fetchData = useCallback(async () => {
-    //const res = await fetch(`http://localhost:4001/api.appmed/medicamentos/short`)
+    //const res = await fetch(process.env.REACT_APP_API_URL + `/medicamentos/short`)
     const res = await fetch(process.env.REACT_APP_API_URL + `/medicamentos/short`)
     const json = await res.json();
 
