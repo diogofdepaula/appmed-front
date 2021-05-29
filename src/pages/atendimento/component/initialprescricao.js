@@ -18,7 +18,7 @@ export default function InitialPrescricao (param) {
         lmemes5: '',
         lmemes6: '',
         inicio: format(new Date(), "yyyy-MM-dd"), //new Date(),
-        termino: null,
+        termino: undefined,
         motivotermico: '',
         clienteId: param, 
         lmeId: null,

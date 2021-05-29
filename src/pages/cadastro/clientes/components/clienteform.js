@@ -10,6 +10,8 @@ const ClienteForm = () => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
     }
 
+    console.log('clienteEdit form :>> ', clienteEdit);
+
     return (
         <div>
             <Grid container spacing={2} >
