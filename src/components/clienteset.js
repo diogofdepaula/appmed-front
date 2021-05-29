@@ -114,7 +114,6 @@ const ClienteSet = () => {
         setClientesFiltrados([])
     }
 
-
     return (
         <div>
             <div className={classes.search}>
