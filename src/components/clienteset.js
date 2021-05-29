@@ -3,7 +3,8 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles';
 import PersonIcon from '@material-ui/icons/Person';
 import SearchIcon from '@material-ui/icons/Search';
-import { differenceInYears, parseISO } from 'date-fns';
+import { differenceInYears, format, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, PageContentContext } from '../App';
 
@@ -91,7 +92,7 @@ const ClienteSet = () => {
 
         let filtro = [...clientes].filter(w =>
             w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
-            w.nascimento.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+            w.nascimento?.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
         )
         if (filtro.length === 0) {
             filtro.push({
@@ -143,7 +144,7 @@ const ClienteSet = () => {
                                     </ListItemIcon>
                                     <ListItemText
                                         primary={<Typography variant="body1" className={classes.itemtext}>{cliente.nome}</Typography>}
-                                        secondary={cliente.nascimento ? differenceInYears(new Date(), parseISO(cliente.nascimento)).toString().concat(" anos") : ''} />
+                                        secondary={cliente.nascimento ? "DN " + format(parseISO(cliente.nascimento), "dd'/'MM'/'yyyy", { locale: ptBR })   + "  (" + differenceInYears(new Date(), parseISO(cliente.nascimento)).toString().concat(" anos)") : ''} />
                                 </ListItem>
                             )}
                         </List>
