@@ -40,10 +40,19 @@ const PrintJob = () => {
 
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
+
+            if (impressao.prescricoesSelecionadas.filter(p => p.medicamento.controlado).length > 0) {
+                jobs.push(
+                    [...Array(6).keys()].map(d =>
+                        <div key={d}>
+                            {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
+                            <FactoryReceitas listPresc={impressao.prescricoesSelecionadas.filter(p => p.medicamento.controlado)} mes={d} tipo={impressao.local} />
+                        </div>
+                    )
+                )
+            }
             jobs.push(
-                <div key={0} style={{ backgroundColor: "green" }}>
-                    <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={impressao.local}/>
-                </div>
+                <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={impressao.local} />
             )
         }
 
