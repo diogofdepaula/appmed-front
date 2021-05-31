@@ -37,7 +37,7 @@ const Content = () => {
         case 'teste':
             return <div>{update}</div>
         default:
-            return <div>Atentdimento Content</div>
+            return <div>Atendimento Content  - fazer uma coisa bacana depois com Cards para acelerar o acesso.</div>
     }
 }
 export default Content

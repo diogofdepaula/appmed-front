@@ -7,20 +7,12 @@ const LMEVarSet = () => {
     const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const handleChange = event => {
-        // const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        // const name = target.name;
         setLmeEdit({ ...lmeEdit, [event.target.name]: event.target.value })
     }
 
     const handleChangeCheckBox = event => {
-        // const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        // const name = target.name;
         setLmeEdit({ ...lmeEdit, [event.target.name]: event.target.checked })
     }
-
-
 
     return (
         <div>
@@ -40,11 +32,6 @@ const LMEVarSet = () => {
                         onChange={handleChange}
                     />
                 </Box>
-                {/* <Accordion square>
-                    <AccordionSummary>
-                        <Typography>Editar outras variáveis</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails> */}
                 <Box display="block">
                     <Box>
                         <FormGroup row>
@@ -53,24 +40,20 @@ const LMEVarSet = () => {
                                     <Checkbox
                                         color='primary'
                                         name="tratamentoprevio"
-                                        //tiver que fazer isso, pois ele vem como undefined na primeira renderização
-                                        // e na segunda o false vem como '' (uma string vazia), então dá erro
-                                        checked={lmeEdit.tratamentoprevio === true ? true : false}
+                                        checked={lmeEdit.tratamentoprevio}
                                         onChange={handleChangeCheckBox}
                                     />}
                                 label='Tratamento Prévio'
                             />
                         </FormGroup>
-                        {lmeEdit.tratamentoprevio &&
-                            <TextField
-                                fullWidth
-                                variant='outlined'
-                                name="tratamentopreviotexto"
-                                label="Descrever tratamentos prévios"
-                                value={lmeEdit.tratamentopreviotexto}
-                                onChange={handleChange}
-                            />
-                        }
+                        <TextField
+                            fullWidth
+                            variant='outlined'
+                            name="tratamentopreviotexto"
+                            label="Descrever tratamentos prévios"
+                            value={lmeEdit.tratamentopreviotexto}
+                            onChange={handleChange}
+                        />
                     </Box>
                     <Box>
                         <FormControlLabel
@@ -89,27 +72,25 @@ const LMEVarSet = () => {
                             variant='outlined'
                             name="preenchidopor"
                             label="Preenchido por"
-                            value={lmeEdit.preenchidopor ?? ''}
+                            value={lmeEdit.preenchidopor}
                             onChange={handleChange}
                         />
                         <TextField
                             variant='outlined'
                             name="preenchidoporCPF"
                             label="CPF do preenchedor"
-                            value={lmeEdit.preenchidoporCPF ?? ''}
+                            value={lmeEdit.preenchidoporCPF}
                             onChange={handleChange}
                         />
                         <TextField
                             variant='outlined'
                             name="raca"
                             label="Raça"
-                            value={lmeEdit.raca ?? ''}
+                            value={lmeEdit.raca}
                             onChange={handleChange}
                         />
                     </Box>
                 </Box>
-                {/* </AccordionDetails>
-                </Accordion> */}
             </Box>
         </div>
     )
