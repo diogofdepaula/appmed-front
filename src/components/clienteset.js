@@ -128,6 +128,7 @@ const ClienteSet = () => {
                     }}
                     inputProps={{ 'aria-label': 'search' }}
                     onChange={(e) => filterClientes(e)}
+                    onFocus={(e) => fetchData()}
                 />
                 {clientesfiltrados.length > 0 &&
                     <div className={classes.overlay}>
