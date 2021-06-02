@@ -8,7 +8,7 @@ const Linha3Relatorio = () => {
 
     const { clienteContext } = useContext(ClienteContext)
 
-    const nascimento = format(parseISO(clienteContext.nascimento), "dd'/'MM'/'yyyy", { locale: ptBR })
+    const nascimento = format(parseISO(clienteContext.nascimento), "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return (
         <>
