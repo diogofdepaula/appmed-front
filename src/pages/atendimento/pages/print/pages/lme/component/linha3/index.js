@@ -43,7 +43,7 @@ const Linha3LME = () => {
                                 <Grid item>
                                     <Box>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{clienteContext.peso} Kg</Box>
+                                            <Box>{clienteContext.peso && clienteContext.peso +  " Kg"}</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

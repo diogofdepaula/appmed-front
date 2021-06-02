@@ -43,7 +43,7 @@ const Linha4LME = () => {
                                 <Grid item>
                                     <Box>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{clienteContext.altura} cm</Box>
+                                            <Box>{clienteContext.altura && clienteContext.altura + " cm"}</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

@@ -10,7 +10,7 @@ const Linha101Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
 
-    const ppddata = format(parseISO(lme.relatorio.ppddata), "dd'/'MM'/'yyyy", { locale: ptBR })
+    const ppddata = lme.relatorio.ppddata ? format(parseISO(lme.relatorio.ppddata), "dd'/'MM'/'yyyy", { locale: ptBR }) : ''
 
     return (
         <>

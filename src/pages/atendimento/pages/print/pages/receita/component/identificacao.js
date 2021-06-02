@@ -52,7 +52,7 @@ const Identificacao = ({ tipo }) => {
                     {clienteContext.nome}
                 </Typography>
                 <Typography className={classes.typocpf}  >
-                    CPF: {clienteContext.cpf}
+                    {clienteContext.cpf && "CPF: " + clienteContext.cpf}
                 </Typography>
             </Box>
         </>

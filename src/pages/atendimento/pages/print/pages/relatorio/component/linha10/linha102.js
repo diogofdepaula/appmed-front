@@ -10,7 +10,7 @@ const Linha102Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
 
-    const rxtoraxdata = format(parseISO(lme.relatorio.rxtoraxdata), "dd'/'MM'/'yyyy", { locale: ptBR })
+    const rxtoraxdata = lme.relatorio.rxtoraxdata ? format(parseISO(lme.relatorio.rxtoraxdata), "dd'/'MM'/'yyyy", { locale: ptBR }) : ''
 
     return (
         <>

@@ -1,8 +1,12 @@
 import { Box, Grid, Typography } from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import React from 'react';
+import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import React, { useContext } from 'react';
+import { ClienteContext } from '../../../../../../../../App';
 
 const Linha13LME = () => {
+
+    const { clienteContext } = useContext(ClienteContext)
 
     return (
         <>
@@ -23,7 +27,7 @@ const Linha13LME = () => {
                                         <Grid container item>
                                             <Grid item>
                                                 <Box ml={1} display="flex">
-                                                    <CheckBoxOutlineBlankIcon />
+                                                    {clienteContext.cns ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
                                                     <Typography component={'span'} variant={'body1'} align={'left'} >
                                                         <Box>CNS</Box>
                                                     </Typography>
@@ -31,7 +35,7 @@ const Linha13LME = () => {
                                             </Grid>
                                             <Grid item>
                                                 <Box ml={1} display="flex">
-                                                    <CheckBoxOutlineBlankIcon />
+                                                    {clienteContext.cns === '' && clienteContext.cpf ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
                                                     <Typography component={'span'} variant={'body1'} align={'left'} >
                                                         <Box>CPF</Box>
                                                     </Typography>
@@ -39,7 +43,7 @@ const Linha13LME = () => {
                                             </Grid>
                                             <Grid item>
                                                 <Typography component={'span'} variant={'body1'} align={'left'}>
-                                                    <Box></Box>
+                                                    <Box ml={2}>{clienteContext.cns ? clienteContext.cns : (clienteContext.cpf ?? '') }</Box>
                                                 </Typography>
                                             </Grid>
                                         </Grid>
