@@ -3,10 +3,14 @@ import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import { format, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 
 const Linha102Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
+
+    const rxtoraxdata = format(parseISO(lme.relatorio.rxtoraxdata), "dd'/'MM'/'yyyy", { locale: ptBR })
 
     return (
         <>
@@ -22,7 +26,7 @@ const Linha102Relatorio = () => {
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1}>
                             <Typography component={'span'} variant="body1" noWrap={true} align="center">
-                                <Box ml={1}>{lme.relatorio.rxtoraxdata}</Box>
+                                <Box ml={1}>{rxtoraxdata}</Box>
                             </Typography>
                         </Box>
                     </Grid>

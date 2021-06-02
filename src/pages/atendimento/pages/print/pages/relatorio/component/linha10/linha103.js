@@ -1,10 +1,14 @@
 import { Box, Grid, Typography } from '@material-ui/core';
+import { format, parseISO } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
 
 const Linha103Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
+
+    const bhcgdata = format(parseISO(lme.relatorio.bhcgdata), "dd'/'MM'/'yyyy", { locale: ptBR })
 
     return (
         <>
@@ -20,7 +24,7 @@ const Linha103Relatorio = () => {
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1}>
                             <Typography component={'span'} variant="body1" noWrap={true} align="center">
-                                {lme.relatorio.bhcgdata === "" ? <Box ml={1}>{lme.relatorio.bhcgdata}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                {lme.relatorio.bhcgdata === "" ? <Box ml={1}>{bhcgdata}</Box> : <Box style={{ color: "white" }}>-</Box>}
                             </Typography>
                         </Box>
                     </Grid>
