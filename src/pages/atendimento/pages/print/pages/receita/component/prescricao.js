@@ -10,7 +10,6 @@ export const PrescricaoPrintContext = createContext(null)
 
 const Prescricao = ({ prescricao, mes, tipo }) => {
 
-    console.log('teste Prescricao')
     // +++++         Linha1 = Uso + Continuo                                    +++++
     // +++++         Linha2 = NomesComerciais                                   +++++
     // +++++         Linha3 = Farmaco + Apresentacao + Quantidade + Forma       +++++
