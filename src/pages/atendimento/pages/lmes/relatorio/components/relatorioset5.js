@@ -27,6 +27,9 @@ const RelatorioSet5 = () => {
                         key={w[0]}
                         name={w[0]}
                         value="a"
+                        // deixei desabilitado, pois sempre será tudo negativo
+                        // se algum for positivo, já nem deve fazer imunobiológico
+                        disabled
                         control={<Radio />}
                         label={w[1]}
                         checked={w[2] || false}
