@@ -16,7 +16,8 @@ const PageA4 = ({ children }) => {
 
     return (
         <>
-            <div style={{ width: ajust.width, height: ajust.height, backgroundColor: "greenyellow" }}>
+            {/* <div style={{ width: ajust.width, height: ajust.height, backgroundColor: "greenyellow" }}> */}
+            <div style={{ width: ajust.width, height: ajust.height }}>
                 <Box height={1} p={ajust.padding}>
                     {children}
                 </Box>
