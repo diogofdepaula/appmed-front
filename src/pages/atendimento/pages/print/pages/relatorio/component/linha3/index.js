@@ -1,10 +1,14 @@
 import { Box, Grid, Typography } from '@material-ui/core'
+import { format, parseISO } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 import React, { useContext } from 'react'
 import { ClienteContext } from '../../../../../../../../App'
 
 const Linha3Relatorio = () => {
 
     const { clienteContext } = useContext(ClienteContext)
+
+    const nascimento = format(parseISO(clienteContext.nascimento), "dd'/'MM'/'yyyy", { locale: ptBR })
 
     return (
         <>
@@ -22,7 +26,7 @@ const Linha3Relatorio = () => {
                             <Grid item>
                                 <Box ml={1}>
                                     <Typography component={'span'} variant={'h6'} align={'left'}>
-                                        {clienteContext.nascimento ? <Box>{clienteContext.nascimento}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        {nascimento ? <Box>{nascimento}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                     </Typography>
                                 </Box>
                             </Grid>
