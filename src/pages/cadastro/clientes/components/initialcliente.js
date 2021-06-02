@@ -2,7 +2,7 @@ export default function InitialCliente() {
 
     const initial = {
         nome: "",
-        nascimento: undefined,
+        nascimento: "",
         sexo: "feminino",
         peso: "",
         altura: "",

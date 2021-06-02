@@ -40,8 +40,6 @@ const ClientesAppBar = () => {
         let clipost = [process.env.REACT_APP_API_URL + `/clientes`, 'post', clienteEdit]
         let cliput = [process.env.REACT_APP_API_URL + `/clientes/${clienteEdit.id}`, 'put', clienteEdit]
 
-        console.log('clienteEdit button :>> ', clienteEdit);
-
         let submitvar
 
         switch (page) {
