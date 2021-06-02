@@ -32,11 +32,11 @@ const PrintJob = () => {
                         <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} />
                     }
                     {/* Receita de Leflunomida */}
-                    {l.prescricoes.medicamento.farmaco === "Leflunomida" &&
+                    {l.prescricoes.filter(p => p.medicamento.farmaco === "Leflunomida").length > 0 &&
                         [...Array(6).keys()].map(d =>
                             <div key={d}>
                                 {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                                <FactoryReceitas listPresc={l.prescricoes.filter(t => t.prescricoes.medicamento.farmaco === "Leflunomida")} via={"Estado"} mes={d} tipo={"lme"} />
+                                <FactoryReceitas listPresc={l.prescricoes.filter(t => t.medicamento.farmaco === "Leflunomida")} via={"Estado"} mes={d} tipo={"lme"} />
 
                                 {/*  TENTAR FAZER DEPOIS DUAS RECEITAS POR FOLHA DE PAPEL */}
                             </div>
