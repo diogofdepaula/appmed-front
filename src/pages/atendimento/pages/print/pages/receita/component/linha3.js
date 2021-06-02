@@ -43,7 +43,7 @@ const Linha3 = ({ mes, tipo }) => {
 
     const prescricao = useContext(PrescricaoPrintContext)
 
-    const quant = () => {
+    const quantLME = () => {
 
         let final = ''
 
@@ -73,7 +73,7 @@ const Linha3 = ({ mes, tipo }) => {
                     <Grid item container xs={3} justify="flex-end">
                         <Box className={classes.box}>
                             <Typography component={'span'} className={classes.typoquant} >
-                                <Box>{quant}</Box>
+                                <Box>{tipo === 'lme' ? quantLME : prescricao.posologia.quantidade}</Box>
                             </Typography>
                             <Typography component={'span'} className={classes.typoform}>
                                 <Box ml={1}>{prescricao.posologia.forma}</Box>
