@@ -14,7 +14,7 @@ const Linha104Relatorio = () => {
                 <Grid container direction="row">
                     <Grid item xs={2}>
                         <Box borderRight={1} pl={1} display="flex" justifyContent="center">
-                            {!lme.relatorio.infeccaoviral ?
+                            {lme.relatorio.infeccaoviral ?
                                 <div> <CheckBoxOutlinedIcon /> Sim <CheckBoxOutlineBlankIcon />Não</div>
                                 :
                                 <div> <CheckBoxOutlineBlankIcon /> Sim <CheckBoxOutlinedIcon />Não</div>
@@ -30,7 +30,7 @@ const Linha104Relatorio = () => {
                     </Grid>
                     <Grid item xs={2}>
                         <Box borderRight={1} pl={1} display="flex" justifyContent="center">
-                            {!lme.relatorio.neoplasia ?
+                            {lme.relatorio.neoplasia ?
                                 <div> <CheckBoxOutlinedIcon /> Sim <CheckBoxOutlineBlankIcon />Não</div>
                                 :
                                 <div> <CheckBoxOutlineBlankIcon /> Sim <CheckBoxOutlinedIcon />Não</div>
@@ -46,7 +46,7 @@ const Linha104Relatorio = () => {
                 <Grid container direction="row">
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1} pl={1} display="flex" justifyContent="center">
-                            {!lme.relatorio.hepatite ?
+                            {lme.relatorio.hepatite ?
                                 <div> <CheckBoxOutlinedIcon /> Sim <CheckBoxOutlineBlankIcon />Não</div>
                                 :
                                 <div> <CheckBoxOutlineBlankIcon /> Sim <CheckBoxOutlinedIcon />Não</div>
@@ -62,7 +62,7 @@ const Linha104Relatorio = () => {
                     </Grid>
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1} pl={1} display="flex" justifyContent="center">
-                            {!lme.relatorio.anemia ?
+                            {lme.relatorio.anemia ?
                                 <div> <CheckBoxOutlinedIcon /> Sim <CheckBoxOutlineBlankIcon />Não</div>
                                 :
                                 <div> <CheckBoxOutlineBlankIcon /> Sim <CheckBoxOutlinedIcon />Não</div>
@@ -80,7 +80,7 @@ const Linha104Relatorio = () => {
                 <Grid container direction="row">
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1} pl={1} display="flex" justifyContent="center">
-                            {!lme.relatorio.infeccaobacteriana ?
+                            {lme.relatorio.infeccaobacteriana ?
                                 <div> <CheckBoxOutlinedIcon /> Sim <CheckBoxOutlineBlankIcon />Não</div>
                                 :
                                 <div> <CheckBoxOutlineBlankIcon /> Sim <CheckBoxOutlinedIcon />Não</div>
@@ -96,7 +96,7 @@ const Linha104Relatorio = () => {
                     </Grid>
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1} pl={1} display="flex" justifyContent="center">
-                            {!lme.relatorio.alteracaohepatica ?
+                            {lme.relatorio.alteracaohepatica ?
                                 <div> <CheckBoxOutlinedIcon /> Sim <CheckBoxOutlineBlankIcon />Não</div>
                                 :
                                 <div> <CheckBoxOutlineBlankIcon /> Sim <CheckBoxOutlinedIcon />Não</div>
