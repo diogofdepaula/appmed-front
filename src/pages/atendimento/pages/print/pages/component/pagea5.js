@@ -18,8 +18,8 @@ const PageA5 = ({ children }) => {
 
     return (
         <>
-            <div style={{ width: ajust.width, height: ajust.height, backgroundColor: "greenyellow" }}>
-                <Box height={1} width={1} pt={ajust.pt} pl={ajust.pl} pb={ajust.pb} pr={ajust.pr} style={{ backgroundColor: 'yellow' }}>
+            <div style={{ width: ajust.width, height: ajust.height}}>
+                <Box height={1} width={1} pt={ajust.pt} pl={ajust.pl} pb={ajust.pb} pr={ajust.pr} >
                     {children}
                 </Box>
             </div>
