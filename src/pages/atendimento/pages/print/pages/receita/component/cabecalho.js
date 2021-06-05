@@ -39,7 +39,7 @@ const Cabecalho = ({ tipo }) => {
                 <Box my={1} display="flex" flexWrap="nowrap">
                     <CardMedia
                         style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        image={LogoSUS}
+                        image={impressao.local !== 'consultorio' ? LogoSUS : <div />}
                     />
                     <Box mx={20}>
                         <Titulo tipo={tipo} />
@@ -51,7 +51,7 @@ const Cabecalho = ({ tipo }) => {
                         :
                         <CardMedia
                             style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                            image={impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO}
+                            image={impressao.local === 'consultorio' ? <div /> : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO) }
                         />
                     }
                 </Box>
