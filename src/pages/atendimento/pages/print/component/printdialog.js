@@ -34,10 +34,22 @@ const PrintDialog = ({ open, handleClose }) => {
 
     const componentRef = useRef();
 
+    const page = () => {
+
+        let page = ''
+
+        if (impressao.lmesSelecionadas.length > 0) {
+            page = '@page { size: A4 }'
+        } else {
+            page = impressao.local === 'consultorio' ? '@page { size: A5 }' : '@page { size: A4 }'
+        }
+        return page
+    }
+
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
         //pageStyle: '@page { size: A5;}',
-        pageStyle: impressao.local === 'consultorio' ? '@page { size: A5 }' : '@page { size: A4 }',
+        pageStyle: page(),
         onAfterPrint: () => handleClose()
     });
 
