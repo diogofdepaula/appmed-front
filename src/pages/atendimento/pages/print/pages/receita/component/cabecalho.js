@@ -9,6 +9,8 @@ const Titulo = ({ tipo }) => {
 
     let titulo = <div />
 
+    // so para push
+
     if (tipo === 'lme') {
         titulo =
             <Box display={"block"} justifyContent="center">
