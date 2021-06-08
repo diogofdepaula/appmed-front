@@ -1,6 +1,7 @@
 import { Box, Checkbox, FormControlLabel, FormGroup, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
+import ReactInputMask from 'react-input-mask';
 
 const LMEVarSet = () => {
 
@@ -75,13 +76,18 @@ const LMEVarSet = () => {
                             value={lmeEdit.preenchidopor}
                             onChange={handleChange}
                         />
-                        <TextField
-                            variant='outlined'
-                            name="preenchidoporCPF"
-                            label="CPF do preenchedor"
+                        <ReactInputMask
+                            mask="999.999.999-99"
                             value={lmeEdit.preenchidoporCPF}
+                            maskChar="_"
                             onChange={handleChange}
-                        />
+                        >
+                            {() => <TextField
+                                variant='outlined'
+                                name="preenchidoporCPF"
+                                label="CPF do preenchedor"
+                            />}
+                        </ReactInputMask>
                         <TextField
                             variant='outlined'
                             name="raca"

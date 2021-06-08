@@ -1,6 +1,7 @@
 import { Box, Grid, TextField } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '../../../..'
+import ReactInputMask from 'react-input-mask';
 
 const RelatorioSet1 = () => {
 
@@ -15,73 +16,81 @@ const RelatorioSet1 = () => {
             <Box m={2}>
                 <Grid container spacing={1}>
                     <Grid item xs>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            name="tempodoencaanos"
-                            label="Anos"
+                        <ReactInputMask
+                            mask="99"
+                            maskChar="_"
                             value={lmeEdit.relatorio?.tempodoencaanos}
                             onChange={handleChange}
-                        />
+                        >
+                            {() => <TextField
+                                fullWidth
+                                variant='outlined'
+                                name="tempodoencaanos"
+                                label="Anos"
+                            />}
+                        </ReactInputMask>
                     </Grid>
                     <Grid item xs>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            name="tempodoencameses"
-                            label="Meses"
+                        <ReactInputMask
+                            mask="99"
+                            maskChar="_"
                             value={lmeEdit.relatorio?.tempodoencameses}
                             onChange={handleChange}
-                        />
+                        >
+                            {() => <TextField
+                                fullWidth
+                                variant='outlined'
+                                name="tempodoencameses"
+                                label="Meses"
+                            />}
+                        </ReactInputMask>
                     </Grid>
                     <Grid item xs>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            name="vhs"
-                            label="VHS"
+                        <ReactInputMask
+                            mask="999"
+                            maskChar="_"
                             value={lmeEdit.relatorio?.vhs}
                             onChange={handleChange}
-                        />
+                        >
+                            {() => <TextField
+                                fullWidth
+                                variant='outlined'
+                                name="vhs"
+                                label="VHS"
+                            />}
+                        </ReactInputMask>
                     </Grid>
                     <Grid item xs>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            name="pcr"
-                            label="PCR"
+                        <ReactInputMask
+                            mask="999"
+                            maskChar="_"
                             value={lmeEdit.relatorio?.pcr}
                             onChange={handleChange}
-                        />
+                        >
+                            {() => <TextField
+                                fullWidth
+                                variant='outlined'
+                                name="pcr"
+                                label="PCR"
+                            />}
+                        </ReactInputMask>
                     </Grid>
                     <Grid item xs>
-                        <TextField
-                            fullWidth
-                            variant='outlined'
-                            name="pcrvn"
-                            label="PCR NL"
+                        <ReactInputMask
+                            mask="*99"
+                            maskChar="_"
                             value={lmeEdit.relatorio?.pcrvn}
                             onChange={handleChange}
-                        />
+                        >
+                            {() => <TextField
+                                fullWidth
+                                variant='outlined'
+                                name="pcrvn"
+                                label="PCR NL"
+                            />}
+                        </ReactInputMask>
                     </Grid>
                 </Grid>
-                <Box>
-                    {/* <Button
-                    disabled
-                    variant="outline-success"
-                // onClick={props.passPrevious}
-                > Anterior
-                </Button>
-                <Button
-                    className="ml-1"
-                    variant="outline-success"
-                    onClick={() => {
-                        setLmeEdit(lmeEdit.relatorio)
-                        setStep(2)
-                    }}
-                > Próximo
-                </Button> */}
-                </Box>
             </Box>
         </div>
     )

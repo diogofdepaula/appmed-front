@@ -1,6 +1,7 @@
 import { Box, Grid, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
+import ReactInputMask from 'react-input-mask';
 
 const LMEDoses = () => {
 
@@ -25,15 +26,20 @@ const LMEDoses = () => {
                 <Grid container spacing={1} >
                     {indica?.map((w, i) =>
                         <Grid item xs key={i}>
-                            <TextField
-                                fullWidth
-                                variant='outlined'
-                                key={w[0]}
-                                name={w[0]}
-                                label={w[1]}
+                            <ReactInputMask
+                                mask="999"
                                 value={w[2]}
+                                maskChar=" "
                                 onChange={(e) => handleChange(e)}
-                            />
+                            >
+                                {() => <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    key={w[0]}
+                                    name={w[0]}
+                                    label={w[1]}
+                                />}
+                            </ReactInputMask>
                         </Grid>
                     )}
                 </Grid>
