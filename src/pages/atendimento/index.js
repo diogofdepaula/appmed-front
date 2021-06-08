@@ -78,17 +78,17 @@ const Atendimento = () => {
 
                     <Divider />
                     page: {JSON.stringify(page)} 
-                    <Divider />
+                    <Divider /> */}
 
-                    <Divider />
+                    {/* <Divider />
                     prescEdit: {JSON.stringify(prescricaoEdit)}
                     <Divider />
                     
                     <Divider />
                     prescOnDuty: {JSON.stringify(prescricaoOnDuty)}
-                    <Divider />
+                    <Divider /> */}
 
-
+{/* 
                     <Divider /> 
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />

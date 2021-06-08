@@ -102,6 +102,8 @@ const LMEInsert = () => {
                     sdai: '',
                     basdai: '',
                     asdas: '',
+                    sledai:'',
+                    essdai: '',
                     mda: '',
                     eva: '',
                 }

@@ -9,16 +9,6 @@ const LMECIDSet = () => {
     const [cid10] = useState(Cid10())
     const [cidsfiltrados, setcidsfiltrados] = useState([])
 
-    // const fetchData = useCallback(async () => {
-    //     const res = await fetch('http://localhost:4001/api.appmed/cid10')
-    //     const json = await res.json();
-    //     setcid10(json);
-    // }, [])
-
-    // useEffect(() => {
-    //     fetchData();
-    // }, [fetchData])
-
     const filterCID10 = event => {
 
         if (event.target.value.length >= 3) {
