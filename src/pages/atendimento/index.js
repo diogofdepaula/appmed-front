@@ -89,10 +89,10 @@ const Atendimento = () => {
                     <Divider /> */}
 
 
-                    <Divider /> 
+                    {/* <Divider /> 
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
-                   
+                    */}
                     {/* 
                     <Divider /> 
                     medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 

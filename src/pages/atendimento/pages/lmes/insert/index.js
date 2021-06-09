@@ -24,7 +24,7 @@ const LMEInsert = () => {
             clienteId: clienteContext.id,
             // isso adiciona a nova prescricao na nova lme
             prescricoes: prescricaoEdit,
-            relatorio: medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM' ?
+            relatorio: (medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM') ?
                 // null, pois ainda a lme nao tem id
                 InitialRelatorio(null)
                 :
