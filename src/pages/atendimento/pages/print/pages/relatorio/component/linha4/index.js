@@ -6,6 +6,8 @@ const Linha4Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
 
+    // tem que tirar depois
+
     return (
         <>
             <Grid container>
@@ -22,7 +24,7 @@ const Linha4Relatorio = () => {
                             <Grid item>
                                 <Box ml={1}>
                                     <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box fontWeight="fontWeightBold">{lme.prescricoes.filter(m => m.medicamento.classe === "MMCDB")[0].medicamento.farmaco}</Box>
+                                        <Box fontWeight="fontWeightBold">{lme.prescricoes.filter(m => m.medicamento.classe === "MMCDB" || m.medicamento.classe === "MMCDPM")[0].medicamento.farmaco}</Box>
                                     </Typography>
                                 </Box>
                             </Grid>
