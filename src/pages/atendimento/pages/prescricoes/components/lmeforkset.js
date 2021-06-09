@@ -24,11 +24,7 @@ const LMEForkSet = () => {
 
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
 
-        console.log("teste 1");
-
-        if (medicamentoEdit?.classe === 'MMCDB' && !param.relatorio) {
-            console.log("teste 2");
-
+        if ((medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM' ) && !param.relatorio) {
             setLmeEdit({
                 ...param,
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],
