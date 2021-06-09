@@ -133,7 +133,7 @@ const EditorAppBar = () => {
       >
         <span>
           <IconButton
-            disabled={(medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM') || step === 81}
+            disabled={medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM' || step === 81}
             onClick={linkRelatorio}
           >
             <ArrowForwardIcon />
