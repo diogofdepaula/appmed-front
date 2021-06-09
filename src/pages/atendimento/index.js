@@ -80,7 +80,7 @@ const Atendimento = () => {
                     page: {JSON.stringify(page)} 
                     <Divider /> */}
 
-                    {/* <Divider />
+                        {/* <Divider />
                     prescEdit: {JSON.stringify(prescricaoEdit)}
                     <Divider />
                     
@@ -89,11 +89,11 @@ const Atendimento = () => {
                     <Divider /> */}
 
 
-                    {/* <Divider /> 
+                        {/* <Divider /> 
                     lmeEdit:  {JSON.stringify(lmeEdit)}
                     <Divider />
                     */}
-{/*                     
+                        {/*                     
                     <Divider /> 
                     medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 
                     <Divider />  */}

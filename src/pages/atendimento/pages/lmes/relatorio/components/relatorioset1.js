@@ -33,7 +33,7 @@ const RelatorioSet1 = () => {
                     <Grid item xs>
                         <ReactInputMask
                             mask="99"
-                            maskChar="_"
+                            maskChar=" "
                             value={lmeEdit.relatorio?.tempodoencameses}
                             onChange={handleChange}
                         >
@@ -48,7 +48,7 @@ const RelatorioSet1 = () => {
                     <Grid item xs>
                         <ReactInputMask
                             mask="999"
-                            maskChar="_"
+                            maskChar=" "
                             value={lmeEdit.relatorio?.vhs}
                             onChange={handleChange}
                         >
@@ -62,8 +62,8 @@ const RelatorioSet1 = () => {
                     </Grid>
                     <Grid item xs>
                         <ReactInputMask
-                            mask="999"
-                            maskChar="_"
+                            mask="***"
+                            maskChar=" "
                             value={lmeEdit.relatorio?.pcr}
                             onChange={handleChange}
                         >
@@ -77,8 +77,8 @@ const RelatorioSet1 = () => {
                     </Grid>
                     <Grid item xs>
                         <ReactInputMask
-                            mask="*99"
-                            maskChar="_"
+                            mask="***"
+                            maskChar=" "
                             value={lmeEdit.relatorio?.pcrvn}
                             onChange={handleChange}
                         >
