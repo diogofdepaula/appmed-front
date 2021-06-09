@@ -2,11 +2,12 @@ import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, Table
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
+import InitialRelatorio from '../../lmes/components/initialrelatorio';
 
 const LMEForkSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setPage, setLmeEdit, setStep } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPage, setLmeEdit, setStep, medicamentoEdit } = useContext(AtendimentoContext)
     const [lmes, setlmes] = useState([])
 
     const fetchData = useCallback(async () => {
@@ -22,10 +23,23 @@ const LMEForkSet = () => {
     const handleTableRow = param => () => {
 
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
-        setLmeEdit({
-            ...param,
-            prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }]
-        })
+
+        console.log("teste 1");
+
+        if (medicamentoEdit?.classe === 'MMCDB' && !param.relatorio) {
+            console.log("teste 2");
+
+            setLmeEdit({
+                ...param,
+                prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],
+                relatorio: InitialRelatorio(param.id)
+            })
+        } else {
+            setLmeEdit({
+                ...param,
+                prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }]
+            })
+        }
         setPage('lmeupdate')
         setStep(21)
     }
