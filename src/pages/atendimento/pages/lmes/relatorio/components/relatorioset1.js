@@ -18,7 +18,7 @@ const RelatorioSet1 = () => {
                     <Grid item xs>
                         <ReactInputMask
                             mask="99"
-                            maskChar="_"
+                            maskChar=" "
                             value={lmeEdit.relatorio?.tempodoencaanos}
                             onChange={handleChange}
                         >

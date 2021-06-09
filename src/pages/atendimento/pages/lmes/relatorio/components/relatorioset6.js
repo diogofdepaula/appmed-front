@@ -29,7 +29,7 @@ const RelatorioSet6 = () => {
                         <Grid item xs key={i}>
                             <ReactInputMask
                             mask={w[2]}
-                            maskChar="_"
+                            maskChar=" "
                             value={w[1]}
                             onChange={handleChange}
                         >
