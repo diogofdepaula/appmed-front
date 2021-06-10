@@ -27,8 +27,13 @@ const useStylesA5 = makeStyles((theme) => ({
         paddingTop: 20,
         paddingBottom: 1,
     },
-    typonome: {
+    typonome38: {
         fontSize: 38,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    typonome30: {
+        fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
     },
@@ -48,7 +53,7 @@ const Identificacao = ({ tipo }) => {
     return (
         <>
             <Box className={classes.box} >
-                <Typography className={classes.typonome} >
+                <Typography className={clienteContext.nome.length <= 27 ? classes.typonome38 : classes.typonome30} >
                     {clienteContext.nome}
                 </Typography>
                 <Typography className={classes.typocpf}  >
