@@ -65,9 +65,14 @@ const PrintJob = () => {
                     )
                 )
             }
-            jobs.push(
-                <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={impressao.local} />
-            )
+            // fiz assim para que se tiver somente controlado, não crie mais uma receita
+            // se tiver alguém medicamento não controlado, que imprema junto.
+            // fazer um adendo depois dizendo "só para constar -- receita do controlado (ou mensais) em anexo."
+            if (impressao.prescricoesSelecionadas.filter(p => !p.medicamento.controlado).length > 0) {
+                jobs.push(
+                    <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={impressao.local} />
+                )
+            }
         }
 
         return jobs
