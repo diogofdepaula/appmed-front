@@ -17,19 +17,8 @@ const Atendimento = () => {
     const [lmeEdit, setLmeEdit] = useState([])
     const [step, setStep] = useState(0)
     const [medicamentoEdit, setMedicamentoEdit] = useState([])
-    const [update, setUpdate] = useState({
-        count: 0,
-        page: ''
-    })
-
-    const updatePage = () => {
-        setUpdate({
-            count: update.count + 1,
-            page: page
-        })
-    }
-
-    const [impressao, setImpressao] = useState({
+    
+    const initialImpressao = {
         printRef: null,
         visualizacao: false,
         prescricoesSelecionadas: [],
@@ -43,7 +32,22 @@ const Atendimento = () => {
         database: new Date(),
         somaheighta4: 800, // 900, 
         somaheighta4a5: 350,
+    }
+    
+    const [impressao, setImpressao] = useState(initialImpressao)
+    
+    const [update, setUpdate] = useState({
+        count: 0,
+        page: ''
     })
+
+    const updatePage = () => {
+        setImpressao(initialImpressao)
+        setUpdate({
+            count: update.count + 1,
+            page: page
+        })
+    }
 
     return (
         <div>

@@ -4,8 +4,6 @@
     - Está saindo somente o nome do farmaco
     - Cuidar para deixar essa opção somente no ReceitaA5 Consultório
 
-- Passar o Box Consultorio - Cisgap - Cisco para o centro 
-
 - Link para atendimento no cadastro de Cliente
 
 - Loop da impressão 
