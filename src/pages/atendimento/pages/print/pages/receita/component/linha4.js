@@ -36,7 +36,7 @@ const Linha4 = ({ tipo }) => {
         <>
             <Box className={classes.box}>
                 <Typography className={classes.typo}>
-                    {prescricao.posologia.posologia}
+                {prescricao.usoposologiapadrao ? prescricao.posologia.posologia : prescricao.posologianaopadrao}
                 </Typography>
             </Box>
         </>

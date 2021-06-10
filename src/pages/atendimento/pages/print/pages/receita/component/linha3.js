@@ -61,6 +61,34 @@ const Linha3 = ({ mes, tipo }) => {
 
     //Farmaco + Apresentacao + Quantidade + Forma
 
+    const Padrao = () => {
+
+        return (
+            <Box className={classes.box}>
+                <Typography component={'span'} className={classes.typoquant} >
+                    <Box>{tipo === 'lme' ? quantLME : prescricao.posologia.quantidade}</Box>
+                </Typography>
+                <Typography component={'span'} className={classes.typoform}>
+                    <Box ml={1}>{prescricao.posologia.forma}</Box>
+                </Typography>
+            </Box>
+        )
+    }
+
+    const NaoPadrao = () => {
+
+        return (
+            <Box className={classes.box}>
+                <Typography component={'span'} className={classes.typoquant} >
+                    <Box>{tipo === 'lme' ? quantLME : prescricao.quantidadenaopadrao}</Box>
+                </Typography>
+                <Typography component={'span'} className={classes.typoform}>
+                    <Box ml={1}>{prescricao.formanaopadrao}</Box>
+                </Typography>
+            </Box>
+        )
+    }
+
     return (
         <>
             <Box>
@@ -71,14 +99,7 @@ const Linha3 = ({ mes, tipo }) => {
                         </Typography>
                     </Grid>
                     <Grid item container xs={3} justify="flex-end">
-                        <Box className={classes.box}>
-                            <Typography component={'span'} className={classes.typoquant} >
-                                <Box>{tipo === 'lme' ? quantLME : prescricao.posologia.quantidade}</Box>
-                            </Typography>
-                            <Typography component={'span'} className={classes.typoform}>
-                                <Box ml={1}>{prescricao.posologia.forma}</Box>
-                            </Typography>
-                        </Box>
+                       {prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />}
                     </Grid>
                 </Grid>
             </Box>
