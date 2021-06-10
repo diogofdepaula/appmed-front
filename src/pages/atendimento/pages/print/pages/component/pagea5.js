@@ -8,8 +8,8 @@ const PageA5 = ({ children }) => {
         // ajustes para o tamanho do papel
         // 14 x 20 cm em 150ppi = 827 x 1181 px
 
-        width: 716, // 777,
-        height: 1044, // 1107,
+        width: 714, // 777,
+        height: 1058, // 1107,
         pt: 20,
         pl: 21,
         pb: 9,
