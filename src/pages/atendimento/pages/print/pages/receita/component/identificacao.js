@@ -10,7 +10,7 @@ const useStylesA4 = makeStyles((theme) => ({
         paddingTop: 3,
         paddingBottom: 7,
     },
-    typonome: {
+    typonomemajor: {
         fontSize: 42,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -27,12 +27,12 @@ const useStylesA5 = makeStyles((theme) => ({
         paddingTop: 20,
         paddingBottom: 1,
     },
-    typonome38: {
+    typonomemajor: {
         fontSize: 38,
         fontWeight: 'bold',
         textAlign: 'center',
     },
-    typonome30: {
+    typonomeminor: {
         fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
@@ -53,7 +53,7 @@ const Identificacao = ({ tipo }) => {
     return (
         <>
             <Box className={classes.box} >
-                <Typography className={clienteContext.nome.length <= 27 ? classes.typonome38 : classes.typonome30} >
+                <Typography className={clienteContext.nome.length <= 27 ? classes.typonomemajor : classes.typonomeminor} >
                     {clienteContext.nome}
                 </Typography>
                 <Typography className={classes.typocpf}  >
