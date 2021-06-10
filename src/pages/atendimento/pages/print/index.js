@@ -9,18 +9,22 @@ const ImpressaoSet = () => {
 
     return (
         <>
-            <Grid container direction="row" justify="space-between" alignItems="flex-start">
-                <Grid container item xs={4}>
-                    <PrescricoesSet />
-                </Grid>
-                <Grid container item xs={4} >
-                    <LMESet />
-                </Grid>
-                <Grid container item xs={4}>
-                    <Grid item>
-                        <TempoSet />
-                    </Grid>
+            <Grid container direction="column" justify="center" alignItems="center">
+                <Grid item>
                     <LocalSet />
+                </Grid>
+                <Grid container item direction="row" justify="space-between" alignItems="flex-start">
+                    <Grid container item xs={4}>
+                        <PrescricoesSet />
+                    </Grid>
+                    <Grid container item xs={4} >
+                        <LMESet />
+                    </Grid>
+                    <Grid container item xs={4}>
+                        <Grid item>
+                            <TempoSet />
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </>

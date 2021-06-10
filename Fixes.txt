@@ -1,0 +1,16 @@
+- A impressão está fraca
+
+- Nome comercial da receita A5
+    - Está saindo somente o nome do farmaco
+    - Cuidar para deixar essa opção somente no ReceitaA5 Consultório
+
+- Passar o Box Consultorio - Cisgap - Cisco para o centro 
+
+- Link para atendimento no cadastro de Cliente
+
+- Loop da impressão 
+    - Depois que termina a impressão ele não está zeranto om ImpressoContext
+
+- Fazer duas receitas na mesma folha para LME
+
+- Termo de constentimento
