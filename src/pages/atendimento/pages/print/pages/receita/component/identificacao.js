@@ -15,6 +15,11 @@ const useStylesA4 = makeStyles((theme) => ({
         fontWeight: 'bold',
         textAlign: 'center',
     },
+    typonomeminor: {
+        fontSize: 42,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
     typocpf: {
         fontVariant: 'subtitle2',
         textAlign: 'center'
