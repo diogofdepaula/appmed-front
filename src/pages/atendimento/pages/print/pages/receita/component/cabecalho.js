@@ -4,12 +4,11 @@ import { ImpressaoContext } from '../../../../..'
 import LogoCISCO from '../../../component/imagens/ciscologo.png'
 import LogoCISGAP from '../../../component/imagens/cisgaplogo.png'
 import LogoSUS from '../../../component/imagens/logosus.png'
+import Branco1px from '../../../component/imagens/branco1px.png'
 
 const Titulo = ({ tipo }) => {
 
     let titulo = <div />
-
-    // so para push
 
     if (tipo === 'lme') {
         titulo =
@@ -41,7 +40,7 @@ const Cabecalho = ({ tipo }) => {
                 <Box my={1} display="flex" flexWrap="nowrap">
                     <CardMedia
                         style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        image={impressao.local !== 'consultorio' ? LogoSUS : <div />}
+                        image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
                     />
                     <Box mx={20}>
                         <Titulo tipo={tipo} />
@@ -53,7 +52,7 @@ const Cabecalho = ({ tipo }) => {
                         :
                         <CardMedia
                             style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                            image={impressao.local === 'consultorio' ? <div /> : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO) }
+                            image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO) }
                         />
                     }
                 </Box>
