@@ -42,34 +42,33 @@ const Linha2 = ({ tipo }) => {
 
         let texto = ""
 
-        if (tipo !== undefined) {
+        console.log(prescricao);
 
-            if (impressao.local === 'consultorio' && tipo !== 'lme') {
-                prescricao.medicamento.nomescomerciais?.map((n, i) => {
-                    if (n.id === prescricao.medicamento.nomescomerciais[0].id) {
-                        return texto = texto.concat(n.nomefantasia)
-                    } else if (i === prescricao.medicamento.nomescomerciais.length - 1) {
-                        return texto = texto.concat(' ou ', n.nomefantasia)
-                    } else {
-                        return texto = texto.concat(', ', n.nomefantasia)
-                    }
-                })
-            } else {
-                texto = prescricao.medicamento.farmaco
-            }
+        if (impressao.local === 'consultorio' && tipo !== 'lme') {
+            prescricao.medicamento.nomescomerciais?.map((n, i) => {
+                if (n.id === prescricao.medicamento.nomescomerciais[0].id) {
+                    return texto = texto.concat(n.nomefantasia)
+                } else if (i === prescricao.medicamento.nomescomerciais.length - 1) {
+                    return texto = texto.concat(' ou ', n.nomefantasia)
+                } else {
+                    return texto = texto.concat(', ', n.nomefantasia)
+                }
+            })
+        } else {
+            texto = prescricao.medicamento.farmaco
         }
-        return texto
-    }
+    return texto
+}
 
-    return (
-        <>
-            <Box className={classes.box}>
-                <Typography className={classes.typo}>
-                    {texto()}
-                </Typography>
-            </Box>
-        </>
-    )
+return (
+    <>
+        <Box className={classes.box}>
+            <Typography className={classes.typo}>
+                {texto()}
+            </Typography>
+        </Box>
+    </>
+)
 }
 
 export default Linha2
