@@ -42,20 +42,22 @@ const Linha2 = ({ tipo }) => {
 
         let texto = ""
 
-        if (impressao.local === 'consultorio' && tipo !== 'lme' && tipo !== undefined) {
-            prescricao.medicamento.nomescomerciais?.map((n, i) => {
-                if (n.id === prescricao.medicamento.nomescomerciais[0].id) {
-                    return texto = texto.concat(n.nomefantasia)
-                } else if (i === prescricao.medicamento.nomescomerciais.length - 1) {
-                    return texto = texto.concat(' ou ', n.nomefantasia)
-                } else {
-                    return texto = texto.concat(', ', n.nomefantasia)
-                }
-            })
-        } else {
-            texto = prescricao.medicamento.farmaco
-        }
+        if (tipo !== undefined) {
 
+            if (impressao.local === 'consultorio' && tipo !== 'lme') {
+                prescricao.medicamento.nomescomerciais?.map((n, i) => {
+                    if (n.id === prescricao.medicamento.nomescomerciais[0].id) {
+                        return texto = texto.concat(n.nomefantasia)
+                    } else if (i === prescricao.medicamento.nomescomerciais.length - 1) {
+                        return texto = texto.concat(' ou ', n.nomefantasia)
+                    } else {
+                        return texto = texto.concat(', ', n.nomefantasia)
+                    }
+                })
+            } else {
+                texto = prescricao.medicamento.farmaco
+            }
+        }
         return texto
     }
 
