@@ -1,9 +1,5 @@
 - A impressão está fraca
 
-- Nome comercial da receita A5
-    - Está saindo somente o nome do farmaco
-    - Cuidar para deixar essa opção somente no ReceitaA5 Consultório
-
 - Link para atendimento no cadastro de Cliente
 
 - Loop da impressão 
