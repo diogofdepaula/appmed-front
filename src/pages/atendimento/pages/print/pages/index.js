@@ -47,9 +47,6 @@ const PrintJob = () => {
                     <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
                 </div>
             )
-
-
-
         )
 
         //print prescricoesSelecionadas
