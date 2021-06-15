@@ -35,7 +35,7 @@ const Linha5 = ({ tipo }) => {
     return (
         <>
             <Box className={classes.box}>
-                <Typography className={classes.typo}>
+                <Typography component='span' className={classes.typo}>
                     {prescricao.orientacoes.split("\n").map((i, key) => {
                         return <div key={key}>{i}</div>;
                     })}
