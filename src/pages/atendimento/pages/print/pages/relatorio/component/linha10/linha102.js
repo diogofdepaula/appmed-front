@@ -26,7 +26,7 @@ const Linha102Relatorio = () => {
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1}>
                             <Typography component={'span'} variant="body1" noWrap={true} align="center">
-                                <Box ml={1}>{rxtoraxdata}</Box>
+                                {lme.relatorio.rxtoraxdata ? <Box ml={1}>{rxtoraxdata}</Box> : <Box style={{ color: "white" }}>-</Box>}
                             </Typography>
                         </Box>
                     </Grid>

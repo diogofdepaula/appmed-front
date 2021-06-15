@@ -24,7 +24,7 @@ const Linha103Relatorio = () => {
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1}>
                             <Typography component={'span'} variant="body1" noWrap={true} align="center">
-                                {lme.relatorio.bhcgdata === "" ? <Box ml={1}>{bhcgdata}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                {lme.relatorio.bhcgdata ? <Box ml={1}>{bhcgdata}</Box> : <Box style={{ color: "white" }}>-</Box>}
                             </Typography>
                         </Box>
                     </Grid>

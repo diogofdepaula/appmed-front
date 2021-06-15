@@ -12,6 +12,8 @@ const Linha101Relatorio = () => {
 
     const ppddata = lme.relatorio.ppddata ? format(parseISO(lme.relatorio.ppddata), "dd'/'MM'/'yyyy", { locale: ptBR }) : ''
 
+    console.log(lme);
+
     return (
         <>
             <Box>
@@ -26,7 +28,7 @@ const Linha101Relatorio = () => {
                     <Grid item xs={2}>
                         <Box borderTop={1} borderRight={1}>
                             <Typography component={'span'} variant="body1" noWrap={true} align="center">
-                                <Box ml={1}>{ppddata}</Box>
+                                {lme.relatorio.ppddata ? <Box ml={1}>{ppddata}</Box> : <Box style={{ color: "white" }}>-</Box> }
                             </Typography>
                         </Box>
                     </Grid>
@@ -35,9 +37,9 @@ const Linha101Relatorio = () => {
                             <Typography component={'span'} variant="body1" noWrap={false}>
                                 <Box ml={1} display="flex" alignItems="center">
                                     {lme.relatorio.ppdresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Não Reator
-                                        {lme.relatorio.ppdresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Até 5 mm
-                                        {lme.relatorio.ppdresultado === "c" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Mais de 5 mm
-                                    </Box>
+                                    {lme.relatorio.ppdresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Até 5 mm
+                                    {lme.relatorio.ppdresultado === "c" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Mais de 5 mm
+                                </Box>
                             </Typography>
                         </Box>
                     </Grid>
