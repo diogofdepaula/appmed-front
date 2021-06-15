@@ -31,7 +31,7 @@ const Atendimento = () => {
         comentario: '-',
         database: new Date(),
         somaheighta4: 800, // 900, 
-        somaheighta4a5: 350,
+        somaheighta5: 470,
     }
     
     const [impressao, setImpressao] = useState(initialImpressao)
