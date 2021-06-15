@@ -12,9 +12,9 @@ const Linha9Relatorio = () => {
 
         if (lme.anamnese) {
             texto =
-                <Typography >
+                <Typography>
                     {lme.anamnese.split("\n").map((i, key) => {
-                        return <div key={key}>{i}</div>;
+                        return <div key={Math.random() * 1000}>{i}</div>;
                     })}
                 </Typography>
         } else {
