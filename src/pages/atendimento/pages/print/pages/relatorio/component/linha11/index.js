@@ -41,7 +41,9 @@ const Linha11Relatorio = () => {
                                         </Grid>
                                     </div>
                                     :
-                                    <div key={i} ></div>
+                                    <div key={i} >
+                                        <Box p={1} style={{ color: "white" }}>-</Box>
+                                    </div>
                             )}
                         </Grid>
                     </Grid>
