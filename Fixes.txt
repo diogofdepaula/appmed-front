@@ -7,4 +7,6 @@
 
 - Fazer duas receitas na mesma folha para LME
 
+-- Texto não está fazendo a quebra de linha
+
 - Termo de constentimento

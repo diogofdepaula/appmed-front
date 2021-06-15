@@ -24,6 +24,9 @@ const useStylesA5 = makeStyles((theme) => ({
     },
 }));
 
+
+
+
 const Linha4 = ({ tipo }) => {
 
     const classesA4 = useStylesA4();
@@ -32,12 +35,23 @@ const Linha4 = ({ tipo }) => {
 
     const prescricao = useContext(PrescricaoPrintContext)
 
+    const Texto = () => {
+
+        let texto = prescricao.usoposologiapadrao ? prescricao.posologia.posologia : prescricao.posologianaopadrao
+
+        return (
+            <Typography className={classes.typo}>
+                {texto.split("\n").map((i, key) => {
+                    return <div key={key}>{i}</div>;
+                })}
+            </Typography>
+        )
+    }
+
     return (
         <>
             <Box className={classes.box}>
-                <Typography className={classes.typo}>
-                {prescricao.usoposologiapadrao ? prescricao.posologia.posologia : prescricao.posologianaopadrao}
-                </Typography>
+                <Texto />
             </Box>
         </>
     )

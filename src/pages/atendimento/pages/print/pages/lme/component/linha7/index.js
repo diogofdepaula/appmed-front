@@ -6,6 +6,25 @@ const Linha7LME = () => {
 
     const lme = useContext(LMEPrintContext)
 
+    const Texto = () => {
+
+        let texto = <div />
+
+        if (lme.anamnese) {
+            texto =
+                <Box p={1}>
+                    <Typography>
+                        {lme.anamnese.split("\n").map((i, key) => {
+                            return <div key={key}>{i}</div>;
+                        })}
+                    </Typography>
+                </Box>
+        } else {
+            texto = <Box style={{ color: "white" }}>-</Box>
+        }
+        return texto
+    }
+
     return (
         <>
             <Grid container item style={{ height: "100%" }}>
@@ -22,7 +41,7 @@ const Linha7LME = () => {
                             <Grid item>
                                 <Box>
                                     <Typography component={'span'} variant={'h6'} align={'justify'}>
-                                        {lme.anamnese ? <Box p={1}>{lme.anamnese}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                        <Texto />
                                     </Typography>
                                 </Box>
                             </Grid>
