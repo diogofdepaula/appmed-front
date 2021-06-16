@@ -1,8 +1,7 @@
-import { Divider, FormControl, FormControlLabel, FormGroup, Grid, InputLabel, Select, Switch, TextField } from '@material-ui/core';
+import { Divider, FormControlLabel, FormGroup, Grid, Switch, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 import ApresentacaoForm from './apresentacaoform';
-import Classes from './classes';
 import NomeComercialForm from './nomecomercialform';
 import PosologiaForm from './posologiaform';
 
@@ -18,7 +17,7 @@ const MedicamentoForm = () => {
         setMedicamentoEdit({ ...medicamentoEdit, [event.target.name]: event.target.checked })
     }
 
-    const classes = Classes()
+    // const classes = Classes()
 
     return (
         <div>
@@ -85,8 +84,15 @@ const MedicamentoForm = () => {
                         </FormGroup>
                     </Grid>
                     <Grid item xs={6}>
-                        <FormControl fullWidth variant="outlined">
-                            <InputLabel htmlFor="outlined-age-native-simple">Classe</InputLabel>
+                        {/* <FormControl fullWidth variant="outlined"> */}
+                        <TextField
+                            name="classe"
+                            label="Classe"
+                            variant="outlined"
+                            value={medicamentoEdit.classe}
+                            onChange={handleChange}
+                        />
+                            {/* <InputLabel htmlFor="outlined-age-native-simple">Classe</InputLabel>
                             <Select
                                 native
                                 value={medicamentoEdit.classes}
@@ -102,7 +108,7 @@ const MedicamentoForm = () => {
                                     <option key={i} value={c}>{c}</option>
                                 )}
                             </Select>
-                        </FormControl>
+                        </FormControl> */}
                     </Grid>
                     <Grid item xs>
                         <TextField

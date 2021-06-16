@@ -11,42 +11,6 @@ const ClienteForm = () => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
     }
 
-    // const Cpf = () => {
-
-    //     const [error, setError] = useState(false)
-    //     const [txterror, setTxtError] = useState()
-
-    //     const handleBlur = () => {
-    //         if (clienteEdit.cpf === "999.999.999-99") {
-    //             setError(false)
-    //         } else {
-    //             setError(true)
-    //             setTxtError('digite o CPF corretamente')
-    //         }
-    //     }
-
-    //     return (
-    //         <ReactInputMask
-    //             mask="999.999.999-99"
-    //             value={clienteEdit.cpf}
-    //             maskChar="_"
-    //             onChange={handleChange}
-    //             onBlur={handleBlur}
-    //         >
-    //             {() => <TextField
-    //                 fullWidth
-    //                 error={error}
-    //                 helperText={txterror}
-    //                 name="cpf"
-    //                 variant="outlined"
-    //                 label="CPF Teste"
-    //             />}
-    //         </ReactInputMask>
-    //     )
-    // }
-
-
-
     return (
         <div>
             <Grid container spacing={2} >
