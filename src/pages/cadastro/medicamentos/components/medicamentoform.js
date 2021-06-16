@@ -1,9 +1,10 @@
-import { Divider, FormControlLabel, FormGroup, Grid, Switch, TextField } from '@material-ui/core';
+import { Divider, FormControl, FormControlLabel, FormGroup, Grid, MenuItem, Switch, TextField, InputLabel, Select } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 import ApresentacaoForm from './apresentacaoform';
 import NomeComercialForm from './nomecomercialform';
 import PosologiaForm from './posologiaform';
+import Classes from './classes'
 
 const MedicamentoForm = () => {
 
@@ -17,12 +18,8 @@ const MedicamentoForm = () => {
         setMedicamentoEdit({ ...medicamentoEdit, [event.target.name]: event.target.checked })
     }
 
-    // const classes = Classes()
-    
-    // PARA SUBIR PARA O HEROKU2
     return (
         <div>
-            <h3>Provovando o Heroku 3.</h3>
             <Grid container spacing={2} >
                 <Grid container item spacing={2} >
                     <Grid item xs={10} >
@@ -86,31 +83,22 @@ const MedicamentoForm = () => {
                         </FormGroup>
                     </Grid>
                     <Grid item xs={6}>
-                        {/* <FormControl fullWidth variant="outlined"> */}
-                        <TextField
-                            name="classe"
-                            label="Classe"
+                        <FormControl
                             variant="outlined"
-                            value={medicamentoEdit.classe}
-                            onChange={handleChange}
-                        />
-                            {/* <InputLabel htmlFor="outlined-age-native-simple">Classe</InputLabel>
+                            fullWidth
+                        >
+                            <InputLabel id="classe">Classe</InputLabel>
                             <Select
-                                native
-                                value={medicamentoEdit.classes}
+                                labelId="classe"
+                                id="classe"
+                                label='Classe'
+                                name='classe'
+                                value={medicamentoEdit.classe}
                                 onChange={handleChange}
-                                label="Classe"
-                                inputProps={{
-                                    name: 'classe',
-                                    id: 'outlined-age-native-simple',
-                                }}
                             >
-                                <option aria-label="None" value="" />
-                                {classes.map((c, i) =>
-                                    <option key={i} value={c}>{c}</option>
-                                )}
+                                {Classes().map((c, i) => <MenuItem value={c}>{c}</MenuItem>)}
                             </Select>
-                        </FormControl> */}
+                        </FormControl>
                     </Grid>
                     <Grid item xs>
                         <TextField
