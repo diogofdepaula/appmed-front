@@ -1,7 +1,6 @@
-import { Box, Checkbox, FormControlLabel, FormGroup, TextField } from '@material-ui/core';
+import { Box, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
-import ReactInputMask from 'react-input-mask';
 
 const LMEVarSet = () => {
 
@@ -11,9 +10,9 @@ const LMEVarSet = () => {
         setLmeEdit({ ...lmeEdit, [event.target.name]: event.target.value })
     }
 
-    const handleChangeCheckBox = event => {
-        setLmeEdit({ ...lmeEdit, [event.target.name]: event.target.checked })
-    }
+    // const handleChangeCheckBox = event => {
+    //     setLmeEdit({ ...lmeEdit, [event.target.name]: event.target.checked })
+    // }
 
     return (
         <div>
@@ -23,7 +22,7 @@ const LMEVarSet = () => {
                         fullWidth
                         multiline
                         variant='outlined'
-                        rows={4}
+                        rows={12}
                         name="anamnese"
                         label="História clínica (Anamnese e tratamento prévio)"
                         InputLabelProps={{
@@ -33,7 +32,7 @@ const LMEVarSet = () => {
                         onChange={handleChange}
                     />
                 </Box>
-                <Box display="block">
+                {/* <Box display="block">
                     <Box>
                         <FormGroup row>
                             <FormControlLabel
@@ -96,7 +95,7 @@ const LMEVarSet = () => {
                             onChange={handleChange}
                         />
                     </Box>
-                </Box>
+                </Box> */}
             </Box>
         </div>
     )
