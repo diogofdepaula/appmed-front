@@ -22,7 +22,7 @@ const MedicamentoForm = () => {
     // PARA SUBIR PARA O HEROKU2
     return (
         <div>
-            <h3>Provovando a renovação.</h3>
+            <h3>Provovando o Heroku 3.</h3>
             <Grid container spacing={2} >
                 <Grid container item spacing={2} >
                     <Grid item xs={10} >
