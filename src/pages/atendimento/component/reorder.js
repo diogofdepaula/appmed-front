@@ -19,7 +19,7 @@ export default function Reorder(param) {
 
     let sort = param
         .map(sa => {
-            let c = classes.find(e => e[0] === sa.medicamento.classe) // TEM QUE MELHORAR AQUI
+            let c = classes.find(e => e[0] === sa.medicamento.classe)
             return [sa, c[1]]
         })
         .sort((a, b) => a[1] - b[1])
