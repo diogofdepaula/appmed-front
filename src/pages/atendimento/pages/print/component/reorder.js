@@ -17,13 +17,18 @@ export default function Reorder(param) {
         ['ANTIINFLAMATORIO', 9]
     ]
 
-    let sort = param
+    let sort = []
+    if (param.lenght === param.map(w => w.medicamento.classe)) {
+        sort = param
         .map(sa => {
             let c = classes.find(e => e[0] === sa.medicamento.classe) // TEM QUE MELHORAR AQUI
             return [sa, c[1]]
         })
         .sort((a, b) => a[1] - b[1])
         .map(sb => sb[0])
+    } else {
+        sort = param
+    }
 
     return sort
 }
