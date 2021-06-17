@@ -1,17 +1,19 @@
 import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import DeleteIcon from '@material-ui/icons/Delete';
-import React, { useContext } from 'react';
+import EditIcon from '@material-ui/icons/Edit';
+import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '..';
-
+import DialogNomeComercial from './dialogs/dialognomecomercial';
+ 
 const NomeComercialForm = () => {
-
+ 
     const { medicamentoEdit, setMedicamentoEdit } = useContext(MedicamentosContext)
-
+ 
     const handleAdd = () => {
-
+ 
         let ncnomefantasia = document.getElementById('nomefantasia')
-
+ 
         setMedicamentoEdit({
             ...medicamentoEdit,
             nomescomerciais: [
@@ -19,12 +21,12 @@ const NomeComercialForm = () => {
                     nomefantasia: ncnomefantasia.value,
                 }]
         })
-
+ 
         ncnomefantasia.value = ""
     }
-
+ 
     const handleDelete = (param, ind) => () => {
-
+ 
         if (param.id >= 0) {
             // deletar uma que já existe
             setMedicamentoEdit({
@@ -50,9 +52,22 @@ const NomeComercialForm = () => {
             })
         }
     }
+ 
+    const [open, setOpen] = useState(false)
+    const [nc, setNc] = useState(null)
+ 
+    const handleEdit = nc => () => {
+        setNc(nc)
+        setOpen(true)
+    }
+ 
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <div>
+            {open && <DialogNomeComercial open={open} nc={nc} handleClose={handleClose}/>}
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.nomescomerciais &&
@@ -73,6 +88,16 @@ const NomeComercialForm = () => {
                                                                 onClick={handleDelete(nc, i)}
                                                             >
                                                                 <DeleteIcon />
+                                                            </IconButton>
+                                                        </span>
+                                                    </Tooltip>
+                                                    <Tooltip title="Editar" >
+                                                        <span>
+                                                            <IconButton
+                                                                disabled={!nc.id}
+                                                                onClick={handleEdit(nc)}
+                                                            >
+                                                                <EditIcon />
                                                             </IconButton>
                                                         </span>
                                                     </Tooltip>
@@ -111,5 +136,6 @@ const NomeComercialForm = () => {
         </div>
     )
 }
-
+ 
 export default NomeComercialForm
+
