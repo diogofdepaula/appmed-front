@@ -1,20 +1,20 @@
 export default function Classes() {
 
     const classes = [
-        'ANALGÉSICO',
+        'ANALGESICO',
         'ANTICONVULSIVANTE',
         'ANTIDEPRESSIVO', 
         'ANTIMICROBIANO', 
         'CONVENCIONAL', 
-        'CORTICÓIDE', 
-        'MMCDBIOLÓGICO', 
-        'MMCDSINTÉTICO', 
-        'MMCDPEQUENAMOLÉCULA', 
-        'OPIÓIDE', 
+        'CORTICOIDE', 
+        'MMCDB', 
+        'MMCDS', 
+        'MMCDPM', 
+        'OPIOIDE', 
         'OSTEOMETABOLICO', 
         'SUPLEMENTO', 
         'VASOATIVO', 
-        'ANTIINFLAMATÓRIO' 
+        'ANTIINFLAMATORIO' 
     ]
 
     return classes

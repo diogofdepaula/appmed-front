@@ -9,7 +9,7 @@ import { MedicamentosContext } from '../..';
  
 const DialogNomeComercial = ({ nc, open, handleClose }) => {
 
-    const { updatePage, setPage, medicamentoEdit, setMedicamentoOnDuty} = useContext(MedicamentosContext)
+    const { medicamentoEdit, setMedicamentoOnDuty} = useContext(MedicamentosContext)
     const [nomeComercial, setNomeComercial] = useState(nc)
  
     const handleChange = event => {
