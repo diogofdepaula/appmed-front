@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '..';
-import DialogNomeComercial from './dialogs/dialognomecomercial';
+import NomeComercialDialog from './dialogs/nomecomercialdialog';
  
 const NomeComercialForm = () => {
  
@@ -67,7 +67,7 @@ const NomeComercialForm = () => {
 
     return (
         <div>
-            {open && <DialogNomeComercial open={open} nc={nc} handleClose={handleClose}/>}
+            {open && <NomeComercialDialog open={open} nc={nc} handleClose={handleClose}/>}
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.nomescomerciais &&

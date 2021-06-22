@@ -1,8 +1,11 @@
+import { Typography } from '@material-ui/core';
 import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import DeleteIcon from '@material-ui/icons/Delete';
-import React, { useContext } from 'react';
+import EditIcon from '@material-ui/icons/Edit';
+import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '..';
+import PosologiaDialog from './dialogs/posologiadialog';
 
 const PosologiaForm = () => {
 
@@ -57,8 +60,21 @@ const PosologiaForm = () => {
         }
     }
 
+    const [open, setOpen] = useState(false)
+    const [pp, setPp] = useState(null)
+
+    const handleEdit = pp => () => {
+        setPp(pp)
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
     return (
         <div>
+            {open && <PosologiaDialog open={open} pp={pp} handleClose={handleClose} />}
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.posologias &&
@@ -72,7 +88,11 @@ const PosologiaForm = () => {
                                                 <TableCell component="th" scope="row">
                                                     <Grid container direction="column" justify="flex-start" alignItems="stretch">
                                                         <Grid item>
-                                                            {pp.posologia}
+                                                            <Typography component='span'>
+                                                                {pp.posologia.split("\n").map((i, key) => {
+                                                                    return <div key={Math.random() * 1000}>{i}</div>;
+                                                                })}
+                                                            </Typography>
                                                         </Grid>
                                                         <Grid item>
                                                             {pp.quantidade} - {pp.forma}
@@ -86,6 +106,16 @@ const PosologiaForm = () => {
                                                                 onClick={handleDelete(pp, i)}
                                                             >
                                                                 <DeleteIcon />
+                                                            </IconButton>
+                                                        </span>
+                                                    </Tooltip>
+                                                    <Tooltip title="Editar" >
+                                                        <span>
+                                                            <IconButton
+                                                                disabled={!pp.id}
+                                                                onClick={handleEdit(pp)}
+                                                            >
+                                                                <EditIcon />
                                                             </IconButton>
                                                         </span>
                                                     </Tooltip>
@@ -103,7 +133,7 @@ const PosologiaForm = () => {
                             <TextField
                                 fullWidth
                                 multiline
-                                rows={3}
+                                rows={4}
                                 id="posologia"
                                 label="Posologia"
                                 variant="outlined"

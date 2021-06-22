@@ -1,8 +1,10 @@
 import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import DeleteIcon from '@material-ui/icons/Delete';
-import React, { useContext } from 'react';
+import EditIcon from '@material-ui/icons/Edit';
+import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '..';
+import ApresentacaoDialog from './dialogs/apresentacaodialog';
 
 const ApresentacaoForm = () => {
 
@@ -53,9 +55,22 @@ const ApresentacaoForm = () => {
             })
         }
     }
+    
+    const [open, setOpen] = useState(false)
+    const [ap, setAp] = useState(null)
+ 
+    const handleEdit = ap => () => {
+        setAp(ap)
+        setOpen(true)
+    }
+ 
+    const handleClose = () => {
+        setOpen(false)
+    }
 
     return (
         <div>
+            {open && <ApresentacaoDialog open={open} ap={ap} handleClose={handleClose}/>}
             <Grid container item spacing={2} >
                 <Grid item xs>
                     {medicamentoEdit.apresentacoes &&
@@ -76,6 +91,16 @@ const ApresentacaoForm = () => {
                                                                 onClick={handleDelete(ap, i)}
                                                             >
                                                                 <DeleteIcon />
+                                                            </IconButton>
+                                                        </span>
+                                                    </Tooltip>
+                                                    <Tooltip title="Editar" >
+                                                        <span>
+                                                            <IconButton
+                                                                disabled={!ap.id}
+                                                                onClick={handleEdit(ap)}
+                                                            >
+                                                                <EditIcon />
                                                             </IconButton>
                                                         </span>
                                                     </Tooltip>

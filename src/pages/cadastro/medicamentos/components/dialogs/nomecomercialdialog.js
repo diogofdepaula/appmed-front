@@ -4,37 +4,33 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '../..';
  
-const DialogNomeComercial = ({ nc, open, handleClose }) => {
+const NomeComercialDialog = ({ nc, open, handleClose }) => {
 
-    const { medicamentoEdit, setMedicamentoOnDuty} = useContext(MedicamentosContext)
+    const { medicamentoEdit, setMedicamentoEdit} = useContext(MedicamentosContext)
     const [nomeComercial, setNomeComercial] = useState(nc)
  
     const handleChange = event => {
         setNomeComercial({ ...nomeComercial, [event.target.name]: event.target.value })
     }
 
-    const fetchRefreshedMedicamento = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/medicamentos/${medicamentoEdit.id}`)
-        const json = await res.json();
-        setMedicamentoOnDuty(json[0]);
-      }, [setMedicamentoOnDuty, medicamentoEdit])
- 
     const handleSubmit = event => {
 
-        event.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + `/medicamentos/nc/${nomeComercial.id}`, {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(nomeComercial)
-        }).then(data => {
-            if (data.ok) {
-                handleClose()
-                fetchRefreshedMedicamento()
-            }
-        })
+        setMedicamentoEdit({
+            ...medicamentoEdit,
+            nomescomerciais: [
+                ...medicamentoEdit.nomescomerciais.map(n => {
+                    if(n.id === nomeComercial.id){
+                        return nomeComercial
+                    } else {
+                        return n
+                    }
+                })
+            ]
+        });
+        handleClose()
     }
  
     return (
@@ -54,7 +50,7 @@ const DialogNomeComercial = ({ nc, open, handleClose }) => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleSubmit} color="primary">
-                        Salvar
+                        Editar
                     </Button>
                     <Button onClick={handleClose} color="primary">
                         Cancelar
@@ -65,5 +61,5 @@ const DialogNomeComercial = ({ nc, open, handleClose }) => {
     );
 }
  
-export default DialogNomeComercial
+export default NomeComercialDialog
 
