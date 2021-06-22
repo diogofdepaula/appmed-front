@@ -44,3 +44,69 @@ Especial
         a) presença de anti-DNA nativo
         b) presença de anti-Sm
         c) achados positivos de anticorpos antifosfolípidios baseados em concentração sérica anormal de anticardiolipina IgG ou IgM, em teste positivo para anticoagulante lúpico, usando teste padrão ou em CDRL falso-positivo, por pelo menos 6 meses e confirmado por FTA-Abs negativo.
+Especial
+    Alteraões neurológicas:
+        a) convulsão - na ausência de fármacos implicados ou alterações metabólicas conhecidas (por exemplo: uremia cetoacidose, distúrbio hidroeletrolítico); ou
+        b) psicose - na ausência de fármacos implicados ou alterações metabólicas conhecidas (por exemplo: uremia cetoacidose, distúrbio hidroeletrolítico);
+Especial
+    Fotossensibilidade: eritema cutâneo resultante da reação incomum ao sol, por história do paciente ou observação do médico.
+Facultativo
+    Paciente com lúpus eritematoso sistêmico na gestação atendida em serviço especializado.
+Especial
+    Úlcera oral: ulceração oral ou nasofaríngea, geralmente não dolorosa, observada pelo médico.
+Especial
+    Eritema malar: eritema fixo, plano ou elevado nas eminências malares, tendendo a poupar a região nasolabial.
+Especial
+    Alterações hematológicas:
+        a) anemia hemolítica com reticulocitose
+        b) leucopenia de menos de 4000/mm³ em duas ou mais ocasições
+        c) linfopenia de menos de 1500/mm³ em duas ou mais ocasições
+        d) trombocitopenia de menos de 100000mm³ na ausência de uso de fármacos causadores.
+Facultativo
+    Alteração renal:
+        a) proteinúria persistente de mais de 0,5g/dia ou acima de 3+ (+++) se não quantificada;
+        b) cilindros celulares - podem ser hemáticos, granulares, tubulares ou mistos
+Especial
+    Lesão discoide: lesão eritematosa, infiltrada, com escamas queratóticas aderidas foliculares, que evolui com cicatriz atrófica e discromia.
+Facultativo 
+    Paciente com lúpus eritematoso sistêmico, com outra manifestação em órgão ou sistema afetado pela doença.
+Especial
+    Serosite:
+        a) pleurite - história convincente de dor pleurítica ou atrito auscutado pelo médico ou evidência de derrame pleural.
+        b) pericardite - documentada por eletrocardiograma ou atrito ou evidência de derrame pericárdico.
+
+
+HCLQ
+Exclusão
+    Uso concomitante de primaquina
+    Maculopatia prévia associada aos antimaláricos
+    Hipersensibilidade ao medicamento ou aos componentes da fórmula.
+
+
+Osteoporose
+Exames
+    Cópia do laudo de densitometria óssea de coluna e fêmur
+
+Especial
+    Pacientes com plano de início e manutenção de tratamento com glicocorticóide em dose superior a 5mg de prednisona/dia ou equivalente por período igual ou superior a 3 meses.
+Especial
+    Mulheres na pós-menopausa e homens com idade igual ou superior a 50 anos que apresentarem pelo menos uma das condições abaixo:
+        - fratura de baixo impacto (decorrente de queda da própria altura ou menos) de fêmur, quadril ou vertebra (clínica ou morfométrica) comprovada radiologicamente
+        - exame densitométrico com escore T igual ou inferior a -2,5 no fêmur proximal ou coluna
+        - baixa massa óssea (escore T entre -1,5 e -2,5 no fêmur proximal ou coluna) em paciente com idade igual ou superior a 70 anos e "caidor" (2 ou mais quedas nos últimos 6 meses)
+
+RSD
+Exclusão
+    Hipersensibilidade ao medicamento
+    Contraindicação ou intolerância aos medicamentos especificados
+
+
+Dor crônica
+Obrigatório
+    Escala de dor EVA maior ou igual a 4
+Obrigatório
+    Para uso de opióides, devem ser refratários aos demais fármacos.
+Obrigatório
+    CID Principal R52.1 ou R52.2
+Obrigatório
+    Dor superior a 30 dias.

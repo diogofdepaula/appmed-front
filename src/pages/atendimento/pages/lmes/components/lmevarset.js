@@ -1,6 +1,7 @@
 import { Box, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
+import AnamneseTips from './anamnesetips';
 
 const LMEVarSet = () => {
 
@@ -32,6 +33,7 @@ const LMEVarSet = () => {
                         onChange={handleChange}
                     />
                 </Box>
+                <AnamneseTips />
                 {/* <Box display="block">
                     <Box>
                         <FormGroup row>
