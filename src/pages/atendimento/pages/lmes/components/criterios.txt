@@ -1,0 +1,46 @@
+Artrite reumatoide
+
+Metotrexate, Leflunomida
+
+Obrigatorio
+    Nos critérios ACR são necessário quatro dos sete critérios abaixo para classificar um paciente como tendo artrite reumatoide, sendo que os critérios de 1 a 4 devem
+    estar presentes com história de pelo menos 6 semanas de evolução
+    1. rigidez matinal (nas articulações, com pelo menos 1 hora de duração);
+    2. artrite de 3 ou mais das seguintes áreas: articulações IFT proximais, articulações MCF, punhos, cotovelos, joelhos, tornozelos e articulação MTF;
+    3. artrite em mãos (punhos, articulações MCF ou IFT proximais)
+    4. artrite simétrica (mesma área em ambos os lados do corpo);
+    5. nódulo reumatóide (presença de 1 ou mais nódulos subcutâneo sobre proeminência ósseas ou superfícies extensoras ou regiões periarticulares);
+    6. FR (presença em qualquer título)
+    7. alterações radiográficasn(erosões ou descalcificações periarticulares em radiografias posteroanteriores de mãos e punhos)
+
+Obrigatorio
+    Para ser classificado como portador de ARJ, o indivíduo deve apresentar artrite de causa desconhecida. Para tanto, devem ser excluídas as artrites traumáticas, reacionais, infecciosas, transitórias, paraneoplásicas, vasculares, causadas por doenças de depósito (por exemplo, mucopolissacaridose, doença de Fabry) entre outras. A doença deve ter 
+    iniciado antes dos 16 anos de idade e duração deve ser igual ou superior a 6 semanas.
+Especial
+    Serão considerados casos especiais os pacientes com os seguintes diagnósticos: doença reumatóide do pulmão, vasculite reumatoide (diagnosticada em indivíduos com AR e manifestações compatíveis) e ARJ.
+
+MTX LFN
+Exclusão
+    Gestação, amamentação e concepção (homens e mulheres)
+    Infecão por herpes zoster ativa
+    Hepatites B ou C agudas
+    Elevação de aminotransferases/transaminases igual ou 3 vezes acima do limite superior da normalidade.
+    Infecção bacteriana com indicação de uso de antibiótico
+    Hipersensibilidade conhecida ao medicamento, classe ou componente
+    Infecção fúngica ameaçadora à vida
+    Tuberculose sem tratamento
+    Taxa de depuração de creatinina inferior a 30 mL/min/1,72m² de superfície corporal na ausência de terapia dialítica crônica.
+
+
+
+Lúpus Eritematoso Sistêmico
+
+HCLQ
+
+Especial
+    Artrite: artrite não erosiva envolvendo 2 ou mais articulações periféricas, caracterizada por dor à palpação, edema ou derrame.
+Especial
+    Alterações imunológicas:
+        a) presença de anti-DNA nativo
+        b) presença de anti-Sm
+        c) achados positivos de anticorpos antifosfolípidios baseados em concentração sérica anormal de anticardiolipina IgG ou IgM, em teste positivo para anticoagulante lúpico, usando teste padrão ou em CDRL falso-positivo, por pelo menos 6 meses e confirmado por FTA-Abs negativo.
