@@ -37,9 +37,9 @@ const PosologiaDialog = ({ pp, open, handleClose }) => {
     return (
         <div>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Editar Nome Comercial</DialogTitle>
+                <DialogTitle id="form-dialog-title">Editar Posologia</DialogTitle>
                 <DialogContent>
-                    <Grid container xs direction="column" justify="center" alignItems="center">
+                    <Grid container xs spacing={1} direction="column" justify="center" alignItems="center">
                         <Grid container item xs>
                             <TextField
                                 autoFocus
@@ -53,8 +53,8 @@ const PosologiaDialog = ({ pp, open, handleClose }) => {
                                 fullWidth
                             />
                         </Grid>
-                        <Grid container item xs direction="row" justify="space-between" alignItems="center" >
-                            <Grid item>
+                        <Grid container item xs spacing={1} direction="row" justify="space-between" alignItems="center" >
+                            <Grid item xs>
                                 <TextField
                                     variant="outlined"
                                     name="quantidade"
@@ -63,7 +63,7 @@ const PosologiaDialog = ({ pp, open, handleClose }) => {
                                     onChange={handleChange}
                                 />
                             </Grid>
-                            <Grid item>
+                            <Grid item xs>
                                 <TextField
                                     variant="outlined"
                                     name="forma"
