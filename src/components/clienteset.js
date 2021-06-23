@@ -36,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
     },
     inputRoot: {
         color: 'inherit',
+        width: '100%',
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),
@@ -74,14 +75,14 @@ const ClienteSet = () => {
     // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
 
+    const [inputvalue, setInputValue] = useState('')
 
     const fetchData = useCallback(async () => {
+        setInputValue('')
         // deixar o allfat, pois usa os outros dados na hora de imprimir
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfat')
-        //const res = await fetch('http://localhost:4001/api.appmed/clientes/allfat')
         const json = await res.json()
         setClientes(json)
-        //setClientesFiltrados(json)
     }, [])
 
     useEffect(() => {
@@ -89,6 +90,8 @@ const ClienteSet = () => {
     }, [fetchData])
 
     const filterClientes = (event) => {
+
+        setInputValue(event.target.value)
 
         let filtro = [...clientes].filter(w =>
             w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
@@ -127,8 +130,10 @@ const ClienteSet = () => {
                         input: classes.inputInput,
                     }}
                     inputProps={{ 'aria-label': 'search' }}
+                    value={inputvalue}
                     onChange={(e) => filterClientes(e)}
                     onFocus={(e) => fetchData()}
+                    onBlur={() => setInputValue('')}
                 />
                 {clientesfiltrados.length > 0 &&
                     <div className={classes.overlay}>
@@ -144,7 +149,7 @@ const ClienteSet = () => {
                                     </ListItemIcon>
                                     <ListItemText
                                         primary={<Typography variant="body1" className={classes.itemtext}>{cliente.nome}</Typography>}
-                                        secondary={cliente.nascimento ? "DN " + format(parseISO(cliente.nascimento), "dd'/'MM'/'yyyy", { locale: ptBR })   + "  (" + differenceInYears(new Date(), parseISO(cliente.nascimento)).toString().concat(" anos)") : ''} />
+                                        secondary={cliente.nascimento ? "DN " + format(parseISO(cliente.nascimento), "dd'/'MM'/'yyyy", { locale: ptBR }) + "  (" + differenceInYears(new Date(), parseISO(cliente.nascimento)).toString().concat(" anos)") : ''} />
                                 </ListItem>
                             )}
                         </List>
