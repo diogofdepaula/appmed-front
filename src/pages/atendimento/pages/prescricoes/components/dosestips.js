@@ -17,8 +17,7 @@ const DosesTips = () => {
             lmemes4: valor,
             lmemes5: valor,
             lmemes6: valor,
-        }
-        )
+        })
     }
 
 
