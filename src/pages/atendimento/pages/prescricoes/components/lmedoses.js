@@ -2,6 +2,7 @@ import { Box, Grid, TextField } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 import ReactInputMask from 'react-input-mask';
+import DosesTips from './dosestips';
 
 const LMEDoses = () => {
 
@@ -44,6 +45,7 @@ const LMEDoses = () => {
                     )}
                 </Grid>
             </Box>
+            <DosesTips />
         </div>
     )
 }

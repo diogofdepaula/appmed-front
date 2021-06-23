@@ -5,7 +5,7 @@ import Criterios from './criterios';
 
 const AnamneseTips = () => {
 
-    const { lmeEdit, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
+    const { lmeEdit, setLmeEdit,prescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
 
     const handleClick = param => event => {
         setLmeEdit({ ...lmeEdit, anamnese: param })
