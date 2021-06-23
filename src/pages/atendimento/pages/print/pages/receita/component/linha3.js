@@ -1,5 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
+import { ImpressaoContext } from '../../../../..';
 import PorTipo from '../../../component/portipo';
 import { PrescricaoPrintContext } from './prescricao'
 
@@ -43,6 +44,8 @@ const Linha3 = ({ mes, tipo }) => {
 
     const prescricao = useContext(PrescricaoPrintContext)
 
+    const { impressao } = useContext(ImpressaoContext)
+
     const quantLME = () => {
 
         let final = ''
@@ -66,7 +69,7 @@ const Linha3 = ({ mes, tipo }) => {
         return (
             <Box className={classes.box}>
                 <Typography component={'span'} className={classes.typoquant} >
-                    <Box>{tipo === 'lme' ? quantLME : prescricao.posologia.quantidade}</Box>
+                    <Box>{tipo === 'lme' ? quantLME : (prescricao.posologia.quantidade * impressao.meses)}</Box>
                 </Typography>
                 <Typography component={'span'} className={classes.typoform}>
                     <Box ml={1}>{prescricao.posologia.forma}</Box>
