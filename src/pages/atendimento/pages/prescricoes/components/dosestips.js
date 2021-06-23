@@ -8,7 +8,7 @@ const DosesTips = () => {
 
     const handleClick = () => {
 
-        let valor = (medicamentoEdit.posologias.filter(p => p.id === prescricaoEdit.posologiaId)[0].quantidade )
+        let valor = medicamentoEdit.posologias.filter(p => p.id === prescricaoEdit.posologiaId)[0].quantidade
         setPrescricaoEdit({
             ...prescricaoEdit,
             lmemes1: valor,
