@@ -6,9 +6,9 @@ const DosesTips = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
 
-    const handleClick = event => {
+    const handleClick = () => {
 
-        let valor = (medicamentoEdit.posologias.filter(p => p.id === prescricaoEdit.posologiaId)[0].quantidade ) / 3
+        let valor = (medicamentoEdit.posologias.filter(p => p.id === prescricaoEdit.posologiaId)[0].quantidade )
         setPrescricaoEdit({
             ...prescricaoEdit,
             lmemes1: valor,
