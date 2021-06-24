@@ -54,7 +54,7 @@ const AnamneseTips = () => {
                     <Chip
                         label="Solicito..."
                         variant="outlined"
-                        onClick={handleClick("Solicito o fornecimento de " + medicamentoEdit.farmaco + " para o tratamento da doença.")}
+                        onClick={handleClickChip("Solicito o fornecimento de " + medicamentoEdit.farmaco + " para o tratamento da doença.")}
                     />
                 </Box>
                 {Criterios().map(c => {

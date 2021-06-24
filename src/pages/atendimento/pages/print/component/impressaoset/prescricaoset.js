@@ -1,4 +1,4 @@
-import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
+import { Box, Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ImpressaoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -39,20 +39,32 @@ const PrescricoesSet = () => {
 
     return (
         <div>
-            <List dense subheader={<ListSubheader>Prescrições</ListSubheader>} >
-                {prescricoes?.map((prescricao, i) =>
-                    prescricao.emuso &&
-                    <ListItem key={prescricao.id}>
-                        <ListItemIcon>
-                            <Checkbox
-                                edge="start"
-                                onChange={handleCheck(prescricao)}
-                            />
-                        </ListItemIcon>
-                        <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
-                    </ListItem>
-                )}
-            </List>
+            <Box display='block'>
+                {/* <FormControlLabel
+                    control={
+                        <Checkbox
+                            color='primary'
+                            name="tratamentoprevio"
+                        // checked={lmeEdit.tratamentoprevio}
+                        // onChange={handleChangeCheckBox}
+                        />}
+                    label='Sem nome comercial'
+                /> */}
+                <List dense subheader={<ListSubheader>Prescrições</ListSubheader>} >
+                    {prescricoes?.map((prescricao, i) =>
+                        prescricao.emuso &&
+                        <ListItem key={prescricao.id}>
+                            <ListItemIcon>
+                                <Checkbox
+                                    edge="start"
+                                    onChange={handleCheck(prescricao)}
+                                />
+                            </ListItemIcon>
+                            <ListItemText primary={prescricao.medicamento.farmaco} secondary={prescricao.apresentaco.descricao} />
+                        </ListItem>
+                    )}
+                </List>
+            </Box>
         </div>
     )
 }
