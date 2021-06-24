@@ -62,7 +62,7 @@ return (
     <>
         <Box className={classes.box}>
             <Typography className={classes.typo}>
-                {texto()}
+                {impressao?.nomecomercial ? texto() : prescricao.medicamento.farmaco}
             </Typography>
         </Box>
     </>

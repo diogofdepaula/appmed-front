@@ -1,4 +1,4 @@
-import { Box, Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
+import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ImpressaoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -7,7 +7,7 @@ import Reorder from '../reorder';
 const PrescricoesSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setImpressao } = useContext(ImpressaoContext)
+    const { impressao, setImpressao } = useContext(ImpressaoContext)
     const [prescricoes, setPrescricoes] = useState([])
 
     const fetchDataPrescricoes = useCallback(async () => {
@@ -37,19 +37,24 @@ const PrescricoesSet = () => {
         }
     }
 
+    const handleChangeCheckBox = (event) => {
+        setImpressao({ ...impressao, nomecomercial: event.target.checked })
+    }
+
     return (
         <div>
             <Box display='block'>
-                {/* <FormControlLabel
+                <FormControlLabel
+                    disabled={impressao.local === 'consultorio' ? false : true}
                     control={
                         <Checkbox
                             color='primary'
-                            name="tratamentoprevio"
-                        // checked={lmeEdit.tratamentoprevio}
-                        // onChange={handleChangeCheckBox}
+                            name="nomecomercial"
+                            checked={impressao?.nomecomercial}
+                            onChange={handleChangeCheckBox}
                         />}
-                    label='Sem nome comercial'
-                /> */}
+                    label='Nome comercial'
+                />
                 <List dense subheader={<ListSubheader>Prescrições</ListSubheader>} >
                     {prescricoes?.map((prescricao, i) =>
                         prescricao.emuso &&

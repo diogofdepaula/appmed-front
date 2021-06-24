@@ -29,6 +29,7 @@ const Atendimento = () => {
         lme: '',
         relatorio: true,
         comentario: '-',
+        nomecomercial: true,
         database: new Date(),
         somaheighta4: 800, // 900, 
         somaheighta5: 470,
