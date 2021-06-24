@@ -92,6 +92,16 @@ const Linha3 = ({ mes, tipo }) => {
         )
     }
 
+    const Continuo = () => {
+        return (
+            <Box className={classes.box}>
+                <Typography component={'span'} className={classes.typoquant} >
+                    <Box fontWeight="fontWeightBold" >uso contínuo</Box>
+                </Typography>
+            </Box>
+        )
+    }
+
     return (
         <>
             <Box>
@@ -102,7 +112,10 @@ const Linha3 = ({ mes, tipo }) => {
                         </Typography>
                     </Grid>
                     <Grid item container xs={3} justify="flex-end">
-                       {prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />}
+                        {impressao.continuo ?
+                            <Continuo /> :
+                            prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
+                        }
                     </Grid>
                 </Grid>
             </Box>

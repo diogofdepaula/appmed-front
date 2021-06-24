@@ -38,7 +38,7 @@ const PrescricoesSet = () => {
     }
 
     const handleChangeCheckBox = (event) => {
-        setImpressao({ ...impressao, nomecomercial: event.target.checked })
+        setImpressao({ ...impressao, [event.target.name]: event.target.checked })
     }
 
     return (
@@ -54,6 +54,16 @@ const PrescricoesSet = () => {
                             onChange={handleChangeCheckBox}
                         />}
                     label='Nome comercial'
+                />
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            color='primary'
+                            name="continuo"
+                            checked={impressao?.continuo}
+                            onChange={handleChangeCheckBox}
+                        />}
+                    label='Contínuo'
                 />
                 <List dense subheader={<ListSubheader>Prescrições</ListSubheader>} >
                     {prescricoes?.map((prescricao, i) =>

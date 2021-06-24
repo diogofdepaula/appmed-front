@@ -30,6 +30,7 @@ const Atendimento = () => {
         relatorio: true,
         comentario: '-',
         nomecomercial: true,
+        continuo: false,
         database: new Date(),
         somaheighta4: 800, // 900, 
         somaheighta5: 470,
