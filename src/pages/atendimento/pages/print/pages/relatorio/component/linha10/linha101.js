@@ -12,8 +12,6 @@ const Linha101Relatorio = () => {
 
     const ppddata = lme.relatorio.ppddata ? format(parseISO(lme.relatorio.ppddata), "dd'/'MM'/'yyyy", { locale: ptBR }) : ''
 
-    console.log(lme);
-
     return (
         <>
             <Box>

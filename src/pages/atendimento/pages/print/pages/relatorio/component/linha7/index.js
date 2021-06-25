@@ -78,8 +78,7 @@ const Linha7Relatorio = () => {
                         <Grid item>
                             <Box mt={1} mb={1}>
                                 {list && list.map((w, i) =>
-                                    <div key={i}>
-                                        <Grid item>
+                                        <Grid item key={i}>
                                             <Box ml={2} display="flex">
                                                 {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
                                                 <Typography component={'span'} variant={'body1'} align={'left'} >
@@ -87,7 +86,6 @@ const Linha7Relatorio = () => {
                                                 </Typography>
                                             </Box>
                                         </Grid>
-                                    </div>
                                 )}
                             </Box>
                         </Grid>

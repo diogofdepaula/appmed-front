@@ -14,7 +14,7 @@ const Linha9Relatorio = () => {
             texto =
                 <Typography>
                     {lme.anamnese.split("\n").map((i, key) => {
-                        return <div key={Math.random() * 1000}>{i}</div>;
+                        return <Box px={1} key={Math.random() * 1000}>{i}</Box>;
                     })}
                 </Typography>
         } else {
@@ -36,7 +36,7 @@ const Linha9Relatorio = () => {
                             </Box>
                         </Grid>
                         <Grid item>
-                            <Box>
+                            <Box pt={1}>
                                 <Typography component={'span'} variant={'h6'} align={'justify'}>
                                     <Texto />
                                 </Typography>
