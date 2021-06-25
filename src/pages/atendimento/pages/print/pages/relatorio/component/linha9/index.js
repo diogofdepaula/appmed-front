@@ -12,11 +12,13 @@ const Linha9Relatorio = () => {
 
         if (lme.anamnese) {
             texto =
-                <Typography>
-                    {lme.anamnese.split("\n").map((i, key) => {
-                        return <Box px={1} key={Math.random() * 1000}>{i}</Box>;
-                    })}
-                </Typography>
+                <Box px={1}>
+                    <Typography component={'span'}>
+                        {lme.anamnese.split("\n").map((i, key) => {
+                            return <div key={Math.random() * 1000}>{i}</div>;
+                        })}
+                    </Typography>
+                </Box>
         } else {
             texto = <Box style={{ color: "white" }}>-</Box>
         }

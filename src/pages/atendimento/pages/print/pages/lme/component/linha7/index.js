@@ -12,13 +12,11 @@ const Linha7LME = () => {
 
         if (lme.anamnese) {
             texto =
-                <Box p={1}>
-                    <Typography>
-                        {lme.anamnese.split("\n").map((i, key) => {
-                            return <div key={Math.random() * 1000}>{i}</div>;
-                        })}
-                    </Typography>
-                </Box>
+                <Typography component={'span'} variant={'h6'} align={'justify'}>
+                    {lme.anamnese.split("\n").map((i, key) => {
+                        return <div key={Math.random() * 1000}>{i}</div>;
+                    })}
+                </Typography>
         } else {
             texto = <Box style={{ color: "white" }}>-</Box>
         }
@@ -39,10 +37,8 @@ const Linha7LME = () => {
                                 </Box>
                             </Grid>
                             <Grid item>
-                                <Box>
-                                    <Typography component={'span'} variant={'h6'} align={'justify'}>
-                                        <Texto />
-                                    </Typography>
+                                <Box p={1}>
+                                    <Texto />
                                 </Box>
                             </Grid>
                         </Grid>
