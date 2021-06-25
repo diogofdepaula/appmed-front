@@ -58,10 +58,10 @@ const Criterios = () => {
     ]
 
     const doencas = [
-        ['AR', ArtriteReumatoide, 'Paciente com Artrite reumatoide com os seguintes critério:'],
-        ['LES', Lupus, 'Paciente com Lúpus Eritematoso Sistêmico com os seguintes critério:'],
-        ['OP', Osteoporose, 'Paciente com Osteoporose com os seguintes critério:'],
-        ['Dor', DorCronica, 'Paciente com Dor crônica com os seguintes critério:'],
+        ['AR', ArtriteReumatoide, 'Paciente com Artrite reumatoide com os seguintes critérios: '],
+        ['LES', Lupus, 'Paciente com Lúpus Eritematoso Sistêmico com os seguintes critérios: '],
+        ['OP', Osteoporose, 'Paciente com Osteoporose com os seguintes critérios: '],
+        ['Dor', DorCronica, 'Paciente com Dor crônica com os seguintes critérios: '],
     ]
 
     return doencas

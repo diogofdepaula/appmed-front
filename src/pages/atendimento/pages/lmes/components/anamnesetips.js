@@ -1,7 +1,8 @@
-import { Box, Chip, Divider, Paper } from '@material-ui/core';
+import { Box, Chip, Divider, IconButton, Paper } from '@material-ui/core';
 import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import Criterios from './criterios';
+import FormatTextdirectionLToRIcon from '@material-ui/icons/FormatTextdirectionLToR';
 
 const AnamneseTips = () => {
 
@@ -13,6 +14,10 @@ const AnamneseTips = () => {
 
     const handleClickChip = param => event => {
         setLmeEdit({ ...lmeEdit, anamnese: lmeEdit.anamnese.concat('\n').concat(param) })
+    }
+
+    const handleClickChipVirgula = param => event => {
+        setLmeEdit({ ...lmeEdit, anamnese: lmeEdit.anamnese.concat(param).concat(', ') })
     }
 
     const [inclusao, setInclusao] = useState([])
@@ -31,8 +36,15 @@ const AnamneseTips = () => {
                         <Chip
                             label={p}
                             variant="outlined"
-                            onClick={handleClickChip(p)}
+                            onClick={handleClickChipVirgula(p)}
                         />
+                         <IconButton
+                         draggable
+                            onDragEnd={handleClickChip(p)}
+                            onClick={handleClickChip(p)}
+                        >
+                            <FormatTextdirectionLToRIcon />
+                        </IconButton>
                     </Box>
                 )}
             </Paper>
