@@ -69,7 +69,7 @@ const Linha3 = ({ mes, tipo }) => {
         return (
             <Box className={classes.box}>
                 <Typography component={'span'} className={classes.typoquant} >
-                    <Box>{tipo === 'lme' ? quantLME : (prescricao.posologia.quantidade * impressao.meses)}</Box>
+                    <Box>{tipo === 'lme' ? quantLME : (prescricao.posologia.quantidade * (prescricao.medicamento.controlado ? 1 : impressao.meses))}</Box>
                 </Typography>
                 <Typography component={'span'} className={classes.typoform}>
                     <Box ml={1}>{prescricao.posologia.forma}</Box>
