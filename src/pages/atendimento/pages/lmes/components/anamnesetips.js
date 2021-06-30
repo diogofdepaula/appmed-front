@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import Criterios from './criterios';
 import FormatTextdirectionLToRIcon from '@material-ui/icons/FormatTextdirectionLToR';
+import ICAD from '../../../component/calculadoras/das28';
 
 const AnamneseTips = () => {
 
@@ -27,6 +28,8 @@ const AnamneseTips = () => {
         setLmeEdit({ ...lmeEdit, anamnese: param[2] })
     }
 
+    console.log(lmeEdit);
+
     const Frases = () => {
 
         return (
@@ -38,8 +41,8 @@ const AnamneseTips = () => {
                             variant="outlined"
                             onClick={handleClickChipVirgula(p)}
                         />
-                         <IconButton
-                         draggable
+                        <IconButton
+                            draggable
                             onDragEnd={handleClickChip(p)}
                             onClick={handleClickChip(p)}
                         >
@@ -82,6 +85,7 @@ const AnamneseTips = () => {
                 })}
             </Box>
             <Frases />
+            <ICAD />
         </div>
     )
 }

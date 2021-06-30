@@ -6,6 +6,7 @@ const Criterios = () => {
         'rigidez matinal (nas articulações, com pelo menos 1 hora de duração)',
         'fator reumatoide reagente',
         'Autoanticorpos contra peptídeo citrulinado cíclico (CCP) reagente',
+        'duração maior que 6 semanas',
         'alterações radiográficas (erosões ou descalcificações periarticulares em radiografias póstero anteriores de mãos e punhos)',
         'nódulo reumatóide (presença de 1 ou mais nódulos subcutâneo sobre proeminência ósseas ou superfícies extensoras ou regiões periarticulares)',
         'artrite de causa desconhecida iniciado antes dos 16 anos de idade e duração deve ser igual ou superior a 6 semanas',

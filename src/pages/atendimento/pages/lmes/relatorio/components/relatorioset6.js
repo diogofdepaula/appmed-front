@@ -1,7 +1,8 @@
-import { Box, Grid, TextField } from '@material-ui/core'
+import { Box, Divider, Grid, TextField } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '../../../..'
 import ReactInputMask from 'react-input-mask';
+import ICAD from '../../../../component/calculadoras/das28';
 
 const RelatorioSet6 = () => {
 
@@ -44,6 +45,8 @@ const RelatorioSet6 = () => {
                     )}
                 </Grid>
             </Box>
+            <Divider />
+            <ICAD />
         </div>
     )
 }
