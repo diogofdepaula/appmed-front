@@ -23,7 +23,7 @@ const Linha6LME = () => {
                                 <Grid item>
                                     <Box ml={1}>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            <Box>{lme.relatorio.tempodoencaanos ?? "0"} anos e {lme.relatorio.tempodoencaanos ?? "0"} meses</Box>
+                                            <Box>{lme.relatorio.tempodoencaanos ?? "0"} anos e {lme.relatorio.tempodoencameses ?? "0"} meses</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>
