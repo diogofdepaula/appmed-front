@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../..';
+import TermoConsentimento from './consentimento';
 import FactoryLME from './lme';
 import FactoryReceitas from './receita';
 import FactoryRelatorio from './relatorio';
@@ -17,6 +18,7 @@ const PrintJob = () => {
         impressao.lmesSelecionadas?.map(l =>
             jobs.push(
                 <div key={l.id} >
+                    <TermoConsentimento />
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 

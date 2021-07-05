@@ -25,7 +25,9 @@ const Atendimento = () => {
         tipo: '', // simples, controlado
         meses: 6,
         local: '', // consultorio, SUS (cisgap, cisco)
+        lmes: [],
         lmesSelecionadas: [],
+        termosSelecionados: [],
         lme: '',
         relatorio: true,
         comentario: '-',

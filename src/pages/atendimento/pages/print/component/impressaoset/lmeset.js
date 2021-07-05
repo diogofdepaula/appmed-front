@@ -1,19 +1,21 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { ImpressaoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
 
 const LMESet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setImpressao } = useContext(ImpressaoContext)
-    const [lmes, setLmes] = useState([])
+    const { impressao, setImpressao } = useContext(ImpressaoContext)
 
     const fetchDataLmes = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/allfat/${clienteContext.id}`)
         const json = await res.json();
-        setLmes(json);
-    }, [clienteContext])
+        setImpressao(prevState => ({
+            ...prevState,
+            lmes: json,
+        }))
+    }, [clienteContext, setImpressao])
 
     useEffect(() => {
         fetchDataLmes();
@@ -37,7 +39,7 @@ const LMESet = () => {
     return (
         <div>
             <List dense subheader={<ListSubheader>LMEs</ListSubheader>}>
-                {lmes && lmes.map(lme =>
+                {impressao.lmes?.map(lme =>
                     <ListItem key={lme.id}>
                         <ListItemIcon>
                             <Checkbox
