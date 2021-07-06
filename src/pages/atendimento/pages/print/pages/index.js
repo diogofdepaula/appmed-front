@@ -18,7 +18,7 @@ const PrintJob = () => {
         impressao.lmesSelecionadas?.map(l =>
             jobs.push(
                 <div key={l.id} >
-                    <TermoConsentimento />
+                    {/* <TermoConsentimento /> */}
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 

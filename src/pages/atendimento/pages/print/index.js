@@ -20,7 +20,7 @@ const ImpressaoSet = () => {
                     </Grid>
                     <Grid container item xs={4} direction="column" justify="center" alignItems="center" >
                         <LMESet />
-                        <TermoSet />
+                        {/* <TermoSet /> */}
                     </Grid>
                     <Grid container item xs={4}>
                         <Grid item>
