@@ -28,8 +28,6 @@ const AnamneseTips = () => {
         setLmeEdit({ ...lmeEdit, anamnese: param[2] })
     }
 
-    console.log(lmeEdit);
-
     const Frases = () => {
 
         return (
