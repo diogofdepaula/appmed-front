@@ -4,7 +4,7 @@ import LMESet from './component/impressaoset/lmeset';
 import LocalSet from './component/impressaoset/localset';
 import PrescricoesSet from './component/impressaoset/prescricaoset';
 import TempoSet from './component/impressaoset/temposet';
-import TermoSet from './component/impressaoset/termoset';
+// import TermoSet from './component/impressaoset/termoset';
 
 const ImpressaoSet = () => {
 
@@ -20,7 +20,7 @@ const ImpressaoSet = () => {
                     </Grid>
                     <Grid container item xs={4} direction="column" justify="center" alignItems="center" >
                         <LMESet />
-                        <TermoSet />
+                        {/* <TermoSet /> */}
                     </Grid>
                     <Grid container item xs={4}>
                         <Grid item>

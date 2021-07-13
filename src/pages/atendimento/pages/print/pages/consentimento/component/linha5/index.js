@@ -71,12 +71,14 @@ const Linha5Termo = () => {
                                         a respeito das seguintes contra-indicações, potenciais efeitos colaterais e riscos.
                                     </Box>
                                     <Box>
-                                        Fui {informar} de que o risco de
-                                        infecção de várias etiologias e alguns tipos de neoplasias (câncer) é aumentado,
+                                        Fui {informar} de que o risco de infecção de várias etiologias e 
+                                        alguns tipos de neoplasias (câncer) é aumentado,
                                         principalmente com o uso destes fármacos em associação.
+                                        <div>
                                         O risco da ocorrência de efeitos adversos aumenta com a superdosagem.
                                         E que {impressao.termosSelecionados.length > 1 ? " estes medicamentos são " : " este medicamento é "}
                                         contra-indicados em casos de hipersensibilidade (alergia).
+                                        </div>
                                     </Box>
                                 </Box>
                                 <Box>

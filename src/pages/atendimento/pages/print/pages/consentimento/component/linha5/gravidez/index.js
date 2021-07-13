@@ -17,7 +17,7 @@ const Gravidez = ({ medicamentos }) => {
 
         return (
             <Box>
-                Estou ciente que o medicamento {med} é classificado na gestação como {cat}
+                Estou ciente que o medicamento {med} é classificado <strong>na gestação</strong> como {cat}
             </Box>
         )
     }
