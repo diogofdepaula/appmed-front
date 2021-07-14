@@ -1,4 +1,5 @@
 import { Box, FormControlLabel, Grid, Radio, RadioGroup, TextField } from '@material-ui/core';
+import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import ReactInputMask from 'react-input-mask';
 import { ClientesContext } from '..';
@@ -10,6 +11,18 @@ const ClienteForm = () => {
     const handleChange = event => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
     }
+
+    const handleChangeNascimento = event => {
+
+        if (event.target.value.length === 10) {
+            let dia = event.target.value.slice(0, 2)
+            let mes = event.target.value.slice(3, 5)
+            let ano = event.target.value.slice(6, 10)
+            let data = format(new Date(ano, mes - 1, dia), 'yyyy-MM-dd')
+            setClienteEdit({ ...clienteEdit, nascimento: data })
+        }
+    }
+
 
     return (
         <div>
@@ -61,6 +74,13 @@ const ClienteForm = () => {
                             }}
                             value={clienteEdit.nascimento}
                             onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item xs>
+                        <TextField
+                            variant="outlined"
+                            label="Cole Nascimento"
+                            onChange={(e) => handleChangeNascimento(e)}
                         />
                     </Grid>
                     <Grid item xs>
