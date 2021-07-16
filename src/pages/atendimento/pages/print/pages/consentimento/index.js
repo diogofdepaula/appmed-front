@@ -2,12 +2,13 @@ import { Box, Grid } from '@material-ui/core';
 import React, { createContext } from 'react';
 import PageA4 from '../component/pagea4';
 import Linha1Termo from './component/linha1';
-import Linha10Termo from './component/linha10';
-import Linha12Termo from './component/linha12';
+import Linha7Termo from './component/linha7';
+import Linha8Termo from './component/linha8';
 import Linha2Termo from './component/linha2';
 import Linha3Termo from './component/linha3';
 import Linha4Termo from './component/linha4';
 import Linha5Termo from './component/linha5';
+import Linha9Termo from './component/linha9';
 
 export const LMEPrintContext = createContext(null)
 
@@ -29,10 +30,9 @@ const TermoConsentimento = (props) => {
                                 <Linha5Termo />
                             </Grid>
                             <Grid container item >
-                                <Linha10Termo />
-                                {/* <Linha11Termo /> */}
-                                <Linha12Termo />
-                                {/* <Linha13Relatorio /> */}
+                                <Linha7Termo />
+                                <Linha8Termo />
+                                <Linha9Termo />
                             </Grid>
                         </Grid>
                     </LMEPrintContext.Provider>

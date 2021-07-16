@@ -8,8 +8,8 @@ import Gravidez from './gravidez'
 const Linha5Termo = () => {
 
     const { impressao } = useContext(ImpressaoContext)
-
     const { clienteContext } = useContext(ClienteContext)
+
 
     const Texto = () => {
 
@@ -37,6 +37,8 @@ const Linha5Termo = () => {
             "trazer "
         )
 
+    const size = impressao.termosSelecionados.length > 1 ? 'body2' : 'subtitle1'
+
     return (
         <>
             <Box mt={2} width={1} height={1} border={1} borderColor="black">
@@ -49,8 +51,8 @@ const Linha5Termo = () => {
                         </Box>
                     </Grid>
                     <Grid item>
-                        <Box p={1}>
-                            <Typography component={'span'} variant={'body1'} align={'justify'}>
+                        <Box p={2}>
+                            <Typography component={'span'} variant={size} align={'justify'}>
                                 <Box>
                                     Declaro ter sido {informar} claramente
                                     sobre benefícios, riscos, contraindicações e principais efeitos
@@ -58,35 +60,28 @@ const Linha5Termo = () => {
                                     {impressao.termosSelecionados.length > 1 ? " indicados " : " indicado "}
                                     para o tratamento da doenças reumatológicas.
                                 </Box>
-                                <Box>
+                                <Box mt={1}>
                                     Os termos médicos foram explicados e todas as dúvidas foram esclarecidas pelo
                                     Dr. Diogo F de Paula. Expresso também minha concordância e espontânea vontade
                                     em submeter-me ao referido tratamento, assumindo a responsabilidade e
                                     os riscos pelos eventuais efeitos indesejáveis.
                                 </Box>
-                                <Box>
-                                    <Box>
-                                        {declaro} trazer benefícios com controle da doença e suas complicações.
-                                        Fui também claramente {clienteContext.sexo === 1 ? " informado " : " informada "}
-                                        a respeito das seguintes contra-indicações, potenciais efeitos colaterais e riscos.
-                                    </Box>
-                                    <Box>
-                                        Fui {informar} de que o risco de infecção de várias etiologias e 
-                                        alguns tipos de neoplasias (câncer) é aumentado,
-                                        principalmente com o uso destes fármacos em associação.
-                                        <div>
+                                <Box mt={1}>
+                                    {declaro} trazer benefícios com controle da doença, prevenção das
+                                    complicações da doença, controle da atividade da doença, melhora da
+                                    capacidade de realizar  atividades funcionais, melhora da qualidade
+                                    de vida. e suas complicações.
+                                    Fui também claramente {clienteContext.sexo === 1 ? " informado " : " informada "}
+                                    a respeito das seguintes contra-indicações, potenciais efeitos colaterais e riscos.
+                                    Fui {informar} de que o risco de infecção de várias etiologias e alguns tipos
+                                    de neoplasias (câncer) é aumentado, principalmente com o uso destes
+                                    fármacos em associação.
+                                    <div>
                                         O risco da ocorrência de efeitos adversos aumenta com a superdosagem.
                                         E que {impressao.termosSelecionados.length > 1 ? " estes medicamentos são " : " este medicamento é "}
                                         contra-indicados em casos de hipersensibilidade (alergia).
-                                        </div>
-                                    </Box>
+                                    </div>
                                 </Box>
-                                <Box>
-                                    {declaro} os seguintes benefícios: prevenção das complicações da doença,
-                                    controle da atividade da doença, melhora da capacidade de realizar
-                                    atividades funcionais, melhora da qualidade de vida.
-                                </Box>
-
                                 {/* colocar um if depois */}
                                 <Gravidez medicamentos={impressao.termosSelecionados} />
                                 <Adverso medicamentos={impressao.termosSelecionados} />

@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
 import { ImpressaoContext } from '../../../../../..';
 
-const Linha12Termo = () => {
+const Linha8Termo = () => {
 
     const { impressao } = useContext(ImpressaoContext)
 
@@ -116,4 +116,4 @@ const Linha12Termo = () => {
     )
 }
 
-export default Linha12Termo
+export default Linha8Termo

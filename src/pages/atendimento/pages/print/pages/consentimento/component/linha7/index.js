@@ -1,16 +1,16 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React from 'react'
-import Linha100Termo from './linha100'
-import Linha101Termo from './linha101'
-import Linha102Termo from './linha102'
-import Linha103Termo from './linha103'
+import Linha70Termo from './linha70'
+import Linha71Termo from './linha71'
+import Linha72Termo from './linha72'
+import Linha73Termo from './linha73'
 
-const Linha10Termo = () => {
+const Linha7Termo = () => {
 
     return (
         <>
-            <Grid container item >
-                <Box mt={4} width={1} border={1} borderColor="black">
+            <Grid container item xs >
+                <Box mt={4} width={1} border={1} borderColor="black" >
                     <Grid container direction="column" justify="center" alignItems="stretch">
                         <Grid item xs>
                             <Box mt={-1} ml={2} display="flex">
@@ -19,12 +19,14 @@ const Linha10Termo = () => {
                                 </Typography>
                             </Box>
                         </Grid>
-                        <Grid container item xs>
-                            <Box width={1} p={1}>
-                                <Linha100Termo />
-                                <Linha101Termo />
-                                <Linha102Termo />
-                                <Linha103Termo />
+                        <Grid item xs>
+                            <Box width={1} p={1} >
+                                <Grid container>
+                                    <Linha70Termo />
+                                    <Linha71Termo />
+                                    <Linha72Termo />
+                                    <Linha73Termo />
+                                </Grid>
                             </Box>
                         </Grid>
                     </Grid>
@@ -34,5 +36,5 @@ const Linha10Termo = () => {
     )
 }
 
-export default Linha10Termo
+export default Linha7Termo
 
