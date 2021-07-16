@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../..';
 import TermoConsentimento from './consentimento';
@@ -18,7 +17,6 @@ const PrintJob = () => {
         impressao.lmesSelecionadas?.map(l =>
             jobs.push(
                 <div key={l.id} >
-                    <TermoConsentimento />
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 
@@ -47,6 +45,7 @@ const PrintJob = () => {
                     {/* Medicamentos não controlados */}
                     {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
                     <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
+                    {impressao.termosSelecionados.length > 0 ? <TermoConsentimento />}
                 </div>
             )
         )
