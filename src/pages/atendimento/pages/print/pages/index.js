@@ -46,11 +46,12 @@ const PrintJob = () => {
                     {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
                     <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
 
-                    {impressao.termosSelecionados.length > 0 && <TermoConsentimento />}
                 </div>
             )
         )
 
+        impressao.termosSelecionados.length > 0 && jobs.push(<TermoConsentimento />)
+        
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
 
