@@ -1,22 +1,18 @@
-import Collapse from '@material-ui/core/Collapse';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import AlarmAddIcon from '@material-ui/icons/AlarmAdd';
 import AssistantIcon from '@material-ui/icons/Assistant';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
 import GroupIcon from '@material-ui/icons/Group';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import React, { useContext, useState } from 'react';
+import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
+import React, { useContext } from 'react';
 import { ClienteContext, PageContentContext } from '../App';
 
-const drawerWidth = 240;
+const drawerWidth = 80;
 
 const useStyles = makeStyles((theme) => ({
     drawer: {
@@ -30,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'auto',
     },
     nested: {
-        paddingLeft: theme.spacing(4),
+        // paddingLeft: theme.spacing(4),
     },
     offset: theme.mixins.toolbar,
 }));
@@ -40,11 +36,11 @@ const LeftDrawer = () => {
     const { pageContentContext, setPageContentContext, forceUpdate } = useContext(PageContentContext)
     const { clienteContext } = useContext(ClienteContext)
 
-    const [open, setOpen] = useState(true);
+    // const [open, setOpen] = useState(true);
 
-    const handleClick = () => {
-        setOpen(!open);
-    }
+    // const handleClick = () => {
+    //     setOpen(!open);
+    // }
 
     const handleAtendimento = () => {
         setPageContentContext('atendimento')
@@ -73,24 +69,25 @@ const LeftDrawer = () => {
             <div className={classes.offset} />
             <div className={classes.drawerContainer}>
                 <List component="nav" >
-                    <ListItem button onClick={handleClick}>
+                    {/* <ListItem button onClick={handleClick}>
                         <ListItemIcon>
                             <MenuBookIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Cadastro" />
+                         <ListItemText primary="Cadastro" /> 
                         {open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItem>
-                    <Collapse in={open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
+                    </ListItem> 
+                    */}
+                    {/* <Collapse in={open} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding> */}
                             <ListItem
                                 button
                                 className={classes.nested}
                                 onClick={handleCliente}
                             >
                                 <ListItemIcon>
-                                    <GroupIcon />
+                                    <GroupIcon color="primary" fontSize="large" />
                                 </ListItemIcon>
-                                <ListItemText primary="Clientes" />
+                                {/* <ListItemText primary="Clientes" /> */}
                             </ListItem>
                             <ListItem
                                 button
@@ -98,18 +95,18 @@ const LeftDrawer = () => {
                                 onClick={handleMedicamento}
                             >
                                 <ListItemIcon>
-                                    <LocalHospitalIcon />
+                                    <LocalHospitalIcon color="primary" fontSize="large" />
                                 </ListItemIcon>
-                                <ListItemText primary="Medicamentos" />
+                                {/* <ListItemText primary="Medicamentos" /> */}
                             </ListItem>
                             <ListItem button className={classes.nested}>
                                 <ListItemIcon>
-                                    <AlarmAddIcon />
+                                    <AlarmAddIcon color="primary" fontSize="large" />
                                 </ListItemIcon>
-                                <ListItemText primary="Starred" />
+                                {/* <ListItemText primary="Starred" /> */}
                             </ListItem>
-                        </List>
-                    </Collapse>
+                        {/* </List>
+                    </Collapse> */}
                     <ListItem
                         disabled={clienteContext ? false : true}
                         button
@@ -117,24 +114,24 @@ const LeftDrawer = () => {
                         onClick={handleAtendimento}
                     >
                         <ListItemIcon>
-                            <AssistantIcon />
+                            <SystemUpdateAltIcon color="primary" fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText primary="Atendimento" />
+                        {/* <ListItemText primary="Atendimento" /> */}
                     </ListItem>
 
                 </List>
                 <Divider />
                 <ListItem button>
                     <ListItemIcon>
-                        <AssistantIcon />
+                        <AssistantIcon color="primary" fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="XXXXXX" />
+                    {/* <ListItemText primary="XXXXXX" /> */}
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <AssistantIcon />
+                        <AssistantIcon color="primary" fontSize="large" />
                     </ListItemIcon>
-                    <ListItemText primary="ZZZZZ" />
+                    {/* <ListItemText primary="ZZZZZ" /> */}
                 </ListItem>
             </div>
         </Drawer>
