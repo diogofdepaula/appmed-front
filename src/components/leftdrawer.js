@@ -1,11 +1,12 @@
+import { Tooltip } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { makeStyles } from '@material-ui/core/styles';
-import AlarmAddIcon from '@material-ui/icons/AlarmAdd';
-import AssistantIcon from '@material-ui/icons/Assistant';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 import GroupIcon from '@material-ui/icons/Group';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
@@ -79,33 +80,37 @@ const LeftDrawer = () => {
                     */}
                     {/* <Collapse in={open} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding> */}
-                            <ListItem
-                                button
-                                className={classes.nested}
-                                onClick={handleCliente}
-                            >
-                                <ListItemIcon>
-                                    <GroupIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                                {/* <ListItemText primary="Clientes" /> */}
-                            </ListItem>
-                            <ListItem
-                                button
-                                className={classes.nested}
-                                onClick={handleMedicamento}
-                            >
-                                <ListItemIcon>
-                                    <LocalHospitalIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                                {/* <ListItemText primary="Medicamentos" /> */}
-                            </ListItem>
-                            <ListItem button className={classes.nested}>
-                                <ListItemIcon>
-                                    <AlarmAddIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                                {/* <ListItemText primary="Starred" /> */}
-                            </ListItem>
-                        {/* </List>
+                    <ListItem
+                        button
+                        className={classes.nested}
+                        onClick={handleCliente}
+                    >
+                        <Tooltip title="Cadastro de Clientes">
+                            <ListItemIcon>
+                                <GroupIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                            {/* <ListItemText primary="Clientes" /> */}
+                        </Tooltip>
+                    </ListItem>
+                    <ListItem
+                        button
+                        className={classes.nested}
+                        onClick={handleMedicamento}
+                    >
+                        <Tooltip title="Cadastro de Medicamentos">
+                            <ListItemIcon>
+                                <LocalHospitalIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                            {/* <ListItemText primary="Medicamentos" /> */}
+                        </Tooltip>
+                    </ListItem>
+                    <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                            <HelpOutlineIcon color="primary" fontSize="large" />
+                        </ListItemIcon>
+                        {/* <ListItemText primary="Starred" /> */}
+                    </ListItem>
+                    {/* </List>
                     </Collapse> */}
                     <ListItem
                         disabled={clienteContext ? false : true}
@@ -113,23 +118,25 @@ const LeftDrawer = () => {
                         selected={pageContentContext === 'atendimento'}
                         onClick={handleAtendimento}
                     >
-                        <ListItemIcon>
-                            <SystemUpdateAltIcon color="primary" fontSize="large" />
-                        </ListItemIcon>
-                        {/* <ListItemText primary="Atendimento" /> */}
+                        <Tooltip title="Atendimento">
+                            <ListItemIcon>
+                                <SystemUpdateAltIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                            {/* <ListItemText primary="Atendimento" /> */}
+                        </Tooltip>
                     </ListItem>
 
                 </List>
                 <Divider />
                 <ListItem button>
                     <ListItemIcon>
-                        <AssistantIcon color="primary" fontSize="large" />
+                        <SettingsEthernetIcon color="primary" fontSize="large" />
                     </ListItemIcon>
                     {/* <ListItemText primary="XXXXXX" /> */}
                 </ListItem>
                 <ListItem button>
                     <ListItemIcon>
-                        <AssistantIcon color="primary" fontSize="large" />
+                        <SettingsEthernetIcon color="primary" fontSize="large" />
                     </ListItemIcon>
                     {/* <ListItemText primary="ZZZZZ" /> */}
                 </ListItem>
