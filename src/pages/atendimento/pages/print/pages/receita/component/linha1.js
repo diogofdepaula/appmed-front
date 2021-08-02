@@ -18,7 +18,7 @@ const useStylesA5 = makeStyles((theme) => ({
     },
 }));
 
-const Linha1 = ({ tipo }) => {
+const Linha1 = ({ tipo, previoususo }) => {
 
     const classesA4 = useStylesA4();
     const classesA5 = useStylesA5();
@@ -29,23 +29,27 @@ const Linha1 = ({ tipo }) => {
 
     return (
         <>
-            <Box>
-                <Grid container direction='row' spacing={3}>
-                    <Grid item xs={6} />
-                    <Grid item >
-                        <Typography className={classes.typo}>
-                            {prescricao.apresentaco.uso}
-                        </Typography>
-                    </Grid>
-                    <Grid item >
-                        {prescricao.continuo &&
+            {previoususo === prescricao.apresentaco.uso ?
+                <div />
+                :
+                <Box>
+                    <Grid container direction='row' spacing={3}>
+                        <Grid item xs={6} />
+                        <Grid item >
                             <Typography className={classes.typo}>
-                                {!impressao.continuo && "uso contínuo"}
+                                {prescricao.apresentaco.uso}
                             </Typography>
-                        }
+                        </Grid>
+                        <Grid item >
+                            {prescricao.continuo &&
+                                <Typography className={classes.typo}>
+                                    {!impressao.continuo && "uso contínuo"}
+                                </Typography>
+                            }
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Box>
+                </Box>
+            }
         </>
     )
 }

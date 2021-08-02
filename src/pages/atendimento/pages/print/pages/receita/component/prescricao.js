@@ -8,7 +8,7 @@ import Linha5 from './linha5'
 
 export const PrescricaoPrintContext = createContext(null)
 
-const Prescricao = ({ prescricao, mes, tipo }) => {
+const Prescricao = ({ prescricao, mes, tipo, previoususo }) => {
 
     // +++++         Linha1 = Uso + Continuo                                    +++++
     // +++++         Linha2 = NomesComerciais                                   +++++
@@ -20,7 +20,7 @@ const Prescricao = ({ prescricao, mes, tipo }) => {
         <>
             <Box mt={3}>
                 <PrescricaoPrintContext.Provider value={prescricao}>
-                    <Linha1 tipo={tipo} />
+                    <Linha1 tipo={tipo} previoususo={previoususo}/>
                     <Linha2 tipo={tipo} />
                     <Linha3 mes={mes} tipo={tipo} />
                     <Linha4 tipo={tipo} />

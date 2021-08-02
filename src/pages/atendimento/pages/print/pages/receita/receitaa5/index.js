@@ -15,7 +15,16 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo }) => {
                         <Box justifyContent="center">
                             <Box display="block">
                                 <Identificacao tipo={tipo} />
-                                {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} tipo={tipo} /></div>)}
+                                {prescricoes?.map((p, i) =>
+                                    <div key={i}>
+                                        <Prescricao
+                                            prescricao={p}
+                                            mes={mes}
+                                            tipo={tipo}
+                                            previoususo={prescricoes[i -1]?.apresentaco.uso}
+                                        />
+                                    </div>
+                                )}
                             </Box>
                         </Box>
                     </Box>
