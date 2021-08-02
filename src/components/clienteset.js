@@ -95,7 +95,7 @@ const ClienteSet = () => {
 
         let filtro = [...clientes].filter(w =>
             w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
-            w.nascimento?.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+            w.cpf?.replace('-', '').replace('.', '').replace('.', '').indexOf(event.target.value.replace('-', '').replace('.', '').replace('.', '')) !== -1
         )
         if (filtro.length === 0) {
             filtro.push({
