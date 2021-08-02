@@ -19,7 +19,7 @@ const useStylesA5 = makeStyles((theme) => ({
     },
     typo: {
         ...theme.typography.h6,
-        fontSize: 16,
+        fontSize: 18,
         textAlign: 'justify'
     },
 }));
