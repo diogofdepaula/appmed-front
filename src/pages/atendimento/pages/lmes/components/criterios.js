@@ -24,6 +24,7 @@ const Criterios = () => {
         'fotossensibilidade',
         'gestante com lúpus eritematoso atendida em serviço especializado',
         'úlcera mucosa',
+        'fator antinuclear (FAN) reagente',
         'eritema malar',
         'anemia hemolítica com reticulocitose',
         'leucopenia de menos de 4000/mm³ em duas ou mais ocasiões',
