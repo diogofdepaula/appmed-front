@@ -5,10 +5,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
 import MailIcon from '@material-ui/icons/Mail';
-import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import React from 'react';
@@ -29,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
         // menos 16 do padding
         display: 'flex',
         alignItems: 'center',
-        width: '216px'
+        //width: '216px'
+        // se somente o icone da casa
+        width: '36px'
     },
     title: {
         display: 'none',
@@ -181,22 +182,27 @@ const PrimaryAppBar = () => {
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <div className={classes.menutop}>
-                        <IconButton
+                        {/* <IconButton
                             edge="start"
                             className={classes.menuButton}
                             color="inherit"
                             aria-label="open drawer"
                         >
                             <MenuIcon />
-                        </IconButton>
-                        <Typography
+                        </IconButton> */}
+                        
+                        <HomeIcon 
+                            fontSize='large'
+                            onClick={handleHome}
+                        />
+                        {/* <Typography
                             className={classes.title}
                             variant="h6"
                             noWrap={true}
                             onClick={handleHome}
                         >
                             APPMed
-                        </Typography>
+                        </Typography> */}
                     </div>
                     <div className={classes.grow} >
                         <ClienteSet />
