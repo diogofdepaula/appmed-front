@@ -3,6 +3,7 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 
 const PrescricaoVarSet = () => {
 
@@ -19,10 +20,16 @@ const PrescricaoVarSet = () => {
         setPrescricaoEdit({ ...prescricaoEdit, inicio: format(parseISO(event.target.value), "yyyy-MM-dd") })
     }
 
-    const handleOrientacoes = () => {
+    const handleOrientacoes = param => () => {
+        let orientacoes = medicamentoEdit.orientacoes
+        let rename = 'Essa medicação não está listada no ' +
+            'RENAME. Essa medicação deverá ser adquirida ' +
+            'por recursos próprios, pois ela não é fornecida ' +
+            'pelo SUS.'
+
         setPrescricaoEdit({
             ...prescricaoEdit,
-            orientacoes: medicamentoEdit.orientacoes,
+            orientacoes: param === 'rename' ? rename : orientacoes,
             imprimirorientacoes: true
         })
     }
@@ -63,15 +70,27 @@ const PrescricaoVarSet = () => {
                             onChange={(e) => handleDataInicio(e)}
                         />
                     </Grid>
-                    <Grid item xs={3}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            startIcon={<PostAddIcon />}
-                            onClick={handleOrientacoes}
-                        >
-                            Padrão
-                        </Button>
+                    <Grid container item xs={3} spacing={1}>
+                        <Grid item>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                startIcon={<PostAddIcon />}
+                                onClick={handleOrientacoes('orientacoes')}
+                            >
+                                Padrão
+                            </Button>
+                        </Grid>
+                        <Grid item>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                startIcon={<LocalAtmIcon />}
+                                onClick={handleOrientacoes('rename')}
+                            >
+                                RENAME
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Box >
