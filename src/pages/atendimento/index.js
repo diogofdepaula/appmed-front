@@ -24,7 +24,7 @@ const Atendimento = () => {
         prescricoesSelecionadas: [],
         tipo: '', // simples, controlado
         meses: 6,
-        local: '', // consultorio, SUS (cisgap, cisco)
+        local: 'consultorio', // consultorio, SUS (cisgap, cisco)
         lmes: [],
         lmesSelecionadas: [],
         termosSelecionados: [],
