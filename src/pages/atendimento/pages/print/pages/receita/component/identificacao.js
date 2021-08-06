@@ -11,12 +11,12 @@ const useStylesA4 = makeStyles((theme) => ({
         paddingBottom: 7,
     },
     typonomemajor: {
-        fontSize: 42,
+        fontSize: 48,
         fontWeight: 'bold',
         textAlign: 'center',
     },
     typonomeminor: {
-        fontSize: 42,
+        fontSize: 48,
         fontWeight: 'bold',
         textAlign: 'center',
     },

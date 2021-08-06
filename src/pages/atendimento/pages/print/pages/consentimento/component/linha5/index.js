@@ -39,6 +39,13 @@ const Linha5Termo = () => {
 
     const size = impressao.termosSelecionados.length > 1 ? 'body2' : 'subtitle1'
 
+    // const componentRef = useRef();
+    // useEffect(() => {
+    //     itemsRef.current = itemsRef.current.slice(0, listPresc.length);
+    // }, [listPresc]);
+    // <div key={i} ref={el => itemsRef.current[i] = el} >
+    //     </div>
+
     return (
         <>
             <Box mt={2} width={1} height={1} border={1} borderColor="black">

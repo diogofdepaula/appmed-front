@@ -13,11 +13,11 @@ const Titulo = ({ tipo }) => {
     if (tipo === 'lme') {
         titulo =
             <Box display={"block"} justifyContent="center">
-                <Typography variant={'h4'}  align={'center'}>
-                    <Box fontWeight="fontWeightBold" fontSize={30}>Receita Médica</Box>
+                <Typography variant={'h3'}  align={'center'}>
+                    <Box fontWeight="fontWeightBold" fontSize={40}>Receita Médica</Box>
                 </Typography>
-                <Typography variant={'subtitle2'}  align={'center'}>
-                    <Box fontSize={12}>Componente Especializado da Assistência Farmacêutica</Box>
+                <Typography variant={'h6'}  align={'center'}>
+                    <Box fontSize={18}>Componente Especializado da Assistência Farmacêutica</Box>
                 </Typography>
             </Box >
     } else {
