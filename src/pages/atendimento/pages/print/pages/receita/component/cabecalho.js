@@ -14,7 +14,7 @@ const Titulo = ({ tipo }) => {
         titulo =
             <Box display={"block"} justifyContent="center">
                 <Typography variant={'h3'}  align={'center'}>
-                    <Box fontWeight="fontWeightBold" fontSize={40}>Receita Médica</Box>
+                    <Box fontWeight="fontWeightBold" fontSize={30}>Receita Médica</Box>
                 </Typography>
                 <Typography variant={'h6'}  align={'center'}>
                     <Box fontSize={18}>Componente Especializado da Assistência Farmacêutica</Box>
@@ -37,21 +37,21 @@ const Cabecalho = ({ tipo }) => {
     return (
         <>
             <Box display="flex" justifyContent="center" border={3} borderColor={"black"} borderBottom={0}>
-                <Box my={1} display="flex" flexWrap="nowrap">
+                <Box my={1} mr={1} display="flex" flexWrap="nowrap">
                     <CardMedia
-                        style={{ width: "108px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                        style={{ width: "172px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                         image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
                     />
-                    <Box mx={20}>
+                    <Box mx={16} my={2}>
                         <Titulo tipo={tipo} />
                     </Box>
                     {impressao.local === "" ?
                         <Box
-                            style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                            style={{ width: "156px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                         />
                         :
                         <CardMedia
-                            style={{ width: "135px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                            style={{ width: "220px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                             image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO) }
                         />
                     }
