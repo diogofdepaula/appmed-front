@@ -34,8 +34,8 @@ const Atendimento = () => {
         nomecomercial: true,
         continuo: false,
         database: new Date(),
-        somaheighta4: 600, // 900, 
-        somaheighta5: 470,
+        somaheighta4: 950, // 900, 
+        somaheighta5: 440,
     }
     
     const [impressao, setImpressao] = useState(initialImpressao)
