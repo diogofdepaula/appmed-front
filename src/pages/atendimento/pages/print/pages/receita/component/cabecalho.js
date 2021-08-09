@@ -37,9 +37,9 @@ const Cabecalho = ({ tipo }) => {
     return (
         <>
             <Box display="flex" justifyContent="center" border={3} borderColor={"black"} borderBottom={0}>
-                <Box my={1} mr={1} display="flex" flexWrap="nowrap">
+                <Box my={1} mr={1} display="flex" flexWrap="nowrap" style={{ height: '63px'}}>
                     <CardMedia
-                        style={{ width: "110px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                        style={{ width: "124px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
                         image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
                     />
                     <Box mx={6} >
