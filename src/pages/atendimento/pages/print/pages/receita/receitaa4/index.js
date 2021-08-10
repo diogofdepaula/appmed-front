@@ -16,7 +16,7 @@ const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
                 <Box width={1} height={1} display="block">
                     <Cabecalho tipo={tipo} />
                     <Box
-                        height='calc(100% - 146px)' // se mudar o Cabecalho tem que ajustar aqui depois
+                        height='calc(100% - 118px)' // se mudar o Cabecalho tem que ajustar aqui depois
                         p={5} border={3} borderColor={"black"} >
                         <Box display="block" height={1}>
                             <Box justifyContent="center">
