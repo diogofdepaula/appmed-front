@@ -34,7 +34,7 @@ const Cabecalho = ({ tipo }) => {
 
     const { impressao } = useContext(ImpressaoContext)
 
-    let direita = "83%"
+    let direita = "70%"
 
     return (
         <>
@@ -43,7 +43,7 @@ const Cabecalho = ({ tipo }) => {
                     <Grid container>
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
                             <CardMedia
-                                style={{ width: "56%", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                style={{ width: "56%", height: "100%" }}  
                                 image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
                             />
                         </Grid>
@@ -53,15 +53,13 @@ const Cabecalho = ({ tipo }) => {
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
                             {impressao.local === "" ?
                                 <Box
-                                    style={{ width: direita, height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                    style={{ width: direita, height: "100%" }} 
                                 />
                                 :
-                                <Box style={{ width: direita, height: "100%" }} >
-                                    <CardMedia
-                                        style={{ width: direita, height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                                        image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO)}
-                                    />
-                                </Box>
+                                <CardMedia
+                                    style={{ width: direita, height: "100%" }}  
+                                    image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO)}
+                                />
                             }
                         </Grid>
                     </Grid>
