@@ -1,4 +1,4 @@
-import { Box, CardMedia, Typography } from '@material-ui/core'
+import { Box, CardMedia, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { ImpressaoContext } from '../../../../..'
 import LogoCISCO from '../../../component/imagens/ciscologo.png'
@@ -13,10 +13,10 @@ const Titulo = ({ tipo }) => {
     if (tipo === 'lme') {
         titulo =
             <Box display={"block"} justifyContent="center">
-                <Typography variant={'h3'}  align={'center'}>
-                    <Box fontWeight="fontWeightBold" fontSize={30}>Receita Médica</Box>
+                <Typography variant={'h3'} align={'center'}>
+                    <Box fontWeight="fontWeightBold" fontSize={38}>Receita Médica</Box>
                 </Typography>
-                <Typography variant={'h6'}  align={'center'} noWrap>
+                <Typography variant={'h6'} align={'center'} noWrap>
                     <Box fontSize={18}>Componente Especializado da Assistência Farmacêutica</Box>
                 </Typography>
             </Box >
@@ -34,27 +34,37 @@ const Cabecalho = ({ tipo }) => {
 
     const { impressao } = useContext(ImpressaoContext)
 
+    let direita = "83%"
+
     return (
         <>
             <Box display="flex" justifyContent="center" border={3} borderColor={"black"} borderBottom={0}>
-                <Box my={1} mr={1} display="flex" flexWrap="nowrap" style={{ height: '63px'}}>
-                    <CardMedia
-                        style={{ width: "124px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
-                    />
-                    <Box mx={6} >
-                        <Titulo tipo={tipo} />
-                    </Box>
-                    {impressao.local === "" ?
-                        <Box
-                            style={{ width: "200x", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                        />
-                        :
-                        <CardMedia
-                            style={{ width: "200px", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
-                            image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO) }
-                        />
-                    }
+                <Box my={1} style={{ width: '100%' }}>
+                    <Grid container>
+                        <Grid container item xs direction="column" justifyContent="center" alignItems="center">
+                            <CardMedia
+                                style={{ width: "56%", height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Titulo tipo={tipo} />
+                        </Grid>
+                        <Grid container item xs direction="column" justifyContent="center" alignItems="center">
+                            {impressao.local === "" ?
+                                <Box
+                                    style={{ width: direita, height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                />
+                                :
+                                <Box style={{ width: direita, height: "100%" }} >
+                                    <CardMedia
+                                        style={{ width: direita, height: "100%" }}  // width (em px) = heightdaimagemnatela/heightoriginal x widthoriginal
+                                        image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO)}
+                                    />
+                                </Box>
+                            }
+                        </Grid>
+                    </Grid>
                 </Box>
             </Box>
         </>
