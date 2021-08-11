@@ -51,8 +51,6 @@ const Linha5Termo = () => {
         ChangeSize(inputRef.current.offsetHeight)
     }, [ChangeSize]);
 
-    console.log(fontsize);
-
     return (
         <>
             <Box mt={2} width={1} height={1} border={1} borderColor="black">
