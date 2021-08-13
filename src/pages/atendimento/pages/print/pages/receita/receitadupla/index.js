@@ -14,17 +14,23 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         height: '100%',
         display: "block",
-        backgroundColor: 'lightyellow',
+        backgroundColor: 'yellow',
     },
-    boxright: {
-        width: '50%',
-        height: '50%',
-        backgroundColor: 'lightred'
-        //, transform: "rotate(270deg)" }}>
+    boxA: {
+        width: '72%',
+        height: '67.3%',
+        backgroundColor: 'red',
+        transform: "rotate(270deg)",
+        WebkitTransformOrigin: "50.7% 36.3%"
+    },
+    boxB: {
+        width: '72%',
+        height: '67.3%',
+        backgroundColor: 'blue',
+        transform: "rotate(270deg)",
+        WebkitTransformOrigin: "33.4% 23.7%"
     },
 }));
-
-
 
 const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
 
@@ -34,12 +40,12 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
         <>
             <PageA4>
                 <Box className={classes.boxroot} >
-                    <Box className={classes.boxright} >
-                        Testendo  111111
+                    <Box className={classes.boxA} >
+                        Testando  111111
                     </Box>
-                    {/* <Box width="50%" height={1} style={{ backgroundColor: 'lightblue', transform: "rotate(270deg)" }}>
-                        Testando 2222
-                    </Box> */}
+                    <Box className={classes.boxB} >
+                        Testando  222222
+                    </Box>
                 </Box>
             </PageA4>
         </>

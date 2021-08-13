@@ -3,7 +3,7 @@ import { ImpressaoContext } from '../../..';
 import TermoConsentimento from './consentimento';
 import FactoryLME from './lme';
 import FactoryReceitas from './receita';
-// import ReceitaDupla from './receita/receitadupla';
+import ReceitaDupla from './receita/receitadupla';
 import FactoryRelatorio from './relatorio';
 
 const PrintJob = () => {
@@ -18,7 +18,7 @@ const PrintJob = () => {
         impressao.lmesSelecionadas?.map(l =>
             jobs.push(
                 <div key={l.id} >
-                    {/* <ReceitaDupla /> */}
+                    <ReceitaDupla />
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 
