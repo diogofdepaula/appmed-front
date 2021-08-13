@@ -4,20 +4,24 @@ import Reorder from './../../component/reorder';
 import Prescricao from './component/prescricao';
 import ReceitaA5 from './receitaa5';
 import ReceitaA4 from './receitaa4';
+import ReceitaDupla from './receitadupla';
 
-const ReceitaPorTipo = ({ prescricoes, via, mes, tipo }) => {
+const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla }) => {
 
     // variações conforme o local
     let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
 
     if (tipo === "consultorio") {
         receita = <ReceitaA5 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
+    } else if (dupla) {
+        let a = prescricoes.filter(p => p.medicamento.farmaco === "Leflunomida")
+        receita = <ReceitaDupla prescricoes={a.length > 0 ? a : prescricoes} via={via} mes={mes} tipo={tipo} dupla={dupla}/>
     }
 
     return receita
 }
 
-const FactoryReceitas = ({ listPresc, via, mes, tipo }) => {
+const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
 
     const { impressao } = useContext(ImpressaoContext)
 
@@ -57,14 +61,14 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo }) => {
             listReceitas.push(
                 <div key={r}>
                     {/* <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes} /> */}
-                    <ReceitaPorTipo prescricoes={grupoprescricoessort} via={via} mes={mes} tipo={tipo} />
+                    <ReceitaPorTipo prescricoes={grupoprescricoessort} via={via} mes={mes} tipo={tipo} dupla={dupla} />
                 </div>
             )
         })
 
         setReceitas(listReceitas)
 
-    }, [impressao, listPresc, mes, tipo, via])
+    }, [impressao, listPresc, mes, tipo, via, dupla])
 
     useEffect(() => {
         if (itemsRef.current) {

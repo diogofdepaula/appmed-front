@@ -7,13 +7,6 @@ import Identificacao from '../component/identificacao';
 import Prescricao from '../component/prescricao';
 import Rodape from '../component/rodape';
 import Via from '../component/via';
-// import Cabecalho from '../component/cabecalho'
-// import Data from '../component/data'
-// import Identificacao from '../component/identificacao'
-// import Prescricao from '../component/prescricao'
-// import Rodape from '../component/rodape'
-// import Via from '../component/via'
-
 
 const useStyles = makeStyles((theme) => ({
     boxroot: {
@@ -38,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
+const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
 
     const classes = useStyles();
 
@@ -46,7 +39,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
 
         return (
             <Box width={1} height={1} display="block">
-                <Cabecalho tipo={tipo} />
+                <Cabecalho tipo={tipo} dupla={dupla} />
                 <Box
                     height='calc(100% - 118px)' // se mudar o Cabecalho tem que ajustar aqui depois
                     p={5} border={3} borderColor={"black"} >
@@ -55,7 +48,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
                             <Box display="block">
                                 <Via via={via} tipo={tipo} />
                                 <Identificacao tipo={tipo} />
-                                {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} tipo={tipo} /></div>)}
+                                {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes + mesmais} tipo={tipo} /></div>)}
                             </Box>
                         </Box>
                     </Box>
@@ -74,7 +67,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
                         <Inside mesmais={1} />
                     </Box>
                     <Box className={classes.boxB} >
-                        <Inside mesmais={0}/>
+                        <Inside mesmais={0} />
                     </Box>
                 </Box>
             </PageA4>
@@ -83,7 +76,3 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo }) => {
 }
 
 export default ReceitaDupla
-
-//  <div style={{ transform: "rotate(270deg)" }}>
-
-// </div> 

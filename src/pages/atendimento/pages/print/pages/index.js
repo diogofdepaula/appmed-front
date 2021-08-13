@@ -3,7 +3,6 @@ import { ImpressaoContext } from '../../..';
 import TermoConsentimento from './consentimento';
 import FactoryLME from './lme';
 import FactoryReceitas from './receita';
-import ReceitaDupla from './receita/receitadupla';
 import FactoryRelatorio from './relatorio';
 
 const PrintJob = () => {
@@ -22,26 +21,17 @@ const PrintJob = () => {
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 
                     {/* Receitas */}
-                    {l.prescricoes.filter(p => p.medicamento.controlado).length > 0 ?
-                        [...Array(6).keys()].map(d =>
+                    {l.prescricoes.filter(p => (p.medicamento.controlado).length > 0 || p.medicamento.farmaco === "Leflunomida") ?
+                        [...Array(6).keys()].filter(e => e % 2 === 0).map(d =>
                             <div key={d}>
                                 {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                                <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} tipo={"lme"} />
+                                <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} tipo={"lme"} dupla={true} />
                             </div>
                         )
                         :
                         <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} />
                     }
-                    {/* Receita de Leflunomida */}
-                    {l.prescricoes.filter(p => p.medicamento.farmaco === "Leflunomida").length > 0 &&
-                        [...Array(6).keys()].filter(e => e % 2 === 0).map(d =>
-                            <div key={d}>
-                                {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                                <ReceitaDupla listPresc={l.prescricoes.filter(t => t.medicamento.farmaco === "Leflunomida")} via={"Estado"} mes={d} tipo={"lme"} />
-                                {/* <FactoryReceitas listPresc={l.prescricoes.filter(t => t.medicamento.farmaco === "Leflunomida")} via={"Estado"} mes={d} tipo={"lme"} /> */}
-                            </div>
-                        )
-                    }
+                                        
                     {/* Medicamentos não controlados */}
                     {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
                     <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />

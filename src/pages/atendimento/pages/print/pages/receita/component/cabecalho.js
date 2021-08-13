@@ -6,11 +6,11 @@ import LogoCISGAP from '../../../component/imagens/cisgaplogo.png'
 import LogoSUS from '../../../component/imagens/logosus.png'
 import Branco1px from '../../../component/imagens/branco1px.png'
 
-const Cabecalho = ({ tipo }) => {
+const Cabecalho = ({ tipo, dupla }) => {
 
     const { impressao } = useContext(ImpressaoContext)
 
-    let direita = "70%"
+    let direita = dupla ? "98%" : "70%"
 
     return (
         <>
@@ -19,7 +19,7 @@ const Cabecalho = ({ tipo }) => {
                     <Grid container>
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
                             <CardMedia
-                                style={{ width: "56%", height: "100%" }}
+                                style={{ width: dupla ? "76%" : "54%", height: "100%" }}
                                 image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
                             />
                         </Grid>
@@ -30,9 +30,11 @@ const Cabecalho = ({ tipo }) => {
                                 </Typography>
                             </Grid>
                             {tipo === 'lme' &&
-                                <Typography variant={'h6'} align={'center'} noWrap>
-                                    <Box fontSize={18}>Componente Especializado da Assistência Farmacêutica</Box>
-                                </Typography>
+                                <Grid item xs>
+                                    <Typography variant={'h6'} align={'center'} noWrap>
+                                        <Box fontSize={dupla ? 14 : 18}>Componente Especializado da Assistência Farmacêutica</Box>
+                                    </Typography>
+                                </Grid>
                             }
                         </Grid>
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
