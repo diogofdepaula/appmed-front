@@ -11,6 +11,8 @@ const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla }) => {
     // variações conforme o local
     let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
 
+    console.log(dupla);
+
     if (tipo === "consultorio") {
         receita = <ReceitaA5 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
     } else if (dupla) {

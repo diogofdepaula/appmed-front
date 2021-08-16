@@ -15,13 +15,16 @@ const PrintJob = () => {
 
         //        print lmes
         impressao.lmesSelecionadas?.map(l =>
+
             jobs.push(
                 <div key={l.id} >
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 
                     {/* Receitas */}
-                    {l.prescricoes.filter(p => (p.medicamento.controlado).length > 0 || p.medicamento.farmaco === "Leflunomida") ?
+                    <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
+                    
+                    {l.prescricoes.filter(p => p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida").length > 0 ?
                         [...Array(6).keys()].filter(e => e % 2 === 0).map(d =>
                             <div key={d}>
                                 {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
@@ -29,7 +32,7 @@ const PrintJob = () => {
                             </div>
                         )
                         :
-                        <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} />
+                        <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
                     }
                                         
                     {/* Medicamentos não controlados */}
