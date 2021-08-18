@@ -14,37 +14,38 @@ const PrintJob = () => {
         let jobs = []
 
         //        print lmes
-        impressao.lmesSelecionadas?.map(l =>
+        impressao.lmesSelecionadas?.map(l => {
 
-            jobs.push(
+         return   jobs.push(
                 <div key={l.id} >
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 
                     {/* Receitas */}
-                    <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
-                    
-                    {l.prescricoes.filter(p => p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida").length > 0 ?
+                    {/* if para situação em que a LFN (ou GBP) esteja sozinha na LME, então não sairá a Receita (via) do Estado */}
+                    {!l.prescricoes.filter((p, i) => (p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida") && i === 0).length > 0  &&
+                        <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
+                    }
+
+                    {l.prescricoes.filter(p => p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida").length > 0 &&
                         [...Array(6).keys()].filter(e => e % 2 === 0).map(d =>
                             <div key={d}>
                                 {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
                                 <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} tipo={"lme"} dupla={true} />
                             </div>
                         )
-                        :
-                        <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
                     }
-                                        
+
                     {/* Medicamentos não controlados */}
                     {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
                     <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
 
                 </div>
             )
-        )
+        })
 
         impressao.termosSelecionados.length > 0 && jobs.push(<TermoConsentimento />)
-        
+
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {
 
