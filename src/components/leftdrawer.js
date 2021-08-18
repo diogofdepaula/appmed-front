@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { makeStyles } from '@material-ui/core/styles';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import FlashOnIcon from '@material-ui/icons/FlashOn';
 import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
 import GroupIcon from '@material-ui/icons/Group';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
@@ -106,7 +106,7 @@ const LeftDrawer = () => {
                     </ListItem>
                     <ListItem button className={classes.nested}>
                         <ListItemIcon>
-                            <HelpOutlineIcon color="primary" fontSize="large" />
+                            <FlashOnIcon color="primary" fontSize="large" />
                         </ListItemIcon>
                         {/* <ListItemText primary="Starred" /> */}
                     </ListItem>
