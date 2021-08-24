@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { LMEPrintContext } from '../..'
 
 const Linha7LME = () => {
@@ -12,7 +12,7 @@ const Linha7LME = () => {
 
         if (lme.anamnese) {
             texto =
-                <Typography component={'span'} variant={'h6'} align={'justify'}>
+                <Typography component={'span'} variant={fontsize} align={'justify'}>
                     {lme.anamnese.split("\n").map((i, key) => {
                         return <div key={Math.random() * 1000}>{i}</div>;
                     })}
@@ -22,6 +22,19 @@ const Linha7LME = () => {
         }
         return texto
     }
+
+    const inputRef = useRef(null);
+    const [fontsize, setFontSize] = useState('h6')
+
+    const ChangeSize = useCallback((param) => {
+        if (param > 366) {
+            setFontSize('body2')
+        }
+    }, [])
+
+    useEffect(() => {
+        ChangeSize(inputRef.current.offsetHeight)
+    }, [ChangeSize]);
 
     return (
         <>
@@ -37,9 +50,11 @@ const Linha7LME = () => {
                                 </Box>
                             </Grid>
                             <Grid item>
-                                <Box p={1}>
-                                    <Texto />
-                                </Box>
+                                <div ref={inputRef} >
+                                    <Box p={1}>
+                                        <Texto />
+                                    </Box>
+                                </div>
                             </Grid>
                         </Grid>
                     </Box>
