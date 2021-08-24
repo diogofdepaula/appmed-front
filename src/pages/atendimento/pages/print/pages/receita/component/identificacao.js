@@ -38,7 +38,8 @@ const useStylesA5 = makeStyles((theme) => ({
         textAlign: 'center',
     },
     typonomeminor: {
-        fontSize: 30,
+        fontSize: 32,
+        letterSpacing: '0px',
         fontWeight: 'bold',
         textAlign: 'center',
     },
