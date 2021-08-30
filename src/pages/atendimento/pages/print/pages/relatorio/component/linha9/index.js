@@ -33,7 +33,7 @@ const Linha9Relatorio = () => {
                         <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>15 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
+                                    <Box bgcolor="white" px={1}>15 - Relatório Medico (justificativa para solicitação ou mudança e eventos adversos)</Box>
                                 </Typography>
                             </Box>
                         </Grid>
