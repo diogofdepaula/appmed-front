@@ -36,9 +36,9 @@ const FactoryRelatorio = (props) => {
                                 <Linha6Relatorio />
                                 <Linha7Relatorio />
                                 <Linha8Relatorio />
-                                <Grid container item xs direction="row" alignItems="stretch">
+                                {/* <Grid container item xs direction="row" alignItems="stretch"> */}
                                     <Linha9Relatorio />
-                                </Grid>
+                                {/* </Grid> */}
                             </Grid>
                             <Grid container item >
                                 <Linha10Relatorio />

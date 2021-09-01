@@ -1,35 +1,17 @@
 import { Box, Grid, Typography } from '@material-ui/core'
 import React, { useContext } from 'react'
+import { ReactFitty } from 'react-fitty'
 import { LMEPrintContext } from '../..'
 
 const Linha9Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
 
-    const Texto = () => {
-
-        let texto = <div />
-
-        if (lme.anamnese) {
-            texto =
-                <Box px={1}>
-                    <Typography component={'span'}>
-                        {lme.anamnese.split("\n").map((i, key) => {
-                            return <div key={Math.random() * 1000}>{i}</div>;
-                        })}
-                    </Typography>
-                </Box>
-        } else {
-            texto = <Box style={{ color: "white" }}>-</Box>
-        }
-        return texto
-    }
-
     return (
         <>
-            <Grid container item >
+            <Grid container item xs >
                 <Box mt={2} width={1} border={1} borderColor="black">
-                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
+                    <Grid container style={{ height: '100%' }} direction="column" justify="flex-end" alignItems="stretch">
                         <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
@@ -37,10 +19,10 @@ const Linha9Relatorio = () => {
                                 </Typography>
                             </Box>
                         </Grid>
-                        <Grid item>
-                            <Box pt={1}>
-                                <Typography component={'span'} variant={'h6'} align={'justify'}>
-                                    <Texto />
+                        <Grid item xs>
+                            <Box p={1} style={{ height: '100%' }}>
+                                <Typography component={ReactFitty} maxSize={16} wrapText>
+                                    {lme.anamnese}
                                 </Typography>
                             </Box>
                         </Grid>
