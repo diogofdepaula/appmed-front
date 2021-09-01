@@ -11,7 +11,7 @@ const Linha9Relatorio = () => {
         <>
             <Grid container item xs >
                 <Box mt={2} width={1} border={1} borderColor="black">
-                    <Grid container style={{ height: '100%' }} direction="column" justify="flex-end" alignItems="stretch">
+                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
                         <Grid item>
                             <Box mt={-1} ml={2} display="flex">
                                 <Typography component={'span'} variant="caption" noWrap={true} >
