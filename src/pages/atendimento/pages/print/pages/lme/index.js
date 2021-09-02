@@ -34,9 +34,9 @@ const FactoryLME = (props) => {
                             <Grid container item xs direction="column" alignItems="stretch">
                                 <Linha5LME />
                                 <Linha6LME />
-                                <Grid container direction="row" alignItems="stretch" item xs>
+                                {/* <Grid container direction="row" alignItems="stretch" item xs> */}
                                     <Linha7LME />
-                                </Grid>
+                                {/* </Grid> */}
                             </Grid>
                             <Grid item >
                                 <Linha9LME />
