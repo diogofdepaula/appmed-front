@@ -92,6 +92,7 @@ const Linha5Termo = () => {
                     maxfont={24}
                     erro={190}
                     padding={2}
+                    align='justify'
                 />
             </Box>
         </>

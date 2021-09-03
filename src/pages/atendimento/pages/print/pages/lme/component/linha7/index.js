@@ -21,6 +21,7 @@ const Linha7LME = () => {
                     maxfont={24}
                     erro={50}
                     padding={1}
+                    align='justify'
                 />
             </Box>
         </>
