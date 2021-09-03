@@ -31,9 +31,10 @@ const AnamneseTips = () => {
     const Frases = () => {
 
         return (
-            <Paper py={2} elevation={3}>
+            <Paper elevation={3}>
+                <Box p={1}>
                 {inclusao[1]?.map((p, i) =>
-                    <Box pt={1} pl={2} key={i}>
+                    <div key={i}>
                         <Chip
                             label={p}
                             variant="outlined"
@@ -46,14 +47,18 @@ const AnamneseTips = () => {
                         >
                             <FormatTextdirectionLToRIcon />
                         </IconButton>
-                    </Box>
+                    </div>
                 )}
+                </Box>
             </Paper>
         )
     }
 
     return (
         <div>
+            <Paper>
+                {JSON.stringify(lmeEdit)}
+            </Paper>
             <Divider />
             <Box py={2} display='flex'>
                 <Box ml={1}>

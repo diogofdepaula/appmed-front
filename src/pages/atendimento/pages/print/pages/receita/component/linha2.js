@@ -42,8 +42,6 @@ const Linha2 = ({ tipo }) => {
 
         let texto = ""
 
-        console.log(prescricao.medicamento.nomescomerciais);
-
         if (impressao.local === 'consultorio' && tipo !== 'lme' && tipo !== undefined) {
             prescricao.medicamento.nomescomerciais?.sort().map((n, i) => {
                 if (n.id === prescricao.medicamento.nomescomerciais[0].id) {

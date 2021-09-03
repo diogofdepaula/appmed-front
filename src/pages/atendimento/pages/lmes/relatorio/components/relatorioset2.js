@@ -14,7 +14,7 @@ const RelatorioSet2 = () => {
 
     const getList = useCallback(() => {
         const ar = [
-            ['ara', 'Rigidez articular', lmeEdit.relatorio?.ara],
+            ['ara', 'Rigidez articular', lmeEdit.relatorio.ara],
             ['arb', 'Artrite em três ou mais áreas', lmeEdit.relatorio.arb],
             ['arc', 'Artrite em articulações das mãos', lmeEdit.relatorio.arc],
             ['ard', 'Artrite simétrica', lmeEdit.relatorio.ard],
