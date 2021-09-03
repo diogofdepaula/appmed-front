@@ -1,26 +1,11 @@
 import { Box, Typography } from '@material-ui/core'
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
+import FitText from '../../../../component/fittext'
 
 const Linha7LME = () => {
 
     const lme = useContext(LMEPrintContext)
-
-    const insideRef = useRef(null);
-    const outsideRef = useRef(null);
-    const [fontsize, setFontSize] = useState(10)
-
-    const ChangeSize = useCallback((param) => {
-        // a cada 2 de fontsize cresce 18-36px de insideRef.current?.offsetHeight
-        // 24 x 2 + 2(de margem de erro)
-        if ((insideRef.current?.offsetHeight + 50) < outsideRef.current?.offsetHeight && fontsize < 24) {
-            setFontSize(fontsize + 2)
-        }
-    }, [fontsize])
-
-    useEffect(() => {
-        ChangeSize(insideRef.current.offsetHeight)
-    }, [ChangeSize]);
 
     return (
         <>
@@ -30,19 +15,13 @@ const Linha7LME = () => {
                         <Box bgcolor="white" px={1}>11 e 12 - Relatório médico (Anamnese e tratamento prévio)</Box>
                     </Typography>
                 </Box>
-                <Box
-                    p={1}
-                    height={1}
-                    style={{ whiteSpace: 'pre-wrap' }}
-                    ref={outsideRef}
-                >
-                    <Box
-                        fontSize={fontsize}
-                        ref={insideRef}
-                    >
-                        {lme.anamnese}
-                    </Box>
-                </Box>
+                <FitText
+                    texto={lme.anamnese}
+                    inicial={8}
+                    maxfont={24}
+                    erro={50}
+                    padding={1}
+                />
             </Box>
         </>
     )
