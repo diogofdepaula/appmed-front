@@ -18,7 +18,7 @@ const Linha9Relatorio = () => {
                 <FitText
                     texto={lme.anamnese}
                     inicial={4}
-                    maxfont={24}
+                    maxfont={20}
                     erro={64}
                     padding={1}
                 />
