@@ -1,4 +1,3 @@
-import { Box } from '@material-ui/core'
 import React from 'react'
 
 const Abatacepte =
@@ -361,7 +360,7 @@ const Adverso = ({ medicamentos }) => {
 
         let texto = Meds.filter(m => m[0] === medicamento).map(x => x[1])
 
-        return <Box>{inicio}{texto}</Box>
+        return <>{inicio}<br />{texto}</>
     }
 
     return (

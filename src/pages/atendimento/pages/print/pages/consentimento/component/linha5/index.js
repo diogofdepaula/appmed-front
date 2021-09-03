@@ -1,8 +1,8 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { useCallback } from 'react'
+import { Box, Typography } from '@material-ui/core'
+import React, { useContext } from 'react'
 import { ImpressaoContext } from '../../../../../..'
 import { ClienteContext } from '../../../../../../../../App'
+import FitText from '../../../../component/fittext'
 import Adverso from './adversos'
 import Gravidez from './gravidez'
 
@@ -12,7 +12,7 @@ const Linha5Termo = () => {
     const { clienteContext } = useContext(ClienteContext)
 
 
-    const Texto = () => {
+    const Meds = () => {
 
         let texto = ""
 
@@ -38,72 +38,61 @@ const Linha5Termo = () => {
             "trazer "
         )
 
-    const inputRef = useRef(null);
-    const [fontsize, setFontSize] = useState('subtitle1')
-
-    const ChangeSize = useCallback((param) => {
-        if (param > 700) {
-            setFontSize('body2')
-        }
-    }, [])
-
-    useEffect(() => {
-        ChangeSize(inputRef.current.offsetHeight)
-    }, [ChangeSize]);
+    const conteudo =
+        <>
+            <>
+                Declaro ter sido {informar} claramente
+                sobre benefícios, riscos, contraindicações e principais efeitos
+                adversos relacionados ao uso de <strong><Meds /></strong>,
+                {impressao.termosSelecionados.length > 1 ? " indicados " : " indicado "}
+                para o tratamento da doenças reumatológicas.
+                <br />
+            </>
+            <>
+                Os termos médicos foram explicados e todas as dúvidas foram esclarecidas pelo
+                Dr. Diogo F de Paula. Expresso também minha concordância e espontânea vontade
+                em submeter-me ao referido tratamento, assumindo a responsabilidade e
+                os riscos pelos eventuais efeitos indesejáveis.
+                <br />
+            </>
+            <>
+                {declaro} trazer benefícios com controle da doença, prevenção das
+                complicações da doença, controle da atividade da doença, melhora da
+                capacidade de realizar  atividades funcionais, melhora da qualidade
+                de vida. e suas complicações.
+                Fui também claramente {clienteContext.sexo === 1 ? " informado " : " informada "}
+                a respeito das seguintes contra-indicações, potenciais efeitos colaterais e riscos.
+                Fui {informar} de que o risco de infecção de várias etiologias e alguns tipos
+                de neoplasias (câncer) é aumentado, principalmente com o uso destes
+                fármacos em associação.
+                <br />
+            </>
+            <>
+                O risco da ocorrência de efeitos adversos aumenta com a superdosagem.
+                E que {impressao.termosSelecionados.length > 1 ? " estes medicamentos são " : " este medicamento é "}
+                contra-indicados em casos de hipersensibilidade (alergia).
+                <br />
+            </>
+            {/* colocar um if depois */}
+            <Gravidez medicamentos={impressao.termosSelecionados} />
+            <Adverso medicamentos={impressao.termosSelecionados} />
+        </>
 
     return (
         <>
-            <Box mt={2} width={1} height={1} border={1} borderColor="black">
-                <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                    <Grid item>
-                        <Box mt={-1} ml={2} display="flex">
-                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>15 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
-                            </Typography>
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <div ref={inputRef} >
-                            <Box p={2}>
-                                <Typography component={'span'} variant={fontsize} align={'justify'}>
-                                    <Box>
-                                        Declaro ter sido {informar} claramente
-                                        sobre benefícios, riscos, contraindicações e principais efeitos
-                                        adversos relacionados ao uso de <strong><Texto /></strong>,
-                                        {impressao.termosSelecionados.length > 1 ? " indicados " : " indicado "}
-                                        para o tratamento da doenças reumatológicas.
-                                    </Box>
-                                    <Box mt={1}>
-                                        Os termos médicos foram explicados e todas as dúvidas foram esclarecidas pelo
-                                        Dr. Diogo F de Paula. Expresso também minha concordância e espontânea vontade
-                                        em submeter-me ao referido tratamento, assumindo a responsabilidade e
-                                        os riscos pelos eventuais efeitos indesejáveis.
-                                    </Box>
-                                    <Box mt={1}>
-                                        {declaro} trazer benefícios com controle da doença, prevenção das
-                                        complicações da doença, controle da atividade da doença, melhora da
-                                        capacidade de realizar  atividades funcionais, melhora da qualidade
-                                        de vida. e suas complicações.
-                                        Fui também claramente {clienteContext.sexo === 1 ? " informado " : " informada "}
-                                        a respeito das seguintes contra-indicações, potenciais efeitos colaterais e riscos.
-                                        Fui {informar} de que o risco de infecção de várias etiologias e alguns tipos
-                                        de neoplasias (câncer) é aumentado, principalmente com o uso destes
-                                        fármacos em associação.
-                                        <div>
-                                            O risco da ocorrência de efeitos adversos aumenta com a superdosagem.
-                                            E que {impressao.termosSelecionados.length > 1 ? " estes medicamentos são " : " este medicamento é "}
-                                            contra-indicados em casos de hipersensibilidade (alergia).
-                                        </div>
-                                    </Box>
-                                    {/* colocar um if depois */}
-                                    <Gravidez medicamentos={impressao.termosSelecionados} />
-                                    <Adverso medicamentos={impressao.termosSelecionados} />
-
-                                </Typography>
-                            </Box>
-                        </div>
-                    </Grid>
-                </Grid>
+            <Box mt={2} flexGrow={1} width={1} border={1} borderColor="black" component="span" display="block" >
+                <Box mt={-1} ml={2} display="flex">
+                    <Typography component={'span'} variant="caption" noWrap={true} >
+                        <Box bgcolor="white" px={1}>15 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
+                    </Typography>
+                </Box>
+                <FitText
+                    texto={conteudo}
+                    inicial={4}
+                    maxfont={24}
+                    erro={190}
+                    padding={2}
+                />
             </Box>
         </>
     )

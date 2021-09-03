@@ -9,7 +9,7 @@ export default function FitText({ texto, inicial, maxfont, erro, padding }) {
 
     useEffect(() => {
         if ((insideRef.current?.offsetHeight + erro) < outsideRef.current?.offsetHeight && fontsize < maxfont) {
-            setFontSize(fontsize + 2)
+            setFontSize(fontsize + 1)
         }
     }, [erro, fontsize, maxfont]);
 

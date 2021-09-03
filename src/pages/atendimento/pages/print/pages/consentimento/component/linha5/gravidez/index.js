@@ -1,24 +1,25 @@
-import { Box } from '@material-ui/core'
 import React from 'react'
 
 const Gravidez = ({ medicamentos }) => {
 
     const Inicio = () => {
         return (
-            <Box>
+            <>
                 Fui também claramente informado(a) a respeito das seguintes contraindicações, potenciais efeitos
                 colaterais e riscos na gestação e na amamentação já são conhecidos; portanto, caso engravide, devo avisar
                 imediatamente o médico.
-            </Box>
+                <br />
+            </>
         )
     }
 
     const Texto = ({ med, cat }) => {
 
         return (
-            <Box>
+            <>
                 Estou ciente que o medicamento {med} é classificado <strong>na gestação</strong> como {cat}
-            </Box>
+                <br />
+            </>
         )
     }
 
