@@ -50,7 +50,8 @@ const PrescricaoDelete = () => {
         setPrescricaoOnDuty({
             ...prescricaoOnDuty,
             emuso: false,
-            termino: new Date().toISOString().slice(0, 10)
+            termino: new Date().toISOString().slice(0, 10),
+            lmeId: null,
         })
         setChange(2)
     }, [setPrescricaoOnDuty, prescricaoOnDuty])

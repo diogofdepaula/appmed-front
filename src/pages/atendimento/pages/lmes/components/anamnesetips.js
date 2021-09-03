@@ -56,9 +56,6 @@ const AnamneseTips = () => {
 
     return (
         <div>
-            <Paper>
-                {JSON.stringify(lmeEdit)}
-            </Paper>
             <Divider />
             <Box py={2} display='flex'>
                 <Box ml={1}>
