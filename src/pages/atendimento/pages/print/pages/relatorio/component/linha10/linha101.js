@@ -34,9 +34,9 @@ const Linha101Relatorio = () => {
                         <Box borderTop={1} >
                             <Typography component={'span'} variant="body1" noWrap={false}>
                                 <Box ml={1} display="flex" alignItems="center">
-                                    {lme.relatorio.ppdresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Não Reator
-                                    {lme.relatorio.ppdresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Até 5 mm
-                                    {lme.relatorio.ppdresultado === "c" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Mais de 5 mm
+                                    {lme.relatorio.ppdresultado === "a" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Até 5 mm
+                                    {lme.relatorio.ppdresultado === "b" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Acima de 5 mm
+                                    {lme.relatorio.ppdresultado === "c" ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />} Não reator
                                 </Box>
                             </Typography>
                         </Box>
