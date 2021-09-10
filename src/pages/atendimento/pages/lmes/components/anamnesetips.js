@@ -1,9 +1,9 @@
 import { Box, Chip, Divider, IconButton, Paper } from '@material-ui/core';
+import FormatTextdirectionLToRIcon from '@material-ui/icons/FormatTextdirectionLToR';
 import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
-import Criterios from './criterios';
-import FormatTextdirectionLToRIcon from '@material-ui/icons/FormatTextdirectionLToR';
 import ICAD from '../../../component/calculadoras/das28';
+import Criterios from './criterios';
 
 const AnamneseTips = () => {
 
@@ -14,11 +14,17 @@ const AnamneseTips = () => {
     }
 
     const handleClickChip = param => event => {
-        setLmeEdit({ ...lmeEdit, anamnese: lmeEdit.anamnese.concat('\n').concat(param) })
+        setLmeEdit({ ...lmeEdit, 
+            anamnese: lmeEdit.anamnese.concat('\n').concat(param[0]),
+            relatorio: param[2] ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : {...lmeEdit.relatorio}
+        })
     }
 
     const handleClickChipVirgula = param => event => {
-        setLmeEdit({ ...lmeEdit, anamnese: lmeEdit.anamnese.concat(param).concat(', ') })
+        setLmeEdit({ ...lmeEdit, 
+            anamnese: lmeEdit.anamnese.concat(param[0]).concat(', '),
+            relatorio: param[2] ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : {...lmeEdit.relatorio}
+        })
     }
 
     const [inclusao, setInclusao] = useState([])
@@ -33,17 +39,18 @@ const AnamneseTips = () => {
         return (
             <Paper elevation={3}>
                 <Box p={1}>
+                   
                 {inclusao[1]?.map((p, i) =>
                     <div key={i}>
                         <Chip
-                            label={p}
+                            label={p[0]}
                             variant="outlined"
                             onClick={handleClickChipVirgula(p)}
                         />
                         <IconButton
                             draggable
-                            onDragEnd={handleClickChip(p)}
-                            onClick={handleClickChip(p)}
+                            onDragEnd={handleClickChip(p[0])}
+                            onClick={handleClickChip(p[0])}
                         >
                             <FormatTextdirectionLToRIcon />
                         </IconButton>
