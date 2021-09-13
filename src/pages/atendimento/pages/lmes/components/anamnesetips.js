@@ -14,16 +14,18 @@ const AnamneseTips = () => {
     }
 
     const handleClickChip = param => event => {
-        setLmeEdit({ ...lmeEdit, 
+        setLmeEdit({
+            ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat('\n').concat(param[0]),
-            relatorio: param[2] ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : {...lmeEdit.relatorio}
+            relatorio: param[2] !== undefined ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : { ...lmeEdit.relatorio }
         })
     }
 
     const handleClickChipVirgula = param => event => {
-        setLmeEdit({ ...lmeEdit, 
+        setLmeEdit({
+            ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat(param[0]).concat(', '),
-            relatorio: param[2] ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : {...lmeEdit.relatorio}
+            relatorio: param[2] !== undefined ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : { ...lmeEdit.relatorio }
         })
     }
 
@@ -38,24 +40,25 @@ const AnamneseTips = () => {
 
         return (
             <Paper elevation={3}>
+                {JSON.stringify(lmeEdit)}
                 <Box p={1}>
-                   
-                {inclusao[1]?.map((p, i) =>
-                    <div key={i}>
-                        <Chip
-                            label={p[0]}
-                            variant="outlined"
-                            onClick={handleClickChipVirgula(p)}
-                        />
-                        <IconButton
-                            draggable
-                            onDragEnd={handleClickChip(p[0])}
-                            onClick={handleClickChip(p[0])}
-                        >
-                            <FormatTextdirectionLToRIcon />
-                        </IconButton>
-                    </div>
-                )}
+
+                    {inclusao[1]?.map((p, i) =>
+                        <div key={i}>
+                            <Chip
+                                label={p[0]}
+                                variant="outlined"
+                                onClick={handleClickChipVirgula(p)}
+                            />
+                            <IconButton
+                                draggable
+                                onDragEnd={handleClickChip(p[0])}
+                                onClick={handleClickChip(p[0])}
+                            >
+                                <FormatTextdirectionLToRIcon />
+                            </IconButton>
+                        </div>
+                    )}
                 </Box>
             </Paper>
         )

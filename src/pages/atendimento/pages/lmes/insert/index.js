@@ -7,7 +7,7 @@ import LMEEditor from '../editor';
 const LMEInsert = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setStep, setLmeEdit, lmeEdit,  medicamentoEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setStep, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
 
     const chargeInitial = useCallback(() => {
 
@@ -40,7 +40,6 @@ const LMEInsert = () => {
 
     return (
         <div>
-            {JSON.stringify(lmeEdit)}
             <LMEEditor />
         </div>
     )

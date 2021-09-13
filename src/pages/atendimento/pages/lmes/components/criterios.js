@@ -13,23 +13,23 @@ const Criterios = () => {
     ]
 
     const ArtriteReumatoide2010 = [
-        ['1 grande articulação', 'ar2020a', 0,],
-        ['2 - 10 grandes articulações', 'ar2020a', 1,],
-        ['1 - 3 pequenas articulações', 'ar2020a', 2,],
-        ['4 - 10 pequenas articulações', 'ar2020a', 3,],
-        ['mais que 10 articulações', 'ar2020a', 5,],
-        ['fator reumatoide não reagente', 'ar2020b', 0],
-        ['anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) não reagente', 'ar2020b', 0],
-        ['fator reumatoide em baixos títulos', 'ar2020b', 2],
-        ['anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em baixos títulos', 'ar2020b', 2],
-        ['fator reumatoide em altos títulos', 'ar2020b', 3],
-        ['anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em baixos títulos', 'ar2020b', 3],
-        ['VHS normal', 'ar2020c', 0,],
-        ['PCR normal', 'ar2020c', 0,],
-        ['VHS alterado', 'ar2020c', 1,],
-        ['PCR alterado', 'ar2020c', 1,],
-        ['duração dos sintomas menor que 6 semanas', 'ar2020d', 0,],
-        ['duração dos sintomas maior que 6 semanas', 'ar2020d', 1,],
+        ['1 grande articulação', 'ar2010a', 0],
+        ['2 - 10 grandes articulações', 'ar2010a', 1],
+        ['1 - 3 pequenas articulações', 'ar2010a', 2],
+        ['4 - 10 pequenas articulações', 'ar2010a', 3],
+        ['mais que 10 articulações', 'ar2010a', 5],
+        ['fator reumatoide não reagente', 'ar2010b', 0],
+        ['anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) não reagente', 'ar2010b', 0],
+        ['fator reumatoide em baixos títulos', 'ar2010b', 2],
+        ['anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em baixos títulos', 'ar2010b', 2],
+        ['fator reumatoide em altos títulos', 'ar2010b', 3],
+        ['anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em altos títulos', 'ar2010b', 3],
+        ['VHS normal', 'ar2010c', 0,],
+        ['PCR normal', 'ar2010c', 0,],
+        ['VHS alterado', 'ar2010c', 1],
+        ['PCR alterado', 'ar2010c', 1],
+        ['duração dos sintomas menor que 6 semanas', 'ar2010d', 0],
+        ['duração dos sintomas maior que 6 semanas', 'ar2010d', 1],
     ]
 
     const Lupus = [
@@ -127,14 +127,14 @@ const Criterios = () => {
     ]
 
     const doencas = [
-        ['AR1987', ArtriteReumatoide1987, 'Paciente com Artrite reumatoide com os seguintes critérios (de 1987): ', true], // true pois tem lmeEdit
-        ['AR2010', ArtriteReumatoide2010, 'Paciente com Artrite reumatoide com os seguintes critérios (de 2010): ', true],
-        ['LES', Lupus, 'Paciente com Lúpus Eritematoso Sistêmico com os seguintes critérios: ', false],
-        ['OP', Osteoporose, 'Paciente com Osteoporose com os seguintes critérios: ', false],
-        ['Dor', DorCronica, 'Paciente com Dor crônica com os seguintes critérios: ', false],
-        ['ES', EscleroSistemica, 'Paciente com Esclerose Sistêmica com os seguintes critérios: ', false],
-        ['EA', Espondiloartrite, 'Paciente com Espondiloartrite com os seguintes critérios: ', true],
-        ['AP', ArtritePsoriaca, 'Paciente com Artrite psoriásica com os seguintes critérios: ', true],
+        ['AR1987', ArtriteReumatoide1987, 'Paciente com Artrite reumatoide com os seguintes critérios (de 1987): '], 
+        ['AR2010', ArtriteReumatoide2010, 'Paciente com Artrite reumatoide com os seguintes critérios (de 2010): '],
+        ['LES', Lupus, 'Paciente com Lúpus Eritematoso Sistêmico com os seguintes critérios: '],
+        ['OP', Osteoporose, 'Paciente com Osteoporose com os seguintes critérios: '],
+        ['Dor', DorCronica, 'Paciente com Dor crônica com os seguintes critérios: '],
+        ['ES', EscleroSistemica, 'Paciente com Esclerose Sistêmica com os seguintes critérios: '],
+        ['EA', Espondiloartrite, 'Paciente com Espondiloartrite com os seguintes critérios: '],
+        ['AP', ArtritePsoriaca, 'Paciente com Artrite psoriásica com os seguintes critérios: '],
     ]
 
     return doencas
