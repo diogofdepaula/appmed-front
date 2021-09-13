@@ -1,15 +1,15 @@
-import { Box, Grid, Typography } from '@material-ui/core'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { LMEPrintContext } from '../..'
-import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import { Box, Grid, Typography } from '@material-ui/core';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import React, { useContext } from 'react';
+import { LMEPrintContext } from '../..';
 
 const Linha7Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
-    const [list, setList] = useState([])
 
-    const getList = useCallback(() => {
+    const Criterios = () => {
+
         const ar = [
             ['ara', 'Rigidez articular', lme.relatorio.ara],
             ['arb', 'Artrite em três ou mais áreas', lme.relatorio.arb],
@@ -44,24 +44,35 @@ const Linha7Relatorio = () => {
         const eapcid = ['M070', 'M073']
         const eaacid = ['M45']
 
-        if (arcid.includes(lme.cid10)) {
-            setList(ar)
-        } else if (aijcid.includes(lme.cid10)) {
-            setList(ar)
-        } else if (eaicid.includes(lme.cid10)) {
-            setList(eap)
-        } else if (eapcid.includes(lme.cid10)) {
-            setList(eap)
-        } else if (eaacid.includes(lme.cid10)) {
-            setList(eaa)
-        }
-        // não sei como tirar toda essa lógica aqui de dentro.
-        // as const quando estão lá fora e são postas na lista de dependências dá loop infinito
-    }, [lme])
+        let list
 
-    useEffect(() => {
-        getList()
-    }, [getList])
+        if (arcid.includes(lme.cid10)) {
+            list = ar
+        } else if (aijcid.includes(lme.cid10)) {
+            list = ar
+        } else if (eaicid.includes(lme.cid10)) {
+            list = eap
+        } else if (eapcid.includes(lme.cid10)) {
+            list = eap
+        } else if (eaacid.includes(lme.cid10)) {
+            list = eaa
+        }
+
+        return (
+            <>
+                {list.map((w, i) =>
+                    <Grid key={i}>
+                        <Box ml={2} display="flex">
+                            {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
+                            <Typography component={'span'} variant={'body1'} align={'left'} >
+                                <Box ml={1}>{w[1]}</Box>
+                            </Typography>
+                        </Box>
+                    </Grid>
+                )}
+            </>
+        )
+    }
 
 
     const ArtriteReumatoide2010 = () => {
@@ -119,22 +130,8 @@ const Linha7Relatorio = () => {
         if (crit === 4) {
             return <ArtriteReumatoide2010 />
         } else {
-            return (
-                <>
-                    {list && list.map((w, i) =>
-                        <Grid key={i}>
-                            <Box ml={2} display="flex">
-                                {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
-                                <Typography component={'span'} variant={'body1'} align={'left'} >
-                                    <Box ml={1}>{w[1]}</Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                    )}
-                </>
-            )
+            return <Criterios />
         }
-
     }
 
     return (
