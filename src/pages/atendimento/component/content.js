@@ -17,7 +17,7 @@ const Content = () => {
     /// se mudar aqui: não esquercer de atualizar a ThirdAppBar
     switch (page) {
         case 'prescricoesmain':
-            return <PrescricaoMain key={update} />  // dá para fazer o prescricaoEdit usando um variável (com um nome fora do BD) com new Date()
+            return <PrescricaoMain key={update} /> 
         case 'prescricaoinsert':
             return <PrescricaoInsert key={update} />
         case 'prescricaoupdate':
