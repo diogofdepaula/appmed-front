@@ -10,7 +10,7 @@ const Linha7Termo = () => {
     return (
         <>
             <Grid container item xs >
-                <Box mt={4} width={1} border={1} borderColor="black" >
+                <Box mt={5} width={1} border={1} borderColor="black" >
                     <Grid container direction="column" justify="center" alignItems="stretch">
                         <Grid item xs>
                             <Box mt={-1} ml={2} display="flex">
