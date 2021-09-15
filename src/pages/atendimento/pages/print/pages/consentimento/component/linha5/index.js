@@ -83,7 +83,7 @@ const Linha5Termo = () => {
             <Box mt={2} flexGrow={1} width={1} border={1} borderColor="black" component="span" display="block" >
                 <Box mt={-1} ml={2} display="flex">
                     <Typography component={'span'} variant="caption" noWrap={true} >
-                        <Box bgcolor="white" px={1}>4 - Informações pertinentes das medicações solicitadas</Box>
+                        <Box bgcolor="white" px={1}>4 - Informações pertinentes das medicações solicitadas </Box>
                     </Typography>
                 </Box>
                 <FitText
