@@ -13,11 +13,15 @@ const AnamneseTips = () => {
         setLmeEdit({ ...lmeEdit, anamnese: param })
     }
 
+    const handleSolMedicamento = param => event => {
+        setLmeEdit({ ...lmeEdit, anamnese: lmeEdit.anamnese.concat('\n').concat(param) })
+    }
+
     const handleClickChip = param => event => {
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat('\n').concat(param[0]),
-            relatorio: param[2] !== undefined ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : { ...lmeEdit.relatorio }
+            relatorio: lmeEdit.relatorio === null ? null : param[2] !== undefined ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : { ...lmeEdit.relatorio }
         })
     }
 
@@ -25,7 +29,7 @@ const AnamneseTips = () => {
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat(param[0]).concat(', '),
-            relatorio: param[2] !== undefined ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : { ...lmeEdit.relatorio }
+            relatorio: lmeEdit.relatorio === null ? null : param[2] !== undefined ? { ...lmeEdit.relatorio, [param[1]]: param[2] } : { ...lmeEdit.relatorio }
         })
     }
 
@@ -40,7 +44,7 @@ const AnamneseTips = () => {
 
         return (
             <Paper elevation={3}>
-                {/* {JSON.stringify(lmeEdit)} */}
+                {JSON.stringify(lmeEdit)}
                 <Box p={1}>
 
                     {inclusao[1]?.map((p, i) =>
@@ -79,7 +83,7 @@ const AnamneseTips = () => {
                     <Chip
                         label="Solicito..."
                         variant="outlined"
-                        onClick={handleClickChip("Solicito o fornecimento de " + medicamentoEdit.farmaco + " para o tratamento da doença.")}
+                        onClick={handleSolMedicamento("Solicito o fornecimento de " + medicamentoEdit.farmaco + " para o tratamento da doença.")}
                     />
                 </Box>
                 {Criterios().map((c, i) => {
