@@ -14,7 +14,7 @@ const Linha7Relatorio = () => {
         const list = Criterios(lme)
         return (
             <>
-                {list.map((w, i) =>
+                {list[0].map((w, i) =>
                     <Grid key={i}>
                         <Box ml={2} display="flex">
                             {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
@@ -31,32 +31,8 @@ const Linha7Relatorio = () => {
 
     const ArtriteReumatoide2010 = () => {
 
-        const art = [lme.relatorio.ar2010a, [
-            ['1 grande articulação', 0],
-            ['2 - 10 grandes articulações', 1],
-            ['1 - 3 pequenas articulações', 2],
-            ['4 - 10 pequenas articulações', 3],
-            ['Mais que 10 articulações', 5]
-        ]]
-
-        const soro = [lme.relatorio.ar2010b, [
-            ['Fator reumatoide e anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) não reagentes', 0],
-            ['Fator reumatoide ou anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em baixos títulos', 2],
-            ['Fator reumatoide em altos títulos ou anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em altos títulos', 3]
-        ]]
-
-        const pai = [lme.relatorio.ar2010c, [
-            ['VHS ou PCR normais', 0],
-            ['VHS ou PCR alterado', 1]
-        ]]
-
-        const tempo = [lme.relatorio.ar2010d, [
-            ['Duração dos sintomas menor que 6 semanas', 0],
-            ['Duração dos sintomas maior que 6 semanas', 1],
-        ]]
-
-        const criterios = [art, soro, pai, tempo].map(p => {
-            return p[1].filter(x => p[0] === x[1]).map(y => { return y[0] })
+        const criterios = Criterios(lme)[1].map(p => {
+            return p[1].filter(x => p[0][0] === x[1]).map(y => { return y[0] })
         }).flat()
 
         return (

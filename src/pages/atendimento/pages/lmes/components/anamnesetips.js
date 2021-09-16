@@ -44,9 +44,7 @@ const AnamneseTips = () => {
 
         return (
             <Paper elevation={3}>
-                {/* {JSON.stringify(lmeEdit)} */}
                 <Box p={1}>
-
                     {inclusao[1]?.map((p, i) =>
                         <div key={i}>
                             <Chip

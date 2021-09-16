@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel } from '@material-ui/core'
+import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '../../../..'
 import Criterios from '../../../../component/criterios'
@@ -11,12 +11,53 @@ const RelatorioSet2 = () => {
         setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.checked } })
     }
 
+    const handleChange2010 = (paramA, paramB) => event => {
+        setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [paramA]: paramB } })
+    }
+
     const list = Criterios(lmeEdit)
+
+
+    const ArtriteReumatoide2010 = () => {
+
+        const criterios = Criterios(lmeEdit)[1]
+
+        const ind = ['M050', 'M051', 'M052', 'M053', 'M058', 'M060', 'M068'].includes(lmeEdit.cid10)
+
+        return (
+            <>
+                {ind ?
+                    <>
+                        <FormControl component="fieldset">
+                            {criterios.map(w =>
+                                w[1].map(y =>
+                                    <RadioGroup
+                                        name={w[0][1]}
+                                        onChange={handleChange2010(w[0][1], y[1])}
+                                    >
+                                        <FormControlLabel
+                                            value={y[1]}  // tem que fazer um If
+                                            control={<Radio />}
+                                            label={y[0]}
+                                            checked={w[0][0] === y[1] || false}
+                                        />
+                                    </RadioGroup>
+                                ))}
+                        </FormControl>
+                        <Divider />
+                    </>
+                    :
+                    <div />
+                }
+            </>
+        )
+    }
 
     return (
         <div>
             <Box m={2}>
-                {list.map((w) =>
+                <ArtriteReumatoide2010 />
+                {list[0].map((w) =>
                     <Box key={w[0]}>
                         <FormControlLabel
                             control={
