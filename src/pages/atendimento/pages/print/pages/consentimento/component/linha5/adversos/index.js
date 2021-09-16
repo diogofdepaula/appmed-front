@@ -188,7 +188,7 @@ const Metilprednisolona =
         irregularidades na menstruação, e manifestação de diabete mélito;
     </>
 
-const Metotrexate =
+const Metotrexato =
     <>
         convulsões, encefalopatia, febre, calafrios, sonolência, queda de
         cabelo, espinhas, furúnculos, alergias de pele leves a graves,
@@ -337,7 +337,7 @@ const Meds = [
     ["Metilprednisolona", Metilprednisolona],
     ["Micofenolato de mofetila", Micofenolato],
     ["Naproxeno", Naproxeno],
-    ["Metotrexate", Metotrexate],
+    ["Metotrexato", Metotrexato],
     ["Hidroxicloroquina", Hidroxicloroquina],
     ["Natalizumabe", Natalizumabe],
     ["Pamidronato", Pamidronato],
