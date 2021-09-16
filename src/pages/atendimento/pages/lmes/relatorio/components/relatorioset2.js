@@ -30,12 +30,14 @@ const RelatorioSet2 = () => {
                     <>
                         <FormControl component="fieldset">
                             {criterios.map(w =>
-                                w[1].map(y =>
+                                w[1].map((y, i) =>
                                     <RadioGroup
+                                        key={i}
                                         name={w[0][1]}
                                         onChange={handleChange2010(w[0][1], y[1])}
                                     >
                                         <FormControlLabel
+                                            key={y[1]}
                                             value={y[1]}  // tem que fazer um If
                                             control={<Radio />}
                                             label={y[0]}
