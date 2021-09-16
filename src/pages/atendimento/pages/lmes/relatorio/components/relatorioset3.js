@@ -1,4 +1,6 @@
 import { Box, Chip, Grid, TextField } from '@material-ui/core'
+import { format, parseISO } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext } from '../../../..'
 import { ClienteContext } from '../../../../../../App'
@@ -85,6 +87,9 @@ const RelatorioSet3 = () => {
 
     const handleChip = param => () => {
 
+        const dateinicio = format(parseISO(param.inicio), "dd'/'MM'/'yyyy", { locale: ptBR })
+        const datetermino = format(parseISO(param.termino), "dd'/'MM'/'yyyy", { locale: ptBR })
+
         let num = [
             lmeEdit.relatorio.medicamento1,
             lmeEdit.relatorio.medicamento2,
@@ -100,8 +105,8 @@ const RelatorioSet3 = () => {
                 ...lmeEdit.relatorio,
                 [indices[num][0][0]]: param.medicamento.farmaco,
                 [indices[num][1][0]]: 'padrão',
-                [indices[num][2][0]]: param.inicio,
-                [indices[num][3][0]]: param.termino,
+                [indices[num][2][0]]: dateinicio,
+                [indices[num][3][0]]: datetermino,
                 [indices[num][4][0]]: param.motivotermico,
             }
         })
