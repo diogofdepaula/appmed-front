@@ -54,8 +54,8 @@ const AnamneseTips = () => {
                             />
                             <IconButton
                                 draggable
-                                onDragEnd={handleClickChip(p[0])}
-                                onClick={handleClickChip(p[0])}
+                                onDragEnd={handleClickChip(p)}
+                                onClick={handleClickChip(p)}
                             >
                                 <FormatTextdirectionLToRIcon />
                             </IconButton>
