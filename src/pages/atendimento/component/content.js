@@ -9,6 +9,7 @@ import PrescricaoMain from '../pages/prescricoes/main'
 import PrescricaoUpdate from '../pages/prescricoes/update'
 import LMEDelete from '../pages/lmes/delete'
 import Print from '../pages/print'
+import Exames from '../pages/exames'
 
 const Content = () => {
 
@@ -17,7 +18,7 @@ const Content = () => {
     /// se mudar aqui: não esquercer de atualizar a ThirdAppBar
     switch (page) {
         case 'prescricoesmain':
-            return <PrescricaoMain key={update} /> 
+            return <PrescricaoMain key={update} />
         case 'prescricaoinsert':
             return <PrescricaoInsert key={update} />
         case 'prescricaoupdate':
@@ -34,6 +35,8 @@ const Content = () => {
             return <LMEDelete />
         case 'print':
             return <Print />
+        case 'exames':
+            return <Exames />
         case 'teste':
             return <div>{update}</div>
         default:

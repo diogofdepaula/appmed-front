@@ -46,7 +46,12 @@ const FirstAppBar = () => {
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Solicitações">
-                        <IconButton>
+                        <IconButton
+                            onClick={() => {
+                                setPage('exames')
+                                updatePage()
+                            }}
+                        >
                             <InputIcon />
                         </IconButton>
                     </Tooltip>

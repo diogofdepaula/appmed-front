@@ -18,7 +18,7 @@ const Rodape = () => {
                 endereco = "R. Pres. Getúlio Vargas, 1523 - Centro, Guarapuava - PR, 85010-280"
                 break;
             case 'consultorio':
-                endereco = "R. Pres. Getúlio Vargas, 1523 - Centro, Guarapuava - PR, 85010-280"
+                endereco = "R. Pres. Getúlio Vargas, 1070 - Centro, Guarapuava - PR, 85010-280"
                 break;
             default:
                 break;
