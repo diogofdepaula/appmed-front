@@ -39,6 +39,7 @@ const Exames = () => {
 
     const [search, setSearch] = useState("")
     const procedimentos = Procedimentos()
+    const [justificativa, setJustificativa] = useState('')
     const [selected, setSelected] = useState([])
 
     const filterProcedimentos = useMemo(() => {
@@ -48,9 +49,27 @@ const Exames = () => {
         )
     }, [search, procedimentos])
 
+    const handleJustificativa = event => {
+        setJustificativa(prev => event.target.value)
+    }
+
     return (
         <div>
             <Box m={1}>
+                <Box mx={2}>
+                    <TextField
+                    
+                        fullWidth
+                        multiline
+                        variant='outlined'
+                        rows={6}
+                        label="Justificativa"
+                        // InputLabelProps={{
+                        //     shrink: true,
+                        // }}
+                        onChange={handleJustificativa}
+                    />
+                </Box>
                 <Grid container spacing={1}>
                     <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
                         <Grid item>

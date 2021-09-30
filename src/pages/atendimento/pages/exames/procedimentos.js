@@ -1,6 +1,6 @@
 export default function Procedimentos() {
 
-    const proc = [
+    return [
         // ["10101012", "Consulta em consultório (no horário normal ou preestabelecido)", "Consulta em consultório (no horário normal ou preestabelecido)", false, "XXX"],
         // ["10101020", "Consulta em domicílio", "Consulta em domicílio", false, "XXX"],
         // ["10101039", "Consulta em pronto socorro", "Consulta em pronto socorro", false, "XXX"],
@@ -5910,5 +5910,5 @@ export default function Procedimentos() {
         // ["87000199", "Colocação de aparelho ortodôntico removível", "Colocação de aparelho ortodôntico removível", false, "XXX"],
     ]
 
-    return proc
+    
 }
