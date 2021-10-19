@@ -1,4 +1,4 @@
-export default function Procedimentos() {
+export default function Tuss() {
 
     return [
         // ["10101012", "Consulta em consultório (no horário normal ou preestabelecido)", "Consulta em consultório (no horário normal ou preestabelecido)", false, "XXX"],
@@ -5909,6 +5909,5 @@ export default function Procedimentos() {
         // ["87000180", "Sedação medicamentosa ambulatorial em pacientes com necessidades especiais em odontologia", "Sedação medicamentosa ambulatorial em pacientes com necessidades especiais em odontologia", false, "XXX"],
         // ["87000199", "Colocação de aparelho ortodôntico removível", "Colocação de aparelho ortodôntico removível", false, "XXX"],
     ]
-
     
 }
