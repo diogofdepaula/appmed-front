@@ -4,6 +4,7 @@ import TermoConsentimento from './consentimento';
 import FactoryLME from './lme';
 import FactoryReceitas from './receita';
 import FactoryRelatorio from './relatorio';
+import RequisicaoA5 from './requisicao/requisicaoa5';
 
 const PrintJob = () => {
 
@@ -67,6 +68,14 @@ const PrintJob = () => {
                     <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={impressao.local} />
                 )
             }
+        }
+
+        if (impressao.requisicao) {
+            impressao.requisicoes?.map(r => 
+                jobs.push(
+                    <RequisicaoA5 procedimentos={r} tipo={impressao.local} />
+                )
+            )
         }
 
         return jobs
