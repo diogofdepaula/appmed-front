@@ -15,14 +15,17 @@ const ImpressaoSet = () => {
                     <LocalSet />
                 </Grid>
                 <Grid container item direction="row" justify="space-between" alignItems="flex-start">
-                    <Grid container item xs={4}>
+                    <Grid container item xs={3}>
                         <PrescricoesSet />
                     </Grid>
-                    <Grid container item xs={4} direction="column" justify="center" alignItems="center" >
+                    <Grid container item xs={3} direction="column" justify="center" alignItems="center" >
                         <LMESet />
                         <TermoSet />
                     </Grid>
-                    <Grid container item xs={4}>
+                    <Grid container item xs={3}>
+                        Exames
+                    </Grid>
+                    <Grid container item xs={3}>
                         <Grid item>
                             <TempoSet />
                         </Grid>

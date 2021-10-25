@@ -1,10 +1,11 @@
-import { Box, FormControl, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, ListSubheader, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from "@material-ui/core";
+import { Box, Divider, FormControl, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, ListSubheader, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from "@material-ui/core";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
-import Tuss from "./tuss";
+import { ImpressaoContext } from "../..";
 import Operadoras from "./operadoras";
 import Sigtap from "./sigtap";
-import { ImpressaoContext } from "../..";
+import Tuss from "./tuss";
 
 const CellProcedimento = memo(({ param, handle }) => {
 
@@ -39,29 +40,19 @@ const ListItems = memo(({ param, handle }) => {
     )
 })
 
-const TempoSet = () => {
-
-    // const handleDateChange = (event) => {
-    //     setImpressao({ ...impressao, [event.target.name]: parseISO(event.target.value) })
-    // }
+const AdicionadosItems = memo(({ param }) => {
 
     return (
         <>
-            <TextField
-                mt={1}
-                type='date'
-                name='database'
-                label="Data base"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            //onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
-            />
+            <ListItem>
+                <ListItemText primary={param} />
+            </ListItem>
         </>
     )
-}
+})
 
-const Exames = () => {
+
+const Requisicao = () => {
 
     const { impressao, setImpressao } = useContext(ImpressaoContext)
 
@@ -71,7 +62,11 @@ const Exames = () => {
     const tuss = useRef(Tuss())
     const sigtap = useRef(Sigtap())
 
-    const [procedimentos, setProcedimentos] = useState(sigtap.current)
+    const [justificativa, setJustificatica] = useState('')
+    const [selecionados, setSelecionados] = useState([])
+    const [convenio, setConvenio] = useState("")
+    const ind = useRef(1)
+    const [procedimentos, setProcedimentos] = useState(tuss.current)
 
     const filterProcedimentos = useMemo(() => {
         if (!search) return []
@@ -80,52 +75,52 @@ const Exames = () => {
         )
     }, [search, procedimentos])
 
-
-
     const handleJustificativa = (event) => {
-        setImpressao({ ...impressao, exames: { ...impressao.exames, justificativa: event.target.value } })
+        setJustificatica(event.target.value)
     }
 
     const handleChangeConvenio = event => {
-        setImpressao({
-            ...impressao, exames: {
-                ...impressao.exames,
-                convenio: event.target.value,
-                selected: []
-            }
-        })
+        setConvenio(event.target.value)
         setSearch("")
         setProcedimentos(event.target.value === 'sus' ? sigtap.current : tuss.current)
     }
 
     const handleProcedimentoPush = (param) => {
-        setImpressao({
-            ...impressao,
-            exames: {
-                ...impressao.exames,
-                selected: [
-                    ...impressao.exames.selected,
-                    "(" + param[0] + ") - " + param[2]
-                ]
-            }
-        })
+        setSelecionados(prevState => [...prevState, "(" + param[0] + ") - " + param[2]])
     }
 
     const handleProcedimentoRemove = (param) => {
+        setSelecionados(prevState => prevState.filter(w => w.toString().toLowerCase() !== param.toString().toLowerCase()))
+    }
+
+    const handleAdd = () => {
+
         setImpressao({
             ...impressao,
-            exames: {
-                ...impressao.exames,
-                selected: [
-                    ...impressao.exames.selected.filter(w => w.toString().toLowerCase() !== param.toString().toLowerCase())
-                ]
-            }
+            requisicao: [
+                ...impressao.requisicao, {
+                    indice: ind.current,
+                    justificativa: justificativa,
+                    selecionados: selecionados,
+                    convenio: convenio,
+                }
+            ]
+        })
+        setSelecionados([])
+        ind.current = ind.current + 1
+    }
+
+    const handleRemove = (param) => {
+        setImpressao({
+            ...impressao,
+            requisicao: impressao.requisicao.filter(x => x.indice !== param)
         })
     }
 
 
     return (
         <>
+
             <Box m={1}>
                 <Box mx={2}>
                     <Grid container>
@@ -134,15 +129,12 @@ const Exames = () => {
                                 fullWidth
                                 multiline
                                 variant='outlined'
-                                rows={6}
+                                rows={3}
                                 label="Justificativa"
                                 onChange={handleJustificativa}
                             />
                         </Grid>
                         <Grid item xs={3} container direction="column" alignItems="center">
-                            <Grid item>
-                                <TempoSet />
-                            </Grid>
                             <Grid item>
                                 <FormControl fullWidth variant="outlined" >
                                     <Select
@@ -189,11 +181,34 @@ const Exames = () => {
                     </Grid>
                     <Grid item xs>
                         <Box mx={1}>
-                            <List dense subheader={<ListSubheader>Procedimentos Selecionados</ListSubheader>} >
-                                {impressao.exames.selected.map((s, i) =>
+                            <IconButton
+                                onClick={() => handleAdd()}
+                            >
+                                <AddCircleOutlineIcon />
+                                Adicionar requisição
+                            </IconButton>
+                            <List subheader={<ListSubheader>Procedimentos para serem incluidos</ListSubheader>} >
+                                {selecionados.map((s, i) =>
                                     <ListItems key={i} param={s} handle={handleProcedimentoRemove} />
                                 )}
                             </List>
+                            <Divider />
+                            <Divider />
+                            {impressao.requisicao?.map((r, n) =>
+                                <Box display="flex" key={n} >
+                                    <IconButton
+                                        onClick={() => handleRemove(r.indice)}
+                                    >
+                                        <DeleteIcon />
+                                    </IconButton>
+                                    <List dense subheader={<ListSubheader>Requisição {r.indice}</ListSubheader>} >
+                                        {r.selecionados.map((s, x) =>
+                                            <AdicionadosItems key={x} param={s} />
+                                        )}
+                                    </List>
+                                    <Divider />
+                                </Box>
+                            )}
                         </Box>
                     </Grid>
                 </Grid>
@@ -202,4 +217,4 @@ const Exames = () => {
     )
 }
 
-export default Exames
+export default Requisicao

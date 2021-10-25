@@ -45,10 +45,10 @@ const FirstAppBar = () => {
                             <AccountBalanceIcon />
                         </IconButton>
                     </Tooltip>
-                    <Tooltip title="Solicitações">
+                    <Tooltip title="Requsições">
                         <IconButton
                             onClick={() => {
-                                setPage('exames')
+                                setPage('requisicao')
                                 updatePage()
                             }}
                         >
