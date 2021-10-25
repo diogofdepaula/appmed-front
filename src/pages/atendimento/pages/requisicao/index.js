@@ -64,7 +64,7 @@ const Requisicao = () => {
 
     const [justificativa, setJustificatica] = useState('')
     const [selecionados, setSelecionados] = useState([])
-    const [convenio, setConvenio] = useState("")
+    const [convenio, setConvenio] = useState("nenhum")
     const ind = useRef(1)
     const [procedimentos, setProcedimentos] = useState(tuss.current)
 
@@ -86,7 +86,10 @@ const Requisicao = () => {
     }
 
     const handleProcedimentoPush = (param) => {
-        setSelecionados(prevState => [...prevState, "(" + param[0] + ") - " + param[2]])
+        setSelecionados(prevState => [
+            ...prevState,
+            convenio === "nenhum" ? param[2] : "(" + param[0] + ") - " + param[2]
+        ])
     }
 
     const handleProcedimentoRemove = (param) => {
@@ -139,10 +142,11 @@ const Requisicao = () => {
                                 <FormControl fullWidth variant="outlined" >
                                     <Select
                                         autoWidth
-                                        defaultValue=""
+                                        defaultValue="nenhum"
                                         onChange={handleChangeConvenio}
                                         label="Convênio"
                                     >
+                                        <MenuItem value="nenhum">Nenhum</MenuItem>
                                         <MenuItem value="sus">SUS</MenuItem>
                                         {listaconvenios.map((c, i) =>
                                             <MenuItem key={i} value={c[2]}>{c[2]}</MenuItem>
