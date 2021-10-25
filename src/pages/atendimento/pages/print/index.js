@@ -3,6 +3,7 @@ import React from 'react';
 import LMESet from './component/impressaoset/lmeset';
 import LocalSet from './component/impressaoset/localset';
 import PrescricoesSet from './component/impressaoset/prescricaoset';
+import RequisicaoSet from './component/impressaoset/requisicaoset';
 import TempoSet from './component/impressaoset/temposet';
 import TermoSet from './component/impressaoset/termoset';
 
@@ -23,7 +24,7 @@ const ImpressaoSet = () => {
                         <TermoSet />
                     </Grid>
                     <Grid container item xs={3}>
-                        Exames
+                        <RequisicaoSet />
                     </Grid>
                     <Grid container item xs={3}>
                         <Grid item>

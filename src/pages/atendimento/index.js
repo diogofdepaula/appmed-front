@@ -17,7 +17,7 @@ const Atendimento = () => {
     const [lmeEdit, setLmeEdit] = useState([])
     const [step, setStep] = useState(0)
     const [medicamentoEdit, setMedicamentoEdit] = useState([])
-    
+
     const initialImpressao = {
         printRef: null,
         visualizacao: false,
@@ -33,14 +33,15 @@ const Atendimento = () => {
         comentario: '-',
         nomecomercial: true,
         continuo: false,
+        requisicao: true,
+        requisicoes: [],
         database: new Date(),
         somaheighta4: 950, // 900, 
         somaheighta5: 440,
-        requisicao: []
     }
-    
+
     const [impressao, setImpressao] = useState(initialImpressao)
-    
+
     const [update, setUpdate] = useState({
         count: 0,
         page: ''
@@ -58,55 +59,28 @@ const Atendimento = () => {
         <div>
             <ClienteHeader />
             <AtendimentoContext.Provider value={{
-                page: page,
-                setPage: setPage,
-                updatePage: updatePage,
-                update: update,
-                step: step,
-                setStep: setStep,
-                prescricaoOnDuty: prescricaoOnDuty,
-                setPrescricaoOnDuty: setPrescricaoOnDuty,
-                prescricaoEdit: prescricaoEdit,
-                setPrescricaoEdit: setPrescricaoEdit,
-                lmeOnDuty: lmeOnDuty,
-                setLmeOnDuty: setLmeOnDuty,
-                lmeEdit: lmeEdit,
-                setLmeEdit: setLmeEdit,
-                medicamentoEdit: medicamentoEdit,
-                setMedicamentoEdit: setMedicamentoEdit,
+                page,
+                setPage,
+                updatePage,
+                update,
+                step,
+                setStep,
+                prescricaoOnDuty,
+                setPrescricaoOnDuty,
+                prescricaoEdit,
+                setPrescricaoEdit,
+                lmeOnDuty,
+                setLmeOnDuty,
+                lmeEdit,
+                setLmeEdit,
+                medicamentoEdit,
+                setMedicamentoEdit,
             }} >
-                <ImpressaoContext.Provider value={{ impressao: impressao, setImpressao: setImpressao }}>
+                <ImpressaoContext.Provider value={{ impressao, setImpressao }}>
                     <Box>
                         <Divider />
                         <AtendimentoAppBar />
                         <Content />
-
-                        {/* <Divider />
-                    step: {JSON.stringify(step)}
-                    <Divider />
-
-                    <Divider />
-                    page: {JSON.stringify(page)} 
-                    <Divider /> */}
-
-                        {/* <Divider />
-                    prescEdit: {JSON.stringify(prescricaoEdit)}
-                    <Divider />
-                    
-                    <Divider />
-                    prescOnDuty: {JSON.stringify(prescricaoOnDuty)}
-                    <Divider /> */}
-
-
-                        {/* <Divider /> 
-                    lmeEdit:  {JSON.stringify(lmeEdit)}
-                    <Divider />
-                    */}
-                        {/*                     
-                    <Divider /> 
-                    medicamentoEdit:  {JSON.stringify(medicamentoEdit)} 
-                    <Divider />  */}
-
                     </Box>
                 </ImpressaoContext.Provider>
             </AtendimentoContext.Provider>

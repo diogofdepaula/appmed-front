@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    //backgroundColor: "green",
-    //padding: theme.spacing(1),
   },
   offset: theme.mixins.toolbar,
 }));
@@ -32,8 +30,8 @@ const App = () => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <ClienteContext.Provider value={{ clienteContext: clienteContext, setClienteContext: setClienteContext }} >
-        <PageContentContext.Provider value={{ pageContentContext: pageContentContext, setPageContentContext: setPageContentContext, forceUpdate: forceUpdate }} >
+      <ClienteContext.Provider value={{ clienteContext, setClienteContext }} >
+        <PageContentContext.Provider value={{ pageContentContext, setPageContentContext, forceUpdate }} >
           {/* não remover essas marcações div */}
           <div>
             <PrimaryAppBar />

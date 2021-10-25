@@ -97,8 +97,8 @@ const Requisicao = () => {
 
         setImpressao({
             ...impressao,
-            requisicao: [
-                ...impressao.requisicao, {
+            requisicoes: [
+                ...impressao.requisicoes, {
                     indice: ind.current,
                     justificativa: justificativa,
                     selecionados: selecionados,
@@ -113,7 +113,7 @@ const Requisicao = () => {
     const handleRemove = (param) => {
         setImpressao({
             ...impressao,
-            requisicao: impressao.requisicao.filter(x => x.indice !== param)
+            requisicoes: impressao.requisicoes.filter(x => x.indice !== param)
         })
     }
 
@@ -194,7 +194,7 @@ const Requisicao = () => {
                             </List>
                             <Divider />
                             <Divider />
-                            {impressao.requisicao?.map((r, n) =>
+                            {impressao.requisicoes?.map((r, n) =>
                                 <Box display="flex" key={n} >
                                     <IconButton
                                         onClick={() => handleRemove(r.indice)}
