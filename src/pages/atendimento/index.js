@@ -34,7 +34,7 @@ const Atendimento = () => {
         nomecomercial: true,
         continuo: false,
         requisicao: true,
-        requisicoes: [],
+        requisicoes: [], // { indice, justificativa, selecionados, convenio }
         database: new Date(),
         somaheighta4: 950, // 900, 
         somaheighta5: 440,

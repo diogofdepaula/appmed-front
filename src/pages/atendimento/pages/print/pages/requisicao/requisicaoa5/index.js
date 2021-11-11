@@ -3,7 +3,7 @@ import React from 'react';
 import PageA5 from '../../component/pagea5';
 import Identificacao from '../../receita/component/identificacao';
 
-const RequisicaoA5 = ({ procedimentos, tipo }) => {
+const RequisicaoA5 = ({ requisicao, tipo }) => {
 
     return (
         <>
@@ -19,7 +19,7 @@ const RequisicaoA5 = ({ procedimentos, tipo }) => {
                                         height: '24rem',
                                     }}
                                 >
-                                    {procedimentos.selecionados.map((p, i) =>
+                                    {requisicao.selecionados.map((p, i) =>
                                         <>
                                             <Box display='flex' >
                                                 <Typography
@@ -65,7 +65,7 @@ const RequisicaoA5 = ({ procedimentos, tipo }) => {
                                             textAlign: 'left',
                                             letterSpacing: 1,
                                         }}>
-                                        {procedimentos.justificativa}
+                                        {requisicao.justificativa}
                                     </Typography>
                                 </Box>
                             </Box>
