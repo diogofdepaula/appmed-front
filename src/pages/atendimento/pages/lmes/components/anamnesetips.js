@@ -81,7 +81,7 @@ const AnamneseTips = () => {
                     <Chip
                         label="Solicito..."
                         variant="outlined"
-                        onClick={handleSolMedicamento("Solicito o fornecimento de " + medicamentoEdit.farmaco + " para o tratamento da doença.")}
+                        onClick={handleSolMedicamento("Solicito o fornecimento de " + medicamentoEdit?.farmaco + " para o tratamento da doença.")}
                     />
                 </Box>
                 {Criterios().map((c, i) => {
