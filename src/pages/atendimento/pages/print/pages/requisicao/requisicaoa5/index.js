@@ -10,7 +10,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
 
         let conv = <div />
 
-        if (requisicao.convenio[0][1] !== "nenhum" || requisicao.convenio[0][1] !== "sus") {
+        if (requisicao.convenio[0][0] !== "") {
             conv =
                 <>
                     <Box
@@ -51,7 +51,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                                 <Box
                                     style={{
                                         margin: "3rem 1rem 2rem 1rem",
-                                        height: '24rem',
+                                        height: '30rem',
                                         fontSize: 18,
                                         fontWeight: 'bold',
                                         textAlign: 'left',
