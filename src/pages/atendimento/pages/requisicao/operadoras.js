@@ -1,6 +1,8 @@
 export default function Operadoras() {
 
     return [
+        ["", "NENHUM", "NENHUM", true, "XXX"],
+        ["", "SISTEMA ÚNICO DE SAÚDE", "SUS", true, "XXX"],
         ["322571", "UNIMED GUARAPUAVA COOPERATIVA DE TRABALHO MÉDICO", "UNIMED", true, "XXX"],
         ["355151", "FUNDAÇÃO COPEL DE PREVIDÊNCIA E ASSISTÊNCIA SOCIAL", "FUNDAÇÃO COPEL", true, "XXX"],
         ["338648", "FUNDAÇÃO SANEPAR DE ASSISTÊNCIA SOCIAL", "FUNDAÇÃO SANEPAR", true, "XXX"],

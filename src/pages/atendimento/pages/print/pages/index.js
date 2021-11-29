@@ -4,7 +4,7 @@ import TermoConsentimento from './consentimento';
 import FactoryLME from './lme';
 import FactoryReceitas from './receita';
 import FactoryRelatorio from './relatorio';
-import Sadt from './requisicao/sadt';
+import RequisicaoA5 from './requisicao/requisicaoa5';
 
 const PrintJob = () => {
 
@@ -73,10 +73,9 @@ const PrintJob = () => {
         if (impressao.requisicao) {
             impressao.requisicoes?.map(r => 
                 jobs.push(
-                    <Sadt requisicao={r} tipo={impressao.local} />
-                    // está tudo certo.
-                    // deixei comentado para testar as RequisiçõesA4
-                    // <RequisicaoA5 requisicao={r} tipo={impressao.local} />
+                    // deixei comentado só para saber com usar depois.
+                    // <Sadt requisicao={r} tipo={impressao.local} />
+                     <RequisicaoA5 requisicao={r} tipo={impressao.local} />
                 )
             )
         }

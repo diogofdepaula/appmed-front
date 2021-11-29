@@ -64,7 +64,7 @@ const Requisicao = () => {
 
     const [justificativa, setJustificatica] = useState('')
     const [selecionados, setSelecionados] = useState([])
-    const [convenio, setConvenio] = useState("nenhum")
+    const [convenio, setConvenio] = useState([])
     const ind = useRef(1)
     const [procedimentos, setProcedimentos] = useState(tuss.current)
 
@@ -80,7 +80,7 @@ const Requisicao = () => {
     }
 
     const handleChangeConvenio = event => {
-        setConvenio(event.target.value)
+        setConvenio(listaconvenios.filter(p => p[2] === event.target.value))
         setSearch("")
         setProcedimentos(event.target.value === 'sus' ? sigtap.current : tuss.current)
     }
@@ -88,7 +88,7 @@ const Requisicao = () => {
     const handleProcedimentoPush = (param) => {
         setSelecionados(prevState => [
             ...prevState,
-            convenio === "nenhum" ? param[2] : "(" + param[0] + ") - " + param[2]
+            convenio === "nenhum" ? param[2] : "(" + param[0] + ") " + param[2]
         ])
     }
 
@@ -146,8 +146,7 @@ const Requisicao = () => {
                                         onChange={handleChangeConvenio}
                                         label="Convênio"
                                     >
-                                        <MenuItem value="nenhum">Nenhum</MenuItem>
-                                        <MenuItem value="sus">SUS</MenuItem>
+                                        <MenuItem value="nenhum"></MenuItem>
                                         {listaconvenios.map((c, i) =>
                                             <MenuItem key={i} value={c[2]}>{c[2]}</MenuItem>
                                         )}

@@ -5,6 +5,40 @@ import Identificacao from '../../receita/component/identificacao';
 
 const RequisicaoA5 = ({ requisicao, tipo }) => {
 
+
+    const Convenio = () => {
+
+        let conv = <div />
+
+        if (requisicao.convenio !== "nenhum" || requisicao.convenio !== "sus") {
+            conv =
+                <>
+                    <Box
+                        style={{
+                            margin: "0 0 1rem 1rem",
+                            fontSize: 14,
+                            fontWeight: 'bold',
+                            textAlign: 'left',
+                            letterSpacing: 1,
+                        }}
+                    >
+                        <Box>
+                            Convênio:
+                        </Box>
+                        <Box
+                            style={{
+                                margin: "0 0 0 1rem",
+                            }}
+                        >
+                            {requisicao.convenio[0][0]} - {requisicao.convenio[0][1]}
+                        </Box>
+                    </Box>
+                </>
+        }
+
+        return conv
+    }
+
     return (
         <>
             <PageA5>
@@ -13,25 +47,30 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                         <Box justifyContent="center">
                             <Box display="block">
                                 <Identificacao tipo={tipo} />
+                                <Convenio />
                                 <Box
                                     style={{
                                         margin: "3rem 1rem 2rem 1rem",
                                         height: '24rem',
+                                        fontSize: 18,
+                                        fontWeight: 'bold',
+                                        textAlign: 'left',
+                                        letterSpacing: 2,
                                     }}
                                 >
+                                    <Box>
+                                        Procedimentos:
+                                    </Box>
                                     {requisicao.selecionados.map((p, i) =>
                                         <>
-                                            <Box display='flex' >
-                                                <Typography
-                                                    variant="h5"
-                                                    style={{
-                                                        fontSize: 18,
-                                                        fontWeight: 'bold',
-                                                        textAlign: 'left',
-                                                        letterSpacing: 2,
-                                                    }}>
-                                                    {p}
-                                                </Typography>
+                                            <Box
+                                                key={i}
+                                                display='flex'
+                                                style={{
+                                                    margin: "0.5rem 0 0 0.5rem",
+                                                }}
+                                            >
+                                                {p}
                                             </Box>
                                         </>
                                     )}
@@ -49,7 +88,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                                             textAlign: 'left',
                                             letterSpacing: 1,
                                         }}>
-                                        Justificativa
+                                        Justificativa (Indicação Clínica)
                                     </Typography>
                                 </Box>
                                 <Box
