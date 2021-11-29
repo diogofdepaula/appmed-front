@@ -71,11 +71,11 @@ const PrintJob = () => {
         }
 
         if (impressao.requisicao) {
-            impressao.requisicoes?.map(r => 
+            impressao.requisicoes?.map((r, i) => 
                 jobs.push(
                     // deixei comentado só para saber com usar depois.
                     // <Sadt requisicao={r} tipo={impressao.local} />
-                     <RequisicaoA5 requisicao={r} tipo={impressao.local} />
+                     <RequisicaoA5 key={i} requisicao={r} tipo={impressao.local} />
                 )
             )
         }
