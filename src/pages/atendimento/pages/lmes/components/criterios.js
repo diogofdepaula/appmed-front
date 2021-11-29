@@ -72,7 +72,7 @@ const Criterios = () => {
         ['intensidade da dor (escala EVA) de 8',],
         ['intensidade da dor (escala EVA) de 10',],
         ['refratários de outros fármacos: ',],
-        ['CID principal R52.1 ou R52.2',],
+        ['CID principal R52.2',],
         ['CID secundário (patologia que desencadeou a dor): ',],
         ['dor crônica (superior a 30 dias)',],
     ]
