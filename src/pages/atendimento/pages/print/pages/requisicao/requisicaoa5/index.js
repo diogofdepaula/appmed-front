@@ -10,7 +10,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
 
         let conv = <div />
 
-        if (requisicao.convenio !== "nenhum" || requisicao.convenio !== "sus") {
+        if (requisicao.convenio[0][1] !== "nenhum" || requisicao.convenio[0][1] !== "sus") {
             conv =
                 <>
                     <Box
