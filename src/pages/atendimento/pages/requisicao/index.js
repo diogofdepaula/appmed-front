@@ -93,8 +93,6 @@ const Requisicao = () => {
         ])
     }
 
-    console.log(convenio[0][2]);
-
     const handleProcedimentoRemove = (param) => {
         setSelecionados(prevState => prevState.filter(w => w.toString().toLowerCase() !== param.toString().toLowerCase()))
     }
