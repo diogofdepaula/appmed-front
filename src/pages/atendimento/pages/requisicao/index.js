@@ -3,6 +3,7 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
 import { ImpressaoContext } from "../..";
+// import ExamesTips from "./examestips";
 import Operadoras from "./operadoras";
 import Sigtap from "./sigtap";
 import Tuss from "./tuss";
@@ -88,9 +89,11 @@ const Requisicao = () => {
     const handleProcedimentoPush = (param) => {
         setSelecionados(prevState => [
             ...prevState,
-            convenio === "nenhum" ? param[2] : "(" + param[0] + ") " + param[2]
+            convenio[0][2] === "NENHUM" ? param[2] : "(" + param[0] + ") " + param[2]
         ])
     }
+
+    console.log(convenio[0][2]);
 
     const handleProcedimentoRemove = (param) => {
         setSelecionados(prevState => prevState.filter(w => w.toString().toLowerCase() !== param.toString().toLowerCase()))
@@ -142,11 +145,11 @@ const Requisicao = () => {
                                 <FormControl fullWidth variant="outlined" >
                                     <Select
                                         autoWidth
-                                        defaultValue="nenhum"
+                                        defaultValue="NENHUM"
                                         onChange={handleChangeConvenio}
                                         label="Convênio"
                                     >
-                                        <MenuItem value="nenhum"></MenuItem>
+                                        <MenuItem value="NENHUM"></MenuItem>
                                         {listaconvenios.map((c, i) =>
                                             <MenuItem key={i} value={c[2]}>{c[2]}</MenuItem>
                                         )}
@@ -216,6 +219,8 @@ const Requisicao = () => {
                     </Grid>
                 </Grid>
             </Box>
+            <Divider />
+            {/* <ExamesTips /> */}
         </>
     )
 }
