@@ -65,7 +65,7 @@ const Requisicao = () => {
 
     const [justificativa, setJustificatica] = useState('')
     const [selecionados, setSelecionados] = useState([])
-    const [convenio, setConvenio] = useState([])
+    const [convenio, setConvenio] = useState(["", "NENHUM", "NENHUM", true, "XXX"])
     const ind = useRef(1)
     const [procedimentos, setProcedimentos] = useState(tuss.current)
 
