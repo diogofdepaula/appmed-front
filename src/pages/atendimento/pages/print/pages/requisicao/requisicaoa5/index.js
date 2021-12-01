@@ -68,6 +68,8 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                                                 display='flex'
                                                 style={{
                                                     margin: "0.5rem 0 0 0.5rem",
+                                                    fontSize: 16,
+                                                    fontWeight: 'normal',
                                                 }}
                                             >
                                                 {p}
