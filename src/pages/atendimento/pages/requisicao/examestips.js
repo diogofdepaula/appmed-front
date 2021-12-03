@@ -1,21 +1,39 @@
-import { useContext } from "react"
-import { ImpressaoContext } from "../.."
+import { Box, Chip } from "@material-ui/core"
+import FormatText from "./formattext"
 
-const ExamesTips = () => {
+const ExamesTips = ({ handleAddTips, procedimentos, convenio }) => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const exames = [
+        [
+            "HOPCT",
+            "Exames de controle",
+            [
+                // lista do TUSS
+                "40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521",
+                // lista do SIGTAP
+                "202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250"
+            ],  
+        ],
+    ]
 
-    // const exames = [
-    //     []
-    // ]
+    const sendParam = (paramA, paramB) => {
+        let list = procedimentos.filter(z => paramB.includes(z[0])).map(y => FormatText(convenio[0][2], y))
+        handleAddTips(paramA, list)
+    }
 
     return (
         <>
-           {JSON.stringify(impressao)}
+            {exames.map((e, i) =>
+                <Box ml={1} key={i}>
+                    <Chip
+                        label={e[0]}
+                        variant="outlined"
+                        onClick={() => sendParam(e[1], e[2])}
+                    />
+                </Box>
+            )}
         </>
     )
 }
 
 export default ExamesTips
-
-//"selecionados":["(40304361) Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)","(40302504) Transaminase oxalacética (amino transferase aspartato) - pesquisa e/ou dosagem","(40302512) Transaminase pirúvica (amino transferase de alanina) - pesquisa e/ou dosagem","(40301630) Creatinina - pesquisa e/ou dosagem","(40304370) Hemossedimentação, (VHS) - pesquisa e/ou dosagem","(40308391) Proteína C reativa, quantitativa - pesquisa e/ou dosagem"],"convenio":[["322571","UNIMED GUARAPUAVA COOPERATIVA DE TRABALHO MÉDICO","UNIMED",true,"XXX"]]}]

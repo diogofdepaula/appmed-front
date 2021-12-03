@@ -3,7 +3,8 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
 import { ImpressaoContext } from "../..";
-// import ExamesTips from "./examestips";
+import ExamesTips from "./examestips";
+import FormatText from "./formattext"
 import Operadoras from "./operadoras";
 import Sigtap from "./sigtap";
 import Tuss from "./tuss";
@@ -83,13 +84,13 @@ const Requisicao = () => {
     const handleChangeConvenio = event => {
         setConvenio(listaconvenios.filter(p => p[2] === event.target.value))
         setSearch("")
-        setProcedimentos(event.target.value === 'sus' ? sigtap.current : tuss.current)
+        setProcedimentos(event.target.value === 'SUS' ? sigtap.current : tuss.current)
     }
 
     const handleProcedimentoPush = (param) => {
         setSelecionados(prevState => [
             ...prevState,
-            convenio[0][2] === "NENHUM" ? param[2] : "(" + param[0] + ") " + param[2]
+            FormatText(convenio[0][2], param)
         ])
     }
 
@@ -121,11 +122,28 @@ const Requisicao = () => {
         })
     }
 
+    const handleAddTips = (paramA, paramB) => {
+
+        setImpressao({
+            ...impressao,
+            requisicoes: [
+                ...impressao.requisicoes, {
+                    indice: ind.current,
+                    justificativa: paramA,
+                    selecionados: paramB,
+                    convenio: convenio,
+                }
+            ]
+        })
+        setSelecionados([])
+        ind.current = ind.current + 1
+    }
 
     return (
         <>
 
             <Box m={1}>
+
                 <Box mx={2}>
                     <Grid container>
                         <Grid item xs={9}>
@@ -218,7 +236,13 @@ const Requisicao = () => {
                 </Grid>
             </Box>
             <Divider />
-            {/* <ExamesTips /> */}
+            <Box
+                style={{
+                    margin: "0.5rem"
+                }}
+            >
+                <ExamesTips handleAddTips={handleAddTips} procedimentos={procedimentos} convenio={convenio} />
+            </Box>
         </>
     )
 }
