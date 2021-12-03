@@ -17,7 +17,7 @@ const ExamesTips = ({ handleAddTips, procedimentos, convenio }) => {
     ]
 
     const sendParam = (paramA, paramB) => {
-        let list = procedimentos.filter(z => paramB.includes(z[0])).map(y => FormatText(convenio[0][2], y))
+        let list = procedimentos.filter(z => paramB.includes(z[0])).map(y => FormatText(convenio[2], y))
         handleAddTips(paramA, list)
     }
 

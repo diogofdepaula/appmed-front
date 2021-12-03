@@ -82,7 +82,7 @@ const Requisicao = () => {
     }
 
     const handleChangeConvenio = event => {
-        setConvenio(listaconvenios.filter(p => p[2] === event.target.value))
+        setConvenio(listaconvenios.filter(p => p[2] === event.target.value)[0])
         setSearch("")
         setProcedimentos(event.target.value === 'SUS' ? sigtap.current : tuss.current)
     }
@@ -90,7 +90,7 @@ const Requisicao = () => {
     const handleProcedimentoPush = (param) => {
         setSelecionados(prevState => [
             ...prevState,
-            FormatText(convenio[0][2], param)
+            FormatText(convenio[2], param)
         ])
     }
 
