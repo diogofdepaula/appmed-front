@@ -10,7 +10,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
 
         let conv = <div />
 
-        if (requisicao.convenio[0][0] !== "") {
+        if (requisicao.convenio[0] !== "") {
             conv =
                 <>
                     <Box
@@ -30,7 +30,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                                 margin: "0 0 0 1rem",
                             }}
                         >
-                            {requisicao.convenio[0][0]} - {requisicao.convenio[0][1]}
+                            {requisicao.convenio[0]} - {requisicao.convenio[1]}
                         </Box>
                     </Box>
                 </>
