@@ -141,8 +141,6 @@ const Requisicao = () => {
     }
 
     const handleAddUnitaryTips = (param) => {
-
-        console.log(param);
         setSelecionados(prevState => [
             ...prevState,
             FormatText(convenio[2], param)
@@ -251,7 +249,7 @@ const Requisicao = () => {
                     margin: "0.5rem"
                 }}
             >
-                <UnitaryTips handleAddUnitaryTips={handleAddUnitaryTips} procedimentos={procedimentos} convenio={convenio} />
+                <UnitaryTips handleAddUnitaryTips={handleAddUnitaryTips} procedimentos={procedimentos} />
                 <GroupsTips handleAddGroupsTips={handleAddGroupsTips} procedimentos={procedimentos} convenio={convenio} />
             </Box>
         </>

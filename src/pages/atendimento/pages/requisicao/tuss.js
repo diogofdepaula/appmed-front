@@ -2882,7 +2882,7 @@ export default function Tuss() {
         ["40302016", "Gasometria (pH, pCO2, SA, O2, excesso base) - pesquisa e/ou dosagem", "Gasometria (pH, pCO2, SA, O2, excesso base)", false, "YYY", false, "XXX"],
         ["40302024", "Gasometria + Hb + Ht + Na +  K + Cl + Ca + glicose + lactato (quando efetuado no gasômetro) - pesquisa e/ou dosagem", "Gasometria + Hb + Ht + Na +  K + Cl + Ca + glicose + lactato (quando efetuado no gasômetro)", false, "YYY", false, "XXX"],
         ["40302032", "Glicemia após sobrecarga com dextrosol ou glicose - pesquisa e/ou dosagem", "Glicemia após sobrecarga com dextrosol ou glicose", false, "YYY", false, "XXX"],
-        ["40302040", "Glicose - pesquisa e/ou dosagem", "Glicose", true, "true", false, "XXX"],
+        ["40302040", "Glicose - pesquisa e/ou dosagem", "Glicose", true, "Gli", false, "XXX"],
         ["40302059", "Glicose-6-fosfato deidrogenase (G6FD) - pesquisa e/ou dosagem", "Glicose-6-fosfato deidrogenase (G6FD)", false, "YYY", false, "XXX"],
         ["40302067", "Haptoglobina - pesquisa e/ou dosagem", "Haptoglobina", false, "YYY", false, "XXX"],
         ["40302075", "Hemoglobina glicada (A1 total) - pesquisa e/ou dosagem", "Hemoglobina glicada (A1 total)", true, "Hb1AC", false, "XXX"],
