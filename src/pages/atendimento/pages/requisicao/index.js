@@ -3,11 +3,12 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
 import { ImpressaoContext } from "../..";
-import ExamesTips from "./examestips";
 import FormatText from "./formattext"
+import GroupsTips from "./groupstips";
 import Operadoras from "./operadoras";
 import Sigtap from "./sigtap";
 import Tuss from "./tuss";
+import UnitaryTips from "./unitarytips";
 
 const CellProcedimento = memo(({ param, handle }) => {
 
@@ -122,7 +123,7 @@ const Requisicao = () => {
         })
     }
 
-    const handleAddTips = (paramA, paramB) => {
+    const handleAddGroupsTips = (paramA, paramB) => {
 
         setImpressao({
             ...impressao,
@@ -137,6 +138,15 @@ const Requisicao = () => {
         })
         setSelecionados([])
         ind.current = ind.current + 1
+    }
+
+    const handleAddUnitaryTips = (param) => {
+
+        console.log(param);
+        setSelecionados(prevState => [
+            ...prevState,
+            FormatText(convenio[2], param)
+        ])
     }
 
     return (
@@ -241,7 +251,8 @@ const Requisicao = () => {
                     margin: "0.5rem"
                 }}
             >
-                <ExamesTips handleAddTips={handleAddTips} procedimentos={procedimentos} convenio={convenio} />
+                <UnitaryTips handleAddUnitaryTips={handleAddUnitaryTips} procedimentos={procedimentos} convenio={convenio} />
+                <GroupsTips handleAddGroupsTips={handleAddGroupsTips} procedimentos={procedimentos} convenio={convenio} />
             </Box>
         </>
     )

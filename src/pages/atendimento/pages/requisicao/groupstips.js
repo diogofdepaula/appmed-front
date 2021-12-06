@@ -1,7 +1,7 @@
 import { Box, Chip } from "@material-ui/core"
 import FormatText from "./formattext"
 
-const ExamesTips = ({ handleAddTips, procedimentos, convenio }) => {
+const GroupsTips = ({ handleAddGroupsTips, procedimentos, convenio }) => {
 
     const exames = [
         [
@@ -18,7 +18,7 @@ const ExamesTips = ({ handleAddTips, procedimentos, convenio }) => {
 
     const sendParam = (paramA, paramB) => {
         let list = procedimentos.filter(z => paramB.includes(z[0])).map(y => FormatText(convenio[2], y))
-        handleAddTips(paramA, list)
+        handleAddGroupsTips(paramA, list)
     }
 
     return (
@@ -36,4 +36,4 @@ const ExamesTips = ({ handleAddTips, procedimentos, convenio }) => {
     )
 }
 
-export default ExamesTips
+export default GroupsTips
