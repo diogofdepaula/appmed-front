@@ -40,10 +40,15 @@ const PrimaryAppBar = () => {
                                 onClick={handleHome}
                             />
                         </Box>
-                        <Box flexGrow={1} >
+                        <Box
+                            style={{
+                                flexGrow: 1,
+                                marginRight: 20
+                            }}
+                        >
                             <ClienteSet />
                         </Box>
-                        <Box >
+                        <Box>
                             <IconButton color="inherit">
                                 <Badge badgeContent={122} color="secondary">
                                     <MailIcon />
