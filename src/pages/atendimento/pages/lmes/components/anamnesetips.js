@@ -67,7 +67,7 @@ const AnamneseTips = () => {
     }
 
     return (
-        <div>
+        <>
             <Divider />
             <Box py={2} display='flex'>
                 <Box ml={1}>
@@ -96,9 +96,9 @@ const AnamneseTips = () => {
                     )
                 })}
             </Box>
-            <Frases />
+            {inclusao[1] ? <Frases /> : <div />}
             <ICAD />
-        </div>
+        </>
     )
 }
 

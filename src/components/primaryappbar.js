@@ -32,7 +32,7 @@ const PrimaryAppBar = () => {
                                 alignItems: 'center',
                                 //width: '216px'
                                 // se somente o icone da casa
-                                width: '36px'
+                                width: '44px'
                             }}
                         >
                             <HomeIcon

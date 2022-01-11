@@ -1,21 +1,10 @@
-import { Box, IconButton, makeStyles, Paper, TextField } from '@material-ui/core';
-import React, { useContext, useEffect, useState } from 'react';
-import LocalCafeIcon from '@material-ui/icons/LocalCafe';
+import { Box, IconButton, Paper, TextField } from '@material-ui/core';
 import CallSplitIcon from '@material-ui/icons/CallSplit';
+import LocalCafeIcon from '@material-ui/icons/LocalCafe';
+import React, { useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../..';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '10ch',
-        },
-    },
-}));
-
 const ICAD = () => {
-
-    const classes = useStyles();
 
     const { lmeEdit, setLmeEdit, step } = useContext(AtendimentoContext)
 
@@ -72,7 +61,8 @@ const ICAD = () => {
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat('\n').concat(textofinal),
-            relatorio: { ...lmeEdit.relatorio, 
+            relatorio: {
+                ...lmeEdit.relatorio,
                 das28: das28vhs.toFixed(1),
                 cdai: cdai,
                 sdai: sdai,
@@ -92,7 +82,8 @@ const ICAD = () => {
 
         setLmeEdit({
             ...lmeEdit,
-            relatorio: { ...lmeEdit.relatorio, 
+            relatorio: {
+                ...lmeEdit.relatorio,
                 das28: das28vhs.toFixed(1),
                 cdai: cdai,
                 sdai: sdai,
@@ -109,84 +100,94 @@ const ICAD = () => {
     }
 
     return (
-        <Paper>
-            <Box p={2} className={classes.root} display='flex' >
-                <TextField
-                    variant='outlined'
-                    name="edema"
-                    label="Edema"
-                    value={index.edema}
-                    helperText="0 a 28"
-                    onChange={handleChange}
-                />
-                <TextField
-                    variant='outlined'
-                    name="dor"
-                    label="Dor"
-                    value={index.dor}
-                    helperText="0 a 28"
-                    onChange={handleChange}
-                />
-                <TextField
-                    variant='outlined'
-                    name="vhs"
-                    label="VHS"
-                    value={index.vhs}
-                    helperText="1 a 300"
-                    onChange={handleChange}
-                />
-                <TextField
-                    variant='outlined'
-                    name="pcr"
-                    label="PCR"
-                    helperText="0 a 150"
-                    value={index.pcr}
-                    onChange={handleChange}
-                />
-                <TextField
-                    variant='outlined'
-                    name="eva"
-                    label="EVA"
-                    helperText="0 a 100"
-                    value={index.eva}
-                    onChange={handleChange}
-                />
-                <TextField
-                    variant='outlined'
-                    name="pga"
-                    label="PGA"
-                    helperText="0 a 10"
-                    value={index.pga}
-                    onChange={handleChange}
-                />
-                <TextField
-                    variant='outlined'
-                    name="ega"
-                    label="EGA"
-                    helperText="0 a 10"
-                    value={index.ega}
-                    onChange={handleChange}
-                />
-                {step === 21 &&
-                    <IconButton
-                        draggable
-                        onDragEnd={() => handleClickAnamnese()}
-                        onClick={() => handleClickAnamnese()}
-                    >
-                        <LocalCafeIcon />
-                    </IconButton>
-                }
-                {step === 81 &&
-                    <IconButton
-                        draggable
-                        onDragEnd={() => handleClickICAD()}
-                        onClick={() => handleClickICAD()}
-                    >
-                        <CallSplitIcon />
-                    </IconButton>
-                }
-            </Box>
-        </Paper>
+        <>
+            <Paper>
+                <Box
+                    style={{
+                        padding: 5,
+                        display: "flex",
+                        width: '50rem',
+                        marginTop: 2,
+                    }}
+
+                >
+                    <TextField
+                        variant='outlined'
+                        name="edema"
+                        label="Edema"
+                        value={index.edema}
+                        helperText="0 a 28"
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        variant='outlined'
+                        name="dor"
+                        label="Dor"
+                        value={index.dor}
+                        helperText="0 a 28"
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        variant='outlined'
+                        name="vhs"
+                        label="VHS"
+                        value={index.vhs}
+                        helperText="1 a 300"
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        variant='outlined'
+                        name="pcr"
+                        label="PCR"
+                        helperText="0 a 150"
+                        value={index.pcr}
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        variant='outlined'
+                        name="eva"
+                        label="EVA"
+                        helperText="0 a 100"
+                        value={index.eva}
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        variant='outlined'
+                        name="pga"
+                        label="PGA"
+                        helperText="0 a 10"
+                        value={index.pga}
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        variant='outlined'
+                        name="ega"
+                        label="EGA"
+                        helperText="0 a 10"
+                        value={index.ega}
+                        onChange={handleChange}
+                    />
+                    {step === 21 &&
+                        <IconButton
+                            draggable
+                            onDragEnd={() => handleClickAnamnese()}
+                            onClick={() => handleClickAnamnese()}
+                        >
+                            <LocalCafeIcon />
+                        </IconButton>
+                    }
+                    {step === 81 &&
+                        <IconButton
+                            draggable
+                            onDragEnd={() => handleClickICAD()}
+                            onClick={() => handleClickICAD()}
+                        >
+                            <CallSplitIcon />
+                        </IconButton>
+                    }
+                </Box>
+            </Paper>
+        </>
     )
 }
 
