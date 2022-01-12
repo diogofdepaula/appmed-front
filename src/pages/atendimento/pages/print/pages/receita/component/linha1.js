@@ -1,31 +1,40 @@
-import { Box, Typography, Grid, makeStyles } from '@material-ui/core'
-import React, { useContext } from 'react'
+import { Box, Grid, Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../../..';
-import PorTipo from '../../../component/portipo';
-import { PrescricaoPrintContext } from './prescricao'
-
-const useStylesA4 = makeStyles((theme) => ({
-    typo: {
-        fontSize: 22,
-        textAlign: 'center'
-    },
-}));
-
-const useStylesA5 = makeStyles((theme) => ({
-    typo: {
-        fontSize: 16,
-        textAlign: 'center'
-    },
-}));
+import PageSize from '../../../component/pagesize';
+import { PrescricaoPrintContext } from './prescricao';
 
 const Linha1 = ({ tipo, previoususo }) => {
 
-    const classesA4 = useStylesA4();
-    const classesA5 = useStylesA5();
-    const classes = PorTipo(tipo, classesA4, classesA5)
-
     const prescricao = useContext(PrescricaoPrintContext)
     const { impressao } = useContext(ImpressaoContext)
+
+    const Typo = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                    style={{
+                        fontSize: 16,
+                        textAlign: 'center'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                    style={{
+                        fontSize: 22,
+                        textAlign: 'center'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
 
     return (
         <>
@@ -36,15 +45,15 @@ const Linha1 = ({ tipo, previoususo }) => {
                     <Grid container direction='row' spacing={3}>
                         <Grid item xs={6} />
                         <Grid item >
-                            <Typography className={classes.typo}>
+                            <Typo>
                                 {prescricao.apresentaco.uso}
-                            </Typography>
+                            </Typo>
                         </Grid>
                         <Grid item >
                             {prescricao.continuo &&
-                                <Typography className={classes.typo}>
+                                <Typo>
                                     {!impressao.continuo && "uso contínuo"}
-                                </Typography>
+                                </Typo>
                             }
                         </Grid>
                     </Grid>

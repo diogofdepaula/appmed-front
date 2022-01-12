@@ -1,46 +1,10 @@
-import { Box, Grid, makeStyles, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
+import { Box, Grid, Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../../..';
-import PorTipo from '../../../component/portipo';
-import { PrescricaoPrintContext } from './prescricao'
-
-const useStylesA4 = makeStyles((theme) => ({
-    box: {
-        display: 'flex',
-        alignItems: 'flex-end',
-    },
-    typofarmposo: theme.typography.subtitle1,
-    typoquant: {
-        ...theme.typography.h5,
-        fontWeight: 'bold',
-    },
-    typoform: theme.typography.h6,
-}));
-
-const useStylesA5 = makeStyles((theme) => ({
-    box: {
-        display: 'flex',
-        alignItems: 'flex-end',
-    },
-    typofarmposo: {
-        ...theme.typography.subtitle1,
-        fontSize: 14,
-    },
-    typoquant: {
-        ...theme.typography.subtitle1,
-
-    },
-    typoform: {
-        ...theme.typography.subtitle1,
-        fontSize: 14,
-    },
-}));
+import PageSize from '../../../component/pagesize';
+import { PrescricaoPrintContext } from './prescricao';
 
 const Linha3 = ({ mes, tipo }) => {
-
-    const classesA4 = useStylesA4();
-    const classesA5 = useStylesA5();
-    const classes = PorTipo(tipo, classesA4, classesA5)
 
     const prescricao = useContext(PrescricaoPrintContext)
 
@@ -62,18 +26,99 @@ const Linha3 = ({ mes, tipo }) => {
         return final
     }
 
+    const TypoFarmPoso = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                    variant='subtitle1'
+                    style={{
+                        fontSize: 14,
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                    variant='subtitle1'
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
+
+    const TypoQuant = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                    component={'span'}
+                    variant='subtitle1'
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                    component={'span'}
+                    variant='h5'
+                    style={{
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
+
+    const TypoForm = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                    component={'span'}
+                    variant='subtitle1'
+                    style={{
+                        fontSize: 14,
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                    component={'span'}
+                    variant='h6'
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
+
     //Farmaco + Apresentacao + Quantidade + Forma
 
     const Padrao = () => {
 
         return (
-            <Box className={classes.box}>
-                <Typography component={'span'} className={classes.typoquant} >
+            <Box
+                style={{
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                }}
+            >
+                <TypoQuant>
                     <Box>{tipo === 'lme' ? quantLME : (prescricao.posologia.quantidade * (prescricao.medicamento.controlado ? 1 : impressao.meses))}</Box>
-                </Typography>
-                <Typography component={'span'} className={classes.typoform}>
+                </TypoQuant>
+                <TypoForm>
                     <Box ml={1}>{prescricao.posologia.forma}</Box>
-                </Typography>
+                </TypoForm>
             </Box>
         )
     }
@@ -81,23 +126,33 @@ const Linha3 = ({ mes, tipo }) => {
     const NaoPadrao = () => {
 
         return (
-            <Box className={classes.box}>
-                <Typography component={'span'} className={classes.typoquant} >
+            <Box
+                style={{
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                }}
+            >
+                <TypoQuant>
                     <Box>{tipo === 'lme' ? quantLME : prescricao.quantidadenaopadrao}</Box>
-                </Typography>
-                <Typography component={'span'} className={classes.typoform}>
+                </TypoQuant>
+                <TypoForm>
                     <Box ml={1}>{prescricao.formanaopadrao}</Box>
-                </Typography>
+                </TypoForm>
             </Box>
         )
     }
 
     const Continuo = () => {
         return (
-            <Box className={classes.box}>
-                <Typography component={'span'} className={classes.typoquant} >
+            <Box
+                style={{
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                }}
+            >
+                <TypoQuant>
                     <Box fontWeight="fontWeightBold" >uso contínuo</Box>
-                </Typography>
+                </TypoQuant>
             </Box>
         )
     }
@@ -107,9 +162,9 @@ const Linha3 = ({ mes, tipo }) => {
             <Box>
                 <Grid container direction="row" justify="space-between" alignItems="flex-end">
                     <Grid item xs={9}>
-                        <Typography className={classes.typofarmposo}>
+                        <TypoFarmPoso>
                             {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
-                        </Typography>
+                        </TypoFarmPoso>
                     </Grid>
                     <Grid item container xs={3} justify="flex-end">
                         {impressao.continuo ?

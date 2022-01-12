@@ -1,37 +1,45 @@
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
-import PorTipo from '../../../component/portipo';
-
-const useStylesA4 = makeStyles((theme) => ({
-    typo: {
-        ...theme.typography.h5,
-        textAlign: 'justify'
-    },
-}));
-
-const useStylesA5 = makeStyles((theme) => ({
-    typo: {
-        ...theme.typography.h6,
-        textAlign: 'justify'
-    },
-}));
-
+import PageSize from '../../../component/pagesize';
 
 const Comentario = ({ tipo }) => {
 
-    const classesA4 = useStylesA4();
-    const classesA5 = useStylesA5();
-    const classes = PorTipo(tipo, classesA4, classesA5)
-
     const { impressao } = useContext(ImpressaoContext)
+
+    const Typo = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                variant='h6'
+                    style={{
+                        textAlign: 'justify'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                variant='h5'
+                    style={{
+                        textAlign: 'justify'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
 
     return (
         <>
             <Box>
-                <Typography className={classes.typo} >
+                <Typo>
                     {impressao.comentario}
-                </Typography>
+                </Typo>
             </Box>
         </>
     )

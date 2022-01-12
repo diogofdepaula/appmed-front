@@ -8,8 +8,6 @@ const UnitaryTips = ({ handleAddUnitaryTips, procedimentos }) => {
         handleAddUnitaryTips(proc)
     }
 
-console.log("teste");
-
     return (
         <>
             <Box 

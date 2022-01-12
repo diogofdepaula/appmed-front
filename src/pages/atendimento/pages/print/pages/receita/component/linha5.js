@@ -1,45 +1,54 @@
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import React, { useContext } from 'react';
-import PorTipo from '../../../component/portipo';
+import PageSize from '../../../component/pagesize';
 import { PrescricaoPrintContext } from './prescricao';
-
-const useStylesA4 = makeStyles((theme) => ({
-    box: {
-        marginTop: 5
-    },
-    typo: {
-        ...theme.typography.h6,
-        textAlign: 'justify'
-    },
-}));
-
-const useStylesA5 = makeStyles((theme) => ({
-    box: {
-        marginTop: 5
-    },
-    typo: {
-        ...theme.typography.h6,
-        fontSize: 16,
-        textAlign: 'justify'
-    },
-}));
 
 const Linha5 = ({ tipo }) => {
 
-    const classesA4 = useStylesA4();
-    const classesA5 = useStylesA5();
-    const classes = PorTipo(tipo, classesA4, classesA5)
-
     const prescricao = useContext(PrescricaoPrintContext)
+
+    const Typo = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                    component='span'
+                    variant='h6'
+                    style={{
+                        fontSize: 16,
+                        textAlign: 'justify'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                    component='span'
+                    variant='h6'
+                    style={{
+                        textAlign: 'justify'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
 
     return (
         <>
-            <Box className={classes.box}>
-                <Typography component='span' className={classes.typo}>
+            <Box
+                style={{
+                    marginTop: 5
+                }}
+            >
+                <Typo>
                     {prescricao.orientacoes.split("\n").map((i, key) => {
                         return <div key={key}>{i}</div>;
                     })}
-                </Typography>
+                </Typo>
             </Box>
         </>
     )

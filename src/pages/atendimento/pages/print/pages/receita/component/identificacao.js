@@ -1,71 +1,131 @@
-import { Box, Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { ClienteContext } from '../../../../../../../App'
-import { makeStyles } from '@material-ui/core/styles';
-import PorTipo from '../../../component/portipo';
-
-const useStylesA4 = makeStyles((theme) => ({
-    box: {
-        display: 'block',
-        paddingTop: 3,
-        paddingBottom: 7,
-    },
-    typonomemajor: {
-        fontSize: 48,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    typonomeminor: {
-        fontSize: 48,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    typocpf: {
-        fontVariant: 'subtitle2',
-        textAlign: 'center'
-    }
-}));
-
-const useStylesA5 = makeStyles((theme) => ({
-    box: {
-        display: 'block',
-        paddingTop: 20,
-        paddingBottom: 1,
-    },
-    typonomemajor: {
-        fontSize: 38,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    typonomeminor: {
-        fontSize: 32,
-        letterSpacing: '0px',
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    typocpf: {
-        display: 'none'
-    }
-}));
+import { Box, Typography } from '@material-ui/core';
+import React, { useContext } from 'react';
+import { ClienteContext } from '../../../../../../../App';
+import PageSize from '../../../component/pagesize';
 
 const Identificacao = ({ tipo }) => {
 
-    const classesA4 = useStylesA4();
-    const classesA5 = useStylesA5();
-    const classes = PorTipo(tipo, classesA4, classesA5)
-
     const { clienteContext } = useContext(ClienteContext)
+
+    const BoxExterno = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Box style={{
+                    // A5
+                    display: 'block',
+                    paddingTop: 3,
+                    paddingBottom: 7,
+                }}
+                >
+                    {prop.children}
+                </Box>
+            )
+        } else {
+            return (
+                <Box style={{
+                    // A4
+                    display: 'block',
+                    paddingTop: 20,
+                    paddingBottom: 1,
+                }}>
+                    {prop.children}
+                </Box>
+            )
+        }
+    }
+
+    const TypoNome = (prop) => {
+
+        if (PageSize(tipo) && clienteContext.nome.length <= 27) {
+            return (
+                <Typography
+                    style={{
+                        fontSize: 38,
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else if (PageSize(tipo) && clienteContext.nome.length > 27) {
+            return (
+                <Typography
+                    style={{
+                        fontSize: 32,
+                        letterSpacing: '0px',
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else if (!PageSize(tipo) && clienteContext.nome.length <= 27) {
+            return (
+                <Typography
+                    style={{
+                        fontSize: 48,
+                        fontWeight: 'bold',
+                        textAlign: 'center',
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else if (!PageSize(tipo) && clienteContext.nome.length > 27) {
+            return (
+                <Typography
+                    style={{
+                        fontSize: 44,
+                        fontWeight: 'bold',
+                        letterSpacing: '0px',
+                        textAlign: 'center',
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
+
+    const TypoCPF = (prop) => {
+
+        if (PageSize(tipo)) {
+            return (
+                <Typography
+                    style={{
+                        display: 'none'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        } else {
+            return (
+                <Typography
+                    style={{
+                        fontVariant: 'subtitle2',
+                        textAlign: 'center'
+                    }}
+                >
+                    {prop.children}
+                </Typography>
+            )
+        }
+    }
 
     return (
         <>
-            <Box className={classes.box} >
-                <Typography className={clienteContext.nome.length <= 27 ? classes.typonomemajor : classes.typonomeminor} >
+            <BoxExterno>
+                <TypoNome>
                     {clienteContext.nome}
-                </Typography>
-                <Typography className={classes.typocpf}  >
+                </TypoNome>
+                <TypoCPF>
                     {clienteContext.cpf && "CPF: " + clienteContext.cpf}
-                </Typography>
-            </Box>
+                </TypoCPF>
+            </BoxExterno>
         </>
     )
 }
