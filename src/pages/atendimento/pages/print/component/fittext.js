@@ -19,7 +19,9 @@ export default function FitText({ texto, inicial, maxfont, erro, padding, align 
                 p={padding}
                 height={1}
                 textAlign={align}
-                style={{ whiteSpace: 'pre-wrap' }}
+                style={{
+                    whiteSpace: 'pre-wrap',
+                }}
                 ref={outsideRef}
             >
                 <Box

@@ -9,7 +9,19 @@ const Linha7LME = () => {
 
     return (
         <>
-            <Box mt={2} flexGrow={1} width={1} border={1} borderColor="black" component="span" display="block" >
+            <Box
+                mt={2}
+                flexGrow={1}
+                width={1}
+                border={1}
+                borderColor="black"
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "stretch",
+                }}
+            >
+
                 <Box mt={-1} ml={2} display="flex">
                     <Typography component={'span'} variant="caption" noWrap={true} >
                         <Box bgcolor="white" px={1}>11 e 12 - Relatório médico (Anamnese e tratamento prévio)</Box>
