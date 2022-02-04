@@ -1,7 +1,7 @@
-import { Box, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from '@material-ui/core';
+import { Box, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from '@mui/icons-material/Edit';
 
 const LMEData = () => {
 
@@ -35,7 +35,7 @@ const LMEData = () => {
                                             <IconButton
                                                 disabled={!lmeOnDuty}
                                                 onClick={handleEditarPrescricao(prescricao)}
-                                            >
+                                                size="large">
                                                 <EditIcon />
                                             </IconButton>
                                         </span>
@@ -47,7 +47,7 @@ const LMEData = () => {
                 </Box>
             </Box>
         </div>
-    )
+    );
 }
 
 export default LMEData

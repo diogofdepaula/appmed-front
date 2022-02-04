@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box } from '@mui/material'
 import React from 'react'
 import PageA4 from '../../component/pagea4'
 import Cabecalho from '../component/cabecalho'
@@ -17,7 +17,7 @@ const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
                     <Cabecalho tipo={tipo} />
                     <Box
                         height='calc(100% - 110px)' // se mudar o Cabecalho tem que ajustar aqui depois
-                        p={5} border={3} borderColor={"black"} >
+                        p={5} border={3}>
                         <Box display="block" height={1}>
                             <Box justifyContent="center">
                                 <Box display="block">

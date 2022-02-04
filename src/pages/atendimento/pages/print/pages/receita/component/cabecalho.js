@@ -1,4 +1,4 @@
-import { Box, CardMedia, Grid, Typography } from '@material-ui/core'
+import { Box, CardMedia, Grid, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { ImpressaoContext } from '../../../../..'
 import LogoCISCO from '../../../component/imagens/ciscologo.png'

@@ -1,5 +1,5 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
@@ -40,8 +40,7 @@ const ClienteData = () => {
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <IconButton
-                    >
+                    <IconButton size="large">
                         <EditIcon />
                     </IconButton>
                     <Button size="small" color="primary">
@@ -50,7 +49,7 @@ const ClienteData = () => {
                 </CardActions>
             </Card>
         </div>
-    )
+    );
 }
 
 export default ClienteData

@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
+import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { MedicamentosContext } from '..';
 import MedicamentoData from '../components/medicamentodata';
@@ -44,7 +44,7 @@ const MedicamentoMain = () => {
     <div>
       <Box m={1}>
         <Grid container spacing={1}>
-          <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
+          <Grid container item xs={4} direction="column" justifyContent="flex-start" alignItems="stretch">
             <Grid item>
               <Box m={2}>
                 <TextField
@@ -86,7 +86,7 @@ const MedicamentoMain = () => {
         </Grid>
       </Box>
     </div>
-  )
+  );
 }
 
 export default MedicamentoMain

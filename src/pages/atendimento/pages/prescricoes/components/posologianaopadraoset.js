@@ -1,5 +1,5 @@
-import { Box, Button, Grid, TextField } from '@material-ui/core';
-import TextRotationNoneIcon from '@material-ui/icons/TextRotationNone';
+import { Box, Button, Grid, TextField } from '@mui/material';
+import TextRotationNoneIcon from '@mui/icons-material/TextRotationNone';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 

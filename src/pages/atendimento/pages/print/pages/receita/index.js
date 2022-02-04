@@ -51,6 +51,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
                 listOfListIndex.push(listIndex)
             }
         })
+
         let listReceitas = []
 
         listOfListIndex.forEach(r => {

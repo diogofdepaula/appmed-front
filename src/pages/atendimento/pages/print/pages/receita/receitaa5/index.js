@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import React from 'react';
 import PageA5 from '../../component/pagea5';
 import Data from '../component/data';

@@ -1,7 +1,7 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
-import InputBase from '@material-ui/core/InputBase';
-import PersonIcon from '@material-ui/icons/Person';
-import SearchIcon from '@material-ui/icons/Search';
+import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import InputBase from '@mui/material/InputBase';
+import PersonIcon from '@mui/icons-material/Person';
+import SearchIcon from '@mui/icons-material/Search';
 import { differenceInYears, format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import React, { useCallback, useContext, useEffect, useState } from 'react';

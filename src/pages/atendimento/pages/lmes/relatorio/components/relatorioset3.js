@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, TextField } from '@material-ui/core'
+import { Box, Chip, Grid, TextField } from '@mui/material'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
@@ -116,7 +116,7 @@ const RelatorioSet3 = () => {
         <div>
             <Box m={2}>
                 <Box mt={2}>
-                    <Grid container justify="flex-start" spacing={1}>
+                    <Grid container justifyContent="flex-start" spacing={1}>
                         {prescricoes?.filter(p => !p.emuso).map(x =>
                             <Grid item key={x.id}>
                                 <Chip
@@ -190,7 +190,7 @@ const RelatorioSet3 = () => {
                 </Box>
             </Box>
         </div>
-    )
+    );
 }
 
 export default RelatorioSet3

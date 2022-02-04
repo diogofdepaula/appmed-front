@@ -1,4 +1,4 @@
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core'
+import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material'
 import React, { useCallback, useContext, useEffect } from 'react'
 import { AtendimentoContext } from '../../..'
 

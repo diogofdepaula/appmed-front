@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import React, { createContext, useState } from 'react';
 import MedicamentosAppBar from './components/appbar';
 import Content from './components/content';

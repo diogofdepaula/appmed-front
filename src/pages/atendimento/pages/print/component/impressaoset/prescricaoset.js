@@ -1,4 +1,4 @@
-import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
+import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ImpressaoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';

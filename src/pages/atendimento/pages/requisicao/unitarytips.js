@@ -1,4 +1,4 @@
-import { Box, Chip } from "@material-ui/core"
+import { Box, Chip } from "@mui/material"
 import Tuss from "./tuss"
 
 const UnitaryTips = ({ handleAddUnitaryTips, procedimentos }) => {

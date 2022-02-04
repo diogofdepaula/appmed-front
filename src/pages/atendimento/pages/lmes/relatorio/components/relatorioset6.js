@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, TextField } from '@material-ui/core'
+import { Box, Divider, Grid, TextField } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '../../../..'
 import ReactInputMask from 'react-input-mask';

@@ -1,9 +1,9 @@
-import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@material-ui/core';
-import PostAddIcon from '@material-ui/icons/PostAdd';
+import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@mui/material';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
-import LocalAtmIcon from '@material-ui/icons/LocalAtm';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 
 const PrescricaoVarSet = () => {
 

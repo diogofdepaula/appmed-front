@@ -1,13 +1,15 @@
-import { Box, Toolbar } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { Box, Toolbar } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import 'fontsource-roboto';
 import React, { createContext, useReducer, useState } from 'react';
 import LeftDrawer from './components/leftdrawer';
 import MainContent from './components/maincontent';
 import PrimaryAppBar from './components/primaryappbar';
+import Login from './contexts/login';
 
-export const ClienteContext = createContext(null)
-export const PageContentContext = createContext(null)
+export const ClienteContext = createContext()
+export const PageContentContext = createContext()
+export const LoginContext = createContext()
 
 const App = () => {
 
@@ -26,17 +28,19 @@ const App = () => {
         <CssBaseline />
         <ClienteContext.Provider value={{ clienteContext, setClienteContext }} >
           <PageContentContext.Provider value={{ pageContentContext, setPageContentContext, forceUpdate }} >
-            <Box>
-              <PrimaryAppBar />
-            </Box>
-            <LeftDrawer />
-            <Box flexGrow={1}>
-              <Toolbar />
-              <MainContent />
-            </Box>
-          </PageContentContext.Provider>
-        </ClienteContext.Provider>
-      </Box>
+            <LoginContext.Provider value={{ login: Login() }} >
+              <Box>
+                <PrimaryAppBar />
+              </Box>
+              <LeftDrawer />
+              <Box flexGrow={1}>
+                <Toolbar />
+                <MainContent />
+              </Box>
+            </LoginContext.Provider>
+        </PageContentContext.Provider>
+      </ClienteContext.Provider>
+    </Box>
     </>
   )
 }

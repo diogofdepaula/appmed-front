@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
 import Reorder from '../../../../component/reorder'

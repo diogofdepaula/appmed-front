@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { differenceInMonths } from 'date-fns/esm';
 import { ptBR } from 'date-fns/locale';

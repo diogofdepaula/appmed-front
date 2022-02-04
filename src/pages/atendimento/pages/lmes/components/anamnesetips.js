@@ -1,5 +1,5 @@
-import { Box, Chip, Divider, IconButton, Paper } from '@material-ui/core';
-import FormatTextdirectionLToRIcon from '@material-ui/icons/FormatTextdirectionLToR';
+import { Box, Chip, Divider, IconButton, Paper } from '@mui/material';
+import FormatTextdirectionLToRIcon from '@mui/icons-material/FormatTextdirectionLToR';
 import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import ICAD from '../../../component/calculadoras/das28';
@@ -56,14 +56,14 @@ const AnamneseTips = () => {
                                 draggable
                                 onDragEnd={handleClickChip(p)}
                                 onClick={handleClickChip(p)}
-                            >
+                                size="large">
                                 <FormatTextdirectionLToRIcon />
                             </IconButton>
                         </div>
                     )}
                 </Box>
             </Paper>
-        )
+        );
     }
 
     return (

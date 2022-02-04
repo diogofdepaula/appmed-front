@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../../..';
 import PageSize from '../../../component/pagesize';
@@ -114,7 +114,7 @@ const Linha3 = ({ mes, tipo }) => {
                 }}
             >
                 <TypoQuant>
-                    <Box>{tipo === 'lme' ? quantLME : (prescricao.posologia.quantidade * (prescricao.medicamento.controlado ? 1 : impressao.meses))}</Box>
+                    {tipo === 'lme' ? quantLME() : (prescricao.posologia.quantidade * (prescricao.medicamento.controlado ? 1 : impressao.meses))}
                 </TypoQuant>
                 <TypoForm>
                     <Box ml={1}>{prescricao.posologia.forma}</Box>
@@ -133,7 +133,7 @@ const Linha3 = ({ mes, tipo }) => {
                 }}
             >
                 <TypoQuant>
-                    <Box>{tipo === 'lme' ? quantLME : prescricao.quantidadenaopadrao}</Box>
+                    {tipo === 'lme' ? quantLME() : prescricao.quantidadenaopadrao}
                 </TypoQuant>
                 <TypoForm>
                     <Box ml={1}>{prescricao.formanaopadrao}</Box>
@@ -157,25 +157,23 @@ const Linha3 = ({ mes, tipo }) => {
         )
     }
 
-    return (
-        <>
-            <Box>
-                <Grid container direction="row" justify="space-between" alignItems="flex-end">
-                    <Grid item xs={9}>
-                        <TypoFarmPoso>
-                            {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
-                        </TypoFarmPoso>
-                    </Grid>
-                    <Grid item container xs={3} justify="flex-end">
-                        {impressao.continuo ?
-                            <Continuo /> :
-                            prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
-                        }
-                    </Grid>
+    return <>
+        <Box>
+            <Grid container direction="row" justifyContent="space-between" alignItems="flex-end">
+                <Grid item xs={9}>
+                    <TypoFarmPoso>
+                        {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
+                    </TypoFarmPoso>
                 </Grid>
-            </Box>
-        </>
-    )
+                <Grid item container xs={3} justifyContent="flex-end">
+                    {impressao.continuo ?
+                        <Continuo /> :
+                        prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
+                    }
+                </Grid>
+            </Grid>
+        </Box>
+    </>;
 }
 
 export default Linha3

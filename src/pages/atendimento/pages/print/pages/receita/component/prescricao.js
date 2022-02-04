@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box } from '@mui/material'
 import React, { createContext } from 'react'
 import Linha1 from './linha1'
 import Linha2 from './linha2'

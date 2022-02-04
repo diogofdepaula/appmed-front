@@ -1,5 +1,5 @@
-import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core';
-import TextRotationNoneIcon from '@material-ui/icons/TextRotationNone';
+import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
+import TextRotationNoneIcon from '@mui/icons-material/TextRotationNone';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 

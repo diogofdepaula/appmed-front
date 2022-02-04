@@ -1,6 +1,6 @@
-import { Box, Typography } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import PersonIcon from '@material-ui/icons/Person';
+import { Box, Typography } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import PersonIcon from '@mui/icons-material/Person';
 import { differenceInYears, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { ClienteContext } from '../../../App';

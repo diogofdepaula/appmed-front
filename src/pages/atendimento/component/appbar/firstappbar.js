@@ -1,11 +1,11 @@
-import { Divider, Grid, IconButton, Tooltip } from '@material-ui/core';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import HealingIcon from '@material-ui/icons/Healing';
-import InputIcon from '@material-ui/icons/Input';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import RemoveRedEyeIcon from '@material-ui/icons/RemoveRedEye';
-import SpellcheckIcon from '@material-ui/icons/Spellcheck';
+import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import HealingIcon from '@mui/icons-material/Healing';
+import InputIcon from '@mui/icons-material/Input';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import SpellcheckIcon from '@mui/icons-material/Spellcheck';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
 import SecondAppBar from './secondappbar';
@@ -16,10 +16,10 @@ const FirstAppBar = () => {
 
     return (
         <div>
-            <Grid container direction="row" justify="space-between" alignItems="center">
+            <Grid container direction="row" justifyContent="space-between" alignItems="center">
                 <Grid item xs>
                     <Tooltip title="Voltar">
-                        <IconButton>
+                        <IconButton size="large">
                             <ArrowBackIcon />
                         </IconButton>
                     </Tooltip>
@@ -30,7 +30,7 @@ const FirstAppBar = () => {
                                 setPage('prescricoesmain')
                                 updatePage()
                             }}
-                        >
+                            size="large">
                             <ListAltIcon />
                         </IconButton>
                     </Tooltip>
@@ -41,7 +41,7 @@ const FirstAppBar = () => {
                                 setPage('lmesmain')
                                 updatePage()
                             }}
-                        >
+                            size="large">
                             <AccountBalanceIcon />
                         </IconButton>
                     </Tooltip>
@@ -51,24 +51,22 @@ const FirstAppBar = () => {
                                 setPage('requisicao')
                                 updatePage()
                             }}
-                        >
+                            size="large">
                             <InputIcon />
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Atestados">
-                        <IconButton>
+                        <IconButton size="large">
                             <RemoveRedEyeIcon />
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Termos de consentimento">
-                        <IconButton>
+                        <IconButton size="large">
                             <SpellcheckIcon />
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Outros">
-                        <IconButton
-                            onClick={() => setPage('teste')}
-                        >
+                        <IconButton onClick={() => setPage('teste')} size="large">
                             <HealingIcon />
                         </IconButton>
                     </Tooltip>
@@ -79,7 +77,7 @@ const FirstAppBar = () => {
             </Grid>
             <Divider />
         </div>
-    )
+    );
 }
 
 export default FirstAppBar

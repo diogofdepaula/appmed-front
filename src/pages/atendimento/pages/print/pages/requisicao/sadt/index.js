@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core"
+import { Box } from "@mui/material"
 import PageA4 from "../../component/pagea4"
 import Linha1Sadt from "./component/linha1"
 import Linha2Sadt from "./component/linha2"

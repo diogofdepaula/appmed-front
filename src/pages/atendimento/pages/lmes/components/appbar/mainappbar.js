@@ -1,8 +1,8 @@
-import { Box, IconButton, Tooltip } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import EditIcon from '@material-ui/icons/Edit';
-import HealingIcon from '@material-ui/icons/Healing';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import { Box, IconButton, Tooltip } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import EditIcon from '@mui/icons-material/Edit';
+import HealingIcon from '@mui/icons-material/Healing';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 
@@ -25,29 +25,21 @@ const LmesMainAppBar = () => {
             <Box>
                 <Tooltip title="Voltar">
                     <span>
-                        <IconButton
-                            disabled={!lmeOnDuty}
-                        >
+                        <IconButton disabled={!lmeOnDuty} size="large">
                             <ArrowUpwardIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Editar">
                     <span>
-                        <IconButton
-                            disabled={!lmeOnDuty}
-                            onClick={handleEditar}
-                        >
+                        <IconButton disabled={!lmeOnDuty} onClick={handleEditar} size="large">
                             <EditIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Parar">
                     <span>
-                        <IconButton
-                            disabled={!lmeOnDuty}
-                            onClick={handleParar}
-                        >
+                        <IconButton disabled={!lmeOnDuty} onClick={handleParar} size="large">
                             <HighlightOffIcon />
                         </IconButton>
                     </span>
@@ -64,16 +56,16 @@ const LmesMainAppBar = () => {
                 <Tooltip title="Outros">
                     <span>
                         <IconButton
+                            //                        onClick={() => setPage('teste')}
                             disabled={!lmeOnDuty}
-                        //                        onClick={() => setPage('teste')}
-                        >
+                            size="large">
                             <HealingIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
             </Box>
         </div>
-    )
+    );
 }
 
 export default LmesMainAppBar

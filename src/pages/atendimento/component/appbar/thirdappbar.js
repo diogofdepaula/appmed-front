@@ -1,4 +1,4 @@
-import { Divider } from '@material-ui/core';
+import { Divider } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
 import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';

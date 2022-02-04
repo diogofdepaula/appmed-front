@@ -1,4 +1,4 @@
-import { Checkbox, Divider, FormControlLabel, List, ListItem, ListItemText } from "@material-ui/core"
+import { Checkbox, Divider, FormControlLabel, List, ListItem, ListItemText } from "@mui/material"
 import { useContext } from "react"
 import { ImpressaoContext } from "../../../.."
 

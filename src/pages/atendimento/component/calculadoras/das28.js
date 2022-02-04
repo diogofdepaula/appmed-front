@@ -1,6 +1,6 @@
-import { Box, IconButton, Paper, TextField } from '@material-ui/core';
-import CallSplitIcon from '@material-ui/icons/CallSplit';
-import LocalCafeIcon from '@material-ui/icons/LocalCafe';
+import { Box, IconButton, Paper, TextField } from '@mui/material';
+import CallSplitIcon from '@mui/icons-material/CallSplit';
+import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import React, { useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../..';
 
@@ -99,96 +99,94 @@ const ICAD = () => {
         })
     }
 
-    return (
-        <>
-            <Paper>
-                <Box
-                    style={{
-                        padding: 5,
-                        display: "flex",
-                        width: '50rem',
-                        marginTop: 2,
-                    }}
+    return <>
+        <Paper>
+            <Box
+                style={{
+                    padding: 5,
+                    display: "flex",
+                    width: '50rem',
+                    marginTop: 2,
+                }}
 
-                >
-                    <TextField
-                        variant='outlined'
-                        name="edema"
-                        label="Edema"
-                        value={index.edema}
-                        helperText="0 a 28"
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant='outlined'
-                        name="dor"
-                        label="Dor"
-                        value={index.dor}
-                        helperText="0 a 28"
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant='outlined'
-                        name="vhs"
-                        label="VHS"
-                        value={index.vhs}
-                        helperText="1 a 300"
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant='outlined'
-                        name="pcr"
-                        label="PCR"
-                        helperText="0 a 150"
-                        value={index.pcr}
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant='outlined'
-                        name="eva"
-                        label="EVA"
-                        helperText="0 a 100"
-                        value={index.eva}
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant='outlined'
-                        name="pga"
-                        label="PGA"
-                        helperText="0 a 10"
-                        value={index.pga}
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        variant='outlined'
-                        name="ega"
-                        label="EGA"
-                        helperText="0 a 10"
-                        value={index.ega}
-                        onChange={handleChange}
-                    />
-                    {step === 21 &&
-                        <IconButton
-                            draggable
-                            onDragEnd={() => handleClickAnamnese()}
-                            onClick={() => handleClickAnamnese()}
-                        >
-                            <LocalCafeIcon />
-                        </IconButton>
-                    }
-                    {step === 81 &&
-                        <IconButton
-                            draggable
-                            onDragEnd={() => handleClickICAD()}
-                            onClick={() => handleClickICAD()}
-                        >
-                            <CallSplitIcon />
-                        </IconButton>
-                    }
-                </Box>
-            </Paper>
-        </>
-    )
+            >
+                <TextField
+                    variant='outlined'
+                    name="edema"
+                    label="Edema"
+                    value={index.edema}
+                    helperText="0 a 28"
+                    onChange={handleChange}
+                />
+                <TextField
+                    variant='outlined'
+                    name="dor"
+                    label="Dor"
+                    value={index.dor}
+                    helperText="0 a 28"
+                    onChange={handleChange}
+                />
+                <TextField
+                    variant='outlined'
+                    name="vhs"
+                    label="VHS"
+                    value={index.vhs}
+                    helperText="1 a 300"
+                    onChange={handleChange}
+                />
+                <TextField
+                    variant='outlined'
+                    name="pcr"
+                    label="PCR"
+                    helperText="0 a 150"
+                    value={index.pcr}
+                    onChange={handleChange}
+                />
+                <TextField
+                    variant='outlined'
+                    name="eva"
+                    label="EVA"
+                    helperText="0 a 100"
+                    value={index.eva}
+                    onChange={handleChange}
+                />
+                <TextField
+                    variant='outlined'
+                    name="pga"
+                    label="PGA"
+                    helperText="0 a 10"
+                    value={index.pga}
+                    onChange={handleChange}
+                />
+                <TextField
+                    variant='outlined'
+                    name="ega"
+                    label="EGA"
+                    helperText="0 a 10"
+                    value={index.ega}
+                    onChange={handleChange}
+                />
+                {step === 21 &&
+                    <IconButton
+                        draggable
+                        onDragEnd={() => handleClickAnamnese()}
+                        onClick={() => handleClickAnamnese()}
+                        size="large">
+                        <LocalCafeIcon />
+                    </IconButton>
+                }
+                {step === 81 &&
+                    <IconButton
+                        draggable
+                        onDragEnd={() => handleClickICAD()}
+                        onClick={() => handleClickICAD()}
+                        size="large">
+                        <CallSplitIcon />
+                    </IconButton>
+                }
+            </Box>
+        </Paper>
+    </>;
 }
 
 export default ICAD

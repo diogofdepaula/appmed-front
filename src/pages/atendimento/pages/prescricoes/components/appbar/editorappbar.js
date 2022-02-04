@@ -1,11 +1,11 @@
-import { Divider, Grid, IconButton, Tooltip } from '@material-ui/core';
-import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import ReplayIcon from '@material-ui/icons/Replay';
-import SaveIcon from '@material-ui/icons/Save';
+import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ReplayIcon from '@mui/icons-material/Replay';
+import SaveIcon from '@mui/icons-material/Save';
 import React, { useCallback, useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -137,25 +137,20 @@ const EditorAppBar = () => {
 
 
   return (
-    <Grid container direction="row" justify="flex-start" alignItems="center">
+    <Grid container direction="row" justifyContent="flex-start" alignItems="center">
       <Tooltip title="Voltar">
-        <IconButton>
+        <IconButton size="large">
           <ArrowUpwardIcon />
         </IconButton>
       </Tooltip>
       <Tooltip open={false} title="Reiniciar">
-        <IconButton
-          onClick={() => reiniciar()}
-        >
+        <IconButton onClick={() => reiniciar()} size="large">
           <ReplayIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Anterior">
         <span>
-          <IconButton
-            disabled={step === 11 || step === 32}
-            onClick={previousStep}
-          >
+          <IconButton disabled={step === 11 || step === 32} onClick={previousStep} size="large">
             <ArrowBackIosIcon />
           </IconButton>
         </span>
@@ -165,7 +160,7 @@ const EditorAppBar = () => {
           <IconButton
             disabled={step === 11 || step === 41 || step === 61}
             onClick={nextStep}
-          >
+            size="large">
             <ArrowForwardIosIcon />
           </IconButton>
         </span>
@@ -176,7 +171,7 @@ const EditorAppBar = () => {
             color='secondary'
             disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
             onClick={handleSubmit}
-          >
+            size="large">
             <SaveIcon />
           </IconButton>
         </span>
@@ -188,7 +183,7 @@ const EditorAppBar = () => {
           <IconButton
             disabled={page === 'prescricaoinsert' ? (step === 41 ? !medicamentoEdit?.lme : true) : false}
             onClick={linkLME}
-          >
+            size="large">
             <ArrowForwardIcon />
             <AccountBalanceIcon />
             Editar doses na LME
@@ -199,10 +194,7 @@ const EditorAppBar = () => {
         <div>
           <Tooltip title="Continuar editando LME">
             <span>
-              <IconButton
-                color='primary'
-                onClick={sendFork}
-              >
+              <IconButton color='primary' onClick={sendFork} size="large">
                 <ArrowForwardIosIcon />
               </IconButton>
             </span>
@@ -211,7 +203,7 @@ const EditorAppBar = () => {
       }
       <Divider />
     </Grid>
-  )
+  );
 }
 
 export default EditorAppBar

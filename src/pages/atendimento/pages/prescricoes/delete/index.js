@@ -1,4 +1,4 @@
-import { Box, Button, Card, Grid } from '@material-ui/core';
+import { Box, Button, Card, Grid } from '@mui/material';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 
@@ -104,7 +104,7 @@ const PrescricaoDelete = () => {
                         </Card>
                     </Box>
                     <Box m={2}>
-                        <Grid container spacing={1} direction="column" justify="center" alignItems="flex-start">
+                        <Grid container spacing={1} direction="column" justifyContent="center" alignItems="flex-start">
                             <Grid item>
                                 <Box>
                                     <Button
@@ -142,7 +142,7 @@ const PrescricaoDelete = () => {
                 </div>
             }
         </div>
-    )
+    );
 }
 
 export default PrescricaoDelete

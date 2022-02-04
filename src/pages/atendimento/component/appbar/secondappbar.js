@@ -1,7 +1,7 @@
-import { IconButton, Tooltip } from '@material-ui/core';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import PrintIcon from '@material-ui/icons/Print';
-import SaveIcon from '@material-ui/icons/Save';
+import { IconButton, Tooltip } from '@mui/material';
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import PrintIcon from '@mui/icons-material/Print';
+import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
 import { ClienteContext } from '../../../../App';
@@ -25,23 +25,17 @@ const SecondAppBar = () => {
             {page ?
                 <div>
                     <Tooltip title="Nova Prescrição">
-                        <IconButton
-                            onClick={iniciar}
-                        >
+                        <IconButton onClick={iniciar} size="large">
                             <PostAddIcon />
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Salvar">
-                        <IconButton
-                            onClick={() => setPage('prescricaosave')}
-                        >
+                        <IconButton onClick={() => setPage('prescricaosave')} size="large">
                             <SaveIcon />
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Imprimir">
-                        <IconButton
-                            onClick={() => setPage('print')}
-                        >
+                        <IconButton onClick={() => setPage('print')} size="large">
                             <PrintIcon />
                         </IconButton>
                     </Tooltip>
@@ -50,7 +44,7 @@ const SecondAppBar = () => {
                 <div />
             }
         </div>
-    )
+    );
 }
 
 export default SecondAppBar

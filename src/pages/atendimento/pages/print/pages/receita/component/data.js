@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import addMonths from 'date-fns/addMonths';
 import { ptBR } from "date-fns/locale";
@@ -18,7 +18,7 @@ const Data = ({ mes, tipo }) => {
             // A5
             return (
                 <Typography variant="h6"
-                    style={{
+                    sx={{
                         fontSize: 16
                     }}
                 >

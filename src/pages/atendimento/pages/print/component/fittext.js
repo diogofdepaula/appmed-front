@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core";
+import { Box } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 
 export default function FitText({ texto, inicial, maxfont, erro, padding, align }) {
@@ -19,9 +19,7 @@ export default function FitText({ texto, inicial, maxfont, erro, padding, align 
                 p={padding}
                 height={1}
                 textAlign={align}
-                style={{
-                    whiteSpace: 'pre-wrap',
-                }}
+                style={{ whiteSpace: 'pre-wrap' }}
                 ref={outsideRef}
             >
                 <Box

@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
+import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
 import Cid10 from '../../../../../components/cid10';
@@ -44,7 +44,7 @@ const LMECIDSet = () => {
         <div>
             <Box m={2}>
                 <Box>
-                    <Grid container justify="flex-start" spacing={1}>
+                    <Grid container justifyContent="flex-start" spacing={1}>
                         {cid10.filter(m => m.favorito).map(x =>
                             <Grid item key={x.cid10}>
                                 <Chip
@@ -87,7 +87,7 @@ const LMECIDSet = () => {
                 </Box>
             </Box>
         </div>
-    )
+    );
 }
 
 export default LMECIDSet

@@ -1,11 +1,11 @@
-import { Divider, Grid, IconButton, Tooltip } from '@material-ui/core';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import BallotIcon from '@material-ui/icons/Ballot';
-import ReplayIcon from '@material-ui/icons/Replay';
-import SaveIcon from '@material-ui/icons/Save';
+import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import BallotIcon from '@mui/icons-material/Ballot';
+import ReplayIcon from '@mui/icons-material/Replay';
+import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
@@ -84,35 +84,27 @@ const EditorAppBar = () => {
   }
 
   return (
-    <Grid container direction="row" justify="flex-start" alignItems="center">
+    <Grid container direction="row" justifyContent="flex-start" alignItems="center">
       <Tooltip title="Voltar">
-        <IconButton>
+        <IconButton size="large">
           <ArrowUpwardIcon />
         </IconButton>
       </Tooltip>
       <Tooltip open={false} title="Reiniciar">
-        <IconButton
-          onClick={() => reiniciar()}
-        >
+        <IconButton onClick={() => reiniciar()} size="large">
           <ReplayIcon />
         </IconButton>
       </Tooltip>
       <Tooltip title="Anterior">
         <span>
-          <IconButton
-            disabled={step === 11}
-            onClick={previousStep}
-          >
+          <IconButton disabled={step === 11} onClick={previousStep} size="large">
             <ArrowBackIosIcon />
           </IconButton>
         </span>
       </Tooltip>
       <Tooltip title="Próximo">
         <span>
-          <IconButton
-            disabled={step === 81}
-            onClick={nextStep}
-          >
+          <IconButton disabled={step === 81} onClick={nextStep} size="large">
             <ArrowForwardIosIcon />
           </IconButton>
         </span>
@@ -123,7 +115,7 @@ const EditorAppBar = () => {
             color='secondary'
             //  disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
             onClick={handleSubmit}
-          >
+            size="large">
             <SaveIcon />
           </IconButton>
         </span>
@@ -133,10 +125,10 @@ const EditorAppBar = () => {
       >
         <span>
           <IconButton
-          // deu alguma coisa que não habilita na hora certa
+            // deu alguma coisa que não habilita na hora certa
             // disabled={medicamentoEdit?.classe !== 'MMCDB' || medicamentoEdit?.classe !== 'MMCDPM' || step === 81}
             onClick={linkRelatorio}
-          >
+            size="large">
             <ArrowForwardIcon />
             <BallotIcon />
           </IconButton>
@@ -150,7 +142,7 @@ const EditorAppBar = () => {
                 color='primary'
                 disabled={(page === 'lmeinsert' && (step === 11 || step === 21 || step === 81)) || (page === 'lmeupdate' && step === 81)}
                 onClick={nextStep}
-              >
+                size="large">
                 <ArrowForwardIosIcon />
               </IconButton>
             </span>
@@ -159,7 +151,7 @@ const EditorAppBar = () => {
       }
       <Divider />
     </Grid>
-  )
+  );
 }
 
 export default EditorAppBar

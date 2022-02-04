@@ -1,14 +1,14 @@
-import { Box, Toolbar, Tooltip } from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import FlashOnIcon from '@material-ui/icons/FlashOn';
-import GroupIcon from '@material-ui/icons/Group';
-import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import SystemUpdateAltIcon from '@material-ui/icons/SystemUpdateAlt';
+import { Box, Toolbar, Tooltip } from '@mui/material';
+import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
+import GroupIcon from '@mui/icons-material/Group';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import React, { useContext } from 'react';
 import { ClienteContext, PageContentContext } from '../App';
 

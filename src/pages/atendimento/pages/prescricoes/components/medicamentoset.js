@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core'
+import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext } from '../../..'
 
@@ -46,7 +46,7 @@ const MedicamentoSet = () => {
     return (
         <div>
             <Box>
-                <Grid container justify="flex-start" spacing={1}>
+                <Grid container justifyContent="flex-start" spacing={1}>
                     {medicamentos.filter(m => m.favorito).map(x =>
                         <Grid item key={x.id}>
                             <Chip
@@ -88,6 +88,6 @@ const MedicamentoSet = () => {
                 </TableContainer>
             </Box>
         </div>
-    )
+    );
 }
 export default MedicamentoSet

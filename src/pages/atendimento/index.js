@@ -1,4 +1,4 @@
-import { Box, Divider } from '@material-ui/core'
+import { Box, Divider } from '@mui/material'
 import React, { createContext, useState } from 'react'
 import AtendimentoAppBar from './component/appbar/'
 import ClienteHeader from './component/clienteheader'

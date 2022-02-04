@@ -1,11 +1,11 @@
-import { Box, Divider, IconButton, Tooltip } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import HealingIcon from '@material-ui/icons/Healing';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import LocalPharmacyIcon from '@material-ui/icons/LocalPharmacy';
-import SaveIcon from '@material-ui/icons/Save';
+import { Box, Divider, IconButton, Tooltip } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import HealingIcon from '@mui/icons-material/Healing';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import LocalPharmacyIcon from '@mui/icons-material/LocalPharmacy';
+import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '../..';
 import InitialMedicamento from '../initialmedicamento';
@@ -90,24 +90,19 @@ const MedicamentosAppBar = () => {
                         <IconButton
                             // disabled={!medicamentoOnDuty}
                             onClick={handleBack}
-                        >
+                            size="large">
                             <ArrowUpwardIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Novo medicamento">
-                    <IconButton
-                        onClick={handleInsert}
-                    >
+                    <IconButton onClick={handleInsert} size="large">
                         <LocalPharmacyIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title="Editar">
                     <span>
-                        <IconButton
-                            disabled={!medicamentoOnDuty}
-                            onClick={handleUpdate}
-                        >
+                        <IconButton disabled={!medicamentoOnDuty} onClick={handleUpdate} size="large">
                             <EditIcon />
                         </IconButton>
                     </span>
@@ -117,37 +112,32 @@ const MedicamentosAppBar = () => {
                         <IconButton
                             disabled={page === 'medicamentoinsert' ? (medicamentoEdit.farmaco !== "" ? false : true) : false}
                             onClick={handleSubmit}
-                        >
+                            size="large">
                             <SaveIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Excluir">
                     <span>
-                        <IconButton
-                            disabled={!medicamentoOnDuty}
-                            onClick={handleDelete}
-                        >
+                        <IconButton disabled={!medicamentoOnDuty} onClick={handleDelete} size="large">
                             <DeleteIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Parar">
                     <span>
-                        <IconButton
-                        //  disabled={!prescricaoOnDuty}
+                        <//  disabled={!prescricaoOnDuty}
                         //onClick={handleParar}
-                        >
+                        IconButton size="large">
                             <HighlightOffIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Outros">
                     <span>
-                        <IconButton
-                        // disabled={!prescricaoOnDuty}
+                        <// disabled={!prescricaoOnDuty}
                         //                        onClick={() => setPage('teste')}
-                        >
+                        IconButton size="large">
                             <HealingIcon />
                         </IconButton>
                     </span>
@@ -155,7 +145,7 @@ const MedicamentosAppBar = () => {
             </Box>
             <Divider />
         </div>
-    )
+    );
 }
 
 export default MedicamentosAppBar

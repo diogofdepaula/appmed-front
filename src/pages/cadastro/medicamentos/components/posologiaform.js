@@ -1,8 +1,8 @@
-import { Typography } from '@material-ui/core';
-import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+import { Typography } from '@mui/material';
+import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '..';
 import PosologiaDialog from './dialogs/posologiadialog';
@@ -86,7 +86,7 @@ const PosologiaForm = () => {
                                         .map((pp, i) =>
                                             <TableRow key={i}>
                                                 <TableCell component="th" scope="row">
-                                                    <Grid container direction="column" justify="flex-start" alignItems="stretch">
+                                                    <Grid container direction="column" justifyContent="flex-start" alignItems="stretch">
                                                         <Grid item>
                                                             <Typography component='span'>
                                                                 {pp.posologia.split("\n").map((i, key) => {
@@ -102,19 +102,14 @@ const PosologiaForm = () => {
                                                 <TableCell align="right">
                                                     <Tooltip title="Excluir">
                                                         <span>
-                                                            <IconButton
-                                                                onClick={handleDelete(pp, i)}
-                                                            >
+                                                            <IconButton onClick={handleDelete(pp, i)} size="large">
                                                                 <DeleteIcon />
                                                             </IconButton>
                                                         </span>
                                                     </Tooltip>
                                                     <Tooltip title="Editar" >
                                                         <span>
-                                                            <IconButton
-                                                                disabled={!pp.id}
-                                                                onClick={handleEdit(pp)}
-                                                            >
+                                                            <IconButton disabled={!pp.id} onClick={handleEdit(pp)} size="large">
                                                                 <EditIcon />
                                                             </IconButton>
                                                         </span>
@@ -159,9 +154,7 @@ const PosologiaForm = () => {
                     <Grid item xs={1}>
                         <Tooltip title="Adicionar">
                             <span>
-                                <IconButton
-                                    onClick={handleAdd}
-                                >
+                                <IconButton onClick={handleAdd} size="large">
                                     <ArrowUpwardIcon />
                                 </IconButton>
                             </span>
@@ -170,7 +163,7 @@ const PosologiaForm = () => {
                 </Grid>
             </Grid>
         </div>
-    )
+    );
 }
 
 export default PosologiaForm

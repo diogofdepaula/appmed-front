@@ -1,7 +1,7 @@
-import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+import { Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Tooltip } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '..';
 import ApresentacaoDialog from './dialogs/apresentacaodialog';
@@ -87,19 +87,14 @@ const ApresentacaoForm = () => {
                                                 <TableCell align="right">
                                                     <Tooltip title="Excluir">
                                                         <span>
-                                                            <IconButton
-                                                                onClick={handleDelete(ap, i)}
-                                                            >
+                                                            <IconButton onClick={handleDelete(ap, i)} size="large">
                                                                 <DeleteIcon />
                                                             </IconButton>
                                                         </span>
                                                     </Tooltip>
                                                     <Tooltip title="Editar" >
                                                         <span>
-                                                            <IconButton
-                                                                disabled={!ap.id}
-                                                                onClick={handleEdit(ap)}
-                                                            >
+                                                            <IconButton disabled={!ap.id} onClick={handleEdit(ap)} size="large">
                                                                 <EditIcon />
                                                             </IconButton>
                                                         </span>
@@ -134,9 +129,7 @@ const ApresentacaoForm = () => {
                     <Grid item xs={1}>
                         <Tooltip title="Adicionar">
                             <span>
-                                <IconButton
-                                    onClick={handleAdd}
-                                >
+                                <IconButton onClick={handleAdd} size="large">
                                     <ArrowUpwardIcon />
                                 </IconButton>
                             </span>
@@ -145,7 +138,7 @@ const ApresentacaoForm = () => {
                 </Grid>
             </Grid>
         </div>
-    )
+    );
 }
 
 export default ApresentacaoForm

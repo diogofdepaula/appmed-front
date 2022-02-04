@@ -1,4 +1,4 @@
-import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@material-ui/core';
+import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
 

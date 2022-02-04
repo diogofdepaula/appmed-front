@@ -1,5 +1,5 @@
-import { Box, FormControlLabel, Grid, TextField } from '@material-ui/core';
-import Radio from '@material-ui/core/Radio';
+import { Box, FormControlLabel, Grid, TextField } from '@mui/material';
+import Radio from '@mui/material/Radio';
 //import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
@@ -16,7 +16,7 @@ const RelatorioSet4 = () => {
         <div>
             <Box m={2}>
                 <Grid container spacing={2} direction="column">
-                    <Grid container item spacing={2} direction="row" justify="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
+                    <Grid container item spacing={2} direction="row" justifyContent="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
                         <Grid item >
                             <TextField
                                 type="date"
@@ -32,7 +32,7 @@ const RelatorioSet4 = () => {
                                 onChange={handleChange}
                             />
                         </Grid>
-                        <Grid container item xs spacing={1} direction="row" justify="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
+                        <Grid container item xs spacing={1} direction="row" justifyContent="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
                             {/* <FormControl> */}
                             <Grid item>
                                 <FormControlLabel
@@ -68,7 +68,7 @@ const RelatorioSet4 = () => {
                         </Grid>
                     </Grid>
                     <Grid container item spacing={1} direction="column">
-                        <Grid container item spacing={2} direction="row" justify="center" alignItems="center" alignContent="center" wrap="nowrap">
+                        <Grid container item spacing={2} direction="row" justifyContent="center" alignItems="center" alignContent="center" wrap="nowrap">
                             <Grid item >
                                 <TextField
                                     type="date"
@@ -83,7 +83,7 @@ const RelatorioSet4 = () => {
                                     onChange={handleChange}
                                 />
                             </Grid>
-                            <Grid container item xs spacing={1} direction="row" justify="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
+                            <Grid container item xs spacing={1} direction="row" justifyContent="flex-start" alignItems="center" alignContent="center" wrap="nowrap">
                                 <FormControlLabel
                                     name='rxtoraxresultado'
                                     value="a"
@@ -115,7 +115,7 @@ const RelatorioSet4 = () => {
                             }
                         </Grid>
                     </Grid>
-                    <Grid container item spacing={1} direction="row" justify="center" alignItems="center" alignContent="center" wrap="nowrap">
+                    <Grid container item spacing={1} direction="row" justifyContent="center" alignItems="center" alignContent="center" wrap="nowrap">
                         <Grid item >
                             <TextField
                                 type="date"
@@ -144,7 +144,7 @@ const RelatorioSet4 = () => {
                 </Grid>
             </Box>
         </div>
-    )
+    );
 }
 
 export default RelatorioSet4

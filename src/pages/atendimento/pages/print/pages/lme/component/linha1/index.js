@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box } from '@mui/material'
 import React from 'react'
 import Linha11LME from './linha11'
 import Linha12LME from './linha12'

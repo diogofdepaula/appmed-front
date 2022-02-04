@@ -1,10 +1,10 @@
-import { Grid } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import TextField from '@material-ui/core/TextField';
+import { Grid } from '@mui/material';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
 import React, { useContext, useState } from 'react';
 import { MedicamentosContext } from '../..';
 
@@ -39,7 +39,7 @@ const PosologiaDialog = ({ pp, open, handleClose }) => {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Editar Posologia</DialogTitle>
                 <DialogContent>
-                    <Grid container xs spacing={1} direction="column" justify="center" alignItems="center">
+                    <Grid container xs spacing={1} direction="column" justifyContent="center" alignItems="center">
                         <Grid container item xs>
                             <TextField
                                 autoFocus
@@ -53,7 +53,7 @@ const PosologiaDialog = ({ pp, open, handleClose }) => {
                                 fullWidth
                             />
                         </Grid>
-                        <Grid container item xs spacing={1} direction="row" justify="space-between" alignItems="center" >
+                        <Grid container item xs spacing={1} direction="row" justifyContent="space-between" alignItems="center" >
                             <Grid item xs>
                                 <TextField
                                     variant="outlined"

@@ -1,4 +1,4 @@
-import { Box, Grid } from '@material-ui/core'
+import { Box, Grid } from '@mui/material'
 import React from 'react'
 import Linha11Termo from './linha11'
 import Linha12Termo from './linha12'

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 import PageA5 from '../../component/pagea5';
 import Identificacao from '../../receita/component/identificacao';

@@ -1,4 +1,4 @@
-import { Box, Button, Card, Typography } from '@material-ui/core';
+import { Box, Button, Card, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 

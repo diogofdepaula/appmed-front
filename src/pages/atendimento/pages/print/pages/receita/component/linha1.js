@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../../..';
 import PageSize from '../../../component/pagesize';

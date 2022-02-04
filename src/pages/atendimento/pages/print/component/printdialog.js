@@ -1,11 +1,11 @@
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import IconButton from '@material-ui/core/IconButton';
-import Slide from '@material-ui/core/Slide';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import IconButton from '@mui/material/IconButton';
+import Slide from '@mui/material/Slide';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import CloseIcon from '@mui/icons-material/Close';
 import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { ImpressaoContext } from '../../..';
@@ -45,7 +45,12 @@ const PrintDialog = ({ open, handleClose }) => {
             <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
                 <AppBar position='relative'>
                     <Toolbar>
-                        <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            onClick={handleClose}
+                            aria-label="close"
+                            size="large">
                             <CloseIcon />
                         </IconButton>
                         <Typography

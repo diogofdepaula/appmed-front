@@ -1,4 +1,4 @@
-import { Box, TextField } from '@material-ui/core';
+import { Box, TextField } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 import AnamneseTips from './anamnesetips';

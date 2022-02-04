@@ -1,4 +1,4 @@
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
 import React, { createContext } from 'react';
 import PageA4 from '../component/pagea4';
 import Linha1Relatorio from './component/linha1';
@@ -19,37 +19,35 @@ export const LMEPrintContext = createContext(null)
 
 const FactoryRelatorio = (props) => {
 
-    return (
-        <>
-            <PageA4>
-                <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
-                    <LMEPrintContext.Provider value={props.lme}>
-                        <Grid container direction="column" justify="space-between" style={{ height: "100%" }}>
-                            <Grid container item>
-                                <Linha1Relatorio />
-                                <Linha2Relatorio />
-                                <Linha3Relatorio />
-                                <Linha4Relatorio />
-                            </Grid>
-                            <Grid container item xs direction="column" alignItems="stretch">
-                                <Linha5Relatorio />
-                                <Linha6Relatorio />
-                                <Linha7Relatorio />
-                                <Linha8Relatorio />
-                                <Linha9Relatorio />
-                            </Grid>
-                            <Grid container item >
-                                <Linha10Relatorio />
-                                <Linha11Relatorio />
-                                <Linha12Relatorio />
-                                <Linha13Relatorio />
-                            </Grid>
+    return <>
+        <PageA4>
+            <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
+                <LMEPrintContext.Provider value={props.lme}>
+                    <Grid container direction="column" justifyContent="space-between" style={{ height: "100%" }}>
+                        <Grid container item>
+                            <Linha1Relatorio />
+                            <Linha2Relatorio />
+                            <Linha3Relatorio />
+                            <Linha4Relatorio />
                         </Grid>
-                    </LMEPrintContext.Provider>
-                </Box>
-            </PageA4>
-        </>
-    )
+                        <Grid container item xs direction="column" alignItems="stretch">
+                            <Linha5Relatorio />
+                            <Linha6Relatorio />
+                            <Linha7Relatorio />
+                            <Linha8Relatorio />
+                            <Linha9Relatorio />
+                        </Grid>
+                        <Grid container item >
+                            <Linha10Relatorio />
+                            <Linha11Relatorio />
+                            <Linha12Relatorio />
+                            <Linha13Relatorio />
+                        </Grid>
+                    </Grid>
+                </LMEPrintContext.Provider>
+            </Box>
+        </PageA4>
+    </>;
 }
 
 export default FactoryRelatorio

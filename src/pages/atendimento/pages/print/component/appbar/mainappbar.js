@@ -1,6 +1,6 @@
-import { Box, IconButton, Tooltip } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import TuneIcon from '@material-ui/icons/Tune';
+import { Box, IconButton, Tooltip } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import TuneIcon from '@mui/icons-material/Tune';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';
 import ButtonPrint from './buttonprint';
@@ -18,9 +18,8 @@ const PrintMainAppBar = () => {
             <Box display="flex">
                 <Tooltip title="Voltar">
                     <span>
-                        <IconButton
-                        //disabled={!prescricaoOnDuty}
-                        >
+                        <//disabled={!prescricaoOnDuty}
+                        IconButton size="large">
                             <ArrowUpwardIcon />
                         </IconButton>
                     </span>
@@ -28,16 +27,14 @@ const PrintMainAppBar = () => {
                 <ButtonPrint />
                 <Tooltip title="Visualizar">
                     <span>
-                        <IconButton
-                            onClick={visualizar}
-                        >
+                        <IconButton onClick={visualizar} size="large">
                             <TuneIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
             </Box>
         </div>
-    )
+    );
 }
 
 export default PrintMainAppBar

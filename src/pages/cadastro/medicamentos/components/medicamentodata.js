@@ -1,5 +1,5 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, List, ListItem, ListItemText, ListSubheader, Typography } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, List, ListItem, ListItemText, ListSubheader, Typography } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 import React, { useCallback, useContext, useEffect } from 'react';
 import { MedicamentosContext } from '..';
 
@@ -96,7 +96,7 @@ const MedicamentoData = () => {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <IconButton>
+                        <IconButton size="large">
                             <EditIcon />
                         </IconButton>
                         <Button size="small" color="primary">
@@ -106,7 +106,7 @@ const MedicamentoData = () => {
                 </Card>
             }
         </div>
-    )
+    );
 }
 
 export default MedicamentoData

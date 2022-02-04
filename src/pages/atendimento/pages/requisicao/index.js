@@ -1,6 +1,6 @@
-import { Box, Divider, FormControl, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, ListSubheader, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from "@material-ui/core";
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Box, Divider, FormControl, Grid, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, ListSubheader, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from "@mui/material";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
 import { ImpressaoContext } from "../..";
 import FormatText from "./formattext"
@@ -27,20 +27,16 @@ const CellProcedimento = memo(({ param, handle }) => {
 
 const ListItems = memo(({ param, handle }) => {
 
-    return (
-        <>
-            <ListItem>
-                <ListItemText primary={param} />
-                <ListItemSecondaryAction>
-                    <IconButton
-                        onClick={() => handle(param)}
-                    >
-                        <DeleteIcon />
-                    </IconButton>
-                </ListItemSecondaryAction>
-            </ListItem>
-        </>
-    )
+    return <>
+        <ListItem>
+            <ListItemText primary={param} />
+            <ListItemSecondaryAction>
+                <IconButton onClick={() => handle(param)} size="large">
+                    <DeleteIcon />
+                </IconButton>
+            </ListItemSecondaryAction>
+        </ListItem>
+    </>;
 })
 
 const AdicionadosItems = memo(({ param }) => {
@@ -147,113 +143,107 @@ const Requisicao = () => {
         ])
     }
 
-    return (
-        <>
+    return <>
 
-            <Box m={1}>
+        <Box m={1}>
 
-                <Box mx={2}>
-                    <Grid container>
-                        <Grid item xs={9}>
-                            <TextField
-                                fullWidth
-                                multiline
-                                variant='outlined'
-                                rows={3}
-                                label="Justificativa"
-                                onChange={handleJustificativa}
-                            />
-                        </Grid>
-                        <Grid item xs={3} container direction="column" alignItems="center">
-                            <Grid item>
-                                <FormControl fullWidth variant="outlined" >
-                                    <Select
-                                        autoWidth
-                                        defaultValue="NENHUM"
-                                        onChange={handleChangeConvenio}
-                                        label="Convênio"
-                                    >
-                                        <MenuItem value="NENHUM"></MenuItem>
-                                        {listaconvenios.map((c, i) =>
-                                            <MenuItem key={i} value={c[2]}>{c[2]}</MenuItem>
-                                        )}
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                        </Grid>
+            <Box mx={2}>
+                <Grid container>
+                    <Grid item xs={9}>
+                        <TextField
+                            fullWidth
+                            multiline
+                            variant='outlined'
+                            rows={3}
+                            label="Justificativa"
+                            onChange={handleJustificativa}
+                        />
                     </Grid>
-                </Box>
-                <Grid container spacing={1}>
-                    <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
+                    <Grid item xs={3} container direction="column" alignItems="center">
                         <Grid item>
-                            <Box m={2}>
-                                <TextField
-                                    fullWidth
-                                    label="Filtrar procedimentos"
-                                    variant="outlined"
-                                    onChange={e => setSearch(e.target.value)}
-                                />
-                            </Box>
+                            <FormControl fullWidth variant="outlined" >
+                                <Select
+                                    autoWidth
+                                    defaultValue="NENHUM"
+                                    onChange={handleChangeConvenio}
+                                    label="Convênio"
+                                >
+                                    <MenuItem value="NENHUM"></MenuItem>
+                                    {listaconvenios.map((c, i) =>
+                                        <MenuItem key={i} value={c[2]}>{c[2]}</MenuItem>
+                                    )}
+                                </Select>
+                            </FormControl>
                         </Grid>
-                        <Grid item>
-                            <Box ml={1} mt={1}>
-                                <TableContainer component={Paper} >
-                                    <Table>
-                                        <TableBody>
-                                            {filterProcedimentos?.map((procedimento, i) =>
-                                                <CellProcedimento key={i} param={procedimento} handle={handleProcedimentoPush} />
-                                            )}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs>
-                        <Box mx={1}>
-                            <IconButton
-                                onClick={() => handleAdd()}
-                            >
-                                <AddCircleOutlineIcon />
-                                Adicionar requisição
-                            </IconButton>
-                            <List subheader={<ListSubheader>Procedimentos para serem incluidos</ListSubheader>} >
-                                {selecionados.map((s, i) =>
-                                    <ListItems key={i} param={s} handle={handleProcedimentoRemove} />
-                                )}
-                            </List>
-                            <Divider />
-                            <Divider />
-                            {impressao.requisicoes?.map((r, n) =>
-                                <Box display="flex" key={n} >
-                                    <IconButton
-                                        onClick={() => handleRemove(r.indice)}
-                                    >
-                                        <DeleteIcon />
-                                    </IconButton>
-                                    <List dense subheader={<ListSubheader>Requisição {r.indice}</ListSubheader>} >
-                                        {r.selecionados.map((s, x) =>
-                                            <AdicionadosItems key={x} param={s} />
-                                        )}
-                                    </List>
-                                    <Divider />
-                                </Box>
-                            )}
-                        </Box>
                     </Grid>
                 </Grid>
             </Box>
-            <Divider />
-            <Box
-                style={{
-                    margin: "0.5rem"
-                }}
-            >
-                <UnitaryTips handleAddUnitaryTips={handleAddUnitaryTips} procedimentos={procedimentos} />
-                <GroupsTips handleAddGroupsTips={handleAddGroupsTips} procedimentos={procedimentos} convenio={convenio} />
-            </Box>
-        </>
-    )
+            <Grid container spacing={1}>
+                <Grid container item xs={4} direction="column" justifyContent="flex-start" alignItems="stretch">
+                    <Grid item>
+                        <Box m={2}>
+                            <TextField
+                                fullWidth
+                                label="Filtrar procedimentos"
+                                variant="outlined"
+                                onChange={e => setSearch(e.target.value)}
+                            />
+                        </Box>
+                    </Grid>
+                    <Grid item>
+                        <Box ml={1} mt={1}>
+                            <TableContainer component={Paper} >
+                                <Table>
+                                    <TableBody>
+                                        {filterProcedimentos?.map((procedimento, i) =>
+                                            <CellProcedimento key={i} param={procedimento} handle={handleProcedimentoPush} />
+                                        )}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Box>
+                    </Grid>
+                </Grid>
+                <Grid item xs>
+                    <Box mx={1}>
+                        <IconButton onClick={() => handleAdd()} size="large">
+                            <AddCircleOutlineIcon />
+                            Adicionar requisição
+                        </IconButton>
+                        <List subheader={<ListSubheader>Procedimentos para serem incluidos</ListSubheader>} >
+                            {selecionados.map((s, i) =>
+                                <ListItems key={i} param={s} handle={handleProcedimentoRemove} />
+                            )}
+                        </List>
+                        <Divider />
+                        <Divider />
+                        {impressao.requisicoes?.map((r, n) =>
+                            <Box display="flex" key={n} >
+                                <IconButton onClick={() => handleRemove(r.indice)} size="large">
+                                    <DeleteIcon />
+                                </IconButton>
+                                <List dense subheader={<ListSubheader>Requisição {r.indice}</ListSubheader>} >
+                                    {r.selecionados.map((s, x) =>
+                                        <AdicionadosItems key={x} param={s} />
+                                    )}
+                                </List>
+                                <Divider />
+                            </Box>
+                        )}
+                    </Box>
+                </Grid>
+            </Grid>
+        </Box>
+        <Divider />
+        <Box
+            style={{
+                margin: "0.5rem"
+            }}
+        >
+            <UnitaryTips handleAddUnitaryTips={handleAddUnitaryTips} procedimentos={procedimentos} />
+            <GroupsTips handleAddGroupsTips={handleAddGroupsTips} procedimentos={procedimentos} convenio={convenio} />
+        </Box>
+    </>;
 }
 
 export default Requisicao

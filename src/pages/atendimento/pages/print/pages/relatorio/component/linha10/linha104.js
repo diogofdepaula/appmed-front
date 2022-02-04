@@ -1,8 +1,8 @@
-import { Box, Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
-import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 
 const Linha104Relatorio = () => {
 

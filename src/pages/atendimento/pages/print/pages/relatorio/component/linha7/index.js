@@ -1,6 +1,6 @@
-import { Box, Grid, Typography } from '@material-ui/core';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
+import { Box, Grid, Typography } from '@mui/material';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
 import Criterios from '../../../../../../component/criterios';
@@ -64,28 +64,26 @@ const Linha7Relatorio = () => {
         }
     }
 
-    return (
-        <>
-            <Grid container item >
-                <Box mt={2} width={1} border={1} borderColor="black">
-                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                        <Grid item>
-                            <Box mt={-1} ml={2} display="flex">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>13 - Critério de inclusão </Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item>
-                            <Box mt={1} mb={1}>
-                                <Conteudo />
-                            </Box>
-                        </Grid>
+    return <>
+        <Grid container item >
+            <Box mt={2} width={1} border={1} borderColor="black">
+                <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
+                    <Grid item>
+                        <Box mt={-1} ml={2} display="flex">
+                            <Typography component={'span'} variant="caption" noWrap={true} >
+                                <Box bgcolor="white" px={1}>13 - Critério de inclusão </Box>
+                            </Typography>
+                        </Box>
                     </Grid>
-                </Box>
-            </Grid>
-        </>
-    )
+                    <Grid item>
+                        <Box mt={1} mb={1}>
+                            <Conteudo />
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Box>
+        </Grid>
+    </>;
 }
 
 export default Linha7Relatorio

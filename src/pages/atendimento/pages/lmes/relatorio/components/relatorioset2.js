@@ -1,4 +1,4 @@
-import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@material-ui/core'
+import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '../../../..'
 import Criterios from '../../../../component/criterios'

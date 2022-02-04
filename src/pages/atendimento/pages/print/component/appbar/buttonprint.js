@@ -1,5 +1,5 @@
-import { IconButton, Tooltip } from '@material-ui/core';
-import PrintIcon from '@material-ui/icons/Print';
+import { IconButton, Tooltip } from '@mui/material';
+import PrintIcon from '@mui/icons-material/Print';
 import React, { useState } from 'react';
 import PrintDialog from '../printdialog';
 
@@ -19,9 +19,7 @@ const ButtonPrint = () => {
         <div>
             <Tooltip title="Imprimir">
                 <span>
-                    <IconButton
-                        onClick={handleOpen}
-                    >
+                    <IconButton onClick={handleOpen} size="large">
                         <PrintIcon />
                     </IconButton>
                 </span>
@@ -29,7 +27,7 @@ const ButtonPrint = () => {
             </Tooltip>
             <PrintDialog open={open} handleClose={handleClose} />
         </div>
-    )
+    );
 }
 
 export default ButtonPrint

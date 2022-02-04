@@ -1,11 +1,11 @@
-import { Box, Divider, IconButton, Tooltip } from '@material-ui/core';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import HealingIcon from '@material-ui/icons/Healing';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import SaveIcon from '@material-ui/icons/Save';
+import { Box, Divider, IconButton, Tooltip } from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import HealingIcon from '@mui/icons-material/Healing';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
 import { ClientesContext } from '../..';
 import InitialCliente from '../initialcliente';
@@ -89,27 +89,19 @@ const ClientesAppBar = () => {
             <Box>
                 <Tooltip title="Voltar">
                     <span>
-                        <IconButton
-                            disabled={!clienteOnDuty}
-                            onClick={handleBack}
-                        >
+                        <IconButton disabled={!clienteOnDuty} onClick={handleBack} size="large">
                             <ArrowUpwardIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Novo cliente">
-                    <IconButton
-                        onClick={handleInsert}
-                    >
+                    <IconButton onClick={handleInsert} size="large">
                         <PersonAddIcon />
                     </IconButton>
                 </Tooltip>
                 <Tooltip title="Editar">
                     <span>
-                        <IconButton
-                            disabled={!clienteOnDuty}
-                            onClick={handleUpdate}
-                        >
+                        <IconButton disabled={!clienteOnDuty} onClick={handleUpdate} size="large">
                             <EditIcon />
                         </IconButton>
                     </span>
@@ -119,37 +111,32 @@ const ClientesAppBar = () => {
                         <IconButton
                             disabled={page === 'clienteinsert' ? (clienteEdit.nome !== "" ? false : true) : false}
                             onClick={handleSubmit}
-                        >
+                            size="large">
                             <SaveIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Excluir">
                     <span>
-                        <IconButton
-                            disabled={!clienteOnDuty}
-                            onClick={handleDelete}
-                        >
+                        <IconButton disabled={!clienteOnDuty} onClick={handleDelete} size="large">
                             <DeleteIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Parar">
                     <span>
-                        <IconButton
-                        //  disabled={!prescricaoOnDuty}
+                        <//  disabled={!prescricaoOnDuty}
                         //onClick={handleParar}
-                        >
+                        IconButton size="large">
                             <HighlightOffIcon />
                         </IconButton>
                     </span>
                 </Tooltip>
                 <Tooltip title="Outros">
                     <span>
-                        <IconButton
-                        // disabled={!prescricaoOnDuty}
+                        <// disabled={!prescricaoOnDuty}
                         //                        onClick={() => setPage('teste')}
-                        >
+                        IconButton size="large">
                             <HealingIcon />
                         </IconButton>
                     </span>
@@ -157,7 +144,7 @@ const ClientesAppBar = () => {
             </Box>
             <Divider />
         </div>
-    )
+    );
 }
 
 export default ClientesAppBar

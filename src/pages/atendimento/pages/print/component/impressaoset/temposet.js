@@ -1,4 +1,4 @@
-import { Slider, TextField, Typography } from '@material-ui/core';
+import { Slider, TextField, Typography } from '@mui/material';
 import { parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { ImpressaoContext } from '../../../..';

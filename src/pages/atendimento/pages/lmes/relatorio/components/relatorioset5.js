@@ -1,4 +1,4 @@
-import { Box, FormControlLabel, Radio } from '@material-ui/core'
+import { Box, FormControlLabel, Radio } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '../../../..'
 

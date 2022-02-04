@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@material-ui/core';
+import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ClientesContext } from '..';
 import ClienteData from '../components/clientedata';
@@ -42,7 +42,7 @@ const ClienteMain = () => {
     <div>
       <Box m={1}>
         <Grid container spacing={1}>
-          <Grid container item xs={4} direction="column" justify="flex-start" alignItems="stretch">
+          <Grid container item xs={4} direction="column" justifyContent="flex-start" alignItems="stretch">
             <Grid item>
               <Box m={2}>
                 <TextField
@@ -84,7 +84,7 @@ const ClienteMain = () => {
         </Grid>
       </Box>
     </div>
-  )
+  );
 }
 
 export default ClienteMain

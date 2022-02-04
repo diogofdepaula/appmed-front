@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@material-ui/core'
+import { Box, Grid, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
 import Linha8xRelatorio from './index8x'
@@ -67,38 +67,36 @@ const Linha8Relatorio = () => {
         ],
     ]
 
-    return (
-        <>
-            <Grid container item >
-                <Box mt={2} width={1} border={1} borderColor="black">
-                    <Grid container direction="column" justify="flex-end" alignItems="stretch">
-                        <Grid item>
-                            <Box mt={-1} ml={2} display="flex">
-                                <Typography component={'span'} variant="caption" noWrap={true} >
-                                    <Box bgcolor="white" px={1}>14 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item>
-                            <Box p={1}>
-                                <Box width={1} border={1} borderColor="black">
-                                    <Linha81Relatorio />
-                                    {indices.map((p, i) =>
-                                        p[0][1] !== "" ?
-                                            <div key={i}>
-                                                <Linha8xRelatorio prescricao={p} />
-                                            </div>
-                                            :
-                                            <div key={i}></div>
-                                    )}
-                                </Box>
-                            </Box>
-                        </Grid>
+    return <>
+        <Grid container item >
+            <Box mt={2} width={1} border={1} borderColor="black">
+                <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
+                    <Grid item>
+                        <Box mt={-1} ml={2} display="flex">
+                            <Typography component={'span'} variant="caption" noWrap={true} >
+                                <Box bgcolor="white" px={1}>14 - Avaliação farmacoterapêutica (histórico de uso anterior de medicamentos)</Box>
+                            </Typography>
+                        </Box>
                     </Grid>
-                </Box>
-            </Grid>
-        </>
-    )
+                    <Grid item>
+                        <Box p={1}>
+                            <Box width={1} border={1} borderColor="black">
+                                <Linha81Relatorio />
+                                {indices.map((p, i) =>
+                                    p[0][1] !== "" ?
+                                        <div key={i}>
+                                            <Linha8xRelatorio prescricao={p} />
+                                        </div>
+                                        :
+                                        <div key={i}></div>
+                                )}
+                            </Box>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Box>
+        </Grid>
+    </>;
 }
 
 export default Linha8Relatorio

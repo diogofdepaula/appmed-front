@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core'
+import { Box, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { ImpressaoContext } from '../../../../..'
 
@@ -30,13 +30,12 @@ const Rodape = () => {
     return (
         <>
             <Box
-                display="flex"
-                justifyContent="center"
-                borderTop={0}
-                mt={0}
-                border={3}
-                borderColor={"black"}
-            // borderRadius={10}
+                sx={{
+                    display:"flex",
+                    border: "0.2rem solid",
+                    borderTopWidth: 0,
+                    justifyContent: "center",
+                }}
             >
                 <Typography variant={'h6'} >
                     <Box><Endereco /></Box>

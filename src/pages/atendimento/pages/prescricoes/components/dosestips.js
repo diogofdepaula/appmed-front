@@ -1,4 +1,4 @@
-import { Box, Chip, Divider } from '@material-ui/core';
+import { Box, Chip, Divider } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../..';
 

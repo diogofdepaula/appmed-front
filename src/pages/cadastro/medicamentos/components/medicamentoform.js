@@ -1,4 +1,4 @@
-import { Divider, FormControl, FormControlLabel, FormGroup, Grid, MenuItem, Switch, TextField, InputLabel, Select } from '@material-ui/core';
+import { Divider, FormControl, FormControlLabel, FormGroup, Grid, MenuItem, Switch, TextField, InputLabel, Select } from '@mui/material';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '..';
 import ApresentacaoForm from './apresentacaoform';
@@ -116,7 +116,7 @@ const MedicamentoForm = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid container item direction="column" justify="flex-start" alignItems="stretch" spacing={2}>
+                <Grid container item direction="column" justifyContent="flex-start" alignItems="stretch" spacing={2}>
                     <Divider />
                     <Grid item xs>
                         <NomeComercialForm />
@@ -132,7 +132,7 @@ const MedicamentoForm = () => {
                 </Grid>
             </Grid>
         </div>
-    )
+    );
 }
 
 export default MedicamentoForm

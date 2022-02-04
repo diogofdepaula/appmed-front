@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core'
+import { Box, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
 import FitText from '../../../../component/fittext'
@@ -9,7 +9,7 @@ const Linha9Relatorio = () => {
 
     return (
         <>
-            <Box
+             <Box
                 mt={2}
                 flexGrow={1}
                 width={1}
@@ -21,7 +21,6 @@ const Linha9Relatorio = () => {
                     justifyContent: "stretch",
                 }}
             >
-
                 <Box mt={-1} ml={2} display="flex">
                     <Typography component={'span'} variant="caption" noWrap={true} >
                         <Box bgcolor="white" px={1}>15 - Relatório Médico (justificativa para solicitação ou mudança e eventos adversos)</Box>
