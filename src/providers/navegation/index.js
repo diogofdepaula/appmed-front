@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Navegacao = () => {
+const NavegationModel = () => {
 
     const [page, setPage] = useState()
     const [section, setSection] = useState()
@@ -14,4 +14,4 @@ const Navegacao = () => {
     }
 }
 
-export default Navegacao
+export default NavegationModel

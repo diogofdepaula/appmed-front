@@ -48,9 +48,8 @@ const PrimaryAppBar = () => {
                         <ClienteSet />
                     </Box>
                     <Box>
-                        <IconButton
-                            color="inherit" size="large">
-                            <Badge badgeContent={122} color="secondary">
+                        <IconButton color="inherit" size="large" >
+                            <Badge badgeContent={77} color="secondary">
                                 <MailIcon />
                             </Badge>
                         </IconButton>

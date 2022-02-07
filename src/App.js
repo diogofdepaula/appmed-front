@@ -3,9 +3,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import 'fontsource-roboto';
 import React, { createContext, useReducer, useState } from 'react';
 import LeftDrawer from './components/leftdrawer';
+import Login from './components/login';
 import MainContent from './components/maincontent';
 import PrimaryAppBar from './components/primaryappbar';
-import Login from './contexts/login';
+import LoginProvider from './providers/login';
 
 export const ClienteContext = createContext()
 export const PageContentContext = createContext()
@@ -17,18 +18,24 @@ const App = () => {
   const [pageContentContext, setPageContentContext] = useState()
   const [, forceUpdate] = useReducer((x) => x + 1, 0)
 
+  const [openDialog, setOpenDialog] = useState(true);
+
+  const handleClose = () => {
+    setOpenDialog(false)
+  }
+
   return (
     <>
       <Box
         style={{
           display: "flex",
-          backgroundColor: "white"
         }}
       >
         <CssBaseline />
         <ClienteContext.Provider value={{ clienteContext, setClienteContext }} >
           <PageContentContext.Provider value={{ pageContentContext, setPageContentContext, forceUpdate }} >
-            <LoginContext.Provider value={{ login: Login() }} >
+            <LoginContext.Provider value={ LoginProvider() } >
+              {!openDialog ? <></> : <Login open={openDialog} handleClose={handleClose} />}
               <Box>
                 <PrimaryAppBar />
               </Box>
@@ -38,9 +45,9 @@ const App = () => {
                 <MainContent />
               </Box>
             </LoginContext.Provider>
-        </PageContentContext.Provider>
-      </ClienteContext.Provider>
-    </Box>
+          </PageContentContext.Provider>
+        </ClienteContext.Provider>
+      </Box>
     </>
   )
 }

@@ -1,4 +1,3 @@
-import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import HealingIcon from '@mui/icons-material/Healing';
@@ -6,6 +5,7 @@ import InputIcon from '@mui/icons-material/Input';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import SpellcheckIcon from '@mui/icons-material/Spellcheck';
+import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
 import SecondAppBar from './secondappbar';
@@ -66,7 +66,7 @@ const FirstAppBar = () => {
                         </IconButton>
                     </Tooltip>
                     <Tooltip title="Outros">
-                        <IconButton onClick={() => setPage('teste')} size="large">
+                        <IconButton size="large">
                             <HealingIcon />
                         </IconButton>
                     </Tooltip>

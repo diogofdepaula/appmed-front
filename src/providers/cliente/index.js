@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Cliente = () => {
+const ClienteModel= () => {
 
     const [cliente, setCliente] = useState([])
 
@@ -11,4 +11,4 @@ const Cliente = () => {
     }
 }
 
-export default Cliente
+export default ClienteModel
