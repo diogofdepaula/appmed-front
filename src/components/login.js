@@ -12,14 +12,12 @@ import { LoginContext } from '../App';
 
 const Login = ({ open, handleClose }) => {
 
-    const { local, setLocalConsultorio, locais } = useContext(LoginContext)
+    const { setLocalConsultorio, locais } = useContext(LoginContext)
 
     const handleListItem = () => {
         setLocalConsultorio()
         handleClose(false)
     }
-
-    console.log("no Modal", local);
 
     return (
         <>
