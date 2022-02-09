@@ -1,16 +1,16 @@
-import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
-import InputBase from '@mui/material/InputBase';
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
+import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import InputBase from '@mui/material/InputBase';
 import { differenceInYears, format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, PageContentContext } from '../App';
+import { ClienteContext, NavigateContext } from '../App';
 
 const ClienteSet = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
-    const { setPageContentContext } = useContext(PageContentContext)
+    const { setPageContentContext } = useContext(NavigateContext)
 
     const [clientes, setClientes] = useState([])
     // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista

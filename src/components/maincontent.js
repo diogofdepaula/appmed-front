@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { PageContentContext } from '../App';
+import { NavigateContext } from '../App';
 import Atendimento from '../pages/atendimento';
 import Clientes from '../pages/cadastro/clientes';
 import Medicamentos from '../pages/cadastro/medicamentos';
 
 const MainContent = () => {
 
-    const { pageContentContext } = useContext(PageContentContext)
+    const { pageContentContext } = useContext(NavigateContext)
 
     const GetContent = () => {
 

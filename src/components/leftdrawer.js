@@ -1,20 +1,20 @@
+import FlashOnIcon from '@mui/icons-material/FlashOn';
+import GroupIcon from '@mui/icons-material/Group';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
+import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import { Box, Toolbar, Tooltip } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import FlashOnIcon from '@mui/icons-material/FlashOn';
-import GroupIcon from '@mui/icons-material/Group';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
-import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import React, { useContext } from 'react';
-import { ClienteContext, PageContentContext } from '../App';
+import { ClienteContext, NavigateContext } from '../App';
 
 const LeftDrawer = () => {
 
-    const { pageContentContext, setPageContentContext, forceUpdate } = useContext(PageContentContext)
+    const { pageContentContext, setPageContentContext, forceUpdate } = useContext(NavigateContext)
     const { clienteContext } = useContext(ClienteContext)
 
     const handleAtendimento = () => {
