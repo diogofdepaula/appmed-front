@@ -22,24 +22,16 @@ const Login = ({ open, handleClose }) => {
         handleClose(false)
     }
 
-    const [name, setName] = useState();
-    const [email, setEmail] = useState();
     const [profilePic, setProfilePic] = useState();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const responseGoogle = (response) => {
-        const { profileObj: { name, email, imageUrl, googleId } } = response
-        setName(name)
-        setEmail(email)
+        const { profileObj: { imageUrl, googleId } } = response
         setProfilePic(imageUrl)
-        if (googleId === "109365313027534073172") {
+        if (googleId === process.env.REACT_APP_DIOGO_GOOGLEID) {
             setIsLoggedIn(true)
         }
     }
-
-
-//     REACT_GOOGLE_SING_CLIENTID="1078637101112-9e3epok8f304g0fcs5cn73v1h0dm6q9q.apps.googleusercontent.com"
-// REACT_DIOGO_GOOGLEID="109365313027534073172"
 
     return (
         <>
@@ -53,26 +45,25 @@ const Login = ({ open, handleClose }) => {
                         }}
                     >
                         <GoogleLogin
-                            clientId="1078637101112-9e3epok8f304g0fcs5cn73v1h0dm6q9q.apps.googleusercontent.com"
-                            buttonText="Google oAUth Sign-in"
+                            clientId={process.env.REACT_APP_GOOGLE_SING_CLIENTID}
+                            buttonText="Google Sign-in"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
                         />
-                        {isLoggedIn ? (
-                            <div style={{ textAlign: "center" }}>
-                                <h1>User Information</h1>
-                                <img className="profile" src={profilePic} alt="Profile" />
-                                <p>Name: {name}</p>
-                                <p>Email: {email}</p>
-                            </div>
-                        ) : (
-                            ""
-                        )}
+                        {isLoggedIn ?
+                            <Box
+                                sx={{
+                                    paddingInlineStart: "1em",
+                                }}
+                            >
+                                <Avatar alt="Profile" src={profilePic} />
+                            </Box>
+                            :
+                            <div />}
                     </Box>
                 </DialogContent>
                 <DialogContent dividers>
-                    {/* <DialogTitle>Local de Atendimento</DialogTitle> */}
                     {isLoggedIn ?
                         <List sx={{ pt: 0 }}>
                             {locais.map(local => (
@@ -86,8 +77,8 @@ const Login = ({ open, handleClose }) => {
                                 </ListItem>
                             ))}
                         </List>
-                : <div />    
-                }
+                        : <div />
+                    }
                 </DialogContent>
             </Dialog>
         </>
