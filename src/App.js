@@ -26,16 +26,12 @@ const App = () => {
 
   return (
     <>
-      <Box
-        style={{
-          display: "flex",
-        }}
-      >
+      <Box sx={{ display: "flex", }} >
         <CssBaseline />
         <ClienteContext.Provider value={{ clienteContext, setClienteContext }} >
           <PageContentContext.Provider value={{ pageContentContext, setPageContentContext, forceUpdate }} >
-            <LoginContext.Provider value={ LoginProvider() } >
-              {!openDialog ? <></> : <Login open={openDialog} handleClose={handleClose} />}
+            <LoginContext.Provider value={LoginProvider()} >
+              {openDialog ? <Login open={openDialog} handleClose={handleClose} /> : <></>}
               <Box>
                 <PrimaryAppBar />
               </Box>
