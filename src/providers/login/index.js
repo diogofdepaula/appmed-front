@@ -17,6 +17,8 @@ const LoginProvider = () => {
         crm: "23838"
     })
     const [local, setLocal] = useState('nada')
+    // como estava no PrintContext antigo
+    //local: 'consultorio', // consultorio, SUS (cisgap, cisco)
 
     return {
         login,
