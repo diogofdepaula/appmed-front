@@ -12,7 +12,7 @@ import { ClienteContext } from '../../../../../../App';
 import InitialPrescricao from '../../../../component/initialprescricao';
 
 // PRESCRICAO EDITOR Prescricao
-const EditorAppBar = () => {
+const PrecricoesEditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
   const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
@@ -206,4 +206,4 @@ const EditorAppBar = () => {
   );
 }
 
-export default EditorAppBar
+export default PrecricoesEditorAppBar

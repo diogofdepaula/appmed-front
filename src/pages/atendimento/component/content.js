@@ -8,7 +8,7 @@ import PrescricaoInsert from '../pages/prescricoes/insert'
 import PrescricaoMain from '../pages/prescricoes/main'
 import PrescricaoUpdate from '../pages/prescricoes/update'
 import LMEDelete from '../pages/lmes/delete'
-import Print from '../pages/print'
+import Print from '../../print'
 import Requisicao from '../pages/requisicao'
 
 const Content = () => {

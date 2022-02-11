@@ -1,11 +1,16 @@
 import { Divider } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
+import PrintMainAppBar from '../../../print/component/appbar/mainappbar';
 import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';
 import LmesMainAppBar from '../../pages/lmes/components/appbar/mainappbar';
 import PrecricoesEditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
 import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
-import PrintMainAppBar from '../../pages/print/component/appbar/mainappbar';
+// import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';
+// import LmesMainAppBar from '../../pages/lmes/components/appbar/mainappbar';
+// import PrecricoesEditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
+// import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
+// import PrintMainAppBar from '../../pages/print/component/appbar/mainappbar';
 
 const ThirdAppBar = () => {
 
