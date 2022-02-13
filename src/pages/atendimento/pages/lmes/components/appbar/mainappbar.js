@@ -21,51 +21,39 @@ const LmesMainAppBar = () => {
     }
 
     return (
-        <div>
-            <Box>
-                <Tooltip title="Voltar">
-                    <span>
-                        <IconButton disabled={!lmeOnDuty} size="large">
-                            <ArrowUpwardIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Editar">
-                    <span>
-                        <IconButton disabled={!lmeOnDuty} onClick={handleEditar} size="large">
-                            <EditIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Parar">
-                    <span>
-                        <IconButton disabled={!lmeOnDuty} onClick={handleParar} size="large">
-                            <HighlightOffIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                {/* <Tooltip title="Excluir">
-                    <span>
-                        <IconButton
-                            disabled={!lmeOnDuty}
-                        >
-                            <DeleteIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip> */}
-                <Tooltip title="Outros">
-                    <span>
-                        <IconButton
-                            //                        onClick={() => setPage('teste')}
-                            disabled={!lmeOnDuty}
-                            size="large">
-                            <HealingIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-            </Box>
-        </div>
-    );
+        <>
+            <Tooltip title="Voltar">
+                <span>
+                    <IconButton disabled={!lmeOnDuty} size="large">
+                        <ArrowUpwardIcon />
+                    </IconButton>
+                </span>
+            </Tooltip>
+            <Tooltip title="Editar">
+                <span>
+                    <IconButton disabled={!lmeOnDuty} onClick={handleEditar} size="large">
+                        <EditIcon />
+                    </IconButton>
+                </span>
+            </Tooltip>
+            <Tooltip title="Parar">
+                <span>
+                    <IconButton disabled={!lmeOnDuty} onClick={handleParar} size="large">
+                        <HighlightOffIcon />
+                    </IconButton>
+                </span>
+            </Tooltip>
+            <Tooltip title="Outros">
+                <span>
+                    <IconButton
+                        disabled={!lmeOnDuty}
+                        size="large">
+                        <HealingIcon />
+                    </IconButton>
+                </span>
+            </Tooltip>
+        </>
+    )
 }
 
 export default LmesMainAppBar

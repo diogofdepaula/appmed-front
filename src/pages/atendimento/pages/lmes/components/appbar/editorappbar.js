@@ -151,7 +151,7 @@ const LmeEditorAppBar = () => {
       }
       <Divider />
     </Grid>
-  );
+  )
 }
 
 export default LmeEditorAppBar

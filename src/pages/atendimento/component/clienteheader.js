@@ -11,7 +11,7 @@ const ClienteHeader = () => {
     const idade = differenceInYears(new Date(), parseISO(clienteContext.nascimento))
 
     return (
-        <div>
+        <>
             <Box my={2} display="flex" justifyContent="center" alignItems="center">
                 <PersonIcon />
                 <Typography variant="h5">
@@ -25,7 +25,7 @@ const ClienteHeader = () => {
                 </Typography>
                 <EditIcon />
             </Box>
-        </div>
+        </>
     )
 }
 

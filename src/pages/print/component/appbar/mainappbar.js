@@ -18,8 +18,7 @@ const PrintMainAppBar = () => {
             <Box display="flex">
                 <Tooltip title="Voltar">
                     <span>
-                        <//disabled={!prescricaoOnDuty}
-                        IconButton size="large">
+                        <IconButton size="large">
                             <ArrowUpwardIcon />
                         </IconButton>
                     </span>

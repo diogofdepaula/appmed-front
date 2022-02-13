@@ -21,8 +21,10 @@ const PrintProvider = () => {
     const [database, setdatabase] = useState(new Date())
     const somaheighta4 = 950 // 900, 
     const somaheighta5 = 440
+    const [teste, setTeste] = useState('aaaaa')
 
     return {
+        teste, setTeste,
         print,
         setPrint,
         setPrintReset: () => setPrint([]),

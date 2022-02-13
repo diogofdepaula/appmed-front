@@ -1,22 +1,16 @@
-import { Box, Divider } from '@mui/material'
+import { Divider } from '@mui/material'
 import React, { createContext, useState } from 'react'
+import AtendimentoProvider from '../../providers/atendimento'
+import PrintProvider from '../../providers/print'
 import AtendimentoAppBar from './component/appbar/'
 import ClienteHeader from './component/clienteheader'
 import Content from './component/content'
 
 export const AtendimentoContext = createContext(null)
 export const ImpressaoContext = createContext(null)
+export const PrintContext = createContext(null)
 
 const Atendimento = () => {
-
-    // deixei tudo aqui para que a appbar também tivesse acesso
-    const [page, setPage] = useState('')
-    const [prescricaoOnDuty, setPrescricaoOnDuty] = useState([])
-    const [prescricaoEdit, setPrescricaoEdit] = useState([])
-    const [lmeOnDuty, setLmeOnDuty] = useState([])
-    const [lmeEdit, setLmeEdit] = useState([])
-    const [step, setStep] = useState(0)
-    const [medicamentoEdit, setMedicamentoEdit] = useState([])
 
     const initialImpressao = {
         printRef: null,
@@ -42,49 +36,19 @@ const Atendimento = () => {
 
     const [impressao, setImpressao] = useState(initialImpressao)
 
-    const [update, setUpdate] = useState({
-        count: 0,
-        page: ''
-    })
-
-    const updatePage = () => {
-        setImpressao(initialImpressao)
-        setUpdate({
-            count: update.count + 1,
-            page: page
-        })
-    }
-
     return (
-        <div>
+        <>
             <ClienteHeader />
-            <AtendimentoContext.Provider value={{
-                page,
-                setPage,
-                updatePage,
-                update,
-                step,
-                setStep,
-                prescricaoOnDuty,
-                setPrescricaoOnDuty,
-                prescricaoEdit,
-                setPrescricaoEdit,
-                lmeOnDuty,
-                setLmeOnDuty,
-                lmeEdit,
-                setLmeEdit,
-                medicamentoEdit,
-                setMedicamentoEdit,
-            }} >
+            <AtendimentoContext.Provider value={AtendimentoProvider()}>
                 <ImpressaoContext.Provider value={{ impressao, setImpressao }}>
-                    <Box>
+                    <PrintContext.Provider value={PrintProvider}>
                         <Divider />
                         <AtendimentoAppBar />
                         <Content />
-                    </Box>
+                    </PrintContext.Provider>
                 </ImpressaoContext.Provider>
             </AtendimentoContext.Provider>
-        </div>
+        </>
     )
 }
 

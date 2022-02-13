@@ -9,13 +9,10 @@ import PrimaryAppBar from './components/primaryappbar';
 import ClienteProvider from './providers/cliente';
 import LoginProvider from './providers/login';
 import NavigateProvider from './providers/navegation';
-import PrintProvider from './providers/print';
 
 export const ClienteContext = createContext()
 export const LoginContext = createContext()
 export const NavigateContext = createContext()
-export const PrintContext = createContext()
-
 
 const App = () => {
 
@@ -32,7 +29,6 @@ const App = () => {
         <ClienteContext.Provider value={ClienteProvider()} >
           <NavigateContext.Provider value={NavigateProvider()} >
             <LoginContext.Provider value={LoginProvider()} >
-              <PrintContext.Provider value={PrintProvider()}>
                 {openDialog ? <Login open={openDialog} handleClose={handleClose} /> : <></>}
                 <Box>
                   <PrimaryAppBar />
@@ -42,7 +38,6 @@ const App = () => {
                   <Toolbar />
                   <MainContent />
                 </Box>
-              </PrintContext.Provider>
             </LoginContext.Provider>
           </NavigateContext.Provider>
         </ClienteContext.Provider>

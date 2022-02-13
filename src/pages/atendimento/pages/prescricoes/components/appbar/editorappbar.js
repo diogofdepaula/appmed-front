@@ -10,6 +10,7 @@ import React, { useCallback, useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
 import InitialPrescricao from '../../../../component/initialprescricao';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 // PRESCRICAO EDITOR Prescricao
 const PrecricoesEditorAppBar = () => {
@@ -183,10 +184,10 @@ const PrecricoesEditorAppBar = () => {
           <IconButton
             disabled={page === 'prescricaoinsert' ? (step === 41 ? !medicamentoEdit?.lme : true) : false}
             onClick={linkLME}
-            size="large">
+            size="large"
+            >
             <ArrowForwardIcon />
-            <AccountBalanceIcon />
-            Editar doses na LME
+            <MenuBookIcon />
           </IconButton>
         </span>
       </Tooltip>

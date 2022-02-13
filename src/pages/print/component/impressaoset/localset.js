@@ -1,13 +1,17 @@
 import { Box, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import React, { useContext } from 'react';
+import { PrintContext } from '../..';
 import { ImpressaoContext } from '../../../atendimento';
 
 const LocalSet = () => {
 
     const { impressao, setImpressao } = useContext(ImpressaoContext)
+    const { teste, setTeste } = useContext(PrintContext)
 
     const handleChange = (event) => {
         setImpressao({ ...impressao, local: event.target.value })
+        console.log('xxxx   ', teste);
+        setTeste("bbbb")
     }
 
     return (
