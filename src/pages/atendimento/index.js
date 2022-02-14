@@ -41,7 +41,7 @@ const Atendimento = () => {
             <ClienteHeader />
             <AtendimentoContext.Provider value={AtendimentoProvider()}>
                 <ImpressaoContext.Provider value={{ impressao, setImpressao }}>
-                    <PrintContext.Provider value={PrintProvider}>
+                    <PrintContext.Provider value={PrintProvider()}>
                         <Divider />
                         <AtendimentoAppBar />
                         <Content />

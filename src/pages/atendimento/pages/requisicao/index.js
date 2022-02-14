@@ -2,7 +2,7 @@ import { Box, Divider, FormControl, Grid, IconButton, List, ListItem, ListItemSe
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
-import { ImpressaoContext } from "../..";
+import { PrintContext } from "../..";
 import FormatText from "./formattext"
 import GroupsTips from "./groupstips";
 import Operadoras from "./operadoras";
@@ -53,7 +53,8 @@ const AdicionadosItems = memo(({ param }) => {
 
 const Requisicao = () => {
 
-    const { impressao, setImpressao } = useContext(ImpressaoContext)
+   // const { impressao, setImpressao } = useContext(ImpressaoContext)
+    const { requisicoes, setRequisicoes } = useContext(PrintContext)
 
     const [search, setSearch] = useState("")
     const listaconvenios = Operadoras()
@@ -97,41 +98,67 @@ const Requisicao = () => {
 
     const handleAdd = () => {
 
-        setImpressao({
-            ...impressao,
-            requisicoes: [
-                ...impressao.requisicoes, {
-                    indice: ind.current,
-                    justificativa: justificativa,
-                    selecionados: selecionados,
-                    convenio: convenio,
-                }
-            ]
-        })
+        setRequisicoes([
+            ...requisicoes, {
+                indice: ind.current,
+                justificativa: justificativa,
+                selecionados: selecionados,
+                convenio: convenio,
+            }]
+        )
+
+        // setImpressao({
+        //     ...impressao,
+        //     requisicoes: [
+        //         ...impressao.requisicoes, {
+        //             indice: ind.current,
+        //             justificativa: justificativa,
+        //             selecionados: selecionados,
+        //             convenio: convenio,
+        //         }
+        //     ]
+        // })
+
         setSelecionados([])
         ind.current = ind.current + 1
     }
 
+    // console.log(impressao.requisicoes);
+    // console.log(requisicoes);
+
     const handleRemove = (param) => {
-        setImpressao({
-            ...impressao,
-            requisicoes: impressao.requisicoes.filter(x => x.indice !== param)
-        })
+        // setImpressao({
+        //     ...impressao,
+        //     requisicoes: impressao.requisicoes.filter(x => x.indice !== param)
+        // })
+
+        setRequisicoes(requisicoes.filter(x => x.indice !== param))
+
     }
 
     const handleAddGroupsTips = (paramA, paramB) => {
 
-        setImpressao({
-            ...impressao,
-            requisicoes: [
-                ...impressao.requisicoes, {
-                    indice: ind.current,
-                    justificativa: paramA,
-                    selecionados: paramB,
-                    convenio: convenio,
-                }
-            ]
-        })
+        // setImpressao({
+        //     ...impressao,
+        //     requisicoes: [
+        //         ...impressao.requisicoes, {
+        //             indice: ind.current,
+        //             justificativa: paramA,
+        //             selecionados: paramB,
+        //             convenio: convenio,
+        //         }
+        //     ]
+        // })
+
+        setRequisicoes([
+            ...requisicoes, {
+                indice: ind.current,
+                justificativa: paramA,
+                selecionados: paramB,
+                convenio: convenio,
+            }]
+        )
+
         setSelecionados([])
         ind.current = ind.current + 1
     }
@@ -217,7 +244,7 @@ const Requisicao = () => {
                         </List>
                         <Divider />
                         <Divider />
-                        {impressao.requisicoes?.map((r, n) =>
+                        {requisicoes?.map((r, n) =>
                             <Box display="flex" key={n} >
                                 <IconButton onClick={() => handleRemove(r.indice)} size="large">
                                     <DeleteIcon />

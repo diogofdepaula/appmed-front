@@ -4,11 +4,12 @@ import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
 import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
-import { ImpressaoContext } from '../atendimento';
+import { ImpressaoContext, PrintContext } from '../atendimento';
 
 const PrintJob = () => {
 
     const { impressao } = useContext(ImpressaoContext)
+    const { requisicao, requisicoes } = useContext(PrintContext)
 
     const Factory = () => {
 
@@ -70,8 +71,8 @@ const PrintJob = () => {
             }
         }
 
-        if (impressao.requisicao) {
-            impressao.requisicoes?.map((r, i) => 
+        if (requisicao) {
+            requisicoes?.map((r, i) => 
                 jobs.push(
                     // deixei comentado só para saber com usar depois.
                     // <Sadt requisicao={r} tipo={impressao.local} />
