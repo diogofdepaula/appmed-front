@@ -1,12 +1,12 @@
 import { useContext } from "react"
-import { ImpressaoContext } from "../../atendimento"
+import { LoginContext } from "../../../App"
 
 export default function PageSize(tipo) {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { local } = useContext(LoginContext)
 
     // true = A5  // false = A4
-    let size = impressao.local === 'consultorio' && tipo !== 'lme' 
+    let size = local === 'consultorio' && tipo !== 'lme' 
 
     return size
 }

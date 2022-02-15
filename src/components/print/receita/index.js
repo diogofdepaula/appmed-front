@@ -84,7 +84,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
                     <div key={i} ref={el => itemsRef.current[i] = el} >
                         {/* vai ter que mudar aqui depois */}
                         <Prescricao prescricao={p} />
-                        {/* {impressao.local === 'consultorio' ? <PrescricaoSUS prescricao={p} /> : <PrescricaoConsultorio prescricao={p} />} */}
+                        {/* {local === 'consultorio' ? <PrescricaoSUS prescricao={p} /> : <PrescricaoConsultorio prescricao={p} />} */}
                     </div>
                 )
             }

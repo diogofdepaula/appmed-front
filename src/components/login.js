@@ -15,10 +15,10 @@ import { LoginContext } from '../App';
 
 const Login = ({ open, handleClose }) => {
 
-    const { setLocalConsultorio, locais } = useContext(LoginContext)
+    const { setLocal, locais } = useContext(LoginContext)
 
-    const handleListItem = () => {
-        setLocalConsultorio()
+    const handleListItem = (param) => {
+        setLocal(param[1])
         handleClose(false)
     }
 
@@ -67,7 +67,7 @@ const Login = ({ open, handleClose }) => {
                     {isLoggedIn ?
                         <List sx={{ pt: 0 }}>
                             {locais.map(local => (
-                                <ListItem button onClick={() => handleListItem()} key={local}>
+                                <ListItem button onClick={() => handleListItem(local)} key={local}>
                                     <ListItemAvatar>
                                         <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
                                             <AccountBalanceIcon />

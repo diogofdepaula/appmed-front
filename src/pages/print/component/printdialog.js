@@ -10,6 +10,7 @@ import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import PrintJob from '../printjob';
 import { ImpressaoContext } from '../../atendimento';
+import { LoginContext } from '../../../App';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -18,6 +19,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const PrintDialog = ({ open, handleClose }) => {
 
     const { impressao } = useContext(ImpressaoContext)
+    const { local } = useContext(LoginContext)
 
     const componentRef = useRef();
 
@@ -28,7 +30,7 @@ const PrintDialog = ({ open, handleClose }) => {
         if (impressao.lmesSelecionadas.length > 0) {
             page = '@page { size: A4 }'
         } else {
-            page = impressao.local === 'consultorio' ? '@page { size: A5 }' : '@page { size: A4 }'
+            page = local === 'consultorio' ? '@page { size: A5 }' : '@page { size: A4 }'
         }
         return page
     }

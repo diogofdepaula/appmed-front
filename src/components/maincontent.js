@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavigateContext } from '../App';
+import { LoginContext, NavigateContext } from '../App';
 import Atendimento from '../pages/atendimento';
 import Clientes from '../pages/cadastro/clientes';
 import Medicamentos from '../pages/cadastro/medicamentos';
@@ -7,6 +7,10 @@ import Medicamentos from '../pages/cadastro/medicamentos';
 const MainContent = () => {
 
     const { pageContentContext } = useContext(NavigateContext)
+
+    const { local } = useContext(LoginContext)
+
+    console.log(local);
 
     const GetContent = () => {
 

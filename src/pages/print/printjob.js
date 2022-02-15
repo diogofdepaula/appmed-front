@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { LoginContext } from '../../App';
 import TermoConsentimento from '../../components/print/consentimento';
 import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
@@ -10,6 +11,7 @@ const PrintJob = () => {
 
     const { impressao } = useContext(ImpressaoContext)
     const { requisicao, requisicoes } = useContext(PrintContext)
+    const { local } = useContext(LoginContext)
 
     const Factory = () => {
 
@@ -56,7 +58,7 @@ const PrintJob = () => {
                     [...Array(6).keys()].map(d =>
                         <div key={d} >
                             {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                            <FactoryReceitas listPresc={impressao.prescricoesSelecionadas.filter(p => p.medicamento.controlado)} mes={d} tipo={impressao.local} />
+                            <FactoryReceitas listPresc={impressao.prescricoesSelecionadas.filter(p => p.medicamento.controlado)} mes={d} tipo={local} />
                         </div>
                     )
                 )
@@ -66,7 +68,7 @@ const PrintJob = () => {
             // fazer um adendo depois dizendo "só para constar -- receita do controlado (ou mensais) em anexo."
             if (impressao.prescricoesSelecionadas.filter(p => !p.medicamento.controlado).length > 0) {
                 jobs.push(
-                    <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={impressao.local} />
+                    <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={local} />
                 )
             }
         }
@@ -75,8 +77,8 @@ const PrintJob = () => {
             requisicoes?.map((r, i) => 
                 jobs.push(
                     // deixei comentado só para saber com usar depois.
-                    // <Sadt requisicao={r} tipo={impressao.local} />
-                     <RequisicaoA5 key={i} requisicao={r} tipo={impressao.local} />
+                    // <Sadt requisicao={r} tipo={local} />
+                     <RequisicaoA5 key={i} requisicao={r} tipo={local} />
                 )
             )
         }

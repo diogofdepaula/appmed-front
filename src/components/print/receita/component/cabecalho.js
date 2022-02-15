@@ -1,14 +1,14 @@
 import { Box, CardMedia, Grid, Typography } from '@mui/material'
 import React, { useContext } from 'react'
+import { LoginContext } from '../../../../App'
+import Branco1px from '../../../../utils/imagens/branco1px.png'
 import LogoCISCO from '../../../../utils/imagens/ciscologo.png'
 import LogoCISGAP from '../../../../utils/imagens/cisgaplogo.png'
 import LogoSUS from '../../../../utils/imagens/logosus.png'
-import Branco1px from '../../../../utils/imagens/branco1px.png'
-import { ImpressaoContext } from '../../../../pages/atendimento'
 
 const Cabecalho = ({ tipo, dupla }) => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { local } = useContext(LoginContext)
 
     let direita = dupla ? "98%" : "70%"
 
@@ -20,7 +20,7 @@ const Cabecalho = ({ tipo, dupla }) => {
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
                             <CardMedia
                                 style={{ width: dupla ? "76%" : "54%", height: "100%" }}
-                                image={impressao.local !== 'consultorio' ? LogoSUS : Branco1px}
+                                image={local !== 'consultorio' ? LogoSUS : Branco1px}
                             />
                         </Grid>
                         <Grid item container xs={6} style={{ height: "72px" }} direction="row" justifyContent="center" alignItems="center"  >
@@ -38,14 +38,14 @@ const Cabecalho = ({ tipo, dupla }) => {
                             }
                         </Grid>
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
-                            {impressao.local === "" ?
+                            {local === "" ?
                                 <Box
                                     style={{ width: direita, height: "100%" }}
                                 />
                                 :
                                 <CardMedia
                                     style={{ width: direita, height: "100%" }}
-                                    image={impressao.local === 'consultorio' ? Branco1px : (impressao.local === "cisgap" ? LogoCISGAP : LogoCISCO)}
+                                    image={local === 'consultorio' ? Branco1px : (local === "cisgap" ? LogoCISGAP : LogoCISCO)}
                                 />
                             }
                         </Grid>

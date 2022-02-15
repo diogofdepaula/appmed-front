@@ -27,6 +27,7 @@ const LoginProvider = () => {
         setProfissional,
         locais,
         local,
+        setLocal,
         setLocalConsultorio: () => setLocal("consultorio"),
         setLocalCisco: () => setLocal("cisco"),
         setLocalCisgap: () => setLocal("cisgap"),

@@ -1,6 +1,6 @@
 import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext } from '../../../../App';
+import { ClienteContext, LoginContext } from '../../../../App';
 import { ImpressaoContext } from '../../../atendimento';
 import Reorder from '../reorder';
 
@@ -8,6 +8,7 @@ const PrescricoesSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { impressao, setImpressao } = useContext(ImpressaoContext)
+    const { local } = useContext(LoginContext)
     const [prescricoes, setPrescricoes] = useState([])
 
     const fetchDataPrescricoes = useCallback(async () => {
@@ -45,7 +46,7 @@ const PrescricoesSet = () => {
         <div>
             <Box display='block'>
                 <FormControlLabel
-                    disabled={impressao.local === 'consultorio' ? false : true}
+                    disabled={local === 'consultorio' ? false : true}
                     control={
                         <Checkbox
                             color='primary'

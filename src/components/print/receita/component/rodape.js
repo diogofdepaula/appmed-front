@@ -1,16 +1,16 @@
 import { Box, Typography } from '@mui/material'
 import React, { useContext } from 'react'
-import { ImpressaoContext } from '../../../../pages/atendimento'
+import { LoginContext } from '../../../../App'
 
 const Rodape = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { local } = useContext(LoginContext)
 
     const Endereco = () => {
 
         let endereco = ''
 
-        switch (impressao.local) {
+        switch (local) {
             case 'cisco':
                 endereco = "R. Profa. Leonidia, 1203 - Centro, Guarapuava - PR, 85010-230"
                 break;
