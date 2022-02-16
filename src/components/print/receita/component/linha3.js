@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { ImpressaoContext } from '../../../../pages/atendimento';
+import { ImpressaoContext, PrintContext } from '../../../../pages/atendimento';
 import PageSize from '../../../../pages/print/component/pagesize';
 import { PrescricaoPrintContext } from './prescricao';
 
@@ -9,6 +9,8 @@ const Linha3 = ({ mes, tipo }) => {
     const prescricao = useContext(PrescricaoPrintContext)
 
     const { impressao } = useContext(ImpressaoContext)
+
+    const { meses } = useContext(PrintContext)
 
     const quantLME = () => {
 
@@ -114,7 +116,7 @@ const Linha3 = ({ mes, tipo }) => {
                 }}
             >
                 <TypoQuant>
-                    {tipo === 'lme' ? quantLME() : (prescricao.posologia.quantidade * (prescricao.medicamento.controlado ? 1 : impressao.meses))}
+                    {tipo === 'lme' ? quantLME() : (prescricao.posologia.quantidade * (prescricao.medicamento.controlado ? 1 : meses))}
                 </TypoQuant>
                 <TypoForm>
                     <Box ml={1}>{prescricao.posologia.forma}</Box>

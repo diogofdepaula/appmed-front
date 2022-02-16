@@ -18,7 +18,7 @@ const PrintProvider = () => {
     const [continuo, setContinuo] = useState(false)
     const [requisicao, setRequisicao] = useState(true)
     const [requisicoes, setRequisicoes] = useState([]) // { indice, justificativa, selecionados, convenio }
-    const [database, setdatabase] = useState(new Date())
+    const [database, setDatabase] = useState(new Date())
     const somaheighta4 = 950 // 900, 
     const somaheighta5 = 440
     const [teste, setTeste] = useState('aaaaa')
@@ -58,7 +58,7 @@ const PrintProvider = () => {
         requisicoes,
         setRequisicoes,
         database,
-        setdatabase,
+        setDatabase,
         somaheighta4,
         somaheighta5,
     }

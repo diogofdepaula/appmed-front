@@ -3,14 +3,14 @@ import { format } from 'date-fns';
 import addMonths from 'date-fns/addMonths';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
-import { ImpressaoContext } from '../../../../pages/atendimento';
+import { PrintContext } from '../../../../pages/atendimento';
 import PageSize from '../../../../pages/print/component/pagesize';
 
 const Data = ({ mes, tipo }) => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { database } = useContext(PrintContext)
 
-    const date = format(addMonths(impressao.database, mes ? mes : 0), "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR })
+    const date = format(addMonths(database, mes ? mes : 0), "dd ' de ' MMMM ' de ' yyyy", { locale: ptBR })
 
     const Typo = (prop) => {
 

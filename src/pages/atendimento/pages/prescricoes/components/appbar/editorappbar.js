@@ -1,16 +1,15 @@
-import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ReplayIcon from '@mui/icons-material/Replay';
 import SaveIcon from '@mui/icons-material/Save';
+import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
 import React, { useCallback, useContext } from 'react';
 import { AtendimentoContext } from '../../../..';
 import { ClienteContext } from '../../../../../../App';
 import InitialPrescricao from '../../../../component/initialprescricao';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 // PRESCRICAO EDITOR Prescricao
 const PrecricoesEditorAppBar = () => {

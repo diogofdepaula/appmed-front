@@ -1,14 +1,14 @@
 import { Box, Grid, Typography } from '@mui/material';
-import React, { useContext } from 'react';
 import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
-import { ImpressaoContext } from '../../../../../pages/atendimento';
+import React, { useContext } from 'react';
+import { PrintContext } from '../../../../../pages/atendimento';
 
 const Linha12Relatorio = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { database } = useContext(PrintContext)
 
-    const date = format(impressao.database, "dd '/' MM '/' yyyy", { locale: ptBR })
+    const date = format(database, "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return <>
         <Grid container item >
