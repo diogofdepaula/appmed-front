@@ -1,25 +1,24 @@
 import { Box, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { ClienteContext } from '../../../../../App'
-import { ImpressaoContext } from '../../../../../pages/atendimento'
+import { PrintContext } from '../../../../../pages/atendimento'
 import FitText from '../../../../../pages/print/component/fittext'
 import Adverso from './adversos'
 import Gravidez from './gravidez'
 
 const Linha5Termo = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
     const { clienteContext } = useContext(ClienteContext)
-
+    const { termosSelecionados } = useContext(PrintContext)
 
     const Meds = () => {
 
         let texto = ""
 
-        impressao.termosSelecionados?.map((n, i) => {
-            if (n === impressao.termosSelecionados[0]) {
+        termosSelecionados?.map((n, i) => {
+            if (n === termosSelecionados[0]) {
                 return texto = texto.concat(n)
-            } else if (i === impressao.termosSelecionados.length - 1) {
+            } else if (i === termosSelecionados.length - 1) {
                 return texto = texto.concat(' e ', n)
             } else {
                 return texto = texto.concat(', ', n)
@@ -32,9 +31,9 @@ const Linha5Termo = () => {
     const declaro =
         "Declaro que fui claramente".concat(
             informar, "de que",
-            impressao.termosSelecionados.length > 1 ? " os medicamentos " : " o medicamento ",
+            termosSelecionados.length > 1 ? " os medicamentos " : " o medicamento ",
             "que passo a receber",
-            impressao.termosSelecionados.length > 1 ? " podem " : " pode ",
+            termosSelecionados.length > 1 ? " podem " : " pode ",
             "trazer "
         )
 
@@ -44,7 +43,7 @@ const Linha5Termo = () => {
                 Declaro ter sido {informar} claramente
                 sobre benefícios, riscos, contraindicações e principais efeitos
                 adversos relacionados ao uso de <strong><Meds /></strong>,
-                {impressao.termosSelecionados.length > 1 ? " indicados " : " indicado "}
+                {termosSelecionados.length > 1 ? " indicados " : " indicado "}
                 para o tratamento da doenças reumatológicas.
                 <br />
             </>
@@ -69,13 +68,13 @@ const Linha5Termo = () => {
             </>
             <>
                 O risco da ocorrência de efeitos adversos aumenta com a superdosagem.
-                E que {impressao.termosSelecionados.length > 1 ? " estes medicamentos são " : " este medicamento é "}
+                E que {termosSelecionados.length > 1 ? " estes medicamentos são " : " este medicamento é "}
                 contra-indicados em casos de hipersensibilidade (alergia).
                 <br />
             </>
             {/* colocar um if depois */}
-            <Gravidez medicamentos={impressao.termosSelecionados} />
-            <Adverso medicamentos={impressao.termosSelecionados} />
+            <Gravidez medicamentos={termosSelecionados} />
+            <Adverso medicamentos={termosSelecionados} />
         </>
 
     return (

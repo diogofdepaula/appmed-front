@@ -10,7 +10,7 @@ import { ImpressaoContext, PrintContext } from '../atendimento';
 const PrintJob = () => {
 
     const { impressao } = useContext(ImpressaoContext)
-    const { requisicao, requisicoes } = useContext(PrintContext)
+    const { requisicao, requisicoes, termosSelecionados } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -48,7 +48,7 @@ const PrintJob = () => {
             )
         })
 
-        impressao.termosSelecionados.length > 0 && jobs.push(<TermoConsentimento />)
+        termosSelecionados.length > 0 && jobs.push(<TermoConsentimento />)
 
         //print prescricoesSelecionadas
         if (impressao.prescricoesSelecionadas.length > 0) {

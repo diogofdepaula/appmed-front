@@ -1,10 +1,10 @@
-import { Box, Grid, Typography } from '@mui/material'
-import React, { useContext } from 'react'
-import { ImpressaoContext } from '../../../../../pages/atendimento';
+import { Box, Grid, Typography } from '@mui/material';
+import React, { useContext } from 'react';
+import { PrintContext } from '../../../../../pages/atendimento';
 
 const Linha4Termo = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { termosSelecionados } = useContext(PrintContext)
 
     return <>
         <Grid container>
@@ -20,7 +20,7 @@ const Linha4Termo = () => {
                         </Grid>
                         <Grid item>
                             <Box ml={1} display="flex" justifyContent="center">
-                                {impressao.termosSelecionados.map((t, i) =>
+                                {termosSelecionados.map((t, i) =>
                                     <Typography component={'span'} variant={'h6'} align={'center'} key={i}>
                                         <Box ml={2} fontWeight="fontWeightBold">{t}</Box>
                                     </Typography>

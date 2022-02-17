@@ -1,10 +1,12 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useContext } from 'react';
-import { ImpressaoContext } from '../../../atendimento';
+import { ImpressaoContext, PrintContext } from '../../../atendimento';
 
 const TermoSet = () => {
 
     const { impressao, setImpressao } = useContext(ImpressaoContext)
+
+    const { termosSelecionados, setTermosSelecionados} = useContext(PrintContext)
 
     const handleLmesChange = param => (event) => {
         if (event.target.checked) {
@@ -12,11 +14,13 @@ const TermoSet = () => {
                 ...prevState,
                 termosSelecionados: prevState.termosSelecionados.concat(param),
             }))
+            setTermosSelecionados(termosSelecionados.concat(param))
         } else {
             setImpressao(prevState => ({
                 ...prevState,
                 termosSelecionados: prevState.termosSelecionados.filter(t => t !== param)
             }))
+            setTermosSelecionados(termosSelecionados.filter(t => t !== param))
         }
     }
 
