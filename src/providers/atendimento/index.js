@@ -15,7 +15,6 @@ const AtendimentoProvider = () => {
     })
 
     const updatePage = () => {
-        //setImpressao(initialImpressao)
         setUpdate({
             count: update.count + 1,
             page: page

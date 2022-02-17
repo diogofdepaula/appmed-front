@@ -1,14 +1,14 @@
 import { Box, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { LoginContext } from '../../../../App';
-import { ImpressaoContext } from '../../../../pages/atendimento';
+import { PrintContext } from '../../../../pages/atendimento';
 import PageSize from '../../../../pages/print/component/pagesize';
 import { PrescricaoPrintContext } from './prescricao';
 
 const Linha2 = ({ tipo }) => {
 
     const prescricao = useContext(PrescricaoPrintContext)
-    const { impressao } = useContext(ImpressaoContext)
+    const { nomecomercial } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const texto = () => {
@@ -64,7 +64,7 @@ const Linha2 = ({ tipo }) => {
         <>
             <Box display="flex">
                 <Typo>
-                    {impressao?.nomecomercial ? texto() : prescricao.medicamento.farmaco}
+                    {nomecomercial ? texto() : prescricao.medicamento.farmaco}
                 </Typo>
             </Box>
         </>

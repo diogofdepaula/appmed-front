@@ -1,20 +1,19 @@
 import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext } from '../../../../App';
-import { ImpressaoContext } from '../../../atendimento';
+import { PrintContext } from '../../../atendimento';
 import Reorder from '../reorder';
 
 const PrescricoesSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { impressao, setImpressao } = useContext(ImpressaoContext)
     const { local } = useContext(LoginContext)
     const [prescricoes, setPrescricoes] = useState([])
+    const { nomecomercial, setNomeComercial, continuo, setContinuo, prescricoesSelecionadas, setPrescricoesSelecionadas, } = useContext(PrintContext)
 
     const fetchDataPrescricoes = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/prescricoes/all/${clienteContext.id}`)
         const json = await res.json();
-
         setPrescricoes(Reorder(json));
     }, [clienteContext.id, setPrescricoes])
 
@@ -22,28 +21,24 @@ const PrescricoesSet = () => {
         fetchDataPrescricoes();
     }, [fetchDataPrescricoes])
 
-
     const handleCheck = param => (event) => {
-
         if (event.target.checked) {
-            setImpressao(prevState => ({
-                ...prevState,
-                prescricoesSelecionadas: prevState.prescricoesSelecionadas.concat(param),
-            }))
+            setPrescricoesSelecionadas(prescricoesSelecionadas.concat(param))
         } else {
-            setImpressao(prevState => ({
-                ...prevState,
-                prescricoesSelecionadas: prevState.prescricoesSelecionadas.filter(presc => presc.id !== param.id)
-            }))
+            setPrescricoesSelecionadas(prescricoesSelecionadas.filter(presc => presc.id !== param.id))
         }
     }
 
-    const handleChangeCheckBox = (event) => {
-        setImpressao({ ...impressao, [event.target.name]: event.target.checked })
+    const handleChangeNomeComercial = (event) => {
+        setNomeComercial(event.target.checked)
+    }
+
+    const handleChangeContinuo = (event) => {
+        setContinuo(event.target.checked)
     }
 
     return (
-        <div>
+        <>
             <Box display='block'>
                 <FormControlLabel
                     disabled={local === 'consultorio' ? false : true}
@@ -51,8 +46,8 @@ const PrescricoesSet = () => {
                         <Checkbox
                             color='primary'
                             name="nomecomercial"
-                            checked={impressao?.nomecomercial}
-                            onChange={handleChangeCheckBox}
+                            checked={nomecomercial}
+                            onChange={handleChangeNomeComercial}
                         />}
                     label='Nome comercial'
                 />
@@ -61,8 +56,8 @@ const PrescricoesSet = () => {
                         <Checkbox
                             color='primary'
                             name="continuo"
-                            checked={impressao?.continuo}
-                            onChange={handleChangeCheckBox}
+                            checked={continuo}
+                            onChange={handleChangeContinuo}
                         />}
                     label='Contínuo'
                 />
@@ -81,7 +76,7 @@ const PrescricoesSet = () => {
                     )}
                 </List>
             </Box>
-        </div>
+        </>
     )
 }
 

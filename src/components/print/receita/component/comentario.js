@@ -1,11 +1,11 @@
 import { Box, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { ImpressaoContext } from '../../../..';
+import { PrintContext } from '../../../../pages/atendimento';
 import PageSize from '../../../component/pagesize';
 
 const Comentario = ({ tipo }) => {
 
-    const { impressao } = useContext(ImpressaoContext)
+    const { comentario } = useContext(PrintContext)
 
     const Typo = (prop) => {
 
@@ -38,7 +38,7 @@ const Comentario = ({ tipo }) => {
         <>
             <Box>
                 <Typo>
-                    {impressao.comentario}
+                    {comentario}
                 </Typo>
             </Box>
         </>

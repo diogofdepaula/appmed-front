@@ -1,20 +1,20 @@
-import { Box, IconButton, Tooltip } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import TuneIcon from '@mui/icons-material/Tune';
+import { Box, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
+import { PrintContext } from '../../../atendimento';
 import ButtonPrint from './buttonprint';
-import { ImpressaoContext } from '../../../atendimento';
 
 const PrintMainAppBar = () => {
 
-    const { impressao, setImpressao } = useContext(ImpressaoContext)
+    const { setVisualizacao } = useContext(PrintContext)
 
     const visualizar = () => {
-        setImpressao({ ...impressao, visualizacao: true })
+        setVisualizacao(true)
     }
 
     return (
-        <div>
+        <>
             <Box display="flex">
                 <Tooltip title="Voltar">
                     <span>
@@ -32,8 +32,8 @@ const PrintMainAppBar = () => {
                     </span>
                 </Tooltip>
             </Box>
-        </div>
-    );
+        </>
+    )
 }
 
 export default PrintMainAppBar

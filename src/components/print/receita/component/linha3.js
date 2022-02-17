@@ -1,16 +1,13 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { ImpressaoContext, PrintContext } from '../../../../pages/atendimento';
+import { PrintContext } from '../../../../pages/atendimento';
 import PageSize from '../../../../pages/print/component/pagesize';
 import { PrescricaoPrintContext } from './prescricao';
 
 const Linha3 = ({ mes, tipo }) => {
 
     const prescricao = useContext(PrescricaoPrintContext)
-
-    const { impressao } = useContext(ImpressaoContext)
-
-    const { meses } = useContext(PrintContext)
+    const { meses, continuo } = useContext(PrintContext)
 
     const quantLME = () => {
 
@@ -168,7 +165,7 @@ const Linha3 = ({ mes, tipo }) => {
                     </TypoFarmPoso>
                 </Grid>
                 <Grid item container xs={3} justifyContent="flex-end">
-                    {impressao.continuo ?
+                    {continuo ?
                         <Continuo /> :
                         prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
                     }

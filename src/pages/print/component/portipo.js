@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import { ImpressaoContext } from "../../.."
 import { LoginContext } from "../../../App"
 
 export default function PorTipo(tipo, a4, a5 ) {

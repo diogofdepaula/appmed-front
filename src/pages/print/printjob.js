@@ -5,12 +5,11 @@ import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
 import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
-import { ImpressaoContext, PrintContext } from '../atendimento';
+import { PrintContext } from '../atendimento';
 
 const PrintJob = () => {
 
-    const { impressao } = useContext(ImpressaoContext)
-    const { requisicao, requisicoes, termosSelecionados, lmesSelecionadas } = useContext(PrintContext)
+    const { requisicao, requisicoes, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -51,14 +50,14 @@ const PrintJob = () => {
         termosSelecionados.length > 0 && jobs.push(<TermoConsentimento />)
 
         //print prescricoesSelecionadas
-        if (impressao.prescricoesSelecionadas.length > 0) {
+        if (prescricoesSelecionadas.length > 0) {
 
-            if (impressao.prescricoesSelecionadas.filter(p => p.medicamento.controlado).length > 0) {
+            if (prescricoesSelecionadas.filter(p => p.medicamento.controlado).length > 0) {
                 jobs.push(
                     [...Array(6).keys()].map(d =>
                         <div key={d} >
                             {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                            <FactoryReceitas listPresc={impressao.prescricoesSelecionadas.filter(p => p.medicamento.controlado)} mes={d} tipo={local} />
+                            <FactoryReceitas listPresc={prescricoesSelecionadas.filter(p => p.medicamento.controlado)} mes={d} tipo={local} />
                         </div>
                     )
                 )
@@ -66,9 +65,9 @@ const PrintJob = () => {
             // fiz assim para que se tiver somente controlado, não crie mais uma receita
             // se tiver alguém medicamento não controlado, que imprema junto.
             // fazer um adendo depois dizendo "só para constar -- receita do controlado (ou mensais) em anexo."
-            if (impressao.prescricoesSelecionadas.filter(p => !p.medicamento.controlado).length > 0) {
+            if (prescricoesSelecionadas.filter(p => !p.medicamento.controlado).length > 0) {
                 jobs.push(
-                    <FactoryReceitas listPresc={impressao.prescricoesSelecionadas} tipo={local} />
+                    <FactoryReceitas listPresc={prescricoesSelecionadas} tipo={local} />
                 )
             }
         }
