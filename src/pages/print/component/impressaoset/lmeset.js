@@ -1,21 +1,19 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useCallback, useContext, useEffect } from 'react';
 import { ClienteContext } from '../../../../App';
-import { ImpressaoContext } from '../../../atendimento';
+import { PrintContext } from '../../../atendimento';
 
 const LMESet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { impressao, setImpressao } = useContext(ImpressaoContext)
+
+    const { lmes, setLmes, lmesSelecionadas, setLmesSelecionadas, } = useContext(PrintContext)
 
     const fetchDataLmes = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/allfat/${clienteContext.id}`)
         const json = await res.json();
-        setImpressao(prevState => ({
-            ...prevState,
-            lmes: json,
-        }))
-    }, [clienteContext, setImpressao])
+        setLmes(json)
+    }, [clienteContext, setLmes])
 
     useEffect(() => {
         fetchDataLmes();
@@ -24,22 +22,16 @@ const LMESet = () => {
 
     const handleLmesChange = param => (event) => {
         if (event.target.checked) {
-            setImpressao(prevState => ({
-                ...prevState,
-                lmesSelecionadas: prevState.lmesSelecionadas.concat(param),
-            }))
+            setLmesSelecionadas(lmesSelecionadas.concat(param))
         } else {
-            setImpressao(prevState => ({
-                ...prevState,
-                lmesSelecionadas: prevState.lmesSelecionadas.filter(lme => lme.id !== param.id)
-            }))
+            setLmesSelecionadas(lmesSelecionadas.filter(lme => lme.id !== param.id))
         }
     }
 
     return (
-        <div>
+        <>
             <List dense subheader={<ListSubheader>LMEs</ListSubheader>}>
-                {impressao.lmes?.map(lme =>
+                {lmes?.map(lme =>
                     <ListItem key={lme.id}>
                         <ListItemIcon>
                             <Checkbox
@@ -51,7 +43,7 @@ const LMESet = () => {
                     </ListItem>
                 )}
             </List>
-        </div>
+        </>
     )
 }
 

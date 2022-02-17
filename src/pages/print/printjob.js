@@ -10,7 +10,7 @@ import { ImpressaoContext, PrintContext } from '../atendimento';
 const PrintJob = () => {
 
     const { impressao } = useContext(ImpressaoContext)
-    const { requisicao, requisicoes, termosSelecionados } = useContext(PrintContext)
+    const { requisicao, requisicoes, termosSelecionados, lmesSelecionadas } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -18,7 +18,7 @@ const PrintJob = () => {
         let jobs = []
 
         //        print lmes
-        impressao.lmesSelecionadas?.map(l => {
+        lmesSelecionadas?.map(l => {
 
          return   jobs.push(
                 <div key={l.id} >

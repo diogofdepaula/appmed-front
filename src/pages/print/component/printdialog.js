@@ -1,3 +1,4 @@
+import CloseIcon from '@mui/icons-material/Close';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
@@ -5,12 +6,11 @@ import IconButton from '@mui/material/IconButton';
 import Slide from '@mui/material/Slide';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
 import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import PrintJob from '../printjob';
-import { ImpressaoContext } from '../../atendimento';
 import { LoginContext } from '../../../App';
+import { PrintContext } from '../../atendimento';
+import PrintJob from '../printjob';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -18,8 +18,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const PrintDialog = ({ open, handleClose }) => {
 
-    const { impressao } = useContext(ImpressaoContext)
     const { local } = useContext(LoginContext)
+    const { lmesSelecionadas } = useContext(PrintContext)
 
     const componentRef = useRef();
 
@@ -27,7 +27,7 @@ const PrintDialog = ({ open, handleClose }) => {
 
         let page = ''
 
-        if (impressao.lmesSelecionadas.length > 0) {
+        if (lmesSelecionadas.length > 0) {
             page = '@page { size: A4 }'
         } else {
             page = local === 'consultorio' ? '@page { size: A5 }' : '@page { size: A4 }'

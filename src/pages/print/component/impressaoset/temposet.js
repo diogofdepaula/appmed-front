@@ -5,17 +5,13 @@ import { PrintContext } from '../../../atendimento';
 
 const TempoSet = () => {
 
-    //const { impressao, setImpressao } = useContext(ImpressaoContext)
-
     const { setMeses, setDatabase } = useContext(PrintContext)
 
     const handleSliderChange = (event, newValue) => {
-        //setImpressao({ ...impressao, meses: newValue })
         setMeses(newValue)
     }
 
     const handleDateChange = (event) => {
-        // setImpressao({ ...impressao, [event.target.name]: parseISO(event.target.value) })
         setDatabase(parseISO(event.target.value))
     }
 
