@@ -7,9 +7,9 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import SaveIcon from '@mui/icons-material/Save';
 import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
 import React, { useCallback, useContext } from 'react';
-import { AtendimentoContext } from '../../../..';
-import { ClienteContext } from '../../../../../../App';
-import InitialPrescricao from '../../../../component/initialprescricao';
+import { AtendimentoContext } from '../../pages/atendimento';
+import { ClienteContext } from '../../App';
+import InitialPrescricao from '../../pages/atendimento/component/initialprescricao';
 
 // PRESCRICAO EDITOR Prescricao
 const PrecricoesEditorAppBar = () => {

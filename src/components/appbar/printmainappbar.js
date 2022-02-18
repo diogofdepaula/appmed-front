@@ -2,8 +2,8 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import TuneIcon from '@mui/icons-material/Tune';
 import { Box, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../atendimento';
-import ButtonPrint from './buttonprint';
+import { PrintContext } from '../../pages/atendimento';
+import ButtonPrint from './printbuttonprint';
 
 const PrintMainAppBar = () => {
 

@@ -7,7 +7,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import SpellcheckIcon from '@mui/icons-material/Spellcheck';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
+import { AtendimentoContext } from '../../pages/atendimento';
 
 const FirstAppBar = () => {
 

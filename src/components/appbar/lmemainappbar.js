@@ -4,7 +4,7 @@ import HealingIcon from '@mui/icons-material/Healing';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../../..';
+import { AtendimentoContext } from '../../pages/atendimento';
 
 const LmesMainAppBar = () => {
 

@@ -4,7 +4,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import HealingIcon from '@mui/icons-material/Healing';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../../..';
+import { AtendimentoContext } from '../../pages/atendimento';
 
 const PrescricoesMainAppBar = () => {
 

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
-import PrintMainAppBar from '../../../print/component/appbar/mainappbar';
-import LmeEditorAppBar from '../../pages/lmes/components/appbar/editorappbar';
-import LmesMainAppBar from '../../pages/lmes/components/appbar/mainappbar';
-import PrecricoesEditorAppBar from '../../pages/prescricoes/components/appbar/editorappbar';
-import PrescricoesMainAppBar from '../../pages/prescricoes/components/appbar/mainappbar';
+import PrecricoesEditorAppBar from './prescricaoeditorappbar';
+import PrescricoesMainAppBar from './prescricaomainappbar';
+import LmesMainAppBar from './lmemainappbar';
+import LmeEditorAppBar from './lmeeditorappbar';
+import PrintMainAppBar from './printmainappbar'
+import { AtendimentoContext } from '../../pages/atendimento';
 
 const ThirdAppBar = () => {
 

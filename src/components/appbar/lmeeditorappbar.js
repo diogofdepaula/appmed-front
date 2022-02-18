@@ -7,9 +7,9 @@ import BallotIcon from '@mui/icons-material/Ballot';
 import ReplayIcon from '@mui/icons-material/Replay';
 import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../../..';
-import { ClienteContext } from '../../../../../../App';
-import InitialPrescricao from '../../../../component/initialprescricao';
+import { AtendimentoContext } from '../../pages/atendimento';
+import { ClienteContext } from '../../App';
+import InitialPrescricao from '../../pages/atendimento/component/initialprescricao';
 
 // PRESCRICAO EDITOR LME
 const LmeEditorAppBar = () => {

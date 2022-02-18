@@ -1,7 +1,7 @@
 import { IconButton, Tooltip } from '@mui/material';
 import PrintIcon from '@mui/icons-material/Print';
 import React, { useState } from 'react';
-import PrintDialog from '../printdialog';
+import PrintDialog from '../../pages/print/component/printdialog';
 
 const ButtonPrint = () => {
 

@@ -1,7 +1,7 @@
 import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { AtendimentoContext } from '../../..';
-import Cid10 from '../../../../../components/cid10';
+import Cid10 from '../../../../../utils/cid10';
 
 const LMECIDSet = () => {
 
@@ -21,7 +21,6 @@ const LMECIDSet = () => {
                     id: 0,
                     farmaco: "nenhum cid encontrado"
                 })
-
                 // tem algum erro aqui quando coloca filtra algo que não encontoru não está pondo essa linha "nenhum cid encontrado"
             }
             setcidsfiltrados(filtro)

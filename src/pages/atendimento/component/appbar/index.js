@@ -1,8 +1,8 @@
 import { Box, Divider } from '@mui/material';
 import React from 'react';
-import FirstAppBar from './firstappbar';
-import SecondAppBar from './secondappbar'
-import ThirdAppBar from './thirdappbar';
+import FirstAppBar from '../../../../components/appbar/atendimentofirstappbar';
+import SecondAppBar from '../../../../components/appbar/atendimentosecondappbar';
+import ThirdAppBar from '../../../../components/appbar/atendimentothirdappbar';
 
 const AtendimentoAppBar = () => {
     

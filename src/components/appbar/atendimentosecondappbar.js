@@ -3,9 +3,9 @@ import PrintIcon from '@mui/icons-material/Print';
 import SaveIcon from '@mui/icons-material/Save';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
-import { ClienteContext } from '../../../../App';
-import InitialPrescricao from '../initialprescricao';
+import { ClienteContext } from '../../App';
+import { AtendimentoContext } from '../../pages/atendimento';
+import InitialPrescricao from '../../pages/atendimento/component/initialprescricao';
 
 const SecondAppBar = () => {
 
