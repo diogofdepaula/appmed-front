@@ -1,12 +1,10 @@
-import PersonIcon from '@mui/icons-material/Person';
-import SearchIcon from '@mui/icons-material/Search';
-import { Box, LinearProgress, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import { Box, IconButton } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
-import { differenceInYears, format, parseISO } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext, NavigateContext } from '../App';
-import RefreshIcon from '@mui/icons-material/Refresh';
+import ListItemsClientes from './listitemsclientes';
+
 
 const ClienteSet = () => {
 
@@ -19,7 +17,7 @@ const ClienteSet = () => {
     // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [inputvalue, setInputValue] = useState('')
-    const [openChanged, setOpenCharged] = useState(true)
+    const [dataCharging, setDataCharging] = useState(true)
 
     const fetchData = useCallback(async () => {
         setInputValue('')
@@ -27,10 +25,9 @@ const ClienteSet = () => {
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfat')
         const json = await res.json()
         if (res.ok) {
-            setOpenCharged(false)
+            setDataCharging(false)
         }
         setClientes(json)
-        console.log("teste");
     }, [])
 
     useEffect(() => {
@@ -39,12 +36,8 @@ const ClienteSet = () => {
         }
     }, [login, fetchData])
 
-    console.log('login :>> ', login);
-
     const filterClientes = (event) => {
-
         setInputValue(event.target.value)
-
         let filtro = [...clientes].filter(w =>
             w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
             w.cpf?.replace('-', '').replace('.', '').replace('.', '').indexOf(event.target.value.replace('-', '').replace('.', '').replace('.', '')) !== -1
@@ -64,109 +57,53 @@ const ClienteSet = () => {
     const handleListItem = (param) => {
         setClienteContext(param)
         setPageContentContext('atendimento')
-        // deixei atendimento para desenvolver, mas depois que estiver pronto, voltar para clientehome
-        //setPageContentContext('clientehome')
         setClientesFiltrados([])
+    }
+
+    const handleRefresh = () => {
+        setDataCharging(true)
+        fetchData()
+    }
+
+    const handleMouseLeave = () => {
+        setClientesFiltrados([])
+        setInputValue('')
     }
 
     return (
         <>
             <Box
-                style={{
+                sx={{
+                    display: 'flex',
                     position: 'relative',
-                    borderRadius: 4,
-                    backgroundColor: "rgba(255, 255, 255, .15)",
-                    marginRight: 92,
-                    marginLeft: 20,
-                    width: '100%',
+                    borderRadius: 2,
+                    bgcolor: "rgba(255, 255, 255, .15)",
                     flexGrow: 1,
                 }}
             >
-                <Box 
-                    sx={{
-                        display: 'flex'
-                    }}
+                <IconButton
+                    color="inherit"
+                    onClick={() => handleRefresh()}
                 >
-                    <Box
-                        style={{
-                            padding: "1em",
-                            height: '100%',
-                            position: 'absolute',
-                            pointerEvents: 'none',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                        }}
-                    >
-                        <SearchIcon />
-                    </Box>
-                    <InputBase
-                        placeholder={openChanged ? "Carregando listagem de clientes" : "Procurar cliente"}
-                        style={{
-                            color: 'inherit',
-                            width: '100%',
-                            padding: "0.15em 1em 0.15em 3rem",
-                        }}
-                        value={inputvalue}
-                        onChange={(e) => filterClientes(e)}
-                        onFocus={(e) => fetchData()}
-                        onBlur={() => setInputValue('')}
-                    />
                     <RefreshIcon />
-                </Box>
-                {openChanged ? <LinearProgress /> : <div />}
+                </IconButton>
+                <InputBase
+                    placeholder={dataCharging ? "Carregando listagem de clientes" : "Procurar cliente"}
+                    sx={{
+                        color: 'inherit',
+                        flexGrow: 1,
+                        padding: "0.15em 1em 0.15em 0.2rem",
+                    }}
+                    value={inputvalue}
+                    onChange={(e) => filterClientes(e)}
+                    onBlur={() => setInputValue('')}
+                />
                 {clientesfiltrados.length > 0 &&
-                    <Box
-                        style={{
-                            position: 'absolute',
-                            top: 36,
-                            width: '100%',
-                            flexGrow: 1,
-                        }}
-                    >
-                        <List
-                            component="nav"
-                            style={{
-                                width: '100%',
-                                backgroundColor: "#fff",
-                                borderRadius: 4,
-                            }}
-                        >
-                            {clientesfiltrados.map(cliente =>
-                                <ListItem
-                                    key={cliente.id}
-                                    button
-                                    onClick={() => handleListItem(cliente)}
-                                >
-                                    <ListItemIcon>
-                                        <PersonIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={
-                                            <Typography
-                                                variant="body1"
-                                                style={{
-                                                    color: 'black'
-                                                }}
-                                            >
-                                                {cliente.nome}
-                                            </Typography>
-                                        }
-                                        secondary={
-                                            cliente.nascimento
-                                                ?
-                                                "DN " + format(parseISO(cliente.nascimento),
-                                                    "dd'/'MM'/'yyyy", { locale: ptBR }) +
-                                                "  (" + differenceInYears(new Date(),
-                                                    parseISO(cliente.nascimento)).toString().concat(" anos)")
-                                                :
-                                                ''
-                                        }
-                                    />
-                                </ListItem>
-                            )}
-                        </List>
-                    </Box>
+                    <ListItemsClientes
+                        clientesfiltrados={clientesfiltrados}
+                        handleListItem={handleListItem}
+                        handleMouseLeave={handleMouseLeave}
+                    />
                 }
             </Box>
         </>

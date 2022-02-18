@@ -19,20 +19,27 @@ const PrimaryAppBar = () => {
 
     return (
         <>
-            <Box flexGrow={1} >
+            <Box
+                sx={{
+                    display: 'flex',
+                    backgroundColor: 'red'
+                }}
+            >
                 <AppBar
-                    position="fixed"
-                    style={{ zIndex: 1251 }}
+                    sx={{
+                        zIndex: 1251,
+                        position: 'fixed'
+                    }}
                 >
                     <Toolbar>
                         <Box
-                            style={{
+                            sx={{
                                 // menos 16 do padding
                                 display: 'flex',
                                 alignItems: 'center',
                                 //width: '216px'
                                 // se somente o icone da casa
-                                width: '44px'
+                                width: '44px',
                             }}
                         >
                             <HomeIcon
@@ -43,7 +50,7 @@ const PrimaryAppBar = () => {
                         <Box
                             style={{
                                 flexGrow: 1,
-                                marginRight: 20
+                                marginLeft: 20,
                             }}
                         >
                             <ClienteSet />
