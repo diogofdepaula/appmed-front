@@ -29,15 +29,20 @@ const App = () => {
         <ClienteContext.Provider value={ClienteProvider()} >
           <NavigateContext.Provider value={NavigateProvider()} >
             <LoginContext.Provider value={LoginProvider()} >
-                {openDialog ? <Login open={openDialog} handleClose={handleClose} /> : <></>}
-                <Box>
-                  <PrimaryAppBar />
-                </Box>
-                <LeftDrawer />
-                <Box flexGrow={1}>
-                  <Toolbar />
-                  <MainContent />
-                </Box>
+              {openDialog
+                ?
+                <Login open={openDialog} handleClose={handleClose} />
+                :
+                <>
+                  <Box>
+                    <PrimaryAppBar />
+                  </Box>
+                  <LeftDrawer />
+                  <Box flexGrow={1}>
+                    <Toolbar />
+                    <MainContent />
+                  </Box>
+                </>}
             </LoginContext.Provider>
           </NavigateContext.Provider>
         </ClienteContext.Provider>

@@ -16,6 +16,7 @@ import { LoginContext } from '../App';
 const Login = ({ open, handleClose }) => {
 
     const { setLocal, locais } = useContext(LoginContext)
+    const { login, setLogin } = useContext(LoginContext)
 
     const handleListItem = (param) => {
         setLocal(param[1])
@@ -23,13 +24,12 @@ const Login = ({ open, handleClose }) => {
     }
 
     const [profilePic, setProfilePic] = useState();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const responseGoogle = (response) => {
         const { profileObj: { imageUrl, googleId } } = response
         setProfilePic(imageUrl)
         if (googleId === process.env.REACT_APP_DIOGO_GOOGLEID) {
-            setIsLoggedIn(true)
+            setLogin(true)
         }
     }
 
@@ -51,7 +51,7 @@ const Login = ({ open, handleClose }) => {
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
                         />
-                        {isLoggedIn ?
+                        {login ?
                             <Box
                                 sx={{
                                     paddingInlineStart: "1em",
@@ -64,7 +64,7 @@ const Login = ({ open, handleClose }) => {
                     </Box>
                 </DialogContent>
                 <DialogContent dividers>
-                    {isLoggedIn ?
+                    {login ?
                         <List sx={{ pt: 0 }}>
                             {locais.map(local => (
                                 <ListItem button onClick={() => handleListItem(local)} key={local}>

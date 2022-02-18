@@ -1,35 +1,45 @@
 import PersonIcon from '@mui/icons-material/Person';
 import SearchIcon from '@mui/icons-material/Search';
-import { Box, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
+import { Box, LinearProgress, List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import { differenceInYears, format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, NavigateContext } from '../App';
+import { ClienteContext, LoginContext, NavigateContext } from '../App';
+import RefreshIcon from '@mui/icons-material/Refresh';
 
 const ClienteSet = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
     const { setPageContentContext } = useContext(NavigateContext)
+    const { login } = useContext(LoginContext)
 
     const [clientes, setClientes] = useState([])
     // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
     // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
-
     const [inputvalue, setInputValue] = useState('')
+    const [openChanged, setOpenCharged] = useState(true)
 
     const fetchData = useCallback(async () => {
         setInputValue('')
         // deixar o allfat, pois usa os outros dados na hora de imprimir
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfat')
         const json = await res.json()
+        if (res.ok) {
+            setOpenCharged(false)
+        }
         setClientes(json)
+        console.log("teste");
     }, [])
 
     useEffect(() => {
-        fetchData()
-    }, [fetchData])
+        if (login) {
+            fetchData()
+        }
+    }, [login, fetchData])
+
+    console.log('login :>> ', login);
 
     const filterClientes = (event) => {
 
@@ -66,40 +76,45 @@ const ClienteSet = () => {
                     position: 'relative',
                     borderRadius: 4,
                     backgroundColor: "rgba(255, 255, 255, .15)",
-                    // "&:hover": {
-                    //     backgroundColor: "rgba(255, 255, 255, .45)",
-                    // },
                     marginRight: 92,
                     marginLeft: 20,
                     width: '100%',
                     flexGrow: 1,
                 }}
             >
-                <Box
-                    style={{
-                        padding: "1em",
-                        height: '100%',
-                        position: 'absolute',
-                        pointerEvents: 'none',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                <Box 
+                    sx={{
+                        display: 'flex'
                     }}
                 >
-                    <SearchIcon />
+                    <Box
+                        style={{
+                            padding: "1em",
+                            height: '100%',
+                            position: 'absolute',
+                            pointerEvents: 'none',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                        }}
+                    >
+                        <SearchIcon />
+                    </Box>
+                    <InputBase
+                        placeholder={openChanged ? "Carregando listagem de clientes" : "Procurar cliente"}
+                        style={{
+                            color: 'inherit',
+                            width: '100%',
+                            padding: "0.15em 1em 0.15em 3rem",
+                        }}
+                        value={inputvalue}
+                        onChange={(e) => filterClientes(e)}
+                        onFocus={(e) => fetchData()}
+                        onBlur={() => setInputValue('')}
+                    />
+                    <RefreshIcon />
                 </Box>
-                <InputBase
-                    placeholder="Procurar cliente"
-                    style={{
-                        color: 'inherit',
-                        width: '100%',
-                        padding: "0.15em 1em 0.15em 3rem",
-                    }}
-                    value={inputvalue}
-                    onChange={(e) => filterClientes(e)}
-                    onFocus={(e) => fetchData()}
-                    onBlur={() => setInputValue('')}
-                />
+                {openChanged ? <LinearProgress /> : <div />}
                 {clientesfiltrados.length > 0 &&
                     <Box
                         style={{
