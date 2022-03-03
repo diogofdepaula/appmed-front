@@ -1,14 +1,12 @@
-import { Box, Divider, IconButton, Tooltip } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import HealingIcon from '@mui/icons-material/Healing';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SaveIcon from '@mui/icons-material/Save';
+import { Box, Divider, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { ClientesContext } from '../..';
-import InitialCliente from '../initialcliente';
+import { ClientesContext } from '../../pages/cadastro/clientes';
+import InitialCliente from '../../pages/cadastro/clientes/components/initialcliente';
 
 const ClientesAppBar = () => {
 
@@ -123,28 +121,10 @@ const ClientesAppBar = () => {
                         </IconButton>
                     </span>
                 </Tooltip>
-                <Tooltip title="Parar">
-                    <span>
-                        <//  disabled={!prescricaoOnDuty}
-                        //onClick={handleParar}
-                        IconButton size="large">
-                            <HighlightOffIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Outros">
-                    <span>
-                        <// disabled={!prescricaoOnDuty}
-                        //                        onClick={() => setPage('teste')}
-                        IconButton size="large">
-                            <HealingIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-            </Box>
+            </Box >
             <Divider />
-        </div>
-    );
+        </div >
+    )
 }
 
 export default ClientesAppBar

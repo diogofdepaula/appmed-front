@@ -1,37 +1,28 @@
 import { Box } from '@mui/material';
-import React, { createContext, useContext, useState } from 'react';
-import { ClienteContext } from '../../../App';
-import ClientesAppBar from './components/appbar';
+import React, { createContext } from 'react';
+import ClientesAppBar from '../../../components/appbar/clienteappbar';
+import ClienteCadastroProvider from '../../../providers/cliente/cadastro';
 import Content from './components/content';
 
-// tem o ClienteContext (sem s) que eu preferi manter
-// para poder acessar o Cliente de todo o programa
-export const ClientesContext = createContext(null)
+export const ClienteCadastroContext = createContext(null)
 
 const Clientes = () => {
 
-    const { clientesContext } = useContext(ClienteContext)
+    // const { clientesContext } = useContext(ClienteContext)
 
-    const [page, setPage] = useState('')
-    const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
-    const [clienteEdit, setClienteEdit] = useState([])
+    // const [page, setPage] = useState('')
+    // const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
+    // const [clienteEdit, setClienteEdit] = useState([])
 
     return (
-        <div>
-            <ClientesContext.Provider value={{
-                page: page,
-                setPage: setPage,
-                clienteOnDuty: clienteOnDuty,
-                setClienteOnDuty: setClienteOnDuty,
-                clienteEdit: clienteEdit,
-                setClienteEdit: setClienteEdit,
-            }} >
+        <>
+            <ClienteCadastroContext.Provider value={ClienteCadastroProvider()} >
                 <Box>
                     <ClientesAppBar />
                     <Content />
                 </Box>
-            </ClientesContext.Provider>
-        </div>
+            </ClienteCadastroContext.Provider>
+        </>
     )
 }
 
