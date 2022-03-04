@@ -8,12 +8,6 @@ export const ClienteCadastroContext = createContext(null)
 
 const Clientes = () => {
 
-    // const { clientesContext } = useContext(ClienteContext)
-
-    // const [page, setPage] = useState('')
-    // const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
-    // const [clienteEdit, setClienteEdit] = useState([])
-
     return (
         <>
             <ClienteCadastroContext.Provider value={ClienteCadastroProvider()} >

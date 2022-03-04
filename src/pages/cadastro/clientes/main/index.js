@@ -1,11 +1,11 @@
 import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { ClientesContext } from '..';
+import { ClienteCadastroContext } from '..';
 import ClienteData from '../components/clientedata';
 
 const ClienteMain = () => {
 
-  const { clienteOnDuty, setClienteOnDuty } = useContext(ClientesContext)
+  const { clienteOnDuty, setClienteOnDuty } = useContext(ClienteCadastroContext)
   const [clientes, setClientes] = useState([])
   const [clientesfiltrados, setClientesFiltrados] = useState([])
 

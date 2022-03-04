@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
-import { ClientesContext } from '..'
+import { ClienteCadastroContext } from '..'
 import ClienteInsert from '../insert'
 import ClienteMain from '../main'
 import ClienteUpdate from '../update'
 
 const Content = () => {
 
-    const { page } = useContext(ClientesContext)
+    const { page } = useContext(ClienteCadastroContext)
 
     /// se mudar aqui: não esquercer de atualizar a ThirdAppBar
     switch (page) {

@@ -2,11 +2,11 @@ import { Box, Divider, FormControlLabel, Grid, Radio, RadioGroup, TextField } fr
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import ReactInputMask from 'react-input-mask';
-import { ClientesContext } from '..';
+import { ClienteCadastroContext } from '..';
 
 const ClienteForm = () => {
 
-    const { clienteEdit, setClienteEdit } = useContext(ClientesContext)
+    const { clienteEdit, setClienteEdit } = useContext(ClienteCadastroContext)
 
     const handleChange = event => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
@@ -32,7 +32,6 @@ const ClienteForm = () => {
             .join(" ")
         setClienteEdit({ ...clienteEdit, [event.target.name]: str })
     }
-
 
     return (
         <div>

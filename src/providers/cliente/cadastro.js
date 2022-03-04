@@ -1,19 +1,22 @@
 
 import { useState } from "react"
 
-export const InitialCliente = {
-    nome: "",
-    nascimento: "",
-    sexo: "feminino",
-    peso: "",
-    altura: "",
-    endereco: "",
-    telefone: "",
-    celular: "",
-    email: "",
-    cns: "",
-    cpf: "",
-    mae: ""
+export const InitialCliente = () => {
+
+    return {
+        nome: "",
+        nascimento: "",
+        sexo: "feminino",
+        peso: "",
+        altura: "",
+        endereco: "",
+        telefone: "",
+        celular: "",
+        email: "",
+        cns: "",
+        cpf: "",
+        mae: ""
+    }
 }
 
 // Provider usado no page de Cadastro.
@@ -27,7 +30,7 @@ const ClienteCadastroProvider = () => {
     return {
         clienteOnDuty,
         setClienteOnDuty,
-        clienteEdit, 
+        clienteEdit,
         setClienteEdit,
         page,
         setPage,

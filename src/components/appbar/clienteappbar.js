@@ -5,12 +5,13 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SaveIcon from '@mui/icons-material/Save';
 import { Box, Divider, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { ClientesContext } from '../../pages/cadastro/clientes';
-import InitialCliente from '../../pages/cadastro/clientes/components/initialcliente';
+import { ClienteCadastroContext } from '../../pages/cadastro/clientes';
+//import InitialCliente from '../../pages/cadastro/clientes/components/initialcliente';
+import { InitialCliente } from '../../providers/cliente/cadastro';
 
 const ClientesAppBar = () => {
 
-    const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit, page, setPage } = useContext(ClientesContext)
+    const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit, page, setPage } = useContext(ClienteCadastroContext)
 
     const handleBack = () => {
         setClienteEdit(null)
@@ -19,7 +20,7 @@ const ClientesAppBar = () => {
     }
 
     const handleInsert = () => {
-        const newcliente = InitialCliente()
+        const newcliente = InitialCliente
         setClienteOnDuty(null)
         setClienteEdit(newcliente)
         setPage('clienteinsert')

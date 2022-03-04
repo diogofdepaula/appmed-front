@@ -1,13 +1,13 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, IconButton, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
-import { ClientesContext } from '..';
+import { ClienteCadastroContext } from '..';
 
 const ClienteData = () => {
 
-    const { clienteOnDuty } = useContext(ClientesContext)
+    const { clienteOnDuty } = useContext(ClienteCadastroContext)
 
     const date = clienteOnDuty.nascimento ? format(parseISO(clienteOnDuty.nascimento), "dd '/' MM '/' yyyy", { locale: ptBR }) : ''
 
