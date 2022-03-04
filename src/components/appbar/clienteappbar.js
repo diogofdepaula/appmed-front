@@ -5,7 +5,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SaveIcon from '@mui/icons-material/Save';
 import { Box, Divider, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { ClienteCadastroContext } from '../../pages/cadastro/clientes';
+import { ClienteCadastroContext, ClienteNavigateContext } from '../../pages/cadastro/clientes';
 import { InitialCliente } from '../../providers/cliente/cadastro';
 
 const ClientesAppBar = () => {
@@ -15,11 +15,14 @@ const ClientesAppBar = () => {
         setClienteOnDuty,
         clienteEdit,
         setClienteEdit,
+    } = useContext(ClienteCadastroContext)
+
+    const {
         page,
         setPageMain,
         setPageInsert,
         setPageUpdate,
-    } = useContext(ClienteCadastroContext)
+    } = useContext(ClienteNavigateContext)
 
     const handleBack = () => {
         setClienteEdit(null)
