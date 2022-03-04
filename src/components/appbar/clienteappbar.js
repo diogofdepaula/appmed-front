@@ -6,30 +6,38 @@ import SaveIcon from '@mui/icons-material/Save';
 import { Box, Divider, IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
 import { ClienteCadastroContext } from '../../pages/cadastro/clientes';
-//import InitialCliente from '../../pages/cadastro/clientes/components/initialcliente';
 import { InitialCliente } from '../../providers/cliente/cadastro';
 
 const ClientesAppBar = () => {
 
-    const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit, page, setPage } = useContext(ClienteCadastroContext)
+    const {
+        clienteOnDuty,
+        setClienteOnDuty,
+        clienteEdit,
+        setClienteEdit,
+        page,
+        setPageMain,
+        setPageInsert,
+        setPageUpdate,
+    } = useContext(ClienteCadastroContext)
 
     const handleBack = () => {
         setClienteEdit(null)
         setClienteOnDuty(null)
-        setPage('clientemain')
+        setPageMain()
     }
 
     const handleInsert = () => {
         const newcliente = InitialCliente
         setClienteOnDuty(null)
         setClienteEdit(newcliente)
-        setPage('clienteinsert')
+        setPageInsert()
     }
 
     const handleUpdate = () => {
         setClienteEdit(clienteOnDuty)
         setClienteOnDuty(null)
-        setPage('clienteupdate')
+        setPageUpdate()
     }
 
     const handleSubmit = event => {
@@ -60,7 +68,7 @@ const ClientesAppBar = () => {
         }).then(data => {
             if (data.ok) {
                 //tem que inventar um refresh
-                setPage('clientemain')
+                setPageMain()
                 setClienteEdit(null)
                 setClienteOnDuty(null)
             }
@@ -88,7 +96,11 @@ const ClientesAppBar = () => {
             <Box>
                 <Tooltip title="Voltar">
                     <span>
-                        <IconButton disabled={!clienteOnDuty} onClick={handleBack} size="large">
+                        <IconButton
+                            //disabled={!clienteOnDuty}
+                            onClick={handleBack} 
+                            size="large"
+                            >
                             <ArrowUpwardIcon />
                         </IconButton>
                     </span>

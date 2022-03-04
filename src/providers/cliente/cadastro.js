@@ -22,7 +22,7 @@ export const InitialCliente = () => {
 // Provider usado no page de Cadastro.
 const ClienteCadastroProvider = () => {
 
-    const [page, setPage] = useState('')
+    const [page, setPage] = useState('clientesmain')
     //const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
     const [clienteOnDuty, setClienteOnDuty] = useState()
     const [clienteEdit, setClienteEdit] = useState([])
@@ -33,7 +33,9 @@ const ClienteCadastroProvider = () => {
         clienteEdit,
         setClienteEdit,
         page,
-        setPage,
+        setPageMain: () => setPage('clientesmain'),
+        setPageInsert: () => setPage('clienteinsert'),
+        setPageUpdate: () => setPage('clienteupdate'),
     }
 }
 

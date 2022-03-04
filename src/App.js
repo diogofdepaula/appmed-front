@@ -42,7 +42,8 @@ const App = () => {
                     <Toolbar />
                     <MainContent />
                   </Box>
-                </>}
+                </>
+              }
             </LoginContext.Provider>
           </NavigateContext.Provider>
         </ClienteContext.Provider>
