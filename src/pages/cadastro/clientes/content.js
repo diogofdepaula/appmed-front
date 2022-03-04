@@ -9,11 +9,11 @@ const Content = () => {
     const { page } = useContext(ClienteCadastroContext)
 
     switch (page) {
-        case 'clientesmain':
+        case 'main':
             return <ClienteMain /> 
-        case 'clienteinsert':
+        case 'insert':
             return <ClienteInsert />
-        case 'clienteupdate':
+        case 'update':
             return <ClienteUpdate />
         default:
             return <div />

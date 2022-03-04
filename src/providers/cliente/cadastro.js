@@ -23,7 +23,7 @@ export const InitialCliente = () => {
 const ClienteCadastroProvider = () => {
 
     // definir as variáveis das paginas em somente um lugar tanto para aqui como para Content
-    const [page, setPage] = useState('clientesmain')
+    const [page, setPage] = useState('main')
     //const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
     const [clienteOnDuty, setClienteOnDuty] = useState()
     const [clienteEdit, setClienteEdit] = useState([])
@@ -34,9 +34,9 @@ const ClienteCadastroProvider = () => {
         clienteEdit,
         setClienteEdit,
         page,
-        setPageMain: () => setPage('clientesmain'),
-        setPageInsert: () => setPage('clienteinsert'),
-        setPageUpdate: () => setPage('clienteupdate'),
+        setPageMain: () => setPage('main'),
+        setPageInsert: () => setPage('insert'),
+        setPageUpdate: () => setPage('update'),
     }
 }
 
