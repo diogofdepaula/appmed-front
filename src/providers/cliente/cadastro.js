@@ -1,5 +1,8 @@
 
 import { useState } from "react"
+import ClienteInsert from "../../pages/cadastro/clientes/insert"
+import ClienteMain from "../../pages/cadastro/clientes/main"
+import ClienteUpdate from "../../pages/cadastro/clientes/update"
 
 export const InitialCliente = () => {
 
@@ -22,9 +25,7 @@ export const InitialCliente = () => {
 // Provider usado no page de Cadastro.
 const ClienteCadastroProvider = () => {
 
-    // definir as variáveis das paginas em somente um lugar tanto para aqui como para Content
-    const [page, setPage] = useState('main')
-    //const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
+    const [page, setPage] = useState(<ClienteMain />)
     const [clienteOnDuty, setClienteOnDuty] = useState()
     const [clienteEdit, setClienteEdit] = useState([])
 
@@ -34,9 +35,10 @@ const ClienteCadastroProvider = () => {
         clienteEdit,
         setClienteEdit,
         page,
-        setPageMain: () => setPage('main'),
-        setPageInsert: () => setPage('insert'),
-        setPageUpdate: () => setPage('update'),
+        setPageMain: () => setPage(<ClienteMain />),
+        // clienteinsert e update é exatamete a mesma coisa
+        setPageInsert: () => setPage(<ClienteInsert />),
+        setPageUpdate: () => setPage(<ClienteUpdate />),
     }
 }
 
