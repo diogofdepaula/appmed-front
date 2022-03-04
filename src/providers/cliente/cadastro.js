@@ -22,6 +22,7 @@ export const InitialCliente = () => {
 // Provider usado no page de Cadastro.
 const ClienteCadastroProvider = () => {
 
+    // definir as variáveis das paginas em somente um lugar tanto para aqui como para Content
     const [page, setPage] = useState('clientesmain')
     //const [clienteOnDuty, setClienteOnDuty] = useState(clientesContext)
     const [clienteOnDuty, setClienteOnDuty] = useState()
