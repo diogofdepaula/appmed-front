@@ -1,11 +1,13 @@
-import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
+import { Box, List, TextField } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteCadastroContext } from '..';
+import { ClienteCadastroContext, ClienteNavigateContext } from '..';
+import ListItemsClientes from '../../../../components/listitemsclientes';
 import ClienteData from '../components/clientedata';
 
 const ClienteMain = () => {
 
   const { clienteOnDuty, setClienteOnDuty } = useContext(ClienteCadastroContext)
+  const { setPageUpdate } = useContext(ClienteNavigateContext)
   const [clientes, setClientes] = useState([])
   const [clientesfiltrados, setClientesFiltrados] = useState([])
 
@@ -38,52 +40,60 @@ const ClienteMain = () => {
     setClientesFiltrados(filtro)
   }
 
+  const handleListItem = (param) => {
+    setClienteOnDuty(param)
+    setPageUpdate()
+  }
+
   return (
-    <div>
-      <Box m={1}>
-        <Grid container spacing={1}>
-          <Grid container item xs={4} direction="column" justifyContent="flex-start" alignItems="stretch">
-            <Grid item>
-              <Box m={2}>
-                <TextField
-                  fullWidth
-                  label="Filtrar"
-                  variant="outlined"
-                  onChange={filterClientes}
-                />
-              </Box>
-            </Grid>
-            <Grid item>
-              <Box ml={1} mt={1}>
-                <TableContainer component={Paper} >
-                  <Table>
-                    <TableBody>
-                      {clientesfiltrados?.map(cliente =>
-                        <TableRow
-                          key={cliente.id}
-                          onClick={() => setClienteOnDuty(cliente)}
-                        >
-                          <TableCell component="th" scope="row">
-                            <Box fontWeight={clienteOnDuty?.id === cliente.id ? "fontWeightBold" : ""}>
-                              {cliente.nome}
-                            </Box>
-                          </TableCell>
-                        </TableRow>
-                      )}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
-              </Box>
-            </Grid>
-          </Grid>
-          <Grid item xs>
-            <Box mx={1}>
-              {clienteOnDuty && <ClienteData />}
-            </Box>
-          </Grid>
-        </Grid>
+    <>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          p: 1,
+          m: 1,
+          bgcolor: 'background.paper',
+          borderRadius: 1,
+          width: '100%',
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'flex-start',
+            flexDirection: 'column',
+            p: 1,
+            m: 1,
+            bgcolor: 'background.paper',
+            borderRadius: 1,
+          }}
+        >
+          <TextField
+            fullWidth
+            label="Filtrar"
+            variant="outlined"
+            onChange={filterClientes}
+          />
+          <List
+            component="nav"
+            sx={{
+              width: '100%',
+              backgroundColor: "#fff",
+              borderRadius: 4,
+            }}
+          >
+            <ListItemsClientes
+              clientesfiltrados={clientesfiltrados}
+              handleListItem={handleListItem}
+            />
+          </List>
+        </Box>
+        <Box>
+          {clienteOnDuty && <ClienteData />}
+        </Box>
       </Box>
-    </div>
+    </>
   );
 }
 

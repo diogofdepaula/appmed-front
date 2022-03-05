@@ -1,5 +1,5 @@
 import RefreshIcon from '@mui/icons-material/Refresh';
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, List, Paper } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext, NavigateContext } from '../App';
@@ -40,7 +40,7 @@ const ClienteSet = () => {
         setInputValue(event.target.value)
         let filtro = [...clientes].filter(w =>
             w.nome
-            .toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 
+                .toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
             ||
             w.cpf?.replace('-', '').replace('.', '').replace('.', '').indexOf(event.target.value.replace('-', '').replace('.', '').replace('.', '')) !== -1
         )
@@ -101,11 +101,31 @@ const ClienteSet = () => {
                     onBlur={() => setInputValue('')}
                 />
                 {clientesfiltrados.length > 0 &&
-                    <ListItemsClientes
-                        clientesfiltrados={clientesfiltrados}
-                        handleListItem={handleListItem}
-                        handleMouseLeave={handleMouseLeave}
-                    />
+                    <Box
+                        sx={{
+                            position: 'absolute',
+                            top: 40,
+                            width: '100%',
+                            flexGrow: 1,
+                        }}
+                    >
+                        <Paper elevation={20} >
+                            <List
+                                component="nav"
+                                sx={{
+                                    width: '100%',
+                                    backgroundColor: "#fff",
+                                    borderRadius: 4,
+                                }}
+                                onMouseLeave={() => handleMouseLeave()}
+                            >
+                                <ListItemsClientes
+                                    clientesfiltrados={clientesfiltrados}
+                                    handleListItem={handleListItem}
+                                />
+                            </List>
+                        </Paper>
+                    </Box>
                 }
             </Box>
         </>
