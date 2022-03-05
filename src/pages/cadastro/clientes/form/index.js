@@ -8,6 +8,9 @@ const ClienteForm = () => {
 
     const { clienteEdit, setClienteEdit } = useContext(ClienteCadastroContext)
 
+    // TEM QUE FAZER UM FETCH PARA PEGAR OS DADOS DO CLIENTE POIS ESTÁ PASSANDO SOMENTE O FIT PELO CLIENTEONDUTY
+    // PEGAR ESSE ONDUTY >> FAZER O FETCH >> SETAR NO CLIENTEEDIT
+
     const handleChange = event => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
     }
@@ -34,8 +37,18 @@ const ClienteForm = () => {
     }
 
     return (
-        <div>
-            <Box mb={2}>
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    bgcolor: 'background.paper',
+                    m: 1,
+                    p: 1,
+                    borderRadius: 1,
+                    flexGrow: 1,
+                }}
+            >
                 <Grid container spacing={2} >
                     <Grid container item spacing={2} >
                         <Grid item xs={9} >
@@ -233,7 +246,7 @@ const ClienteForm = () => {
                     </Grid>
                 </Grid>
             </Box>
-        </div>
+        </>
     )
 }
 

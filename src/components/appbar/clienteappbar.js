@@ -20,8 +20,7 @@ const ClientesAppBar = () => {
     const {
         page,
         setPageMain,
-        setPageInsert,
-        setPageUpdate,
+        setPageForm,
     } = useContext(ClienteNavigateContext)
 
     const handleBack = () => {
@@ -34,13 +33,13 @@ const ClientesAppBar = () => {
         const newcliente = InitialCliente
         setClienteOnDuty(null)
         setClienteEdit(newcliente)
-        setPageInsert()
+        setPageForm()
     }
 
     const handleUpdate = () => {
         setClienteEdit(clienteOnDuty)
         setClienteOnDuty(null)
-        setPageUpdate()
+        setPageForm()
     }
 
     const handleSubmit = event => {
@@ -92,7 +91,6 @@ const ClientesAppBar = () => {
     const handleDelete = () => {
         fetchDelete()
     }
-
 
     return (
         <div>

@@ -1,22 +1,23 @@
-import { Box, List, TextField } from '@mui/material';
+import { Box, LinearProgress, List, TextField } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteCadastroContext, ClienteNavigateContext } from '..';
 import ListItemsClientes from '../../../../components/listitemsclientes';
-import ClienteData from '../components/clientedata';
 
 const ClienteMain = () => {
 
-  const { clienteOnDuty, setClienteOnDuty } = useContext(ClienteCadastroContext)
-  const { setPageUpdate } = useContext(ClienteNavigateContext)
+  const { setClienteOnDuty } = useContext(ClienteCadastroContext)
+  const { setPageForm } = useContext(ClienteNavigateContext)
   const [clientes, setClientes] = useState([])
   const [clientesfiltrados, setClientesFiltrados] = useState([])
+  const [dataCharging, setDataCharging] = useState(true)
 
   const fetchData = useCallback(async () => {
     const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/allfat`)
-    const json = await res.json();
-
+    const json = await res.json()
     json.sort((a, b) => a.nome.localeCompare(b.nome))
-
+    if (res.ok) {
+      setDataCharging(true)
+    }
     setClientes(json);
     setClientesFiltrados(json)
   }, [setClientes])
@@ -42,7 +43,7 @@ const ClienteMain = () => {
 
   const handleListItem = (param) => {
     setClienteOnDuty(param)
-    setPageUpdate()
+    setPageForm()
   }
 
   return (
@@ -51,11 +52,9 @@ const ClienteMain = () => {
         sx={{
           display: 'flex',
           flexDirection: 'row',
-          p: 1,
-          m: 1,
           bgcolor: 'background.paper',
           borderRadius: 1,
-          width: '100%',
+          flexGrow: 1,
         }}
       >
         <Box
@@ -67,34 +66,44 @@ const ClienteMain = () => {
             m: 1,
             bgcolor: 'background.paper',
             borderRadius: 1,
+            flexGrow: 1,
           }}
         >
           <TextField
             fullWidth
-            label="Filtrar"
+            label={dataCharging ? "Carregando listagem de clientes" : "Procurar cliente"}
             variant="outlined"
             onChange={filterClientes}
           />
-          <List
-            component="nav"
-            sx={{
-              width: '100%',
-              backgroundColor: "#fff",
-              borderRadius: 4,
-            }}
-          >
-            <ListItemsClientes
-              clientesfiltrados={clientesfiltrados}
-              handleListItem={handleListItem}
-            />
-          </List>
-        </Box>
-        <Box>
-          {clienteOnDuty && <ClienteData />}
+          {dataCharging
+            ?
+            <Box
+              sx={{
+                pt: 1,
+                width: '100%',
+              }}
+            >
+              <LinearProgress />
+            </Box>
+            :
+            <List
+              component="nav"
+              sx={{
+                width: '100%',
+                backgroundColor: "#fff",
+                borderRadius: 4,
+              }}
+            >
+              <ListItemsClientes
+                clientesfiltrados={clientesfiltrados}
+                handleListItem={handleListItem}
+              />
+            </List>
+          }
         </Box>
       </Box>
     </>
-  );
+  )
 }
 
 export default ClienteMain
