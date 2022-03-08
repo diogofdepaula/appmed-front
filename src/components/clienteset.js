@@ -3,6 +3,7 @@ import { Box, IconButton, List, Paper } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext, NavigateContext } from '../App';
+import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
 
 
@@ -100,15 +101,16 @@ const ClienteSet = () => {
                     onChange={(e) => filterClientes(e)}
                     onBlur={() => setInputValue('')}
                 />
-                {clientesfiltrados.length > 0 &&
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            top: 40,
-                            width: '100%',
-                            flexGrow: 1,
-                        }}
-                    >
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: 40,
+                        width: '100%',
+                        flexGrow: 1,
+                    }}
+                >
+                    <DataCharging charge={dataCharging} />
+                    {clientesfiltrados.length > 0 &&
                         <Paper elevation={20} >
                             <List
                                 component="nav"
@@ -125,8 +127,8 @@ const ClienteSet = () => {
                                 />
                             </List>
                         </Paper>
-                    </Box>
-                }
+                    }
+                </Box>
             </Box>
         </>
     )

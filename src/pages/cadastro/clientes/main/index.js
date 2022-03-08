@@ -1,6 +1,7 @@
-import { Box, LinearProgress, List, TextField } from '@mui/material';
+import { Box, List, TextField } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteCadastroContext, ClienteNavigateContext } from '..';
+import DataCharging from '../../../../components/datacharging';
 import ListItemsClientes from '../../../../components/listitemsclientes';
 
 const ClienteMain = () => {
@@ -16,7 +17,7 @@ const ClienteMain = () => {
     const json = await res.json()
     json.sort((a, b) => a.nome.localeCompare(b.nome))
     if (res.ok) {
-      setDataCharging(true)
+      setDataCharging(false)
     }
     setClientes(json);
     setClientesFiltrados(json)
@@ -71,35 +72,24 @@ const ClienteMain = () => {
         >
           <TextField
             fullWidth
-            label={dataCharging ? "Carregando listagem de clientes" : "Procurar cliente"}
+            label={dataCharging ? "Carregando dados" : "Procurar cliente"}
             variant="outlined"
             onChange={filterClientes}
           />
-          {dataCharging
-            ?
-            <Box
-              sx={{
-                pt: 1,
-                width: '100%',
-              }}
-            >
-              <LinearProgress />
-            </Box>
-            :
-            <List
-              component="nav"
-              sx={{
-                width: '100%',
-                backgroundColor: "#fff",
-                borderRadius: 4,
-              }}
-            >
-              <ListItemsClientes
-                clientesfiltrados={clientesfiltrados}
-                handleListItem={handleListItem}
-              />
-            </List>
-          }
+          <DataCharging charge={dataCharging} />
+          <List
+            component="nav"
+            sx={{
+              width: '100%',
+              backgroundColor: "#fff",
+              borderRadius: 4,
+            }}
+          >
+            <ListItemsClientes
+              clientesfiltrados={clientesfiltrados}
+              handleListItem={handleListItem}
+            />
+          </List>
         </Box>
       </Box>
     </>
