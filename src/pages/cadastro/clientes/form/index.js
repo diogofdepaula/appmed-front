@@ -1,15 +1,23 @@
 import { Box, Divider, FormControlLabel, Grid, Radio, RadioGroup, TextField } from '@mui/material';
 import { format } from 'date-fns';
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import ReactInputMask from 'react-input-mask';
 import { ClienteCadastroContext } from '..';
 
 const ClienteForm = () => {
 
-    const { clienteEdit, setClienteEdit } = useContext(ClienteCadastroContext)
+    const { clienteEdit, setClienteEdit, clienteOnDuty } = useContext(ClienteCadastroContext)
 
-    // TEM QUE FAZER UM FETCH PARA PEGAR OS DADOS DO CLIENTE POIS ESTÁ PASSANDO SOMENTE O FIT PELO CLIENTEONDUTY
-    // PEGAR ESSE ONDUTY >> FAZER O FETCH >> SETAR NO CLIENTEEDIT
+    const fetchData = useCallback(async () => {
+        const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteOnDuty.id}`)
+        const json = await res.json()
+        console.log('json :>> ', json);
+        setClienteEdit(json)
+    }, [clienteOnDuty, setClienteEdit])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData])
 
     const handleChange = event => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
