@@ -11,13 +11,12 @@ const ClienteForm = () => {
     const fetchData = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteOnDuty.id}`)
         const json = await res.json()
-        console.log('json :>> ', json);
         setClienteEdit(json)
     }, [clienteOnDuty, setClienteEdit])
 
     useEffect(() => {
-        fetchData();
-    }, [fetchData])
+        if (clienteOnDuty) return fetchData()
+    }, [clienteOnDuty, fetchData])
 
     const handleChange = event => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })
