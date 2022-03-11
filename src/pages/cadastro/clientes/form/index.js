@@ -1,4 +1,4 @@
-import { Box, Divider, FormControlLabel, Grid, Radio, RadioGroup, TextField } from '@mui/material';
+import { Box, Divider, FormControlLabel, Radio, RadioGroup, TextField } from '@mui/material';
 import { format } from 'date-fns';
 import React, { useCallback, useContext, useEffect } from 'react';
 import ReactInputMask from 'react-input-mask';
@@ -50,13 +50,13 @@ const ClienteForm = () => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
-                    bgcolor: 'background.paper',
                     m: 1,
-                    p: 1,
-                    borderRadius: 1,
                     flexGrow: 1,
                     flexWrap: 'wrap',
-                    '& .MuiTextField-root': { m: 1, width: '25ch' },
+                    '& > :not(style)': {  // '& .MuiTextField-root': {
+                        m: 1,
+                        flexGrow: 1,
+                    },
                 }}
             >
                 <TextField
@@ -64,31 +64,34 @@ const ClienteForm = () => {
                     fullWidth
                     name="nome"
                     label="Nome completo"
-                    variant="outlined"
                     value={clienteEdit.nome}
                     onChange={handleChange}
                 />
                 <RadioGroup
-                   // aria-label="gender"
                     name='sexo'
                     onChange={handleChange}
                 >
-                    <Box display="flex" >
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexGrow: 1,
+                            m: 1,
+                            pl: 1,
+                            justifyContent: 'center',
+                        }}
+
+                    >
                         <FormControlLabel
-                           // name='sexo'
                             value="feminino"
                             control={<Radio />}
                             checked={clienteEdit.sexo === "feminino"}
-                            label="Feminino"
-                            variant="outlined"
+                            label="Fem"
                         />
                         <FormControlLabel
-                           // name='sexo'
                             value="masculino"
                             control={<Radio />}
                             checked={clienteEdit.sexo === "masculino"}
-                            label="Masculino"
-                            variant="outlined"
+                            label="Masc"
                         />
                     </Box>
                 </RadioGroup>
@@ -96,7 +99,7 @@ const ClienteForm = () => {
                     name="nascimento"
                     label="Data de Nascimento"
                     type="date"
-                    variant="outlined"
+                    //  variant="outlined"
                     InputLabelProps={{
                         shrink: true,
                     }}
@@ -111,8 +114,7 @@ const ClienteForm = () => {
                 >
                     {() => <TextField
                         name="peso"
-                        variant="outlined"
-                        label="Peso(Kg)"
+                        label="Peso (Kg)"
                     />}
                 </ReactInputMask>
                 <ReactInputMask
@@ -123,32 +125,7 @@ const ClienteForm = () => {
                 >
                     {() => <TextField
                         name="altura"
-                        variant="outlined"
-                        label="Altura(cm)"
-                    />}
-                </ReactInputMask>
-                <ReactInputMask
-                    mask="(99)99999-9999"
-                    value={clienteEdit.telefone}
-                    maskChar="_"
-                    onChange={handleChange}
-                >
-                    {() => <TextField
-                        name="telefone"
-                        variant="outlined"
-                        label="Telefone"
-                    />}
-                </ReactInputMask>
-                <ReactInputMask
-                    mask="(99)99999-9999"
-                    value={clienteEdit.celular}
-                    maskChar="_"
-                    onChange={handleChange}
-                >
-                    {() => <TextField
-                        name="celular"
-                        variant="outlined"
-                        label="Celular"
+                        label="Altura (cm)"
                     />}
                 </ReactInputMask>
                 <ReactInputMask
@@ -159,7 +136,6 @@ const ClienteForm = () => {
                 >
                     {() => <TextField
                         name="cns"
-                        variant="outlined"
                         label="CNS"
                     />}
                 </ReactInputMask>
@@ -171,27 +147,45 @@ const ClienteForm = () => {
                 >
                     {() => <TextField
                         name="cpf"
-                        variant="outlined"
                         label="CPF"
+                    />}
+                </ReactInputMask>
+                <ReactInputMask
+                    mask="(99)99999-9999"
+                    value={clienteEdit.telefone}
+                    maskChar="_"
+                    onChange={handleChange}
+                >
+                    {() => <TextField
+                        name="telefone"
+                        label="Telefone"
+                    />}
+                </ReactInputMask>
+                <ReactInputMask
+                    mask="(99)99999-9999"
+                    value={clienteEdit.celular}
+                    maskChar="_"
+                    onChange={handleChange}
+                >
+                    {() => <TextField
+                        name="celular"
+                        label="Celular"
                     />}
                 </ReactInputMask>
                 <TextField
                     type="email"
                     name="email"
-                    variant="outlined"
                     label="Email"
                     value={clienteEdit.email}
                     onChange={handleChange}
                 />
                 <TextField
                     name="mae"
-                    variant="outlined"
                     label="Nome da Mãe"
                     value={clienteEdit.mae}
                     onChange={handleChange}
                 />
                 <TextField
-                    variant="outlined"
                     name="endereco"
                     label="Endereço"
                     value={clienteEdit.endereco}
@@ -199,32 +193,31 @@ const ClienteForm = () => {
                 />
             </Box>
             <Divider />
-            <Box mt={2}>
-                <Grid container spacing={2}>
-                    <Grid item>
-                        <TextField
-                            variant="outlined"
-                            label="Cole Nascimento"
-                            onChange={(e) => handleChangeNascimento(e)}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <TextField
-                            fullWidth
-                            name="nome"
-                            label="Cole nome em caixa alta"
-                            variant="outlined"
-                            onChange={(e) => handleNome(e)}
-                        />
-                    </Grid>
-                </Grid>
+            <Box
+                sx={{
+                    display: 'flex',
+                    m: 1,
+                    flexGrow: 1,
+                    '& > :not(style)': {  // '& .MuiTextField-root': {
+                        m: 1,
+                    },
+                }}
+            >
+                <TextField
+                    label="Cole Nascimento"
+                    onChange={(e) => handleChangeNascimento(e)}
+                />
+                <TextField
+                    sx={{
+                        width: '42rem',
+                    }}
+                    name="nome"
+                    label="Cole nome em caixa alta"
+                    onChange={(e) => handleNome(e)}
+                />
             </Box>
         </>
     )
 }
 
 export default ClienteForm
-
-
-
-
