@@ -23,7 +23,7 @@ export const InitialCliente = () => {
 const ClienteCadastroProvider = () => {
 
     const [clienteOnDuty, setClienteOnDuty] = useState()
-    const [clienteEdit, setClienteEdit] = useState([])
+    const [clienteEdit, setClienteEdit] = useState(InitialCliente())
 
     return {
         clienteOnDuty,
