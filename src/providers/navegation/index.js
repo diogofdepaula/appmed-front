@@ -1,24 +1,21 @@
-import { useReducer, useState } from "react"
+import { useState } from "react"
+import Atendimento from "../../pages/atendimento"
+import Clientes from "../../pages/cadastro/clientes"
+import Medicamentos from "../../pages/cadastro/medicamentos"
 
 const NavigateProvider = () => {
 
-    const [page, setPage] = useState()
-    const [step, setStep] = useState()
-    const [section, setSection] = useState()
-    const [pageContentContext, setPageContentContext] = useState()
-    const [, forceUpdate] = useReducer((x) => x + 1, 0)
+    const [page, setPage] = useState(<div />)
+
+    // Fazer uma página inicial com o Cards para acelerar prescrição e impressão
 
     return {
-        pageContentContext,
-        setPageContentContext,
-        forceUpdate,
         page,
         setPage,
-        setPageReset: () => setPage(""),
-        step,
-        setStep,
-        section,
-        setSection,
+        setPageAtendimento: () => setPage(<Atendimento />),
+        setPageClientes: () => setPage(<Clientes />),
+        setPageMedicamentos: () => setPage(<Medicamentos />),
+        setPageReset: () => setPage(<div />),
     }
 }
 

@@ -14,24 +14,20 @@ import { ClienteContext, NavigateContext } from '../App';
 
 const LeftDrawer = () => {
 
-    const { pageContentContext, setPageContentContext, forceUpdate } = useContext(NavigateContext)
+    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, } = useContext(NavigateContext)
     const { clienteContext } = useContext(ClienteContext)
 
     const handleAtendimento = () => {
-        setPageContentContext('atendimento')
-        forceUpdate()
+        setPageAtendimento()
     }
 
     const handleCliente = () => {
-        setPageContentContext('clientes')
-        forceUpdate()
+        setPageClientes()
     }
 
     const handleMedicamento = () => {
-        setPageContentContext('medicamentos')
-        forceUpdate()
+        setPageMedicamentos()
     }
-
 
     return (
         <>
@@ -77,7 +73,7 @@ const LeftDrawer = () => {
                         <ListItem
                             disabled={clienteContext ? false : true}
                             button
-                            selected={pageContentContext === 'atendimento'}
+                            selected={page === 'atendimento'}
                             onClick={handleAtendimento}
                         >
                             <Tooltip title="Atendimento">

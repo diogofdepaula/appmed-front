@@ -10,7 +10,7 @@ import ListItemsClientes from './listitemsclientes';
 const ClienteSet = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
-    const { setPageContentContext } = useContext(NavigateContext)
+    const { setPageAtendimento } = useContext(NavigateContext)
     const { login } = useContext(LoginContext)
 
     const [clientes, setClientes] = useState([])
@@ -59,7 +59,7 @@ const ClienteSet = () => {
 
     const handleListItem = (param) => {
         setClienteContext(param)
-        setPageContentContext('atendimento')
+        setPageAtendimento()
         setClientesFiltrados([])
     }
 

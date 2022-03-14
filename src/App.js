@@ -1,11 +1,10 @@
 import { Box, Toolbar } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import 'fontsource-roboto';
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import PrimaryAppBar from './components/appbar/primaryappbar';
 import LeftDrawer from './components/leftdrawer';
 import Login from './components/login';
-import MainContent from './components/maincontent';
 import ClienteProvider from './providers/cliente';
 import LoginProvider from './providers/login';
 import NavigateProvider from './providers/navegation';
@@ -20,6 +19,11 @@ const App = () => {
 
   const handleClose = () => {
     setOpenDialog(false)
+  }
+
+  const MainContent = () => {
+    const { page } = useContext(NavigateContext)
+    return page
   }
 
   return (
