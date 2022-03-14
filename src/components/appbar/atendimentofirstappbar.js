@@ -7,11 +7,12 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import SpellcheckIcon from '@mui/icons-material/Spellcheck';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../pages/atendimento';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 
 const FirstAppBar = () => {
 
-    const { setPage, updatePage, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { setArticlePrescricaoMain, setArticleLMEMain } = useContext(AtendimentoNavigateContext)
 
     return (
         <>
@@ -24,8 +25,7 @@ const FirstAppBar = () => {
                 <IconButton
                     onClick={() => {
                         setPrescricaoOnDuty(null)
-                        setPage('prescricoesmain')
-                        updatePage()
+                        setArticlePrescricaoMain()
                     }}
                     size="large">
                     <ListAltIcon />
@@ -35,8 +35,7 @@ const FirstAppBar = () => {
                 <IconButton
                     onClick={() => {
                         setLmeOnDuty(null)
-                        setPage('lmesmain')
-                        updatePage()
+                        setArticleLMEMain()
                     }}
                     size="large">
                     <AccountBalanceIcon />
@@ -44,10 +43,6 @@ const FirstAppBar = () => {
             </Tooltip>
             <Tooltip title="Requsições">
                 <IconButton
-                    onClick={() => {
-                        setPage('requisicao')
-                        updatePage()
-                    }}
                     size="large">
                     <InputIcon />
                 </IconButton>

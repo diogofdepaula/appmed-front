@@ -4,20 +4,22 @@ import HealingIcon from '@mui/icons-material/Healing';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../pages/atendimento';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 
 const LmesMainAppBar = () => {
 
-    const { setPage, lmeOnDuty, setStep, setLmeEdit } = useContext(AtendimentoContext)
+    const { lmeOnDuty, setLmeEdit } = useContext(AtendimentoContext)
+    const { setArticleLMEDelete, setArticleLMEUpdate, setStep } = useContext(AtendimentoNavigateContext)
+
 
     const handleEditar = () => {
         setLmeEdit(lmeOnDuty)
         setStep(21)
-        setPage('lmeupdate')
+        setArticleLMEUpdate()
     }
 
     const handleParar = () => {
-        setPage('lmedelete')
+        setArticleLMEDelete()
     }
 
     return (

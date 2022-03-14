@@ -1,17 +1,19 @@
 import { Box, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 import EditIcon from '@mui/icons-material/Edit';
 
 const LMEData = () => {
 
-    const { lmeOnDuty, setPrescricaoEdit, setStep, setPage, setLmeEdit } = useContext(AtendimentoContext)
+    const { lmeOnDuty, setPrescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
+    const { setStep, setArticlePrescricaoUpdate } = useContext(AtendimentoNavigateContext)
+
 
     const handleEditarPrescricao = param => () => {
         setLmeEdit(null)
         setPrescricaoEdit(param)
         setStep(21)
-        setPage('prescricaoupdate')
+        setArticlePrescricaoUpdate()
     }
 
     return (
@@ -47,7 +49,7 @@ const LMEData = () => {
                 </Box>
             </Box>
         </div>
-    );
+    )
 }
 
 export default LMEData

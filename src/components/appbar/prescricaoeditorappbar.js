@@ -7,15 +7,17 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import SaveIcon from '@mui/icons-material/Save';
 import { Divider, Grid, IconButton, Tooltip } from '@mui/material';
 import React, { useCallback, useContext } from 'react';
-import { AtendimentoContext } from '../../pages/atendimento';
 import { ClienteContext } from '../../App';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 import InitialPrescricao from '../../pages/atendimento/component/initialprescricao';
 
 // PRESCRICAO EDITOR Prescricao
 const PrecricoesEditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, setPrescricaoEdit, page, setPage, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+  const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+  const { page, setArticleLMEUpdate, setArticlePrescricaoMain, step, setStep } = useContext(AtendimentoNavigateContext)
+
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clienteContext.id)
@@ -57,7 +59,7 @@ const PrecricoesEditorAppBar = () => {
       // já manda para o lmeupdate com lmeEdit com a prescricão nova
       // adicionada (vide LMEForkSet - const handleTableRow)
       fetchDataLME()
-      setPage('lmeupdate')
+      setArticleLMEUpdate()
       setStep(21)
     } else {
       // envia para ForkLME para adicionar a uma LME
@@ -100,19 +102,13 @@ const PrecricoesEditorAppBar = () => {
       body: JSON.stringify(submitvar[2])
     }).then(data => {
       if (data.ok) {
-        // setPage('prescricoesmain')
-        // setStep(0)
-        // let newpresc = InitialPrescricao(clienteContext.id)
-        // setPrescricaoEdit(newpresc)
-        // setMedicamentoEdit(null)
-
         setStep(0)
         setPrescricaoEdit(null)
         setPrescricaoOnDuty(null)
         setLmeEdit(null)
         setLmeOnDuty(null)
         setMedicamentoEdit(null)
-        setPage('prescricoesmain')
+        setArticlePrescricaoMain()
       }
     })
   }
@@ -184,7 +180,7 @@ const PrecricoesEditorAppBar = () => {
             disabled={page === 'prescricaoinsert' ? (step === 41 ? !medicamentoEdit?.lme : true) : false}
             onClick={linkLME}
             size="large"
-            >
+          >
             <ArrowForwardIcon />
             <MenuBookIcon />
           </IconButton>

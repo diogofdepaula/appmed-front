@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
 import InitialRelatorio from '../components/initialrelatorio';
 import LMEEditor from '../editor';
@@ -7,7 +7,8 @@ import LMEEditor from '../editor';
 const LMEInsert = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setStep, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
+    const { setStep } = useContext(AtendimentoNavigateContext)
 
     const chargeInitial = useCallback(() => {
 

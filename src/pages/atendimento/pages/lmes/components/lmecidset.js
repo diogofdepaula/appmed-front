@@ -1,13 +1,14 @@
 import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 import Cid10 from '../../../../../utils/cid10';
 
 const LMECIDSet = () => {
 
-    const { lmeEdit, setLmeEdit, setStep } = useContext(AtendimentoContext)
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
     const [cid10] = useState(Cid10())
     const [cidsfiltrados, setcidsfiltrados] = useState([])
+    const { setStep } = useContext(AtendimentoNavigateContext)
 
     const filterCID10 = event => {
 

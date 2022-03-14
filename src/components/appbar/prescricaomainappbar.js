@@ -4,21 +4,22 @@ import EditIcon from '@mui/icons-material/Edit';
 import HealingIcon from '@mui/icons-material/Healing';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../pages/atendimento';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 
 const PrescricoesMainAppBar = () => {
 
-    const { setPage, prescricaoOnDuty, setStep, setPrescricaoEdit } = useContext(AtendimentoContext)
+    const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
+    const { setArticlePrescricaoUpdate, setArticlePrescricaoDelete, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleEditar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
         setStep(21)
-        setPage('prescricaoupdate')
+        setArticlePrescricaoUpdate()
     }
 
     const handleParar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
-        setPage('prescricaodelete')
+        setArticlePrescricaoDelete()
     }
 
     return (
@@ -45,19 +46,9 @@ const PrescricoesMainAppBar = () => {
                         </IconButton>
                     </span>
                 </Tooltip>
-                {/* <Tooltip title="Excluir">
-                    <span>
-                        <IconButton
-                            disabled={!prescricaoOnDuty}
-                        >
-                            <DeleteIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip> */}
                 <Tooltip title="Outros">
                     <span>
                         <IconButton
-                            //                        onClick={() => setPage('teste')}
                             disabled={!prescricaoOnDuty}
                             size="large">
                             <HealingIcon />

@@ -1,10 +1,11 @@
 import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { AtendimentoContext } from '../../..'
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..'
 
 const MedicamentoSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit } = useContext(AtendimentoContext)
+    const { setStep } = useContext(AtendimentoNavigateContext)
 
     const [medicamentos, setMedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])

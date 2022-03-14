@@ -1,10 +1,15 @@
 import { Box, Divider } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AtendimentoNavigateContext } from '../..';
 import FirstAppBar from '../../../../components/appbar/atendimentofirstappbar';
 import SecondAppBar from '../../../../components/appbar/atendimentosecondappbar';
-import ThirdAppBar from '../../../../components/appbar/atendimentothirdappbar';
 
 const AtendimentoAppBar = () => {
+
+    const ThirdAppBar = () => {
+        const { appbar } = useContext(AtendimentoNavigateContext)
+        return appbar
+    }
     
     return (
         <>

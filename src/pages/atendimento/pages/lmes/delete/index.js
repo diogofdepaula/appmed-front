@@ -1,10 +1,11 @@
 import { Box, Button, Card, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 
 const LMEDelete = () => {
 
-    const { setPage, lmeOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { lmeOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { setArticlePrescricaoMain } = useContext(AtendimentoNavigateContext)
 
     const handleDeleteLME = () => event => {
 
@@ -14,7 +15,7 @@ const LMEDelete = () => {
         }).then(data => {
             if (data.ok) {
                 setLmeOnDuty(null)
-                setPage('prescricoesmain')
+                setArticlePrescricaoMain()
             }
         })
     }
@@ -36,7 +37,7 @@ const LMEDelete = () => {
                             color="secondary"
                             onClick={handleDeleteLME()}
                         >Remover LME (apagará a LME e as prescrições do bando de dados)
-                </Button>
+                        </Button>
                     </Box>
                 </div>
             }

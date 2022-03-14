@@ -1,11 +1,12 @@
 import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
 import TextRotationNoneIcon from '@mui/icons-material/TextRotationNone';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 
 const PosologiaSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep, medicamentoEdit, } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit, } = useContext(AtendimentoContext)
+    const { setStep } = useContext(AtendimentoNavigateContext)
 
     const handleButton = () => {
         setPrescricaoEdit(prescricaoEdit)

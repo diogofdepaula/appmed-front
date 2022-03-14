@@ -1,14 +1,15 @@
 import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 import { ClienteContext } from '../../../../../App';
 import InitialRelatorio from '../../lmes/components/initialrelatorio';
 
 const LMEForkSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setPage, setLmeEdit, setStep, medicamentoEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
     const [lmes, setlmes] = useState([])
+    const { setStep, setArticleLMEUpdate, setArticleLMEInsert } = useContext(AtendimentoNavigateContext)
 
     const fetchData = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/allfat/${clienteContext.id}`)
@@ -24,7 +25,7 @@ const LMEForkSet = () => {
 
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
 
-        if ((medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM' ) && !param.relatorio) {
+        if ((medicamentoEdit?.classe === 'MMCDB' || medicamentoEdit?.classe === 'MMCDPM') && !param.relatorio) {
             setLmeEdit({
                 ...param,
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],
@@ -36,13 +37,13 @@ const LMEForkSet = () => {
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }]
             })
         }
-        setPage('lmeupdate')
+        setArticleLMEUpdate()
         setStep(21)
     }
 
     const handleNewLME = () => {
         // vai criar uma nova lme para inserir prescricao nela
-        setPage('lmeinsert')
+        setArticleLMEInsert()
         setStep(11)
     }
 

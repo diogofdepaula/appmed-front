@@ -1,10 +1,12 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material'
 import React, { useCallback, useContext, useEffect } from 'react'
-import { AtendimentoContext } from '../../..'
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..'
 
 const ApresentacaoSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, setStep, medicamentoEdit, setMedicamentoEdit, } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit, setMedicamentoEdit, } = useContext(AtendimentoContext)
+    const { setStep } = useContext(AtendimentoNavigateContext)
+
 
     const fetchData = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/medicamentos/${prescricaoEdit.medicamentoId}`)

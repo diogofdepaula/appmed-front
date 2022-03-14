@@ -7,7 +7,7 @@ import BallotIcon from '@mui/icons-material/Ballot';
 import ReplayIcon from '@mui/icons-material/Replay';
 import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../pages/atendimento';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 import { ClienteContext } from '../../App';
 import InitialPrescricao from '../../pages/atendimento/component/initialprescricao';
 
@@ -15,11 +15,13 @@ import InitialPrescricao from '../../pages/atendimento/component/initialprescric
 const LmeEditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
-  const { step, setStep, prescricaoEdit, lmeEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoEdit, setPrescricaoOnDuty, setLmeOnDuty, page, setPage } = useContext(AtendimentoContext)
+  const { prescricaoEdit, lmeEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+  const { page, step, setStep, setArticlePrescricaoInsert, setArticlePrescricaoMain } = useContext(AtendimentoNavigateContext)
+
 
   const reiniciar = () => {
     let newpresc = InitialPrescricao(clienteContext.id)
-    setPage('prescricaoinsert')
+    setArticlePrescricaoInsert()
     setPrescricaoEdit(newpresc)
     setMedicamentoEdit(null)
     setStep(11)
@@ -78,7 +80,7 @@ const LmeEditorAppBar = () => {
         setLmeEdit(null)
         setLmeOnDuty(null)
         setMedicamentoEdit(null)
-        setPage('prescricoesmain')
+        setArticlePrescricaoMain()
       }
     })
   }
@@ -113,7 +115,6 @@ const LmeEditorAppBar = () => {
         <span>
           <IconButton
             color='secondary'
-            //  disabled={page === 'prescricaoinsert' ? (step === 41 ? false : true) : false}
             onClick={handleSubmit}
             size="large">
             <SaveIcon />
@@ -125,8 +126,6 @@ const LmeEditorAppBar = () => {
       >
         <span>
           <IconButton
-            // deu alguma coisa que não habilita na hora certa
-            // disabled={medicamentoEdit?.classe !== 'MMCDB' || medicamentoEdit?.classe !== 'MMCDPM' || step === 81}
             onClick={linkRelatorio}
             size="large">
             <ArrowForwardIcon />
@@ -134,7 +133,7 @@ const LmeEditorAppBar = () => {
           </IconButton>
         </span>
       </Tooltip>
-      {step > 21  &&
+      {step > 21 &&
         <div>
           <Tooltip title="Próximo">
             <span>

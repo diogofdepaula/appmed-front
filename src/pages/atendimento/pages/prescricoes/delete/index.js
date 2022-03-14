@@ -1,10 +1,11 @@
 import { Box, Button, Card, Grid } from '@mui/material';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '../../..';
 
 const PrescricaoDelete = () => {
 
-    const { setPage, prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setArticlePrescricaoMain } = useContext(AtendimentoNavigateContext)
     const [lme, setLme] = useState()
     const [change, setChange] = useState(0)
 
@@ -28,7 +29,7 @@ const PrescricaoDelete = () => {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoOnDuty(null)
-                setPage('prescricoesmain')
+                setArticlePrescricaoMain()
             }
         })
     }
@@ -41,7 +42,7 @@ const PrescricaoDelete = () => {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoOnDuty(null)
-                setPage('prescricoesmain')
+                setArticlePrescricaoMain()
             }
         })
     }
@@ -76,9 +77,9 @@ const PrescricaoDelete = () => {
             updateEmUso()
         } else if (change === 3) {
             setPrescricaoOnDuty(null)
-            setPage('prescricoesmain')
+            setArticlePrescricaoMain()
         }
-    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setPage])
+    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setArticlePrescricaoMain])
 
     return (
         <div>
@@ -112,7 +113,7 @@ const PrescricaoDelete = () => {
                                         color="secondary"
                                         onClick={() => setChange(1)}
                                     >Interromper o uso da prescrição (enviado a lista de Fez uso. Será mantida no bando de dados)
-                            </Button>
+                                    </Button>
                                 </Box>
                             </Grid>
                             <Grid item>
@@ -122,7 +123,7 @@ const PrescricaoDelete = () => {
                                         color="secondary"
                                         onClick={handleDeletePrescricao()}
                                     >Remover a prescrição (apagará do bando de dados)
-                            </Button>
+                                    </Button>
                                 </Box>
                             </Grid>
                             <Grid item>
@@ -133,7 +134,7 @@ const PrescricaoDelete = () => {
                                             color="secondary"
                                             onClick={handleDeletePrescricaoLME()}
                                         >Remover a prescrição e a LME (apagará ambos do bando de dados)
-                                </Button>
+                                        </Button>
                                     </Box>
                                 }
                             </Grid>
