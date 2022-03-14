@@ -6,6 +6,7 @@ import ClienteMain from "../../pages/cadastro/clientes/main"
 const ClienteNavegateProvider = () => {
 
     const [page, setPage] = useState(<ClienteMain />)
+    // mudar de page para article depois
 
     return {
         page,
