@@ -24,7 +24,7 @@ const SecondAppBar = () => {
     return (
         <>
             <Tooltip title="Nova Prescrição">
-                <IconButton onClick={iniciar} size="large">
+                <IconButton onClick={() => iniciar()} size="large">
                     <PostAddIcon />
                 </IconButton>
             </Tooltip>

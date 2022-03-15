@@ -2,12 +2,11 @@ import { Box, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { differenceInMonths } from 'date-fns/esm';
 import { ptBR } from 'date-fns/locale';
-import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
+import React from 'react';
 
-const PrescricaoData = () => {
+const PrescricaoData = ({ prescricaoOnDuty }) => {
 
-    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+   /// const { prescricaoOnDuty } = useContext(AtendimentoContext)
     const prescricao = prescricaoOnDuty;
 
     return (

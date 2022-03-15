@@ -18,7 +18,7 @@ const AtendimentoNavegateProvider = () => {
 
     const [article, setArticle] = useState(<div>Atendimento Content  - fazer uma coisa bacana depois com Cards para acelerar o acesso.</div>)
     const [appbar, setAppbar] = useState(<div />)
-    const [step, setStep] = useState()
+    const [step, setStep] = useState(11)
 
     return {
         article,

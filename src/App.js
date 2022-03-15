@@ -13,17 +13,17 @@ export const ClienteContext = createContext()
 export const LoginContext = createContext()
 export const NavigateContext = createContext()
 
+const MainContent = () => {
+  const { page } = useContext(NavigateContext)
+  return page
+}
+
 const App = () => {
 
   const [openDialog, setOpenDialog] = useState(true);
 
   const handleClose = () => {
     setOpenDialog(false)
-  }
-
-  const MainContent = () => {
-    const { page } = useContext(NavigateContext)
-    return page
   }
 
   return (

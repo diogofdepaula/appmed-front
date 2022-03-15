@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-import { AtendimentoContext } from '../..';
+import { AtendimentoNavigateContext } from '../..';
 import ApresentacaoSet from '../components/apresentacaoset';
 import LMEDoses from '../components/lmedoses';
 import LMEForkSet from '../components/lmeforkset';
@@ -10,8 +10,8 @@ import PrescricaoVarSet from '../components/prescricaovarset';
 
 const PrescricaoEditor = () => {
 
-    const { step } = useContext(AtendimentoContext)
-
+    const { step } = useContext(AtendimentoNavigateContext)
+    
     const GetStep = useCallback(() => {
         switch (step) {
             case 11:
@@ -29,14 +29,14 @@ const PrescricaoEditor = () => {
             case 61:
                 return <LMEForkSet />
             default:
-                return <div />
+                return <div>{step}</div>
         }
     }, [step]
     )
 
     return (
         <div>
-            {step !== 0 ? <GetStep /> : <div />}
+            {step !== 0 ? <GetStep /> : <div>teste 0</div>}
         </div>
     )
 }

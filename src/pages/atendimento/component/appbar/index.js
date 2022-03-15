@@ -4,12 +4,12 @@ import { AtendimentoNavigateContext } from '../..';
 import FirstAppBar from '../../../../components/appbar/atendimentofirstappbar';
 import SecondAppBar from '../../../../components/appbar/atendimentosecondappbar';
 
-const AtendimentoAppBar = () => {
+const ThirdAppBar = () => {
+    const { appbar } = useContext(AtendimentoNavigateContext)
+    return appbar
+}
 
-    const ThirdAppBar = () => {
-        const { appbar } = useContext(AtendimentoNavigateContext)
-        return appbar
-    }
+const AtendimentoAppBar = () => {
     
     return (
         <>

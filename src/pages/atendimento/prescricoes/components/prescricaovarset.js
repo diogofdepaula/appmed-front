@@ -1,9 +1,9 @@
-import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@mui/material';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import PostAddIcon from '@mui/icons-material/PostAdd';
+import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 
 const PrescricaoVarSet = () => {
 
@@ -33,6 +33,7 @@ const PrescricaoVarSet = () => {
             imprimirorientacoes: true
         })
     }
+
 
     return (
         <div>

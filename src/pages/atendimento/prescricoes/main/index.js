@@ -1,6 +1,5 @@
 import { Box, Divider, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { AtendimentoContext } from '../..';
 import { ClienteContext } from '../../../../App';
 import Reorder from '../../component/reorder';
 import PrescricaoData from '../components/prescricaodata';
@@ -8,9 +7,10 @@ import PrescricaoData from '../components/prescricaodata';
 const PrescricaoMain = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+   // const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
 
     const [prescricoes, setPrescricoes] = useState([])
+    const [ prescricaoOnDuty, setPrescricaoOnDuty ] = useState()
 
     const fetchData = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + `/prescricoes/all/${clienteContext.id}`)
@@ -22,6 +22,7 @@ const PrescricaoMain = () => {
         fetchData();
     }, [fetchData])
 
+    
     return (
         <div>
             <Box m={1}>
@@ -71,7 +72,7 @@ const PrescricaoMain = () => {
                     </Grid>
                     <Grid item xs>
                         <Box mx={1}>
-                            {prescricaoOnDuty && <PrescricaoData />}
+                            {prescricaoOnDuty && <PrescricaoData prescricaoOnDuty={prescricaoOnDuty} />}
                         </Box>
                     </Grid>
                 </Grid>

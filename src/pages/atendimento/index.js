@@ -10,25 +10,25 @@ export const AtendimentoContext = createContext(null)
 export const PrintContext = createContext(null)
 export const AtendimentoNavigateContext = createContext(null)
 
-const Atendimento = () => {
+const Content = () => {
+    const { article } = useContext(AtendimentoNavigateContext)
+    return article
+}
 
-    const Content = () => {
-        const { article } = useContext(AtendimentoNavigateContext)
-        return article
-    }
+const Atendimento = () => {
 
     return (
         <>
             <ClienteHeader />
-            <AtendimentoContext.Provider value={AtendimentoProvider()}>
-                <AtendimentoNavigateContext.Provider value={AtendimentoNavegateProvider()} >
+            <AtendimentoNavigateContext.Provider value={AtendimentoNavegateProvider()} >
+                <AtendimentoContext.Provider value={AtendimentoProvider()}>
                     <PrintContext.Provider value={PrintProvider()}>
                         <Divider />
                         <AtendimentoAppBar />
                         <Content />
                     </PrintContext.Provider>
-                </AtendimentoNavigateContext.Provider>
-            </AtendimentoContext.Provider>
+                </AtendimentoContext.Provider>
+            </AtendimentoNavigateContext.Provider>
         </>
     )
 }
