@@ -2,15 +2,19 @@ import { Box, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { differenceInMonths } from 'date-fns/esm';
 import { ptBR } from 'date-fns/locale';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AtendimentoContext } from '../..';
 
-const PrescricaoData = ({ prescricaoOnDuty }) => {
+const PrescricaoData = () => {
 
-   /// const { prescricaoOnDuty } = useContext(AtendimentoContext)
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+
+    if (!prescricaoOnDuty) return <div />
+
     const prescricao = prescricaoOnDuty;
 
     return (
-        <div>
+        <>
             <Box>
                 <Box mt={1} display="flex" justifyContent="center" alignItems="flex-end">
                     <Typography variant={'h6'}>{prescricao.medicamento.farmaco}</Typography>
@@ -73,7 +77,7 @@ const PrescricaoData = ({ prescricaoOnDuty }) => {
                     </Box>
                 </Box>
             </Box>
-        </div>
+        </>
     )
 }
 

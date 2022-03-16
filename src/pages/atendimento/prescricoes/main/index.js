@@ -1,14 +1,14 @@
-import { Box, Divider, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../..';
 import { ClienteContext } from '../../../../App';
-import Reorder from '../../component/reorder';
+import TablePrescricoes from '../../../../components/tableprescricoes';
 import PrescricaoData from '../components/prescricaodata';
 
 const PrescricaoMain = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setPrescricaoOnDuty } = useContext(AtendimentoContext)
 
     const [prescricoes, setPrescricoes] = useState([])
 
@@ -22,62 +22,38 @@ const PrescricaoMain = () => {
         fetchData();
     }, [fetchData])
 
-
     return (
-        <div>
-            <Box m={1}>
-                <Grid container spacing={1} >
-                    <Grid item xs={4}>
-                        <Box ml={1} mt={1}>
-                            <TableContainer component={Paper} >
-                                <Table>
-                                    <TableBody>
-                                        {prescricoes && Reorder(prescricoes).filter(x => x.emuso).map(prescricao =>
-                                            <TableRow
-                                                key={prescricao.id}
-                                                onClick={() => setPrescricaoOnDuty(prescricao)}
-                                            >
-                                                <TableCell component="th" scope="row">
-                                                    <Box fontWeight={prescricaoOnDuty?.id === prescricao.id ? "fontWeightBold" : ""}>
-                                                        {prescricao.medicamento.farmaco} - {prescricao.apresentaco.descricao}
-                                                    </Box>
-                                                </TableCell>
-                                            </TableRow>
-                                        )}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </Box>
-                        <Box ml={1} mt={1}>
-                            <TableContainer component={Paper} >
-                                <Table>
-                                    <TableBody>
-                                        {prescricoes && Reorder(prescricoes).filter(x => !x.emuso).map(prescricao =>
-                                            <TableRow
-                                                key={prescricao.id}
-                                                onClick={() => setPrescricaoOnDuty(prescricao)}
-                                            >
-                                                <TableCell component="th" scope="row">
-                                                    {prescricao.medicamento.farmaco} - interrompido
-                                                </TableCell>
-                                            </TableRow>
-                                        )}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </Box>
-                    </Grid>
-                    <Grid item>
-                        <Divider orientation="vertical" flexItem />
-                    </Grid>
-                    <Grid item xs>
-                        <Box mx={1}>
-                            {prescricaoOnDuty && <PrescricaoData prescricaoOnDuty={prescricaoOnDuty} />}
-                        </Box>
-                    </Grid>
-                </Grid>
+        <>
+            <Box
+                sx={{
+                    m: 1,
+                    display: 'flex',
+                    width: '56rem',
+                }}
+            >
+                <Box
+                    sx={{
+                        mr: 2,
+                        display: 'flex',
+                        flexDirection: 'column'
+                    }}
+                >
+                    <TablePrescricoes
+                        prescricoes={prescricoes}
+                        setPrescricaoOnDuty={setPrescricaoOnDuty}
+                        uso={true}
+                    />
+                    <Box mt={3}>
+                        <TablePrescricoes
+                            prescricoes={prescricoes}
+                            setPrescricaoOnDuty={setPrescricaoOnDuty}
+                            uso={false}
+                        />
+                    </Box>
+                </Box>
+                <PrescricaoData />
             </Box>
-        </div>
+        </>
     )
 }
 export default PrescricaoMain
