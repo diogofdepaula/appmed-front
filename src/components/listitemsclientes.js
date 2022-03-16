@@ -3,7 +3,7 @@ import { Box, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import React, { memo } from 'react';
-import CalcIdade from '../utils/calcidade';
+import { CalcIdade } from '../utils/tempo';
 
 const ListItemsClientes = memo(({ clientesfiltrados, handleListItem, }) => {
 

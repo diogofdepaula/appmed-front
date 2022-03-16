@@ -28,14 +28,15 @@ const PrescricaoMain = () => {
                 sx={{
                     m: 1,
                     display: 'flex',
-                    width: '56rem',
+                    flexGrow: 1,
                 }}
             >
                 <Box
                     sx={{
                         mr: 2,
                         display: 'flex',
-                        flexDirection: 'column'
+                        flexDirection: 'column',
+                        minWidth: '20rem',
                     }}
                 >
                     <TablePrescricoes
@@ -43,13 +44,15 @@ const PrescricaoMain = () => {
                         setPrescricaoOnDuty={setPrescricaoOnDuty}
                         uso={true}
                     />
-                    <Box mt={3}>
-                        <TablePrescricoes
-                            prescricoes={prescricoes}
-                            setPrescricaoOnDuty={setPrescricaoOnDuty}
-                            uso={false}
-                        />
-                    </Box>
+                    {prescricoes.filter(x => !x.emuso).length > 0 &&
+                        <Box mt={3}>
+                            <TablePrescricoes
+                                prescricoes={prescricoes}
+                                setPrescricaoOnDuty={setPrescricaoOnDuty}
+                                uso={false}
+                            />
+                        </Box>
+                    }
                 </Box>
                 <PrescricaoData />
             </Box>

@@ -11,7 +11,10 @@ const TablePrescricoes = memo(({ prescricoes, setPrescricaoOnDuty, uso, }) => {
         <>
             <Box
                 sx={{
-                    borderWidth: 1,
+                    borderTopWidth: 1,
+                    borderRightWidth: 1,
+                    borderLeftWidth: 1,
+                    borderBottomWidth: 0,
                     borderColor: 'lightgray',
                     borderStyle: 'solid',
                 }}
