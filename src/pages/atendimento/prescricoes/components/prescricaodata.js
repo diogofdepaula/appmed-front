@@ -82,9 +82,9 @@ const PrescricaoData = () => {
                             prescricaoOnDuty.lmemes4,
                             prescricaoOnDuty.lmemes5,
                             prescricaoOnDuty.lmemes6,
-                        ].map(l =>
+                        ].map((l, i) =>
                             <Box
-                                key={l.id}
+                                key={i}
                                 sx={{
                                     ml: 2,
                                     typography: 'body1',

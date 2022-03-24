@@ -10,7 +10,10 @@ const LoginProvider = () => {
         ['CISCO', 'cisco',],
     ]
 
-    const [login, setLogin] = useState(false)
+    // DEIXEI COMO TRUE SÓ PARA FASE DE DESENVOLVIMENTO
+    // DEPOIS QUE TERMINAR VOLTAR PARA FALSE E
+    // GUARADAR DADOS DE QUE FEZ O LOGIN NO PROFISSIONAL OU CRIAR UM 'USUÁRIO'
+    const [login, setLogin] = useState(true)
 
     const [profissional, setProfissional] = useState({
         nome: "Dr. Diogo Ferreira de Paula",

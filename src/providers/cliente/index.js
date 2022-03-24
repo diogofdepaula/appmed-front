@@ -4,15 +4,15 @@ import { useState } from "react"
 
 const ClienteProvider = () => {
 
-    //const [cliente, setCliente] = useState([])
+    //const [clienteTeste, setClienteTeste] = useState([])
     const [clienteContext, setClienteContext] = useState()
     // const [clienteFast, setClienteFast] = useState()
 
     return {
         clienteContext,
         setClienteContext,
-        // cliente,
-        // setCliente,
+        // clienteTeste, 
+        // setClienteTeste,
         // setClienteReset: () => setCliente([]),
     }
 }

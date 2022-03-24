@@ -8,20 +8,20 @@ import { ClienteContext } from '../../../App';
 const ClienteHeader = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const idade = differenceInYears(new Date(), parseISO(clienteContext.nascimento))
+    const idade = differenceInYears(new Date(), parseISO(clienteContext?.nascimento))
 
     return (
         <>
             <Box my={2} display="flex" justifyContent="center" alignItems="center">
                 <PersonIcon />
                 <Typography variant="h5">
-                    <Box fontWeight="fontWeightBold">{clienteContext.nome} </Box>
+                    <Box fontWeight="fontWeightBold">{clienteContext?.nome} </Box>
                 </Typography>
                 <Typography variant="h6">
                     <Box ml={1}> - {idade} anos - </Box>
                 </Typography>
                 <Typography variant="h6">
-                    <Box ml={1}>ID {clienteContext.id}</Box>
+                    <Box ml={1}>ID {clienteContext?.id}</Box>
                 </Typography>
                 <EditIcon />
             </Box>

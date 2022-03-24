@@ -57,8 +57,14 @@ const ClienteSet = () => {
         setClientesFiltrados(filtro)
     }
 
+    const FetchClienteOne = async (param) => {
+        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
+        const json = await res.json()
+        setClienteContext(json)
+    }
+
     const handleListItem = (param) => {
-        setClienteContext(param)
+        FetchClienteOne(param.id)
         setPageAtendimento()
         setClientesFiltrados([])
     }

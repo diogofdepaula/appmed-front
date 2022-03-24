@@ -1,20 +1,15 @@
-import { useCallback, useEffect } from "react"
+export const FetchClienteOne = async (param) => {
+    let cliente
+    await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
+    .then((res) => {
+        return res.data
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+    .finally(() =>{
+        console.log("ação final qualquer");
+    })
 
-const Fetch = (param) => {
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + param)
-        const json = await res.json()
-        return {
-            json,
-            res
-        }
-    }, [])
-
-    useEffect(() => {
-        fetchData();
-      }, [fetchData])
-
-    return fetchData
+    return cliente
 }
-
-export default Fetch
