@@ -6,7 +6,6 @@ import { ClienteContext, LoginContext, NavigateContext } from '../App';
 import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
 
-
 const ClienteSet = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
@@ -57,16 +56,18 @@ const ClienteSet = () => {
         setClientesFiltrados(filtro)
     }
 
-    const FetchClienteOne = async (param) => {
+    const fetchClienteIncludes = useCallback(async (param) => {
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
         const json = await res.json()
-        setClienteContext(json)
-    }
+        if (res.ok) {
+            setClienteContext(json)
+            setPageAtendimento()
+            setClientesFiltrados([])
+        }
+    }, [setClienteContext, setPageAtendimento])
 
     const handleListItem = (param) => {
-        FetchClienteOne(param.id)
-        setPageAtendimento()
-        setClientesFiltrados([])
+        fetchClienteIncludes(param.id)
     }
 
     const handleRefresh = () => {
