@@ -20,6 +20,7 @@ const ClienteSet = () => {
     const [dataCharging, setDataCharging] = useState(true)
 
     const fetchData = useCallback(async () => {
+
         setInputValue('')
         // deixar o allfat, pois usa os outros dados na hora de imprimir
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfat')
@@ -56,8 +57,6 @@ const ClienteSet = () => {
         setClientesFiltrados(filtro)
     }
 
-  
-
     const handleRefresh = () => {
         setDataCharging(true)
         fetchData()
@@ -68,53 +67,20 @@ const ClienteSet = () => {
         setInputValue('')
     }
 
-    // -------------------------------------------------
-    // Preferi deixar aqui dentro para não ter que passar 
-    // todas as funções e ter que chamar o useContext
-    
-    const ListClientes = () => {
-
-        const fetchClienteIncludes = useCallback(async (param) => {
-            const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
-            const json = await res.json()
-            if (res.ok) {
-                setClienteContext(json)
-                setPageAtendimento()
-                setClientesFiltrados([])
-            }
-        }, [])
-    
-        const handleListItem = (param) => {
-            fetchClienteIncludes(param.id)
+    const fetchClienteIncludes = useCallback(async (param) => {
+        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
+        const json = await res.json()
+        if (res.ok) {
+            setClienteContext(json)
+            setPageAtendimento()
+            setClientesFiltrados([])
         }
+    }, [setClienteContext, setPageAtendimento])
 
-        return (
-            <>
-                <DataCharging charge={dataCharging} />
-                {clientesfiltrados.length > 0 &&
-                    <Paper elevation={20} >
-                        <List
-                            component="nav"
-                            sx={{
-                                width: '100%',
-                                backgroundColor: "#fff",
-                                borderRadius: 4,
-                            }}
-                            onMouseLeave={() => handleMouseLeave()}
-                        >
-                            <ListItemsClientes
-                                clientesfiltrados={clientesfiltrados}
-                                handleListItem={handleListItem}
-                            />
-                        </List>
-                    </Paper>
-                }
-            </>
-        )
+    const handleListItem = (param) => {
+        fetchClienteIncludes(param.id)
     }
-    // -------------------------------------------------
 
-    
     return (
         <>
             <Box
@@ -151,7 +117,25 @@ const ClienteSet = () => {
                         flexGrow: 1,
                     }}
                 >
-                    <ListClientes />
+                    <DataCharging charge={dataCharging} />
+                    {clientesfiltrados.length > 0 &&
+                        <Paper elevation={20} >
+                            <List
+                                component="nav"
+                                sx={{
+                                    width: '100%',
+                                    backgroundColor: "#fff",
+                                    borderRadius: 4,
+                                }}
+                                onMouseLeave={() => handleMouseLeave()}
+                            >
+                                <ListItemsClientes
+                                    clientesfiltrados={clientesfiltrados}
+                                    handleListItem={handleListItem}
+                                />
+                            </List>
+                        </Paper>
+                    }
                 </Box>
             </Box>
         </>
