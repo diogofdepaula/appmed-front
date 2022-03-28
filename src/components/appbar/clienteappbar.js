@@ -46,35 +46,37 @@ const ClientesAppBar = () => {
 
         // submit do insert e update , da prescricoes e lme juntos
 
-        let clipost = [process.env.REACT_APP_API_URL + `/clientes`, 'post', clienteEdit]
-        let cliput = [process.env.REACT_APP_API_URL + `/clientes/${clienteEdit.id}`, 'put', clienteEdit]
+        if (clienteEdit.id) {
+            // update
+            event.preventDefault();
+            fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteEdit.id}`, {
+                method: 'put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(clienteEdit)
+            }).then(data => {
+                if (data.ok) {
+                    setPageMain()
+                    setClienteEdit(null)
+                    setClienteOnDuty(null)
+                }
+            })
 
-        let submitvar
+        } else {
+            // insert
+            event.preventDefault();
+            fetch(process.env.REACT_APP_API_URL + `/clientes`, {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(clienteEdit)
+            }).then(data => {
+                if (data.ok) {
+                    setPageMain()
+                    setClienteEdit(null)
+                    setClienteOnDuty(null)
+                }
+            })
 
-        switch (page) {
-            case 'clienteinsert':
-                submitvar = clipost
-                break;
-            case 'clienteupdate':
-                submitvar = cliput
-                break;
-            default:
-                break;
         }
-
-        event.preventDefault();
-        fetch(submitvar[0], {
-            method: submitvar[1],
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(submitvar[2])
-        }).then(data => {
-            if (data.ok) {
-                //tem que inventar um refresh
-                setPageMain()
-                setClienteEdit(null)
-                setClienteOnDuty(null)
-            }
-        })
     }
 
     const fetchDelete = () => {

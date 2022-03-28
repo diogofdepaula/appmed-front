@@ -1,19 +1,22 @@
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, IconButton, Tooltip } from '@mui/material';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ClienteContext } from '../../../App';
+import FastClienteEdit from '../../../components/fastclienteedit';
 import { CalcIdade } from '../../../utils/tempo';
 
 const ClienteHeader = () => {
 
-    const { clienteContext } = useContext(ClienteContext)
+    const { clienteContext, setClienteEdit } = useContext(ClienteContext)
 
     const dados = [
-        CalcIdade(clienteContext?.nascimento) + " anos", 
+        CalcIdade(clienteContext?.nascimento) + " anos",
         "CNS " + clienteContext?.cns,
         "CPF " + clienteContext?.cpf,
         "ID " + clienteContext?.id,
     ]
+
+    const [open, setOpen] = useState(false)
 
     return (
         <>
@@ -24,6 +27,12 @@ const ClienteHeader = () => {
                     flexDirection: 'column',
                 }}
             >
+                <FastClienteEdit
+                    clienteContext={clienteContext}
+                    setClienteEdit={setClienteEdit}
+                    handleClose={() => setOpen(false)}
+                    open={open}
+                />
                 <Box
                     sx={{
                         typography: 'h5',
@@ -38,10 +47,10 @@ const ClienteHeader = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        typography: 'subtitle2' ,
+                        typography: 'subtitle2',
                     }}
                 >
-                    {dados.map(d => 
+                    {dados.map(d =>
                         <Box
                             key={d}
                             sx={{
@@ -53,11 +62,8 @@ const ClienteHeader = () => {
                     )}
                     <Tooltip title="Editar cliente">
                         <IconButton
-                            onClick={() => {
-                                //setPrescricaoOnDuty(null)
-                                //setArticlePrescricaoMain()
-                            }}
-                            >
+                            onClick={() => setOpen(true)}
+                        >
                             <EditIcon />
                         </IconButton>
                     </Tooltip>
