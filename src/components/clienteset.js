@@ -74,10 +74,12 @@ const ClienteSet = () => {
             setClienteContext(json)
             setPageAtendimento()
             setClientesFiltrados([])
+            setDataCharging(false)
         }
     }, [setClienteContext, setPageAtendimento])
 
     const handleListItem = (param) => {
+        setDataCharging(true)
         fetchClienteIncludes(param.id)
     }
 
@@ -99,7 +101,7 @@ const ClienteSet = () => {
                     <RefreshIcon />
                 </IconButton>
                 <InputBase
-                    placeholder={dataCharging ? "Carregando listagem de clientes" : "Procurar cliente"}
+                    placeholder={dataCharging ? "Carregando dados" : "Procurar cliente"}
                     sx={{
                         color: 'inherit',
                         flexGrow: 1,
