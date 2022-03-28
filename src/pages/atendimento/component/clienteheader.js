@@ -8,49 +8,62 @@ const ClienteHeader = () => {
 
     const { clienteContext } = useContext(ClienteContext)
 
+    const dados = [
+        CalcIdade(clienteContext?.nascimento) + " anos", 
+        "CNS " + clienteContext?.cns,
+        "CPF " + clienteContext?.cpf,
+        "ID " + clienteContext?.id,
+    ]
+
     return (
         <>
             <Box
                 sx={{
-                    m: 2,
+                    mt: 2,
                     display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    flexDirection: 'column',
                 }}
             >
                 <Box
                     sx={{
                         typography: 'h5',
                         fontWeight: 'bold',
+                        flexGrow: 1,
+                        textAlign: 'center',
                     }}>
                     {clienteContext?.nome}
                 </Box>
                 <Box
                     sx={{
-                        ml: 1,
-                        typography: 'h6',
-                    }}>
-                    - {CalcIdade(clienteContext?.nascimento)} anos -
-                </Box>
-                <Box
-                    sx={{
-                        ml: 1,
-                        typography: 'body1',
-                    }}>
-                    ID {clienteContext?.id}
-                </Box>
-                <Tooltip title="Editar cliente">
-                <IconButton
-                    onClick={() => {
-                        //setPrescricaoOnDuty(null)
-                        //setArticlePrescricaoMain()
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        typography: 'subtitle2' ,
                     }}
-                    size="large">
-                    <EditIcon />
-                </IconButton>
-            </Tooltip>
-                
+                >
+                    {dados.map(d => 
+                        <Box
+                            key={d}
+                            sx={{
+                                ml: 2,
+                            }}
+                        >
+                            {d}
+                        </Box>
+                    )}
+                    <Tooltip title="Editar cliente">
+                        <IconButton
+                            onClick={() => {
+                                //setPrescricaoOnDuty(null)
+                                //setArticlePrescricaoMain()
+                            }}
+                            >
+                            <EditIcon />
+                        </IconButton>
+                    </Tooltip>
+                </Box>
             </Box>
+
         </>
     )
 }
