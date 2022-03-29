@@ -7,7 +7,7 @@ import { CalcIdade } from '../../../utils/tempo';
 
 const ClienteHeader = () => {
 
-    const { clienteContext, setClienteEdit } = useContext(ClienteContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     const dados = [
         CalcIdade(clienteContext?.nascimento) + " anos",
@@ -28,8 +28,6 @@ const ClienteHeader = () => {
                 }}
             >
                 <FastClienteEdit
-                    clienteContext={clienteContext}
-                    setClienteEdit={setClienteEdit}
                     handleClose={() => setOpen(false)}
                     open={open}
                 />
