@@ -1,9 +1,9 @@
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, IconButton, Tooltip } from '@mui/material';
 import React, { useContext, useState } from 'react';
-import { ClienteContext } from '../../../App';
-import FastClienteEdit from '../../../components/fastclienteedit';
-import { CalcIdade } from '../../../utils/tempo';
+import { ClienteContext } from '../../App';
+import FastClienteEdit from '../fastclienteedit';
+import { CalcIdade } from '../../utils/tempo';
 
 const ClienteHeader = () => {
 

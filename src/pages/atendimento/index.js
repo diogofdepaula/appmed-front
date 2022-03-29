@@ -1,11 +1,11 @@
 import { Divider } from '@mui/material'
 import React, { createContext, useContext } from 'react'
 import { ClienteContext } from '../../App'
+import ClienteHeader from '../../components/atendimento/clienteheader'
 import AtendimentoProvider from '../../providers/atendimento'
 import AtendimentoNavegateProvider from '../../providers/navegation/atendimento'
 import PrintProvider from '../../providers/print'
 import AtendimentoAppBar from './component/appbar/'
-import ClienteHeader from './component/clienteheader'
 
 export const AtendimentoContext = createContext(null)
 export const PrintContext = createContext(null)
