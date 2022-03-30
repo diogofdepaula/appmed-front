@@ -5,7 +5,7 @@ import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
 const LMEDelete = () => {
 
     const { lmeOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoMain } = useContext(AtendimentoNavigateContext)
+    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
 
     const handleDeleteLME = () => event => {
 
@@ -15,7 +15,7 @@ const LMEDelete = () => {
         }).then(data => {
             if (data.ok) {
                 setLmeOnDuty(null)
-                setArticlePrescricaoMain()
+                setArticleAtendimentoMain()
             }
         })
     }

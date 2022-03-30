@@ -16,7 +16,7 @@ const PrecricoesEditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
   const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
-  const { page, setArticleLMEUpdate, setArticlePrescricaoMain, step, setStep } = useContext(AtendimentoNavigateContext)
+  const { page, setArticleLMEUpdate, setArticleAtendimentoMain, step, setStep } = useContext(AtendimentoNavigateContext)
 
 
   const reiniciar = () => {
@@ -108,7 +108,7 @@ const PrecricoesEditorAppBar = () => {
         setLmeEdit(null)
         setLmeOnDuty(null)
         setMedicamentoEdit(null)
-        setArticlePrescricaoMain()
+        setArticleAtendimentoMain()
       }
     })
   }

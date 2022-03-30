@@ -1,8 +1,6 @@
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import DnsIcon from '@mui/icons-material/Dns';
 import HealingIcon from '@mui/icons-material/Healing';
 import InputIcon from '@mui/icons-material/Input';
-import ListAltIcon from '@mui/icons-material/ListAlt';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import SpellcheckIcon from '@mui/icons-material/Spellcheck';
 import { IconButton, Tooltip } from '@mui/material';
@@ -12,33 +10,19 @@ import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/aten
 const FirstAppBar = () => {
 
     const { setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoMain, setArticleLMEMain } = useContext(AtendimentoNavigateContext)
+    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
 
     return (
         <>
-            <Tooltip title="Voltar">
-                <IconButton size="large">
-                    <ArrowBackIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Prescrições">
+            <Tooltip title="Principal">
                 <IconButton
                     onClick={() => {
                         setPrescricaoOnDuty(null)
-                        setArticlePrescricaoMain()
-                    }}
-                    size="large">
-                    <ListAltIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="LMEs">
-                <IconButton
-                    onClick={() => {
                         setLmeOnDuty(null)
-                        setArticleLMEMain()
+                        setArticleAtendimentoMain()
                     }}
                     size="large">
-                    <AccountBalanceIcon />
+                    <DnsIcon />
                 </IconButton>
             </Tooltip>
             <Tooltip title="Requsições">

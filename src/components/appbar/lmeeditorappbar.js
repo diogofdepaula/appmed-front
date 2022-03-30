@@ -16,7 +16,7 @@ const LmeEditorAppBar = () => {
 
   const { clienteContext } = useContext(ClienteContext)
   const { prescricaoEdit, lmeEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
-  const { page, step, setStep, setArticlePrescricaoInsert, setArticlePrescricaoMain } = useContext(AtendimentoNavigateContext)
+  const { page, step, setStep, setArticlePrescricaoInsert, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
 
 
   const reiniciar = () => {
@@ -80,7 +80,7 @@ const LmeEditorAppBar = () => {
         setLmeEdit(null)
         setLmeOnDuty(null)
         setMedicamentoEdit(null)
-        setArticlePrescricaoMain()
+        setArticleAtendimentoMain()
       }
     })
   }

@@ -1,19 +1,16 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
-import { ClienteContext } from '../../../../App';
-import LmeData from '../../../../components/atendimento/lmedata';
-import PrescricaoData from '../../../../components/atendimento/prescricaodata';
-import TableLmes from '../../../../components/tablelmes';
-import TablePrescricoes from '../../../../components/tableprescricoes';
+import { AtendimentoContext } from '..';
+import { ClienteContext } from '../../../App';
+import LmeData from '../../../components/atendimento/lmedata';
+import PrescricaoData from '../../../components/atendimento/prescricaodata';
+import TableLmes from '../../../components/tablelmes';
+import TablePrescricoes from '../../../components/tableprescricoes';
 
-const PrescricaoMain = () => {
+const AtendimentoMain = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty, lmeOnDuty } = useContext(AtendimentoContext)
-
-    console.log('prescricaoOnDuty  ', prescricaoOnDuty);
-    console.log('lmeOnDuty  ', lmeOnDuty);
 
     return (
         <>
@@ -60,4 +57,4 @@ const PrescricaoMain = () => {
         </>
     )
 }
-export default PrescricaoMain
+export default AtendimentoMain

@@ -5,7 +5,7 @@ import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
 const PrescricaoDelete = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoMain } = useContext(AtendimentoNavigateContext)
+    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
     const [lme, setLme] = useState()
     const [change, setChange] = useState(0)
 
@@ -29,7 +29,7 @@ const PrescricaoDelete = () => {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoOnDuty(null)
-                setArticlePrescricaoMain()
+                setArticleAtendimentoMain()
             }
         })
     }
@@ -42,7 +42,7 @@ const PrescricaoDelete = () => {
         }).then(data => {
             if (data.ok) {
                 setPrescricaoOnDuty(null)
-                setArticlePrescricaoMain()
+                setArticleAtendimentoMain()
             }
         })
     }
@@ -77,9 +77,9 @@ const PrescricaoDelete = () => {
             updateEmUso()
         } else if (change === 3) {
             setPrescricaoOnDuty(null)
-            setArticlePrescricaoMain()
+            setArticleAtendimentoMain()
         }
-    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setArticlePrescricaoMain])
+    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setArticleAtendimentoMain])
 
     return (
         <div>
