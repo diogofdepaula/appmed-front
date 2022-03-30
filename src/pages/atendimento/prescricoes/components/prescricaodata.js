@@ -1,13 +1,9 @@
 import { Box } from '@mui/material';
-import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
 import { DataDDMMYYY, DateDifferenceAnotherDay, DateDifferenceToday } from '../../../../utils/tempo';
 
-const PrescricaoData = () => {
+const PrescricaoData = ({prescricao}) => {
 
-    const { prescricaoOnDuty } = useContext(AtendimentoContext)
-
-    if (!prescricaoOnDuty) return <div />
+    if (!prescricao) return <div />
 
     return (
         <>
@@ -29,7 +25,7 @@ const PrescricaoData = () => {
                         textAlign: 'center',
                     }}
                 >
-                    {prescricaoOnDuty.medicamento.farmaco}
+                    {prescricao?.medicamento.farmaco}
                 </Box>
                 <Box
                     sx={{
@@ -37,7 +33,7 @@ const PrescricaoData = () => {
                         typography: 'body1',
                     }}
                 >
-                    {prescricaoOnDuty.apresentaco.descricao}
+                    {prescricao?.apresentaco.descricao}
                 </Box>
                 <Box
                     sx={{
@@ -47,7 +43,7 @@ const PrescricaoData = () => {
                         textAlign: 'justify',
                     }}
                 >
-                    {prescricaoOnDuty.usoposologiapadrao ? prescricaoOnDuty.posologia.posologia : prescricaoOnDuty.posologianaopadrao}
+                    {prescricao?.usoposologiapadrao ? prescricao?.posologia.posologia : prescricao?.posologianaopadrao}
                 </Box>
                 <Box
                     sx={{
@@ -55,7 +51,7 @@ const PrescricaoData = () => {
                         typography: 'body1',
                     }}
                 >
-                    {prescricaoOnDuty.continuo ? "Contínuo" : "Não Contínuo"}
+                    {prescricao?.continuo ? "Contínuo" : "Não Contínuo"}
                 </Box>
                 <Box
                     sx={{
@@ -64,9 +60,9 @@ const PrescricaoData = () => {
                         typography: 'body1',
                     }}
                 >
-                    {prescricaoOnDuty.imprimirorientacoes ? prescricaoOnDuty.orientacoes : "Não imprimirá orientações"}
+                    {prescricao?.imprimirorientacoes ? prescricao?.orientacoes : "Não imprimirá orientações"}
                 </Box>
-                {prescricaoOnDuty.lmeId &&
+                {prescricao?.lmeId &&
                     <Box
                         sx={{
                             mt: 1,
@@ -76,12 +72,12 @@ const PrescricaoData = () => {
                     >
                         LME:
                         {[
-                            prescricaoOnDuty.lmemes1,
-                            prescricaoOnDuty.lmemes2,
-                            prescricaoOnDuty.lmemes3,
-                            prescricaoOnDuty.lmemes4,
-                            prescricaoOnDuty.lmemes5,
-                            prescricaoOnDuty.lmemes6,
+                            prescricao?.lmemes1,
+                            prescricao?.lmemes2,
+                            prescricao?.lmemes3,
+                            prescricao?.lmemes4,
+                            prescricao?.lmemes5,
+                            prescricao?.lmemes6,
                         ].map((l, i) =>
                             <Box
                                 key={i}
@@ -101,7 +97,7 @@ const PrescricaoData = () => {
                         mt: 1,
                     }}
                 >
-                    Início: {DataDDMMYYY(prescricaoOnDuty.inicio)}
+                    Início: {DataDDMMYYY(prescricao?.inicio)}
                 </Box>
                 <Box
                     sx={{
@@ -109,11 +105,11 @@ const PrescricaoData = () => {
                     }}
                 >
                     {"Tempo de uso:  "}
-                    {prescricaoOnDuty.termino
+                    {prescricao?.termino
                         ?
-                        DateDifferenceAnotherDay(prescricaoOnDuty.termino, prescricaoOnDuty.inicio)
+                        DateDifferenceAnotherDay(prescricao?.termino, prescricao?.inicio)
                         :
-                        DateDifferenceToday(prescricaoOnDuty.inicio)
+                        DateDifferenceToday(prescricao?.inicio)
                     }
                     {"  meses"}
                 </Box>

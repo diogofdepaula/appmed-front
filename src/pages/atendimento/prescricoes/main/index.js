@@ -9,7 +9,7 @@ import PrescricaoData from '../components/prescricaodata';
 const PrescricaoMain = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty } = useContext(AtendimentoContext)
 
     return (
         <>
@@ -50,7 +50,7 @@ const PrescricaoMain = () => {
                         </Box>
                     }
                 </Box>
-                <PrescricaoData />
+                <PrescricaoData prescricao={prescricaoOnDuty} />
             </Box>
         </>
     )
