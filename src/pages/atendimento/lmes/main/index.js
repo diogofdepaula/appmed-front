@@ -2,7 +2,6 @@ import { Box, Divider, Grid, Paper, Table, TableBody, TableCell, TableContainer,
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../..';
 import { ClienteContext } from '../../../../App';
-import LMEData from '../components/lmedata';
 
 const LMEMain = () => {
 
@@ -51,7 +50,7 @@ const LMEMain = () => {
                         <Divider orientation="vertical" flexItem />
                     </Grid>
                     <Grid item xs>
-                        {lmeOnDuty && <LMEData />}
+                        {/* {lmeOnDuty && <LMEData />} */}
                     </Grid>
                 </Grid>
             </Box>

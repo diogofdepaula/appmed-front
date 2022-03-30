@@ -2,14 +2,18 @@ import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
 import { ClienteContext } from '../../../../App';
+import LmeData from '../../../../components/atendimento/lmedata';
+import PrescricaoData from '../../../../components/atendimento/prescricaodata';
 import TableLmes from '../../../../components/tablelmes';
 import TablePrescricoes from '../../../../components/tableprescricoes';
-import PrescricaoData from '../components/prescricaodata';
 
 const PrescricaoMain = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty, lmeOnDuty } = useContext(AtendimentoContext)
+
+    console.log('prescricaoOnDuty  ', prescricaoOnDuty);
+    console.log('lmeOnDuty  ', lmeOnDuty);
 
     return (
         <>
@@ -51,6 +55,7 @@ const PrescricaoMain = () => {
                     }
                 </Box>
                 <PrescricaoData prescricao={prescricaoOnDuty} />
+                <LmeData lme={lmeOnDuty} />
             </Box>
         </>
     )

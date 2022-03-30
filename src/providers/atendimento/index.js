@@ -2,19 +2,25 @@ import { useState } from "react"
 
 const AtendimentoProvider = () => {
 
-    const [prescricaoOnDuty, setPrescricaoOnDuty] = useState([])
-    const [prescricaoEdit, setPrescricaoEdit] = useState([])
-    const [lmeOnDuty, setLmeOnDuty] = useState([])
-    const [lmeEdit, setLmeEdit] = useState([])
-    const [medicamentoEdit, setMedicamentoEdit] = useState([])
+    const [prescricaoOnDuty, setPrescricaoOnDuty] = useState(null)
+    const [prescricaoEdit, setPrescricaoEdit] = useState(null)
+    const [lmeOnDuty, setLmeOnDuty] = useState(null)
+    const [lmeEdit, setLmeEdit] = useState(null)
+    const [medicamentoEdit, setMedicamentoEdit] = useState(null)
 
     return {
         prescricaoOnDuty,
-        setPrescricaoOnDuty,
+        setPrescricaoOnDuty: (param) => {
+            setPrescricaoOnDuty(param)
+            setLmeOnDuty(null)
+        },
         prescricaoEdit,
         setPrescricaoEdit,
         lmeOnDuty,
-        setLmeOnDuty,
+        setLmeOnDuty: (param) => {
+            setLmeOnDuty(param)
+            setPrescricaoOnDuty(null)
+        },
         lmeEdit,
         setLmeEdit,
         medicamentoEdit,

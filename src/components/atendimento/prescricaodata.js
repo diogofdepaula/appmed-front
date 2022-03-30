@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { DataDDMMYYY, DateDifferenceAnotherDay, DateDifferenceToday } from '../../../../utils/tempo';
+import { DataDDMMYYY, DateDifferenceAnotherDay, DateDifferenceToday } from '../../utils/tempo';
 
 const PrescricaoData = ({prescricao}) => {
 
