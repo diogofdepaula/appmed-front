@@ -1,15 +1,33 @@
-import { Box, IconButton, Tooltip } from '@mui/material';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import EditIcon from '@mui/icons-material/Edit';
-import HealingIcon from '@mui/icons-material/Healing';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 
-const PrescricoesMainAppBar = () => {
+const ReiniciarBtn = () => {
+
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+
+    return (
+        <>
+            <Tooltip title="Voltar">
+                <IconButton
+                    component="span"
+                    disabled={!prescricaoOnDuty}
+                    size="large"
+                >
+                    <ArrowUpwardIcon />
+                </IconButton>
+            </Tooltip>
+        </>
+    )
+}
+
+const EditarBtn = () => {
 
     const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoUpdate, setArticlePrescricaoDelete, setStep } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrescricaoUpdate, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleEditar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
@@ -17,47 +35,59 @@ const PrescricoesMainAppBar = () => {
         setArticlePrescricaoUpdate()
     }
 
+    return (
+        <>
+            <Tooltip title="Editar">
+                <IconButton
+                    component="span"
+                    disabled={!prescricaoOnDuty}
+                    onClick={() => handleEditar()}
+                    size="large"
+                >
+                    <EditIcon />
+                </IconButton>
+            </Tooltip>
+        </>
+    )
+}
+
+
+const PararBtn = () => {
+
+    const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
+    const { setArticlePrescricaoDelete } = useContext(AtendimentoNavigateContext)
+
     const handleParar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
         setArticlePrescricaoDelete()
     }
+    return (
+        <>
+            <Tooltip title="Parar">
+                <span>
+                    <IconButton
+                        component="span"
+                        disabled={!prescricaoOnDuty}
+                        onClick={handleParar}
+                        size="large"
+                    >
+                        <HighlightOffIcon />
+                    </IconButton>
+                </span>
+            </Tooltip>
+        </>
+    )
+}
+
+const PrescricoesMainAppBar = () => {
 
     return (
-        <div>
-            <Box>
-                <Tooltip title="Voltar">
-                    <span>
-                        <IconButton disabled={!prescricaoOnDuty} size="large">
-                            <ArrowUpwardIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Editar">
-                    <span>
-                        <IconButton disabled={!prescricaoOnDuty} onClick={handleEditar} size="large">
-                            <EditIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Parar">
-                    <span>
-                        <IconButton disabled={!prescricaoOnDuty} onClick={handleParar} size="large">
-                            <HighlightOffIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Outros">
-                    <span>
-                        <IconButton
-                            disabled={!prescricaoOnDuty}
-                            size="large">
-                            <HealingIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-            </Box>
-        </div>
-    );
+        <>
+            <ReiniciarBtn />
+            <EditarBtn />
+            <PararBtn />
+        </>
+    )
 }
 
 export default PrescricoesMainAppBar
