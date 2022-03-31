@@ -5,7 +5,7 @@ import ClienteHeader from '../../components/atendimento/clienteheader'
 import AtendimentoProvider from '../../providers/atendimento'
 import AtendimentoNavegateProvider from '../../providers/navegation/atendimento'
 import PrintProvider from '../../providers/print'
-import AtendimentoAppBar from './component/appbar/'
+import AtendimentoAppBar from './appbar'
 
 export const AtendimentoContext = createContext(null)
 export const PrintContext = createContext(null)

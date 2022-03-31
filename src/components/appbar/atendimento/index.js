@@ -1,13 +1,11 @@
 import DnsIcon from '@mui/icons-material/Dns';
-import HealingIcon from '@mui/icons-material/Healing';
-import InputIcon from '@mui/icons-material/Input';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import SpellcheckIcon from '@mui/icons-material/Spellcheck';
-import { IconButton, Tooltip } from '@mui/material';
-import React, { useContext } from 'react';
-import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
+import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
+import WebIcon from '@mui/icons-material/Web';
+import { IconButton, Tooltip } from "@mui/material";
+import { useContext } from "react";
+import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
 
-const FirstAppBar = () => {
+export const PrincipalBtn = () => {
 
     const { setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
@@ -25,29 +23,34 @@ const FirstAppBar = () => {
                     <DnsIcon />
                 </IconButton>
             </Tooltip>
+        </>
+    )
+}
+
+export const RequisicoesBtn = () => {
+
+    return (
+        <>
             <Tooltip title="Requsições">
                 <IconButton
                     size="large">
-                    <InputIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Atestados">
-                <IconButton size="large">
-                    <RemoveRedEyeIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Termos de consentimento">
-                <IconButton size="large">
-                    <SpellcheckIcon />
-                </IconButton>
-            </Tooltip>
-            <Tooltip title="Outros">
-                <IconButton size="large">
-                    <HealingIcon />
+                    <KeyboardAltIcon />
                 </IconButton>
             </Tooltip>
         </>
     )
 }
 
-export default FirstAppBar
+export const AtestadosBtn = () => {
+
+    return (
+        <>
+            <Tooltip title="Atestados">
+                <IconButton size="large">
+                    <WebIcon />
+                </IconButton>
+            </Tooltip>
+        </>
+    )
+}
+

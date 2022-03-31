@@ -1,8 +1,8 @@
 import { Box, Divider } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoNavigateContext } from '../..';
-import FirstAppBar from '../../../../components/appbar/atendimentofirstappbar';
-import SecondAppBar from '../../../../components/appbar/atendimentosecondappbar';
+import { AtendimentoNavigateContext } from '..';
+import { AtestadosBtn, PrincipalBtn, RequisicoesBtn } from '../../../components/appbar/atendimento';
+import SecondAppBar from '../../../components/appbar/atendimentosecondappbar';
 
 const ThirdAppBar = () => {
     const { appbar } = useContext(AtendimentoNavigateContext)
@@ -10,7 +10,7 @@ const ThirdAppBar = () => {
 }
 
 const AtendimentoAppBar = () => {
-    
+
     return (
         <>
             <Box
@@ -20,7 +20,9 @@ const AtendimentoAppBar = () => {
                     flexDirection: 'row',
                 }}
             >
-                <FirstAppBar />
+                <PrincipalBtn />
+                <RequisicoesBtn />
+                <AtestadosBtn />
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <SecondAppBar />
                 <Divider orientation="vertical" variant="middle" flexItem />
