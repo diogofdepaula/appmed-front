@@ -15,7 +15,7 @@ import PrescricaoUpdate from "../../pages/atendimento/prescricoes/update"
 const AtendimentoNavegateProvider = () => {
 
     const [article, setArticle] = useState(<AtendimentoMain />)
-    const [appbar, setAppbar] = useState(<div />)
+    const [appbar, setAppbar] = useState(<PrescricoesMainAppBar />)
     const [step, setStep] = useState(11)
 
     return {
