@@ -40,9 +40,9 @@ const LMEInsert = () => {
     }, [chargeInitial])
 
     return (
-        <div>
+        <>
             <LMEEditor />
-        </div>
+        </>
     )
 }
 

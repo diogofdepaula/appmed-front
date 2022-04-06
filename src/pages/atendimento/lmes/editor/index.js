@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-import { AtendimentoContext } from '../..';
+import { AtendimentoNavigateContext } from '../..';
 import LMECIDSet from '../components/lmecidset';
 import LMEVarSet from '../components/lmevarset';
 import RelatorioSet1 from '../relatorio/components/relatorioset1';
@@ -11,7 +11,7 @@ import RelatorioSet6 from '../relatorio/components/relatorioset6';
 
 const LMEEditor = () => {
 
-    const { step } = useContext(AtendimentoContext)
+    const { step } = useContext(AtendimentoNavigateContext)
 
     const GetStep = useCallback(() => {
         switch (step) {

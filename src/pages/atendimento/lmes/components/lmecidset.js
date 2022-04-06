@@ -41,7 +41,7 @@ const LMECIDSet = () => {
     }
 
     return (
-        <div>
+        <>
             <Box m={2}>
                 <Box>
                     <Grid container justifyContent="flex-start" spacing={1}>
@@ -86,7 +86,7 @@ const LMECIDSet = () => {
                     </TableContainer>
                 </Box>
             </Box>
-        </div>
+        </>
     );
 }
 
