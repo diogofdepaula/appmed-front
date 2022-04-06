@@ -180,12 +180,15 @@ const SalvarBtn = () => {
 const ToLmeBtn = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
-    const { page, step, setStep } = useContext(AtendimentoNavigateContext)
+    const { step, setStep } = useContext(AtendimentoNavigateContext)
 
     const linkLME = () => {
         setPrescricaoEdit(prescricaoEdit)
         setStep(51)
     }
+
+    if (!medicamentoEdit?.lme) return <div />
+    if (step !== 41) return <div />
 
     return (
         <>
@@ -194,7 +197,6 @@ const ToLmeBtn = () => {
             >
                 <IconButton
                     component="span"
-                    disabled={page === 'prescricaoinsert' ? (step === 41 ? !medicamentoEdit?.lme : true) : false}
                     onClick={linkLME}
                     size="large"
                 >
@@ -239,28 +241,32 @@ const SendForkBtn = () => {
         }
     }
 
+    if (step !== 51) return <div />
+
     return (
         <>
-            {step === 51 &&
-                <Tooltip title="Continuar editando LME">
-                    <IconButton
-                        component="span"
-                        color='primary'
-                        onClick={sendFork}
-                        size="large"
-                    >
-                        <ArrowForwardIosIcon />
-                    </IconButton>
-                </Tooltip>
-            }
+            <Tooltip title="Escolher a LME">
+                <IconButton
+                    component="span"
+                    color='primary'
+                    onClick={sendFork}
+                    size="large"
+                >
+                    <ArrowForwardIosIcon />
+                </IconButton>
+            </Tooltip>
         </>
     )
 }
 
-
-
 const PrecricoesEditorAppBar = () => {
 
+    const { prescricaoEdit, lmeEdit } = useContext(AtendimentoContext)
+    const { step } = useContext(AtendimentoNavigateContext)
+
+    console.log(prescricaoEdit);
+    console.log(lmeEdit);
+    console.log(step);
 
     return (
         <>
