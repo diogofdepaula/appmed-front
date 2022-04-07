@@ -54,7 +54,7 @@ const AtendimentoProvider = () => {
         setLmeEdit,
         medicamentoEdit,
         setMedicamentoEdit,
-        setNovaPrescricao: (param) => {
+        setNovaPrescricao: (param) =>{
             setPrescricaoEdit(NovaPrescricao(param))
         },
     }

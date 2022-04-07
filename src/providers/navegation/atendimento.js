@@ -28,8 +28,6 @@ const AtendimentoNavegateProvider = () => {
 
     const SetSectionByStep = (param) => {
 
-        console.log('param2 :>> ', param);
-
         const Section = {
             11: <MedicamentoSet />,
             21: <ApresentacaoSet />,
@@ -76,7 +74,6 @@ const AtendimentoNavegateProvider = () => {
         },
         step,
         setStep: (param) => {
-            console.log('param1 :>> ', param);
             setSection(SetSectionByStep(param))
             setStep(param)
         }, 

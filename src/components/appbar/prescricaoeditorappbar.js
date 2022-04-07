@@ -261,13 +261,6 @@ const SendForkBtn = () => {
 
 const PrecricoesEditorAppBar = () => {
 
-    const { prescricaoEdit, lmeEdit } = useContext(AtendimentoContext)
-    const { step } = useContext(AtendimentoNavigateContext)
-
-    console.log(prescricaoEdit);
-    console.log(lmeEdit);
-    console.log(step);
-
     return (
         <>
             <ReiniciarBtn />

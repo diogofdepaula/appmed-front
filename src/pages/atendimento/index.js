@@ -11,7 +11,17 @@ export const PrintContext = createContext(null)
 export const AtendimentoNavigateContext = createContext(null)
 
 const Content = () => {
+
     const { article } = useContext(AtendimentoNavigateContext)
+
+    const { prescricaoEdit, lmeEdit, medicamentoEdit  } = useContext(AtendimentoContext)
+    const { step } = useContext(AtendimentoNavigateContext)
+
+    console.log('prescricaoEdit ', prescricaoEdit);
+    console.log('lmeEdit ', lmeEdit);
+    console.log('medicamentoEdit ', medicamentoEdit);
+    console.log('step ', step);
+
     return article
 }
 
