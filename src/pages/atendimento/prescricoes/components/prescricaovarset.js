@@ -1,6 +1,6 @@
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import PostAddIcon from '@mui/icons-material/PostAdd';
-import { Box, Button, Checkbox, FormControlLabel, Grid, TextField } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, TextField, Divider } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
@@ -36,10 +36,27 @@ const PrescricaoVarSet = () => {
 
 
     return (
-        <div>
-            <Box display='flex'>
-                <Grid container spacing={1}>
-                    <Grid item xs={3}>
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                }}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        mr: 1
+                    }}
+                >
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            mb: 1,
+                        }}
+                    >
                         <FormControlLabel
                             control={
                                 <Checkbox
@@ -50,8 +67,6 @@ const PrescricaoVarSet = () => {
                                 />}
                             label='Contínuo'
                         />
-                    </Grid>
-                    <Grid item xs={3}>
                         <FormControlLabel
                             control={
                                 <Checkbox
@@ -62,52 +77,56 @@ const PrescricaoVarSet = () => {
                                 />}
                             label='Imprimir orientações'
                         />
-                    </Grid>
-                    <Grid item xs={3}>
                         <TextField
                             type="date"
                             name="inicio"
                             value={prescricaoEdit.inicio}
                             onChange={(e) => handleDataInicio(e)}
                         />
-                    </Grid>
-                    <Grid container item xs={3} spacing={1}>
-                        <Grid item>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                startIcon={<PostAddIcon />}
-                                onClick={handleOrientacoes('orientacoes')}
-                            >
-                                Padrão
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                startIcon={<LocalAtmIcon />}
-                                onClick={handleOrientacoes('rename')}
-                            >
-                                RENAME
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Box >
-            <Box>
-                <TextField
-                    fullWidth
-                    multiline
-                    variant='outlined'
-                    rows={4}
-                    name="orientacoes"
-                    label="Orientações adicionais"
-                    value={prescricaoEdit.orientacoes}
-                    onChange={handleChange}
-                />
+                    </Box>
+                    <TextField
+                        fullWidth
+                        multiline
+                        variant='outlined'
+                        rows={8}
+                        name="orientacoes"
+                        label="Orientações adicionais"
+                        value={prescricaoEdit.orientacoes}
+                        onChange={handleChange}
+                    />
+                </Box>
+                <Divider orientation="vertical" flexItem />
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'flex-start',
+                        flexGrow: '1',
+                        width: '10rem',
+                        '& > :not(style)': {  // '& .MuiTextField-root': {
+                            mb: 1,
+                            mx: 1,
+                        },
+                    }}
+                >
+                    <Button
+                        variant="outlined"
+                        startIcon={<PostAddIcon />}
+                        onClick={handleOrientacoes('orientacoes')}
+                    >
+                        {medicamentoEdit.orientacoes}
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        color="primary"
+                        startIcon={<LocalAtmIcon />}
+                        onClick={handleOrientacoes('rename')}
+                    >
+                        RENAME
+                    </Button>
+                </Box>
             </Box>
-        </div>
+        </>
     )
 }
 
