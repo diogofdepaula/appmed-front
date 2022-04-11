@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material'
+import { Box, Chip, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext, AtendimentoNavigateContext } from '../..'
 
@@ -12,12 +12,12 @@ const MedicamentoSet = () => {
 
     const fetchData = useCallback(async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + '/medicamentos/short')
-        const json = await res.json();
-        setMedicamentos(json);
+        const json = await res.json()
+        setMedicamentos(json)
     }, [])
 
     useEffect(() => {
-        fetchData();
+        fetchData()
     }, [fetchData])
 
     const filterMedicamento = event => {
@@ -45,50 +45,76 @@ const MedicamentoSet = () => {
     }
 
     return (
-        <div>
-            <Box>
-                <Grid container justifyContent="flex-start" spacing={1}>
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexGrow: 1,
+                }}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        flexGrow: 1,
+                        mr: 2
+                    }}
+                >
+                    <TextField
+                        fullWidth
+                        autoFocus
+                        variant='outlined'
+                        label='Digite o nome do fármaco'
+                        onChange={filterMedicamento}
+                    />
+                    <TableContainer component={Paper}>
+                        <Table>
+                            <TableBody>
+                                {medicamentosfiltrados.map(medicamento =>
+                                    <TableRow
+                                        key={medicamento.id}
+                                        onClick={handleTableRow(medicamento)}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco}
+                                        </TableCell>
+                                    </TableRow>
+                                )}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignContent: 'flex-start',
+                        width: '10rem', //'20%',
+                        flexGrow: 1,
+                        '& > :not(style)': {  // '& .MuiTextField-root': {
+                            ml: '0.2rem',
+                            mb: '0.2rem',
+                        },
+                    }}
+
+                >
                     {medicamentos.filter(m => m.favorito).map(x =>
-                        <Grid item key={x.id}>
-                            <Chip
-                                label={x.abreviatura ?? x.farmaco}
-                                clickable
-                                color="primary"
-                                variant="outlined"
-                                onClick={handleTableRow(x)}
-                            />
-                        </Grid>
+                        <Chip
+                            key={x.id}
+                            label={x.abreviatura ?? x.farmaco}
+                            clickable
+                            color="primary"
+                            variant="outlined"
+                            onClick={handleTableRow(x)}
+                        />
                     )}
-                </Grid>
+                </Box>
             </Box>
-            <Box mt={2} mb={1}>
-                <TextField
-                    fullWidth
-                    autoFocus
-                    variant='outlined'
-                    label='Digite o nome do fármaco'
-                    onChange={filterMedicamento}
-                />
-            </Box>
-            <Box mt={1}>
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableBody>
-                            {medicamentosfiltrados.map(medicamento =>
-                                <TableRow
-                                    key={medicamento.id}
-                                    onClick={handleTableRow(medicamento)}
-                                >
-                                    <TableCell component="th" scope="row">
-                                        {medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco}
-                                    </TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Box>
-        </div>
-    );
+
+
+        </>
+    )
 }
+
 export default MedicamentoSet
