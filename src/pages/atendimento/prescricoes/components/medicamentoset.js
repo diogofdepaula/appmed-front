@@ -77,7 +77,12 @@ const MedicamentoSet = () => {
                                         onClick={handleTableRow(medicamento)}
                                     >
                                         <TableCell component="th" scope="row">
-                                            {medicamento.abreviatura ? medicamento.farmaco + ' (' + medicamento.abreviatura + ')' : medicamento.farmaco}
+                                            {medicamento.abreviatura 
+                                            ? 
+                                            medicamento.farmaco + ' (' + medicamento.abreviatura + ')' 
+                                            : 
+                                            medicamento.farmaco
+                                            }
                                         </TableCell>
                                     </TableRow>
                                 )}

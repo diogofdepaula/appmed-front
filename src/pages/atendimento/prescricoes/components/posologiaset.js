@@ -5,10 +5,8 @@ import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
 
 const PosologiaSet = () => {
 
-    const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit, } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
     const { setStep } = useContext(AtendimentoNavigateContext)
-
-
 
     const handleButton = () => {
         setPrescricaoEdit(prescricaoEdit)
@@ -16,13 +14,12 @@ const PosologiaSet = () => {
     }
 
     return (
-        <div>
-            <Box mt={1}>
+        <>
+            <Box>
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
                             {medicamentoEdit?.posologias?.map(posologia =>
-                                //{medicamentoEdit && medicamentoEdit.posologias && medicamentoEdit.posologias.map(posologia =>
                                 <TableRow
                                     key={posologia.id}
                                     onClick={() => {
@@ -59,7 +56,8 @@ const PosologiaSet = () => {
                     </div>
                 </Button>
             </Box>
-        </div>
+        </>
     )
 }
+
 export default PosologiaSet

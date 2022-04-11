@@ -23,7 +23,7 @@ const PosologiaNaoPadraoSet = () => {
     }
 
     return (
-        <div>
+        <>
             <Box>
                 <TextField
                     fullWidth
@@ -70,7 +70,7 @@ const PosologiaNaoPadraoSet = () => {
                     Usar posologia não padronizada
                 </Button>
             </Box>
-        </div>
+        </>
     )
 }
 

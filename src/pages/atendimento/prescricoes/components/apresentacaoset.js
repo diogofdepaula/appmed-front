@@ -28,26 +28,12 @@ const ApresentacaoSet = () => {
     }
 
     return (
-        <div>
-            <Box mt={1}>
-                {/* <List>
-                    {medicamentoContext && medicamentoContext.apresentacoes && medicamentoContext.apresentacoes.map(apresentacao =>
-                        <ListItem
-                            key={apresentacao.id}
-                            onClick={handleListItem(apresentacao)}
-                        >
-                            <div>
-                                {prescricaoEdit.apresentacoId === apresentacao.id && <Typography>(opção atual)</Typography>}
-                            </div>
-                            {apresentacao.descricao}
-                        </ListItem>
-                    )}
-                </List> */}
+        <>
+            <Box>
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
-                            {medicamentoEdit?.apresentacoes?.map(apresentacao =>
-                                //{medicamentoEdit && medicamentoEdit.apresentacoes && medicamentoEdit.apresentacoes.map(apresentacao =>
+                            {medicamentoEdit?.apresentacoes.map(apresentacao =>
                                 <TableRow
                                     key={apresentacao.id}
                                     onClick={handleTableRow(apresentacao)}
@@ -64,7 +50,7 @@ const ApresentacaoSet = () => {
                     </Table>
                 </TableContainer>
             </Box>
-        </div>
+        </>
     )
 }
 
