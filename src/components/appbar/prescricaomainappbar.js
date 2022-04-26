@@ -5,7 +5,7 @@ import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 
-const ReiniciarBtn = () => {
+const PrescricaoReiniciarBtn = () => {
 
     const { prescricaoOnDuty } = useContext(AtendimentoContext)
 
@@ -24,14 +24,14 @@ const ReiniciarBtn = () => {
     )
 }
 
-const EditarBtn = () => {
+const PrescricaoEditarBtn = () => {
 
     const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
     const { setArticlePrescricaoUpdate, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleEditar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
-        setStep(21)
+        setStep(121)
         setArticlePrescricaoUpdate()
     }
 
@@ -52,7 +52,7 @@ const EditarBtn = () => {
 }
 
 
-const PararBtn = () => {
+const PrescricaoPararBtn = () => {
 
     const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
     const { setArticlePrescricaoDelete } = useContext(AtendimentoNavigateContext)
@@ -64,16 +64,14 @@ const PararBtn = () => {
     return (
         <>
             <Tooltip title="Parar">
-                <span>
-                    <IconButton
-                        component="span"
-                        disabled={!prescricaoOnDuty}
-                        onClick={handleParar}
-                        size="large"
-                    >
-                        <HighlightOffIcon />
-                    </IconButton>
-                </span>
+                <IconButton
+                    component="span"
+                    disabled={!prescricaoOnDuty}
+                    onClick={handleParar}
+                    size="large"
+                >
+                    <HighlightOffIcon />
+                </IconButton>
             </Tooltip>
         </>
     )
@@ -83,9 +81,9 @@ const PrescricoesMainAppBar = () => {
 
     return (
         <>
-            <ReiniciarBtn />
-            <EditarBtn />
-            <PararBtn />
+            <PrescricaoReiniciarBtn />
+            <PrescricaoEditarBtn />
+            <PrescricaoPararBtn />
         </>
     )
 }

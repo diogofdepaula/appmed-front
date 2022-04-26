@@ -1,5 +1,5 @@
-import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
+import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
 import { ClienteContext } from '../../../../App';
 import InitialRelatorio from '../../lmes/components/initialrelatorio';
@@ -8,18 +8,12 @@ const LMEForkSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { prescricaoEdit, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
-    const [lmes, setlmes] = useState([])
     const { setStep, setArticleLMEUpdate, setArticleLMEInsert } = useContext(AtendimentoNavigateContext)
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/allfat/${clienteContext.id}`)
-        const json = await res.json();
-        setlmes(json);
-    }, [clienteContext])
-
-    useEffect(() => {
-        fetchData();
-    }, [fetchData])
+    const handleNewLME = () => {
+        setArticleLMEInsert()
+        setStep(311)
+    }
 
     const handleTableRow = param => () => {
 
@@ -38,32 +32,33 @@ const LMEForkSet = () => {
             })
         }
         setArticleLMEUpdate()
-        setStep(21)
-    }
-
-    const handleNewLME = () => {
-        // vai criar uma nova lme para inserir prescricao nela
-        setArticleLMEInsert()
-        setStep(11)
+        setStep(321)
     }
 
     return (
-        <div>
-            <Box mt={1}>
+        <>
+            <Box>
                 <Paper
                     onClick={handleNewLME}
                 >
-                    <Typography component={'span'} variant="body1" color="initial">
-                        <Box p={2}>Criar uma nova LME</Box>
-                    </Typography>
+                    <Box
+                        sx={{
+                            p: 2
+                        }}
+                    >
+                        Criar uma nova LME
+                    </Box>
                 </Paper>
                 <Divider />
-
-                <Box mt={2}>
+                <Box
+                    sx={{
+                        mt: 2
+                    }}
+                >
                     <TableContainer component={Paper}>
                         <Table>
                             <TableBody>
-                                {lmes?.map(lme =>
+                                {clienteContext.lmes?.map(lme =>
                                     <TableRow
                                         key={lme.id}
                                         onClick={handleTableRow(lme)}
@@ -78,7 +73,7 @@ const LMEForkSet = () => {
                     </TableContainer>
                 </Box>
             </Box>
-        </div>
+        </>
     )
 }
 

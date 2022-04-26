@@ -19,7 +19,7 @@ const PosologiaNaoPadraoSet = () => {
 
     const handleButton = () => {
         setPrescricaoEdit(prescricaoEdit)
-        setStep(41)
+        setStep(141)
     }
 
     return (

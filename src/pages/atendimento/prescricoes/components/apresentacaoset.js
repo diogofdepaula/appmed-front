@@ -24,7 +24,7 @@ const ApresentacaoSet = () => {
 
     const handleTableRow = param => () => {
         setPrescricaoEdit({ ...prescricaoEdit, apresentacoId: param.id })
-        setStep(31)
+        setStep(131)
     }
 
     return (

@@ -5,7 +5,7 @@ import { IconButton, Tooltip } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 
-const ReiniciarBtn = () => {
+const LmeReiniciarBtn = () => {
 
     const { lmeOnDuty } = useContext(AtendimentoContext)
 
@@ -24,7 +24,7 @@ const ReiniciarBtn = () => {
     )
 }
 
-const EditarBtn = () => {
+const LmeEditarBtn = () => {
 
 
     const { lmeOnDuty, setLmeEdit } = useContext(AtendimentoContext)
@@ -33,7 +33,7 @@ const EditarBtn = () => {
 
     const handleEditar = () => {
         setLmeEdit(lmeOnDuty)
-        setStep(21)
+        setStep(321)
         setArticleLMEUpdate()
     }
 
@@ -52,7 +52,7 @@ const EditarBtn = () => {
     )
 }
 
-const PararBtn = () => {
+const LmePararBtn = () => {
 
     const { lmeOnDuty } = useContext(AtendimentoContext)
     const { setArticleLMEDelete } = useContext(AtendimentoNavigateContext)
@@ -83,9 +83,9 @@ const LmesMainAppBar = () => {
 
     return (
         <>
-            <ReiniciarBtn />
-            <EditarBtn />
-            <PararBtn />
+            <LmeReiniciarBtn />
+            <LmeEditarBtn />
+            <LmePararBtn />
         </>
     )
 }

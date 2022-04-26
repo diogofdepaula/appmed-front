@@ -1,9 +1,10 @@
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import PostAddIcon from '@mui/icons-material/PostAdd';
-import { Box, Button, Checkbox, FormControlLabel, TextField, Divider } from '@mui/material';
+import { Box, Button, Checkbox, Divider, FormControlLabel, TextField } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../../components/atendimento/layout';
 
 const PrescricaoVarSet = () => {
 
@@ -34,98 +35,97 @@ const PrescricaoVarSet = () => {
         })
     }
 
-
     return (
         <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                }}
-            >
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        mr: 1
-                    }}
-                >
+            <AtendimentoOutside>
+                <AtendimentoLeft>
                     <Box
                         sx={{
                             display: 'flex',
-                            flexDirection: 'row',
-                            mb: 1,
+                            flexDirection: 'column',
+                            flexGrow: 1,
+                            mr: 1,
                         }}
                     >
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    color='primary'
-                                    name="continuo"
-                                    checked={prescricaoEdit.continuo}
-                                    onChange={handleChange}
-                                />}
-                            label='Contínuo'
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    color='primary'
-                                    name="imprimirorientacoes"
-                                    checked={prescricaoEdit.imprimirorientacoes}
-                                    onChange={handleChange}
-                                />}
-                            label='Imprimir orientações'
-                        />
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                flexGrow: 1,
+                                mb: 1,
+                            }}
+                        >
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        color='primary'
+                                        name="continuo"
+                                        checked={prescricaoEdit.continuo}
+                                        onChange={handleChange}
+                                    />}
+                                label='Contínuo'
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        color='primary'
+                                        name="imprimirorientacoes"
+                                        checked={prescricaoEdit.imprimirorientacoes}
+                                        onChange={handleChange}
+                                    />}
+                                label='Imprimir orientações'
+                            />
+                            <TextField
+                                type="date"
+                                name="inicio"
+                                value={prescricaoEdit.inicio}
+                                onChange={(e) => handleDataInicio(e)}
+                            />
+                        </Box>
                         <TextField
-                            type="date"
-                            name="inicio"
-                            value={prescricaoEdit.inicio}
-                            onChange={(e) => handleDataInicio(e)}
+                            fullWidth
+                            multiline
+                            variant='outlined'
+                            rows={8}
+                            name="orientacoes"
+                            label="Orientações adicionais"
+                            value={prescricaoEdit.orientacoes}
+                            onChange={handleChange}
                         />
                     </Box>
-                    <TextField
-                        fullWidth
-                        multiline
-                        variant='outlined'
-                        rows={8}
-                        name="orientacoes"
-                        label="Orientações adicionais"
-                        value={prescricaoEdit.orientacoes}
-                        onChange={handleChange}
-                    />
-                </Box>
-                <Divider orientation="vertical" flexItem />
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'flex-start',
-                        flexGrow: '1',
-                        width: '10rem',
-                        '& > :not(style)': {  // '& .MuiTextField-root': {
-                            mb: 1,
-                            mx: 1,
-                        },
-                    }}
-                >
-                    <Button
-                        variant="outlined"
-                        startIcon={<PostAddIcon />}
-                        onClick={handleOrientacoes('orientacoes')}
+                </AtendimentoLeft>
+                <Divider orientation='vertical' flexItem />
+                <AtendimentoRight>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            flexGrow: '1',
+                            '& > :not(style)': {  // '& .MuiTextField-root': {
+                                mb: 1,
+                                ml: 1,
+                            },
+                        }}
                     >
-                        {medicamentoEdit.orientacoes}
-                    </Button>
-                    <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<LocalAtmIcon />}
-                        onClick={handleOrientacoes('rename')}
-                    >
-                        RENAME
-                    </Button>
-                </Box>
-            </Box>
+                        <Button
+                            variant="outlined"
+                            startIcon={<PostAddIcon />}
+                            onClick={handleOrientacoes('orientacoes')}
+                        >
+                            {medicamentoEdit.orientacoes}
+                        </Button>
+                        <Button
+                            variant="outlined"
+                            color="primary"
+                            startIcon={<LocalAtmIcon />}
+                            onClick={handleOrientacoes('rename')}
+                        >
+                            RENAME
+                        </Button>
+                    </Box>
+                </AtendimentoRight>
+            </AtendimentoOutside>
         </>
     )
 }

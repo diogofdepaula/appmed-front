@@ -37,7 +37,7 @@ const LMECIDSet = () => {
             diagnostico: param.descricao
 
         })
-        setStep(21)
+        setStep(321)
     }
 
     return (

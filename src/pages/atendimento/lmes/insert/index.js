@@ -32,7 +32,7 @@ const LMEInsert = () => {
                 null,
         }
         setLmeEdit(initial)
-        setStep(11)
+        setStep(311)
     }, [setStep, setLmeEdit, clienteContext, prescricaoEdit, medicamentoEdit])
 
     useEffect(() => {

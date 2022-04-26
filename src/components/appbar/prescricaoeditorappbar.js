@@ -10,7 +10,7 @@ import { ClienteContext } from '../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from '../../pages/atendimento';
 import InitialPrescricao from '../../pages/atendimento/component/initialprescricao';
 
-const ReiniciarBtn = () => {
+const PrescricaoReiniciarBtn = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { setPrescricaoEdit, setMedicamentoEdit } = useContext(AtendimentoContext)
@@ -21,7 +21,7 @@ const ReiniciarBtn = () => {
         let newpresc = InitialPrescricao(clienteContext.id)
         setPrescricaoEdit(newpresc)
         setMedicamentoEdit(null)
-        setStep(11)
+        setStep(111)
     }
 
     return (
@@ -40,7 +40,7 @@ const ReiniciarBtn = () => {
 }
 
 
-const AnteriorBtn = () => {
+const PrescricaoAnteriorBtn = () => {
 
     const { step, setStep } = useContext(AtendimentoNavigateContext)
 
@@ -53,7 +53,7 @@ const AnteriorBtn = () => {
             <Tooltip title="Anterior">
                 <IconButton
                     component="span"
-                    disabled={step === 11 || step === 32}
+                    disabled={step === 111 || step === 132}
                     onClick={previousStep}
                     size="large"
                 >
@@ -64,7 +64,7 @@ const AnteriorBtn = () => {
     )
 }
 
-const ProximoBtn = () => {
+const PrescricaoProximoBtn = () => {
 
     const { step, setStep } = useContext(AtendimentoNavigateContext)
 
@@ -77,7 +77,7 @@ const ProximoBtn = () => {
             <Tooltip title="Próximo">
                 <IconButton
                     component="span"
-                    disabled={step === 11 || step === 41 || step === 61}
+                    disabled={step === 111 || step === 141 || step === 161}
                     onClick={nextStep}
                     size="large"
                 >
@@ -88,7 +88,7 @@ const ProximoBtn = () => {
     )
 }
 
-const SalvarBtn = () => {
+const PrescricaoSalvarBtn = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
     const { page, setArticleAtendimentoMain, step, setStep } = useContext(AtendimentoNavigateContext)
@@ -159,7 +159,7 @@ const SalvarBtn = () => {
         if (!prescricaoEdit.id) return PrescricaoInsert()
     }
 
-    const disable = page === 'prescricaoinsert' ? (step === 41 ? false : true) : false
+    const disable = page === 'prescricaoinsert' ? (step === 141 ? false : true) : false
 
     return (
         <>
@@ -177,18 +177,18 @@ const SalvarBtn = () => {
     )
 }
 
-const ToLmeBtn = () => {
+const PrescricaoToLmeBtn = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
     const { step, setStep } = useContext(AtendimentoNavigateContext)
 
     const linkLME = () => {
         setPrescricaoEdit(prescricaoEdit)
-        setStep(51)
+        setStep(151)
     }
 
     if (!medicamentoEdit?.lme) return <div />
-    if (step !== 41) return <div />
+    if (step !== 141) return <div />
 
     return (
         <>
@@ -208,7 +208,7 @@ const ToLmeBtn = () => {
     )
 }
 
-const SendForkBtn = () => {
+const PrescricaoSendForkBtn = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
     const { setArticleLMEUpdate, step, setStep } = useContext(AtendimentoNavigateContext)
@@ -234,14 +234,14 @@ const SendForkBtn = () => {
             // adicionada (vide LMEForkSet - const handleTableRow)
             fetchDataLME()
             setArticleLMEUpdate()
-            setStep(21)
+            setStep(121)
         } else {
             // envia para ForkLME para adicionar a uma LME
-            setStep(61)
+            setStep(161)
         }
     }
 
-    if (step !== 51) return <div />
+    if (step !== 151) return <div />
 
     return (
         <>
@@ -263,12 +263,12 @@ const PrecricoesEditorAppBar = () => {
 
     return (
         <>
-            <ReiniciarBtn />
-            <AnteriorBtn />
-            <ProximoBtn />
-            <SalvarBtn />
-            <ToLmeBtn />
-            <SendForkBtn />
+            <PrescricaoReiniciarBtn />
+            <PrescricaoAnteriorBtn />
+            <PrescricaoProximoBtn />
+            <PrescricaoSalvarBtn />
+            <PrescricaoToLmeBtn />
+            <PrescricaoSendForkBtn />
         </>
     )
 }

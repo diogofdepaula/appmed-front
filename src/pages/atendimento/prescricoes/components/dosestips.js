@@ -1,4 +1,4 @@
-import { Box, Chip, Divider } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../..';
 
@@ -22,16 +22,16 @@ const DosesTips = () => {
 
 
     return (
-        <div>
-            <Divider />
-            <Box py={2} display='flex'>
-                <Chip
-                    label="Repetir doses"
+        <>
+            <Box>
+                <Button
                     variant="outlined"
                     onClick={() => handleClick()}
-                />
+                >
+                    Dose padrão
+                </Button>
             </Box>
-        </div>
+        </>
     )
 }
 

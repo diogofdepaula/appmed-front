@@ -1,14 +1,16 @@
-import { Box, Grid, TextField } from '@mui/material';
+import { Divider, TextField } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
 import ReactInputMask from 'react-input-mask';
+import { AtendimentoContext } from '../..';
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../../components/atendimento/layout';
 import DosesTips from './dosestips';
 
 const LMEDoses = () => {
 
     const { prescricaoEdit, setPrescricaoEdit } = useContext(AtendimentoContext)
 
-    const indica = [
+    const indices = [
         ['lmemes1', '1º mês', prescricaoEdit.lmemes1],
         ['lmemes2', '2º mês', prescricaoEdit.lmemes2],
         ['lmemes3', '3º mês', prescricaoEdit.lmemes3],
@@ -22,31 +24,47 @@ const LMEDoses = () => {
     }
 
     return (
-        <div>
-            <Box>
-                <Grid container spacing={1} >
-                    {indica?.map((w, i) =>
-                        <Grid item xs key={i}>
+        <>
+            <AtendimentoOutside>
+                <AtendimentoLeft>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            flexWrap: 'nowrap',
+                            flexGrow: 1,
+                            '& > :not(style)': {  // '& .MuiTextField-root': {
+                                mr: '0.2rem',
+                            },
+                        }}
+                    >
+                        {indices?.map((w, i) =>
                             <ReactInputMask
+                                key={i}
                                 mask="999"
                                 value={w[2]}
                                 maskChar=" "
                                 onChange={(e) => handleChange(e)}
                             >
-                                {() => <TextField
-                                    fullWidth
-                                    variant='outlined'
-                                    key={w[0]}
-                                    name={w[0]}
-                                    label={w[1]}
-                                />}
+                                {() =>
+                                    <TextField
+                                        fullWidth
+                                        variant='outlined'
+                                        key={w[0]}
+                                        name={w[0]}
+                                        label={w[1]}
+                                    />
+                                }
                             </ReactInputMask>
-                        </Grid>
-                    )}
-                </Grid>
-            </Box>
-            <DosesTips />
-        </div>
+                        )}
+                    </Box>
+                </AtendimentoLeft>
+                <Divider orientation="vertical" flexItem />
+                <AtendimentoRight>
+                    <DosesTips />
+                </AtendimentoRight>
+            </AtendimentoOutside>
+        </>
     )
 }
 

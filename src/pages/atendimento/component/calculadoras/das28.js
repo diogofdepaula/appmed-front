@@ -166,7 +166,7 @@ const ICAD = () => {
                     value={index.ega}
                     onChange={handleChange}
                 />
-                {step === 21 &&
+                {step === 121 &&
                     <IconButton
                         draggable
                         onDragEnd={() => handleClickAnamnese()}
@@ -175,7 +175,7 @@ const ICAD = () => {
                         <LocalCafeIcon />
                     </IconButton>
                 }
-                {step === 81 &&
+                {step === 181 &&
                     <IconButton
                         draggable
                         onDragEnd={() => handleClickICAD()}

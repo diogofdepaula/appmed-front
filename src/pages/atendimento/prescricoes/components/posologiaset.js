@@ -10,7 +10,16 @@ const PosologiaSet = () => {
 
     const handleButton = () => {
         setPrescricaoEdit(prescricaoEdit)
-        setStep(32)
+        setStep(132)
+    }
+
+    const handleClickTable = (param) => {
+        setPrescricaoEdit({
+            ...prescricaoEdit,
+            usoposologiapadrao: true,
+            posologiaId: param.id
+        })
+        setStep(141)
     }
 
     return (
@@ -22,14 +31,7 @@ const PosologiaSet = () => {
                             {medicamentoEdit?.posologias?.map(posologia =>
                                 <TableRow
                                     key={posologia.id}
-                                    onClick={() => {
-                                        setPrescricaoEdit({
-                                            ...prescricaoEdit,
-                                            usoposologiapadrao: true,
-                                            posologiaId: posologia.id
-                                        })
-                                        setStep(41)
-                                    }}
+                                    onClick={() => handleClickTable(posologia)}
                                 >
                                     <TableCell component="th" scope="row">
                                         <div>
