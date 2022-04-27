@@ -2,8 +2,8 @@ import { Divider, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useContext } from 'react';
 import ReactInputMask from 'react-input-mask';
-import { AtendimentoContext } from '../..';
-import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../../components/atendimento/layout';
+import { AtendimentoContext } from '..';
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
 import DosesTips from './dosestips';
 
 const LMEDoses = () => {

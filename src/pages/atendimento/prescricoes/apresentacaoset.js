@@ -1,6 +1,6 @@
 import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material'
 import React, { useCallback, useContext, useEffect } from 'react'
-import { AtendimentoContext, AtendimentoNavigateContext } from '../..'
+import { AtendimentoContext, AtendimentoNavigateContext } from '..'
 
 const ApresentacaoSet = () => {
 

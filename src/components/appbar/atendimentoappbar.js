@@ -1,12 +1,6 @@
 import { Box, Divider } from '@mui/material';
-import React, { useContext } from 'react';
-import { AtendimentoNavigateContext } from '../../pages/atendimento';
+import React from 'react';
 import { AnteriorBtn, AtestadosBtn, ImprimirNavBtn, LmeEditarBtn, LmeLinkRelatorioBtn, LmePararBtn, LmeReiniciarBtnEdito, LmeSalvarBtnEdito, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, ProximoBtn, RequisicoesBtn } from './atendimento/buttons';
-
-const ThirdAppBar = () => {
-    const { appbar } = useContext(AtendimentoNavigateContext)
-    return appbar
-}
 
 const AtendimentoAppBar = () => {
 
@@ -43,9 +37,6 @@ const AtendimentoAppBar = () => {
                 <LmeSalvarBtnEdito />
                 <LmeLinkRelatorioBtn />
                 <Divider orientation="vertical" variant="middle" flexItem />
-                <Divider orientation="vertical" variant="middle" flexItem />
-                <Divider orientation="vertical" variant="middle" flexItem />
-                <ThirdAppBar />
             </Box>
             <Divider />
         </>

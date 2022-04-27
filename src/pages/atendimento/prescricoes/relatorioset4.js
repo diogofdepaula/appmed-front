@@ -2,7 +2,7 @@ import { Box, FormControlLabel, Grid, TextField } from '@mui/material';
 import Radio from '@mui/material/Radio';
 //import { format } from 'date-fns';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../../..';
+import { AtendimentoContext } from '..';
 
 const RelatorioSet4 = () => {
 

@@ -1,8 +1,8 @@
 import React, { useCallback, useContext } from 'react';
 import { AtendimentoNavigateContext } from '../..';
-import LMECIDSet from '../components/lmecidset';
+import LMECIDSet from '../../prescricoes/lmecidset';
 import LMEVarSet from '../components/lmevarset';
-import RelatorioSet1 from '../relatorio/components/relatorioset1';
+import RelatorioSet1 from '../../prescricoes/relatorioset1';
 import RelatorioSet2 from '../relatorio/components/relatorioset2';
 import RelatorioSet3 from '../relatorio/components/relatorioset3';
 import RelatorioSet4 from '../relatorio/components/relatorioset4';

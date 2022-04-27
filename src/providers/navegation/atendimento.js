@@ -1,36 +1,28 @@
-import { Print } from "@mui/icons-material"
 import { useState } from "react"
-import LmeEditorAppBar from "../../components/appbar/lmeeditorappbar"
-import PrecricoesEditorAppBar from "../../components/appbar/prescricaoeditorappbar"
-import PrescricoesMainAppBar from "../../components/appbar/prescricaomainappbar"
-import PrintMainAppBar from "../../components/appbar/printmainappbar"
-import LMECIDSet from "../../pages/atendimento/lmes/components/lmecidset"
-import LMEVarSet from "../../pages/atendimento/lmes/components/lmevarset"
-import LMEDelete from "../../pages/atendimento/lmes/delete"
-import LMEInsert from "../../pages/atendimento/lmes/insert"
-import RelatorioSet1 from "../../pages/atendimento/lmes/relatorio/components/relatorioset1"
-import RelatorioSet2 from "../../pages/atendimento/lmes/relatorio/components/relatorioset2"
-import RelatorioSet3 from "../../pages/atendimento/lmes/relatorio/components/relatorioset3"
-import RelatorioSet4 from "../../pages/atendimento/lmes/relatorio/components/relatorioset4"
-import RelatorioSet5 from "../../pages/atendimento/lmes/relatorio/components/relatorioset5"
-import RelatorioSet6 from "../../pages/atendimento/lmes/relatorio/components/relatorioset6"
-import LMEUpdate from "../../pages/atendimento/lmes/update"
 import AtendimentoMain from "../../pages/atendimento/main"
-import ApresentacaoSet from "../../pages/atendimento/prescricoes/components/apresentacaoset"
-import LMEDoses from "../../pages/atendimento/prescricoes/components/lmedoses"
-import LMEForkSet from "../../pages/atendimento/prescricoes/components/lmeforkset"
-import MedicamentoSet from "../../pages/atendimento/prescricoes/components/medicamentoset"
-import PosologiaNaoPadraoSet from "../../pages/atendimento/prescricoes/components/posologianaopadraoset"
-import PosologiaSet from "../../pages/atendimento/prescricoes/components/posologiaset"
-import PrescricaoVarSet from "../../pages/atendimento/prescricoes/components/prescricaovarset"
-import PrescricaoDelete from "../../pages/atendimento/prescricoes/delete"
-import PrescricaoInsert from "../../pages/atendimento/prescricoes/insert"
-import PrescricaoUpdate from "../../pages/atendimento/prescricoes/update"
+import PrescricoesMain from "../../pages/atendimento/prescricoes"
+import ApresentacaoSet from "../../pages/atendimento/prescricoes/apresentacaoset"
+import LMECIDSet from "../../pages/atendimento/prescricoes/lmecidset"
+import LMEDoses from "../../pages/atendimento/prescricoes/lmedoses"
+import LMEForkSet from "../../pages/atendimento/prescricoes/lmeforkset"
+import LMEVarSet from "../../pages/atendimento/prescricoes/lmevarset"
+import MedicamentoSet from "../../pages/atendimento/prescricoes/medicamentoset"
+import PosologiaNaoPadraoSet from "../../pages/atendimento/prescricoes/posologianaopadraoset"
+import PosologiaSet from "../../pages/atendimento/prescricoes/posologiaset"
+import PrescricaoVarSet from "../../pages/atendimento/prescricoes/prescricaovarset"
+import RelatorioSet1 from "../../pages/atendimento/prescricoes/relatorioset1"
+import RelatorioSet2 from "../../pages/atendimento/prescricoes/relatorioset2"
+import RelatorioSet3 from "../../pages/atendimento/prescricoes/relatorioset3"
+import RelatorioSet4 from "../../pages/atendimento/prescricoes/relatorioset4"
+import RelatorioSet5 from "../../pages/atendimento/prescricoes/relatorioset5"
+import RelatorioSet6 from "../../pages/atendimento/prescricoes/relatorioset6"
+
+import Print from "../../pages/print"
 
 const AtendimentoNavegateProvider = () => {
 
     const [article, setArticle] = useState(<AtendimentoMain />)
-    const [appbar, setAppbar] = useState(<PrescricoesMainAppBar />)
+//    const [appbar, setAppbar] = useState(<PrescricoesMainAppBar />)
     const [section, setSection] = useState(<div />)
     const [step, setStep] = useState(111)
 
@@ -64,39 +56,50 @@ const AtendimentoNavegateProvider = () => {
 
     return {
         article,
-        appbar,
         setArticleAtendimentoMain: () => {
             setArticle(<AtendimentoMain />)
-            setAppbar(<PrescricoesMainAppBar />)
+            //setAppbar(<PrescricoesMainAppBar />)
         },
-        setArticlePrescricaoInsert: () => {
-            setArticle(<PrescricaoInsert />)
-            setAppbar(<PrecricoesEditorAppBar />)
+        setArticlePrescricoesMain: () => {
+            setArticle(<PrescricoesMain />)
         },
-        setArticlePrescricaoUpdate: () => {
-            setArticle(<PrescricaoUpdate />)
-            setAppbar(<PrecricoesEditorAppBar />)
-        },
-        setArticlePrescricaoDelete: () => {
-            setArticle(<PrescricaoDelete />)
-        },
-        setArticleLMEInsert: () => {
-            setArticle(<LMEInsert />)
-            setAppbar(<LmeEditorAppBar />)
-        },
-        setArticleLMEUpdate: () => {
-            setArticle(<LMEUpdate />)
-            setAppbar(<LmeEditorAppBar />)
-        },
-        setArticleLMEDelete: () => setArticle(<LMEDelete />),
+        // setArticlePrescricaoInsert: () => {
+        //     setArticle(<PrescricaoInsert />)
+        //     setAppbar(<PrecricoesEditorAppBar />)
+        // },
+        // setArticlePrescricaoUpdate: () => {
+        //     setArticle(<PrescricaoUpdate />)
+        //     setAppbar(<PrecricoesEditorAppBar />)
+        // },
+        // setArticlePrescricaoDelete: () => {
+        //     setArticle(<PrescricaoDelete />)
+        // },
+        // setArticleLMEInsert: () => {
+        //     setArticle(<LMEInsert />)
+        //     setAppbar(<LmeEditorAppBar />)
+        // },
+        // setArticleLMEUpdate: () => {
+        //     setArticle(<LMEUpdate />)
+        //     setAppbar(<LmeEditorAppBar />)
+        // },
+        // setArticleLMEDelete: () => setArticle(<LMEDelete />),
         setPagePrint: () => {
             setArticle(<Print />)
-            setAppbar(<PrintMainAppBar />)
+          //  setAppbar(<PrintMainAppBar />)
         },
         step,
         setStep: (param) => {
+            console.log('param', param);
             setSection(SetSectionByStep(param))
             setStep(param)
+        },
+        setStepPrevious: () => {
+            setSection(SetSectionByStep(step - 10))
+            setStep(step - 10)
+        },
+        setStepNext: () => {
+            setSection(SetSectionByStep(step + 10))
+            setStep(step + 10)
         },
         section,
     }

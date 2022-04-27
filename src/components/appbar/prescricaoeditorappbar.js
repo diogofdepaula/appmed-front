@@ -211,7 +211,7 @@ const PrescricaoToLmeBtn = () => {
 const PrescricaoSendForkBtn = () => {
 
     const { prescricaoEdit, setPrescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
-    const { setArticleLMEUpdate, step, setStep } = useContext(AtendimentoNavigateContext)
+    const { step, setStep } = useContext(AtendimentoNavigateContext)
 
     const fetchDataLME = useCallback(async () => {
 
@@ -233,7 +233,7 @@ const PrescricaoSendForkBtn = () => {
             // já manda para o lmeupdate com lmeEdit com a prescricão nova
             // adicionada (vide LMEForkSet - const handleTableRow)
             fetchDataLME()
-            setArticleLMEUpdate()
+            //setArticlePrescricoesMain()
             setStep(121)
         } else {
             // envia para ForkLME para adicionar a uma LME

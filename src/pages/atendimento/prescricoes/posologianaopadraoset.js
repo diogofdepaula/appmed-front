@@ -1,7 +1,7 @@
 import { Box, Button, Grid, TextField } from '@mui/material';
 import TextRotationNoneIcon from '@mui/icons-material/TextRotationNone';
 import React, { useContext } from 'react';
-import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 
 const PosologiaNaoPadraoSet = () => {
 

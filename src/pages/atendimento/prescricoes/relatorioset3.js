@@ -2,8 +2,8 @@ import { Box, Chip, Grid, TextField } from '@mui/material'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { AtendimentoContext } from '../../..'
-import { ClienteContext } from '../../../../../App'
+import { AtendimentoContext } from '..'
+import { ClienteContext } from '../../../App'
 
 const RelatorioSet3 = () => {
 

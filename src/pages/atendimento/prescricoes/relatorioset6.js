@@ -1,8 +1,8 @@
 import { Box, Divider, Grid, TextField } from '@mui/material'
 import React, { useContext } from 'react'
 import ReactInputMask from 'react-input-mask';
-import { AtendimentoContext } from '../../..';
-import ICAD from '../../../component/calculadoras/das28';
+import { AtendimentoContext } from '..';
+import ICAD from '../component/calculadoras/das28';
 
 const RelatorioSet6 = () => {
 

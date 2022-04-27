@@ -1,7 +1,8 @@
-import { Box, TextField } from '@mui/material';
+import { Divider, TextField } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
-import AnamneseTips from './anamnesetips';
+import { AtendimentoContext } from '..';
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
+import AnamneseTips from '../lmes/components/anamnesetips';
 
 const LMEVarSet = () => {
 
@@ -12,9 +13,9 @@ const LMEVarSet = () => {
     }
 
     return (
-        <div>
-            <Box m={2}>
-                <Box mb={2}>
+        <>
+            <AtendimentoOutside>
+                <AtendimentoLeft>
                     <TextField
                         fullWidth
                         multiline
@@ -28,10 +29,13 @@ const LMEVarSet = () => {
                         value={lmeEdit.anamnese}
                         onChange={handleChange}
                     />
-                </Box>
-                <AnamneseTips />
-            </Box>
-        </div>
+                </AtendimentoLeft>
+                <Divider orientation='vertical' flexItem />
+                <AtendimentoRight>
+                    <AnamneseTips />
+                </AtendimentoRight>
+            </AtendimentoOutside>
+        </>
     )
 }
 

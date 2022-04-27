@@ -1,7 +1,7 @@
 import { Box, Button, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { AtendimentoContext, AtendimentoNavigateContext } from '../..'
-import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../../components/atendimento/layout'
+import { AtendimentoContext, AtendimentoNavigateContext } from '..'
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout'
 
 const MedicamentoSet = () => {
 
@@ -96,7 +96,7 @@ const MedicamentoSet = () => {
                             alignContent: 'flex-start',
                             flexGrow: 1,
                             '& > :not(style)': {  // '& .MuiTextField-root': {
-                                ml: '0.2rem',
+                                mr: '0.2rem',
                                 mb: '0.2rem',
                             },
                         }}

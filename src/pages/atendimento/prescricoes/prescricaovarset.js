@@ -3,8 +3,8 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import { Box, Button, Checkbox, Divider, FormControlLabel, TextField } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
-import { AtendimentoContext } from '../..';
-import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../../components/atendimento/layout';
+import { AtendimentoContext } from '..';
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
 
 const PrescricaoVarSet = () => {
 

@@ -17,7 +17,6 @@ import { IconButton, Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { ClienteContext, NavigateContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
-import InitialPrescricao from '../../../pages/atendimento/component/initialprescricao';
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -119,7 +118,7 @@ export const NovaPrescricaoBtn = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { setNovaPrescricao, setMedicamentoEdit, setPrescricaoOnDuty, setLmeEdit, setLmeOnDuty } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoInsert, setStep } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleClick = () => {
         setNovaPrescricao(clienteContext.id)
@@ -128,7 +127,7 @@ export const NovaPrescricaoBtn = () => {
         setLmeEdit(null)
         setLmeOnDuty(null)
         setStep(111)
-        setArticlePrescricaoInsert()
+        setArticlePrescricoesMain()
     }
 
     return (
@@ -147,7 +146,7 @@ export const PrescricaoEditarBtn = () => {
     // não quis unir com o botão do LmeEditarBtn para cada botão ficar com usa lógica
 
     const { prescricaoOnDuty, setPrescricaoEdit, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoUpdate, setStep } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     if (!prescricaoOnDuty) return <div />
 
@@ -155,7 +154,7 @@ export const PrescricaoEditarBtn = () => {
         setPrescricaoEdit(prescricaoOnDuty)
         setPrescricaoOnDuty(null)
         setStep(121)
-        setArticlePrescricaoUpdate()
+        setArticlePrescricoesMain()
     }
 
     return (
@@ -195,13 +194,13 @@ export const PrescricaoPararBtn = () => {
 export const AnteriorBtn = () => {
 
     const { prescricaoEdit } = useContext(AtendimentoContext)
-    const { step, setStep } = useContext(AtendimentoNavigateContext)
+    const { step, setStepPrevious } = useContext(AtendimentoNavigateContext)
 
     if (!prescricaoEdit) return <div />
 
     const handleClick = () => {
-        setStep(prevState => prevState - 10)
-    }
+        setStepPrevious()
+        }
 
     let disabled = step === 111 || step === 132 || step === 311
 
@@ -220,12 +219,12 @@ export const AnteriorBtn = () => {
 export const ProximoBtn = () => {
 
     const { prescricaoEdit } = useContext(AtendimentoContext)
-    const { step, setStep } = useContext(AtendimentoNavigateContext)
+    const { step, setStepNext } = useContext(AtendimentoNavigateContext)
 
     if (!prescricaoEdit) return <div />
 
     const handleClick = () => {
-        setStep(prevState => prevState + 10)
+        setStepNext()
     }
 
     let disabled = step === 111 || step === 141 || step === 161 || step === 381
@@ -375,7 +374,7 @@ export const PrescricaoSendForkBtn = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { prescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
-    const { setArticleLMEUpdate, step, setStep } = useContext(AtendimentoNavigateContext)
+    const { step, setStep } = useContext(AtendimentoNavigateContext)
 
     if (step !== 151) return <div />
 
@@ -385,8 +384,8 @@ export const PrescricaoSendForkBtn = () => {
             setLmeEdit(
                 clienteContext.lmes.filter(l => l.id === prescricaoEdit.lmeId)[0]
             )
-            setArticleLMEUpdate()
             setStep(321)
+            // setArticlePrescricoesMain()
         } else {
             setStep(161)
         }
@@ -411,14 +410,14 @@ export const LmeEditarBtn = () => {
 
 
     const { lmeOnDuty, setLmeEdit } = useContext(AtendimentoContext)
-    const { setArticleLMEUpdate, setStep } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     if (!lmeOnDuty) return <div />
 
     const handleClick = () => {
         setLmeEdit(lmeOnDuty)
         setStep(321)
-        setArticleLMEUpdate()
+        setArticlePrescricoesMain()
     }
 
     return (
@@ -463,14 +462,12 @@ export const LmePararBtn = () => {
 export const LmeReiniciarBtnEdito = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setMedicamentoEdit, setPrescricaoEdit } = useContext(AtendimentoContext)
-    const { setStep, setArticlePrescricaoInsert } = useContext(AtendimentoNavigateContext)
+    const { setMedicamentoEdit, setNovaPrescricao } = useContext(AtendimentoContext)
+    const { setStep } = useContext(AtendimentoNavigateContext)
 
 
     const reiniciar = () => {
-        let newpresc = InitialPrescricao(clienteContext.id)
-        setArticlePrescricaoInsert()
-        setPrescricaoEdit(newpresc)
+        setNovaPrescricao(clienteContext.id)
         setMedicamentoEdit(null)
         setStep(311)
     }

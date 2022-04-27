@@ -1,6 +1,6 @@
 import { Box, FormControlLabel, Radio } from '@mui/material'
 import React, { useContext } from 'react'
-import { AtendimentoContext } from '../../..'
+import { AtendimentoContext } from '..'
 
 const RelatorioSet5 = () => {
 

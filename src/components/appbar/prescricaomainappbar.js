@@ -27,12 +27,12 @@ const PrescricaoReiniciarBtn = () => {
 const PrescricaoEditarBtn = () => {
 
     const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
-    const { setArticlePrescricaoUpdate, setStep } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleEditar = () => {
         setPrescricaoEdit(prescricaoOnDuty)
         setStep(121)
-        setArticlePrescricaoUpdate()
+        setArticlePrescricoesMain()
     }
 
     return (

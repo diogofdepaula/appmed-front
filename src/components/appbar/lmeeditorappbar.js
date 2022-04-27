@@ -14,12 +14,12 @@ const LmeReiniciarBtnEdito = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { setMedicamentoEdit, setPrescricaoEdit } = useContext(AtendimentoContext)
-    const { setStep, setArticlePrescricaoInsert } = useContext(AtendimentoNavigateContext)
+    const { setStep, setArticlePrescricoesMain } = useContext(AtendimentoNavigateContext)
 
 
     const reiniciar = () => {
         let newpresc = InitialPrescricao(clienteContext.id)
-        setArticlePrescricaoInsert()
+        setArticlePrescricoesMain()
         setPrescricaoEdit(newpresc)
         setMedicamentoEdit(null)
         setStep(311)

@@ -10,14 +10,14 @@ const LmeData = ({ lme }) => {
 
 
     // const { lmeOnDuty, setPrescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
-    // const { setStep, setArticlePrescricaoUpdate } = useContext(AtendimentoNavigateContext)
+    // const { setStep, setArticlePrescricoesMain } = useContext(AtendimentoNavigateContext)
 
 
     // const handleEditarPrescricao = param => () => {
     //     setLmeEdit(null)
     //     setPrescricaoEdit(param)
     //     setStep(321)
-    //     setArticlePrescricaoUpdate()
+    //     setArticlePrescricoesMain()
     // }
 
 

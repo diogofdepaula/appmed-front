@@ -28,13 +28,13 @@ const LmeEditarBtn = () => {
 
 
     const { lmeOnDuty, setLmeEdit } = useContext(AtendimentoContext)
-    const { setArticleLMEUpdate, setStep } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
 
     const handleEditar = () => {
         setLmeEdit(lmeOnDuty)
         setStep(321)
-        setArticleLMEUpdate()
+        setArticlePrescricoesMain()
     }
 
     return (

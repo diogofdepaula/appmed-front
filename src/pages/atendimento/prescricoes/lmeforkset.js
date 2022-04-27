@@ -1,17 +1,17 @@
 import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
-import { ClienteContext } from '../../../../App';
-import InitialRelatorio from '../../lmes/components/initialrelatorio';
+import { AtendimentoContext, AtendimentoNavigateContext } from '..';
+import { ClienteContext } from '../../../App';
+import { NovoRelatorio } from '../../../providers/atendimento';
 
 const LMEForkSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setLmeEdit, medicamentoEdit } = useContext(AtendimentoContext)
-    const { setStep, setArticleLMEUpdate, setArticleLMEInsert } = useContext(AtendimentoNavigateContext)
+    const { prescricaoEdit, setLmeEdit, medicamentoEdit, setNovaLme } = useContext(AtendimentoContext)
+    const { setStep } = useContext(AtendimentoNavigateContext)
 
     const handleNewLME = () => {
-        setArticleLMEInsert()
+        setNovaLme(clienteContext.id, prescricaoEdit, medicamentoEdit?.classe)
         setStep(311)
     }
 
@@ -23,7 +23,7 @@ const LMEForkSet = () => {
             setLmeEdit({
                 ...param,
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],
-                relatorio: InitialRelatorio(param.id)
+                relatorio: NovoRelatorio(param.id)
             })
         } else {
             setLmeEdit({
@@ -31,20 +31,18 @@ const LMEForkSet = () => {
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }]
             })
         }
-        setArticleLMEUpdate()
         setStep(321)
     }
 
     return (
         <>
             <Box>
-                <Paper
-                    onClick={handleNewLME}
-                >
+                <Paper>
                     <Box
                         sx={{
                             p: 2
                         }}
+                        onClick={handleNewLME}
                     >
                         Criar uma nova LME
                     </Box>
