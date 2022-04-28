@@ -1,7 +1,8 @@
-import { Box, Divider, Grid, TextField } from '@mui/material'
-import React, { useContext } from 'react'
+import { Box, Divider, TextField } from '@mui/material';
+import React, { useContext } from 'react';
 import ReactInputMask from 'react-input-mask';
 import { AtendimentoContext } from '..';
+import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
 import ICAD from '../component/calculadoras/das28';
 
 const RelatorioSet6 = () => {
@@ -23,31 +24,40 @@ const RelatorioSet6 = () => {
     ]
 
     return (
-        <div>
-            <Box m={2}>
-                <Grid container spacing={1}>
-                    {indices?.map((w, i) =>
-                        <Grid item xs key={i}>
+        <>
+            <AtendimentoOutside>
+                <AtendimentoLeft>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 1,
+                        }}
+                    >
+                        {indices?.map(w =>
                             <ReactInputMask
-                            mask={w[2]}
-                            maskChar=" "
-                            value={w[1]}
-                            onChange={handleChange}
-                        >
-                            {() => <TextField
-                                fullWidth
-                                variant='outlined'
-                                name={w[0]}
-                                label={w[0].toLocaleUpperCase()}
-                            />}
-                        </ReactInputMask>
-                        </Grid>
-                    )}
-                </Grid>
-            </Box>
-            <Divider />
-            <ICAD />
-        </div>
+                                key={w[0]}
+                                mask={w[2]}
+                                maskChar=" "
+                                value={w[1]}
+                                onChange={handleChange}
+                            >
+                                {() => <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    name={w[0]}
+                                    label={w[0].toLocaleUpperCase()}
+                                />}
+                            </ReactInputMask>
+                        )}
+                    </Box>
+                </AtendimentoLeft>
+                <Divider orientation='vertical' flexItem />
+                <AtendimentoRight>
+                    <ICAD />
+                </AtendimentoRight>
+            </AtendimentoOutside>
+        </>
     )
 }
 

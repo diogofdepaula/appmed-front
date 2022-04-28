@@ -102,11 +102,10 @@ const ICAD = () => {
     return <>
         <Paper>
             <Box
-                style={{
-                    padding: 5,
+                sx={{
                     display: "flex",
-                    width: '50rem',
-                    marginTop: 2,
+                    flexDirection: 'row',
+                    gap: 1,
                 }}
 
             >

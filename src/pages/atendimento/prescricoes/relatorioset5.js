@@ -20,8 +20,14 @@ const RelatorioSet5 = () => {
     ]
 
     return (
-        <div>
-            <Box m={2}>
+        <>
+            <Box
+               sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                gap: 1,
+            }}
+            >
                 {comorb && comorb.map((w) =>
                     <FormControlLabel
                         key={w[0]}
@@ -37,7 +43,7 @@ const RelatorioSet5 = () => {
                     />
                 )}
             </Box>
-        </div>
+        </>
     )
 }
 
