@@ -19924,17 +19924,17 @@ const Cid10 = () => {
         {
             cid10: "K500",
             descricao: "Doença de Crohn do intestino delgado",
-            favorito: true
+            favorito: false
         },
         {
             cid10: "K501",
             descricao: "Doença de Crohn do intestino grosso",
-            favorito: true
+            favorito: false
         },
         {
             cid10: "K508",
             descricao: "Outra forma de doença de Crohn",
-            favorito: true
+            favorito: false
         },
         {
             cid10: "K509",

@@ -1,7 +1,7 @@
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
-import { CriteriosLme } from '../../../utils/tips/criterioslme'
+import { CriteriosLme } from '../../../utils/criterioslme'
 
 const RelatorioSet2 = () => {
 
