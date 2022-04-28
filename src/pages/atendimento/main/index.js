@@ -27,9 +27,7 @@ const AtendimentoMain = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         minWidth: '20rem',
-                        '& > :not(style)': {  // '& .MuiTextField-root': {
-                            mb: 1,
-                        },
+                        gap: 1,
                     }}
                 >
                     <TableLmes

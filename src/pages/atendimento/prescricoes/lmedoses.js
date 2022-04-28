@@ -33,9 +33,7 @@ const LMEDoses = () => {
                             flexDirection: 'row',
                             flexWrap: 'nowrap',
                             flexGrow: 1,
-                            '& > :not(style)': {  // '& .MuiTextField-root': {
-                                mr: '0.2rem',
-                            },
+                            gap: 1,
                         }}
                     >
                         {indices?.map((w, i) =>

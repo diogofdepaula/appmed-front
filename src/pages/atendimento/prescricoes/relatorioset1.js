@@ -16,8 +16,9 @@ const RelatorioSet1 = () => {
             <Box
                 sx={{
                     display: 'flex',
-                    flexDirection: 'row',
                     flexWrap: 'nowrap',
+                    alignContent: 'flex-start',
+                    gap: 1,
                 }}
             >
                 <ReactInputMask

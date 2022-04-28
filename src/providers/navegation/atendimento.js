@@ -17,12 +17,9 @@ import RelatorioSet4 from "../../pages/atendimento/prescricoes/relatorioset4"
 import RelatorioSet5 from "../../pages/atendimento/prescricoes/relatorioset5"
 import RelatorioSet6 from "../../pages/atendimento/prescricoes/relatorioset6"
 
-import Print from "../../pages/print"
-
 const AtendimentoNavegateProvider = () => {
 
     const [article, setArticle] = useState(<AtendimentoMain />)
-//    const [appbar, setAppbar] = useState(<PrescricoesMainAppBar />)
     const [section, setSection] = useState(<div />)
     const [step, setStep] = useState(111)
 
@@ -56,40 +53,15 @@ const AtendimentoNavegateProvider = () => {
 
     return {
         article,
+        step,
+        section,
         setArticleAtendimentoMain: () => {
             setArticle(<AtendimentoMain />)
-            //setAppbar(<PrescricoesMainAppBar />)
         },
         setArticlePrescricoesMain: () => {
             setArticle(<PrescricoesMain />)
         },
-        // setArticlePrescricaoInsert: () => {
-        //     setArticle(<PrescricaoInsert />)
-        //     setAppbar(<PrecricoesEditorAppBar />)
-        // },
-        // setArticlePrescricaoUpdate: () => {
-        //     setArticle(<PrescricaoUpdate />)
-        //     setAppbar(<PrecricoesEditorAppBar />)
-        // },
-        // setArticlePrescricaoDelete: () => {
-        //     setArticle(<PrescricaoDelete />)
-        // },
-        // setArticleLMEInsert: () => {
-        //     setArticle(<LMEInsert />)
-        //     setAppbar(<LmeEditorAppBar />)
-        // },
-        // setArticleLMEUpdate: () => {
-        //     setArticle(<LMEUpdate />)
-        //     setAppbar(<LmeEditorAppBar />)
-        // },
-        // setArticleLMEDelete: () => setArticle(<LMEDelete />),
-        setPagePrint: () => {
-            setArticle(<Print />)
-          //  setAppbar(<PrintMainAppBar />)
-        },
-        step,
         setStep: (param) => {
-            console.log('param', param);
             setSection(SetSectionByStep(param))
             setStep(param)
         },
@@ -101,7 +73,6 @@ const AtendimentoNavegateProvider = () => {
             setSection(SetSectionByStep(step + 10))
             setStep(step + 10)
         },
-        section,
     }
 }
 

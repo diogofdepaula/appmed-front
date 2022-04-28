@@ -95,10 +95,7 @@ const MedicamentoSet = () => {
                             flexWrap: 'wrap',
                             alignContent: 'flex-start',
                             flexGrow: 1,
-                            '& > :not(style)': {  // '& .MuiTextField-root': {
-                                mr: '0.2rem',
-                                mb: '0.2rem',
-                            },
+                            gap: 0.5,
                         }}
 
                     >

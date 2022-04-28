@@ -1,7 +1,7 @@
-import { Box, Chip, Grid, TextField } from '@mui/material'
+import { Box, Button, TextField } from '@mui/material'
 import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
 import { ClienteContext } from '../../../App'
 
@@ -73,19 +73,7 @@ const RelatorioSet3 = () => {
         ],
     ]
 
-    const [prescricoes, setPrescricoes] = useState([])
-
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/prescricoes/all/${clienteContext.id}`)
-        const json = await res.json();
-        setPrescricoes(json);
-    }, [clienteContext])
-
-    useEffect(() => {
-        fetchData();
-    }, [fetchData])
-
-    const handleChip = param => () => {
+    const handleClick = param => () => {
 
         const dateinicio = format(parseISO(param.inicio), "dd'/'MM'/'yyyy", { locale: ptBR })
         const datetermino = format(parseISO(param.termino), "dd'/'MM'/'yyyy", { locale: ptBR })
@@ -113,84 +101,88 @@ const RelatorioSet3 = () => {
     }
 
     return (
-        <div>
-            <Box m={2}>
-                <Box mt={2}>
-                    <Grid container justifyContent="flex-start" spacing={1}>
-                        {prescricoes?.filter(p => !p.emuso).map(x =>
-                            <Grid item key={x.id}>
-                                <Chip
-                                    label={x.medicamento.farmaco}
-                                    clickable
-                                    color="primary"
-                                    variant="outlined"
-                                    onClick={handleChip(x)}
-                                />
-                            </Grid>
-                        )}
-                    </Grid>
-                </Box>
-                <Box mt={2}>
-                    {indices.map((z, index) =>
-                        <Grid container key={index} spacing={2}>
-                            <Grid container item spacing={1}>
-                                <Grid item xs={6}>
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        name={z[0][0]}
-                                        label='Medicamento'
-                                        value={z[0][1]}
-                                        onChange={handleChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        name={z[1][0]}
-                                        label='Dose'
-                                        value={z[1][1]}
-                                        onChange={handleChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        name={z[2][0]}
-                                        label='Início'
-                                        value={z[2][1]}
-                                        onChange={handleChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={2}>
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        name={z[3][0]}
-                                        label='Fim'
-                                        value={z[3][1]}
-                                        onChange={handleChange}
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        fullWidth
-                                        variant='outlined'
-                                        name={z[4][0]}
-                                        label='Motivo'
-                                        value={z[4][1]}
-                                        onChange={handleChange}
-                                    />
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                    )}
-                </Box>
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignContent: 'flex-start',
+                    flexGrow: 1,
+                    gap: 0.5,
+                }}
+            >
+                {clienteContext.prescricoes?.filter(p => !p.emuso).map(x =>
+                    <Button
+                        variant="outlined"
+                        size="small"
+                        key={x.id}
+                        onClick={handleClick(x)}
+                    >
+                        {x.medicamento.farmaco}
+                    </Button>
+                )}
             </Box>
-        </div>
-    );
+            <Box
+                sx={{
+                    mt: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1,
+                }}
+            >
+                {indices.map((z, index) =>
+                    <>
+                        <Box
+                            key={index}
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                gap: 1,
+                            }}
+                        >
+                            <TextField
+                                fullWidth
+                                variant='outlined'
+                                name={z[0][0]}
+                                label='Medicamento'
+                                value={z[0][1]}
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                variant='outlined'
+                                name={z[1][0]}
+                                label='Dose'
+                                value={z[1][1]}
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                variant='outlined'
+                                name={z[2][0]}
+                                label='Início'
+                                value={z[2][1]}
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                variant='outlined'
+                                name={z[3][0]}
+                                label='Fim'
+                                value={z[3][1]}
+                                onChange={handleChange}
+                            />
+                        </Box>
+                        <TextField
+                            fullWidth
+                            variant='outlined'
+                            name={z[4][0]}
+                            label='Motivo'
+                            value={z[4][1]}
+                            onChange={handleChange}
+                        />
+                    </>
+                )}
+            </Box>
+        </>
+    )
 }
 
 export default RelatorioSet3

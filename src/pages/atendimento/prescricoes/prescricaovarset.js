@@ -102,10 +102,7 @@ const PrescricaoVarSet = () => {
                             flexDirection: 'column',
                             alignItems: 'flex-start',
                             flexGrow: '1',
-                            '& > :not(style)': {  // '& .MuiTextField-root': {
-                                mb: 1,
-                                ml: 1,
-                            },
+                            gap: 1,
                         }}
                     >
                         <Button

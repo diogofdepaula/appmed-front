@@ -132,11 +132,7 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
                             display: 'flex',
                             flexGrow: 1,
                             flexWrap: 'wrap',
-                            //flexDirection: 'column',
-                            '& > :not(style)': {  // '& .MuiTextField-root': {
-                                m: 1,
-                                flexGrow: 1,
-                            },
+                            gap: 1,
                         }}
                     >
 
@@ -200,9 +196,10 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
                     mt: 2,
                     display: 'flex',
                     flexGrow: 1,
-                    '& > :not(style)': {  // '& .MuiTextField-root': {
-                        mr: 1,
-                    },
+                    gap: 1,
+                    // '& > :not(style)': {  // '& .MuiTextField-root': {
+                    //     mr: 1,
+                    // },
                 }}
             >
                 <TextField

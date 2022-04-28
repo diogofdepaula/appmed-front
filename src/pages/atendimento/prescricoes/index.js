@@ -9,8 +9,6 @@ const Section = () => {
 
 const PrescricoesMain = () => {
 
-
-
     return (
         <>
             <Box
@@ -19,7 +17,6 @@ const PrescricoesMain = () => {
                     mx: 1,
                 }}
             >
-                PrescricoesMain
                 <Section />
             </Box>
         </>
