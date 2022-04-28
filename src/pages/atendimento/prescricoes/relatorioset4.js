@@ -114,7 +114,6 @@ const RelatorioSet4 = () => {
                     </Box>
                     {lmeEdit.relatorio?.rxtoraxresultado === "b" &&
                         <TextField
-                            fullWidth
                             variant='outlined'
                             name='rxtoraxalteracao'
                             label='Resultado do Rx'
