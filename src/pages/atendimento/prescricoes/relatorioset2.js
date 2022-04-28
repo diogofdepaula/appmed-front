@@ -1,7 +1,7 @@
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
-import Criterios from '../component/criterios'
+import CriteriosLme from '../tips/criterioslme'
 
 const RelatorioSet2 = () => {
 
@@ -15,11 +15,11 @@ const RelatorioSet2 = () => {
         setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [paramA]: paramB } })
     }
 
-    const list = Criterios(lmeEdit)
+    const list = CriteriosLme(lmeEdit)
 
     const ArtriteReumatoide2010 = () => {
 
-        const criterios = Criterios(lmeEdit)[1]
+        const criterios = CriteriosLme(lmeEdit)[1]
 
         const ind = ['M050', 'M051', 'M052', 'M053', 'M058', 'M060', 'M068'].includes(lmeEdit.cid10)
 

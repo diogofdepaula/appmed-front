@@ -1,6 +1,6 @@
 import { Box, Divider } from '@mui/material';
 import React from 'react';
-import { AnteriorBtn, AtestadosBtn, ImprimirNavBtn, LmeEditarBtn, LmeLinkRelatorioBtn, LmePararBtn, LmeReiniciarBtnEdito, LmeSalvarBtnEdito, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, ProximoBtn, RequisicoesBtn } from './atendimento/buttons';
+import { AnteriorBtn, AtestadosBtn, ImprimirNavBtn, LmeEditarBtn, LmePararBtn, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, ProximoBtn, RequisicoesBtn } from './atendimento/buttons';
 
 const AtendimentoAppBar = () => {
 
@@ -33,9 +33,6 @@ const AtendimentoAppBar = () => {
                 <PrescricaoToLmeBtn />
                 <PrescricaoSendForkBtn />
                 <LmePararBtn />
-                <LmeReiniciarBtnEdito />
-                <LmeSalvarBtnEdito />
-                <LmeLinkRelatorioBtn />
                 <Divider orientation="vertical" variant="middle" flexItem />
             </Box>
             <Divider />

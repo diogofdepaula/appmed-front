@@ -2,7 +2,7 @@ import { Divider, TextField } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
 import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
-import AnamneseTips from '../lmes/components/anamnesetips';
+import AnamneseTips from '../tips/anamnesetips';
 
 const LMEVarSet = () => {
 

@@ -1,7 +1,6 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import BallotIcon from '@mui/icons-material/Ballot';
+import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import DnsIcon from '@mui/icons-material/Dns';
 import EditIcon from '@mui/icons-material/Edit';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
@@ -9,7 +8,6 @@ import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import PrintIcon from '@mui/icons-material/Print';
-import ReplayIcon from '@mui/icons-material/Replay';
 import SaveIcon from '@mui/icons-material/Save';
 import StartIcon from '@mui/icons-material/Start';
 import WebIcon from '@mui/icons-material/Web';
@@ -148,7 +146,7 @@ export const PrescricaoEditarBtn = () => {
     const { prescricaoOnDuty, setPrescricaoEdit, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
-    if (!prescricaoOnDuty) return <div />
+    if (!prescricaoOnDuty) return <></>
 
     const handleClick = () => {
         setPrescricaoEdit(prescricaoOnDuty)
@@ -173,7 +171,7 @@ export const PrescricaoPararBtn = () => {
     const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
     const { setArticlePrescricaoDelete } = useContext(AtendimentoNavigateContext)
 
-    if (!prescricaoOnDuty) return <div />
+    if (!prescricaoOnDuty) return <></>
 
     const handleClick = () => {
         setPrescricaoEdit(prescricaoOnDuty)
@@ -196,11 +194,11 @@ export const AnteriorBtn = () => {
     const { prescricaoEdit } = useContext(AtendimentoContext)
     const { step, setStepPrevious } = useContext(AtendimentoNavigateContext)
 
-    if (!prescricaoEdit) return <div />
+    if (!prescricaoEdit) return <></>
 
     const handleClick = () => {
         setStepPrevious()
-        }
+    }
 
     let disabled = step === 111 || step === 132 || step === 311
 
@@ -248,7 +246,7 @@ export const PrescricaoSalvarBtn = () => {
     const { step, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
-    if (!prescricaoEdit) return <div />
+    if (!prescricaoEdit) return <></>
 
     const fetchClienteIncludes = async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
@@ -344,8 +342,8 @@ export const PrescricaoToLmeBtn = () => {
     const { prescricaoEdit, setPrescricaoEdit, medicamentoEdit } = useContext(AtendimentoContext)
     const { step, setStep } = useContext(AtendimentoNavigateContext)
 
-    if (!medicamentoEdit?.lme) return <div />
-    if (step !== 141) return <div />
+    if (!medicamentoEdit?.lme) return <></>
+    if (step !== 141) return <></>
 
     const handleClick = () => {
         setPrescricaoEdit(prescricaoEdit)
@@ -376,7 +374,7 @@ export const PrescricaoSendForkBtn = () => {
     const { prescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
     const { step, setStep } = useContext(AtendimentoNavigateContext)
 
-    if (step !== 151) return <div />
+    if (step !== 151) return <></>
 
     const handleClick = () => {
 
@@ -385,7 +383,6 @@ export const PrescricaoSendForkBtn = () => {
                 clienteContext.lmes.filter(l => l.id === prescricaoEdit.lmeId)[0]
             )
             setStep(321)
-            // setArticlePrescricoesMain()
         } else {
             setStep(161)
         }
@@ -408,14 +405,14 @@ export const PrescricaoSendForkBtn = () => {
 
 export const LmeEditarBtn = () => {
 
-
-    const { lmeOnDuty, setLmeEdit } = useContext(AtendimentoContext)
+    const { lmeOnDuty, setLmeEdit, setLmeOnDuty } = useContext(AtendimentoContext)
     const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
-    if (!lmeOnDuty) return <div />
+    if (!lmeOnDuty) return <></>
 
     const handleClick = () => {
         setLmeEdit(lmeOnDuty)
+        setLmeOnDuty(null)
         setStep(321)
         setArticlePrescricoesMain()
     }
@@ -436,190 +433,19 @@ export const LmePararBtn = () => {
     const { lmeOnDuty } = useContext(AtendimentoContext)
     const { setArticleLMEDelete } = useContext(AtendimentoNavigateContext)
 
+    if (!lmeOnDuty) return <></>
 
-    const handleParar = () => {
+    const handleClick = () => {
         setArticleLMEDelete()
     }
 
     return (
         <>
-            <Tooltip title="Parar">
-                <IconButton
-                    component="span"
-                    disabled={!lmeOnDuty}
-                    onClick={handleParar}
-                    size="large"
-                >
-                    <HighlightOffIcon />
-                </IconButton>
-            </Tooltip>
-        </>
-    )
-}
-
-
-
-export const LmeReiniciarBtnEdito = () => {
-
-    const { clienteContext } = useContext(ClienteContext)
-    const { setMedicamentoEdit, setNovaPrescricao } = useContext(AtendimentoContext)
-    const { setStep } = useContext(AtendimentoNavigateContext)
-
-
-    const reiniciar = () => {
-        setNovaPrescricao(clienteContext.id)
-        setMedicamentoEdit(null)
-        setStep(311)
-    }
-
-    return (
-        <>
-            <Tooltip open={false} title="Reiniciar">
-                <IconButton
-                    onClick={() => reiniciar()} size="large">
-                    <ReplayIcon />
-                </IconButton>
-            </Tooltip>
-        </>
-    )
-}
-
-// export const LmeAnteriorBtnEdito = () => {
-
-//     const { step, setStep } = useContext(AtendimentoNavigateContext)
-
-//     const previousStep = () => {
-//         setStep(prevState => prevState - 10)
-//     }
-
-//     return (
-//         <>
-//             <Tooltip title="Anterior">
-//                 <IconButton
-//                     component="span"
-//                     disabled={step === 311}
-//                     onClick={previousStep} size="large">
-//                     <ArrowBackIosIcon />
-//                 </IconButton>
-//             </Tooltip>
-//         </>
-//     )
-// }
-
-// export const LmeProximoBtnEdito = () => {
-
-//     const { step, setStep } = useContext(AtendimentoNavigateContext)
-
-//     const nextStep = () => {
-//         setStep(prevState => prevState + 10)
-//     }
-
-//     return (
-//         <>
-//             <Tooltip title="Anterior">
-//                 <IconButton
-//                     component="span"
-//                     disabled={step === 381}
-//                     // disabled={(page === 'lmeinsert' && (step === 311 || step === 321 || step === 381)) || (page === 'lmeupdate' && step === 381)}
-//                     onClick={nextStep}
-//                     size="large"
-//                 >
-//                     <ArrowBackIosIcon />
-//                 </IconButton>
-//             </Tooltip>
-//         </>
-//     )
-// }
-
-export const LmeSalvarBtnEdito = () => {
-
-    const { prescricaoEdit, lmeEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
-    const { page, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-
-    const handleSubmit = event => {
-
-        // submit do insert e update , da prescricoes e lme juntos
-
-        let prespost = [process.env.REACT_APP_API_URL + `/prescricoes`, 'post', prescricaoEdit]
-        let lmepost = [process.env.REACT_APP_API_URL + `/lmes`, 'post', lmeEdit]
-        let presput = [process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoEdit.id}`, 'put', prescricaoEdit]
-        let lmeput = [process.env.REACT_APP_API_URL + `/lmes/${lmeEdit.id}`, 'put', lmeEdit]
-
-        let submitvar
-
-        switch (page) {
-            case 'prescricaoinsert':
-                submitvar = prespost
-                break;
-            case 'lmeinsert':
-                submitvar = lmepost
-                break;
-            case 'prescricaoupdate':
-                submitvar = presput
-                break;
-            case 'lmeupdate':
-                submitvar = lmeput
-                break;
-            default:
-                break;
-        }
-
-        //event.preventDefault();
-        fetch(submitvar[0], {
-            method: submitvar[1],
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(submitvar[2])
-        }).then(data => {
-            if (data.ok) {
-                setStep(0)
-                setPrescricaoEdit(null)
-                setPrescricaoOnDuty(null)
-                setLmeEdit(null)
-                setLmeOnDuty(null)
-                setMedicamentoEdit(null)
-                setArticleAtendimentoMain()
-            }
-        })
-    }
-
-
-    return (
-        <>
-            <Tooltip title="Salvar">
-                <IconButton
-                    component="span"
-                    color='secondary'
-                    onClick={handleSubmit}
-                    size="large">
-                    <SaveIcon />
-                </IconButton>
-            </Tooltip>
-        </>
-    )
-}
-
-export const LmeLinkRelatorioBtn = () => {
-
-    const { setStep } = useContext(AtendimentoNavigateContext)
-
-    const linkRelatorio = () => {
-        setStep(331)
-    }
-
-    return (
-        <>
-            <Tooltip
-                title='Editar Relatório'
-            >
-                <IconButton
-                    component="span"
-                    onClick={linkRelatorio}
-                    size="large"
-                >
-                    <ArrowForwardIcon />
-                    <BallotIcon />
-                </IconButton>
-            </Tooltip>
+            <DefaultButton
+                title={'Parar'}
+                click={handleClick}
+                icon={<CancelPresentationIcon />}
+            />
         </>
     )
 }

@@ -1,9 +1,9 @@
 import { Box, Chip, Divider, IconButton, Paper } from '@mui/material';
 import FormatTextdirectionLToRIcon from '@mui/icons-material/FormatTextdirectionLToR';
 import React, { useContext, useState } from 'react';
-import { AtendimentoContext } from '../..';
-import ICAD from '../../component/calculadoras/das28';
+import { AtendimentoContext } from '..';
 import Criterios from './criterios';
+import ICAD from './das28';
 
 const AnamneseTips = () => {
 

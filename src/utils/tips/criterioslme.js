@@ -1,4 +1,4 @@
-export default function Criterios(lme) {
+export default function CriteriosLme(lme) {
 
     const ar1987 = [
         ['ara', 'Rigidez articular', lme.relatorio.ara],

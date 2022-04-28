@@ -1,6 +1,6 @@
 import { Box, Button, Card, Grid } from '@mui/material';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 
 const PrescricaoDelete = () => {
 

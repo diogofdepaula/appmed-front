@@ -1,6 +1,6 @@
 import { Box, Button, Card, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { AtendimentoContext, AtendimentoNavigateContext } from '../..';
+import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 
 const LMEDelete = () => {
 

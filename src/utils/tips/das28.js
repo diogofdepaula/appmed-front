@@ -2,7 +2,7 @@ import { Box, IconButton, Paper, TextField } from '@mui/material';
 import CallSplitIcon from '@mui/icons-material/CallSplit';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import React, { useContext, useEffect, useState } from 'react';
-import { AtendimentoContext } from '../..';
+import { AtendimentoContext } from '..';
 
 const ICAD = () => {
 
