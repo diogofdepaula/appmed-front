@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import ReactInputMask from 'react-input-mask';
 import { AtendimentoContext } from '..';
 import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
-import ICAD from '../tips/das28';
+import ICAD from '../../../utils/tips/das28';
 
 const RelatorioSet6 = () => {
 

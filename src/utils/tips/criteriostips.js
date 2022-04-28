@@ -1,5 +1,5 @@
 
-const Criterios = () => {
+export const CriteriosTips = () => {
 
     const ArtriteReumatoide1987 = [
         ['artrite em mãos', 'ara', true],
@@ -140,5 +140,3 @@ const Criterios = () => {
     return doencas
 
 }
-
-export default Criterios

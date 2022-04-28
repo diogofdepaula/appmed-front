@@ -1,9 +1,9 @@
 import { Box, Chip, Divider, IconButton, Paper } from '@mui/material';
 import FormatTextdirectionLToRIcon from '@mui/icons-material/FormatTextdirectionLToR';
 import React, { useContext, useState } from 'react';
-import { AtendimentoContext } from '..';
-import Criterios from './criterios';
 import ICAD from './das28';
+import { CriteriosTips } from './criteriostips';
+import { AtendimentoContext } from '../../pages/atendimento';
 
 const AnamneseTips = () => {
 
@@ -84,7 +84,7 @@ const AnamneseTips = () => {
                         onClick={handleSolMedicamento("Solicito o fornecimento de " + medicamentoEdit?.farmaco + " para o tratamento da doença.")}
                     />
                 </Box>
-                {Criterios().map((c, i) => {
+                {CriteriosTips().map((c, i) => {
                     return (
                         <Box ml={1} key={i}>
                             <Chip
