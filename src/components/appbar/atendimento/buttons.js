@@ -191,10 +191,10 @@ export const PrescricaoPararBtn = () => {
 
 export const AnteriorBtn = () => {
 
-    const { prescricaoEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, lmeEdit } = useContext(AtendimentoContext)
     const { step, setStepPrevious } = useContext(AtendimentoNavigateContext)
 
-    if (!prescricaoEdit) return <></>
+    if (!prescricaoEdit && !lmeEdit) return <></>
 
     const handleClick = () => {
         setStepPrevious()
@@ -216,10 +216,10 @@ export const AnteriorBtn = () => {
 
 export const ProximoBtn = () => {
 
-    const { prescricaoEdit } = useContext(AtendimentoContext)
+    const { prescricaoEdit, lmeEdit } = useContext(AtendimentoContext)
     const { step, setStepNext } = useContext(AtendimentoNavigateContext)
 
-    if (!prescricaoEdit) return <div />
+    if (!prescricaoEdit && !lmeEdit) return <></>
 
     const handleClick = () => {
         setStepNext()
@@ -246,7 +246,7 @@ export const PrescricaoSalvarBtn = () => {
     const { step, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
-    if (!prescricaoEdit) return <></>
+    if (!prescricaoEdit && !lmeEdit) return <></>
 
     const fetchClienteIncludes = async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)

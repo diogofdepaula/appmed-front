@@ -130,10 +130,11 @@ const RelatorioSet3 = () => {
                     gap: 1,
                 }}
             >
-                {indices.map((z, index) =>
-                    <>
+                {indices.map(z =>
+                    <React.Fragment
+                        key={z[0][0]}
+                    >
                         <Box
-                            key={index}
                             sx={{
                                 display: 'flex',
                                 flexDirection: 'row',
@@ -178,7 +179,7 @@ const RelatorioSet3 = () => {
                             value={z[4][1]}
                             onChange={handleChange}
                         />
-                    </>
+                    </React.Fragment>
                 )}
             </Box>
         </>
