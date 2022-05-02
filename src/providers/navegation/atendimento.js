@@ -9,6 +9,7 @@ import LMEVarSet from "../../pages/atendimento/prescricoes/lmevarset"
 import MedicamentoSet from "../../pages/atendimento/prescricoes/medicamentoset"
 import PosologiaNaoPadraoSet from "../../pages/atendimento/prescricoes/posologianaopadraoset"
 import PosologiaSet from "../../pages/atendimento/prescricoes/posologiaset"
+import PrescricaoDelete from "../../pages/atendimento/prescricoes/prescricaodelete"
 import PrescricaoVarSet from "../../pages/atendimento/prescricoes/prescricaovarset"
 import RelatorioSet1 from "../../pages/atendimento/prescricoes/relatorioset1"
 import RelatorioSet2 from "../../pages/atendimento/prescricoes/relatorioset2"
@@ -60,6 +61,9 @@ const AtendimentoNavegateProvider = () => {
         },
         setArticlePrescricoesMain: () => {
             setArticle(<PrescricoesMain />)
+        },
+        setArticlePrescricaoDelete: () => {
+            setArticle(<PrescricaoDelete />)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))

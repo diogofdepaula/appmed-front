@@ -1,149 +1,200 @@
-import { Box, Button, Card, Grid } from '@mui/material';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { Box, Button, Paper } from '@mui/material';
+import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
+import { ClienteContext } from '../../../App';
 
-const PrescricaoDelete = () => {
+const Interromper = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    const [lme, setLme] = useState()
-    const [change, setChange] = useState(0)
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/one/${prescricaoOnDuty.lmeId}`)
-        const json = await res.json();
-        setLme(json[0]);
-    }, [prescricaoOnDuty])
-
-    useEffect(() => {
-        if (prescricaoOnDuty && prescricaoOnDuty.lmeId) {
-            fetchData();
-        }
-    }, [prescricaoOnDuty, fetchData])
-
-    const handleDeletePrescricao = () => event => {
-
-        event.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
-            method: 'delete',
-        }).then(data => {
-            if (data.ok) {
-                setPrescricaoOnDuty(null)
-                setArticleAtendimentoMain()
-            }
-        })
+    const PrescricaoInterrompida = {
+        ...prescricaoOnDuty,
+        emuso: false,
+        termino: new Date().toISOString().slice(0, 10),
+        lmeId: null,
     }
 
-    const handleDeletePrescricaoLME = () => event => {
-
-        event.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + `/lmes/${prescricaoOnDuty.lmeId}`, {
-            method: 'delete',
-        }).then(data => {
-            if (data.ok) {
-                setPrescricaoOnDuty(null)
-                setArticleAtendimentoMain()
-            }
-        })
-    }
-
-    const changeEmUso = useCallback(() => {
-        setPrescricaoOnDuty({
-            ...prescricaoOnDuty,
-            emuso: false,
-            termino: new Date().toISOString().slice(0, 10),
-            lmeId: null,
-        })
-        setChange(2)
-    }, [setPrescricaoOnDuty, prescricaoOnDuty])
-
-    const updateEmUso = useCallback(async () => {
+    const handleClick = () => {
 
         fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(prescricaoOnDuty)
+            body: JSON.stringify(PrescricaoInterrompida)
         }).then(data => {
             if (data.ok) {
-                setChange(3)
+                setPrescricaoOnDuty(null)
+                setArticleAtendimentoMain()
             }
         })
-    }, [prescricaoOnDuty])
-
-    useEffect(() => {
-        if (change === 1) {
-            changeEmUso()
-        } else if (change === 2) {
-            updateEmUso()
-        } else if (change === 3) {
-            setPrescricaoOnDuty(null)
-            setArticleAtendimentoMain()
-        }
-    }, [change, changeEmUso, updateEmUso, setPrescricaoOnDuty, setArticleAtendimentoMain])
+    }
 
     return (
-        <div>
-            {prescricaoOnDuty &&
-                <div>
-                    <Box m={2}>
-                        <Card>
-                            <Box m={1}>
-                                <h5>{prescricaoOnDuty.medicamento.farmaco} ({prescricaoOnDuty.apresentaco.descricao})</h5>
-                                {prescricaoOnDuty.lmeId ?
-                                    <div>
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: 2,
+                }}
+            >
+                <Button
+                    variant="contained"
+                    onClick={() => handleClick()}
+                >
+                    Interromper
+                </Button>
+                <Box
+                    sx={{
+                        typography: 'body1',
+                        justifyContent: 'flex-end',
+                        alignSelf: 'center',
+                    }}
+                >
+                    Será enviada para lista de "fez uso". Será mantida no banco de dados.
+                </Box>
+            </Box>
+        </>
+    )
+}
 
-                                        <h4>Prescrição vinculada a LME</h4>
-                                        {lme && lme.prescricoes.length - 1 === 0 && <h5>Há outras prescrições na LME</h5>}
+// const Remover = () => {
 
-                                    </div>
-                                    :
-                                    <div>
-                                        <p>Medicamento não vinculado a LME</p>
-                                    </div>
-                                }
+//     const handleDeletePrescricao = () => event => {
+
+//         event.preventDefault();
+//         fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
+//             method: 'delete',
+//         }).then(data => {
+//             if (data.ok) {
+//                 setPrescricaoOnDuty(null)
+//                 setArticleAtendimentoMain()
+//             }
+//         })
+//     }
+
+//     const handleDeletePrescricaoLME = () => event => {
+
+//         event.preventDefault();
+//         fetch(process.env.REACT_APP_API_URL + `/lmes/${prescricaoOnDuty.lmeId}`, {
+//             method: 'delete',
+//         }).then(data => {
+//             if (data.ok) {
+//                 setPrescricaoOnDuty(null)
+//                 setArticleAtendimentoMain()
+//             }
+//         })
+//     }
+
+//     return (
+//         <>
+//             <Button
+//                 variant="contained"
+//                 color="secondary"
+//             //onClick={handleDeletePrescricao()}
+//             >
+//                 Remover a prescrição (apagará do bando de dados)
+//             </Button>
+//         </>
+//     )
+// }
+
+const PrescricaoDelete = () => {
+
+    const { clienteContext } = useContext(ClienteContext)
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+
+    return (
+        <>
+            <Box
+                sx={{
+                    m: 1,
+                }}
+            >
+                <Paper
+                    elevation={2}
+                >
+                    <Box
+                        sx={{
+                            typography: 'h6',
+                            fontWeight: 'bold',
+                            p: 2,
+                        }}
+                    >
+                        {prescricaoOnDuty.medicamento.farmaco} ({prescricaoOnDuty.apresentaco.descricao})
+                    </Box>
+
+                    <Box
+                        sx={{
+                            typography: 'body1',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            p: 2,
+                        }}
+                    >
+                        {prescricaoOnDuty.lmeId &&
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    gap: 1,
+                                }}
+                            >
+                                <Box>
+                                    Prescrição vinculada a LME
+                                </Box>
+                                <Box>
+                                    Outros medicamento na mesma LME:
+                                    {clienteContext.prescricoes.filter(f => f.lmeId === prescricaoOnDuty.lmeId).map(p =>
+                                        <Box
+                                            key={p.id}
+                                            sx={{
+                                                ml: 2,
+                                            }}
+                                        >
+                                            {p.medicamento.farmaco}
+                                        </Box>
+                                    )}
+                                </Box>
                             </Box>
-                        </Card>
+                        }
                     </Box>
-                    <Box m={2}>
-                        <Grid container spacing={1} direction="column" justifyContent="center" alignItems="flex-start">
-                            <Grid item>
-                                <Box>
-                                    <Button
-                                        variant="contained"
-                                        color="secondary"
-                                        onClick={() => setChange(1)}
-                                    >Interromper o uso da prescrição (enviado a lista de Fez uso. Será mantida no bando de dados)
-                                    </Button>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                <Box>
-                                    <Button
-                                        variant="contained"
-                                        color="secondary"
-                                        onClick={handleDeletePrescricao()}
-                                    >Remover a prescrição (apagará do bando de dados)
-                                    </Button>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                {prescricaoOnDuty.lmeId &&
-                                    <Box>
-                                        <Button
-                                            variant="contained"
-                                            color="secondary"
-                                            onClick={handleDeletePrescricaoLME()}
-                                        >Remover a prescrição e a LME (apagará ambos do bando de dados)
-                                        </Button>
-                                    </Box>
-                                }
-                            </Grid>
-                        </Grid>
+                </Paper>
+            </Box>
+            <Box
+                sx={{
+                    m: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1,
+                }}
+            >
+                <Box>
+                    <Interromper />
+                </Box>
+                <Box>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                    //  onClick={handleDeletePrescricao()}
+                    >
+                        Remover a prescrição (apagará do bando de dados)
+                    </Button>
+                </Box>
+                {prescricaoOnDuty.lmeId &&
+                    <Box>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                        // onClick={handleDeletePrescricaoLME()}
+                        >
+                            Remover a prescrição e a LME (apagará ambos do bando de dados)
+                        </Button>
                     </Box>
-                </div>
-            }
-        </div>
-    );
+                }
+            </Box>
+        </>
+    )
 }
 
 export default PrescricaoDelete
