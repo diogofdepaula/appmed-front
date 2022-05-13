@@ -1,10 +1,12 @@
-FROM node:alpine
+FROM node:16-alpine
 
-WORKDIR /home/diogo/front
+WORKDIR /usr/src/front
 
 COPY package*.json ./
 
 RUN npm install
+
+RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
 
 COPY . .
 
