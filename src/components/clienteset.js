@@ -8,7 +8,7 @@ import ListItemsClientes from './listitemsclientes';
 
 const ClienteSet = () => {
 
-    const { setClienteContext } = useContext(ClienteContext)
+    const { setClienteContext, setClienteIncludes } = useContext(ClienteContext)
     const { setPageAtendimento } = useContext(NavigateContext)
     const { login } = useContext(LoginContext)
 
@@ -80,6 +80,7 @@ const ClienteSet = () => {
 
     const handleListItem = (param) => {
         setDataCharging(true)
+        setClienteIncludes(param.id)
         fetchClienteIncludes(param.id)
     }
 

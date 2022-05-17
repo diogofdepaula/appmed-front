@@ -41,26 +41,13 @@ const Interromper = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    const { clienteContext, setClienteIncludes } = useContext(ClienteContext)
 
     const PrescricaoInterrompida = {
         ...prescricaoOnDuty,
         emuso: false,
         termino: new Date().toISOString().slice(0, 10),
         lmeId: null,
-    }
-
-    const fetchClienteIncludes = async (param) => {
-
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
-            .then(res => {
-                if (res.ok) {
-                   return res.json()
-                }
-            }).then(data => {
-                console.log(data);
-                setClienteContext(data)
-            })
     }
 
     const handleClick = () => {
@@ -71,10 +58,9 @@ const Interromper = () => {
             body: JSON.stringify(PrescricaoInterrompida)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes(clienteContext.id)
+                setClienteIncludes(clienteContext.id)
             }
         }).then(() => {
-            console.log('teste');
             setArticleAtendimentoMain()
             setPrescricaoOnDuty(null)
         })
