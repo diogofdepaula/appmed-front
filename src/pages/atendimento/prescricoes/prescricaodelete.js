@@ -20,31 +20,7 @@ const TextoExplicativo = ({ texto }) => {
     )
 }
 
-const Interromper = () => {
-
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-
-    const PrescricaoInterrompida = {
-        ...prescricaoOnDuty,
-        emuso: false,
-        termino: new Date().toISOString().slice(0, 10),
-        lmeId: null,
-    }
-
-    const handleClick = () => {
-
-        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(PrescricaoInterrompida)
-        }).then(data => {
-            if (data.ok) {
-                setPrescricaoOnDuty(null)
-                setArticleAtendimentoMain()
-            }
-        })
-    }
+const BoxExterno = (props) => {
 
     return (
         <>
@@ -55,6 +31,58 @@ const Interromper = () => {
                     gap: 2,
                 }}
             >
+                {props.children}
+            </Box>
+        </>
+    )
+}
+
+const Interromper = () => {
+
+    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+
+    const PrescricaoInterrompida = {
+        ...prescricaoOnDuty,
+        emuso: false,
+        termino: new Date().toISOString().slice(0, 10),
+        lmeId: null,
+    }
+
+    const fetchClienteIncludes = async (param) => {
+
+        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
+            .then(res => {
+                if (res.ok) {
+                   return res.json()
+                }
+            }).then(data => {
+                console.log(data);
+                setClienteContext(data)
+            })
+    }
+
+    const handleClick = () => {
+
+        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(PrescricaoInterrompida)
+        }).then(data => {
+            if (data.ok) {
+                fetchClienteIncludes(clienteContext.id)
+            }
+        }).then(() => {
+            console.log('teste');
+            setArticleAtendimentoMain()
+            setPrescricaoOnDuty(null)
+        })
+    }
+
+    return (
+        <>
+            <BoxExterno>
                 <Button
                     variant="contained"
                     onClick={() => handleClick()}
@@ -66,12 +94,12 @@ const Interromper = () => {
                         "Será enviada para lista de 'fez uso'. Será mantida no banco de dados."
                     }
                 />
-            </Box>
+            </BoxExterno>
         </>
     )
 }
 
-const Remover = () => {
+const RemoverPrescricao = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
@@ -92,28 +120,30 @@ const Remover = () => {
 
     return (
         <>
-            <Button
-                variant="contained"
-                color="secondary"
-                onClick={handleClick()}
-            >
-                Remover a prescrição
-            </Button>
-            <TextoExplicativo
-                texto={
-                    "Apagará o registro da prescricao do bando de dados."
-                }
-            />
+            <BoxExterno>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleClick()}
+                >
+                    Remover a prescrição
+                </Button>
+                <TextoExplicativo
+                    texto={
+                        "Apagará o registro da prescricao do bando de dados."
+                    }
+                />
+            </BoxExterno>
         </>
     )
 }
 
-const RemoverLME = () => {
+const RemoverPrescricaoLME = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
 
-    if (prescricaoOnDuty.lmeId) return <></>
+    if (!prescricaoOnDuty.lmeId) return <></>
 
     const handleClick = () => event => {
 
@@ -122,26 +152,28 @@ const RemoverLME = () => {
             method: 'delete',
         }).then(data => {
             if (data.ok) {
-                setPrescricaoOnDuty(null)
                 setArticleAtendimentoMain()
+                setPrescricaoOnDuty(null)
             }
         })
     }
 
     return (
         <>
-            <Button
-                variant="contained"
-                color="secondary"
-                onClick={handleClick()}
-            >
-                Remover a prescrição e a LMEs.
-            </Button>
-            <TextoExplicativo
-                texto={
-                    "Apagará o registro da prescricao e a LME do bando de dados."
-                }
-            />
+            <BoxExterno>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleClick()}
+                >
+                    Remover a prescrição e a LMEs.
+                </Button>
+                <TextoExplicativo
+                    texto={
+                        "Apagará o registro da prescricao e a LME do bando de dados."
+                    }
+                />
+            </BoxExterno>
         </>
     )
 }
@@ -217,8 +249,8 @@ const PrescricaoDelete = () => {
                 }}
             >
                 <Interromper />
-                <Remover />
-                <RemoverLME />
+                <RemoverPrescricao />
+                <RemoverPrescricaoLME />
             </Box>
         </>
     )
