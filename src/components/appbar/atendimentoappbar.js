@@ -27,12 +27,12 @@ const AtendimentoAppBar = () => {
                 <PrescricaoEditarBtn />
                 <LmeEditarBtn />
                 <PrescricaoPararBtn />
+                <LmePararBtn />
                 <AnteriorBtn />
                 <ProximoBtn />
                 <PrescricaoSalvarBtn />
                 <PrescricaoToLmeBtn />
                 <PrescricaoSendForkBtn />
-                <LmePararBtn />
                 <Divider orientation="vertical" variant="middle" flexItem />
             </Box>
             <Divider />

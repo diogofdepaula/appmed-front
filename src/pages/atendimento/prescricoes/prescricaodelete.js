@@ -21,7 +21,7 @@ const TextoExplicativo = ({ texto }) => {
 }
 
 const BoxExterno = (props) => {
-    
+
     return (
         <>
             <Box
@@ -30,33 +30,19 @@ const BoxExterno = (props) => {
                     flexDirection: 'row',
                     gap: 2,
                 }}
-                >
+            >
                 {props.children}
             </Box>
         </>
     )
 }
 
-const fetchClienteIncludes = async (clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty) => {
-    await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-        .then(res => {
-            if (res.ok) {
-                return res.json();
-            }
-        }).then(data => {
-            setClienteContext(data);
-        })
-    setArticleAtendimentoMain();
-    setPrescricaoOnDuty(null);
-}
+const Interromper = ({ reiniciar }) => {
 
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
 
-const Interromper = () => {
-    
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    
+    if (!prescricaoOnDuty.emuso) return <></>
+
     const PrescricaoInterrompida = {
         ...prescricaoOnDuty,
         emuso: false,
@@ -71,7 +57,7 @@ const Interromper = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(PrescricaoInterrompida)
         })
-        await fetchClienteIncludes(clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty)
+        await reiniciar()
     }
 
     return (
@@ -93,17 +79,15 @@ const Interromper = () => {
     )
 }
 
-const RemoverPrescricao = () => {
+const RemoverPrescricao = ({ reiniciar }) => {
 
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
 
     const handleClick = async () => {
         await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'delete',
         })
-        await fetchClienteIncludes(clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty)
+        await reiniciar()
     }
 
     return (
@@ -126,11 +110,9 @@ const RemoverPrescricao = () => {
     )
 }
 
-const RemoverPrescricaoLME = () => {
+const RemoverPrescricaoLME = ({ reiniciar }) => {
 
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
 
     if (!prescricaoOnDuty.lmeId) return <></>
 
@@ -138,7 +120,8 @@ const RemoverPrescricaoLME = () => {
         await fetch(process.env.REACT_APP_API_URL + `/lmes/${prescricaoOnDuty.lmeId}`, {
             method: 'delete',
         })
-        await fetchClienteIncludes(clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty)
+
+        await reiniciar()
     }
 
     return (
@@ -147,7 +130,7 @@ const RemoverPrescricaoLME = () => {
                 <Button
                     variant="contained"
                     color="secondary"
-                    onClick={handleClick()}
+                    onClick={() => handleClick()}
                 >
                     Remover a prescrição e a LMEs.
                 </Button>
@@ -163,8 +146,22 @@ const RemoverPrescricaoLME = () => {
 
 const PrescricaoDelete = () => {
 
-    const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
+    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+
+    const fetchClienteIncludes = async () => {
+        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+            }).then(data => {
+                setClienteContext(data)
+            })
+        setArticleAtendimentoMain()
+        setPrescricaoOnDuty(null)
+    }
 
     return (
         <>
@@ -231,9 +228,9 @@ const PrescricaoDelete = () => {
                     gap: 1,
                 }}
             >
-                <Interromper />
-                <RemoverPrescricao />
-                <RemoverPrescricaoLME />
+                <Interromper reiniciar={fetchClienteIncludes} />
+                <RemoverPrescricao reiniciar={fetchClienteIncludes} />
+                <RemoverPrescricaoLME reiniciar={fetchClienteIncludes} />
             </Box>
         </>
     )

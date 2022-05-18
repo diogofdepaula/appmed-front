@@ -3,6 +3,7 @@ import AtendimentoMain from "../../pages/atendimento/main"
 import PrescricoesMain from "../../pages/atendimento/prescricoes"
 import ApresentacaoSet from "../../pages/atendimento/prescricoes/apresentacaoset"
 import LMECIDSet from "../../pages/atendimento/prescricoes/lmecidset"
+import LmeDelete from "../../pages/atendimento/prescricoes/lmedetele"
 import LMEDoses from "../../pages/atendimento/prescricoes/lmedoses"
 import LMEForkSet from "../../pages/atendimento/prescricoes/lmeforkset"
 import LMEVarSet from "../../pages/atendimento/prescricoes/lmevarset"
@@ -64,6 +65,9 @@ const AtendimentoNavegateProvider = () => {
         },
         setArticlePrescricaoDelete: () => {
             setArticle(<PrescricaoDelete />)
+        },
+        setArticleLMEDelete: () => {
+            setArticle(<LmeDelete />)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))
