@@ -21,7 +21,7 @@ const TextoExplicativo = ({ texto }) => {
 }
 
 const BoxExterno = (props) => {
-
+    
     return (
         <>
             <Box
@@ -30,19 +30,33 @@ const BoxExterno = (props) => {
                     flexDirection: 'row',
                     gap: 2,
                 }}
-            >
+                >
                 {props.children}
             </Box>
         </>
     )
 }
 
-const Interromper = () => {
+const fetchClienteIncludes = async (clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty) => {
+    await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+        }).then(data => {
+            setClienteContext(data);
+        })
+    setArticleAtendimentoMain();
+    setPrescricaoOnDuty(null);
+}
 
+
+const Interromper = () => {
+    
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    const { clienteContext, setClienteIncludes } = useContext(ClienteContext)
-
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    
     const PrescricaoInterrompida = {
         ...prescricaoOnDuty,
         emuso: false,
@@ -50,20 +64,14 @@ const Interromper = () => {
         lmeId: null,
     }
 
-    const handleClick = () => {
+    const handleClick = async () => {
 
-        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
+        await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(PrescricaoInterrompida)
-        }).then(data => {
-            if (data.ok) {
-                setClienteIncludes(clienteContext.id)
-            }
-        }).then(() => {
-            setArticleAtendimentoMain()
-            setPrescricaoOnDuty(null)
         })
+        await fetchClienteIncludes(clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty)
     }
 
     return (
@@ -89,20 +97,14 @@ const RemoverPrescricao = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
 
-    const handleClick = () => event => {
-
-        event.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
+    const handleClick = async () => {
+        await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
             method: 'delete',
-        }).then(data => {
-            if (data.ok) {
-                setPrescricaoOnDuty(null)
-                setArticleAtendimentoMain()
-            }
         })
+        await fetchClienteIncludes(clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty)
     }
-
 
     return (
         <>
@@ -110,7 +112,7 @@ const RemoverPrescricao = () => {
                 <Button
                     variant="contained"
                     color="secondary"
-                    onClick={handleClick()}
+                    onClick={() => handleClick()}
                 >
                     Remover a prescrição
                 </Button>
@@ -128,20 +130,15 @@ const RemoverPrescricaoLME = () => {
 
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
 
     if (!prescricaoOnDuty.lmeId) return <></>
 
-    const handleClick = () => event => {
-
-        event.preventDefault();
-        fetch(process.env.REACT_APP_API_URL + `/lmes/${prescricaoOnDuty.lmeId}`, {
+    const handleClick = async () => {
+        await fetch(process.env.REACT_APP_API_URL + `/lmes/${prescricaoOnDuty.lmeId}`, {
             method: 'delete',
-        }).then(data => {
-            if (data.ok) {
-                setArticleAtendimentoMain()
-                setPrescricaoOnDuty(null)
-            }
         })
+        await fetchClienteIncludes(clienteContext, setClienteContext, setArticleAtendimentoMain, setPrescricaoOnDuty)
     }
 
     return (
@@ -243,3 +240,4 @@ const PrescricaoDelete = () => {
 }
 
 export default PrescricaoDelete
+
