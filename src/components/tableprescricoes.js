@@ -3,9 +3,11 @@ import React, { memo, useContext } from 'react';
 import { AtendimentoContext } from '../pages/atendimento';
 import Reorder from '../pages/print/component/reorder';
 
-const TablePrescricoes = memo(({ prescricoes, setPrescricaoOnDuty, uso, }) => {
+const TablePrescricoes = memo(({ prescricoes, setPrescricaoOnDuty, uso }) => {
 
     const { prescricaoOnDuty } = useContext(AtendimentoContext)
+
+    if (prescricoes.length === 0) return <></>
 
     return (
         <>
