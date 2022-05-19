@@ -59,7 +59,7 @@ const RemoverLME = ({ reiniciar }) => {
                     color="secondary"
                     onClick={() => handleClick()}
                 >
-                    Remover a LME.
+                    Remover a LME
                 </Button>
                 <TextoExplicativo
                     texto={

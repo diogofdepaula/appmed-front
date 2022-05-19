@@ -37,7 +37,7 @@ const DefaultButton = ({ title, click, icon, disabled, color }) => {
 export const PrincipalBtn = () => {
 
     const { setPrescricaoOnDuty, setLmeOnDuty, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { setArticleAtendimentoMain, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleClick = () => {
         setPrescricaoEdit(null)
@@ -45,6 +45,7 @@ export const PrincipalBtn = () => {
         setPrescricaoOnDuty(null)
         setLmeEdit(null)
         setLmeOnDuty(null)
+        setStep(111)
         setArticleAtendimentoMain()
     }
 
