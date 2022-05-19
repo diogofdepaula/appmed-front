@@ -6,6 +6,8 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
 
     const { lmeOnDuty } = useContext(AtendimentoContext)
 
+    if (lmes.length === 0) return <></>
+
     return (
         <>
             <Box

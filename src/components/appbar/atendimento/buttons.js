@@ -169,13 +169,12 @@ export const PrescricaoEditarBtn = () => {
 
 export const PrescricaoPararBtn = () => {
 
-    const { prescricaoOnDuty, setPrescricaoEdit } = useContext(AtendimentoContext)
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticlePrescricaoDelete } = useContext(AtendimentoNavigateContext)
 
     if (!prescricaoOnDuty) return <></>
 
     const handleClick = () => {
-        setPrescricaoEdit(prescricaoOnDuty)
         setArticlePrescricaoDelete()
     }
 

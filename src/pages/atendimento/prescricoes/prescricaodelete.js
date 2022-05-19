@@ -146,19 +146,12 @@ const RemoverPrescricaoLME = ({ reiniciar }) => {
 
 const PrescricaoDelete = () => {
 
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    const { clienteContext, setClienteIncludes } = useContext(ClienteContext)
     const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
 
     const fetchClienteIncludes = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                setClienteContext(data)
-            })
+        await setClienteIncludes(clienteContext.id)
         setArticleAtendimentoMain()
         setPrescricaoOnDuty(null)
     }

@@ -8,8 +8,8 @@ import ListItemsClientes from './listitemsclientes';
 
 const ClienteSet = () => {
 
-    const { setClienteContext, setClienteIncludes } = useContext(ClienteContext)
-    const { setPageAtendimento } = useContext(NavigateContext)
+    const { setClienteContext } = useContext(ClienteContext)
+    const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { login } = useContext(LoginContext)
 
     const [clientes, setClientes] = useState([])
@@ -67,20 +67,23 @@ const ClienteSet = () => {
         setInputValue('')
     }
 
-    const fetchClienteIncludes = useCallback(async (param) => {
-        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
-        const json = await res.json()
-        if (res.ok) {
-            setClienteContext(json)
+    const fetchClienteIncludes = async (param) => {
+        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+            }).then(data => {
+                setClienteContext(data)
+            })
+            setPageReset()
             setPageAtendimento()
             setClientesFiltrados([])
             setDataCharging(false)
-        }
-    }, [setClienteContext, setPageAtendimento])
+    }
 
     const handleListItem = (param) => {
         setDataCharging(true)
-        setClienteIncludes(param.id)
         fetchClienteIncludes(param.id)
     }
 

@@ -1,5 +1,5 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionSummary, FormControlLabel, Radio, RadioGroup, TextField } from "@mui/material";
+import { Accordion, AccordionSummary, FormControlLabel, Radio, RadioGroup, TextField, Divider } from "@mui/material";
 import { Box } from "@mui/system";
 import { format } from "date-fns";
 import { useState } from "react";
@@ -42,7 +42,7 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
             />
             <Box
                 sx={{
-                    mt: 1,
+                    my: 1,
                     display: 'grid',
                     gap: 1,
                     gridTemplateColumns: 'repeat(2, 1fr)',
@@ -191,15 +191,13 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
                     </Box>
                 </Accordion>
             </Box>
+            <Divider variant="middle" />
             <Box
                 sx={{
-                    mt: 2,
+                    mt: 1,
                     display: 'flex',
                     flexGrow: 1,
                     gap: 1,
-                    // '& > :not(style)': {  // '& .MuiTextField-root': {
-                    //     mr: 1,
-                    // },
                 }}
             >
                 <TextField
