@@ -1,7 +1,10 @@
 export const MedicamentoRelatorio = (medicamento) => {
     // função que define se um medicamento necessida de relatório na LME
     if (!medicamento) return false
-    if (medicamento.classe === 'MMCDB' || medicamento.classe === 'MMCDPM') return true
+    // DEPOIS QUE ATUALIZAR O BANCO DE DADOS DE PRODUÇÃO, RETIRAR O "MMCDPM" DA LISTAGEM
+    // SO NÃO FIZ AGORA, POIS VAI DAR ERRO QUANDO CARREGAR OS DADOS.
+    // TEM QUE MODIFICAR O BANDO DE DADOS E DEPOIS MUDAR NO FRONT
+    if (medicamento.classe === 'MMCDB' || medicamento.classe === 'MMCDPM' || medicamento.classe === 'MMCDAE') return true
     return false
 }
 
