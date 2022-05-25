@@ -44,7 +44,6 @@ const PrescricaoVarSet = () => {
                             display: 'flex',
                             flexDirection: 'column',
                             flexGrow: 1,
-                            mr: 1,
                         }}
                     >
                         <Box

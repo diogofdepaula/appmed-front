@@ -15,6 +15,7 @@ import { IconButton, Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { ClienteContext, NavigateContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
+import { MedicamentoRelatorio } from '../../../utils/ inquiries';
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -402,6 +403,34 @@ export const PrescricaoSendForkBtn = () => {
         </>
     )
 }
+
+export const SendToRelatorio = () => {
+
+    const { medicamentoEdit } = useContext(AtendimentoContext)
+    const { step, setStepNext } = useContext(AtendimentoNavigateContext)
+
+    if (!(MedicamentoRelatorio(medicamentoEdit) && step === 321)) return <></>
+
+    const handleClick = () => {
+        setStepNext()
+    }
+
+    return (
+        <>
+            <DefaultButton
+                title={'Editar Relatório'}
+                click={handleClick}
+                icon={
+                    <>
+                        <StartIcon />
+                        <MenuBookIcon />
+                    </>
+                }
+            />
+        </>
+    )
+}
+
 
 export const LmeEditarBtn = () => {
 

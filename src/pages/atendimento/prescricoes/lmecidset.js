@@ -62,7 +62,7 @@ const LMECIDSet = () => {
                                 <TableBody>
                                     {cidsfiltrados.map(cid =>
                                         <TableRow
-                                            key={cid.id}
+                                            key={cid.cid10}
                                             onClick={handleClick(cid)}
                                         >
                                             <TableCell component="th" scope="row">
