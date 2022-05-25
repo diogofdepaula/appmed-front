@@ -30,21 +30,8 @@ const RelatorioSet1 = () => {
                     {() => <TextField
                         fullWidth
                         variant='outlined'
-                        name="tempodoencaanos"
+                        name="idadeinicio"
                         label="Anos"
-                    />}
-                </ReactInputMask>
-                <ReactInputMask
-                    mask="99"
-                    maskChar=" "
-                    value={lmeEdit.relatorio?.tempodoencameses}
-                    onChange={handleChange}
-                >
-                    {() => <TextField
-                        fullWidth
-                        variant='outlined'
-                        name="tempodoencameses"
-                        label="Meses"
                     />}
                 </ReactInputMask>
                 <ReactInputMask
