@@ -1,4 +1,4 @@
-import { Box, FormControlLabel, TextField } from '@mui/material';
+import { Box, FormControlLabel, TextField, Checkbox } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
@@ -9,6 +9,10 @@ const RelatorioSet4 = () => {
 
     const handleChange = event => {
         setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.value } })
+    }
+
+    const handleChecked = event => {
+        setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.checked } })
     }
 
     return (
@@ -26,18 +30,6 @@ const RelatorioSet4 = () => {
                         gap: 1,
                     }}
                 >
-                    <TextField
-                        type="date"
-                        name="ppddata"
-                        variant='outlined'
-                        autoFocus
-                        label="PPD"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        value={lmeEdit.relatorio?.ppddata || ''}
-                        onChange={handleChange}
-                    />
                     <Box
                         sx={{
                             display: 'flex',
@@ -70,6 +62,16 @@ const RelatorioSet4 = () => {
                             onChange={handleChange}
                         />
                     </Box>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                color='primary'
+                                name="ppdtratamento"
+                                checked={lmeEdit.relatorio?.ppdtratamento}
+                                onChange={handleChecked}
+                            />}
+                        label='Contínuo'
+                    />
                 </Box>
                 <Box
                     sx={{
@@ -77,17 +79,6 @@ const RelatorioSet4 = () => {
                         gap: 1,
                     }}
                 >
-                    <TextField
-                        type="date"
-                        name="rxtoraxdata"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        variant='outlined'
-                        label="Rx de Tórax"
-                        value={lmeEdit.relatorio?.rxtoraxdata || ''}
-                        onChange={handleChange}
-                    />
                     <Box
                         sx={{
                             display: 'flex',
@@ -128,23 +119,25 @@ const RelatorioSet4 = () => {
                         gap: 1,
                     }}
                 >
-                    <TextField
-                        type="date"
-                        name="bhcgdata"
-                        variant='outlined'
-                        label="Beta-HCG"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        value={lmeEdit.relatorio?.bhcgdata || ''}
-                        onChange={handleChange}
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                color='primary'
+                                name="hepatiteimunidade"
+                                checked={lmeEdit.relatorio?.hepatiteimunidade}
+                                onChange={handleChecked}
+                            />}
+                        label='Possui imunidade para hepatite B'
                     />
-                    <TextField
-                        variant='outlined'
-                        name='bhcgjustificativa'
-                        label='Justificativa do Beta-HCG'
-                        value={lmeEdit.relatorio?.bhcgjustificativa}
-                        onChange={handleChange}
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                color='primary'
+                                name="hepatitevacina"
+                                checked={lmeEdit.relatorio?.hepatitevacina}
+                                onChange={handleChecked}
+                            />}
+                        label='Se não, foi vacinado'
                     />
                 </Box>
             </Box >
@@ -153,3 +146,19 @@ const RelatorioSet4 = () => {
 }
 
 export default RelatorioSet4
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// <TextField
+// type="date"
+// name="ppddata"
+// variant='outlined'
+// autoFocus
+// label="PPD"
+// InputLabelProps={{
+//     shrink: true,
+// }}
+// value={lmeEdit.relatorio?.ppddata || ''}
+// onChange={handleChange}
+// />

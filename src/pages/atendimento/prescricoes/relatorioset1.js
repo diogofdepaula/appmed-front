@@ -24,14 +24,14 @@ const RelatorioSet1 = () => {
                 <ReactInputMask
                     mask="99"
                     maskChar=" "
-                    value={lmeEdit.relatorio?.tempodoencaanos}
+                    value={lmeEdit.relatorio?.idadeinicio}
                     onChange={handleChange}
                 >
                     {() => <TextField
                         fullWidth
                         variant='outlined'
                         name="idadeinicio"
-                        label="Anos"
+                        label="Idade de início"
                     />}
                 </ReactInputMask>
                 <ReactInputMask
