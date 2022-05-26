@@ -1,7 +1,16 @@
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
-import { CriteriosLme } from '../../../utils/criterioslme'
+import { DoençaCID } from '../../../utils/ inquiries'
+import { CriteriosAP, CriteriosAR1987, CriteriosAR2010, CriteriosEA } from '../../../utils/criteriosdoencas'
+
+const CriteriosLme = (lme) => {
+    const doencapelocid = DoençaCID(lme.cid10)
+    if (doencapelocid === 'ar') return [CriteriosAR1987(lme), CriteriosAR2010(lme)]
+    if (doencapelocid === 'ap') return [CriteriosAP(lme)]
+    if (doencapelocid === 'ea') return [CriteriosEA(lme)]
+    return "aij"
+}
 
 const RelatorioSet2 = () => {
 

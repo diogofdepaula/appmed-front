@@ -60,19 +60,6 @@ const RelatorioSet1 = () => {
                         label="PCR"
                     />}
                 </ReactInputMask>
-                <ReactInputMask
-                    mask="***"
-                    maskChar=" "
-                    value={lmeEdit.relatorio?.pcrvn}
-                    onChange={handleChange}
-                >
-                    {() => <TextField
-                        fullWidth
-                        variant='outlined'
-                        name="pcrvn"
-                        label="PCR NL"
-                    />}
-                </ReactInputMask>
             </Box>
         </>
     )
