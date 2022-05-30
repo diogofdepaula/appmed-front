@@ -19,8 +19,9 @@ const RelatorioSet6 = () => {
         ['sdai', lmeEdit.relatorio.sdai, "99"],
         ['basdai', lmeEdit.relatorio.basdai, "99,9"],
         ['asdas', lmeEdit.relatorio.asdas, "9.9"],
-        ['mda', lmeEdit.relatorio.mda, "9"],
-        ['eva', lmeEdit.relatorio.eva, "999"],
+        ['dapsa', lmeEdit.relatorio.dapsa, "999"],
+        ['lei', lmeEdit.relatorio.lei, "99"],
+        ['sjadas', lmeEdit.relatorio.sjadas, "999"],
     ]
 
     return (

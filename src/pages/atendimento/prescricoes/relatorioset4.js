@@ -70,7 +70,7 @@ const RelatorioSet4 = () => {
                                 checked={lmeEdit.relatorio?.ppdtratamento}
                                 onChange={handleChecked}
                             />}
-                        label='Contínuo'
+                        label='Tratamento para TB latente'
                     />
                 </Box>
                 <Box

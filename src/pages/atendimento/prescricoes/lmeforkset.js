@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 import { ClienteContext } from '../../../App';
 import { NovoRelatorio } from '../../../providers/atendimento';
-import { MedicamentoRelatorio } from '../../../utils/ inquiries';
+import { MedicamentoRelatorio } from '../../../utils/inquiries';
 
 const LMEForkSet = () => {
 

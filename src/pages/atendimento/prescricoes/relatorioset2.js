@@ -1,7 +1,7 @@
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGroup } from '@mui/material'
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
-import { DoençaCID } from '../../../utils/ inquiries'
+import { DoençaCID } from '../../../utils/inquiries'
 import { CriteriosAP, CriteriosAR1987, CriteriosAR2010, CriteriosEA } from '../../../utils/criteriosdoencas'
 
 const CriteriosLme = (lme) => {

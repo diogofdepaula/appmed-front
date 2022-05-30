@@ -1,6 +1,9 @@
 import { format } from "date-fns"
 import { useState } from "react"
 
+// o que for preenchido com CheckBox tem que ser true or false
+// o que for preenchido com RadioBox tem que ser undefined
+
 const NovaPrescricao = (clienteId) => {
 
     return {
@@ -102,17 +105,18 @@ export const NovoRelatorio = (lmeId) => {
         fim7: '',
         motivo7: '',
         dose: '',
-        inducao: undefined,
+        inducao: false,
         justificativa: '',
-        rxt: undefined,
-        sqm: undefined,
-        aine: undefined,
+        ttopreviobiologico: false,
+        rxt: false,
+        sqm: false,
+        aine: false,
         ppdresultado: '',
-        ppdtratamento: undefined,
+        ppdtratamento: false,
         rxtoraxresultado: '',
         rxtoraxalteracao: '',
-        hepatiteimunidade: undefined,
-        hepatitevacina: undefined,
+        hepatiteimunidade: false,
+        hepatitevacina: false,
         das28: '',
         cdai: '',
         sdai: '',

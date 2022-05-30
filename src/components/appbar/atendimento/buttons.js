@@ -15,7 +15,7 @@ import { IconButton, Tooltip } from "@mui/material";
 import { useContext } from "react";
 import { ClienteContext, NavigateContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
-import { MedicamentoRelatorio } from '../../../utils/ inquiries';
+import { MedicamentoRelatorio } from '../../../utils/inquiries';
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
