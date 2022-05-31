@@ -29,7 +29,7 @@ const NovaPrescricao = (clienteId) => {
         medicamentoId: '',
         apresentacoId: '',
         posologiaId: '',
-        ultimaimpressao: '',
+        ultimaimpressao: undefined,
     }
 }
 
