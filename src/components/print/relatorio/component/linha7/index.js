@@ -3,7 +3,7 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
-import Criterios from '../../../../../pages/atendimento/component/criterios';
+import { CriteriosLme } from '../../../../../utils/criteriosdoencas';
 
 const Linha7Relatorio = () => {
 
@@ -11,7 +11,7 @@ const Linha7Relatorio = () => {
 
     const OutrosCriterios = () => {
 
-        const list = Criterios(lme)
+        const list = CriteriosLme(lme)
         return (
             <>
                 {list[0].map((w, i) =>
@@ -31,7 +31,7 @@ const Linha7Relatorio = () => {
 
     const ArtriteReumatoide2010 = () => {
 
-        const criterios = Criterios(lme)[1].map(p => {
+        const criterios = CriteriosLme(lme)[1].map(p => {
             return p[1].filter(x => p[0][0] === x[1]).map(y => { return y[0] })
         }).flat()
 

@@ -18,6 +18,7 @@ import RelatorioSet3 from "../../pages/atendimento/prescricoes/relatorioset3"
 import RelatorioSet4 from "../../pages/atendimento/prescricoes/relatorioset4"
 import RelatorioSet5 from "../../pages/atendimento/prescricoes/relatorioset5"
 import RelatorioSet6 from "../../pages/atendimento/prescricoes/relatorioset6"
+import Print from "../../pages/print"
 
 const AtendimentoNavegateProvider = () => {
 
@@ -27,7 +28,7 @@ const AtendimentoNavegateProvider = () => {
 
     // definição do step
     // 1º número:   1 - prescricao  3 - LME 5 - Alguma outra coisa      == optei por pular um, pois se precisar encaixar alguma coisa fica mais fácil
-    // 2º número:   define o que era o step antes, ou seja, qual será a Section
+    // 2º número:   define o que era o step antes, ou seja, qual será a Section agora
     // 3º número:   define variaçoes dentro da Section
 
     const SetSectionByStep = (param) => {
@@ -68,6 +69,9 @@ const AtendimentoNavegateProvider = () => {
         },
         setArticleLMEDelete: () => {
             setArticle(<LmeDelete />)
+        },
+        setArticlePrint: () => {
+            setArticle(<Print />)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))

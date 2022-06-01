@@ -3,6 +3,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import DnsIcon from '@mui/icons-material/Dns';
 import EditIcon from '@mui/icons-material/Edit';
+//import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -12,10 +13,11 @@ import SaveIcon from '@mui/icons-material/Save';
 import StartIcon from '@mui/icons-material/Start';
 import WebIcon from '@mui/icons-material/Web';
 import { IconButton, Tooltip } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ClienteContext, NavigateContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
 import { MedicamentoRelatorio } from '../../../utils/inquiries';
+import PrintDialog from '../../../pages/print/component/printdialog'
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -97,10 +99,11 @@ export const AtestadosBtn = () => {
 
 export const ImprimirNavBtn = () => {
 
-    const { setPagePrint } = useContext(AtendimentoNavigateContext)
+    //const { setPagePrint } = useContext(AtendimentoNavigateContext)
+    const { setArticlePrint } = useContext(AtendimentoNavigateContext)
 
     const handleClick = () => {
-        setPagePrint()
+        setArticlePrint()
     }
 
     return (
@@ -474,6 +477,31 @@ export const LmePararBtn = () => {
                 title={'Parar'}
                 click={handleClick}
                 icon={<CancelPresentationIcon />}
+            />
+        </>
+    )
+}
+
+export const PrintBtn = () => {
+
+    const [open, setOpen] = useState(false)
+
+    const handleClick = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
+    if (open) return <PrintDialog open={open} handleClose={handleClose} />
+
+    return (
+        <>
+            <DefaultButton
+                title={'Enviar impressão'}
+                click={handleClick}
+                icon={<PrintIcon />}
             />
         </>
     )

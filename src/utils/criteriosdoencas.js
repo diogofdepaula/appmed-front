@@ -1,3 +1,5 @@
+import { DoençaCID } from "./inquiries"
+
 export const CriteriosAR1987 = (lme) => {
     return [
         ['ara', 'Rigidez articular', lme.relatorio.ara],
@@ -58,4 +60,12 @@ export const CriteriosEA = (lme) => {
         ['eanyd', 'Radiografia com detecção de sacroileite bilateral grau 2 a 4', lme.relatorio.eanyd],
         ['eanye', 'Radiografia com detecção de sacroileite unilateral grau 3 ou 4', lme.relatorio.eanye],
     ]
+}
+
+export const CriteriosLme = (lme) => {
+    const doencapelocid = DoençaCID(lme.cid10)
+    if (doencapelocid === 'ar') return [CriteriosAR1987(lme), CriteriosAR2010(lme)]
+    if (doencapelocid === 'ap') return [CriteriosAP(lme)]
+    if (doencapelocid === 'ea') return [CriteriosEA(lme)]
+    return "aij"
 }

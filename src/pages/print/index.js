@@ -1,5 +1,4 @@
-import { Grid } from '@mui/material';
-import React from 'react';
+import { Box } from '@mui/material';
 import LMESet from './component/impressaoset/lmeset';
 import PrescricoesSet from './component/impressaoset/prescricaoset';
 import RequisicaoSet from './component/impressaoset/requisicaoset';
@@ -8,27 +7,37 @@ import TermoSet from './component/impressaoset/termoset';
 
 const Print = () => {
 
-    return <>
-        <Grid container direction="column" justifyContent="center" alignItems="center">
-            <Grid container item direction="row" justifyContent="space-between" alignItems="flex-start">
-                <Grid container item xs={3}>
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: 1,
+                }}
+            >
+                <Box>
                     <PrescricoesSet />
-                </Grid>
-                <Grid container item xs={3} direction="column" justifyContent="center" alignItems="center" >
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 1,
+                    }}
+                >
                     <LMESet />
                     <TermoSet />
-                </Grid>
-                <Grid container item xs={3}>
+                </Box>
+                <Box>
                     <RequisicaoSet />
-                </Grid>
-                <Grid container item xs={3}>
-                    <Grid item>
-                        <TempoSet />
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Grid>
-    </>
+                </Box>
+                <Box>
+                    <TempoSet />
+                </Box>
+            </Box>
+        </>
+    )
 }
 
 export default Print
