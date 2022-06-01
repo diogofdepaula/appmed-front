@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import PageA5 from '../../component/pagea5';
+import PageA5 from '../../pagea5';
 import Identificacao from '../../receita/component/identificacao';
 
 const RequisicaoA5 = ({ requisicao, tipo }) => {

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
-import PageA4 from '../../component/pagea4'
+import PageA4 from '../../pagea4'
 import Cabecalho from '../component/cabecalho'
 import Data from '../component/data'
 import Identificacao from '../component/identificacao'

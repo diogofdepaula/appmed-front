@@ -1,6 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import React, { createContext } from 'react';
-import PageA4 from '../component/pagea4';
+import PageA4 from '../pagea4';
 import Linha1Termo from './component/linha1';
 import Linha7Termo from './component/linha7';
 import Linha8Termo from './component/linha8';
