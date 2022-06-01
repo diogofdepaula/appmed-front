@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { LoginContext } from '../../App';
+import { LoginContext, PrintContext } from '../../App';
 import TermoConsentimento from '../../components/print/consentimento';
 import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
 import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
-import { PrintContext } from '../atendimento';
 
 const PrintJob = () => {
 

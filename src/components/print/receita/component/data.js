@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import addMonths from 'date-fns/addMonths';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../../pages/atendimento';
+import { PrintContext } from '../../../../App';
 import PageSize from '../../../../pages/print/component/pagesize';
 
 const Data = ({ mes, tipo }) => {

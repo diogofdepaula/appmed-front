@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { LoginContext } from '../../../../App';
-import { PrintContext } from '../../../../pages/atendimento';
+import { LoginContext, PrintContext } from '../../../../App';
 import PageSize from '../../../../pages/print/component/pagesize';
 import { PrescricaoPrintContext } from './prescricao';
 

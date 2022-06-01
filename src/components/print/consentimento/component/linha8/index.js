@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import { ptBR } from "date-fns/locale";
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../../../pages/atendimento';
+import { PrintContext } from '../../../../../App';
 
 const Linha8Termo = () => {
 

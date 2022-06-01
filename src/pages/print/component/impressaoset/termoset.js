@@ -1,6 +1,6 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../atendimento';
+import { PrintContext } from '../../../../App';
 
 const TermoSet = () => {
 

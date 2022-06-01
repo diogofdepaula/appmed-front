@@ -1,6 +1,6 @@
 import { Checkbox, Divider, FormControlLabel, List, ListItem, ListItemText } from "@mui/material"
 import { useContext } from "react"
-import { PrintContext } from "../../../atendimento"
+import { PrintContext } from "../../../../App"
 
 const RequisicaoSet = () => {
 

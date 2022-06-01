@@ -1,7 +1,6 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useCallback, useContext, useEffect } from 'react';
-import { ClienteContext } from '../../../../App';
-import { PrintContext } from '../../../atendimento';
+import { ClienteContext, PrintContext } from '../../../../App';
 
 const LMESet = () => {
 

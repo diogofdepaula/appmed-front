@@ -1,7 +1,6 @@
 import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, LoginContext } from '../../../../App';
-import { PrintContext } from '../../../atendimento';
+import { ClienteContext, LoginContext, PrintContext } from '../../../../App';
 import Reorder from '../reorder';
 
 const PrescricoesSet = () => {

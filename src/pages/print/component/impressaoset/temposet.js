@@ -1,7 +1,7 @@
 import { Slider, TextField, Typography } from '@mui/material';
 import { parseISO } from 'date-fns';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../atendimento';
+import { PrintContext } from '../../../../App';
 
 const TempoSet = () => {
 

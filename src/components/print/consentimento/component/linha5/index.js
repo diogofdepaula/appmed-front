@@ -1,7 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import React, { useContext } from 'react'
-import { ClienteContext } from '../../../../../App'
-import { PrintContext } from '../../../../../pages/atendimento'
+import { ClienteContext, PrintContext } from '../../../../../App'
 import FitText from '../../../../../pages/print/component/fittext'
 import Adverso from './adversos'
 import Gravidez from './gravidez'

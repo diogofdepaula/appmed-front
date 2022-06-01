@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../../../pages/atendimento';
+import { PrintContext } from '../../../../../App';
 
 const Linha4Termo = () => {
 

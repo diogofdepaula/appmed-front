@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { PrintContext } from '../../../pages/atendimento';
+import { PrintContext } from '../../../App';
 import Reorder from '../../../pages/print/component/reorder';
 import Prescricao from './component/prescricao';
 import ReceitaA4 from './receitaa4';

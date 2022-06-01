@@ -8,8 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-import { LoginContext } from '../../../App';
-import { PrintContext } from '../../atendimento';
+import { LoginContext, PrintContext } from '../../../App';
 import PrintJob from '../printjob';
 
 const Transition = React.forwardRef(function Transition(props, ref) {

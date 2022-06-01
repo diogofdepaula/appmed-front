@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { format } from 'date-fns';
 
 const PrintProvider = () => {
 
@@ -18,7 +19,7 @@ const PrintProvider = () => {
     const [continuo, setContinuo] = useState(false)
     const [requisicao, setRequisicao] = useState(true)
     const [requisicoes, setRequisicoes] = useState([]) // { indice, justificativa, selecionados, convenio }
-    const [database, setDatabase] = useState() //tem um formato  --- tem que por format(new Date(), "yyyy-MM-dd")
+    const [database, setDatabase] = useState(new Date())
     const somaheighta4 = 950 // 900, 
     const somaheighta5 = 440
 
