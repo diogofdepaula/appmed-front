@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { createContext } from 'react';
 import PageA4 from '../pagea4';
 import Linha1Relatorio from './component/linha1';
@@ -19,35 +19,62 @@ export const LMEPrintContext = createContext(null)
 
 const FactoryRelatorio = (props) => {
 
-    return <>
-        <PageA4>
-            <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
-                <LMEPrintContext.Provider value={props.lme}>
-                    <Grid container direction="column" justifyContent="space-between" style={{ height: "100%" }}>
-                        <Grid container item>
-                            <Linha1Relatorio />
-                            <Linha2Relatorio />
-                            <Linha3Relatorio />
-                            <Linha4Relatorio />
-                        </Grid>
-                        <Grid container item xs direction="column" alignItems="stretch">
-                            <Linha5Relatorio />
-                            <Linha6Relatorio />
-                            <Linha7Relatorio />
-                            <Linha8Relatorio />
-                            <Linha9Relatorio />
-                        </Grid>
-                        <Grid container item >
-                            <Linha10Relatorio />
-                            <Linha11Relatorio />
-                            <Linha12Relatorio />
-                            <Linha13Relatorio />
-                        </Grid>
-                    </Grid>
-                </LMEPrintContext.Provider>
-            </Box>
-        </PageA4>
-    </>;
+    return (
+        <>
+            <PageA4>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        borderBlockColor: "black",
+                        borderStyle: "solid",
+                        borderWidth: "5px",
+                        p: 1,
+                        height: "100%",
+                        width: "100%",
+                    }}
+                >
+                    <LMEPrintContext.Provider value={props.lme}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                height: "100%",
+                                width: "100%",
+                            }}
+                        >
+                            <Box>
+                                <Linha1Relatorio />
+                                <Linha2Relatorio />
+                                <Linha3Relatorio />
+                                <Linha4Relatorio />
+                            </Box>
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'stretch',
+                                    flexGrow: 1,
+                                }}
+                            >
+                                <Linha5Relatorio />
+                                <Linha6Relatorio />
+                                <Linha7Relatorio />
+                                <Linha8Relatorio />
+                                <Linha9Relatorio />
+                            </Box>
+                            <Box>
+                                <Linha10Relatorio />
+                                <Linha11Relatorio />
+                                <Linha12Relatorio />
+                                <Linha13Relatorio />
+                            </Box>
+                        </Box>
+                    </LMEPrintContext.Provider>
+                </Box>
+            </PageA4>
+        </>
+    )
 }
 
 export default FactoryRelatorio
