@@ -31,7 +31,8 @@ const Fence = (props) => {
                     borderStyle: "solid",
                     borderWidth: "thin",
                     display: "flex",
-                    flexWrap: "wrap"
+                    flexWrap: "wrap",
+                    gap: 1,
                 }}
             >
                 {props.children}
