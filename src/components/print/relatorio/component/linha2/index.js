@@ -10,7 +10,7 @@ const Linha2Relatorio = () => {
         <>
             <Box
                 sx={{
-                    my: 1,
+                    mt: 1,
                     p: 1,
                     width: "100%",
                     borderBlockColor: "black",
