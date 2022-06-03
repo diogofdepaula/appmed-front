@@ -9,7 +9,7 @@ import Linha13Relatorio from './component/linha13';
 import Linha2Relatorio from './component/linha2';
 import Linha3Relatorio from './component/linha3';
 import Linha4Relatorio from './component/linha4';
-import Linha5Relatorio from './component/linha5';
+import Linha5Relatorio from './component/linha25';
 import Linha6Relatorio from './component/linha6';
 import Linha7Relatorio from './component/linha7';
 import Linha8Relatorio from './component/linha8';

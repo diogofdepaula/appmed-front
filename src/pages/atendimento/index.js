@@ -9,6 +9,7 @@ export const AtendimentoContext = createContext(null)
 export const AtendimentoNavigateContext = createContext(null)
 
 const Content = () => {
+
     const { article } = useContext(AtendimentoNavigateContext)
     return article
 }
@@ -20,9 +21,9 @@ const Atendimento = () => {
             <ClienteHeader />
             <AtendimentoNavigateContext.Provider value={AtendimentoNavegateProvider()} >
                 <AtendimentoContext.Provider value={AtendimentoProvider()}>
-                    <Divider />
-                    <AtendimentoAppBar />
-                    <Content />
+                        <Divider />
+                        <AtendimentoAppBar />
+                        <Content />
                 </AtendimentoContext.Provider>
             </AtendimentoNavigateContext.Provider>
         </>

@@ -10,6 +10,40 @@ const Linha4Relatorio = () => {
 
     const lme = useContext(LMEPrintContext)
 
+    const BoxTitulo = ({ titulo }) => {
+        return (
+            <>
+                <Box
+                    sx={{
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                        borderBottom: 1,
+                    }}
+                >
+                    {titulo}
+                </Box>
+            </>
+        )
+    }
+
+    const BoxCheckBox = (props) => {
+        return (
+            <>
+                <Box
+                    sx={{
+                        ml: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                    }}
+                >
+                    {props.children}
+                </Box>
+
+            </>
+        )
+    }
+
     const Caixa = (props) => {
         return (
             <>
@@ -17,11 +51,10 @@ const Linha4Relatorio = () => {
                     sx={{
                         backgroundColor: "green",
                         width: "100%",
-                        height: "100%",
                         mt: 2,
                         border: 1,
                         display: 'flex',
-                        flexDirection: 'column'
+                        flexDirection: 'column',
                     }}
                 >
                     {props.children}
@@ -34,41 +67,27 @@ const Linha4Relatorio = () => {
         const list = CriteriosLme(lme)[0]
         return (
             <>
+                <BoxTitulo titulo={'Criterios ACR'} />
                 <Box
                     sx={{
-                        typography: 'subtitle2',
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                        borderBottom: 1,
+                        backgroundColor: "blue",
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
                     }}
                 >
-                    Critérios ACR
-                </Box>
-                <Box
-                    sx={{
-                        my: 1
-                    }}
-                >
-                    {list.map((w, i) =>
-                        <Box
-                            key={i}
-                            sx={{
-                                ml: 2,
-                                display: 'flex'
-                            }}
-                        >
-                            {w[2] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}
-                            <Box
-                                sx={{
-                                    typography: 'body1',
-                                    textAlign: 'left',
-                                    ml: 1,
-                                }}
+                    <Box>
+                        {list.map((w, i) =>
+                            <BoxCheckBox
+                                key={i}
                             >
-                                {w[1]}
-                            </Box>
-                        </Box>
-                    )}
+                                {w[2] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                                <Box>
+                                    {w[1]}
+                                </Box>
+                            </BoxCheckBox>
+                        )}
+                    </Box>
                 </Box>
             </>
         )
@@ -80,40 +99,48 @@ const Linha4Relatorio = () => {
 
         return (
             <>
+                <BoxTitulo titulo={'Critérios ACR-EULAR'} />
                 <Box
                     sx={{
-                        typography: 'subtitle2',
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                        borderBottom: 1,
+                        ml: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
                     }}
                 >
-                    Critérios ACR-EULAR
-                </Box>
-                <Box
-                        // talvez esse bloco seja dispensável
-
-                        sx={{
-                        my: 1
-                    }}
-                >
+                    <Box>
+                        Acometimento articular {criterios[0][0][0]} pontos
+                    </Box>
+                    <Box>
+                        Sorologia {criterios[1][0][0]} pontos
+                    </Box>
+                    <Box>
+                        Provas de atividade inflamatória
+                        <BoxCheckBox>
+                            {criterios[2][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                            VHS e PCR normais (0 ponto)
+                        </BoxCheckBox>
+                        <BoxCheckBox>
+                            {!criterios[2][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                            VHS e PCR alterados (1 ponto)
+                        </BoxCheckBox>
+                    </Box>
+                    <Box>
+                        Duração dos sintomas
+                        <BoxCheckBox>
+                            {criterios[3][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                            {'>'} 6 semanas (0 ponto)
+                        </BoxCheckBox>
+                        <BoxCheckBox>
+                            {!criterios[3][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                            {'≥'} 6 semanas (1 ponto)
+                        </BoxCheckBox>
+                    </Box>
                     <Box
                         sx={{
-                            ml: 2,
-                            display: 'flex'
+                            fontWeight: 'bold',
                         }}
                     >
-                       Acometimento articular 
-                        {/* {criterios[0][0][1] ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankIcon />}   */}
-                        <Box
-                            sx={{
-                                typography: 'body1',
-                                textAlign: 'left',
-                                ml: 1,
-                            }}
-                        >
-                            {criterios[0][0]}
-                        </Box>
+                        Pontuação {criterios[0][0][0] + criterios[1][0][0] + criterios[2][0][0] + criterios[3][0][0]}
                     </Box>
                 </Box>
             </>
@@ -123,22 +150,22 @@ const Linha4Relatorio = () => {
     const ProvaAtivInflamatoria = () => {
         return (
             <>
+                <BoxTitulo titulo={'Provas de Atividade Inflamatória'} />
                 <Box
                     sx={{
-                        typography: 'subtitle2',
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                        borderBottom: 1,
+                        height: '100%',
+                        display: 'flex',
+                        justifyContent: 'space-evenly',
+                        alignItems: 'center' ,
+                        flexDirection: 'column',
                     }}
                 >
-                    Provas de Atividade Inflamatória
-                </Box>
-                <Box
-                    sx={{
-                        my: 1
-                    }}
-                >
-                    VHS e PCR
+                    <Box>
+                        VHS: {lme.relatorio.vhs}
+                    </Box>
+                    <Box>
+                        PCR: {lme.relatorio.pcr}
+                    </Box>
                 </Box>
             </>
         )
