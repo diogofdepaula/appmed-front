@@ -1,9 +1,24 @@
 import { Box, CardMedia } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
+import { LMEPrintContext } from '../..'
 import LogoCEMEPAR from '../../../../../utils/imagens/cemeparlogo.png'
 import LogoSESA from '../../../../../utils/imagens/sesalogo.png'
+import { DoençaCID } from '../../../../../utils/inquiries'
 
 const Linha1Relatorio = () => {
+
+    const lme = useContext(LMEPrintContext)
+
+    const SetName = () => {
+        const Name = {
+            'ar': 'Artrite reumatoide',
+            'ea': 'Espondilite Anquilosante',
+            'ap': 'Artrite psoriásica',
+            'aij': 'Artrite Idiopática Juvenil',
+            default: <div />
+        }
+        return Name[DoençaCID(lme.cid10)] || Name.default
+    }
 
     return (
         <>
@@ -40,7 +55,7 @@ const Linha1Relatorio = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         textAlign: 'center',
-                        justifyContent: 'center' ,
+                        justifyContent: 'center',
                     }}
                 >
                     <Box
@@ -57,9 +72,10 @@ const Linha1Relatorio = () => {
                             typography: 'subtitle2',
                             fontSize: 18,
                             fontWeight: 'bold',
+                            textTransform: 'uppercase',
                         }}
                     >
-                        ARTRITE REUMATÓIDE
+                        <SetName />
                     </Box>
                 </Box>
                 <Box
