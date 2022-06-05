@@ -1,5 +1,3 @@
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
@@ -17,24 +15,21 @@ const CriteriosAR = () => {
                 <BoxTitulo titulo={'Criterios ACR'} />
                 <Box
                     sx={{
-                        backgroundColor: "blue",
                         height: '100%',
                         display: 'flex',
-                        alignItems: 'center',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'left',
                     }}
                 >
-                    <Box>
-                        {list.map((w, i) =>
-                            <BoxCheckBox
-                                key={i}
-                            >
-                                {w[2] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
-                                <Box>
-                                    {w[1]}
-                                </Box>
-                            </BoxCheckBox>
-                        )}
-                    </Box>
+                    {list.map((w, i) =>
+                        <BoxCheckBox
+                            key={i}
+                            item={w[2]}
+                        >
+                            {w[1]}
+                        </BoxCheckBox>
+                    )}
                 </Box>
             </>
         )
@@ -62,23 +57,27 @@ const CriteriosAR = () => {
                     </Box>
                     <Box>
                         Provas de atividade inflamatória
-                        <BoxCheckBox>
-                            {criterios[2][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                        <BoxCheckBox
+                            item={criterios[2][0][0]}
+                        >
                             VHS e PCR normais (0 ponto)
                         </BoxCheckBox>
-                        <BoxCheckBox>
-                            {!criterios[2][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                        <BoxCheckBox
+                            item={!criterios[2][0][0]}
+                        >
                             VHS e PCR alterados (1 ponto)
                         </BoxCheckBox>
                     </Box>
                     <Box>
                         Duração dos sintomas
-                        <BoxCheckBox>
-                            {criterios[3][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                        <BoxCheckBox
+                            item={criterios[3][0][0]}
+                        >
                             {'>'} 6 semanas (0 ponto)
                         </BoxCheckBox>
-                        <BoxCheckBox>
-                            {!criterios[3][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
+                        <BoxCheckBox
+                            item={!criterios[3][0][0]}
+                        >
                             {'≥'} 6 semanas (1 ponto)
                         </BoxCheckBox>
                     </Box>

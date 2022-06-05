@@ -9,8 +9,6 @@ const Linha3Relatorio = () => {
     const { clienteContext } = useContext(ClienteContext)
     const lme = useContext(LMEPrintContext)
 
-    console.log(lme);
-
     const dados = [
         {
             titulo: "Nome",

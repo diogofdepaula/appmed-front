@@ -1,17 +1,50 @@
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
-import { CriteriosLme } from '../../../../../utils/criteriosdoencas';
+import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox, BoxTitulo, Caixa } from '../../../components';
+import Fence from '../../../fence';
+import Field from '../../../field';
+
+export const ProvasAtividadeInflamatoriaEA = () => {
+    const lme = useContext(LMEPrintContext)
+    if (DoençaCID(lme.cid10) !== 'ea') return <></>
+
+    return (
+        <>
+            <Fence titulo="2.1 - Provas de atividade inflamatória">
+                <Field
+                    dados={{
+                        titulo: "VHS",
+                        texto: lme.relatorio.vhs,
+                        alinhamento: "center",
+                        negrito: "bold",
+                        grow: "1",
+                    }}
+                />
+                <Field
+                    dados={{
+                        titulo: "PCR",
+                        texto: lme.relatorio.pcr,
+                        alinhamento: "center",
+                        negrito: "bold",
+                        grow: "1",
+                    }}
+                />
+            </Fence>
+        </>
+    )
+}
+
+
+
+
 
 const CriteriosEA = () => {
 
     const lme = useContext(LMEPrintContext)
 
-    const ArAcr = () => {
-        const list = CriteriosLme(lme)[0]
+    const Asas = () => {
         return (
             <>
                 <BoxTitulo titulo={'Para doença inicial (até 45 anos)'} />
@@ -25,32 +58,46 @@ const CriteriosEA = () => {
                 />
                 <Box
                     sx={{
-                        backgroundColor: "blue",
                         height: '100%',
                         display: 'flex',
                         alignItems: 'center',
                     }}
                 >
-                    <Box>
-                        {list.map((w, i) =>
-                            <BoxCheckBox
-                                key={i}
-                            >
-                                {w[2] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
-                                <Box>
-                                    {w[1]}
-                                </Box>
-                            </BoxCheckBox>
-                        )}
-                    </Box>
+                    <BoxCheckBox
+                        item={lme.relatorio.eaaa}
+                    >
+                        Lombalgia inflamatória por, no mínimo, 3 meses e idade de início da doença até 45 anos
+                    </BoxCheckBox>
+                </Box>
+                <BoxTitulo
+                    titulo={'Critério possíveis'}
+                    size={14}
+                    top={1}
+                />
+                <Box
+                    sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'left',
+                    }}
+                >
+                    <BoxCheckBox
+                        item={lme.relatorio.eaab}
+                    >
+                        Sacroileíte em exames de imagem e, pelo menos 1 característica de Espondiloartrite
+                    </BoxCheckBox>
+                    <BoxCheckBox
+                        item={lme.relatorio.eaac}
+                    >
+                        HLA-B27 e 2 ou mais características de espondiloartrite
+                    </BoxCheckBox>
                 </Box>
             </>
         )
     }
 
-    const ArAcrEular = () => {
-
-        const criterios = CriteriosLme(lme)[1]
+    const Ny = () => {
 
         return (
             <>
@@ -65,46 +112,51 @@ const CriteriosEA = () => {
                 />
                 <Box
                     sx={{
-                        ml: 2,
+                        height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
+                        alignItems: 'left',
                     }}
                 >
-                    <Box>
-                        Acometimento articular {criterios[0][0][0]} pontos
-                    </Box>
-                    <Box>
-                        Sorologia {criterios[1][0][0]} pontos
-                    </Box>
-                    <Box>
-                        Provas de atividade inflamatória
-                        <BoxCheckBox>
-                            {criterios[2][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
-                            VHS e PCR normais (0 ponto)
-                        </BoxCheckBox>
-                        <BoxCheckBox>
-                            {!criterios[2][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
-                            VHS e PCR alterados (1 ponto)
-                        </BoxCheckBox>
-                    </Box>
-                    <Box>
-                        Duração dos sintomas
-                        <BoxCheckBox>
-                            {criterios[3][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
-                            {'>'} 6 semanas (0 ponto)
-                        </BoxCheckBox>
-                        <BoxCheckBox>
-                            {!criterios[3][0][0] ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
-                            {'≥'} 6 semanas (1 ponto)
-                        </BoxCheckBox>
-                    </Box>
-                    <Box
-                        sx={{
-                            fontWeight: 'bold',
-                        }}
+                    <BoxCheckBox
+                        item={lme.relatorio.eanya}
                     >
-                        Pontuação {criterios[0][0][0] + criterios[1][0][0] + criterios[2][0][0] + criterios[3][0][0]}
-                    </Box>
+                        Lombalgia inflamatória por três meses ou mais de duração
+                    </BoxCheckBox>
+                    <BoxCheckBox
+                        item={lme.relatorio.eanyb}
+                    >
+                        Limitação dos movimentos da coluna lombar nos planos sagital e frontal
+                    </BoxCheckBox>
+                    <BoxCheckBox
+                        item={lme.relatorio.eanyc}
+                    >
+                        Lombalgia inflamatória por três meses ou mais de duração
+                    </BoxCheckBox>
+                </Box>
+                <BoxTitulo
+                    titulo={'Radiográficos'}
+                    size={14}
+                    top={1}
+                />
+                <Box
+                    sx={{
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'left',
+                    }}
+                >
+                    <BoxCheckBox
+                        item={lme.relatorio.eanyd}
+                    >
+                        Radiografia com detecção de sacroileíte bilateral graus 2 - 4.
+                    </BoxCheckBox>
+                    <BoxCheckBox
+                        item={lme.relatorio.eanye}
+                    >
+                        Radiografia com detecção de sacroileíte unilateral graus 3 ou 4.
+                    </BoxCheckBox>
                 </Box>
             </>
         )
@@ -112,11 +164,13 @@ const CriteriosEA = () => {
 
     return (
         <>
-            <Caixa>
-                <ArAcr />
+            <Caixa
+                largura={'53rem'}
+            >
+                <Asas />
             </Caixa>
             <Caixa>
-                <ArAcrEular />
+                <Ny />
             </Caixa>
         </>
     )

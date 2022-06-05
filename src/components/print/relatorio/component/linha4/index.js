@@ -1,10 +1,26 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
+import { LMEPrintContext } from '../..';
+import { DoençaCID } from '../../../../../utils/inquiries';
 import Fence from '../../../fence';
+import CriteriosAP from './ap';
 import CriteriosAR from './ar';
-import CriteriosEA from './ea';
+import CriteriosEA, { ProvasAtividadeInflamatoriaEA } from './ea';
 
 const Linha4Relatorio = () => {
+
+    const lme = useContext(LMEPrintContext)
+
+    const SetSection = () => {
+        const Section = {
+            'ar': <CriteriosAR />,
+            'ea': <CriteriosEA />,
+            'ap': <CriteriosAP />,
+            // 'aij': <CriteriosAIJ />,
+            default: <div />
+        }
+        return Section[DoençaCID(lme.cid10)] || Section.default
+    }
 
     return (
         <>
@@ -13,17 +29,18 @@ const Linha4Relatorio = () => {
                     sx={{
                         width: "100%",
                         height: "100%",
-                        mr: 1,
                         display: 'flex',
+                        mr: 1,
+                        mb: '-0.7rem',
                         flexDirection: 'row',
                         alignContent: 'stretch',
                         gap: 1,
                     }}
                 >
-                  {/* <CriteriosAR /> */}
-                  <CriteriosEA />
+                    <SetSection />
                 </Box>
             </Fence>
+            <ProvasAtividadeInflamatoriaEA />
         </>
     )
 }
