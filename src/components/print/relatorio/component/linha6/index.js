@@ -1,97 +1,280 @@
-import { Box, Grid, Typography } from '@mui/material'
-import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
+import { Box } from '@mui/material';
+import React, { useContext } from 'react';
+import { LMEPrintContext } from '../..';
+import { BoxCheckBox } from '../../../components';
+import Fence from '../../../fence';
+
+const BoxLinha = (props) => {
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                }}
+            >
+                {props.children}
+            </Box>
+        </>
+    )
+}
+
+const BoxTitulo = (props) => {
+    return (
+        <>
+            <Box
+                sx={{
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                }}
+            >
+                {props.titulo}
+            </Box>
+        </>
+    )
+}
+
+const BoxColunaA = (props) => {
+    return (
+        <>
+            <Box
+                sx={{
+                    width: '10rem',
+                    borderTop: 1,
+                    borderRight: 1,
+                    alignItems: 'center',
+                    alignContent: 'center',
+                }}
+            >
+                {props.children}
+            </Box>
+        </>
+    )
+}
+
+const BoxColunaB = (props) => {
+
+    return (
+        <>
+            <Box
+                sx={{
+                    width: '10rem',
+                    borderTop: 1,
+                    borderRight: 1,
+                    textAlign: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                {props.children}
+            </Box>
+        </>
+    )
+}
+
+const BoxColunaC = (props) => {
+    return (
+        <>
+            <Box
+                sx={{
+                    width: '12rem',
+                    borderTop: 1,
+                    borderRight: 1,
+                    display: 'flex',
+                    flexDirection: 'column'
+                }}
+            >
+                {props.children}
+            </Box>
+        </>
+    )
+}
 
 const Linha6LME = () => {
 
     const lme = useContext(LMEPrintContext)
+    // na lógica colocar somente os medicamentos que tem data de início igual a new Date()
 
-    return <>
-        <Box mt={2}>
-            <Grid container spacing={1}>
-                <Grid container item xs={6}>
-                    <Box width={1} border={1} borderColor="black">
-                        <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                            <Grid item>
-                                <Box mt={-1} ml={2} display="flex" >
-                                    <Typography component={'span'} variant="caption" noWrap={true} >
-                                        <Box bgcolor="white" px={1}>9 - Tempo de doença</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                <Box ml={1}>
-                                    <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box>{lme.relatorio.tempodoencaanos ?? "0"} anos e {lme.relatorio.tempodoencameses ?? "0"} meses</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        </Grid>
+    const dados = [
+        [
+            'AINH',
+            '------',
+            [
+                'Naproxeno'
+            ],
+        ],
+        [
+            'Glicocorticoide',
+            '------',
+            [
+                'Prednsiona'
+            ],
+        ],
+        [
+            'Imunossupressores',
+            '------',
+            [
+                'Azatioprina',
+                'Ciclosporina',
+            ],
+        ],
+        [
+            'MMCD Sintéticos',
+            'Primeira',
+            [
+                'Metotrexato',
+                'Sulfassalazina',
+                'Leflunomida',
+                'Cloroquina',
+                'Hidroxicloroquina',
+            ],
+        ],
+        [
+            'MMCD Alvo-específico',
+            'Segunda e terceira',
+            [
+                'Tofacitinibe',
+                'Baracitinibe',
+                'Upadacitinibe',
+            ],
+        ],
+        [
+            'MMCD Biológicos',
+            'Segunda e terceira',
+            [
+                'Abatacepte',
+                'Adalimumabe',
+                'Certolizumabe',
+                'Golimumabe',
+                'Infliximabe',
+                'Tocilizumabe',
+            ],
+        ],
+        [
+            'MMCD Biológicos',
+            'Segunda e terceira',
+            [
+                'Rituximabe',
+            ],
+        ],
+    ]
+
+    return (
+        <>
+            <Fence titulo="3 - Medicamento solicitado">
+                <Box
+                    sx={{
+                        height: "100%",
+                        flexGrow: 1,
+                        mt: 2,
+                        mr: 1,
+                        mb: '-0.7rem',
+                        border: 1,
+                        display: 'flex',
+                        flexDirection: 'row',
+                    }}
+                >
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        <BoxLinha>
+                            <Box
+                                sx={{
+                                    width: '10rem',
+                                    borderRight: 1,
+                                }}
+                            >
+                                <BoxTitulo titulo={'Classe - Fármaco'} />
+                            </Box>
+                            <Box
+                                sx={{
+                                    width: '10rem',
+                                    borderRight: 1,
+                                }}
+                            >
+                                <BoxTitulo titulo={'Etapa de tratamento'} />
+                            </Box>
+                            <Box
+                                sx={{
+                                    width: '12rem',
+                                    borderRight: 1,
+                                }}
+                            >
+                                <BoxTitulo titulo={'Medicamento solicitado'} />
+                            </Box>
+                        </BoxLinha>
+                        {dados.map((d, i) =>
+                            <React.Fragment
+                                key={i}
+                            >
+                                <BoxLinha>
+                                    <BoxColunaA>
+                                        <Box
+                                            sx={{
+                                                ml: 1,
+                                            }}
+                                        >
+                                            {d[0]}
+                                        </Box>
+                                    </BoxColunaA>
+                                    <BoxColunaB>
+                                        {d[1]}
+                                    </BoxColunaB>
+                                    <BoxColunaC>
+                                        {d[2].map((m, y) =>
+                                            <React.Fragment
+                                                key={y}
+                                            >
+                                                <BoxCheckBox
+                                                    item={true}
+                                                >
+                                                    {m}
+                                                </BoxCheckBox>
+                                            </React.Fragment>
+                                        )}
+                                    </BoxColunaC>
+                                </BoxLinha>
+                            </React.Fragment>
+                        )}
                     </Box>
-                </Grid>
-                <Grid container item xs={2}  >
-                    <Box width={1} border={1} borderColor="black">
-                        <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                            <Grid item>
-                                <Box mt={-1} ml={2} display="flex" >
-                                    <Typography component={'span'} variant="caption" noWrap={true} >
-                                        <Box bgcolor="white" px={1}>10 - VHS</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                <Box ml={1}>
-                                    <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box>{lme.relatorio.vhs}</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        </Grid>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                        }}
+                    >
+                        <BoxTitulo titulo={'Medicamentos utilizados anteriormente e tempo de uso'} />
+                        <Box
+                            sx={{
+                                width: '100%',
+                                height: '100%',
+                                borderTop: 1,
+                                p: 1,
+                            }}
+                        >
+                            {lme.relatorio.utilizados}
+                        </Box>
+                        {lme.relatorio.rxt &&
+                            <Box
+                                sx={{
+                                    borderTop: 1,
+                                    typography: 'caption',
+                                    px: 0.5,
+                                }}
+                            >
+                                Possui contraindicação absoluta, toxicidade ou falha
+                                terapêutica a todos os MMCD biológicos anti-TNF e não
+                                anti-TNF e MMDC alvo-específico ( X ) Sim (  ) Não
+                            </Box>
+                        }
                     </Box>
-                </Grid>
-                <Grid container item xs={2}  >
-                    <Box width={1} border={1} borderColor="black">
-                        <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                            <Grid item>
-                                <Box mt={-1} ml={2} display="flex" >
-                                    <Typography component={'span'} variant="caption" noWrap={true} >
-                                        <Box bgcolor="white" px={1}>11 - PCR</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                <Box ml={1}>
-                                    <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box>{lme.relatorio.pcr}</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Grid>
-                <Grid container item xs={2}  >
-                    <Box width={1} border={1} borderColor="black">
-                        <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                            <Grid item>
-                                <Box mt={-1} ml={2} display="flex" >
-                                    <Typography component={'span'} variant="caption" noWrap={true} >
-                                        <Box bgcolor="white" px={1}>12 - VR</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                <Box ml={1}>
-                                    <Typography component={'span'} variant={'h6'} align={'center'}>
-                                        <Box>{lme.relatorio.pcrvn}</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Box>
-    </>;
+                </Box>
+            </Fence>
+        </>
+    )
 }
 
 export default Linha6LME

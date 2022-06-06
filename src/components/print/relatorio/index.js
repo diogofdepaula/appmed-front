@@ -8,6 +8,8 @@ import Linha3Relatorio from './component/linha3';
 import Linha4Relatorio from './component/linha4';
 import Linha5Relatorio from './component/linha5';
 import Linha6Relatorio from './component/linha6';
+import Linha7Relatorio from './component/linha7';
+import Linha8Relatorio from './component/linha8';
 
 export const LMEPrintContext = createContext(null)
 
@@ -43,6 +45,7 @@ const FactoryRelatorio = (props) => {
                                 <Linha3Relatorio />
                                 <Linha4Relatorio />
                                 <Linha5Relatorio />
+                                <Linha6Relatorio />
                             </Box>
                             <Box
                                 sx={{
@@ -52,10 +55,9 @@ const FactoryRelatorio = (props) => {
                                     flexGrow: 1,
                                 }}
                             >
-                                <Linha6Relatorio />
-                                {/* <Linha7Relatorio />
+                                <Linha7Relatorio />
                                 <Linha8Relatorio />
-                                <Linha9Relatorio /> */}
+                                {/* <Linha9Relatorio /> */}
                             </Box>
                             <Box>
                                 {/* <Linha10Relatorio />
