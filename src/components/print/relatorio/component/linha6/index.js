@@ -82,7 +82,8 @@ const BoxColunaC = (props) => {
                     borderTop: 1,
                     borderRight: 1,
                     display: 'flex',
-                    flexDirection: 'column'
+                    flexDirection: 'column',
+                    pl: 1,
                 }}
             >
                 {props.children}

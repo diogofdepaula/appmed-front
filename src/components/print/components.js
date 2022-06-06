@@ -25,7 +25,7 @@ export const BoxCheckBox = (props) => {
         <>
             <Box
                 sx={{
-                    ml: 2,
+                   // ml: 2,
                     display: 'flex',
                     alignItems: 'center',
                     gap: 1,

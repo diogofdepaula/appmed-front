@@ -25,6 +25,7 @@ const CriteriosAP = () => {
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
+                        pl: 1,
                     }}
                 >
                     <BoxCheckBox
@@ -84,9 +85,9 @@ const CriteriosAP = () => {
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        alignItems: 'left',
                         justifyContent: 'center',
                         borderBottom: 1,
+                        pl: 1,
                     }}
                 >
                     <BoxCheckBox

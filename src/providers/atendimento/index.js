@@ -105,7 +105,7 @@ export const NovoRelatorio = (lmeId) => {
         fim7: '',
         motivo7: '',
         dose: '',
-        inducao: false,
+        inducao: '',
         justificativa: '',
         ttopreviobiologico: false,
         rxt: false,

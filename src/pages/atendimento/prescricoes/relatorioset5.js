@@ -1,4 +1,5 @@
 import { Box, Checkbox, FormControlLabel, TextField } from '@mui/material';
+import Radio from '@mui/material/Radio';
 import React, { useContext } from 'react';
 import ReactInputMask from 'react-input-mask';
 import { AtendimentoContext } from '..';
@@ -14,7 +15,6 @@ const RelatorioSet5 = () => {
     const handleChecked = event => {
         setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.checked } })
     }
-
 
     return (
         <>
@@ -38,16 +38,38 @@ const RelatorioSet5 = () => {
                         label="Dose prescrita para MMCD biológicos (Infliximabe e Tocilizumabe)"
                     />}
                 </ReactInputMask>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            color='primary'
-                            name="inducao"
-                            checked={lmeEdit.relatorio?.inducao}
-                            onChange={handleChecked}
-                        />}
-                    label='Realizou dose de indução'
-                />
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignContent: 'flex-start',
+                    }}
+                >
+                    <FormControlLabel
+                        name='inducao'
+                        value="a"
+                        control={<Radio />}
+                        label="Realizou dose de indução"
+                        checked={lmeEdit.relatorio?.inducao === "a" || false}
+                        onChange={handleChange}
+                    />
+                    <FormControlLabel
+                        name='inducao'
+                        value="b"
+                        control={<Radio />}
+                        label="Não realizou dose de indução"
+                        checked={lmeEdit.relatorio?.inducao === "b" || false}
+                        onChange={handleChange}
+                    />
+                    <FormControlLabel
+                        name='inducao'
+                        value="c"
+                        control={<Radio />}
+                        label="Não se aplica"
+                        checked={lmeEdit.relatorio?.inducao === "c" || false}
+                        onChange={handleChange}
+                    />
+                </Box>
                 <TextField
                     fullWidth
                     multiline

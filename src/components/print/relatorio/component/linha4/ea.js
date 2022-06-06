@@ -57,6 +57,7 @@ const CriteriosEA = () => {
                         height: '100%',
                         display: 'flex',
                         alignItems: 'center',
+                        pl: 1,
                     }}
                 >
                     <BoxCheckBox
@@ -76,6 +77,7 @@ const CriteriosEA = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'left',
+                        pl: 1,
                     }}
                 >
                     <BoxCheckBox
@@ -112,6 +114,7 @@ const CriteriosEA = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'left',
+                        pl: 1,
                     }}
                 >
                     <BoxCheckBox
@@ -141,6 +144,7 @@ const CriteriosEA = () => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'left',
+                        pl: 1,
                     }}
                 >
                     <BoxCheckBox

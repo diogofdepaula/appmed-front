@@ -20,6 +20,7 @@ const CriteriosAR = () => {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'left',
+                        pl: 1,
                     }}
                 >
                     {list.map((w, i) =>
@@ -44,7 +45,7 @@ const CriteriosAR = () => {
                 <BoxTitulo titulo={'Critérios ACR-EULAR'} />
                 <Box
                     sx={{
-                        ml: 2,
+                        ml: 1,
                         display: 'flex',
                         flexDirection: 'column',
                     }}
@@ -57,29 +58,41 @@ const CriteriosAR = () => {
                     </Box>
                     <Box>
                         Provas de atividade inflamatória
-                        <BoxCheckBox
-                            item={criterios[2][0][0]}
+                        <Box
+                            sx={{
+                                pl: 1,
+                            }}
                         >
-                            VHS e PCR normais (0 ponto)
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={!criterios[2][0][0]}
-                        >
-                            VHS e PCR alterados (1 ponto)
-                        </BoxCheckBox>
+                            <BoxCheckBox
+                                item={criterios[2][0][0]}
+                            >
+                                VHS e PCR normais (0 ponto)
+                            </BoxCheckBox>
+                            <BoxCheckBox
+                                item={!criterios[2][0][0]}
+                            >
+                                VHS e PCR alterados (1 ponto)
+                            </BoxCheckBox>
+                        </Box>
                     </Box>
                     <Box>
                         Duração dos sintomas
-                        <BoxCheckBox
-                            item={criterios[3][0][0]}
+                        <Box
+                            sx={{
+                                pl: 1,
+                            }}
                         >
-                            {'>'} 6 semanas (0 ponto)
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={!criterios[3][0][0]}
-                        >
-                            {'≥'} 6 semanas (1 ponto)
-                        </BoxCheckBox>
+                            <BoxCheckBox
+                                item={criterios[3][0][0]}
+                            >
+                                {'>'} 6 semanas (0 ponto)
+                            </BoxCheckBox>
+                            <BoxCheckBox
+                                item={!criterios[3][0][0]}
+                            >
+                                {'≥'} 6 semanas (1 ponto)
+                            </BoxCheckBox>
+                        </Box>
                     </Box>
                     <Box
                         sx={{
