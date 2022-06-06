@@ -38,20 +38,32 @@ const Linha9Relatorio = () => {
                         >
                             PPD:
                         </Box>
+                        <Box
+                            sx={{
+                                width: '7rem'
+                            }}
+                        >
+                            <BoxCheckBox
+                                item={lme.relatorio.ppdresultado === "c"}
+                            >
+                                Não reator
+                            </BoxCheckBox>
+                        </Box>
+                        <Box
+                            sx={{
+                                width: '10rem'
+                            }}
+                        >
+                            <BoxCheckBox
+                                item={lme.relatorio.ppdresultado === "b"}
+                            >
+                                Acima de 5 mm
+                            </BoxCheckBox>
+                        </Box>
                         <BoxCheckBox
                             item={lme.relatorio.ppdresultado === "a"}
                         >
                             Até 5 mm
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={lme.relatorio.ppdresultado === "b"}
-                        >
-                            Acima de 5 mm
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={lme.relatorio.ppdresultado === "c"}
-                        >
-                            Não reator
                         </BoxCheckBox>
                         Se PPD {'≥'} 5mm
                         Tratamento para TB latente
@@ -80,11 +92,17 @@ const Linha9Relatorio = () => {
                         >
                             Rx de Tórax:
                         </Box>
-                        <BoxCheckBox
-                            item={lme.relatorio.rxtoraxresultado === "a"}
+                        <Box
+                            sx={{
+                                width: '7rem'
+                            }}
                         >
-                            Normal
-                        </BoxCheckBox>
+                            <BoxCheckBox
+                                item={lme.relatorio.rxtoraxresultado === "a"}
+                            >
+                                Normal
+                            </BoxCheckBox>
+                        </Box>
                         <BoxCheckBox
                             item={lme.relatorio.rxtoraxresultado === "b"}
                         >
