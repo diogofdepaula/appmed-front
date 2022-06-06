@@ -1,7 +1,8 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
-import FitText from '../../../../../pages/print/component/fittext'
+import { BoxCheckBox } from '../../../components'
+import Fence from '../../../fence'
 
 const Linha9Relatorio = () => {
 
@@ -9,31 +10,118 @@ const Linha9Relatorio = () => {
 
     return (
         <>
-             <Box
-                mt={2}
-                flexGrow={1}
-                width={1}
-                border={1}
-                borderColor="black"
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "stretch",
-                }}
-            >
-                <Box mt={-1} ml={2} display="flex">
-                    <Typography component={'span'} variant="caption" noWrap={true} >
-                        <Box bgcolor="white" px={1}>15 - Relatório Médico (justificativa para solicitação ou mudança e eventos adversos)</Box>
-                    </Typography>
+            <Fence titulo={'5 - Para solicitação dos medicamentos MMCD biológicos e alvo-específico'}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        height: "100%",
+                        mt: 2,
+                        mr: 1,
+                        mb: '-0.7rem',
+                        border: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        //gap: 1,
+                    }}
+                >
+                    <Box
+                        sx={{
+                            display: 'inline-flex',
+                            width: '100%',
+                            borderBottom: 1,
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                width: '6rem'
+                            }}
+                        >
+                            PPD:
+                        </Box>
+                        <BoxCheckBox
+                            item={lme.relatorio.ppdresultado === "a"}
+                        >
+                            Até 5 mm
+                        </BoxCheckBox>
+                        <BoxCheckBox
+                            item={lme.relatorio.ppdresultado === "b"}
+                        >
+                            Acima de 5 mm
+                        </BoxCheckBox>
+                        <BoxCheckBox
+                            item={lme.relatorio.ppdresultado === "c"}
+                        >
+                            Não reator
+                        </BoxCheckBox>
+                        Se PPD {'≥'} 5mm
+                        Tratamento para TB latente
+                        <BoxCheckBox
+                            item={lme.relatorio.ppdtratamento}
+                        >
+                            Sim
+                        </BoxCheckBox>
+                        <BoxCheckBox
+                            item={!lme.relatorio.ppdtratamento}
+                        >
+                            Não
+                        </BoxCheckBox>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: 'inline-flex',
+                            width: '100%',
+                            borderBottom: 1,
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                width: '6rem'
+                            }}
+                        >
+                            Rx de Tórax:
+                        </Box>
+                        <BoxCheckBox
+                            item={lme.relatorio.rxtoraxresultado === "a"}
+                        >
+                            Normal
+                        </BoxCheckBox>
+                        <BoxCheckBox
+                            item={lme.relatorio.rxtoraxresultado === "b"}
+                        >
+                            Alterado: {lme.relatorio.rxtoraxalteracao}
+                        </BoxCheckBox>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: 'inline-flex',
+                            width: '100%',
+                        }}
+                    >
+                        Possui imunidade para Hepatite B:
+                        <BoxCheckBox
+                            item={lme.relatorio.hepatiteimunidade}
+                        >
+                            Sim
+                        </BoxCheckBox>
+                        <BoxCheckBox
+                            item={!lme.relatorio.hepatiteimunidade}
+                        >
+                            Não
+                        </BoxCheckBox>
+                        Se não, foi vacinado:
+                        <BoxCheckBox
+                            item={lme.relatorio.hepatitevacina}
+                        >
+                            Sim
+                        </BoxCheckBox>
+                        <BoxCheckBox
+                            item={!lme.relatorio.hepatitevacina}
+                        >
+                            Não
+                        </BoxCheckBox>
+                    </Box>
                 </Box>
-                <FitText
-                    texto={lme.anamnese}
-                    inicial={4}
-                    maxfont={20}
-                    erro={64}
-                    padding={1}
-                />
-            </Box>
+            </Fence>
         </>
     )
 }

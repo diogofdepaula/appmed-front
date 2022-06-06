@@ -28,7 +28,7 @@ export const BoxCheckBox = (props) => {
                    // ml: 2,
                     display: 'flex',
                     alignItems: 'center',
-                    gap: 1,
+                    gap: 0.5,
                 }}
             >
                 {props.item ? <CheckBoxOutlinedIcon fontSize="small" /> : <CheckBoxOutlineBlankIcon fontSize="small" />}
