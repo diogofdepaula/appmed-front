@@ -46,6 +46,7 @@ const FactoryRelatorio = (props) => {
                                 <Linha4Relatorio />
                                 <Linha5Relatorio />
                                 <Linha6Relatorio />
+                                <Linha7Relatorio />
                             </Box>
                             <Box
                                 sx={{
@@ -55,7 +56,6 @@ const FactoryRelatorio = (props) => {
                                     flexGrow: 1,
                                 }}
                             >
-                                <Linha7Relatorio />
                                 <Linha8Relatorio />
                                 {/* <Linha9Relatorio /> */}
                             </Box>
