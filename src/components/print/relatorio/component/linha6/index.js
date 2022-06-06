@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
+import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox } from '../../../components';
 import Fence from '../../../fence';
 
@@ -39,11 +40,11 @@ const BoxColunaA = (props) => {
         <>
             <Box
                 sx={{
-                    width: '10rem',
+                    width: '11rem',
                     borderTop: 1,
                     borderRight: 1,
+                    display: 'flex',
                     alignItems: 'center',
-                    alignContent: 'center',
                 }}
             >
                 {props.children}
@@ -61,7 +62,8 @@ const BoxColunaB = (props) => {
                     width: '10rem',
                     borderTop: 1,
                     borderRight: 1,
-                    textAlign: 'center',
+                    display: 'flex',
+                    justifyContent: 'center',
                     alignItems: 'center',
                 }}
             >
@@ -94,7 +96,7 @@ const Linha6LME = () => {
     const lme = useContext(LMEPrintContext)
     // na lógica colocar somente os medicamentos que tem data de início igual a new Date()
 
-    const dados = [
+    const ar = [
         [
             'AINH',
             '------',
@@ -144,6 +146,7 @@ const Linha6LME = () => {
                 'Abatacepte',
                 'Adalimumabe',
                 'Certolizumabe',
+                'Etanercepte',
                 'Golimumabe',
                 'Infliximabe',
                 'Tocilizumabe',
@@ -157,6 +160,114 @@ const Linha6LME = () => {
             ],
         ],
     ]
+
+    const ea = [
+        [
+            'AINH',
+            '------',
+            [
+                'Naproxeno'
+            ],
+        ],
+        [
+            'Imunossupressores',
+            '------',
+            [
+                'Azatioprina',
+                'Ciclosporina',
+            ],
+        ],
+        [
+            'MMCD Sintéticos',
+            'Primeira',
+            [
+                'Metotrexato',
+                'Sulfassalazina',
+            ],
+        ],
+        [
+            'MMCD Biológicos',
+            'Segunda e terceira',
+            [
+                'Abatacepte',
+                'Adalimumabe',
+                'Etanercepte',
+                'Certolizumabe',
+                'Golimumabe',
+                'Infliximabe',
+                'Secuquinumabe',
+            ],
+        ],
+    ]
+
+    const ap = [
+        [
+            'AINH',
+            '------',
+            [
+                'Naproxeno'
+            ],
+        ],
+        [
+            'Glicocorticoide',
+            '------',
+            [
+                'Prednsiona'
+            ],
+        ],
+        [
+            'Imunossupressores',
+            '------',
+            [
+                'Ciclosporina',
+            ],
+        ],
+        [
+            'MMCD Sintéticos',
+            'Primeira',
+            [
+                'Metotrexato',
+                'Sulfassalazina',
+                'Leflunomida',
+            ],
+        ],
+        [
+            'MMCD Biológicos',
+            'Segunda e terceira',
+            [
+                'Adalimumabe',
+                'Etanercepte',
+                'Golimumabe',
+                'Infliximabe',
+            ],
+        ],
+        [
+            'MMCD Biológicos',
+            'Terceira',
+            [
+                'Certolizumabe',
+                'Secuquinumabe',
+            ],
+        ],
+        [
+            'MMCD Alvo-específico',
+            'Terceira',
+            [
+                'Tofacitinibe',
+            ],
+        ],
+    ]
+
+    const SetMedicamentos = () => {
+        const Medicamentos = {
+            'ar': ar,
+            'ea': ea,
+            'ap': ap,
+            // 'aij': aij,
+            default: []
+        }
+        return Medicamentos[DoençaCID(lme.cid10)] || Medicamentos.default
+    }
 
     return (
         <>
@@ -182,7 +293,7 @@ const Linha6LME = () => {
                         <BoxLinha>
                             <Box
                                 sx={{
-                                    width: '10rem',
+                                    width: '11rem',
                                     borderRight: 1,
                                 }}
                             >
@@ -205,7 +316,7 @@ const Linha6LME = () => {
                                 <BoxTitulo titulo={'Medicamento solicitado'} />
                             </Box>
                         </BoxLinha>
-                        {dados.map((d, i) =>
+                        {SetMedicamentos().map((d, i) =>
                             <React.Fragment
                                 key={i}
                             >
@@ -228,7 +339,7 @@ const Linha6LME = () => {
                                                 key={y}
                                             >
                                                 <BoxCheckBox
-                                                    item={true}
+                                                    item={lme.prescricoes.find(p => p.medicamento.farmaco === m && p.emuso)}
                                                 >
                                                     {m}
                                                 </BoxCheckBox>
@@ -261,13 +372,13 @@ const Linha6LME = () => {
                             <Box
                                 sx={{
                                     borderTop: 1,
-                                    typography: 'caption',
+                                    fontSize: 12,
                                     px: 0.5,
                                 }}
                             >
                                 Possui contraindicação absoluta, toxicidade ou falha
                                 terapêutica a todos os MMCD biológicos anti-TNF e não
-                                anti-TNF e MMDC alvo-específico ( X ) Sim (  ) Não
+                                anti-TNF e MMDC alvo-específico ( X ) Sim (   ) Não
                             </Box>
                         }
                     </Box>
