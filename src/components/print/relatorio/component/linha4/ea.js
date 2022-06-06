@@ -36,10 +36,6 @@ export const ProvasAtividadeInflamatoriaEA = () => {
     )
 }
 
-
-
-
-
 const CriteriosEA = () => {
 
     const lme = useContext(LMEPrintContext)
