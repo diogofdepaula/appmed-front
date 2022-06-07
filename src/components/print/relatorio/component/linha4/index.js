@@ -33,6 +33,7 @@ const Linha4Relatorio = () => {
                         flexDirection: 'row',
                         alignContent: 'stretch',
                         gap: 1,
+                        fontSize: 13
                     }}
                 >
                     <SetSection />

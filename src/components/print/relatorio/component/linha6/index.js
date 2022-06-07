@@ -45,6 +45,7 @@ const BoxColunaA = (props) => {
                     borderRight: 1,
                     display: 'flex',
                     alignItems: 'center',
+                    fontSize: 13
                 }}
             >
                 {props.children}
@@ -65,6 +66,7 @@ const BoxColunaB = (props) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    fontSize: 13
                 }}
             >
                 {props.children}
@@ -84,6 +86,7 @@ const BoxColunaC = (props) => {
                     display: 'flex',
                     flexDirection: 'column',
                     pl: 1,
+                    fontSize: 13
                 }}
             >
                 {props.children}

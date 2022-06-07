@@ -19,6 +19,12 @@ const Linha7Relatorio = () => {
                         alinhamento: "left",
                         texto:
                             <>
+                            <Box
+                            sx={{
+                                gap: 1,
+                                display: 'inline-flex'
+                            }}
+                            >
                                 <BoxCheckBox
                                     item={lme.relatorio.inducao === 'a'}
                                 >
@@ -34,6 +40,7 @@ const Linha7Relatorio = () => {
                                 >
                                     Não se aplica
                                 </BoxCheckBox>
+                                </Box>
                             </>
                     }}
                 />
@@ -91,7 +98,7 @@ const Linha7Relatorio = () => {
                             titulo: "Dose prescrita",
                             texto: lme.relatorio.dose,
                             alinhamento: "center",
-                            largura: "7rem",
+                            largura: "8rem",
                         }}
                     />
                     <Inducao />

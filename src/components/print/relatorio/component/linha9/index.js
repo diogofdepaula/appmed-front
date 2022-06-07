@@ -18,6 +18,7 @@ const Linha9Relatorio = () => {
                         border: 1,
                         display: 'flex',
                         flexDirection: 'column',
+                        fontSize: 14,
                     }}
                 >
                     <Box
@@ -29,7 +30,8 @@ const Linha9Relatorio = () => {
                     >
                         <Box
                             sx={{
-                                width: '6rem'
+                                width: '6rem',
+                                ml: 1,
                             }}
                         >
                             PPD:
@@ -96,7 +98,8 @@ const Linha9Relatorio = () => {
                     >
                         <Box
                             sx={{
-                                width: '6rem'
+                                width: '6rem',
+                                ml: 1,
                             }}
                         >
                             Rx de Tórax:
@@ -122,6 +125,7 @@ const Linha9Relatorio = () => {
                         sx={{
                             display: 'inline-flex',
                             width: '100%',
+                            pl: 1,
                         }}
                     >
                         Possui imunidade para Hepatite B:

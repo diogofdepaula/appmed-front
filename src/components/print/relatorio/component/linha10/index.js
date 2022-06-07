@@ -21,7 +21,7 @@ const Linha10Relatorio = () => {
                 <BoxCheckBox
                     item={true}
                 >
-                    Declaro que {clienteContext.sexo === 'feminino' ? ' a' : ' o'}
+                    Declaro que {clienteContext.sexo === 'feminino' ? ' a ' : ' o '}
                     paciente foi avaliado e não possui contraindicação
                     absolutas ao uso
                     {lme.prescricoes.length > 1 ?
