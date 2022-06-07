@@ -40,30 +40,21 @@ const FactoryRelatorio = (props) => {
                                 justifyContent: 'space-between',
                                 height: "100%",
                                 width: "100%",
-                                gap: 1,
+                                gap: 0.5,
                             }}
                         >
-                                <Linha1Relatorio />
-                                <Linha2Relatorio />
-                                <Linha3Relatorio />
-                                <Linha4Relatorio />
-                                <Linha5Relatorio />
-                                <Linha6Relatorio />
-                                <Linha7Relatorio />
-                                {/* </Box>
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'stretch',
-                                    flexGrow: 1,
-                                }}
-                            > */}
-                                <Linha8Relatorio />
-                                <Linha9Relatorio />
-                                <Linha10Relatorio />
-                                <Linha11Relatorio />
-                                <Linha12Relatorio />
+                            <Linha1Relatorio />
+                            <Linha2Relatorio />
+                            <Linha3Relatorio />
+                            <Linha4Relatorio />
+                            <Linha5Relatorio />
+                            <Linha6Relatorio />
+                            <Linha7Relatorio />
+                            <Linha8Relatorio />
+                            <Linha9Relatorio />
+                            <Linha10Relatorio />
+                            <Linha11Relatorio />
+                            <Linha12Relatorio />
                         </Box>
                     </LMEPrintContext.Provider>
                 </Box>

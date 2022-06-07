@@ -38,6 +38,7 @@ const Fence = (props) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
+                    height: props.stretch,
                 }}
             >
                 <Titulo />
@@ -46,8 +47,8 @@ const Fence = (props) => {
                         padding: "0.7rem 0.5rem 0.5rem 0.5rem",
                         borderBlockColor: "black",
                         borderStyle: "solid",
-                        borderWidth: "thin",
-
+                        borderWidth: "2px",
+                        height: props.stretch,
                     }}
                 >
                     <Box
@@ -56,6 +57,7 @@ const Fence = (props) => {
                             display: "flex",
                             flexWrap: "wrap",
                             gap: 1,
+                            height: props.stretch,
                         }}
                     >
                         {props.children}
