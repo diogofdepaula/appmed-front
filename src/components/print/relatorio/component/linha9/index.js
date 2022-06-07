@@ -51,7 +51,7 @@ const Linha9Relatorio = () => {
                         </Box>
                         <Box
                             sx={{
-                                width: '10rem'
+                                width: '9rem'
                             }}
                         >
                             <BoxCheckBox
@@ -60,23 +60,36 @@ const Linha9Relatorio = () => {
                                 Acima de 5 mm
                             </BoxCheckBox>
                         </Box>
-                        <BoxCheckBox
-                            item={lme.relatorio.ppdresultado === "a"}
+                        <Box
+                            sx={{
+                                width: '9rem'
+                            }}
                         >
-                            Até 5 mm
-                        </BoxCheckBox>
-                        Se PPD {'≥'} 5mm
-                        Tratamento para TB latente
-                        <BoxCheckBox
-                            item={lme.relatorio.ppdtratamento}
+                            <BoxCheckBox
+                                item={lme.relatorio.ppdresultado === "a"}
+                            >
+                                Até 5 mm
+                            </BoxCheckBox>
+                        </Box>
+                        Se PPD {'≥'} 5mm, fez tratamento para TB latente
+                        <Box
+                            sx={{
+                                ml: 1,
+                                display: 'inline-flex',
+                                gap: 1,
+                            }}
                         >
-                            Sim
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={!lme.relatorio.ppdtratamento}
-                        >
-                            Não
-                        </BoxCheckBox>
+                            <BoxCheckBox
+                                item={lme.relatorio.ppdtratamento}
+                            >
+                                Sim
+                            </BoxCheckBox>
+                            <BoxCheckBox
+                                item={!lme.relatorio.ppdtratamento}
+                            >
+                                Não
+                            </BoxCheckBox>
+                        </Box>
                     </Box>
                     <Box
                         sx={{
@@ -106,7 +119,7 @@ const Linha9Relatorio = () => {
                         <BoxCheckBox
                             item={lme.relatorio.rxtoraxresultado === "b"}
                         >
-                            Alterado: {lme.relatorio.rxtoraxalteracao}
+                            Alterado{lme.relatorio.rxtoraxresultado === "b" && (': ' + lme.relatorio.rxtoraxalteracao)}
                         </BoxCheckBox>
                     </Box>
                     <Box
@@ -116,27 +129,44 @@ const Linha9Relatorio = () => {
                         }}
                     >
                         Possui imunidade para Hepatite B:
-                        <BoxCheckBox
-                            item={lme.relatorio.hepatiteimunidade}
+                        <Box
+                            sx={{
+                                ml: 1,
+                                mr: 2,
+                                display: 'inline-flex',
+                                gap: 1,
+                            }}
                         >
-                            Sim
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={!lme.relatorio.hepatiteimunidade}
-                        >
-                            Não
-                        </BoxCheckBox>
+                            <BoxCheckBox
+                                item={lme.relatorio.hepatiteimunidade}
+                            >
+                                Sim
+                            </BoxCheckBox>
+                            <BoxCheckBox
+                                item={!lme.relatorio.hepatiteimunidade}
+                            >
+                                Não
+                            </BoxCheckBox>
+                        </Box>
                         Se não, foi vacinado:
-                        <BoxCheckBox
-                            item={lme.relatorio.hepatitevacina}
+                        <Box
+                            sx={{
+                                ml: 1,
+                                display: 'inline-flex',
+                                gap: 1,
+                            }}
                         >
-                            Sim
-                        </BoxCheckBox>
-                        <BoxCheckBox
-                            item={!lme.relatorio.hepatitevacina}
-                        >
-                            Não
-                        </BoxCheckBox>
+                            <BoxCheckBox
+                                item={lme.relatorio.hepatitevacina}
+                            >
+                                Sim
+                            </BoxCheckBox>
+                            <BoxCheckBox
+                                item={!lme.relatorio.hepatitevacina}
+                            >
+                                Não
+                            </BoxCheckBox>
+                        </Box>
                     </Box>
                 </Box>
             </Fence>
