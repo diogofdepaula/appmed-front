@@ -107,7 +107,6 @@ const Linha7Relatorio = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        //mt: 2,
                     }}
                 >
                     <TratamentoPrevio />
