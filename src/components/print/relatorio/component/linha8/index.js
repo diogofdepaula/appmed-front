@@ -1,4 +1,3 @@
-import { Box } from '@mui/material'
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
 import Fence from '../../../fence';
