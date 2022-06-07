@@ -9,13 +9,15 @@ const PageA4 = ({ children }) => {
         // a4 em 150ppi = 1240 x 1754 px
 
         width: 1075,// 1190, // (-50)
-        height: 1568,  // 1680, // (-74)
+        height: 1567,  // 1680, // (-74)
         padding: 2,
         somaheight: 950, // 900
     }
 
     return (
         <>
+        {/*  TEM QUE TENTAR DEIXAR NO CENTRO  - HORIZONTAL E VERTICAL */}
+
             {/* <div style={{ width: ajust.width, height: ajust.height, backgroundColor: "greenyellow" }}> */}
             <div style={{ width: ajust.width, height: ajust.height }}>
                 <Box height={1} p={ajust.padding}>
