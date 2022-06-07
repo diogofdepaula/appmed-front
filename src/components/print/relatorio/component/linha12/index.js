@@ -1,117 +1,40 @@
-import { Box, Grid, Typography } from '@mui/material';
-import { format } from 'date-fns';
-import { ptBR } from "date-fns/locale";
-import React, { useContext } from 'react';
-import { PrintContext } from '../../../../../App';
+import { Box } from '@mui/material';
+import React from 'react';
 
 const Linha12Relatorio = () => {
 
-    const { database } = useContext(PrintContext)
-
-    const date = format(database, "dd '/' MM '/' yyyy", { locale: ptBR })
-
-    return <>
-        <Grid container item >
-            <Grid container item xs={8}>
-                <Grid container item direction="column" justifyContent="space-between" alignItems="stretch" spacing={1}>
-                    <Grid item>
-                        <Box mt={2} width={1} border={1} borderColor="black" display="block">
-                            <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                                <Grid item>
-                                    <Box mt={-1} ml={2} display="flex">
-                                        <Typography component={'span'} variant="caption" noWrap={true} >
-                                            <Box bgcolor="white" px={1}>18 - Nome do médico solicitante</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid>
-                                    <Box ml={2}>
-                                        <Typography component={'span'} variant={'h6'} align={'left'}>
-                                            <Box>Dr. Diogo F. de Paula</Box>
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                        </Box>
-                    </Grid>
-                    <Grid container item direction="row" alignItems="stretch" spacing={1}>
-                        <Grid item xs={7}>
-                            <Box width={1} border={1} borderColor="black" display="block">
-                                <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                                    <Grid item>
-                                        <Box mt={-1} ml={2} display="flex">
-                                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                                <Box bgcolor="white" px={1}>20 - Conselho Regional de Medicina</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                    <Grid>
-                                        <Box ml={2}>
-                                            <Typography component={'span'} variant={'h6'} align={'left'}>
-                                                {/* // se tiver que deixar em branco então deixa "-" de cor branca */}
-                                                <Box>23.838</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                </Grid>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <Box height={1} width={1} border={1} borderColor="black" display="block">
-                                <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                                    <Grid item>
-                                        <Box mt={-1} display="flex" justifyContent="center">
-                                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                                <Box bgcolor="white" px={1}>21 - UF</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                    <Grid>
-                                        <Box>
-                                            <Typography component={'span'} variant={'h6'} align={'center'}>
-                                                <Box>PR</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                </Grid>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Box height={1} width={1} border={1} borderColor="black" display="block">
-                                <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                                    <Grid item>
-                                        <Box mt={-1} display="flex" justifyContent="center">
-                                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                                <Box bgcolor="white" px={1}>22 - Data da solicitação</Box>
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                    <Grid>
-                                        <Box>
-                                            <Typography component={'span'} variant={'h6'} align={'center'}>
-                                                {date ? <Box>{date}</Box> : <Box style={{ color: "white" }}>-</Box>}
-                                            </Typography>
-                                        </Box>
-                                    </Grid>
-                                </Grid>
-                            </Box>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid container item xs={4} alignItems="stretch">
-                <Grid container item xs>
-                    <Box mt={2} ml={1} width={1} border={1} borderColor="black">
-                        <Box mt={-1} display="flex" justifyContent="center">
-                            <Typography component={'span'} variant="caption" noWrap={true} >
-                                <Box bgcolor="white" px={1}>19 - Assinatura e carimbo do médico</Box>
-                            </Typography>
-                        </Box>
+    return (
+        <>
+            <Box
+                sx={{
+                    flexGrown: 1,
+                    border: 1,
+                    mt: 1,
+                    px: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    fontSize: 8.5,
+                }}
+            >
+                <Box>
+                    Referência: arquivo disponibilizado no http://www.cmde.parana.pr.gov.br/ em 04/2022.
+                    Modificado SOMENTE o layout do documento, sendo preservado TODAS as informações 
+                    pertinentes. Para maiores esclarecimentos: diogofdepaula@gmail.com
+                </Box>
+                <Box>
+                    Referência original:
+                    PORTARIA CONJUNTA nº 16 de 03/09/2021 - PCDT de Artrite Reumatoide,
+                    PORTARIA CONJUNTA nº 16 de 03/09/2021 - PCDT de Artrite Idiopática Juvenil (AIJ),
+                    PORTARIA CONJUNTA nº 09 de 21/05/2021 - PCDT de Artrite PsorÍaca,
+                    PORTARIA CONJUNTA nº 25 de 22/10/2018 - PCDT de Espondilite Ancilosante.
+                </Box>
+            </Box>
+            {/* Referência: arquivo disponibilizado no http://www.cmde.parana.pr.gov.br/ . Modificado somente o layout do documento, sendo preservado todas as informações pertinentes ao caso, mas somente da medicação solicitada. versão 10/2020. Para maiores esclarecimentos: diogofdepaula@gmail.com
                     </Box>
-                </Grid>
-            </Grid>
-        </Grid>
-    </>;
+                    <Box width={1}>
+                    Referência original: PORTARIA nº 14 de 31/08/2020 - PCDT Artrite Reumatoide, PORTARIA Nº 25 de 22/10/2018 - PCDT Espondilite Ancilosante e PORTARIA Nº 09 de 21/05/2021 - PCDT Artrite Psoriásica, entre outras PORTARIAS. */}
+        </>
+    )
 }
 
 export default Linha12Relatorio
