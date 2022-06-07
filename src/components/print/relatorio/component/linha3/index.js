@@ -15,7 +15,7 @@ const Linha3Relatorio = () => {
             texto: clienteContext.nome,
             alinhamento: "left",
             negrito: "bold",
-            largura: "50rem",
+            largura: "44rem",
             grow: "1",
         },
         {

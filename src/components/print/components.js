@@ -44,7 +44,6 @@ export const Caixa = (props) => {
         <>
             <Box
                 sx={{
-                    mt: 2,
                     border: 1,
                     display: 'flex',
                     flexDirection: 'column',

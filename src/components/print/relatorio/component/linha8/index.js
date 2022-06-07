@@ -14,8 +14,6 @@ const Linha8Relatorio = () => {
                     sx={{
                         border: 1,
                         height: '100%',
-                        mt: 2,
-                        mr: 1,
                         flexGrow: 1,
                     }}
                 >

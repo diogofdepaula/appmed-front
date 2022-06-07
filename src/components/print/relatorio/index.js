@@ -40,9 +40,9 @@ const FactoryRelatorio = (props) => {
                                 justifyContent: 'space-between',
                                 height: "100%",
                                 width: "100%",
+                                gap: 1,
                             }}
                         >
-                            <Box>
                                 <Linha1Relatorio />
                                 <Linha2Relatorio />
                                 <Linha3Relatorio />
@@ -64,7 +64,6 @@ const FactoryRelatorio = (props) => {
                                 <Linha10Relatorio />
                                 <Linha11Relatorio />
                                 <Linha12Relatorio />
-                            </Box>
                         </Box>
                     </LMEPrintContext.Provider>
                 </Box>

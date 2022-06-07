@@ -15,13 +15,9 @@ const Linha9Relatorio = () => {
                     sx={{
                         width: "100%",
                         height: "100%",
-                        mt: 2,
-                        mr: 1,
-                        mb: '-0.7rem',
                         border: 1,
                         display: 'flex',
                         flexDirection: 'column',
-                        //gap: 1,
                     }}
                 >
                     <Box

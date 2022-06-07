@@ -30,8 +30,6 @@ const Linha4Relatorio = () => {
                         width: "100%",
                         height: "100%",
                         display: 'flex',
-                        mr: 1,
-                        mb: '-0.7rem',
                         flexDirection: 'row',
                         alignContent: 'stretch',
                         gap: 1,

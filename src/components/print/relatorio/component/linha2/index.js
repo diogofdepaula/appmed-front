@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
+import Fence from '../../../fence'
 
 const Linha2Relatorio = () => {
 
@@ -8,25 +9,19 @@ const Linha2Relatorio = () => {
 
     return (
         <>
-            <Box
-                sx={{
-                    mt: 1,
-                    p: 1,
-                    width: "100%",
-                    borderBlockColor: "black",
-                    borderStyle: "solid",
-                    borderWidth: "thin",
-                }}
-            >
+            <Fence titulo={'CID10'}>
+
+
                 <Box
                     sx={{
+                        width: '100%',
                         display: 'flex',
                         justifyContent: 'center',
                     }}
                 >
                     {lme.cid10} - {lme.diagnostico}
                 </Box>
-            </Box>
+            </Fence>
         </>
     )
 }

@@ -277,9 +277,6 @@ const Linha6LME = () => {
                     sx={{
                         height: "100%",
                         flexGrow: 1,
-                        mt: 2,
-                        mr: 1,
-                        mb: '-0.7rem',
                         border: 1,
                         display: 'flex',
                         flexDirection: 'row',

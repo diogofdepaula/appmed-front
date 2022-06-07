@@ -3,39 +3,64 @@ import React from 'react'
 
 const Fence = (props) => {
 
-    return (
-        <>
-            {props.titulo &&
+    const Titulo = () => {
+
+        if (!props.titulo) return <></>
+
+        return (
+            <>
                 <Box
-                    component="span"
-                    style={{
-                        position: "relative",
-                        top: "0.7rem",
-                        margin: "-0.5rem 0 0 1rem",
-                        backgroundColor: 'white',
-                        flexWrap: 'nowrap',
-                        fontSize: 12,
-                        padding: "0 0.5rem 0 0.5rem",
+                    sx={{
+                        margin: "0 0 -0.8rem 0",
                     }}
                 >
-                    {props.titulo}
+                    <Box
+                        component="span"
+                        sx={{
+                            position: "relative",
+                            top: "-0.1rem",
+                            margin: "0 0 0 1rem",
+                            padding: "0 0.3rem 0 0.3rem",
+                            backgroundColor: 'white',
+                            fontSize: 12,
+                        }}
+                    >
+                        {props.titulo}
+                    </Box>
                 </Box>
-            }
+            </>
+        )
+    }
+
+    return (
+        <>
             <Box
-                style={{
-                    backgroundColor: "red",
-                    margin: "0 0 0 0",
-                    padding: "0 0 1.3rem 0.5rem",
-                    width: "100%",
-                    borderBlockColor: "black",
-                    borderStyle: "solid",
-                    borderWidth: "thin",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: 1,
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
                 }}
             >
-                {props.children}
+                <Titulo />
+                <Box
+                    sx={{
+                        padding: "0.7rem 0.5rem 0.5rem 0.5rem",
+                        borderBlockColor: "black",
+                        borderStyle: "solid",
+                        borderWidth: "thin",
+
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: "100%",
+                            display: "flex",
+                            flexWrap: "wrap",
+                            gap: 1,
+                        }}
+                    >
+                        {props.children}
+                    </Box>
+                </Box>
             </Box>
         </>
     )

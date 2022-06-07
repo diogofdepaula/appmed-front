@@ -82,35 +82,29 @@ const Linha7Relatorio = () => {
             <Fence titulo={"3.1 - Obrigatório para MMCD Biológico"}>
                 <Box
                     sx={{
-                        mb: '-1rem'
+                        display: 'inline-flex',
+                        gap: 1,
                     }}
                 >
-
-                    <Box
-                        sx={{
-                            display: 'inline-flex',
+                    <Field
+                        dados={{
+                            titulo: "Dose prescrita",
+                            texto: lme.relatorio.dose,
+                            alinhamento: "center",
+                            largura: "7rem",
                         }}
-                    >
-                        <Field
-                            dados={{
-                                titulo: "Dose prescrita",
-                                texto: lme.relatorio.dose,
-                                alinhamento: "center",
-                                largura: "7rem",
-                            }}
-                        />
-                        <Inducao />
-                    </Box>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            mt: 2,
-                        }}
-                    >
-                        <TratamentoPrevio />
-                        <AineSecuquinumabe />
-                    </Box>
+                    />
+                    <Inducao />
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        //mt: 2,
+                    }}
+                >
+                    <TratamentoPrevio />
+                    <AineSecuquinumabe />
                 </Box>
             </Fence>
         </>

@@ -15,40 +15,53 @@ const Field = ({ dados }) => {
     return (
         <>
             <Box
-                style={{
-                    margin: "0.5rem 0 0 0",
+                sx={{
                     flexGrow: dados.grow,
                     width: dados.largura,
+                    display: 'flex',
+                    flexDirection: 'column',
                 }}
             >
                 <Box
-                    component="span"
-                    style={{
-                        position: "relative",
-                        margin: "0 0 0 0.5rem",
-                        backgroundColor: 'white',
-                        flexWrap: 'nowrap',
-                        fontSize: 11,
-                        padding: "0 0.5rem 0 0.5rem",
+                    sx={{
+                        margin: "0 0 -1rem 0",
                     }}
                 >
-                    {dados.titulo}
+                    <Box
+                        component="span"
+                        sx={{
+                            position: "relative",
+                            top: "-0.3rem",
+                            margin: "0 0 0 1rem",
+                            padding: "0 0.3rem 0 0.3rem",
+                            backgroundColor: 'white',
+                            fontSize: 12,
+                        }}
+                    >
+                        {dados.titulo}
+                    </Box>
                 </Box>
                 <Box
-                    style={{
-                        margin: "-0.7rem 0.5rem 0 0",
-                        padding: "0 0.5rem 0 0.5rem",
+                    sx={{
                         height: "100%",
+                        padding: "0.5rem 0.5rem 0.2rem 0.5rem",
                         borderBlockColor: "black",
                         borderStyle: "solid",
                         borderWidth: "thin",
-                        fontSize: 16,
-                        fontWeight: dados.negrito,
-                        display: "flex",
-                        justifyContent: dados.alinhamento,
-                        alignItems: "end",
-                    }}>
-                    {dados.texto !== undefined ? dados.texto : <div>&nbsp;</div>}
+                    }}
+                >
+                    <Box
+                        sx={{
+                            splay: "flex",
+                            flexWrap: "wrap",
+                            fontWeight: dados.negrito,
+                            display: "flex",
+                            justifyContent: dados.alinhamento,
+                            alignItems: "end",
+                        }}
+                    >
+                        {dados.texto !== undefined ? dados.texto : <div>&nbsp;</div>}
+                    </Box>
                 </Box>
             </Box>
         </>

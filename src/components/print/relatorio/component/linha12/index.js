@@ -9,7 +9,6 @@ const Linha12Relatorio = () => {
                 sx={{
                     flexGrown: 1,
                     border: 1,
-                    mt: 1,
                     px: 1,
                     display: 'flex',
                     flexDirection: 'column',
