@@ -110,13 +110,24 @@ const ICAD = () => {
                 }}
 
             >
-                <IconButton
-                    draggable
-                    onDragEnd={() => handleClickICAD()}
-                    onClick={() => handleClickICAD()}
-                    size="large">
-                    <CallSplitIcon />
-                </IconButton>
+                {step === 121 &&
+                    <IconButton
+                        draggable
+                        onDragEnd={() => handleClickAnamnese()}
+                        onClick={() => handleClickAnamnese()}
+                        size="large">
+                        <LocalCafeIcon />
+                    </IconButton>
+                }
+                {step === 181 &&
+                    <IconButton
+                        draggable
+                        onDragEnd={() => handleClickICAD()}
+                        onClick={() => handleClickICAD()}
+                        size="large">
+                        <CallSplitIcon />
+                    </IconButton>
+                }
                 <TextField
                     variant='outlined'
                     name="edema"
@@ -173,15 +184,7 @@ const ICAD = () => {
                     value={index.ega}
                     onChange={handleChange}
                 />
-                {step === 121 &&
-                    <IconButton
-                        draggable
-                        onDragEnd={() => handleClickAnamnese()}
-                        onClick={() => handleClickAnamnese()}
-                        size="large">
-                        <LocalCafeIcon />
-                    </IconButton>
-                }
+
             </Box>
         </Paper>
     </>;
