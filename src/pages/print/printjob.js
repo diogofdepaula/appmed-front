@@ -18,6 +18,7 @@ const PrintJob = () => {
         //        print lmes
         lmesSelecionadas?.map(l => {
 
+            console.log(l.relatorio);
          return   jobs.push(
                 <div key={l.id} >
                     <FactoryLME lme={l} />

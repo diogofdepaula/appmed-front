@@ -1,12 +1,14 @@
 import { Box, Button, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
+import { ClienteContext } from '../../../App';
 import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout';
 import Cid10 from '../../../utils/cid10';
 
 const LMECIDSet = () => {
 
-    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
+    const { clienteContext } = useContext(ClienteContext)
+    const { prescricaoEdit, setNovaLme } = useContext(AtendimentoContext)
     const [cid10] = useState(Cid10())
     const [cidsfiltrados, setcidsfiltrados] = useState([])
     const { setStep } = useContext(AtendimentoNavigateContext)
@@ -32,12 +34,7 @@ const LMECIDSet = () => {
     }
 
     const handleClick = param => () => {
-        setLmeEdit({
-            ...lmeEdit,
-            cid10: param.cid10,
-            diagnostico: param.descricao
-
-        })
+        setNovaLme(clienteContext.id, prescricaoEdit, param)
         setStep(321)
     }
 

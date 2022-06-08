@@ -8,11 +8,10 @@ import { DoençaCID } from '../../../utils/inquiries';
 const LMEForkSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setLmeEdit, medicamentoEdit, setNovaLme } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
     const { setStep } = useContext(AtendimentoNavigateContext)
 
     const handleNewLME = () => {
-        setNovaLme(clienteContext.id, prescricaoEdit, medicamentoEdit?.classe)
         setStep(311)
     }
 
