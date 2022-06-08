@@ -1,24 +1,12 @@
 import { Box, Checkbox, FormControlLabel, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../../../App';
-import Reorder from '../reorder';
 
 const PrescricoesSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { local } = useContext(LoginContext)
-    const [prescricoes, setPrescricoes] = useState([])
     const { nomecomercial, setNomeComercial, continuo, setContinuo, prescricoesSelecionadas, setPrescricoesSelecionadas, } = useContext(PrintContext)
-
-    const fetchDataPrescricoes = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/prescricoes/all/${clienteContext.id}`)
-        const json = await res.json();
-        setPrescricoes(Reorder(json));
-    }, [clienteContext.id, setPrescricoes])
-
-    useEffect(() => {
-        fetchDataPrescricoes();
-    }, [fetchDataPrescricoes])
 
     const handleCheck = param => (event) => {
         if (event.target.checked) {
@@ -61,7 +49,7 @@ const PrescricoesSet = () => {
                     label='Contínuo'
                 />
                 <List dense subheader={<ListSubheader>Prescrições</ListSubheader>} >
-                    {prescricoes?.map((prescricao, i) =>
+                    {clienteContext.prescricoes?.map((prescricao, i) =>
                         prescricao.emuso &&
                         <ListItem key={prescricao.id}>
                             <ListItemIcon>

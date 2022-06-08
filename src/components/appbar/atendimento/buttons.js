@@ -14,7 +14,7 @@ import StartIcon from '@mui/icons-material/Start';
 import WebIcon from '@mui/icons-material/Web';
 import { IconButton, Tooltip } from "@mui/material";
 import { useContext, useState } from "react";
-import { ClienteContext, NavigateContext } from '../../../App';
+import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
 import PrintDialog from '../../../pages/print/component/printdialog';
 import { NovoRelatorio } from '../../../providers/atendimento';
@@ -42,6 +42,7 @@ export const PrincipalBtn = () => {
 
     const { setPrescricaoOnDuty, setLmeOnDuty, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain, setStep } = useContext(AtendimentoNavigateContext)
+    const { printReset } = useContext(PrintContext)
 
     const handleClick = () => {
         setPrescricaoEdit(null)
@@ -51,6 +52,7 @@ export const PrincipalBtn = () => {
         setLmeOnDuty(null)
         setStep(111)
         setArticleAtendimentoMain()
+        printReset()
     }
 
     return (
@@ -100,10 +102,21 @@ export const AtestadosBtn = () => {
 
 export const ImprimirNavBtn = () => {
 
-    //const { setPagePrint } = useContext(AtendimentoNavigateContext)
+    const { clienteContext } = useContext(ClienteContext)
     const { setArticlePrint } = useContext(AtendimentoNavigateContext)
+    const { setLmes, printReset } = useContext(PrintContext)
 
     const handleClick = () => {
+        printReset()
+        const lmes = clienteContext.lmes.map(l => {
+            let n = l.prescricoes.map(p =>
+                clienteContext.prescricoes.find(m => m.id === p.id)
+            )
+            return { ...l, prescricoes: n }
+        })
+        // isso adiciona os includes nas lmes que vem o ClienteCOntext, os quais não tem incluides
+        // não quis mudar no BD, pois ele faria uma busca duplicada dos includes
+        setLmes(lmes)
         setArticlePrint()
     }
 

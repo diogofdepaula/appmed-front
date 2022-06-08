@@ -1,23 +1,10 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
-import React, { useCallback, useContext, useEffect } from 'react';
-import { ClienteContext, PrintContext } from '../../../../App';
+import React, { useContext } from 'react';
+import { PrintContext } from '../../../../App';
 
 const LMESet = () => {
 
-    const { clienteContext } = useContext(ClienteContext)
-
-    const { lmes, setLmes, lmesSelecionadas, setLmesSelecionadas, } = useContext(PrintContext)
-
-    const fetchDataLmes = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/lmes/allfat/${clienteContext.id}`)
-        const json = await res.json();
-        setLmes(json)
-    }, [clienteContext, setLmes])
-
-    useEffect(() => {
-        fetchDataLmes();
-    }, [fetchDataLmes])
-
+    const { lmes, lmesSelecionadas, setLmesSelecionadas, } = useContext(PrintContext)
 
     const handleLmesChange = param => (event) => {
         if (event.target.checked) {

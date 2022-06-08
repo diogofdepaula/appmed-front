@@ -2,7 +2,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Box, IconButton, List, Paper } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, LoginContext, NavigateContext } from '../App';
+import { ClienteContext, LoginContext, NavigateContext, PrintContext } from '../App';
 import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
 
@@ -11,6 +11,7 @@ const ClienteSet = () => {
     const { setClienteContext } = useContext(ClienteContext)
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { login } = useContext(LoginContext)
+    const { printReset } = useContext(PrintContext)
 
     const [clientes, setClientes] = useState([])
     // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
@@ -77,6 +78,7 @@ const ClienteSet = () => {
                 setClienteContext(data)
             })
             setPageReset()
+            printReset()
             setPageAtendimento()
             setClientesFiltrados([])
             setDataCharging(false)

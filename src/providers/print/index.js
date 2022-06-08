@@ -59,6 +59,24 @@ const PrintProvider = () => {
         setDatabase,
         somaheighta4,
         somaheighta5,
+        printReset: () => {
+            setPrint([])
+            setVisualizacao(false)
+            setPrescricoesSelecionadas([])
+            setTipo('simples')
+            setMeses(6)
+            setLmes([])
+            setLmesSelecionadas([])
+            setTermosSelecionados([])
+            setLme('')
+            setRelatorio(true)
+            setComentario('')
+            setNomeComercial(true)
+            setContinuo(false)
+            setRequisicao(true)
+            setRequisicoes([])
+            setDatabase(new Date())
+        }
     }
 }
 
