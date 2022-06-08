@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
+import FitText from '../../../../../pages/print/component/fittext';
 import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox } from '../../../components';
 import Fence from '../../../fence';
@@ -364,10 +365,17 @@ const Linha6LME = () => {
                                 width: '100%',
                                 height: '100%',
                                 borderTop: 1,
-                                p: 1,
+                                // p: 1,
                             }}
                         >
-                            {lme.relatorio.utilizados}
+                            <FitText
+                                texto={lme.relatorio.utilizados}
+                                inicial={8}
+                                maxfont={14}
+                                erro={50}
+                                padding={1}
+                                align='justify'
+                            />
                         </Box>
                         {lme.relatorio.rxt &&
                             <Box

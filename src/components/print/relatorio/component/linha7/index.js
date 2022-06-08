@@ -98,7 +98,7 @@ const Linha7Relatorio = () => {
                             titulo: "Dose prescrita",
                             texto: lme.relatorio.dose,
                             alinhamento: "center",
-                            largura: "8rem",
+                            largura: "12rem",
                         }}
                     />
                     <Inducao />

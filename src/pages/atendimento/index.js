@@ -11,9 +11,6 @@ export const AtendimentoNavigateContext = createContext(null)
 const Content = () => {
 
     const { article } = useContext(AtendimentoNavigateContext)
-    const { lmeEdit } = useContext(AtendimentoContext)
-    console.log(lmeEdit);
-
     return article
 }
 

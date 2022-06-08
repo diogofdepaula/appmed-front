@@ -1,7 +1,6 @@
 import { Box, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import React, { useContext } from 'react';
-import ReactInputMask from 'react-input-mask';
 import { AtendimentoContext } from '..';
 
 const RelatorioSet5 = () => {
@@ -20,56 +19,11 @@ const RelatorioSet5 = () => {
         <>
             <Box
                 sx={{
-                    display: 'column',
+                    display: 'flex',
                     flexDirection: 'column',
                     gap: 1,
                 }}
             >
-                <ReactInputMask
-                    mask="999"
-                    maskChar=" "
-                    value={lmeEdit.relatorio?.dose}
-                    onChange={handleChange}
-                >
-                    {() => <TextField
-                        fullWidth
-                        variant='outlined'
-                        name="dose"
-                        label="Dose prescrita para MMCD biológicos (Infliximabe e Tocilizumabe)"
-                    />}
-                </ReactInputMask>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        alignContent: 'flex-start',
-                    }}
-                >
-                    <FormControlLabel
-                        name='inducao'
-                        value="a"
-                        control={<Radio />}
-                        label="Realizou dose de indução"
-                        checked={lmeEdit.relatorio?.inducao === "a" || false}
-                        onChange={handleChange}
-                    />
-                    <FormControlLabel
-                        name='inducao'
-                        value="b"
-                        control={<Radio />}
-                        label="Não realizou dose de indução"
-                        checked={lmeEdit.relatorio?.inducao === "b" || false}
-                        onChange={handleChange}
-                    />
-                    <FormControlLabel
-                        name='inducao'
-                        value="c"
-                        control={<Radio />}
-                        label="Não se aplica"
-                        checked={lmeEdit.relatorio?.inducao === "c" || false}
-                        onChange={handleChange}
-                    />
-                </Box>
                 <TextField
                     fullWidth
                     multiline
@@ -83,6 +37,52 @@ const RelatorioSet5 = () => {
                     value={lmeEdit.relatorio?.justificativa}
                     onChange={handleChange}
                 />
+                <Box
+                    sx={{
+                        display: 'inline-flex',
+                        gap: 1,
+                    }}
+                >
+                    <TextField
+                        value={lmeEdit.relatorio?.dose}
+                        onChange={handleChange}
+                        variant='outlined'
+                        name="dose"
+                        label="Dose prescrita para MMCD biológicos (Infliximabe e Tocilizumabe)"
+                    />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignContent: 'flex-start',
+                        }}
+                    >
+                        <FormControlLabel
+                            name='inducao'
+                            value="a"
+                            control={<Radio />}
+                            label="Realizou dose de indução"
+                            checked={lmeEdit.relatorio?.inducao === "a" || false}
+                            onChange={handleChange}
+                        />
+                        <FormControlLabel
+                            name='inducao'
+                            value="b"
+                            control={<Radio />}
+                            label="Não realizou dose de indução"
+                            checked={lmeEdit.relatorio?.inducao === "b" || false}
+                            onChange={handleChange}
+                        />
+                        <FormControlLabel
+                            name='inducao'
+                            value="c"
+                            control={<Radio />}
+                            label="Não se aplica"
+                            checked={lmeEdit.relatorio?.inducao === "c" || false}
+                            onChange={handleChange}
+                        />
+                    </Box>
+                </Box>
                 <FormControlLabel
                     control={
                         <Checkbox
