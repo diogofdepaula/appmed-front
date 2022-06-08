@@ -217,7 +217,7 @@ const Linha6LME = () => {
             'Glicocorticoide',
             '------',
             [
-                'Prednsiona'
+                'Prednisona'
             ],
         ],
         [
