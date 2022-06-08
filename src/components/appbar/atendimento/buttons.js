@@ -3,12 +3,12 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import DnsIcon from '@mui/icons-material/Dns';
 import EditIcon from '@mui/icons-material/Edit';
-//import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import PrintIcon from '@mui/icons-material/Print';
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import SaveIcon from '@mui/icons-material/Save';
 import StartIcon from '@mui/icons-material/Start';
 import WebIcon from '@mui/icons-material/Web';
@@ -16,8 +16,9 @@ import { IconButton, Tooltip } from "@mui/material";
 import { useContext, useState } from "react";
 import { ClienteContext, NavigateContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
-import { MedicamentoRelatorio } from '../../../utils/inquiries';
-import PrintDialog from '../../../pages/print/component/printdialog'
+import PrintDialog from '../../../pages/print/component/printdialog';
+import { NovoRelatorio } from '../../../providers/atendimento';
+import { DoençaCID } from '../../../utils/inquiries';
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -409,10 +410,10 @@ export const PrescricaoSendForkBtn = () => {
 
 export const SendToRelatorio = () => {
 
-    const { medicamentoEdit } = useContext(AtendimentoContext)
+    const { lmeEdit } = useContext(AtendimentoContext)
     const { step, setStepNext } = useContext(AtendimentoNavigateContext)
 
-    if (!(MedicamentoRelatorio(medicamentoEdit) && step === 321)) return <></>
+    if (!(DoençaCID(lmeEdit?.cid10) !== 'outro' && step === 321)) return <></>
 
     const handleClick = () => {
         setStepNext()
@@ -502,6 +503,30 @@ export const PrintBtn = () => {
                 title={'Enviar impressão'}
                 click={handleClick}
                 icon={<PrintIcon />}
+            />
+        </>
+    )
+}
+
+export const AddRelatorio = () => {
+
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
+
+    if (!(DoençaCID(lmeEdit?.cid10) !== 'outro' && !lmeEdit?.relatorio)) return <></>
+
+    const handleClick = () => {
+        setLmeEdit({
+            ...lmeEdit,
+            relatorio: NovoRelatorio(lmeEdit.id)
+        })
+    }
+
+    return (
+        <>
+            <DefaultButton
+                title={'Adicionar Relatorio'}
+                click={handleClick}
+                icon={<ReportProblemIcon sx={{ color: 'red' }} />}
             />
         </>
     )

@@ -1,6 +1,7 @@
 import { Box, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import React, { memo, useContext } from 'react';
 import { AtendimentoContext } from '../pages/atendimento';
+import { DoençaCID } from '../utils/inquiries';
 
 const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
 
@@ -33,7 +34,7 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
                                             fontWeight: lmeOnDuty?.id === lme.id ?'bold' : 'regular',
                                         }}
                                     >
-                                        {lme.cid10}
+                                        {lme.cid10}{(DoençaCID(lme.cid10) !== 'outro' && !lme.relatorio) ? " -  precisa de relatório" : ''}
                                     </Box>
                                 </TableCell>
                             </TableRow>

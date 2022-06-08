@@ -11,6 +11,9 @@ export const AtendimentoNavigateContext = createContext(null)
 const Content = () => {
 
     const { article } = useContext(AtendimentoNavigateContext)
+    const { lmeEdit } = useContext(AtendimentoContext)
+    console.log(lmeEdit);
+
     return article
 }
 
@@ -21,9 +24,9 @@ const Atendimento = () => {
             <ClienteHeader />
             <AtendimentoNavigateContext.Provider value={AtendimentoNavegateProvider()} >
                 <AtendimentoContext.Provider value={AtendimentoProvider()}>
-                        <Divider />
-                        <AtendimentoAppBar />
-                        <Content />
+                    <Divider />
+                    <AtendimentoAppBar />
+                    <Content />
                 </AtendimentoContext.Provider>
             </AtendimentoNavigateContext.Provider>
         </>

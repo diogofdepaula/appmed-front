@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 import { ClienteContext } from '../../../App';
 import { NovoRelatorio } from '../../../providers/atendimento';
-import { MedicamentoRelatorio } from '../../../utils/inquiries';
+import { DoençaCID } from '../../../utils/inquiries';
 
 const LMEForkSet = () => {
 
@@ -20,7 +20,7 @@ const LMEForkSet = () => {
 
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
 
-        if (MedicamentoRelatorio(medicamentoEdit) && !param.relatorio) {
+        if (DoençaCID(param.cid10) !== 'outro' && !param.relatorio) {
             setLmeEdit({
                 ...param,
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],
