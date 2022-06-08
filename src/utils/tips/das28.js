@@ -105,10 +105,18 @@ const ICAD = () => {
                 sx={{
                     display: "flex",
                     flexDirection: 'row',
+                    flexWrap: 'wrap',
                     gap: 1,
                 }}
 
             >
+                <IconButton
+                    draggable
+                    onDragEnd={() => handleClickICAD()}
+                    onClick={() => handleClickICAD()}
+                    size="large">
+                    <CallSplitIcon />
+                </IconButton>
                 <TextField
                     variant='outlined'
                     name="edema"
@@ -172,15 +180,6 @@ const ICAD = () => {
                         onClick={() => handleClickAnamnese()}
                         size="large">
                         <LocalCafeIcon />
-                    </IconButton>
-                }
-                {step === 181 &&
-                    <IconButton
-                        draggable
-                        onDragEnd={() => handleClickICAD()}
-                        onClick={() => handleClickICAD()}
-                        size="large">
-                        <CallSplitIcon />
                     </IconButton>
                 }
             </Box>
