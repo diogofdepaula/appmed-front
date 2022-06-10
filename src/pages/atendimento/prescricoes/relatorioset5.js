@@ -3,6 +3,7 @@ import Radio from '@mui/material/Radio';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
+import { DoençaCID } from '../../../utils/inquiries';
 
 const RelatorioSet5 = () => {
 
@@ -24,6 +25,83 @@ const RelatorioSet5 = () => {
                 justificativa: 'Continuidade de tratamento (renovação).',
             }
         })
+    }
+
+    const Aine = () => {
+        console.log(DoençaCID(lmeEdit.cid10));
+        if (DoençaCID(lmeEdit.cid10) !== 'ea') return <></>
+        return (
+            <>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            color='primary'
+                            name="aine"
+                            checked={lmeEdit.relatorio?.aine}
+                            onChange={handleChecked}
+                        />}
+                    label='Paciente realizou tratamento com AINE por no mínimo 3 meses'
+                />
+            </>
+        )
+    }
+
+    const Sqm = () => {
+        if (DoençaCID(lmeEdit.cid10) !== 'ea') return <></>
+        return (
+            <>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            color='primary'
+                            name="sqm"
+                            checked={lmeEdit.relatorio?.sqm}
+                            onChange={handleChecked}
+                        />}
+                    label='Para Secuquinumabe: paciente apresentou falha ou hipersensibilidade 
+                    com Anti-TNF em dose adequada por 6 meses.'
+                />
+            </>
+        )
+    }
+
+    const Rxt = () => {
+        if (DoençaCID(lmeEdit.cid10) !== 'ar') return <></>
+        return (
+            <>
+               <FormControlLabel
+                    control={
+                        <Checkbox
+                            color='primary'
+                            name="rxt"
+                            checked={lmeEdit.relatorio?.rxt}
+                            onChange={handleChecked}
+                        />}
+                    label='Possui contraindicação absoluta, 
+                    toxicidade ou falha terapêutica a todos os MMCD 
+                    biológicos Anti-TNF e não Anti-TNF e MMCD alvo-específico'
+                />
+            </>
+        )
+    }
+
+    const SqmCtz = () => {
+        if (DoençaCID(lmeEdit.cid10) !== 'ap') return <></>
+        return (
+            <>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            color='primary'
+                            name="ttopreviobiologico"
+                            checked={lmeEdit.relatorio?.ttopreviobiologico}
+                            onChange={handleChecked}
+                        />}
+                    label='Paciente já realizou tratamento com MMCD biológico de 1ª linha 
+                    por 12 semanas ou teve perda da resposta'
+                />
+            </>
+        )
     }
 
     return (
@@ -108,50 +186,10 @@ const RelatorioSet5 = () => {
                         />
                     </Box>
                 </Box>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            color='primary'
-                            name="aine"
-                            checked={lmeEdit.relatorio?.aine}
-                            onChange={handleChecked}
-                        />}
-                    label='Paciente realizou tratamento com AINH por no mínimo 3 meses'
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            color='primary'
-                            name="sqm"
-                            checked={lmeEdit.relatorio?.sqm}
-                            onChange={handleChecked}
-                        />}
-                    label='Para Secuquinumabe: paciente apresentou falha ou hipersensibilidade 
-                    com Anti-TNF em dose adequada por 6 meses.'
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            color='primary'
-                            name="rxt"
-                            checked={lmeEdit.relatorio?.rxt}
-                            onChange={handleChecked}
-                        />}
-                    label='Possui contraindicação absoluta, 
-                    toxicidade ou falha terapêutica a todos os MMCD 
-                    biológicos Anti-TNF e não Anti-TNF e MMCD alvo-específico'
-                />
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            color='primary'
-                            name="ttopreviobiologico"
-                            checked={lmeEdit.relatorio?.ttopreviobiologico}
-                            onChange={handleChecked}
-                        />}
-                    label='Paciente já realizou tratamento com MMCD biológico de 1ª linha 
-                    por 12 semanas ou teve perda da resposta'
-                />
+                <Aine />
+                <Sqm />
+                <Rxt />
+                <SqmCtz />
             </Box>
         </>
     )
