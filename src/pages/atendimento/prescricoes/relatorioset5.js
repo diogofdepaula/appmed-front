@@ -1,7 +1,8 @@
-import { Box, Checkbox, FormControlLabel, TextField } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, TextField, IconButton, Divider } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
+import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
 
 const RelatorioSet5 = () => {
 
@@ -15,6 +16,16 @@ const RelatorioSet5 = () => {
         setLmeEdit({ ...lmeEdit, relatorio: { ...lmeEdit.relatorio, [event.target.name]: event.target.checked } })
     }
 
+    const handleClick = () => {
+
+        setLmeEdit({
+            ...lmeEdit, relatorio: {
+                ...lmeEdit.relatorio,
+                justificativa: 'Continuidade de tratamento (renovação).',
+            }
+        })
+    }
+
     return (
         <>
             <Box
@@ -24,19 +35,33 @@ const RelatorioSet5 = () => {
                     gap: 1,
                 }}
             >
-                <TextField
-                    fullWidth
-                    multiline
-                    variant='outlined'
-                    rows={8}
-                    name="justificativa"
-                    label="Justificativa para solicitação inicial ou mudança de tratamento"
-                    InputLabelProps={{
-                        shrink: true,
+                <Box
+                    sx={{
+                        display: 'inline-flex',
+                        gap: 1,
                     }}
-                    value={lmeEdit.relatorio?.justificativa}
-                    onChange={handleChange}
-                />
+                >
+                    <TextField
+                        fullWidth
+                        multiline
+                        variant='outlined'
+                        rows={8}
+                        name="justificativa"
+                        label="Justificativa para solicitação inicial ou mudança de tratamento"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        value={lmeEdit.relatorio?.justificativa}
+                        onChange={handleChange}
+                    />
+                    <Divider orientation='vertical' flexItem />
+                    <IconButton
+                        onClick={handleClick}
+                        size="large"
+                    >
+                        <AirlineStopsIcon />
+                    </IconButton>
+                </Box>
                 <Box
                     sx={{
                         display: 'inline-flex',

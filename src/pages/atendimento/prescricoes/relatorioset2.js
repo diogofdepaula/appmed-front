@@ -2,6 +2,7 @@ import { Box, Checkbox, Divider, FormControl, FormControlLabel, Radio, RadioGrou
 import React, { useContext } from 'react'
 import { AtendimentoContext } from '..'
 import { CriteriosLme } from '../../../utils/criteriosdoencas'
+import { DoençaCID } from '../../../utils/inquiries'
 
 const RelatorioSet2 = () => {
 
@@ -21,9 +22,7 @@ const RelatorioSet2 = () => {
 
         const criterios = CriteriosLme(lmeEdit)[1]
 
-        const ind = ['M050', 'M051', 'M052', 'M053', 'M058', 'M060', 'M068'].includes(lmeEdit.cid10)
-
-        if (!ind) return <div />
+        if (DoençaCID(lmeEdit.cid10) !== 'ar') return <></>
 
         return (
             <>
