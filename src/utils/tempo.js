@@ -5,6 +5,10 @@ export const DataDDMMYYY = (param) => {
     return format(parseISO(param), "dd '/' MM '/' yyyy", { locale: ptBR })
 }
 
+export const DataMYYY = (param) => {
+    return format(parseISO(param), "MM '/' yyyy", { locale: ptBR })
+}
+
 export const DateDifferenceToday = (param) => {
     return differenceInMonths(new Date(), parseISO(param))
 }
