@@ -2,7 +2,6 @@ import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
 import { IconButton } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
-import { DataMYYY } from '../tempo';
 
 
 const MedicamentosUtilizadosTips = () => {
@@ -21,7 +20,7 @@ const MedicamentosUtilizadosTips = () => {
 
     const handleClick = () => {
 
-        const texto = indices.map(m => m[0] + ' - ' + DataMYYY(m[1]) + ' - ' + DataMYYY(m[2]) + ' - ' + m[3] + '\n').join('')
+        const texto = indices.map(m => m[0] + ' - ' + m[1] + ' - ' + m[2] + ' - ' + m[3] + '\n').join('')
 
         setLmeEdit({
             ...lmeEdit, relatorio: {
