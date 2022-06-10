@@ -20,7 +20,7 @@ const MedicamentosUtilizadosTips = () => {
 
     const handleClick = () => {
 
-        const texto = indices.map(m => m[0] + ' - ' + m[1] + ' - ' + m[2] + ' - ' + m[3] + '\n').join('')
+        const texto = indices.map(m => m[0] === '' ? '' : m[0] + ' - ' + m[1] + ' - ' + m[2] + ' - ' + m[3] + '\n').join('')
 
         setLmeEdit({
             ...lmeEdit, relatorio: {

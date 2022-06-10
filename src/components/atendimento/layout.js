@@ -53,7 +53,7 @@ export const AtendimentoRight = (props) => {
                 sx={{
                     ml: 1,
                     width: '40rem',
-                    // minWidth: '25rem',
+                    minWidth: '40rem',
                     // maxWidth: '25rem',
                 }}
             >
