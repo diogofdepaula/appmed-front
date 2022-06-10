@@ -28,7 +28,6 @@ const RelatorioSet5 = () => {
     }
 
     const Aine = () => {
-        console.log(DoençaCID(lmeEdit.cid10));
         if (DoençaCID(lmeEdit.cid10) !== 'ea') return <></>
         return (
             <>
