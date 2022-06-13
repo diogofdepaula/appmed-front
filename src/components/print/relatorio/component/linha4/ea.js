@@ -1,40 +1,7 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
-import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox, BoxTitulo, Caixa } from '../../../components';
-import Fence from '../../../fence';
-import Field from '../../../field';
-
-export const ProvasAtividadeInflamatoriaEA = () => {
-    const lme = useContext(LMEPrintContext)
-    if (DoençaCID(lme.cid10) !== 'ea') return <></>
-
-    return (
-        <>
-            <Fence titulo="2.1 - Provas de atividade inflamatória">
-                <Field
-                    dados={{
-                        titulo: "VHS",
-                        texto: lme.relatorio.vhs,
-                        alinhamento: "center",
-                        negrito: "bold",
-                        grow: "1",
-                    }}
-                />
-                <Field
-                    dados={{
-                        titulo: "PCR",
-                        texto: lme.relatorio.pcr,
-                        alinhamento: "center",
-                        negrito: "bold",
-                        grow: "1",
-                    }}
-                />
-            </Fence>
-        </>
-    )
-}
 
 const CriteriosEA = () => {
 

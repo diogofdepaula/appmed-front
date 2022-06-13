@@ -3,9 +3,40 @@ import React, { useContext } from 'react';
 import { LMEPrintContext } from '../..';
 import { DoençaCID } from '../../../../../utils/inquiries';
 import Fence from '../../../fence';
+import Field from '../../../field';
 import CriteriosAP from './ap';
 import CriteriosAR from './ar';
-import CriteriosEA, { ProvasAtividadeInflamatoriaEA } from './ea';
+import CriteriosEA from './ea';
+
+export const ProvasAtividadeInflamatoria = () => {
+    const lme = useContext(LMEPrintContext)
+    if (DoençaCID(lme.cid10) !== 'ea' || DoençaCID(lme.cid10) !== 'aij') return <></>
+
+    return (
+        <>
+            <Fence titulo="2.1 - Provas de atividade inflamatória">
+                <Field
+                    dados={{
+                        titulo: "VHS",
+                        texto: lme.relatorio.vhs,
+                        alinhamento: "center",
+                        negrito: "bold",
+                        grow: "1",
+                    }}
+                />
+                <Field
+                    dados={{
+                        titulo: "PCR",
+                        texto: lme.relatorio.pcr,
+                        alinhamento: "center",
+                        negrito: "bold",
+                        grow: "1",
+                    }}
+                />
+            </Fence>
+        </>
+    )
+}
 
 const Linha4Relatorio = () => {
 
@@ -39,7 +70,7 @@ const Linha4Relatorio = () => {
                     <SetSection />
                 </Box>
             </Fence>
-            <ProvasAtividadeInflamatoriaEA />
+            <ProvasAtividadeInflamatoria />
         </>
     )
 }
