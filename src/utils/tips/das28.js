@@ -6,7 +6,7 @@ import { AtendimentoContext } from '../../pages/atendimento';
 
 const ICAD = () => {
 
-    const { lmeEdit, setLmeEdit, step } = useContext(AtendimentoContext)
+    const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
     const [index, setIndex] = useState({
         dor: '',
@@ -110,24 +110,20 @@ const ICAD = () => {
                 }}
 
             >
-                {step === 121 &&
-                    <IconButton
-                        draggable
-                        onDragEnd={() => handleClickAnamnese()}
-                        onClick={() => handleClickAnamnese()}
-                        size="large">
-                        <LocalCafeIcon />
-                    </IconButton>
-                }
-                {step === 181 &&
-                    <IconButton
-                        draggable
-                        onDragEnd={() => handleClickICAD()}
-                        onClick={() => handleClickICAD()}
-                        size="large">
-                        <CallSplitIcon />
-                    </IconButton>
-                }
+                <IconButton
+                    draggable
+                    onDragEnd={() => handleClickAnamnese()}
+                    onClick={() => handleClickAnamnese()}
+                    size="large">
+                    <LocalCafeIcon />
+                </IconButton>
+                <IconButton
+                    draggable
+                    onDragEnd={() => handleClickICAD()}
+                    onClick={() => handleClickICAD()}
+                    size="large">
+                    <CallSplitIcon />
+                </IconButton>
                 <TextField
                     variant='outlined'
                     name="edema"
