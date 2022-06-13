@@ -32,7 +32,7 @@ const Linha5Relatorio = () => {
     const ea = [
         {
             titulo: "BASDAI",
-            texto: lme.relatorio.sdai,
+            texto: lme.relatorio.basdai,
             alinhamento: "center",
             grow: "1",
         },
