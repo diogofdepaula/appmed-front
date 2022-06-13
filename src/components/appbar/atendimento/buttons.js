@@ -499,7 +499,7 @@ export const LmePararBtn = () => {
 
 export const PrintBtn = () => {
 
-    const { print, printRef} = useContext(PrintContext)
+    const { print } = useContext(AtendimentoNavigateContext)
     const [open, setOpen] = useState(false)
 
     const handleClick = () => {
@@ -510,7 +510,7 @@ export const PrintBtn = () => {
         setOpen(false)
     }
 
-    console.log('print :>> ', print, printRef);
+    if (!print) return <></>
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 

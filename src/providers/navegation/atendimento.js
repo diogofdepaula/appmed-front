@@ -25,6 +25,7 @@ const AtendimentoNavegateProvider = () => {
     const [article, setArticle] = useState(<AtendimentoMain />)
     const [section, setSection] = useState(<div />)
     const [step, setStep] = useState(111)
+    const [print, setPrint] = useState(false)
 
     // definição do step
     // 1º número:   1 - prescricao  3 - LME 5 - Alguma outra coisa      == optei por pular um, pois se precisar encaixar alguma coisa fica mais fácil
@@ -58,8 +59,11 @@ const AtendimentoNavegateProvider = () => {
         article,
         step,
         section,
+        print, 
+        setPrint,
         setArticleAtendimentoMain: () => {
             setArticle(<AtendimentoMain />)
+            setPrint(false)
         },
         setArticlePrescricoesMain: () => {
             setArticle(<PrescricoesMain />)
@@ -72,6 +76,7 @@ const AtendimentoNavegateProvider = () => {
         },
         setArticlePrint: () => {
             setArticle(<Print />)
+            setPrint(true)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))
