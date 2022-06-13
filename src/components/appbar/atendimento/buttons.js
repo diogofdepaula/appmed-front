@@ -3,6 +3,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import DnsIcon from '@mui/icons-material/Dns';
 import EditIcon from '@mui/icons-material/Edit';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -498,6 +499,7 @@ export const LmePararBtn = () => {
 
 export const PrintBtn = () => {
 
+    const { print, printRef} = useContext(PrintContext)
     const [open, setOpen] = useState(false)
 
     const handleClick = () => {
@@ -508,6 +510,8 @@ export const PrintBtn = () => {
         setOpen(false)
     }
 
+    console.log('print :>> ', print, printRef);
+
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 
     return (
@@ -515,7 +519,7 @@ export const PrintBtn = () => {
             <DefaultButton
                 title={'Enviar impressão'}
                 click={handleClick}
-                icon={<PrintIcon />}
+                icon={<FlashOnIcon />}
             />
         </>
     )

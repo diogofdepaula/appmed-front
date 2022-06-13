@@ -2,8 +2,6 @@ import { useState } from "react"
 
 const PrintProvider = () => {
 
-    const [print, setPrint] = useState([])
-    const printRef = null
     const [visualizacao, setVisualizacao] = useState(false)
     const [prescricoesSelecionadas, setPrescricoesSelecionadas] = useState([])
     const [tipo, setTipo] = useState('simples') // simples, controlado
@@ -23,10 +21,6 @@ const PrintProvider = () => {
     const somaheighta5 = 440
 
     return {
-        print,
-        setPrint,
-        setPrintReset: () => setPrint([]),
-        printRef,
         visualizacao,
         setVisualizacao,
         prescricoesSelecionadas,
@@ -60,7 +54,6 @@ const PrintProvider = () => {
         somaheighta4,
         somaheighta5,
         printReset: () => {
-            setPrint([])
             setVisualizacao(false)
             setPrescricoesSelecionadas([])
             setTipo('simples')
