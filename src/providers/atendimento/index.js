@@ -54,6 +54,8 @@ export const NovoRelatorio = (lmeId) => {
         apperiferica: undefined,
         apcaxial: undefined,
         apcentesite: undefined,
+        aijsubtipo: '',
+        aijopcao: '',
         apa: undefined,
         apb: undefined,
         apc: undefined,

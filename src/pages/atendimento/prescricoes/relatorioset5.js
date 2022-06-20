@@ -1,9 +1,10 @@
-import { Box, Checkbox, FormControlLabel, TextField, IconButton, Divider } from '@mui/material';
-import Radio from '@mui/material/Radio';
-import React, { useContext } from 'react';
-import { AtendimentoContext } from '..';
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
+import { Box, Checkbox, Divider, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import Radio from '@mui/material/Radio';
+import { useContext } from 'react';
+import { AtendimentoContext } from '..';
 import { DoençaCID } from '../../../utils/inquiries';
+import { AijMedicamentos } from '../../../utils/tips/aijsubtipos';
 
 const RelatorioSet5 = () => {
 
@@ -68,7 +69,7 @@ const RelatorioSet5 = () => {
         if (DoençaCID(lmeEdit.cid10) !== 'ar') return <></>
         return (
             <>
-               <FormControlLabel
+                <FormControlLabel
                     control={
                         <Checkbox
                             color='primary'
@@ -99,6 +100,68 @@ const RelatorioSet5 = () => {
                     label='Paciente já realizou tratamento com MMCD biológico de 1ª linha 
                     por 12 semanas ou teve perda da resposta'
                 />
+            </>
+        )
+    }
+
+    const Aij = () => {
+        if (DoençaCID(lmeEdit.cid10) !== 'aij') return <></>
+
+        const opções = [
+            ['Primeira Opção', '1'],
+            ['Segunda Opção', '2'],
+            ['Terceira Opção', '3'],
+            ['Quarta Opção', '4'],
+        ]
+
+        return (
+            <>
+                <FormControl
+                    variant="outlined"
+                    fullWidth
+                >
+                    <InputLabel id="aijsubtipo">Subtipos da AIJ</InputLabel>
+                    <Select
+                        labelId="aijsubtipo"
+                        id="aijsubtipo"
+                        label='Subtipos da AIJ'
+                        name='aijsubtipo'
+                        value={lmeEdit.relatorio?.aijsubtipo}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value=''></MenuItem>
+                        {AijMedicamentos().map((c, i) =>
+                            <MenuItem
+                                key={i}
+                                value={c[0][0]}
+                            >{c[0][0]}
+                            </MenuItem>
+                        )}
+                    </Select>
+                </FormControl>
+                <FormControl
+                    variant="outlined"
+                    fullWidth
+                >
+                    <InputLabel id="aijopcao">Opções</InputLabel>
+                    <Select
+                        labelId="aijopcao"
+                        id="aijopcao"
+                        label='Subtipos da AIJ'
+                        name='aijopcao'
+                        value={lmeEdit.relatorio?.aijopcao}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value=''></MenuItem>
+                        {opções.map((x, y) =>
+                            <MenuItem
+                                key={y}
+                                value={x[1]}
+                            >{x[0]}
+                            </MenuItem>
+                        )}
+                    </Select>
+                </FormControl>
             </>
         )
     }
@@ -189,6 +252,7 @@ const RelatorioSet5 = () => {
                 <Sqm />
                 <Rxt />
                 <SqmCtz />
+                <Aij />
             </Box>
         </>
     )

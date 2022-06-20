@@ -1,16 +1,17 @@
 import { Box } from '@mui/material';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { LMEPrintContext } from '../..';
 import { DoençaCID } from '../../../../../utils/inquiries';
 import Fence from '../../../fence';
 import Field from '../../../field';
+import CriteriosAIJ from './aij';
 import CriteriosAP from './ap';
 import CriteriosAR from './ar';
 import CriteriosEA from './ea';
 
 export const ProvasAtividadeInflamatoria = () => {
     const lme = useContext(LMEPrintContext)
-    if (DoençaCID(lme.cid10) !== 'ea' || DoençaCID(lme.cid10) !== 'aij') return <></>
+    if (DoençaCID(lme.cid10) !== 'ea') return <></>
 
     return (
         <>
@@ -47,7 +48,7 @@ const Linha4Relatorio = () => {
             'ar': <CriteriosAR />,
             'ea': <CriteriosEA />,
             'ap': <CriteriosAP />,
-            // 'aij': <CriteriosAIJ />,
+            'aij': <CriteriosAIJ />,
             default: <div />
         }
         return Section[DoençaCID(lme.cid10)] || Section.default

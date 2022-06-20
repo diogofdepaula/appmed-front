@@ -5,6 +5,7 @@ import FitText from '../../../../../pages/print/component/fittext';
 import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox } from '../../../components';
 import Fence from '../../../fence';
+import MedicamentosAIJ from './aij';
 
 const BoxLinha = (props) => {
     return (
@@ -100,6 +101,8 @@ const Linha6LME = () => {
 
     const lme = useContext(LMEPrintContext)
     // na lógica colocar somente os medicamentos que tem data de início igual a new Date()
+
+    if (DoençaCID(lme.cid10) === 'aij' ) return <MedicamentosAIJ />
 
     const ar = [
         [

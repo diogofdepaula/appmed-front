@@ -43,7 +43,7 @@ const Linha5Relatorio = () => {
             grow: "1",
         },
     ]
-     
+
     const ap = [
         {
             titulo: "DASPAI (artrite periférica)",
@@ -65,12 +65,27 @@ const Linha5Relatorio = () => {
         },
     ]
 
+    const aij = [
+        {
+            titulo: "DAS28",
+            texto: lme.relatorio.das28,
+            alinhamento: "center",
+            grow: "1",
+        },
+        {
+            titulo: "cJADAS",
+            texto: lme.relatorio.sjadas,
+            alinhamento: "center",
+            grow: "1",
+        },
+    ]
+
     const SetIndices = () => {
         const Indices = {
             'ar': ar,
             'ea': ea,
             'ap': ap,
-            // 'aij': aij,
+            'aij': aij,
             default: []
         }
         return Indices[DoençaCID(lme.cid10)] || Indices.default

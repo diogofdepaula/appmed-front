@@ -18,6 +18,8 @@ const RelatorioSet2 = () => {
 
     const list = CriteriosLme(lmeEdit)
 
+    if (list === 'aij') return <>Na AIJ os critérios são descritivos</>
+
     const ArtriteReumatoide2010 = () => {
 
         const criterios = CriteriosLme(lmeEdit)[1]
