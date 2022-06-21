@@ -160,6 +160,7 @@ const RelatorioSet5 = () => {
                             >{x[0]}
                             </MenuItem>
                         )}
+                        <MenuItem value='Artrite indiferenciada'>Artrite indiferenciada</MenuItem>
                     </Select>
                 </FormControl>
             </>

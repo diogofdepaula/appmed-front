@@ -17,8 +17,6 @@ const MedicamentosAIJ = () => {
         '4ª opção',
     ]
 
-    console.log(lme);
-
     return (
         <>
             <Fence titulo="3 - Medicamento solicitado">
@@ -113,30 +111,39 @@ const MedicamentosAIJ = () => {
                         </React.Fragment>
                     )
                     }
-                    {/* <Box
+                    <Box
                         sx={{
                             width: '100%',
                             display: 'flex',
                             flexDirection: 'row',
                         }}
                     >
-                            <Box
-                                sx={{
-                                    border: 1,
-                                }}
-                            >
-                                Artrite indiferenciada
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '100%',
-                                    border: 1,
-                                }}
-                            >
-                                {lme.prescricoes.map(p => p.medicamento.farmaco + " ")}
-                            </Box>
-                    </Box> */}
-
+                        <Box
+                            sx={{
+                                width: '15.3rem',
+                                border: 1,
+                                px: 1,
+                                display: 'flex',
+                                alignItems: 'center',
+                            }}
+                        >
+                            Artrite indiferenciada
+                        </Box>
+                        <Box
+                            sx={{
+                                width: '100%',
+                                px: 1,
+                                border: 1,
+                            }}
+                        >
+                            Solicitação:
+                            {lme.relatorio.aijopcao === 'Artrite indiferenciada' ?
+                                <>  {lme.prescricoes.map(p => p.medicamento.farmaco + " ")}</>
+                                :
+                                <></>
+                            }
+                        </Box>
+                    </Box>
                 </Box>
             </Fence>
         </>
