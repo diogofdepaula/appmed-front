@@ -6,21 +6,50 @@ import IconButton from '@mui/material/IconButton';
 import Slide from '@mui/material/Slide';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { format } from "date-fns";
 import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { LoginContext, PrintContext } from '../../../App';
 import PrintJob from '../printjob';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-    return <Slide direction="up" ref={ref} {...props} />;
-});
+    return <Slide direction="up" ref={ref} {...props} />
+})
 
 const PrintDialog = ({ open, handleClose }) => {
 
     const { local } = useContext(LoginContext)
-    const { lmesSelecionadas } = useContext(PrintContext)
+    const { prescricoesSelecionadas, lmesSelecionadas } = useContext(PrintContext)
 
-    const componentRef = useRef();
+    const componentRef = useRef()
+
+    const SaveLastPrint = async () => {
+
+        if (lmesSelecionadas.length > 0) {
+            await lmesSelecionadas
+                .map(novalme => ({ ...novalme, ultimaimpressao: format(new Date(), "yyyy-MM-dd") }))
+                .forEach(lme =>
+                    fetch(process.env.REACT_APP_API_URL + `/lmes/${lme.id}`, {
+                        method: 'put',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(lme)
+                    })
+                )
+        }
+
+        if (prescricoesSelecionadas.length > 0) {
+            await prescricoesSelecionadas
+                .map(novapresc => ({ ...novapresc, ultimaimpressao: format(new Date(), "yyyy-MM-dd") }))
+                .forEach(presc =>
+                    fetch(process.env.REACT_APP_API_URL + `/prescricoes/${presc.id}`, {
+                        method: 'put',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(presc)
+                    })
+                )
+        }
+    }
+
 
     const page = () => {
 
@@ -38,11 +67,14 @@ const PrintDialog = ({ open, handleClose }) => {
         content: () => componentRef.current,
         //pageStyle: '@page { size: A5;}',
         pageStyle: page(),
-        onAfterPrint: () => handleClose()
-    });
+        onAfterPrint: () => {
+            SaveLastPrint()
+            handleClose()
+        }
+    })
 
     return (
-        <div>
+        <>
             <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
                 <AppBar position='relative'>
                     <Toolbar>
@@ -72,8 +104,8 @@ const PrintDialog = ({ open, handleClose }) => {
                     <PrintJob />
                 </div>
             </Dialog>
-        </div>
-    );
+        </>
+    )
 }
 
 export default PrintDialog

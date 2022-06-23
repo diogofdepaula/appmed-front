@@ -1,6 +1,7 @@
 import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { useContext } from 'react';
 import { ClienteContext } from '../../App';
+import { DataDDMMYYY } from '../../utils/tempo';
 
 const LmeData = ({ lme }) => {
 
@@ -100,7 +101,13 @@ const LmeData = ({ lme }) => {
                         mt: 1,
                     }}
                 >
-                    Última impressão: {lme.ultimaimpressao}
+                    {"Última impressão:  "}
+                    {lme.ultimaimpressao
+                        ?
+                        DataDDMMYYY(lme.ultimaimpressao)
+                        :
+                        'Indefinido'
+                    }
                 </Box>
             </Box>
         </>

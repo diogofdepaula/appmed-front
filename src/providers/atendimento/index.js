@@ -149,6 +149,7 @@ const NovaLme = (clienteId, prescricaoEdit, param) => {
         preenchidopor: '',
         preenchidoporCPF: '',
         raca: '',
+        ultimaimpressao: undefined,
         clienteId: clienteId,
         // isso adiciona a nova prescricao na nova lme
         prescricoes: prescricaoEdit,

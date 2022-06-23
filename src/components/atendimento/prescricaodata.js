@@ -113,6 +113,19 @@ const PrescricaoData = ({prescricao}) => {
                     }
                     {"  meses"}
                 </Box>
+                <Box
+                    sx={{
+                        mt: 1,
+                    }}
+                >
+                    {"Última impressão:  "}
+                    {prescricao?.ultimaimpressao
+                        ?
+                        DataDDMMYYY(prescricao?.ultimaimpressao)
+                        :
+                        'Indefinido'
+                    }
+                </Box>
             </Box>
         </>
     )
