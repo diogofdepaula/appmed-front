@@ -1,8 +1,8 @@
 import { Box, CardMedia } from '@mui/material'
 import React, { useContext } from 'react'
 import { LMEPrintContext } from '../..'
-import LogoCEMEPAR from '../../../../../utils/imagens/cemeparlogo.png'
-import LogoSESA from '../../../../../utils/imagens/sesalogo.png'
+import LogoCEMEPAR from '../../../../../utils/imagens/cemeparlogo.webp'
+import LogoSESA from '../../../../../utils/imagens/sesalogo.webp'
 import { DoençaCID } from '../../../../../utils/inquiries'
 
 const Linha1Relatorio = () => {

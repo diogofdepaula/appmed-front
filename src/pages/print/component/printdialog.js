@@ -50,7 +50,6 @@ const PrintDialog = ({ open, handleClose }) => {
         }
     }
 
-
     const page = () => {
 
         let page = ''

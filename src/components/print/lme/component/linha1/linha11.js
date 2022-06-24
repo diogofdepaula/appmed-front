@@ -1,8 +1,8 @@
 import { Box, CardMedia, Grid } from '@mui/material'
 import React from 'react'
-import LogoSUS from '../../../../../utils/imagens/logosus.png'
-import LogoMinisterio from '../../../../../utils/imagens/ministeriologo.png'
-import LogoSESA from '../../../../../utils/imagens/sesalogo.png'
+import LogoSUS from '../../../../../utils/imagens/logosus.webp'
+import LogoMinisterio from '../../../../../utils/imagens/ministeriologo.webp'
+import LogoSESA from '../../../../../utils/imagens/sesalogo.webp'
 
 const Linha11LME = () => {
 
