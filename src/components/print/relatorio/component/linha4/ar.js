@@ -28,7 +28,7 @@ const CriteriosAR = () => {
                             key={i}
                             item={w[2]}
                         >
-                            {w[1]}
+                            {w[0]}
                         </BoxCheckBox>
                     )}
                 </Box>

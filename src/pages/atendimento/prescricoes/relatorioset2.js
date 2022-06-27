@@ -55,16 +55,16 @@ const RelatorioSet2 = () => {
         <>
             <ArtriteReumatoide2010 />
             {list[0].map((w) =>
-                <Box key={w[0]}>
+                <Box key={w[1]}>
                     <FormControlLabel
                         control={
                             <Checkbox
                                 color='primary'
-                                name={w[0]}
+                                name={w[1]}
                                 checked={w[2] === true ? true : false}
                                 onChange={handleChange}
                             />}
-                        label={w[1]}
+                        label={w[0]}
                     />
                 </Box>
             )}

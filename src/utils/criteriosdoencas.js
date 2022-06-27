@@ -2,13 +2,13 @@ import { DoençaCID } from "./inquiries"
 
 export const CriteriosAR1987 = (lme) => {
     return [
-        ['ara', 'Rigidez articular', lme.relatorio.ara],
-        ['arb', 'Artrite em três ou mais áreas', lme.relatorio.arb],
-        ['arc', 'Artrite em articulações das mãos', lme.relatorio.arc],
-        ['ard', 'Artrite simétrica', lme.relatorio.ard],
-        ['are', 'Nódulos reumatóides', lme.relatorio.are],
-        ['arf', 'Fator reumatóide sérico', lme.relatorio.arf],
-        ['arg', 'Alterações radiológicas', lme.relatorio.arg],
+        ['Rigidez articular', 'ara', lme.relatorio.ara],
+        ['Artrite em três ou mais áreas', 'arb', lme.relatorio.arb],
+        ['Artrite em articulações das mãos', 'arc', lme.relatorio.arc],
+        ['Artrite simétrica', 'ard', lme.relatorio.ard],
+        ['Nódulos reumatóides', 'are', lme.relatorio.are],
+        ['Fator reumatóide sérico', 'arf', lme.relatorio.arf],
+        ['Alterações radiológicas', 'arg', lme.relatorio.arg],
     ]
 }
 
@@ -39,26 +39,136 @@ export const CriteriosAR2010 = (lme) => {
 
 export const CriteriosAP = (lme) => {
     return [
-        ['apa', 'Psoríase atual', lme.relatorio.apa],
-        ['apb', 'História pessoal de psoríase', lme.relatorio.apb],
-        ['apc', 'História familiar de psoríase (familiar de 1º ou 2º grau)', lme.relatorio.apc],
-        ['apd', 'Distrofia ungueal psoriásica típica', lme.relatorio.apd],
-        ['ape', 'Fator reumatóide negativo', lme.relatorio.ape],
-        ['apf', 'História de dactilite ou dactilite atual', lme.relatorio.apf],
-        ['apg', 'Formação óssea justa-articular à radiografia simples de mãos ou pés', lme.relatorio.apg],
+        ['Psoríase atual', 'apa', lme.relatorio.apa],
+        ['História pessoal de psoríase', 'apb', lme.relatorio.apb],
+        ['História familiar de psoríase (familiar de 1º ou 2º grau)', 'apc', lme.relatorio.apc],
+        ['Distrofia ungueal psoriásica típica', 'apd', lme.relatorio.apd],
+        ['Fator reumatóide negativo', 'ape', lme.relatorio.ape],
+        ['História de dactilite ou dactilite atual', 'apf', lme.relatorio.apf],
+        ['Formação óssea justa-articular à radiografia simples de mãos ou pés', 'apg', lme.relatorio.apg],
     ]
 }
 
 export const CriteriosEA = (lme) => {
     return [
-        ['eaaa', 'Dor lombar inflamatória por, no mímino, 3 meses e idade de início da doença até 45 anos', lme.relatorio.eaaa],
-        ['eaab', 'HLA-B27 e dois ou mais características de Espondiloartrite', lme.relatorio.eaab],
-        ['eaac', 'Sacroileíte em exames de imagem e pelo mesnos uma característica de Espondiloartrite', lme.relatorio.eaac],
-        ['eanya', 'Lombalgia inflamatoria por três meses ou mais de duração', lme.relatorio.eanya],
-        ['eanyb', 'Limitação dos movimentos da coluna lombar nos planos sagital e frontal', lme.relatorio.eanyb],
-        ['eanyc', 'Expansão torácica diminuida', lme.relatorio.eanyc],
-        ['eanyd', 'Radiografia com detecção de sacroileite bilateral grau 2 a 4', lme.relatorio.eanyd],
-        ['eanye', 'Radiografia com detecção de sacroileite unilateral grau 3 ou 4', lme.relatorio.eanye],
+        ['Dor lombar inflamatória por, no mímino, 3 meses e idade de início da doença até 45 anos', 'eaaa', lme.relatorio.eaaa],
+        ['HLA-B27 e dois ou mais características de Espondiloartrite', 'eaab', lme.relatorio.eaab],
+        ['Sacroileíte em exames de imagem e pelo mesnos uma característica de Espondiloartrite', 'eaac', lme.relatorio.eaac],
+        ['Lombalgia inflamatoria por três meses ou mais de duração', 'eanya', lme.relatorio.eanya],
+        ['Limitação dos movimentos da coluna lombar nos planos sagital e frontal', 'eanyb', lme.relatorio.eanyb],
+        ['Expansão torácica diminuida', 'eanyc', lme.relatorio.eanyc],
+        ['Radiografia com detecção de sacroileite bilateral grau 2 a 4', 'eanyd', lme.relatorio.eanyd],
+        ['Radiografia com detecção de sacroileite unilateral grau 3 ou 4', 'eanye', lme.relatorio.eanye],
+    ]
+}
+
+export const CriteriosLES = () => {
+    return [
+        ['artrite não erosiva',],
+        ['eritema malar',],
+        ['convulsão',],
+        ['psicose',],
+        ['fotossensibilidade',],
+        ['úlcera mucosa',],
+        ['pleurite',],
+        ['pericardite',],
+        ['anemia hemolítica com reticulocitose',],
+        ['leucopenia',],
+        ['linfopenia',],
+        ['trombocitopenia',],
+        ['nefrite lúpica com proteinúria persistente de mais de 0,5g/dia',],
+        ['cilindros celulares',],
+        ['lesão discoide',],
+        ['fator antinuclear (FAN) reagente',],
+        ['presença de anti-DNA nativo reagente',],
+        ['presença de anti-Sm reagente',],
+        ['presença de anticorpos antifosfolipídios presentes',],
+        ['paciente com lúpus eritematoso sistêmico, com outra manifestação em órgão ou sistema afetado pela doença',],
+        ['gestante com lúpus eritematoso atendida em serviço especializado',],
+    ]
+}
+
+export const CriteriosOP = () => {
+    return [
+        ['plano de início e manutenção de tratamento com glicocorticóide em dose superior a 5mg de prednisona/dia ou equivalente por período igual ou superior a 3 meses',],
+        ['na pós-menopausa',],
+        ['fratura de baixo impacto (decorrente de queda da própria altura) de fêmur',],
+        ['fratura de baixo impacto (decorrente de queda da própria altura) de quadril',],
+        ['fratura de baixo impacto (decorrente de queda da própria altura) de coluna',],
+        ['exame densitométrico com escore T igual ou inferior a -2,5 no fêmur proximal ou coluna',],
+        ['baixa massa óssea (escore T entre -1,5 e -2,5 no fêmur proximal ou coluna) em paciente com idade superior a 70 anos e "caidor" (2 quedas nos últimos 6 meses)',],
+    ]
+}
+
+export const CriteriosDor = () => {
+    return [
+        ['intensidade da dor (escala EVA) de 4',],
+        ['intensidade da dor (escala EVA) de 6',],
+        ['intensidade da dor (escala EVA) de 8',],
+        ['intensidade da dor (escala EVA) de 10',],
+        ['refratários de outros fármacos: ',],
+        ['CID principal R52.2',],
+        ['CID secundário (patologia que desencadeou a dor): ',],
+        ['dor crônica (superior a 30 dias)',],
+    ]
+}
+
+export const CriteriosES = () => {
+    return [
+        ['espessamento cutâneo',],
+        ['puffy fingers',],
+        ['esclerodactilia',],
+        ['úlceras digitais',],
+        ['pitting scar',],
+        ['telangiectasia',],
+        ['capilaroscopia anormal',],
+        ['hipertensão arterial pulmonar',],
+        ['doença intersticial pulmonar',],
+        ['fenômeno de Raynaud',],
+        ['anticentrômero presente',],
+        ['antitopoisomerase I (Scl70) presente',],
+        ['anti-RNP presente',],
+        ['anti-RNA polimerase III',],
+    ]
+}
+
+export const CriteriosAIJ = () => {
+    return [
+        [
+            'Sistêmico',
+            [
+                'Artrite',
+                'Febre (> 15 dias, documentada por 3 dias)',
+                'Mais outra manifestação extra-articular: rash, serosite, hepatomegalia, esplenomegalia, linfonodomegalia generalizada'
+            ],
+            [
+                'Oligoarticular',
+                [
+                    'Uma a 4 articulações com artrite nos 6 primeiros meses de doença',
+                ]
+            ],
+            [
+                'Poliarticular FR positivo',
+                [
+                    'Mais de 4 articulações acometidas nos primeiros 6 meses de doença',
+                    'Fator reumatoide positivo em 2 testes com intervalo de 2 ou mais meses',
+                ]
+            ],
+            [
+                'Poliarticular FR negativo',
+                [
+                    'Mais de 4 articulações nos primeiros 6 meses(grandes e pequenas articulações)',
+                    'Fator reumatoide negativo',
+                ]
+            ],
+            [
+                'Artrite psoriásica',
+                [
+                    'Artrite e Psoríase',
+                    'Artrite e 2 dos seguintes: dactilite, alteração ungueal(pequenas depressões puntiformes nas unhas ou onicólise), parente do primeiro grau com psoríase'
+                ]
+            ]
+        ]
     ]
 }
 
@@ -67,5 +177,10 @@ export const CriteriosLme = (lme) => {
     if (doencapelocid === 'ar') return [CriteriosAR1987(lme), CriteriosAR2010(lme)]
     if (doencapelocid === 'ap') return [CriteriosAP(lme)]
     if (doencapelocid === 'ea') return [CriteriosEA(lme)]
-    return "aij"
+    if (doencapelocid === 'les') return [CriteriosLES()]
+    if (doencapelocid === 'op') return [CriteriosOP()]
+    if (doencapelocid === 'dor') return [CriteriosDor()]
+    if (doencapelocid === 'es') return [CriteriosES()]
+    if (doencapelocid === 'aij') return [CriteriosAIJ()]
+    return "outro"
 }
