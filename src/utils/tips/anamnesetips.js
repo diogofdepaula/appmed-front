@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
 import { CriteriosLme } from '../criteriosdoencas';
 import { DoençaCID } from '../inquiries';
-import ICAD from './das28';
+import ICAD from './Icad';
 
 const AnamneseTips = () => {
 

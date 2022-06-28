@@ -42,12 +42,12 @@ const ICAD = () => {
     const [sdai, setSdai] = useState(0)
 
     const calcasdascrp = (bp, pp, ms, eva, pcr) => {
-        return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt(eva)) + (0.07 * parseInt(pp) + (0.58 * Math.log(pcr + 1))))
+        return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt(eva/10)) + (0.07 * parseInt(pp) + (0.58 * Math.log(pcr + 1))))
     }
     const [asdascrp, setAsdascrp] = useState(0)
 
     const calcasdasesr = (bp, pp, ms, eva, vhs) => {
-        return ((0.08 * parseInt(bp)) + (0.07 * parseInt(ms)) + (0.11 * parseInt(eva)) + (0.09 * parseInt(pp) + (0.29 * Math.sqrt(vhs))))
+        return ((0.08 * parseInt(bp)) + (0.07 * parseInt(ms)) + (0.11 * parseInt(eva/10)) + (0.09 * parseInt(pp) + (0.29 * Math.sqrt(vhs))))
     }
     const [asdasesr, setAsdasesr] = useState(0)
 
@@ -70,9 +70,9 @@ const ICAD = () => {
         let texto2 = das28pcr > 0 ? "DAS28-PCR de " + das28pcr.toFixed(2) + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.eva + "); " : ''
         let texto3 = cdai > 0 ? "CDAI de " + cdai + " (" + index.dor + " + " + index.edema + " + " + index.pga + " + " + index.ega + "); " : ''
         let texto4 = sdai > 0 ? "SDAI de " + sdai + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.pga + " + " + index.ega + "); " : ''
-        let texto5 = index.eva > 0 ? "EVA de " + index.eva + "." : ''
-        let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + index.eva + " + " + index.pcr + "); " : ''
-        let texto7 = asdasesr > 0 ? "ASDAS-PCR de " + asdasesr + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + index.vhs + " + " + index.pcr + "); " : ''
+        let texto5 = index.eva > 0 ? "EVA de " + index.eva + ";" : ''
+        let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + index.eva + "(/10) + " + index.pcr + "); " : ''
+        let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + index.eva + "(/10) + " + index.vhs + "); " : ''
         let textofinal = texto1 + texto2 + texto3 + texto4 + texto5 + texto6 + texto7
 
         setLmeEdit({
@@ -84,8 +84,8 @@ const ICAD = () => {
                 cdai: cdai,
                 sdai: sdai,
                 // basdai: '',
-                asdascrp: '',
-                asdasesr: '',
+                asdascrp: asdascrp.toFixed(1),
+                asdasesr: asdasesr.toFixed(1),
                 // sledai: '',
                 // essdai: '',
                 // mda: '',
@@ -105,8 +105,8 @@ const ICAD = () => {
                 cdai: cdai,
                 sdai: sdai,
                 // basdai: '',
-                asdascrp: '',
-                asdasesr: '',
+                asdascrp: asdascrp.toFixed(1),
+                asdasesr: asdasesr.toFixed(1),
                 // essdai: '',
                 // mda: '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
@@ -236,7 +236,7 @@ const ICAD = () => {
                         name="ms"
                         label="Morning Stiffness"
                         helperText="0 a 10"
-                        value={index.ega}
+                        value={index.ms}
                         onChange={handleChange}
                     />
                 </Box>
