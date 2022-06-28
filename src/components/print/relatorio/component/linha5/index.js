@@ -37,8 +37,14 @@ const Linha5Relatorio = () => {
             grow: "1",
         },
         {
-            titulo: "ASDAI",
-            texto: lme.relatorio.asdas,
+            titulo: "ASDAS-PCR",
+            texto: lme.relatorio.asdascrp,
+            alinhamento: "center",
+            grow: "1",
+        },
+        {
+            titulo: "ASDAS-VHS",
+            texto: lme.relatorio.asdasesr,
             alinhamento: "center",
             grow: "1",
         },
@@ -52,8 +58,14 @@ const Linha5Relatorio = () => {
             grow: "1",
         },
         {
-            titulo: "ASDAI (artrite axial)",
-            texto: lme.relatorio.asdas,
+            titulo: "ASDAS-PCR",
+            texto: lme.relatorio.asdascrp,
+            alinhamento: "center",
+            grow: "1",
+        },
+        {
+            titulo: "ASDAS-VHS",
+            texto: lme.relatorio.asdasesr,
             alinhamento: "center",
             grow: "1",
         },

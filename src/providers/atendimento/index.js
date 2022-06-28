@@ -125,7 +125,8 @@ export const NovoRelatorio = (lmeId) => {
         sdai: '',
         sjadas: '',
         basdai: '',
-        asdas: '',
+        asdascrp: '',
+        asdasesr: '',
         dapsa: '',
         lei: '',
     }
