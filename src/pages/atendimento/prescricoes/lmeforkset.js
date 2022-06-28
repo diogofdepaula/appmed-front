@@ -19,7 +19,7 @@ const LMEForkSet = () => {
 
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
 
-        if (DoençaCID(param.cid10) !== 'outro' && !param.relatorio) {
+        if ((DoençaCID(param.cid10) === 'ar' || DoençaCID(param.cid10) === 'ea' || DoençaCID(param.cid10) === 'ap' || DoençaCID(param.cid10) === 'aij' ) && !param.relatorio) {
             setLmeEdit({
                 ...param,
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],

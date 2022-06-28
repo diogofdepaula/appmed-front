@@ -529,7 +529,7 @@ export const AddRelatorio = () => {
 
     const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
-    if (!(DoençaCID(lmeEdit?.cid10) !== 'outro' && !lmeEdit?.relatorio)) return <></>
+    if (!((DoençaCID(param.cid10) === 'ar' || DoençaCID(param.cid10) === 'ea' || DoençaCID(param.cid10) === 'ap' || DoençaCID(param.cid10) === 'aij') && !lmeEdit?.relatorio)) return <></>
 
     const handleClick = () => {
         setLmeEdit({
