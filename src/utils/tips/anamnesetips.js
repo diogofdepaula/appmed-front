@@ -169,6 +169,8 @@ const AnamneseTips = () => {
         )
     }
 
+    console.log(lmeEdit);
+
     return (
         <>
             <Divider />
