@@ -156,6 +156,7 @@ const AnamneseTips = () => {
         if (DoençaCID(lmeEdit.cid10) !== 'dor') return <></>
 
         const texto = 
+        "Paciente com a presença dos seguintes critérios: \n" +
         "Intensidade da dor (escala EVA) de 8; \n" + 
         "Refratários de outros fármacos: paracetamol e AINH; \n" +
         "CID principal R52.2'; \n " + 
