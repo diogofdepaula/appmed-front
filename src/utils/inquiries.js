@@ -19,3 +19,8 @@ export const DoençaCID = (param) => {
     if (['M080', 'M051', 'M081', 'M082', 'M083', 'M084', 'M088', 'M089'].includes(param)) return "aij"
     return 'outro'
 }
+
+
+export const LmeComRelatorio = (lme) => {
+    return (DoençaCID(lme?.cid10) === 'ar' || DoençaCID(lme?.cid10) === 'ea' || DoençaCID(lme?.cid10) === 'ap' || DoençaCID(lme?.cid10) === 'aij')
+}

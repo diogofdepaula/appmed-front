@@ -19,7 +19,7 @@ import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
 import PrintDialog from '../../../pages/print/component/printdialog';
 import { NovoRelatorio } from '../../../providers/atendimento';
-import { DoençaCID } from '../../../utils/inquiries';
+import { DoençaCID, LmeComRelatorio } from '../../../utils/inquiries';
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -529,7 +529,7 @@ export const AddRelatorio = () => {
 
     const { lmeEdit, setLmeEdit } = useContext(AtendimentoContext)
 
-    if (!((DoençaCID(lmeEdit?.cid10) === 'ar' || DoençaCID(lmeEdit?.cid10) === 'ea' || DoençaCID(lmeEdit?.cid10) === 'ap' || DoençaCID(lmeEdit?.cid10) === 'aij') && !lmeEdit?.relatorio)) return <></>
+    if (!((LmeComRelatorio(lmeEdit)) && !lmeEdit?.relatorio)) return <></>
 
     const handleClick = () => {
         setLmeEdit({

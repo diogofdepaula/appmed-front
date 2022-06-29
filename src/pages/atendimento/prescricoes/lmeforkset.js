@@ -1,9 +1,9 @@
 import { Box, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from '@mui/material';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 import { ClienteContext } from '../../../App';
 import { NovoRelatorio } from '../../../providers/atendimento';
-import { DoençaCID } from '../../../utils/inquiries';
+import { LmeComRelatorio } from '../../../utils/inquiries';
 
 const LMEForkSet = () => {
 
@@ -19,7 +19,7 @@ const LMEForkSet = () => {
 
         // seta da LMEEdit para lme selecionada e adiciona o prescricao nova e atualiza a lmeId para a id da lme selecionada
 
-        if ((DoençaCID(param.cid10) === 'ar' || DoençaCID(param.cid10) === 'ea' || DoençaCID(param.cid10) === 'ap' || DoençaCID(param.cid10) === 'aij' ) && !param.relatorio) {
+        if ((LmeComRelatorio(param)) && !param.relatorio) {
             setLmeEdit({
                 ...param,
                 prescricoes: [...param.prescricoes, { ...prescricaoEdit, lmeId: param.id }],
