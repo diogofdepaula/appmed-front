@@ -151,6 +151,31 @@ const AnamneseTips = () => {
         )
     }
 
+    const Dor = () => {
+
+        if (DoençaCID(lmeEdit.cid10) !== 'dor') return <></>
+
+        const texto = 
+        "Intensidade da dor (escala EVA) de 8; \n" + 
+        "Refratários de outros fármacos: paracetamol e AINH; \n" +
+        "CID principal R52.2'; \n " + 
+        "CID secundário (patologia que desencadeou a dor): M15; \n" + 
+        "Dor crônica (superior a 30 dias). \n" + 
+        "Solicito o fornecimento de Gabapentina."
+
+        return (
+            <>
+             <Box ml={1}>
+                    <Chip
+                        label="Dor !!!"
+                        variant="outlined"
+                        onClick={handleClick(texto)}
+                    />
+                </Box>
+            </>
+        )
+    }
+
     return (
         <>
             <Divider />
@@ -176,6 +201,7 @@ const AnamneseTips = () => {
                         onClick={() => handleSolMedicamento()}
                     />
                 </Box>
+                <Dor />
             </Box>
             <Paper elevation={3}>
                 <Box
