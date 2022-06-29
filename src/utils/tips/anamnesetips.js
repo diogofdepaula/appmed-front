@@ -90,8 +90,8 @@ const AnamneseTips = () => {
         return (
             <>
                 {CriteriosLme(lmeEdit)[1].map(x =>
-                    x[1].map(y =>
-                        <Box key={y[0]}>
+                    x[1].map((y, i) =>
+                        <Box key={i}>
                             <Chip
                                 label={y[0]}
                                 variant="outlined"
