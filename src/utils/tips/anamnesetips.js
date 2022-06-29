@@ -36,11 +36,7 @@ const AnamneseTips = () => {
                     ?
                     null
                     :
-                    param[2] !== undefined
-                        ?
-                        { ...lmeEdit.relatorio, [param[1]]: true }
-                        :
-                        { ...lmeEdit.relatorio }
+                    { ...lmeEdit.relatorio, [param[1]]: true }
         })
     }
 
@@ -53,11 +49,7 @@ const AnamneseTips = () => {
                     ?
                     null
                     :
-                    param[2] === undefined
-                        ?
-                        { ...lmeEdit.relatorio, [param[1]]: true }
-                        :
-                        { ...lmeEdit.relatorio }
+                    { ...lmeEdit.relatorio, [param[1]]: true }
         })
     }
 
@@ -155,18 +147,18 @@ const AnamneseTips = () => {
 
         if (DoençaCID(lmeEdit.cid10) !== 'dor') return <></>
 
-        const texto = 
-        "Paciente com a presença dos seguintes critérios: \n" +
-        "Intensidade da dor (escala EVA) de 8; \n" + 
-        "Refratários de outros fármacos: paracetamol e AINH; \n" +
-        "CID principal R52.2'; \n " + 
-        "CID secundário (patologia que desencadeou a dor): M15; \n" + 
-        "Dor crônica (superior a 30 dias). \n" + 
-        "Solicito o fornecimento de Gabapentina."
+        const texto =
+            "Paciente com a presença dos seguintes critérios: \n" +
+            "Intensidade da dor (escala EVA) de 8; \n" +
+            "Refratários de outros fármacos: paracetamol e AINH; \n" +
+            "CID principal R52.2'; \n " +
+            "CID secundário (patologia que desencadeou a dor): M15; \n" +
+            "Dor crônica (superior a 30 dias). \n" +
+            "Solicito o fornecimento de Gabapentina."
 
         return (
             <>
-             <Box ml={1}>
+                <Box ml={1}>
                     <Chip
                         label="Dor !!!"
                         variant="outlined"
