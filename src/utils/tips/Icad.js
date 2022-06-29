@@ -72,7 +72,7 @@ const ICAD = () => {
         let texto4 = sdai > 0 ? "SDAI de " + sdai + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.pga + " + " + index.ega + "); " : ''
         let texto5 = index.eva > 0 ? "EVA de " + index.eva + "; " : ''
         let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.pcr + "); " : ''
-        let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "); " : ''
+        let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "). " : '.'
         let textofinal = texto1 + texto2 + texto3 + texto4 + texto5 + texto6 + texto7
 
         setLmeEdit({
@@ -107,8 +107,6 @@ const ICAD = () => {
                 // basdai: '',
                 asdascrp: asdascrp.toFixed(1),
                 asdasesr: asdasesr.toFixed(1),
-                // essdai: '',
-                // mda: '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
                 pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
                 eva: index.eva,

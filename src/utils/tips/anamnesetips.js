@@ -192,7 +192,7 @@ const AnamneseTips = () => {
                     <Chip
                         label="Critérios"
                         variant="outlined"
-                        onClick={handleClick("Paciente com a presença dos seguintes critérios:")}
+                        onClick={handleClick("Paciente com a presença dos seguintes critérios:   ")}
                     />
                 </Box>
                 <Box ml={1}>
