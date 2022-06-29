@@ -34,7 +34,7 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
                                             fontWeight: lmeOnDuty?.id === lme.id ?'bold' : 'regular',
                                         }}
                                     >
-                                        {lme.cid10}{(DoençaCID(lme.cid10) !== 'outro' && !lme.relatorio) ? " -  precisa de relatório" : ''}
+                                        {lme.cid10}{((DoençaCID(lme?.cid10) === 'ar' || DoençaCID(lme?.cid10) === 'ea' || DoençaCID(lme?.cid10) === 'ap' || DoençaCID(lme?.cid10) === 'aij') && !lme.relatorio) ? " -  precisa de relatório" : ''}
                                     </Box>
                                 </TableCell>
                             </TableRow>
