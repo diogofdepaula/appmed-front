@@ -42,7 +42,7 @@ const ICAD = () => {
     const [sdai, setSdai] = useState(0)
 
     const calcasdascrp = (bp, pp, ms, eva, pcr) => {
-        return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt(eva/10)) + (0.07 * parseInt(pp) + (0.58 * Math.log(pcr + 1))))
+        return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt(eva/10)) + (0.07 * parseInt(pp) + (0.58 * Math.log((pcr + 1)))))
     }
     const [asdascrp, setAsdascrp] = useState(0)
 
