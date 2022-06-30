@@ -2,35 +2,35 @@ import { DoençaCID } from "./inquiries"
 
 export const CriteriosAR1987 = (lme) => {
     return [
-        ['Rigidez articular', 'ara', lme.relatorio.ara],
-        ['Artrite em três ou mais áreas', 'arb', lme.relatorio.arb],
-        ['Artrite em articulações das mãos', 'arc', lme.relatorio.arc],
-        ['Artrite simétrica', 'ard', lme.relatorio.ard],
-        ['Nódulos reumatóides', 'are', lme.relatorio.are],
-        ['Fator reumatóide sérico', 'arf', lme.relatorio.arf],
-        ['Alterações radiológicas', 'arg', lme.relatorio.arg],
+        ['Rigidez articular', 'ara', lme.relatorio?.ara],
+        ['Artrite em três ou mais áreas', 'arb', lme.relatorio?.arb],
+        ['Artrite em articulações das mãos', 'arc', lme.relatorio?.arc],
+        ['Artrite simétrica', 'ard', lme.relatorio?.ard],
+        ['Nódulos reumatóides', 'are', lme.relatorio?.are],
+        ['Fator reumatóide sérico', 'arf', lme.relatorio?.arf],
+        ['Alterações radiológicas', 'arg', lme.relatorio?.arg],
     ]
 }
 
 export const CriteriosAR2010 = (lme) => {
     return [
-        [[lme.relatorio.ar2010a, 'ar2010a'], [
+        [[lme.relatorio?.ar2010a, 'ar2010a'], [
             ['1 grande articulação', 0],
             ['2 - 10 grandes articulações', 1],
             ['1 - 3 pequenas articulações', 2],
             ['4 - 10 pequenas articulações', 3],
             ['Mais que 10 articulações', 5]
         ]],
-        [[lme.relatorio.ar2010b, 'ar2010b'], [
+        [[lme.relatorio?.ar2010b, 'ar2010b'], [
             ['Fator reumatoide e anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) não reagentes', 0],
             ['Fator reumatoide ou anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em baixos títulos', 2],
             ['Fator reumatoide em altos títulos ou anticorpos antipeptídeos citrulinados cíclicos (anti-CCP) em altos títulos', 3]
         ]],
-        [[lme.relatorio.ar2010c, 'ar2010c'], [
+        [[lme.relatorio?.ar2010c, 'ar2010c'], [
             ['VHS ou PCR normais', 0],
             ['VHS ou PCR alterado', 1]
         ]],
-        [[lme.relatorio.ar2010d, 'ar2010d'], [
+        [[lme.relatorio?.ar2010d, 'ar2010d'], [
             ['Duração dos sintomas menor que 6 semanas', 0],
             ['Duração dos sintomas maior que 6 semanas', 1],
         ]],
@@ -39,13 +39,13 @@ export const CriteriosAR2010 = (lme) => {
 
 export const CriteriosAP = (lme) => {
     return [
-        ['Psoríase atual', 'apa', lme.relatorio.apa],
-        ['História pessoal de psoríase', 'apb', lme.relatorio.apb],
-        ['História familiar de psoríase (familiar de 1º ou 2º grau)', 'apc', lme.relatorio.apc],
-        ['Distrofia ungueal psoriásica típica', 'apd', lme.relatorio.apd],
-        ['Fator reumatóide negativo', 'ape', lme.relatorio.ape],
-        ['História de dactilite ou dactilite atual', 'apf', lme.relatorio.apf],
-        ['Formação óssea justa-articular à radiografia simples de mãos ou pés', 'apg', lme.relatorio.apg],
+        ['Psoríase atual', 'apa', lme.relatorio?.apa],
+        ['História pessoal de psoríase', 'apb', lme.relatorio?.apb],
+        ['História familiar de psoríase (familiar de 1º ou 2º grau)', 'apc', lme.relatorio?.apc],
+        ['Distrofia ungueal psoriásica típica', 'apd', lme.relatorio?.apd],
+        ['Fator reumatóide negativo', 'ape', lme.relatorio?.ape],
+        ['História de dactilite ou dactilite atual', 'apf', lme.relatorio?.apf],
+        ['Formação óssea justa-articular à radiografia simples de mãos ou pés', 'apg', lme.relatorio?.apg],
     ]
 }
 
