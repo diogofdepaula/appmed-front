@@ -1,6 +1,6 @@
 import { format } from "date-fns"
 import { useState } from "react"
-import { DoençaCID } from "../../utils/inquiries"
+import { LmeComRelatorio } from "../../utils/inquiries"
 
 // o que for preenchido com CheckBox tem que ser true or false
 // o que for preenchido com RadioBox tem que ser undefined
@@ -155,7 +155,7 @@ const NovaLme = (clienteId, prescricaoEdit, param) => {
         // isso adiciona a nova prescricao na nova lme
         prescricoes: prescricaoEdit,
         //relatorio: (medicamentoClasse === 'MMCDB' || medicamentoClasse === 'MMCDPM') ?
-        relatorio: (DoençaCID(param.cid10) !== 'outro') ?
+        relatorio: LmeComRelatorio(param) ? // (DoençaCID(param.cid10) !== 'outro') ?
             // null, pois ainda a lme nao tem id
             NovoRelatorio(null)
             :
