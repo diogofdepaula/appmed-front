@@ -1,4 +1,5 @@
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
+import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import { IconButton } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
@@ -30,6 +31,35 @@ const MedicamentosUtilizadosTips = () => {
         })
     }
 
+    const handleClickChange = () => {
+
+       const texto = lmeEdit.relatorio.utilizados
+        .replace('\t', '') // isso mudará o primeiro
+        .replace(/['\t']/g, ' - ') // isso mudará os outros
+        .replace(/ - MTX/g, 'Metotrexato')
+        .replace(/ - LFN/g, 'Leflunomida')
+        .replace(/ - HCLQ/g, 'Hidroxicloroquina')
+        .replace(/ - SSZ/g, 'Sulfassalazina')
+        .replace(/ - ADA/g, 'Adalimumabe')
+        .replace(/ - IFX/g, 'Infliximabe')
+        .replace(/ - CTZ/g, 'Certolizumabe')
+        .replace(/ - GLM/g, 'Golimumabe')
+        .replace(/ - ETN/g, 'Etanercepte')
+        .replace(/ - TCZ/g, 'Tocilizumabe')
+        .replace(/ - ABT/g, 'Abatacepte')
+        .replace(/ - Tofa/g, 'Tofacitinibe')
+        .replace(/ - RXT/g, 'Rituximabe')
+        .replace(/eficacia/g, 'eficácia')
+        .replace(/GI/g, 'gastrointestinal')
+        
+        setLmeEdit({
+            ...lmeEdit, relatorio: {
+                ...lmeEdit.relatorio,
+                utilizados: texto,
+            }
+        })
+    }
+
     return (
         <>
             <IconButton
@@ -37,6 +67,12 @@ const MedicamentosUtilizadosTips = () => {
                 size="large"
             > 
                 <AirlineStopsIcon />
+            </IconButton>
+            <IconButton
+                onClick={handleClickChange}
+                size="large"
+            > 
+                <PublishedWithChangesIcon />
             </IconButton>
         </>
     )

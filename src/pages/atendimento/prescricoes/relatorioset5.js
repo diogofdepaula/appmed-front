@@ -1,4 +1,5 @@
 import AirlineStopsIcon from '@mui/icons-material/AirlineStops';
+import PublishedWithChangesIcon from '@mui/icons-material/PublishedWithChanges';
 import { Box, Checkbox, Divider, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import Radio from '@mui/material/Radio';
 import { useContext } from 'react';
@@ -27,6 +28,19 @@ const RelatorioSet5 = () => {
             }
         })
     }
+
+    const handleClickCopy = () => {
+
+        const texto = lmeEdit.anamnese
+        setLmeEdit({
+            ...lmeEdit, relatorio: {
+                ...lmeEdit.relatorio,
+                justificativa: texto,
+            }
+        })
+    }
+
+    
 
     const Aine = () => {
         if (DoençaCID(lmeEdit.cid10) !== 'ea') return <></>
@@ -201,6 +215,12 @@ const RelatorioSet5 = () => {
                         size="large"
                     >
                         <AirlineStopsIcon />
+                    </IconButton>
+                    <IconButton
+                        onClick={handleClickCopy}
+                        size="large"
+                    >
+                        <PublishedWithChangesIcon />
                     </IconButton>
                 </Box>
                 <Box

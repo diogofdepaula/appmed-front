@@ -154,8 +154,7 @@ const NovaLme = (clienteId, prescricaoEdit, param) => {
         clienteId: clienteId,
         // isso adiciona a nova prescricao na nova lme
         prescricoes: prescricaoEdit,
-        //relatorio: (medicamentoClasse === 'MMCDB' || medicamentoClasse === 'MMCDPM') ?
-        relatorio: LmeComRelatorio(param) ? // (DoençaCID(param.cid10) !== 'outro') ?
+        relatorio: LmeComRelatorio(param) ? 
             // null, pois ainda a lme nao tem id
             NovoRelatorio(null)
             :
