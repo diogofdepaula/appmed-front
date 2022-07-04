@@ -9,8 +9,6 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
 
     if (lmes.length === 0) return <></>
 
-    console.log(lmeOnDuty?.relatorio?.idadeinicio);
-
     return (
         <>
             <Box
