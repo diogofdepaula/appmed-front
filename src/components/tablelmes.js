@@ -34,7 +34,7 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
                                             fontWeight: lmeOnDuty?.id === lme.id ?'bold' : 'regular',
                                         }}
                                     >
-                                        {lme.cid10}{((LmeComRelatorio(lme)) && !lme.relatorio) ? " -  precisa de relatório" : ''}
+                                        {lme.cid10}{((LmeComRelatorio(lme)) && !lme.relatorio) ? " -  precisa de relatório" : (lme.relatorio.idadeinicio === '' ? " -  precisa editar relatório" : '')}
                                     </Box>
                                 </TableCell>
                             </TableRow>
