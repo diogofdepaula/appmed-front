@@ -9,6 +9,8 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
 
     if (lmes.length === 0) return <></>
 
+    console.log(lmeOnDuty?.relatorio?.idadeinicio);
+
     return (
         <>
             <Box
@@ -31,10 +33,10 @@ const TableLmes = memo(({ lmes, setLmeOnDuty }) => {
                                 <TableCell component="th" scope="row">
                                     <Box
                                         sx={{
-                                            fontWeight: lmeOnDuty?.id === lme.id ?'bold' : 'regular',
+                                            fontWeight: lmeOnDuty?.id === lme.id ? 'bold' : 'regular',
                                         }}
                                     >
-                                        {lme.cid10}{((LmeComRelatorio(lme)) && !lme.relatorio) ? " -  precisa de relatório" : (lme.relatorio?.idadeinicio === '' ? " -  precisa editar relatório" : '')}
+                                        {lme.cid10}{((LmeComRelatorio(lme)) && !lme.relatorio) ? " -  precisa de relatório" : ''}
                                     </Box>
                                 </TableCell>
                             </TableRow>
