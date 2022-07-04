@@ -70,7 +70,6 @@ export const PrincipalBtn = () => {
 export const RequisicoesBtn = () => {
 
     const handleClick = () => {
-        console.log('deixei para fazer depois');
     }
 
     return (
@@ -87,7 +86,6 @@ export const RequisicoesBtn = () => {
 export const AtestadosBtn = () => {
 
     const handleClick = () => {
-        console.log('deixei para fazer depois');
     }
 
     return (
