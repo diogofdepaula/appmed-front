@@ -135,11 +135,13 @@ export const CriteriosES = () => {
 export const CriteriosAIJ = () => {
     return [
         [
-            'Sistêmico',
             [
-                'Artrite',
-                'Febre (> 15 dias, documentada por 3 dias)',
-                'Mais outra manifestação extra-articular: rash, serosite, hepatomegalia, esplenomegalia, linfonodomegalia generalizada'
+                'Sistêmico',
+                [
+                    'Artrite',
+                    'Febre (> 15 dias, documentada por 3 dias)',
+                    'Mais outra manifestação extra-articular: rash, serosite, hepatomegalia, esplenomegalia, linfonodomegalia generalizada'
+                ],
             ],
             [
                 'Oligoarticular',

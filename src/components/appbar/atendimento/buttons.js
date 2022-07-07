@@ -19,7 +19,7 @@ import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
 import PrintDialog from '../../../pages/print/component/printdialog';
 import { NovoRelatorio } from '../../../providers/atendimento';
-import { DoençaCID, LmeComRelatorio } from '../../../utils/inquiries';
+import { LmeComRelatorio } from '../../../utils/inquiries';
 
 const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -425,7 +425,7 @@ export const SendToRelatorio = () => {
     const { lmeEdit } = useContext(AtendimentoContext)
     const { step, setStepNext } = useContext(AtendimentoNavigateContext)
 
-    if (!(DoençaCID(lmeEdit?.cid10) !== 'outro' && step === 321)) return <></>
+    if (!(LmeComRelatorio(lmeEdit) && step === 321)) return <></>
 
     const handleClick = () => {
         setStepNext()

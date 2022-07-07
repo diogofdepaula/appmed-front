@@ -22,5 +22,6 @@ export const DoençaCID = (param) => {
 
 
 export const LmeComRelatorio = (lme) => {
-    return (DoençaCID(lme?.cid10) === 'ar' || DoençaCID(lme?.cid10) === 'ea' || DoençaCID(lme?.cid10) === 'ap' || DoençaCID(lme?.cid10) === 'aij')
+    const doenca = DoençaCID(lme?.cid10)
+    return (doenca === 'ar' || doenca === 'ea' || doenca === 'ap' || doenca === 'aij')
 }
