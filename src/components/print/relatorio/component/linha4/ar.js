@@ -85,7 +85,7 @@ const CriteriosAR = () => {
                             <BoxCheckBox
                                 item={criterios[3][0][0]}
                             >
-                                {'>'} 6 semanas (0 ponto)
+                                {'<'} 6 semanas (0 ponto)
                             </BoxCheckBox>
                             <BoxCheckBox
                                 item={!criterios[3][0][0]}
