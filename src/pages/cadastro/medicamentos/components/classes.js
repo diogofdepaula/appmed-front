@@ -9,7 +9,6 @@ export default function Classes() {
         'CORTICOIDE', 
         'MMCDB', 
         'MMCDS', 
-        'MMCDPM',
         'MMCDAE',
         'OPIOIDE', 
         'OSTEOMETABOLICO', 

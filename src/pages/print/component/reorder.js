@@ -9,7 +9,7 @@ export default function Reorder(param) {
         ['CORTICOIDE', 4],
         ['MMCDB', 1],
         ['MMCDS', 3],
-        ['MMCDPM', 2],
+        ['MMCDAE', 2],
         ['OPIOIDE', 11],
         ['OSTEOMETABOLICO', 5],
         ['SUPLEMENTO', 12],
