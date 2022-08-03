@@ -51,14 +51,14 @@ export const CriteriosAP = (lme) => {
 
 export const CriteriosEA = (lme) => {
     return [
-        ['Dor lombar inflamatória por, no mímino, 3 meses e idade de início da doença até 45 anos', 'eaaa', lme.relatorio?.eaaa],
+        ['Dor lombar inflamatória por, no mínimo, 3 meses e idade de início da doença até 45 anos', 'eaaa', lme.relatorio?.eaaa],
         ['HLA-B27 e dois ou mais características de Espondiloartrite', 'eaab', lme.relatorio?.eaab],
-        ['Sacroileíte em exames de imagem e pelo mesnos uma característica de Espondiloartrite', 'eaac', lme.relatorio?.eaac],
-        ['Lombalgia inflamatoria por três meses ou mais de duração', 'eanya', lme.relatorio?.eanya],
+        ['Sacroileíte em exames de imagem e pelo menos uma característica de Espondiloartrite', 'eaac', lme.relatorio?.eaac],
+        ['Lombalgia inflamatória por três meses ou mais de duração', 'eanya', lme.relatorio?.eanya],
         ['Limitação dos movimentos da coluna lombar nos planos sagital e frontal', 'eanyb', lme.relatorio?.eanyb],
-        ['Expansão torácica diminuida', 'eanyc', lme.relatorio?.eanyc],
-        ['Radiografia com detecção de sacroileite bilateral grau 2 a 4', 'eanyd', lme.relatorio?.eanyd],
-        ['Radiografia com detecção de sacroileite unilateral grau 3 ou 4', 'eanye', lme.relatorio?.eanye],
+        ['Expansão torácica diminuída', 'eanyc', lme.relatorio?.eanyc],
+        ['Radiografia com detecção de sacroileíte bilateral grau 2 a 4', 'eanyd', lme.relatorio?.eanyd],
+        ['Radiografia com detecção de sacroileíte unilateral grau 3 ou 4', 'eanye', lme.relatorio?.eanye],
     ]
 }
 
