@@ -121,9 +121,9 @@ const PrescricaoData = ({prescricao}) => {
                     {"Última impressão:  "}
                     {prescricao?.ultimaimpressao
                         ?
-                        DataDDMMYYY(prescricao?.ultimaimpressao)
+                        DataDDMMYYY(prescricao?.ultimaimpressao) + " (" + DateDifferenceToday(prescricao?.ultimaimpressao) + " meses )"
                         :
-                        'Indefinido'
+                        'Indefinido' 
                     }
                 </Box>
             </Box>
