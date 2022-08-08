@@ -2,13 +2,13 @@ import { Box, Divider, FormControl, Grid, IconButton, List, ListItem, ListItemSe
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { memo, useContext, useMemo, useRef, useState } from "react";
-import { PrintContext } from "../..";
 import FormatText from "./formattext"
 import GroupsTips from "./groupstips";
 import Operadoras from "./operadoras";
 import Sigtap from "./sigtap";
 import Tuss from "./tuss";
 import UnitaryTips from "./unitarytips";
+import { PrintContext } from "../../../App";
 
 const CellProcedimento = memo(({ param, handle }) => {
 

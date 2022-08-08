@@ -69,7 +69,10 @@ export const PrincipalBtn = () => {
 
 export const RequisicoesBtn = () => {
 
+    const { setArticleRequisicao } = useContext(AtendimentoNavigateContext)
+
     const handleClick = () => {
+        setArticleRequisicao()
     }
 
     return (

@@ -48,7 +48,6 @@ const App = () => {
                                         <Box flexGrow={1}>
                                             <Toolbar />
                                             <MainContent />
-
                                         </Box>
                                     </>
                                 }
