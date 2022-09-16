@@ -8,6 +8,7 @@ import { LmeComRelatorio } from "../../utils/inquiries"
 const NovaPrescricao = (clienteId) => {
 
     return {
+        clienteId: clienteId,
         continuo: true,
         imprimirorientacoes: false,
         emuso: true,
@@ -25,7 +26,6 @@ const NovaPrescricao = (clienteId) => {
         inicio: format(new Date(), "yyyy-MM-dd"), //new Date(),
         termino: undefined,
         motivotermico: '',
-        clienteId: clienteId,
         lmeId: null,
         medicamentoId: '',
         apresentacoId: '',
@@ -141,6 +141,7 @@ export const NovoRelatorio = (lmeId) => {
 const NovaLme = (clienteId, prescricaoEdit, param) => {
 
     return {
+        clienteId: clienteId,
         cid10: param.cid10,
         diagnostico: param.descricao,
         anamnese: '',
@@ -151,14 +152,29 @@ const NovaLme = (clienteId, prescricaoEdit, param) => {
         preenchidoporCPF: '',
         raca: '',
         ultimaimpressao: undefined,
-        clienteId: clienteId,
         // isso adiciona a nova prescricao na nova lme
         prescricoes: prescricaoEdit,
-        relatorio: LmeComRelatorio(param) ? 
+        relatorio: LmeComRelatorio(param) ?
             // null, pois ainda a lme nao tem id
             NovoRelatorio(null)
             :
             null,
+    }
+}
+
+const NovoAtestado = (clienteId) => {
+
+    return {
+        clienteId: clienteId,
+        cid10: '',
+        diagnostico: '',
+        padrao: '',
+        tratamento: '',
+        estado: '',
+        prognostico: '',
+        comentario: '',
+        data: format(new Date(), "yyyy-MM-dd"), //new Date(),
+        ultimaimpressao: undefined,
     }
 }
 
@@ -169,6 +185,8 @@ const AtendimentoProvider = () => {
     const [lmeOnDuty, setLmeOnDuty] = useState(null)
     const [lmeEdit, setLmeEdit] = useState(null)
     const [medicamentoEdit, setMedicamentoEdit] = useState(null)
+    const [atestadoEdit, setAtestadoEdit] = useState(null)
+    const [atestadoOnDuty, setAtestadoOnDuty] = useState(null)
 
     return {
         prescricaoOnDuty,
@@ -192,7 +210,14 @@ const AtendimentoProvider = () => {
         },
         setNovaLme: (clienteId, prescricaoEdit, medicamentoClasse) => {
             setLmeEdit(NovaLme(clienteId, prescricaoEdit, medicamentoClasse))
-        }
+        },
+        setNovoAtestado: (clienteId) => {
+            setAtestadoEdit(NovoAtestado(clienteId))
+        },
+        atestadoEdit,
+        setAtestadoEdit,
+        atestadoOnDuty, 
+        setAtestadoOnDuty,
     }
 }
 

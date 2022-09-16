@@ -2,6 +2,7 @@ import { useState } from "react"
 import AtendimentoMain from "../../pages/atendimento/main"
 import PrescricoesMain from "../../pages/atendimento/prescricoes"
 import ApresentacaoSet from "../../pages/atendimento/prescricoes/apresentacaoset"
+import AtestadoSet from "../../pages/atendimento/prescricoes/atestadoset"
 import LMECIDSet from "../../pages/atendimento/prescricoes/lmecidset"
 import LmeDelete from "../../pages/atendimento/prescricoes/lmedetele"
 import LMEDoses from "../../pages/atendimento/prescricoes/lmedoses"
@@ -29,7 +30,8 @@ const AtendimentoNavegateProvider = () => {
     const [print, setPrint] = useState(false)
 
     // definição do step
-    // 1º número:   1 - prescricao  3 - LME 5 - Alguma outra coisa      == optei por pular um, pois se precisar encaixar alguma coisa fica mais fácil
+    // 1º número:   1 - prescricao  3 - LME 5 - Alguma outra coisa  7 - Atestados     == optei por pular um, pois se precisar encaixar alguma coisa fica mais fácil
+    //                                         -- optei por não por o Atestado aqui pois só tem uma pagina de formulário.    
     // 2º número:   define o que era o step antes, ou seja, qual será a Section agora
     // 3º número:   define variaçoes dentro da Section
 
@@ -51,6 +53,7 @@ const AtendimentoNavegateProvider = () => {
             361: <RelatorioSet4 />,
             371: <RelatorioSet5 />,
             381: <RelatorioSet6 />,
+            711: <AtestadoSet />,
             default: <div />
         }
         return Section[param] || Section.default

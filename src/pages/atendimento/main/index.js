@@ -4,6 +4,8 @@ import { AtendimentoContext } from '..';
 import { ClienteContext } from '../../../App';
 import LmeData from '../../../components/atendimento/lmedata';
 import PrescricaoData from '../../../components/atendimento/prescricaodata';
+import AtestadoData from '../../../components/atestadodata';
+import TableAtestados from '../../../components/tableatestados';
 import TableLmes from '../../../components/tablelmes';
 import TablePrescricoes from '../../../components/tableprescricoes';
 
@@ -48,9 +50,11 @@ const AtendimentoMain = () => {
                             />
                         </Box>
                     }
+                    <TableAtestados />
                 </Box>
                 <PrescricaoData prescricao={prescricaoOnDuty} />
                 <LmeData lme={lmeOnDuty} />
+                <AtestadoData />
             </Box>
         </>
     )

@@ -7,6 +7,7 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import PrintIcon from '@mui/icons-material/Print';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
@@ -88,7 +89,10 @@ export const RequisicoesBtn = () => {
 
 export const AtestadosBtn = () => {
 
+    const { setArticleAtestados } = useContext(AtendimentoNavigateContext)
+
     const handleClick = () => {
+        setArticleAtestados()
     }
 
     return (
@@ -545,6 +549,130 @@ export const AddRelatorio = () => {
                 title={'Adicionar Relatorio'}
                 click={handleClick}
                 icon={<ReportProblemIcon sx={{ color: 'red' }} />}
+            />
+        </>
+    )
+}
+
+export const AddNovoAtestado = () => {
+
+    const { clienteContext } = useContext(ClienteContext)
+    const { setPrescricaoEdit, setNovoAtestado, setPrescricaoOnDuty, setAtestadoOnDuty } = useContext(AtendimentoContext)
+    const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
+
+    const handleClick = () => {
+        setPrescricaoEdit(null)
+        setPrescricaoOnDuty(null)
+        setAtestadoOnDuty(null)
+        setNovoAtestado(clienteContext.id)
+        setArticlePrescricoesMain()
+        setStep(711)
+    }
+
+    return (
+        <>
+            <DefaultButton
+                title={'Novo Atestado'}
+                click={handleClick}
+                icon={<NoteAddIcon />}
+            />
+        </>
+    )
+}
+
+
+export const AtestadoSalvarBtn = () => {
+
+    // const { clienteContext, setClienteContext } = useContext(ClienteContext)
+     const { atestadoEdit } = useContext(AtendimentoContext)
+    // const { step, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    // const { setPageAtendimento } = useContext(NavigateContext)
+
+    if (!atestadoEdit) return <></>
+
+    // const fetchClienteIncludes = async () => {
+    //     const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
+    //     const json = await res.json()
+    //     if (res.ok) {
+    //         setClienteContext(json)
+    //     }
+    // }
+
+    // const finalizar = () => {
+    //     setStep(0)
+    //     setPrescricaoEdit(null)
+    //     setPrescricaoOnDuty(null)
+    //     setLmeEdit(null)
+    //     setLmeOnDuty(null)
+    //     setMedicamentoEdit(null)
+    //     setPageAtendimento()
+    //     setArticleAtendimentoMain()
+    // }
+
+    // const PrescricaoInsert = async () => {
+    //     await fetch(process.env.REACT_APP_API_URL + `/prescricoes`, {
+    //         method: 'post',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(prescricaoEdit)
+    //     }).then(data => {
+    //         if (data.ok) {
+    //             fetchClienteIncludes()
+    //         }
+    //     }).then(() => finalizar())
+    // }
+
+    // const LmeInsert = async () => {
+    //     await fetch(process.env.REACT_APP_API_URL + `/lmes`, {
+    //         method: 'post',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(lmeEdit)
+    //     }).then(data => {
+    //         if (data.ok) {
+    //             fetchClienteIncludes()
+    //         }
+    //     }).then(() => finalizar())
+    // }
+
+    // const PrescricaoUpdate = async () => {
+    //     await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoEdit.id}`, {
+    //         method: 'put',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(prescricaoEdit)
+    //     }).then(data => {
+    //         if (data.ok) {
+    //             fetchClienteIncludes()
+    //         }
+    //     }).then(() => finalizar())
+    // }
+
+    // const LmeUpdate = async () => {
+    //     await fetch(process.env.REACT_APP_API_URL + `/lmes/${lmeEdit.id}`, {
+    //         method: 'put',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify(lmeEdit)
+    //     }).then(data => {
+    //         if (data.ok) {
+    //             fetchClienteIncludes()
+    //         }
+    //     }).then(() => finalizar())
+    // }
+
+    // const handleSubmit = event => {
+    //     event.preventDefault()
+    //     if (lmeEdit && lmeEdit?.id === undefined) return LmeInsert()
+    //     if (lmeEdit && lmeEdit?.id > 0) return LmeUpdate()
+    //     if (prescricaoEdit && prescricaoEdit?.id === undefined) return PrescricaoInsert()
+    //     if (prescricaoEdit && prescricaoEdit?.id > 0) return PrescricaoUpdate()
+    // }
+
+    // let disabled = step === 111
+
+    return (
+        <>
+            <DefaultButton
+                title={'Salvar Atestado'}
+                // click={handleSubmit}
+                icon={<SaveIcon />}
             />
         </>
     )
