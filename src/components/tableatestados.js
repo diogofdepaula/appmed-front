@@ -1,13 +1,13 @@
 import { Box, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import { memo } from 'react';
+import { ClienteContext } from '../App';
+import { useContext } from "react";
 
 const TableAtestados = memo(() => {
-    //const TableAtestados = memo(({ setLmeOnDuty }) => {
-    // const { clienteContext } = useContext(ClienteContext)
+    
+    const { clienteContext } = useContext(ClienteContext)
 
-    // if (lmes.length === 0) return <></>
-
-    const list = ["aaaaa", "bbbbbb", "cccccc"]
+    if (clienteContext.atestados.length === 0) return <></>
 
     return (
         <>
@@ -23,9 +23,9 @@ const TableAtestados = memo(() => {
             >
                 <Table>
                     <TableBody>
-                        {list.map(x =>
+                        {clienteContext.atestados.map(x =>
                             <TableRow
-                                key={x.id}
+                                key={x}
                                 //onClick={() => setLmeOnDuty(x)}
                             >
                                 <TableCell component="th" scope="row">
@@ -34,7 +34,7 @@ const TableAtestados = memo(() => {
                                             //fontWeight: lmeOnDuty?.id === x.id ? 'bold' : 'regular',
                                         }}
                                     >
-                                        {x}
+                                        {x.cid10}
                                     </Box>
                                 </TableCell>
                             </TableRow>

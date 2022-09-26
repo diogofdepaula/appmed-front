@@ -166,8 +166,8 @@ const NovoAtestado = (clienteId) => {
 
     return {
         clienteId: clienteId,
-        cid10: '',
-        diagnostico: '',
+        cid10: [],
+        diagnostico: [],
         padrao: '',
         tratamento: '',
         estado: '',

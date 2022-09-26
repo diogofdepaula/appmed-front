@@ -583,95 +583,49 @@ export const AddNovoAtestado = () => {
 
 export const AtestadoSalvarBtn = () => {
 
-    // const { clienteContext, setClienteContext } = useContext(ClienteContext)
-     const { atestadoEdit } = useContext(AtendimentoContext)
-    // const { step, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
-    // const { setPageAtendimento } = useContext(NavigateContext)
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
+    const { atestadoEdit, setAtestadoEdit, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { setPageAtendimento } = useContext(NavigateContext)
 
-    if (!atestadoEdit) return <></>
+    const fetchClienteIncludes = async () => {
+        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
+        const json = await res.json()
+        if (res.ok) {
+            setClienteContext(json)
+        }
+    }
 
-    // const fetchClienteIncludes = async () => {
-    //     const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-    //     const json = await res.json()
-    //     if (res.ok) {
-    //         setClienteContext(json)
-    //     }
-    // }
+    const finalizarA = () => {
+        setStep(0)
+        setAtestadoEdit(null)
+        setPrescricaoEdit(null)
+        setPrescricaoOnDuty(null)
+        setLmeEdit(null)
+        setLmeOnDuty(null)
+        setMedicamentoEdit(null)
+        setPageAtendimento()
+        setArticleAtendimentoMain()
+    }
 
-    // const finalizar = () => {
-    //     setStep(0)
-    //     setPrescricaoEdit(null)
-    //     setPrescricaoOnDuty(null)
-    //     setLmeEdit(null)
-    //     setLmeOnDuty(null)
-    //     setMedicamentoEdit(null)
-    //     setPageAtendimento()
-    //     setArticleAtendimentoMain()
-    // }
+    const AtestadoInsert = async () => {
+        await fetch(process.env.REACT_APP_API_URL + `/atestados`, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(atestadoEdit)
+        }).then(data => {
+            if (data.ok) {
+                fetchClienteIncludes()
+            }
+        }).then(() => finalizarA())
+    }
 
-    // const PrescricaoInsert = async () => {
-    //     await fetch(process.env.REACT_APP_API_URL + `/prescricoes`, {
-    //         method: 'post',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(prescricaoEdit)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             fetchClienteIncludes()
-    //         }
-    //     }).then(() => finalizar())
-    // }
-
-    // const LmeInsert = async () => {
-    //     await fetch(process.env.REACT_APP_API_URL + `/lmes`, {
-    //         method: 'post',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(lmeEdit)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             fetchClienteIncludes()
-    //         }
-    //     }).then(() => finalizar())
-    // }
-
-    // const PrescricaoUpdate = async () => {
-    //     await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoEdit.id}`, {
-    //         method: 'put',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(prescricaoEdit)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             fetchClienteIncludes()
-    //         }
-    //     }).then(() => finalizar())
-    // }
-
-    // const LmeUpdate = async () => {
-    //     await fetch(process.env.REACT_APP_API_URL + `/lmes/${lmeEdit.id}`, {
-    //         method: 'put',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(lmeEdit)
-    //     }).then(data => {
-    //         if (data.ok) {
-    //             fetchClienteIncludes()
-    //         }
-    //     }).then(() => finalizar())
-    // }
-
-    // const handleSubmit = event => {
-    //     event.preventDefault()
-    //     if (lmeEdit && lmeEdit?.id === undefined) return LmeInsert()
-    //     if (lmeEdit && lmeEdit?.id > 0) return LmeUpdate()
-    //     if (prescricaoEdit && prescricaoEdit?.id === undefined) return PrescricaoInsert()
-    //     if (prescricaoEdit && prescricaoEdit?.id > 0) return PrescricaoUpdate()
-    // }
-
-    // let disabled = step === 111
 
     return (
         <>
             <DefaultButton
-                title={'Salvar Atestado'}
-                // click={handleSubmit}
+                title={'Salvar'}
+                click={AtestadoInsert}
                 icon={<SaveIcon />}
             />
         </>

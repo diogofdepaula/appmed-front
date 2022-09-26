@@ -14,6 +14,8 @@ const AtendimentoMain = () => {
     const { clienteContext } = useContext(ClienteContext)
     const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty, lmeOnDuty } = useContext(AtendimentoContext)
 
+    console.log(clienteContext.atestados);
+
     return (
         <>
             <Box
