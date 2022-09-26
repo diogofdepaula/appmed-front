@@ -122,6 +122,8 @@ const AnamneseTips = () => {
 
         if (DoençaCID(lmeEdit.cid10) === 'ar') return <CriteriosAR2020 />
 
+        if (DoençaCID(lmeEdit.cid10) === 'outro') return <></>
+
         return (
             <>
                 {CriteriosLme(lmeEdit)[0].map((p, i) =>
