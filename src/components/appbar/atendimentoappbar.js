@@ -1,6 +1,6 @@
 import { Box, Divider } from '@mui/material';
 import React from 'react';
-import { AddNovoAtestado, AddRelatorio, AnteriorBtn, AtestadoSalvarBtn, AtestadosBtn, ImprimirNavBtn, LmeEditarBtn, LmePararBtn, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, PrintBtn, ProximoBtn, RequisicoesBtn, SendToRelatorio } from './atendimento/buttons';
+import { AddNovoAtestado, AddRelatorio, AnteriorBtn, AtestadoEditarBtn, AtestadoSalvarBtn, ImprimirNavBtn, LmeEditarBtn, LmePararBtn, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, PrintBtn, ProximoBtn, RequisicoesBtn, SendToRelatorio } from './atendimento/buttons';
 
 const AtendimentoAppBar = () => {
 
@@ -19,18 +19,20 @@ const AtendimentoAppBar = () => {
             >
                 <PrincipalBtn />
                 <RequisicoesBtn />
-                <AtestadosBtn />
                 <ImprimirNavBtn />
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <NovaPrescricaoBtn />
+                <AddNovoAtestado />
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <PrescricaoEditarBtn />
                 <LmeEditarBtn />
+                <AtestadoEditarBtn />
                 <PrescricaoPararBtn />
                 <LmePararBtn />
                 <AnteriorBtn />
                 <ProximoBtn />
                 <PrescricaoSalvarBtn />
+                <AtestadoSalvarBtn />
                 <PrescricaoToLmeBtn />
                 <PrescricaoSendForkBtn />
                 <SendToRelatorio />
@@ -38,8 +40,6 @@ const AtendimentoAppBar = () => {
                 <AddRelatorio />
                 <Divider orientation="vertical" variant="middle" flexItem />
                 <PrintBtn />
-                <AddNovoAtestado />
-                <AtestadoSalvarBtn />
             </Box>
             <Divider />
         </>

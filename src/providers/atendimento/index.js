@@ -166,8 +166,8 @@ const NovoAtestado = (clienteId) => {
 
     return {
         clienteId: clienteId,
-        cid10: [],
-        diagnostico: [],
+        cid10: '',
+        diagnostico: '',
         padrao: '',
         tratamento: '',
         estado: '',
@@ -193,6 +193,7 @@ const AtendimentoProvider = () => {
         setPrescricaoOnDuty: (param) => {
             setPrescricaoOnDuty(param)
             setLmeOnDuty(null)
+            setAtestadoOnDuty(null)
         },
         prescricaoEdit,
         setPrescricaoEdit,
@@ -200,6 +201,7 @@ const AtendimentoProvider = () => {
         setLmeOnDuty: (param) => {
             setLmeOnDuty(param)
             setPrescricaoOnDuty(null)
+            setAtestadoOnDuty(null)
         },
         lmeEdit,
         setLmeEdit,
@@ -217,7 +219,11 @@ const AtendimentoProvider = () => {
         atestadoEdit,
         setAtestadoEdit,
         atestadoOnDuty, 
-        setAtestadoOnDuty,
+        setAtestadoOnDuty: (atestado) => {
+            setAtestadoOnDuty(atestado)
+            setLmeOnDuty(null)
+            setPrescricaoOnDuty(null)
+        },
     }
 }
 

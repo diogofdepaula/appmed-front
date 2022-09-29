@@ -2,9 +2,9 @@ import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
 import { ClienteContext } from '../../../App';
+import AtestadoData from '../../../components/atendimento/atestadodata';
 import LmeData from '../../../components/atendimento/lmedata';
 import PrescricaoData from '../../../components/atendimento/prescricaodata';
-import AtestadoData from '../../../components/atestadodata';
 import TableAtestados from '../../../components/tableatestados';
 import TableLmes from '../../../components/tablelmes';
 import TablePrescricoes from '../../../components/tableprescricoes';
@@ -12,9 +12,7 @@ import TablePrescricoes from '../../../components/tableprescricoes';
 const AtendimentoMain = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty, lmeOnDuty } = useContext(AtendimentoContext)
-
-    console.log(clienteContext.atestados);
+    const { setPrescricaoOnDuty, setLmeOnDuty, prescricaoOnDuty, lmeOnDuty, atestadoOnDuty, setAtestadoOnDuty } = useContext(AtendimentoContext)
 
     return (
         <>
@@ -52,11 +50,14 @@ const AtendimentoMain = () => {
                             />
                         </Box>
                     }
-                    <TableAtestados />
+                    <TableAtestados
+                        atestadoOnDuty={atestadoOnDuty}
+                        setAtestadoOnDuty={setAtestadoOnDuty}
+                    />
                 </Box>
                 <PrescricaoData prescricao={prescricaoOnDuty} />
                 <LmeData lme={lmeOnDuty} />
-                <AtestadoData />
+                <AtestadoData atestadoOnDuty={atestadoOnDuty} />
             </Box>
         </>
     )

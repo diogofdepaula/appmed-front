@@ -13,7 +13,6 @@ import PrintIcon from '@mui/icons-material/Print';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import SaveIcon from '@mui/icons-material/Save';
 import StartIcon from '@mui/icons-material/Start';
-import WebIcon from '@mui/icons-material/Web';
 import { IconButton, Tooltip } from "@mui/material";
 import { useContext, useState } from "react";
 import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
@@ -42,16 +41,16 @@ const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
 export const PrincipalBtn = () => {
 
-    const { setPrescricaoOnDuty, setLmeOnDuty, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit } = useContext(AtendimentoContext)
+    const { setPrescricaoOnDuty, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setAtestadoEdit } = useContext(AtendimentoContext)
     const { setArticleAtendimentoMain, setStep } = useContext(AtendimentoNavigateContext)
     const { printReset } = useContext(PrintContext)
 
     const handleClick = () => {
         setPrescricaoEdit(null)
         setMedicamentoEdit(null)
-        setPrescricaoOnDuty(null)
+        setPrescricaoOnDuty(null) // já anula a LME e AtestadoOnDuty
         setLmeEdit(null)
-        setLmeOnDuty(null)
+        setAtestadoEdit(null)
         setStep(111)
         setArticleAtendimentoMain()
         printReset()
@@ -82,25 +81,6 @@ export const RequisicoesBtn = () => {
                 title={'Requsições'}
                 click={handleClick}
                 icon={<KeyboardAltIcon />}
-            />
-        </>
-    )
-}
-
-export const AtestadosBtn = () => {
-
-    const { setArticleAtestados } = useContext(AtendimentoNavigateContext)
-
-    const handleClick = () => {
-        setArticleAtestados()
-    }
-
-    return (
-        <>
-            <DefaultButton
-                title={'Atestados'}
-                click={handleClick}
-                icon={<WebIcon />}
             />
         </>
     )
@@ -140,7 +120,7 @@ export const ImprimirNavBtn = () => {
 export const NovaPrescricaoBtn = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setNovaPrescricao, setMedicamentoEdit, setPrescricaoOnDuty, setLmeEdit, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { setNovaPrescricao, setMedicamentoEdit, setPrescricaoOnDuty, setLmeEdit, setAtestadoEdit, } = useContext(AtendimentoContext)
     const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleClick = () => {
@@ -148,7 +128,7 @@ export const NovaPrescricaoBtn = () => {
         setMedicamentoEdit(null)
         setPrescricaoOnDuty(null)
         setLmeEdit(null)
-        setLmeOnDuty(null)
+        setAtestadoEdit(null)
         setStep(111)
         setArticlePrescricoesMain()
     }
@@ -266,7 +246,7 @@ export const ProximoBtn = () => {
 export const PrescricaoSalvarBtn = () => {
 
     const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setPrescricaoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { prescricaoEdit, setPrescricaoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setAtestadoEdit } = useContext(AtendimentoContext)
     const { step, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
@@ -285,7 +265,7 @@ export const PrescricaoSalvarBtn = () => {
         setPrescricaoEdit(null)
         setPrescricaoOnDuty(null)
         setLmeEdit(null)
-        setLmeOnDuty(null)
+        setAtestadoEdit(null)
         setMedicamentoEdit(null)
         setPageAtendimento()
         setArticleAtendimentoMain()
@@ -457,7 +437,7 @@ export const SendToRelatorio = () => {
 
 export const LmeEditarBtn = () => {
 
-    const { lmeOnDuty, setLmeEdit, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { lmeOnDuty, setLmeEdit, setLmeOnDuty, setAtestadoEdit } = useContext(AtendimentoContext)
     const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     if (!lmeOnDuty) return <></>
@@ -465,6 +445,7 @@ export const LmeEditarBtn = () => {
     const handleClick = () => {
         setLmeEdit(lmeOnDuty)
         setLmeOnDuty(null)
+        setAtestadoEdit(null)
         setStep(321)
         setArticlePrescricoesMain()
     }
@@ -557,12 +538,11 @@ export const AddRelatorio = () => {
 export const AddNovoAtestado = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    const { setPrescricaoEdit, setNovoAtestado, setPrescricaoOnDuty, setAtestadoOnDuty } = useContext(AtendimentoContext)
+    const { setPrescricaoEdit, setNovoAtestado, setAtestadoOnDuty } = useContext(AtendimentoContext)
     const { setArticlePrescricoesMain, setStep } = useContext(AtendimentoNavigateContext)
 
     const handleClick = () => {
         setPrescricaoEdit(null)
-        setPrescricaoOnDuty(null)
         setAtestadoOnDuty(null)
         setNovoAtestado(clienteContext.id)
         setArticlePrescricoesMain()
@@ -580,13 +560,14 @@ export const AddNovoAtestado = () => {
     )
 }
 
-
 export const AtestadoSalvarBtn = () => {
 
     const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    const { atestadoEdit, setAtestadoEdit, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setPrescricaoOnDuty, setLmeOnDuty } = useContext(AtendimentoContext)
+    const { atestadoEdit, setAtestadoEdit, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setAtestadoOnDuty } = useContext(AtendimentoContext)
     const { setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
+
+    if (!atestadoEdit) return <></>
 
     const fetchClienteIncludes = async () => {
         const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
@@ -596,13 +577,12 @@ export const AtestadoSalvarBtn = () => {
         }
     }
 
-    const finalizarA = () => {
+    const finalizar = () => {
         setStep(0)
         setAtestadoEdit(null)
         setPrescricaoEdit(null)
-        setPrescricaoOnDuty(null)
         setLmeEdit(null)
-        setLmeOnDuty(null)
+        setAtestadoOnDuty(null)
         setMedicamentoEdit(null)
         setPageAtendimento()
         setArticleAtendimentoMain()
@@ -617,16 +597,58 @@ export const AtestadoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizarA())
+        }).then(() => finalizar())
     }
 
+    const AtestadoUpdate = async () => {
+        await fetch(process.env.REACT_APP_API_URL + `/atestados/${atestadoEdit.id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(atestadoEdit)
+        }).then(data => {
+            if (data.ok) {
+                fetchClienteIncludes()
+            }
+        }).then(() => finalizar())
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        if (atestadoEdit && atestadoEdit?.id === undefined) return AtestadoInsert()
+        if (atestadoEdit && atestadoEdit?.id > 0) return AtestadoUpdate()
+    }
 
     return (
         <>
             <DefaultButton
-                title={'Salvar'}
-                click={AtestadoInsert}
+                title={'Salvar Atestado'}
+                click={handleSubmit}
                 icon={<SaveIcon />}
+            />
+        </>
+    )
+}
+
+export const AtestadoEditarBtn = () => {
+
+    const { atestadoOnDuty, setAtestadoEdit, setAtestadoOnDuty } = useContext(AtendimentoContext)
+    const { setArticlePrescricoesMain, setStep, } = useContext(AtendimentoNavigateContext)
+
+    if (!atestadoOnDuty) return <></>
+
+    const handleClick = () => {
+        setAtestadoEdit(atestadoOnDuty)
+        setAtestadoOnDuty(null)
+        setArticlePrescricoesMain()
+        setStep(711)
+    }
+
+    return (
+        <>
+            <DefaultButton
+                title={'Editar'}
+                click={handleClick}
+                icon={<EditIcon />}
             />
         </>
     )
