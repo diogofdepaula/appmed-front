@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
+import AtestadosSet from './component/impressaoset/atestadoset';
 import LMESet from './component/impressaoset/lmeset';
 import PrescricoesSet from './component/impressaoset/prescricaoset';
-import RequisicaoSet from './component/impressaoset/requisicaoset';
 import TempoSet from './component/impressaoset/temposet';
 import TermoSet from './component/impressaoset/termoset';
 
@@ -30,7 +30,7 @@ const Print = () => {
                     <TermoSet />
                 </Box>
                 <Box>
-                    <RequisicaoSet />
+                    <AtestadosSet />
                 </Box>
                 <Box>
                     <TempoSet />
