@@ -1,19 +1,19 @@
 import { Box, Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import { useContext } from 'react';
-import { ClienteContext } from '../../../../App';
+import { ClienteContext, PrintContext } from '../../../../App';
 
 const AtestadosSet = () => {
 
     const { clienteContext } = useContext(ClienteContext)
-    // const { nomecomercial, setNomeComercial, continuo, setContinuo, prescricoesSelecionadas, setPrescricoesSelecionadas, } = useContext(PrintContext)
+    const { atestadosSelecionados, setAtestadosSelecionados } = useContext(PrintContext)
 
-     const handleCheck = () => {
-    //     if (event.target.checked) {
-    //         setPrescricoesSelecionadas(prescricoesSelecionadas.concat(param))
-    //     } else {
-    //         setPrescricoesSelecionadas(prescricoesSelecionadas.filter(presc => presc.id !== param.id))
-    //     }
-     }
+    const handleCheck = param => (event) => {
+        if (event.target.checked) {
+            setAtestadosSelecionados(atestadosSelecionados.concat(param))
+        } else {
+            setAtestadosSelecionados(atestadosSelecionados.filter(atest => atest.id !== param.id))
+        }
+    }
 
     return (
         <>
@@ -32,7 +32,7 @@ const AtestadosSet = () => {
                             </ListItemIcon>
                             <ListItemText
                                 primary={atestado.data}
-                                // secondary={prescricao.apresentaco.descricao}
+                            // secondary={prescricao.apresentaco.descricao}
                             />
                         </ListItem>
                     )}

@@ -100,7 +100,7 @@ export const ImprimirNavBtn = () => {
             )
             return { ...l, prescricoes: n }
         })
-        // isso adiciona os includes nas lmes que vem o ClienteCOntext, os quais não tem incluides
+        // isso adiciona os includes nas lmes que vem o ClienteContext, os quais não tem incluides
         // não quis mudar no BD, pois ele faria uma busca duplicada dos includes
         setLmes(lmes)
         setArticlePrint()

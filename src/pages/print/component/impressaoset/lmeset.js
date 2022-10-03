@@ -6,6 +6,10 @@ const LMESet = () => {
 
     const { lmes, lmesSelecionadas, setLmesSelecionadas, } = useContext(PrintContext)
 
+    // ao clicar no PrintButton
+    // isso adiciona os includes nas lmes que vem o ClienteContext, os quais não tem incluides
+    // não quis mudar no BD, pois ele faria uma busca duplicada dos includes
+
     const handleLmesChange = param => (event) => {
         if (event.target.checked) {
             setLmesSelecionadas(lmesSelecionadas.concat(param))
