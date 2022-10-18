@@ -30,7 +30,7 @@ const AtestadoSet = () => {
                     multiline
                     rows={3}
                     name="diagnostico"
-                    label="Diagnóstico"
+                    label="Diagnóstico (não colocar ponto no final)"
                     value={atestadoEdit.diagnostico}
                     onChange={handleChange}
                 />
@@ -39,7 +39,7 @@ const AtestadoSet = () => {
                     multiline
                     rows={3}
                     name="tratamento"
-                    label="Tratamento"
+                    label="Tratamento (com ponto final)"
                     value={atestadoEdit.tratamento}
                     onChange={handleChange}
                 />
@@ -48,17 +48,33 @@ const AtestadoSet = () => {
                     multiline
                     rows={3}
                     name="estado"
-                    label="Estado atual"
+                    label="Estado atual (iniciar com letra minuscula e incluir exames)"
                     value={atestadoEdit.estado}
                     onChange={handleChange}
                 />
                 <TextField
                     fullWidth
                     multiline
-                    rows={4}
+                    rows={3}
                     name="prognostico"
                     label="Prognóstico"
                     value={atestadoEdit.prognostico}
+                    onChange={handleChange}
+                />
+                <TextField
+                    fullWidth
+                    multiline
+                    rows={3}
+                    name="consequencia"
+                    label="Consequência (com ponto final)"
+                    value={atestadoEdit.consequencia}
+                    onChange={handleChange}
+                />
+                <TextField
+                    fullWidth
+                    name="prazo"
+                    label="Prazo (em meses - em números ou por extenso)"
+                    value={atestadoEdit.prazo}
                     onChange={handleChange}
                 />
                 <TextField

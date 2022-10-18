@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { LoginContext, PrintContext } from '../../App';
+import Atestado from '../../components/print/atestado.js';
 import TermoConsentimento from '../../components/print/consentimento';
 import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
-import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
 
 const PrintJob = () => {
 
-    const { requisicao, requisicoes, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -18,14 +18,14 @@ const PrintJob = () => {
         //        print lmes
         lmesSelecionadas?.map(l => {
 
-         return   jobs.push(
+            return jobs.push(
                 <div key={l.id} >
                     <FactoryLME lme={l} />
                     {l.relatorio && <FactoryRelatorio lme={l} />}
 
                     {/* Receitas */}
                     {/* if para situação em que a LFN (ou GBP) esteja sozinha na LME, então não sairá a Receita (via) do Estado */}
-                    {!l.prescricoes.filter((p, i) => (p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida") && i === 0).length > 0  &&
+                    {!l.prescricoes.filter((p, i) => (p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida") && i === 0).length > 0 &&
                         <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
                     }
 
@@ -71,13 +71,19 @@ const PrintJob = () => {
             }
         }
 
-        if (requisicao) {
-            requisicoes?.map((r, i) => 
-                jobs.push(
-                    // deixei comentado só para saber com usar depois.
-                    // <Sadt requisicao={r} tipo={local} />
-                     <RequisicaoA5 key={i} requisicao={r} tipo={local} />
-                )
+        // if (requisicao) {
+        //     requisicoes?.map((r, i) => 
+        //         jobs.push(
+        //             // deixei comentado só para saber com usar depois.
+        //             // <Sadt requisicao={r} tipo={local} />
+        //              <RequisicaoA5 key={i} requisicao={r} tipo={local} />
+        //         )
+        //     )
+        // }
+
+        if (atestadosSelecionados) {
+            jobs.push(
+                <Atestado atestado={atestadosSelecionados[0]} tipo={local} />
             )
         }
 

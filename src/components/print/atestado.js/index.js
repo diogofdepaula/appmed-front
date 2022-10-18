@@ -1,16 +1,11 @@
+import AtestadoA4 from "./atestadoa4"
+import AtestadoA5 from "./atestadoa5"
 
+const Atestado = ({ tipo }) => {
 
-// const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla }) => {
+    if (tipo !== "consultorio") return <AtestadoA4 tipo={tipo} />
 
-//     // variações conforme o local
-//     let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
+    return <AtestadoA5 tipo={tipo} />
+}
 
-//     if (tipo === "consultorio") {
-//         receita = <ReceitaA5 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
-//     } else if (dupla) {
-//         let a = prescricoes.filter(p => p.medicamento.farmaco === "Leflunomida")
-//         receita = <ReceitaDupla prescricoes={a.length > 0 ? a : prescricoes} via={via} mes={mes} tipo={tipo} dupla={dupla} />
-//     }
-
-//     return receita
-// }
+export default Atestado

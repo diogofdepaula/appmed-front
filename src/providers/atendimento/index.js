@@ -172,6 +172,8 @@ const NovoAtestado = (clienteId) => {
         tratamento: '',
         estado: '',
         prognostico: '',
+        consequencia: '',
+        prazo: '',
         comentario: '',
         data: format(new Date(), "yyyy-MM-dd"), //new Date(),
         ultimaimpressao: undefined,
