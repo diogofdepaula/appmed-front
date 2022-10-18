@@ -111,7 +111,7 @@ const Conteudo = () => {
                 vez que variáveis como responsibilidade, aderência e 
                 disponibilidade ao tratamento, assim como outros fatores
                 ambientais podem influenciar na resposta ao tratamento, 
-                o que por vezes necessite ser estendido ou revisto. 
+                o que por vezes necessite ser revisto. 
                 <>{' '}</>
             </>
         </>
