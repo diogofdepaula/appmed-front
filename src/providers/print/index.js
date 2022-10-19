@@ -67,6 +67,7 @@ const PrintProvider = () => {
             setLmes([])
             setLmesSelecionadas([])
             setTermosSelecionados([])
+            setAtestadosSelecionados([])
             setLme('')
             setRelatorio(true)
             setComentario('')
