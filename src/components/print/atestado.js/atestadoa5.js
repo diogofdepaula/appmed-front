@@ -106,8 +106,8 @@ const Conteudo = () => {
             <>
                 Por fim, o tempo estimado de repouso necessário, levando 
                 em consideraçãos as afirmativas anteriores para a sua recuperação,
-                é de {atestadosSelecionados[0].prazo} meses. Deve-se ter 
-                em mente que esse prazo trata-se de uma estimativa, uma 
+                é de {atestadosSelecionados[0].prazo} meses. Salienta-se 
+                que esse prazo trata-se de uma estimativa, uma 
                 vez que variáveis como responsibilidade, aderência e 
                 disponibilidade ao tratamento, assim como outros fatores
                 ambientais podem influenciar na resposta ao tratamento, 
