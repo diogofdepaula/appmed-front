@@ -131,15 +131,10 @@ const Comentario = () => {
             </Box>
             <Box>
                 Ressalto que deve-se respeitar, contudo, a competência do médico
-                perito e levando em consideração a supracitada resolução, a qual
-                adicionou que o médico assistente não pode ser perito do próprio paciente,
-                além do disposto no Código de Ética Médica. Compete ao médico assistente
-                responder pelo diagnóstico, tratamento e acompanhamento do paciente e ao
-                perito médico analisar o impacto que a doença alegada para o afastamento
-                do paciente tem sobre a sua capacidade de desempenhar suas atividades
-                laborativas. Assim sendo, cabe deste paciente somente ao médico perito
-                determinar capacidade laborativa do paciente e a responsabilidade de
-                determinar a necessidade de afastamento das atividades laborais.
+                perito, a quem, conforme a supracitada resolução, compete 
+                determinar capacidade laborativa do paciente e legalmente 
+                a decisão do benefício previdenciário.
+                S.m.j.
             </Box>
         </>
     )
