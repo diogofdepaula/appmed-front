@@ -81,7 +81,7 @@ const PrintJob = () => {
         //     )
         // }
 
-        if (atestadosSelecionados) {
+        if (atestadosSelecionados.length > 0) {
             jobs.push(
                 <Atestado atestado={atestadosSelecionados[0]} tipo={local} />
             )
