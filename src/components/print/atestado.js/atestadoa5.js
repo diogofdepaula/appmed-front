@@ -96,22 +96,22 @@ const Conteudo = () => {
                 <>{' '}</>
             </>
             <>
-                As consequências à saúde, apesar de considerar que tal 
+                As consequências à saúde, apesar de considerar que tal
                 informação seria de competência ao médico do trabalho
-                ou perico, pelo meu desconhecimento da real condições 
+                ou perito, pelo meu desconhecimento da real condições
                 de trabalho do paciente, são <>{' '}</>
                 {atestadosSelecionados[0].consequencia}
                 <>{' '}</>
             </>
             <>
-                Por fim, o tempo estimado de repouso necessário, levando 
+                Por fim, o tempo estimado de repouso necessário, levando
                 em consideraçãos as afirmativas anteriores para a sua recuperação,
-                é de {atestadosSelecionados[0].prazo} meses. Salienta-se 
-                que esse prazo trata-se de uma estimativa, uma 
-                vez que variáveis como responsibilidade, aderência e 
+                é de {atestadosSelecionados[0].prazo} meses. Salienta-se
+                que esse prazo trata-se de uma estimativa, uma
+                vez que variáveis como responsibilidade, aderência e
                 disponibilidade ao tratamento, assim como outros fatores
-                ambientais podem influenciar na resposta ao tratamento, 
-                o que por vezes necessite ser revisto. 
+                ambientais podem influenciar na resposta ao tratamento,
+                o que por vezes necessite ser revisto.
                 <>{' '}</>
             </>
         </>
@@ -131,9 +131,12 @@ const Comentario = () => {
             </Box>
             <Box>
                 Ressalto que deve-se respeitar, contudo, a competência do médico
-                perito, a quem, conforme a supracitada resolução, compete 
-                determinar capacidade laborativa do paciente e legalmente 
+                perito, a quem, conforme a supracitada resolução, compete
+                determinar capacidade laborativa do paciente e legalmente
                 a decisão do benefício previdenciário.
+
+            </Box>
+            <Box>
                 S.m.j.
             </Box>
         </>
