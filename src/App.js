@@ -28,7 +28,7 @@ const App = () => {
         setOpenDialog(false)
     }
 
-    // comentário para fazer rebuild 2
+    // comentário para fazer rebuild 3
 
     return (
         <>
