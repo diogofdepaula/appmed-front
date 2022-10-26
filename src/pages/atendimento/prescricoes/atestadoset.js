@@ -2,6 +2,7 @@ import { Box, TextField } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
+import { Consequencia, Diagnostico, Estado, Prognostico, Tratamento } from '../../../components/print/atestado/textosatestado';
 
 const AtestadoSet = () => {
 
@@ -25,15 +26,17 @@ const AtestadoSet = () => {
                     gap: 1,
                 }}
             >
+                <Diagnostico />
                 <TextField
                     fullWidth
                     multiline
                     rows={3}
                     name="diagnostico"
-                    label="Diagnóstico (não colocar ponto no final)"
+                    label="Diagnóstico"
                     value={atestadoEdit.diagnostico}
                     onChange={handleChange}
                 />
+               <Tratamento />
                 <TextField
                     fullWidth
                     multiline
@@ -43,6 +46,7 @@ const AtestadoSet = () => {
                     value={atestadoEdit.tratamento}
                     onChange={handleChange}
                 />
+                 <Estado />
                 <TextField
                     fullWidth
                     multiline
@@ -52,6 +56,7 @@ const AtestadoSet = () => {
                     value={atestadoEdit.estado}
                     onChange={handleChange}
                 />
+                <Prognostico />
                 <TextField
                     fullWidth
                     multiline
@@ -61,6 +66,7 @@ const AtestadoSet = () => {
                     value={atestadoEdit.prognostico}
                     onChange={handleChange}
                 />
+                <Consequencia />
                 <TextField
                     fullWidth
                     multiline

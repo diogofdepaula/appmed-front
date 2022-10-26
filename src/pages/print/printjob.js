@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { LoginContext, PrintContext } from '../../App';
-import Atestado from '../../components/print/atestado.js';
+import Atestado from '../../components/print/atestado/index.js';
 import TermoConsentimento from '../../components/print/consentimento';
 import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
