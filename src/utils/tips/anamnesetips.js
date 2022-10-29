@@ -3,7 +3,7 @@ import { Box, Chip, Divider, IconButton, Paper } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
 import { CriteriosLme } from '../criteriosdoencas';
-import { DoençaCID } from '../inquiries';
+import { DoençaCID, NumeroAleatorio } from '../inquiries';
 import ICAD from './Icad';
 
 const AnamneseTips = () => {
@@ -149,22 +149,39 @@ const AnamneseTips = () => {
 
         if (DoençaCID(lmeEdit.cid10) !== 'dor') return <></>
 
-        const texto =
-            "Paciente com a presença dos seguintes critérios: \n" +
-            "Intensidade da dor (escala EVA) de 8; \n" +
-            "Refratários de outros fármacos: paracetamol e AINH; \n" +
-            "CID principal R52.2'; \n " +
-            "CID secundário (patologia que desencadeou a dor): M15; \n" +
-            "Dor crônica (superior a 30 dias). \n" +
-            "Solicito o fornecimento de Gabapentina."
+        const Texto = (cid) => {
+
+            const cid10 = cid = "M15" ? "M15" : "M79.7"
+
+            const eva = ["4", "6", "8", "10"][NumeroAleatorio(4)]
+
+            const med = ["analgésicos", "paracetamol", "antiinflamatórios", "opióides fracos"][NumeroAleatorio(4)]
+
+            return "Paciente com a presença dos seguintes critérios: \n" +
+                "Intensidade da dor (escala EVA) de " + eva + "; \n" +
+                "Refratários de outros fármacos: " + med + "; \n" +
+                "CID principal R52.2; \n" +
+                "CID secundário (patologia que desencadeou a dor): " + cid10 + "; \n" +
+                "Dor crônica (superior a 30 dias). \n" +
+                "Solicito o fornecimento de Gabapentina."
+        }
+
+        const handleChip = (cid) => {
+            setLmeEdit({ ...lmeEdit, anamnese: Texto(cid) })
+        }
 
         return (
             <>
                 <Box ml={1}>
                     <Chip
-                        label="Dor !!!"
+                        label="Dor M15"
                         variant="outlined"
-                        onClick={handleClick(texto)}
+                        onClick={() => handleChip('M15')}
+                    />
+                    <Chip
+                        label="Dor M79.7"
+                        variant="outlined"
+                        onClick={() => handleChip('M79.7')}
                     />
                 </Box>
             </>

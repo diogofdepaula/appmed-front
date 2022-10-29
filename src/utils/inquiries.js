@@ -25,3 +25,8 @@ export const LmeComRelatorio = (lme) => {
     const doenca = DoençaCID(lme?.cid10)
     return (doenca === 'ar' || doenca === 'ea' || doenca === 'ap' || doenca === 'aij')
 }
+
+export const NumeroAleatorio = (tamanho) => {
+    const tam = tamanho ? tamanho : 0
+    return Math.floor(Math.random() * tam)
+}
