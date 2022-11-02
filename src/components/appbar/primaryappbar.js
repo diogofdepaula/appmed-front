@@ -1,5 +1,5 @@
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import HomeIcon from '@mui/icons-material/Home';
+import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
 import MailIcon from '@mui/icons-material/Mail';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -42,7 +42,7 @@ const PrimaryAppBar = () => {
                                 width: '44px',
                             }}
                         >
-                            <HomeIcon
+                            <HealthAndSafetyIcon
                                 fontSize='large'
                                 onClick={handleHome}
                             />

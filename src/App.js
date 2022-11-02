@@ -28,8 +28,6 @@ const App = () => {
         setOpenDialog(false)
     }
 
-    // comentário para fazer rebuild 3
-
     return (
         <>
             <Box sx={{ display: "flex", }} >
