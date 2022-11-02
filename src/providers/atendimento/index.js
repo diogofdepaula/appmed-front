@@ -1,6 +1,7 @@
 import { format } from "date-fns"
 import { useState } from "react"
 import { LmeComRelatorio } from "../../utils/inquiries"
+import { PadraoAtestado } from "../../utils/listas"
 
 // o que for preenchido com CheckBox tem que ser true or false
 // o que for preenchido com RadioBox tem que ser undefined
@@ -168,7 +169,7 @@ const NovoAtestado = (clienteId) => {
         clienteId: clienteId,
         cid10: '',
         diagnostico: '',
-        padrao: '',
+        padrao: PadraoAtestado()[0],
         tratamento: '',
         estado: '',
         prognostico: '',

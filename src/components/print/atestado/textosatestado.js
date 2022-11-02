@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { ClienteContext, PrintContext } from '../../../App';
+import { PadraoAtestado } from '../../../utils/listas';
 
 export const Titulo = () => {
 
@@ -125,7 +126,8 @@ export const Prazo = () => {
 
     const { atestadosSelecionados } = useContext(PrintContext)
 
-    return (
+    // Determinado
+    if (atestadosSelecionados[0].padrao === PadraoAtestado()[0]) return (
         <>
             Por fim, o tempo estimado de repouso necessário, levando
             em consideraçãos as afirmativas anteriores para a sua recuperação,
@@ -138,9 +140,52 @@ export const Prazo = () => {
             <>{' '}</>
         </>
     )
+
+    // Indeterminado
+    if (atestadosSelecionados[0].padrao === PadraoAtestado()[1]) return (
+        <>
+            Por fim, em relação ao tempo estimado de repouso necessário,
+            levando em consideraçãos as variáveis das afirmativas
+            anteriores as quais influenciam na reabilitação. Salienta-se
+            que mesmo assim que o prazo trata-se de uma estimativa, uma
+            vez que variáveis como responsibilidade, aderência e
+            disponibilidade ao tratamento, assim como outros fatores
+            ambientais podem influenciar na resposta ao tratamento,
+            o que por vezes necessite ser revisto.
+            <>{' '}</>
+        </>
+    )
+
+    // Definitivo
+    if (atestadosSelecionados[0].padrao === PadraoAtestado()[2]) return (
+        <>
+            Por fim, o tempo estimado de repouso necessário, levando
+            em consideraçãos as afirmativas anteriores para a sua recuperação,
+            não há nenhum espectativa, mesmo a longo prazo, da reversaão do
+            estado atual de saúde. Salienta-se que esse prazo trata-se
+            de uma estimativa, uma vez que variáveis como responsibilidade,
+            aderência e disponibilidade ao tratamento, assim como outros fatores
+            ambientais podem influenciar na resposta ao tratamento,
+            o que por vezes necessite ser revisto.
+            <>{' '}</>
+        </>
+    )
+
+    // Mudança
+    if (atestadosSelecionados[0].padrao === PadraoAtestado()[3]) return (
+        <>
+            Assim sendo, solicito encarecidamente, dentro das possibilidades legais e
+            administrativas, a avaliação da viabilidade, conforme análise
+            de nexo causal e interpretação do avaliado, de recolocação em
+            outra função ou em condições mais favoráveis para situação de saúde,
+            uma vez que observa-se repetidas referia de piora dos sintomas com as
+            atividades laborais atuais.
+            <>{' '}</>
+        </>
+    )
+
+    return <></>
 }
-
-
 
 export const Comentario = () => {
 

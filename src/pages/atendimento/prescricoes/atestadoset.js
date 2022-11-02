@@ -1,8 +1,9 @@
-import { Box, TextField } from '@mui/material';
+import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
 import { Consequencia, Diagnostico, Estado, Prognostico, Tratamento } from '../../../components/print/atestado/textosatestado';
+import { PadraoAtestado } from '../../../utils/listas';
 
 const AtestadoSet = () => {
 
@@ -15,6 +16,8 @@ const AtestadoSet = () => {
     const handleData = (event) => {
         setAtestadoEdit({ ...atestadoEdit, data: format(parseISO(event.target.value), "yyyy-MM-dd") })
     }
+
+    console.log(atestadoEdit);
 
     return (
         <>
@@ -36,7 +39,7 @@ const AtestadoSet = () => {
                     value={atestadoEdit.diagnostico}
                     onChange={handleChange}
                 />
-               <Tratamento />
+                <Tratamento />
                 <TextField
                     fullWidth
                     multiline
@@ -46,7 +49,7 @@ const AtestadoSet = () => {
                     value={atestadoEdit.tratamento}
                     onChange={handleChange}
                 />
-                 <Estado />
+                <Estado />
                 <TextField
                     fullWidth
                     multiline
@@ -76,13 +79,42 @@ const AtestadoSet = () => {
                     value={atestadoEdit.consequencia}
                     onChange={handleChange}
                 />
-                <TextField
-                    fullWidth
-                    name="prazo"
-                    label="Prazo (em meses - em números ou por extenso)"
-                    value={atestadoEdit.prazo}
-                    onChange={handleChange}
-                />
+                <Box
+                    sx={{
+                        display: 'inline-flex',
+                        gap: 1
+                    }}
+                >
+                    <FormControl fullWidth >
+                        <InputLabel id="label">Padrão</InputLabel>
+                        <Select
+                            labelId="label"
+                            autoWidth
+                            name='padrao'
+                            value={atestadoEdit.padrao}
+                            onChange={handleChange}
+                            label="Padrão"
+                        >
+                            <MenuItem value=''></MenuItem>
+                            {PadraoAtestado().map(p =>
+                                <MenuItem
+                                    key={p}
+                                    value={p}
+                                >{p}
+                                </MenuItem>
+                            )}
+                        </Select>
+                    </FormControl>
+                    {atestadoEdit.padrao === 'Determinado' &&
+                        <TextField
+                            fullWidth
+                            name="prazo"
+                            label="Prazo (em meses - em números ou por extenso)"
+                            value={atestadoEdit.prazo}
+                            onChange={handleChange}
+                        />
+                    }
+                </Box>
                 <TextField
                     fullWidth
                     multiline
@@ -109,10 +141,3 @@ const AtestadoSet = () => {
 }
 
 export default AtestadoSet
-
-
-
-
-
-
-
