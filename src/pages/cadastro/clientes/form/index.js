@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ClienteCadastroContext } from '..';
 import FormCliente from '../../../../components/formcliente';
 
@@ -7,15 +7,30 @@ const ClienteForm = () => {
 
     const { clienteEdit, setClienteEdit, clienteOnDuty } = useContext(ClienteCadastroContext)
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteOnDuty.id}`)
-        const json = await res.json()
-        setClienteEdit(json)
-    }, [clienteOnDuty, setClienteEdit])
+    // const fetchData = useCallback(async () => {
+    //     const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteOnDuty.id}`)
+    //     const json = await res.json()
+    //     setClienteEdit(json)
+    // }, [clienteOnDuty, setClienteEdit])
+
+    // useEffect(() => {
+    //    // if (clienteOnDuty) return fetchData()
+    //     let clear = clienteOnDuty
+    //     if (clear) {
+    //         fetchData();
+    //     }
+    //     return () => clear = false
+    // }, [clienteOnDuty, fetchData])
 
     useEffect(() => {
-        if (clienteOnDuty) return fetchData()
-    }, [clienteOnDuty, fetchData])
+        const fetchData = async () => {
+            const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteOnDuty.id}`)
+            const json = await res.json()
+            setClienteEdit(json)
+        }
+        fetchData()
+    }, [clienteOnDuty, setClienteEdit])
+
 
     const handleChange = event => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: event.target.value })

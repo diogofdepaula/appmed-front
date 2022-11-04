@@ -8,37 +8,37 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
-import { Box } from '@mui/system';
-import React, { useContext, useState } from 'react';
-import GoogleLogin from 'react-google-login';
+// import { Box } from '@mui/system';
+import React, { useContext } from 'react';
+// import GoogleLogin from 'react-google-login';
 import { LoginContext } from '../App';
 
 const Login = ({ open, handleClose }) => {
 
     const { setLocal, locais } = useContext(LoginContext)
-    const { login, setLogin } = useContext(LoginContext)
+    // const { login, setLogin } = useContext(LoginContext)
 
     const handleListItem = (param) => {
         setLocal(param[1])
         handleClose(false)
     }
 
-    const [profilePic, setProfilePic] = useState();
+    // const [profilePic, setProfilePic] = useState();
 
-    const responseGoogle = (response) => {
-        const { profileObj: { imageUrl, googleId } } = response
-        setProfilePic(imageUrl)
-        if (googleId === process.env.REACT_APP_DIOGO_GOOGLEID) {
-            setLogin(true)
-        }
-    }
+    // const responseGoogle = (response) => {
+    //     const { profileObj: { imageUrl, googleId } } = response
+    //     setProfilePic(imageUrl)
+    //     if (googleId === process.env.REACT_APP_DIOGO_GOOGLEID) {
+    //         setLogin(true)
+    //     }
+    // }
 
     return (
         <>
             <Dialog open={open}>
                 <DialogContent dividers>
-                    <DialogTitle>Login do APPMED</DialogTitle>
-                    <Box
+                    <DialogTitle>Local de Atendimento</DialogTitle>
+                    {/* <Box
                         sx={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -61,10 +61,10 @@ const Login = ({ open, handleClose }) => {
                             </Box>
                             :
                             <div />}
-                    </Box>
+                    </Box> */}
                 </DialogContent>
                 <DialogContent dividers>
-                    {login ?
+                    {/* {login ? */}
                         <List sx={{ pt: 0 }}>
                             {locais.map(local => (
                                 <ListItem button onClick={() => handleListItem(local)} key={local}>
@@ -77,8 +77,8 @@ const Login = ({ open, handleClose }) => {
                                 </ListItem>
                             ))}
                         </List>
-                        : <div />
-                    }
+                        {/* : <div />
+                    } */}
                 </DialogContent>
             </Dialog>
         </>
