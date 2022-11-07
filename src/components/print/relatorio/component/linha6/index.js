@@ -143,7 +143,7 @@ const Linha6LME = () => {
             'Segunda e terceira',
             [
                 'Tofacitinibe',
-                'Baracitinibe',
+                'Baricitinibe',
                 'Upadacitinibe',
             ],
         ],
