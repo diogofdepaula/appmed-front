@@ -34,7 +34,7 @@ const MedicamentosUtilizadosTips = () => {
     const handleClickChange = () => {
 
        const texto = lmeEdit.relatorio.utilizados
-        .replace('\t', '') // isso mudará o primeiro
+      //  .replace('\t', '') // isso mudará o primeiro
         .replace(/['\t']/g, ' - ') // isso mudará os outros
         .replace(/ - MTX/g, 'Metotrexato')
         .replace(/ - LFN/g, 'Leflunomida')
@@ -50,6 +50,7 @@ const MedicamentosUtilizadosTips = () => {
         .replace(/ - Tofa/g, 'Tofacitinibe')
         .replace(/ - RXT/g, 'Rituximabe')
         .replace(/eficacia/g, 'eficácia')
+        .replace(/Intolerãncia/g, 'intolerância')
         .replace(/GI/g, 'gastrointestinal')
         
         setLmeEdit({
