@@ -18,7 +18,7 @@ const AnamneseTips = () => {
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese
-                .concat('\n')
+                .concat(' ')
                 .concat(
                     "Solicito o fornecimento de " +
                     medicamentoEdit?.farmaco +
