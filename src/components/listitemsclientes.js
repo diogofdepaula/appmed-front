@@ -9,7 +9,13 @@ const ListItemsClientes = memo(({ clientesfiltrados, handleListItem, }) => {
 
     return (
         <>
-            {clientesfiltrados.map(cliente =>
+            {clientesfiltrados
+            .sort((x, y) => {
+                let a = x.nome.toUpperCase()
+                let b = y.nome.toUpperCase()
+                return  a === b ? 0 : a > b ? 1 : -1
+            })
+            .map(cliente =>
                 <ListItem
                     key={cliente.id}
                     button
