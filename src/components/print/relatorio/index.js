@@ -40,7 +40,7 @@ const FactoryRelatorio = (props) => {
                                 justifyContent: 'space-between',
                                 height: "100%",
                                 width: "100%",
-                                gap: 0.5,
+                                gap: 0.2,
                             }}
                         >
                             <Linha1Relatorio />
