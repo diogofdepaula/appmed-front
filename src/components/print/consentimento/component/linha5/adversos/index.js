@@ -317,9 +317,9 @@ const Sulfassalazina =
 
 const Upadacitinibe =
     <>
-        aumento da taxa de infecções; rea􀆟vação viral; neutropenia; 
+        aumento da taxa de infecções; reativação viral; neutropenia; 
         linfopenia; anemia; aumentos nos parâmetros lipídicos; elevações 
-        de enzimas hepá􀆟cas; tromboembolismo venoso. O perfil de 
+        de enzimas hepáticas; tromboembolismo venoso. O perfil de 
         segurança em longo prazo do upadaci􀆟nibe ainda não está bem 
         estabelecido.
     </>
