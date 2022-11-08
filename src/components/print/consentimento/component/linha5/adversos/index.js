@@ -315,6 +315,15 @@ const Sulfassalazina =
         dores articulares, cansaço e reações alérgicas.
     </>
 
+const Upadacitinibe =
+    <>
+        aumento da taxa de infecções; rea􀆟vação viral; neutropenia; 
+        linfopenia; anemia; aumentos nos parâmetros lipídicos; elevações 
+        de enzimas hepá􀆟cas; tromboembolismo venoso. O perfil de 
+        segurança em longo prazo do upadaci􀆟nibe ainda não está bem 
+        estabelecido.
+    </>
+
 const Meds = [
     ["Abatacepte", Abatacepte],
     ["Adalimumabe", Adalimumabe],
@@ -350,6 +359,7 @@ const Meds = [
     ["Tocilizumabe", Tocilizumabe],
     ["Tofacitinibe", Tofacitinibe],
     ["Sulfassalazina", Sulfassalazina],
+    ["Upadacitinibe", Upadacitinibe],
 ]
 
 const Adverso = ({ medicamentos }) => {
