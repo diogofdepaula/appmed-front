@@ -3,8 +3,8 @@ import React from 'react';
 import PageA4 from '../pagea4';
 import Cabecalho from '../receita/component/cabecalho';
 import Data from '../receita/component/data';
-import Identificacao from '../receita/component/identificacao';
 import Rodape from '../receita/component/rodape';
+import { Comentario, Consequencia, Diagnostico, Estado, Inicio, Prazo, Prognostico, Titulo, Tratamento } from './textosatestado';
 
 const AtestadoA4 = ({ tipo }) => {
 
@@ -13,36 +13,51 @@ const AtestadoA4 = ({ tipo }) => {
             <PageA4>
                 <Box
                     sx={{
-                        width: 1,
                         height: 1,
-                        display: 'block',
+                        display: 'flex',
+                        flexDirection: 'column',
                     }}
                 >
                     <Cabecalho tipo={tipo} />
                     <Box
                         sx={{
-                            height: 'calc(100% - 110px)', // se mudar o Cabecalho tem que ajustar aqui depois
-                            display: 'block',
-                            p: 5,
+                            height: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
                             border: 3,
+                            p: 4,
                         }}
                     >
                         <Box
                             sx={{
-                                justifyContent: 'space-around'
+                                my: 4,
                             }}
                         >
+                            <Titulo />
                             <Box
                                 sx={{
-                                    display: 'block',
+                                    height: 1,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    textAlign: 'justify',
+                                    typography: 'body1',
+                                    fontSize: 22,
+                                    p: 2,
                                 }}
                             >
-                                <Identificacao tipo={tipo} />
-                                Venho por meio deste atesto, para os devidos fins, que
+                                <Inicio />
+                                <Diagnostico />
+                                <Tratamento />
+                                <Estado />
+                                <Prognostico />
+                                <Consequencia />
+                                <Prazo />
+                                <Comentario />
                             </Box>
                         </Box>
+                        <Data tipo={tipo} />
                     </Box>
-                    <Data tipo={tipo} />
                     <Rodape />
                 </Box>
             </PageA4>
