@@ -159,9 +159,9 @@ export const Prazo = () => {
     // Definitivo
     if (atestadosSelecionados[0].padrao === PadraoAtestado()[2]) return (
         <>
-            Por fim, o tempo estimado de repouso necessário, levando
+            Por fim, em relãção ao tempo estimado de repouso necessário, levando
             em consideraçãos as afirmativas anteriores para a sua recuperação,
-            não há nenhum espectativa, mesmo a longo prazo, da reversaão do
+            não há nenhum espectativa, mesmo a longo prazo, da reversão do
             estado atual de saúde. Salienta-se que esse prazo trata-se
             de uma estimativa, uma vez que variáveis como responsibilidade,
             aderência e disponibilidade ao tratamento, assim como outros fatores
