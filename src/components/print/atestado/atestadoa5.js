@@ -29,6 +29,7 @@ const AtestadoA5 = ({ tipo }) => {
                                 display: 'block',
                                 textAlign: 'justify',
                                 typography: 'body1',
+                                fontSize: 15,
                             }}
                         >
                             <Inicio />
