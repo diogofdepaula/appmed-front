@@ -73,7 +73,7 @@ export const Tratamento = () => {
 
     return (
         <>
-            No que se refere a conduta terapêutica atual tem-se<>{' '}</>
+            No que tage a conduta terapêutica atual<>{' '}</>
             {atestadosSelecionados[0]?.tratamento}
             <>{' '}</>
         </>
