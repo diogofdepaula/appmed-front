@@ -135,7 +135,7 @@ export const Prazo = () => {
             que esse prazo trata-se de uma estimativa, uma
             vez que variáveis como responsibilidade, aderência e
             disponibilidade ao tratamento, assim como outros fatores
-            ambientais podem influenciar na resposta ao tratamento,
+            ambientais e sociais podem influenciar na resposta ao tratamento,
             o que por vezes necessite ser revisto.
             <>{' '}</>
         </>
@@ -146,12 +146,12 @@ export const Prazo = () => {
         <>
             Por fim, em relação ao tempo estimado de repouso necessário,
             levando em consideraçãos as variáveis das afirmativas
-            anteriores as quais influenciam na reabilitação. Salienta-se
-            que mesmo assim que o prazo trata-se de uma estimativa, uma
-            vez que variáveis como responsibilidade, aderência e
-            disponibilidade ao tratamento, assim como outros fatores
-            ambientais podem influenciar na resposta ao tratamento,
-            o que por vezes necessite ser revisto.
+            anteriores as quais influenciam na reabilitação, não é possível
+            estabelecer com precisão o tempos estimado para melhora clínica. 
+            Salienta-se que mesmo assim que outras variáveis como 
+            responsibilidade, aderência e disponibilidade ao tratamento, 
+            assim como outros fatores ambientais e sociais podem influenciar 
+            na resposta ao tratamento, o que por vezes necessite ser revisto.
             <>{' '}</>
         </>
     )
@@ -165,7 +165,7 @@ export const Prazo = () => {
             estado atual de saúde. Salienta-se que esse prazo trata-se
             de uma estimativa, uma vez que variáveis como responsibilidade,
             aderência e disponibilidade ao tratamento, assim como outros fatores
-            ambientais podem influenciar na resposta ao tratamento,
+            ambientais e sociais podem influenciar na resposta ao tratamento,
             o que por vezes necessite ser revisto.
             <>{' '}</>
         </>
