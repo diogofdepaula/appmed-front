@@ -77,7 +77,7 @@ const ICAD = () => {
 
         setLmeEdit({
             ...lmeEdit,
-            anamnese: lmeEdit.anamnese.concat('\n').concat(textofinal),
+            anamnese: lmeEdit.anamnese.concat(' ').concat(textofinal),
             relatorio: {
                 ...lmeEdit.relatorio,
                 das28: das28vhs.toFixed(1),
