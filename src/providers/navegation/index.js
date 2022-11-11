@@ -2,6 +2,7 @@ import { useState } from "react"
 import Atendimento from "../../pages/atendimento"
 import Clientes from "../../pages/cadastro/clientes"
 import Medicamentos from "../../pages/cadastro/medicamentos"
+import CID10 from "../../pages/cid10"
 import Print from "../../pages/print"
 
 const NavigateProvider = () => {
@@ -17,6 +18,7 @@ const NavigateProvider = () => {
         setPageClientes: () => setPage(<Clientes />),
         setPageMedicamentos: () => setPage(<Medicamentos />),
         setPagePrint:  () => setPage(<Print />),
+        setPageCID: () => setPage(<CID10 />),
         setPageReset: () => setPage(<div />),
     }
 }

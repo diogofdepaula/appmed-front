@@ -1,4 +1,4 @@
-import FlashOnIcon from '@mui/icons-material/FlashOn';
+//import FlashOnIcon from '@mui/icons-material/FlashOn';
 import GroupIcon from '@mui/icons-material/Group';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
@@ -10,24 +10,13 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import React, { useContext } from 'react';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { ClienteContext, NavigateContext } from '../App';
 
 const LeftDrawer = () => {
 
-    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, } = useContext(NavigateContext)
+    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID } = useContext(NavigateContext)
     const { clienteContext } = useContext(ClienteContext)
-
-    const handleAtendimento = () => {
-        setPageAtendimento()
-    }
-
-    const handleCliente = () => {
-        setPageClientes()
-    }
-
-    const handleMedicamento = () => {
-        setPageMedicamentos()
-    }
 
     return (
         <>
@@ -47,7 +36,7 @@ const LeftDrawer = () => {
                     <List component="nav" >
                         <ListItem
                             button
-                            onClick={handleCliente}
+                            onClick={() => setPageClientes()}
                         >
                             <Tooltip title="Cadastro de Clientes">
                                 <ListItemIcon>
@@ -57,7 +46,7 @@ const LeftDrawer = () => {
                         </ListItem>
                         <ListItem
                             button
-                            onClick={handleMedicamento}
+                            onClick={() => setPageMedicamentos()}
                         >
                             <Tooltip title="Cadastro de Medicamentos">
                                 <ListItemIcon>
@@ -65,16 +54,21 @@ const LeftDrawer = () => {
                                 </ListItemIcon>
                             </Tooltip>
                         </ListItem>
-                        <ListItem button>
-                            <ListItemIcon>
-                                <FlashOnIcon color="primary" fontSize="large" />
-                            </ListItemIcon>
+                        <ListItem
+                            button
+                            onClick={() => setPageCID()}
+                        >
+                            <Tooltip title="CID10">
+                                <ListItemIcon>
+                                    <AutoStoriesIcon color="primary" fontSize="large" />
+                                </ListItemIcon>
+                            </Tooltip>
                         </ListItem>
                         <ListItem
                             disabled={clienteContext ? false : true}
                             button
                             selected={page === 'atendimento'}
-                            onClick={handleAtendimento}
+                            onClick={() => setPageAtendimento()}
                         >
                             <Tooltip title="Atendimento">
                                 <ListItemIcon>
