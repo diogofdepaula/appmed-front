@@ -20,7 +20,6 @@ const ItemsCID = memo(({ cid }) => {
                 }}
             >
                 <Box
-                    component='span'
                     sx={{
                         width: 50
                     }}

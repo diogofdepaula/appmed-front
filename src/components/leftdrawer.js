@@ -11,11 +11,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import React, { useContext } from 'react';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import StyleIcon from '@mui/icons-material/Style';
 import { ClienteContext, NavigateContext } from '../App';
 
 const LeftDrawer = () => {
 
-    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID } = useContext(NavigateContext)
+    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos } = useContext(NavigateContext)
     const { clienteContext } = useContext(ClienteContext)
 
     return (
@@ -61,6 +62,16 @@ const LeftDrawer = () => {
                             <Tooltip title="CID10">
                                 <ListItemIcon>
                                     <AutoStoriesIcon color="primary" fontSize="large" />
+                                </ListItemIcon>
+                            </Tooltip>
+                        </ListItem>
+                        <ListItem
+                            button
+                            onClick={() => setPageProcedimentos()}
+                        >
+                            <Tooltip title="Procedimentos">
+                                <ListItemIcon>
+                                    <StyleIcon color="primary" fontSize="large" />
                                 </ListItemIcon>
                             </Tooltip>
                         </ListItem>
