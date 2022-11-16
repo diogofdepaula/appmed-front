@@ -25,24 +25,31 @@ const Estatistica = () => {
 
     return (
         <>
-            {fila?.map(w => (
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: 'row',
-                        gap: 1,
-                        p: 2,
+            {fila
+                .sort((x, y) => {
+                    let a = x.toUpperCase()
+                    let b = y.toUpperCase()
+                    return a === b ? 0 : a > b ? 1 : -1
+                })
+                .map((w, i) => (
+                    <Box
+                        key={i}
+                        sx={{
+                            display: "flex",
+                            flexDirection: 'row',
+                            gap: 1,
+                            p: 2,
 
-                    }}
-                >
-                    <Box>
-                        {w}
+                        }}
+                    >
+                        <Box>
+                            {w}
+                        </Box>
+                        <Box>
+                            {dados?.filter(y => y.medicamento.farmaco === w).length}
+                        </Box>
                     </Box>
-                    <Box>
-                        {dados?.filter(y => y.medicamento.farmaco === w).length}
-                    </Box>
-                </Box>
-            ))}
+                ))}
         </>
     )
 }
