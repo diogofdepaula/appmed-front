@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { ClienteContext, PrintContext } from '../../../App';
 import { PadraoAtestado } from '../../../utils/listas';
+import { CalcIdade } from '../../../utils/tempo';
 
 export const Titulo = () => {
 
@@ -28,6 +29,10 @@ export const Inicio = () => {
 
     const pronome = clienteContext.sexo === 'feminino' ? ' a sra.' : ' o sr.'
 
+    const idade = (clienteContext.nascimento && CalcIdade(clienteContext.nascimento) > 5) ? (", " + CalcIdade(clienteContext.nascimento) + " anos, ") : ""
+
+    const cpf = clienteContext.cpf === "" ? "" : (idade === "" ? (", CPF " + clienteContext.cpf + ", ") : (" CPF " + clienteContext.cpf + ", "))
+
     return (
         <>
             <Box
@@ -46,7 +51,7 @@ export const Inicio = () => {
                     }}
                 >
                     <>{' '}</>
-                    {clienteContext.nome}
+                    {clienteContext.nome}{idade}{cpf}
                     <>{' '}</>
                 </Box>
             </Box>
