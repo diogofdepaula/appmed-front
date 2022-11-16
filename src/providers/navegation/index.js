@@ -5,6 +5,7 @@ import Medicamentos from "../../pages/cadastro/medicamentos"
 import CID10 from "../../pages/cid10"
 import Print from "../../pages/print"
 import Procedimentos from "../../pages/procedimentos"
+import Estatistica from "../../pages/relatorio"
 
 const NavigateProvider = () => {
 
@@ -18,9 +19,10 @@ const NavigateProvider = () => {
         setPageAtendimento: () => setPage(<Atendimento />),
         setPageClientes: () => setPage(<Clientes />),
         setPageMedicamentos: () => setPage(<Medicamentos />),
-        setPagePrint:  () => setPage(<Print />),
+        setPagePrint: () => setPage(<Print />),
         setPageCID: () => setPage(<CID10 />),
         setPageProcedimentos: () => setPage(<Procedimentos />),
+        setPageEstatistica: () => setPage(<Estatistica />),
         setPageReset: () => setPage(<div />),
     }
 }
