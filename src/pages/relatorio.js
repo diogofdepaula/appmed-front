@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
+import { MedicamentoRelatorio } from '../utils/inquiries';
 
 const Estatistica = () => {
 
@@ -16,7 +17,9 @@ const Estatistica = () => {
 
     let fila = []
 
-    dados?.forEach(w => {
+    dados
+        .filter(y => MedicamentoRelatorio(y.medicamento))
+        .forEach(w => {
         if (!fila.includes(w.medicamento.farmaco)) {
             fila.push(w.medicamento.farmaco)
         }
