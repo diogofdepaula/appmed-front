@@ -2,9 +2,31 @@ import { Box, FormControlLabel, FormGroup, Switch } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { MedicamentoRelatorio } from '../utils/inquiries';
 
+const Todos = ({ setTodos }) => {
+
+    const handleChange = (event) => {
+        setTodos(event.target.checked);
+    }
+
+    return (
+        <>
+            <FormGroup>
+                <FormControlLabel
+                    label="Todo medicamentos"
+                    control={
+                        <Switch
+                            onChange={handleChange}
+                        />
+                    } />
+            </FormGroup>
+        </>
+    )
+}
+
 const Estatistica = () => {
 
     const [dados, setDados] = useState([]);
+
     const [todos, setTodos] = useState(false);
 
     useEffect(() => {
@@ -26,10 +48,6 @@ const Estatistica = () => {
             }
         })
 
-    const handleChange = (event) => {
-        setTodos(event.target.checked);
-    }
-
     return (
         <>
             <Box
@@ -38,15 +56,7 @@ const Estatistica = () => {
                     p: 4,
                 }}
             >
-                <FormGroup>
-                    <FormControlLabel
-                        label="Todo medicamentos"
-                        control={
-                            <Switch
-                                onChange={handleChange}
-                            />
-                        } />
-                </FormGroup>
+                <Todos setTodos={setTodos} />
                 <Box>
                     {fila
                         .sort((x, y) => {
