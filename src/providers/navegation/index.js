@@ -5,7 +5,7 @@ import Medicamentos from "../../pages/cadastro/medicamentos"
 import CID10 from "../../pages/cid10"
 import Print from "../../pages/print"
 import Procedimentos from "../../pages/procedimentos"
-import Estatistica from "../../pages/relatorio"
+import Estatistica from "../../pages/estastistica"
 
 const NavigateProvider = () => {
 

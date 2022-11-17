@@ -41,7 +41,8 @@ const Estatistica = () => {
                         sx={{
                             display: "flex",
                             flexDirection: 'row',
-                            p: 2,
+                            gap: 1,
+                            px: 2,
                         }}
                     >
                         <Box>
