@@ -1,10 +1,11 @@
+import { Box, FormControlLabel, FormGroup, Switch } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
 import { MedicamentoRelatorio } from '../utils/inquiries';
 
 const Estatistica = () => {
 
     const [dados, setDados] = useState([]);
+    const [todos, setTodos] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,43 +19,64 @@ const Estatistica = () => {
     let fila = []
 
     dados
-        .filter(y => MedicamentoRelatorio(y.medicamento))
+        .filter(y => todos ? y : MedicamentoRelatorio(y.medicamento))
         .forEach(w => {
             if (!fila.includes(w.medicamento.farmaco)) {
                 fila.push(w.medicamento.farmaco)
             }
         })
 
+    const handleChange = (event) => {
+        setTodos(event.target.checked);
+    }
 
     return (
         <>
-            {fila
-                .sort((x, y) => {
-                    let a = x.toUpperCase()
-                    let b = y.toUpperCase()
-                    return a === b ? 0 : a > b ? 1 : -1
-                })
-                .map((w, i) => (
-                    <Box
-                        key={i}
-                        sx={{
-                            display: "flex",
-                            flexDirection: 'row',
-                            gap: 1,
-                            px: 2,
-                        }}
-                    >
-                        <Box>
-                            {w}
-                        </Box>
-                        <Box>
-                            {dados
-                                .filter(y => y.emuso)
-                                .filter(y => y.medicamento.farmaco === w).length
-                            }
-                        </Box>
-                    </Box>
-                ))}
+            <Box
+                sx={{
+                    display: "block",
+                    p: 4,
+                }}
+            >
+                <FormGroup>
+                    <FormControlLabel
+                        label="Todo medicamentos"
+                        control={
+                            <Switch
+                                onChange={handleChange}
+                            />
+                        } />
+                </FormGroup>
+                <Box>
+                    {fila
+                        .sort((x, y) => {
+                            let a = x.toUpperCase()
+                            let b = y.toUpperCase()
+                            return a === b ? 0 : a > b ? 1 : -1
+                        })
+                        .map((w, i) => (
+                            <Box
+                                key={i}
+                                sx={{
+                                    display: "flex",
+                                    flexDirection: 'row',
+                                    gap: 1,
+                                    px: 2,
+                                }}
+                            >
+                                <Box>
+                                    {w}
+                                </Box>
+                                <Box>
+                                    {dados
+                                        .filter(y => y.emuso)
+                                        .filter(y => y.medicamento.farmaco === w).length
+                                    }
+                                </Box>
+                            </Box>
+                        ))}
+                </Box>
+            </Box>
         </>
     )
 }
