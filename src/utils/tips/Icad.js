@@ -49,6 +49,13 @@ const ICAD = () => {
     const calcasdasesr = (bp, pp, ms, eva, vhs) => {
         return ((0.08 * parseInt(bp)) + (0.07 * parseInt(ms)) + (0.11 * parseInt((eva / 10))) + (0.09 * parseInt(pp) + (0.29 * Math.sqrt(vhs))))
     }
+
+    const [sjadas, setSjadas] = useState(0)
+
+    const calcsjadas = (edema, vhs, pga, ega) => {
+        return (parseInt(edema) + ((Math.log(vhs) - 20) / 10) + parseInt(pga) + parseInt(ega))
+    }
+
     const [asdasesr, setAsdasesr] = useState(0)
 
     const handleChange = event => {
@@ -62,6 +69,7 @@ const ICAD = () => {
         setSdai(calcsdai(index.dor, index.edema, index.pcr, index.pga, index.ega))
         setAsdascrp(calcasdascrp(index.bp, index.pp, index.ms, index.eva, index.pcr))
         setAsdasesr(calcasdasesr(index.bp, index.pp, index.ms, index.eva, index.pcr))
+        setSjadas(calcsjadas(index.edema, index.vhs, index.pga, index.ega))
     }, [index])
 
     const handleClickAnamnese = () => {
@@ -73,7 +81,8 @@ const ICAD = () => {
         let texto5 = index.eva > 0 ? "EVA de " + index.eva + "; " : ''
         let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.pcr + "); " : ''
         let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "). " : '.'
-        let textofinal = texto1 + texto2 + texto3 + texto4 + texto5 + texto6 + texto7
+        let texto8 = sjadas > 0 ? "JADAS-VHS de " + sjadas.toFixed(2) + " (" + index.edema + " + " + index.vhs + " + " + index.pga + " + " + index.ega + "); " : ''
+        let textofinal = texto1 + texto2 + texto3 + texto4 + texto5 + texto6 + texto7 + texto8
 
         setLmeEdit({
             ...lmeEdit,
@@ -91,6 +100,7 @@ const ICAD = () => {
                 // mda: '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
                 pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
+                sjadas: sjadas,
                 eva: index.eva,
             }
         })
@@ -109,6 +119,7 @@ const ICAD = () => {
                 asdasesr: asdasesr.toFixed(1),
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
                 pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
+                sjadas: sjadas.toFixed(2),
                 eva: index.eva,
             }
         })
@@ -143,7 +154,7 @@ const ICAD = () => {
                 <Box>
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="edema"
                         label="Edema"
                         value={index.edema}
@@ -152,7 +163,7 @@ const ICAD = () => {
                     />
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="dor"
                         label="Dor"
                         value={index.dor}
@@ -163,7 +174,7 @@ const ICAD = () => {
                 <Box>
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="vhs"
                         label="VHS"
                         value={index.vhs}
@@ -172,7 +183,7 @@ const ICAD = () => {
                     />
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="pcr"
                         label="PCR"
                         helperText="0 a 150"
@@ -183,7 +194,7 @@ const ICAD = () => {
                 <Box>
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="eva"
                         label="EVA"
                         helperText="0 a 100"
@@ -192,7 +203,7 @@ const ICAD = () => {
                     />
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="pga"
                         label="PGA"
                         helperText="0 a 10"
@@ -201,7 +212,7 @@ const ICAD = () => {
                     />
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="ega"
                         label="EGA"
                         helperText="0 a 10"
@@ -212,7 +223,7 @@ const ICAD = () => {
                 <Box>
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="bp"
                         label="Back Pain"
                         helperText="0 a 10"
@@ -221,7 +232,7 @@ const ICAD = () => {
                     />
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="pp"
                         label="Peripheral Pain"
                         helperText="0 a 10"
@@ -230,7 +241,7 @@ const ICAD = () => {
                     />
                     <TextField
                         variant='outlined'
-                        size= 'small'
+                        size='small'
                         name="ms"
                         label="Morning Stiffness"
                         helperText="0 a 10"
