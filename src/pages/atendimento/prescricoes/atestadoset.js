@@ -17,8 +17,6 @@ const AtestadoSet = () => {
         setAtestadoEdit({ ...atestadoEdit, data: format(parseISO(event.target.value), "yyyy-MM-dd") })
     }
 
-    console.log(atestadoEdit);
-
     return (
         <>
             <Box
