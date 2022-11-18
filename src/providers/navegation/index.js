@@ -6,6 +6,7 @@ import CID10 from "../../pages/cid10"
 import Print from "../../pages/print"
 import Procedimentos from "../../pages/procedimentos"
 import Estatistica from "../../pages/estastistica"
+import Avulso from "../../pages/avulso"
 
 const NavigateProvider = () => {
 
@@ -23,6 +24,7 @@ const NavigateProvider = () => {
         setPageCID: () => setPage(<CID10 />),
         setPageProcedimentos: () => setPage(<Procedimentos />),
         setPageEstatistica: () => setPage(<Estatistica />),
+        setPageAvulso: () => setPage(<Avulso />),
         setPageReset: () => setPage(<div />),
     }
 }

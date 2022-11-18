@@ -1,7 +1,9 @@
-//import FlashOnIcon from '@mui/icons-material/FlashOn';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 import GroupIcon from '@mui/icons-material/Group';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import SettingsEthernetIcon from '@mui/icons-material/SettingsEthernet';
+import StyleIcon from '@mui/icons-material/Style';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import { Box, Toolbar, Tooltip } from '@mui/material';
 import Divider from '@mui/material/Divider';
@@ -10,14 +12,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import React, { useContext } from 'react';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import StyleIcon from '@mui/icons-material/Style';
-import EqualizerIcon from '@mui/icons-material/Equalizer';
 import { ClienteContext, NavigateContext } from '../App';
 
 const LeftDrawer = () => {
 
-    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageEstatistica } = useContext(NavigateContext)
+    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageEstatistica, setPageAvulso } = useContext(NavigateContext)
     const { clienteContext } = useContext(ClienteContext)
 
     return (
@@ -101,10 +100,15 @@ const LeftDrawer = () => {
                             </ListItemIcon>
                         </Tooltip>
                     </ListItem>
-                    <ListItem button>
-                        <ListItemIcon>
-                            <SettingsEthernetIcon color="primary" fontSize="large" />
-                        </ListItemIcon>
+                    <ListItem
+                        button
+                        onClick={() => setPageAvulso()}
+                    >
+                        <Tooltip title="Documentos Rápidos">
+                            <ListItemIcon>
+                                <FlashOnIcon color="primary" fontSize="large" />
+                            </ListItemIcon>
+                        </Tooltip>
                     </ListItem>
                 </Box>
             </Drawer>
