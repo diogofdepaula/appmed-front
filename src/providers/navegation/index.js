@@ -12,8 +12,6 @@ const NavigateProvider = () => {
 
     const [page, setPage] = useState(<div />)
 
-    // Fazer uma página inicial com o Cards para acelerar prescrição e impressão
-
     return {
         page,
         setPage,

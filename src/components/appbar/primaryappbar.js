@@ -19,16 +19,16 @@ const PrimaryAppBar = () => {
 
     return (
         <>
-            <Box
+            {/* <Box
                 sx={{
                     display: 'flex',
                     backgroundColor: 'red'
                 }}
-            >
+            > */}
                 <AppBar
                     sx={{
+                        position: 'fixed',
                         zIndex: 1251,
-                        position: 'fixed'
                     }}
                 >
                     <Toolbar>
@@ -75,7 +75,7 @@ const PrimaryAppBar = () => {
                         </Box>
                     </Toolbar>
                 </AppBar>
-            </Box>
+            {/* </Box> */}
         </>
     )
 }

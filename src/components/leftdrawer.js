@@ -5,112 +5,118 @@ import GroupIcon from '@mui/icons-material/Group';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import StyleIcon from '@mui/icons-material/Style';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
-import { Box, Toolbar, Tooltip } from '@mui/material';
-import Divider from '@mui/material/Divider';
+import { Toolbar, Tooltip } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemButton from '@mui/material/ListItemButton';
 import React, { useContext } from 'react';
 import { ClienteContext, NavigateContext } from '../App';
 
+const Item = ({ pagina, titulo, icone }) => {
+    return (
+        <>
+            <ListItem
+                disablePadding
+                button
+                onClick={() => pagina()}
+            >
+                <ListItemButton>
+                    <Tooltip title={titulo}>
+                        <ListItemIcon
+                            sx={{
+                                minWidth: 0,
+                                justifyContent: 'center',
+                            }}
+                        >
+                            {icone}
+                        </ListItemIcon>
+                    </Tooltip>
+                </ListItemButton>
+            </ListItem>
+        </>
+    )
+}
+
+
 const LeftDrawer = () => {
 
-    const { page, setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageEstatistica, setPageAvulso } = useContext(NavigateContext)
+    const { setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageEstatistica, setPageAvulso } = useContext(NavigateContext)
     const { clienteContext } = useContext(ClienteContext)
+
+    const itens = [
+        {
+            pagina: setPageClientes,
+            titulo: "Clientes",
+            icone: <GroupIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageMedicamentos,
+            titulo: "Medicamentos",
+            icone: <LocalHospitalIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageCID,
+            titulo: "CID10",
+            icone: <AutoStoriesIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageProcedimentos,
+            titulo: "Procedimentos",
+            icone: <StyleIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageEstatistica,
+            titulo: "Estatística",
+            icone: <EqualizerIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageAvulso,
+            titulo: "Documentos Rápidos",
+            icone: <FlashOnIcon fontSize="large" />,
+        },
+    ]
 
     return (
         <>
             <Drawer
                 variant="permanent"
                 style={{
-                    width: 92,
+                    width: 67,
                     flexShrink: 0,
                 }}
             >
                 <Toolbar />
-                <Box
-                    style={{
-                        overflow: "auto"
-                    }}
-                >
-                    <List component="nav" >
-                        <ListItem
-                            button
-                            onClick={() => setPageClientes()}
-                        >
-                            <Tooltip title="Cadastro de Clientes">
-                                <ListItemIcon>
-                                    <GroupIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                            </Tooltip>
-                        </ListItem>
-                        <ListItem
-                            button
-                            onClick={() => setPageMedicamentos()}
-                        >
-                            <Tooltip title="Cadastro de Medicamentos">
-                                <ListItemIcon>
-                                    <LocalHospitalIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                            </Tooltip>
-                        </ListItem>
-                        <ListItem
-                            button
-                            onClick={() => setPageCID()}
-                        >
-                            <Tooltip title="CID10">
-                                <ListItemIcon>
-                                    <AutoStoriesIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                            </Tooltip>
-                        </ListItem>
-                        <ListItem
-                            button
-                            onClick={() => setPageProcedimentos()}
-                        >
-                            <Tooltip title="Procedimentos">
-                                <ListItemIcon>
-                                    <StyleIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                            </Tooltip>
-                        </ListItem>
-                        <ListItem
-                            disabled={clienteContext ? false : true}
-                            button
-                            selected={page === 'atendimento'}
-                            onClick={() => setPageAtendimento()}
-                        >
-                            <Tooltip title="Atendimento">
-                                <ListItemIcon>
-                                    <SystemUpdateAltIcon color="primary" fontSize="large" />
-                                </ListItemIcon>
-                            </Tooltip>
-                        </ListItem>
-
-                    </List>
-                    <Divider />
+                <List component="nav" >
+                    {itens.map((item, i) =>
+                        <Item
+                            key={i}
+                            pagina={item.pagina}
+                            titulo={item.titulo}
+                            icone={item.icone}
+                        />
+                    )}
                     <ListItem
+                        disabled={clienteContext ? false : true}
+                        disablePadding
                         button
-                        onClick={() => setPageEstatistica()}
+                        onClick={() => setPageAtendimento()}
                     >
-                        <Tooltip title="Estatística">
-                            <ListItemIcon>
-                                <EqualizerIcon color="primary" fontSize="large" />
-                            </ListItemIcon>
-                        </Tooltip>
+                        <ListItemButton>
+                            <Tooltip title={"Atendimento"}>
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <SystemUpdateAltIcon fontSize="large" />
+                                </ListItemIcon>
+                            </Tooltip>
+                        </ListItemButton>
                     </ListItem>
-                    <ListItem
-                        button
-                        onClick={() => setPageAvulso()}
-                    >
-                        <Tooltip title="Documentos Rápidos">
-                            <ListItemIcon>
-                                <FlashOnIcon color="primary" fontSize="large" />
-                            </ListItemIcon>
-                        </Tooltip>
-                    </ListItem>
-                </Box>
+                </List>
             </Drawer>
         </>
     )

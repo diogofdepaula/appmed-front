@@ -28,29 +28,36 @@ const App = () => {
         setOpenDialog(false)
     }
 
+    const Conteudo = () => {
+
+        if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
+
+        return (
+            <>
+                <PrimaryAppBar />
+                <LeftDrawer />
+                <Box
+                    component="main"
+                    sx={{ 
+                        flexGrow: 1,
+                     }}
+                >
+                    <Toolbar />
+                    <MainContent />
+                </Box>
+            </>
+        )
+    }
+
     return (
         <>
-            <Box sx={{ display: "flex", }} >
+            <Box sx={{ display: "flex" }} >
                 <CssBaseline />
                 <ClienteContext.Provider value={ClienteProvider()} >
                     <NavigateContext.Provider value={NavigateProvider()} >
                         <LoginContext.Provider value={LoginProvider()} >
                             <PrintContext.Provider value={PrintProvider()}>
-                                {openDialog
-                                    ?
-                                    <Login open={openDialog} handleClose={handleClose} />
-                                    :
-                                    <>
-                                        <Box>
-                                            <PrimaryAppBar />
-                                        </Box>
-                                        <LeftDrawer />
-                                        <Box flexGrow={1}>
-                                            <Toolbar />
-                                            <MainContent />
-                                        </Box>
-                                    </>
-                                }
+                                <Conteudo />
                             </PrintContext.Provider>
                         </LoginContext.Provider>
                     </NavigateContext.Provider>
