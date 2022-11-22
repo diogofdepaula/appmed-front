@@ -20,7 +20,7 @@ const MainContent = () => {
     return page
 }
 
-const App = () => {
+const Conteudo = () => {
 
     const [openDialog, setOpenDialog] = useState(true);
 
@@ -28,26 +28,26 @@ const App = () => {
         setOpenDialog(false)
     }
 
-    const Conteudo = () => {
+    if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
 
-        if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
+    return (
+        <>
+            <PrimaryAppBar />
+            <LeftDrawer />
+            <Box
+                component="main"
+                sx={{ 
+                    flexGrow: 1,
+                 }}
+            >
+                <Toolbar />
+                <MainContent />
+            </Box>
+        </>
+    )
+}
 
-        return (
-            <>
-                <PrimaryAppBar />
-                <LeftDrawer />
-                <Box
-                    component="main"
-                    sx={{ 
-                        flexGrow: 1,
-                     }}
-                >
-                    <Toolbar />
-                    <MainContent />
-                </Box>
-            </>
-        )
-    }
+const App = () => {
 
     return (
         <>

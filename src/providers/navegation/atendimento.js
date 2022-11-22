@@ -63,11 +63,11 @@ const AtendimentoNavegateProvider = () => {
         article,
         step,
         section,
-        print, 
-        setPrint,
+        //print, 
+      //  setPrint,
         setArticleAtendimentoMain: () => {
             setArticle(<AtendimentoMain />)
-            setPrint(false)
+    //        setPrint(false)
         },
         setArticlePrescricoesMain: () => {
             setArticle(<PrescricoesMain />)
@@ -80,7 +80,7 @@ const AtendimentoNavegateProvider = () => {
         },
         setArticlePrint: () => {
             setArticle(<Print />)
-            setPrint(true)
+     //       setPrint(true)
         },
         setArticleRequisicao: () => {
             setArticle(<Requisicao />)

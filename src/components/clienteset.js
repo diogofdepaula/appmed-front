@@ -89,6 +89,8 @@ const ClienteSet = () => {
         fetchClienteIncludes(param.id)
     }
 
+    console.log('teste');
+
     return (
         <>
             <Box
