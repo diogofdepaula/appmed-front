@@ -23,8 +23,7 @@ const ClienteSet = () => {
     const fetchData = useCallback(async () => {
 
         setInputValue('')
-        // deixar o allfat, pois usa os outros dados na hora de imprimir
-        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfat')
+        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfit')
         const json = await res.json()
         if (res.ok) {
             setDataCharging(false)
