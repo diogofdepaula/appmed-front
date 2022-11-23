@@ -28,7 +28,16 @@ const FastClienteEdit = ({ handleClose, open }) => {
                             return res.json()
                         }
                     }).then(data => {
-                        setClienteContext(data)
+                        // isso inclui os includes Prescricao nas LMES sem precisar
+                        // fazer uma pesquisa duplicada no bando de dados
+                        const lmes = data.lmes.map(l => {
+                            let n = data.prescricoes.filter(p => p.lmeId === l.id)
+                            return { ...l, prescricoes: n }
+                        })
+                        return { ...data, lmes: lmes }
+                    }).then(cliente => {
+                        console.log(cliente);
+                        setClienteContext(cliente)
                     })
             }
         }).finally(() => {
