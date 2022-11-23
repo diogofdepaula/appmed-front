@@ -6,7 +6,6 @@ const PrintProvider = () => {
     const [prescricoesSelecionadas, setPrescricoesSelecionadas] = useState([])
     const [tipo, setTipo] = useState('simples') // simples, controlado
     const [meses, setMeses] = useState(6)
-    const [lmes, setLmes] = useState([])
     const [lmesSelecionadas, setLmesSelecionadas] = useState([])
     const [termosSelecionados, setTermosSelecionados] = useState([])
     const [lme, setLme] = useState('')
@@ -30,11 +29,6 @@ const PrintProvider = () => {
         setTipo,
         meses,
         setMeses,
-        // ao clicar no PrintButton 
-        // isso adiciona os includes nas lmes que vem o ClienteContext, os quais não tem incluides
-        // não quis mudar no BD, pois ele faria uma busca duplicada dos includes
-        lmes,
-        setLmes,
         lmesSelecionadas,
         setLmesSelecionadas,
         termosSelecionados,
@@ -64,7 +58,6 @@ const PrintProvider = () => {
             setPrescricoesSelecionadas([])
             setTipo('simples')
             setMeses(6)
-            setLmes([])
             setLmesSelecionadas([])
             setTermosSelecionados([])
             setAtestadosSelecionados([])

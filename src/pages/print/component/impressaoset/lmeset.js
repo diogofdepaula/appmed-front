@@ -1,14 +1,11 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../../App';
+import { ClienteContext, PrintContext } from '../../../../App';
 
 const LMESet = () => {
 
-    const { lmes, lmesSelecionadas, setLmesSelecionadas, } = useContext(PrintContext)
-
-    // ao clicar no PrintButton
-    // isso adiciona os includes nas lmes que vem o ClienteContext, os quais não tem incluides
-    // não quis mudar no BD, pois ele faria uma busca duplicada dos includes
+    const { clienteContext } = useContext(ClienteContext)
+    const { lmesSelecionadas, setLmesSelecionadas, } = useContext(PrintContext)
 
     const handleLmesChange = param => (event) => {
         if (event.target.checked) {
@@ -21,7 +18,7 @@ const LMESet = () => {
     return (
         <>
             <List dense subheader={<ListSubheader>LMEs</ListSubheader>}>
-                {lmes?.map(lme =>
+                {clienteContext.lmes?.map(lme =>
                     <ListItem key={lme.id}>
                         <ListItemIcon>
                             <Checkbox

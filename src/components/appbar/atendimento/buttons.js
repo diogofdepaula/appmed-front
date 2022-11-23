@@ -88,21 +88,11 @@ export const RequisicoesBtn = () => {
 
 export const ImprimirNavBtn = () => {
 
-    const { clienteContext } = useContext(ClienteContext)
     const { setArticlePrint } = useContext(AtendimentoNavigateContext)
-    const { setLmes, printReset } = useContext(PrintContext)
+    const { printReset } = useContext(PrintContext)
 
     const handleClick = () => {
         printReset()
-        const lmes = clienteContext.lmes.map(l => {
-            let n = l.prescricoes.map(p =>
-                clienteContext.prescricoes.find(m => m.id === p.id)
-            )
-            return { ...l, prescricoes: n }
-        })
-        // isso adiciona os includes nas lmes que vem o ClienteContext, os quais não tem incluides
-        // não quis mudar no BD, pois ele faria uma busca duplicada dos includes
-        setLmes(lmes)
         setArticlePrint()
     }
 
