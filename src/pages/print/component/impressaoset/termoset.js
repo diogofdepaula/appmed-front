@@ -1,10 +1,11 @@
 import { Checkbox, List, ListItem, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../../App';
+import { ClienteContext, PrintContext } from '../../../../App';
 
 const TermoSet = () => {
 
-    const { termosSelecionados, setTermosSelecionados, lmes} = useContext(PrintContext)
+    const { clienteContext } = useContext(ClienteContext)
+    const { termosSelecionados, setTermosSelecionados } = useContext(PrintContext)
 
     const handleLmesChange = param => (event) => {
         if (event.target.checked) {
@@ -17,7 +18,7 @@ const TermoSet = () => {
     return (
         <>
             <List dense subheader={<ListSubheader>Termos</ListSubheader>}>
-                {lmes?.map(l => l.prescricoes.map(p =>
+                {clienteContext.lmes?.map(l => l.prescricoes.map(p =>
                     <ListItem key={p.id}>
                         <ListItemIcon>
                             <Checkbox
