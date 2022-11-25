@@ -79,7 +79,6 @@ const ClienteSet = () => {
                 })
                 return { ...data, lmes: lmes }
             }).then(cliente => {
-                console.log(cliente);
                 setClienteContext(cliente)
             })
             setPageReset()
