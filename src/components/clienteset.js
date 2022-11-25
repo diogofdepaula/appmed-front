@@ -93,7 +93,6 @@ const ClienteSet = () => {
         fetchClienteIncludes(param.id)
     }
 
-
     return (
         <>
             <Box
