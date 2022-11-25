@@ -257,20 +257,17 @@ export const PrescricaoSalvarBtn = () => {
                 })
                 return { ...data, lmes: lmes }
             }).then(cliente => {
-                console.log(cliente);
                 setClienteContext(cliente)
+            }).then(() => {
+                setStep(0)
+                setPrescricaoEdit(null)
+                setPrescricaoOnDuty(null)
+                setLmeEdit(null)
+                setAtestadoEdit(null)
+                setMedicamentoEdit(null)
+                setPageAtendimento()
+                setArticleAtendimentoMain()
             })
-    }
-
-    const finalizar = () => {
-        setStep(0)
-        setPrescricaoEdit(null)
-        setPrescricaoOnDuty(null)
-        setLmeEdit(null)
-        setAtestadoEdit(null)
-        setMedicamentoEdit(null)
-        setPageAtendimento()
-        setArticleAtendimentoMain()
     }
 
     const PrescricaoInsert = async () => {
@@ -282,7 +279,7 @@ export const PrescricaoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizar())
+        })
     }
 
     const LmeInsert = async () => {
@@ -294,7 +291,7 @@ export const PrescricaoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizar())
+        })
     }
 
     const PrescricaoUpdate = async () => {
@@ -306,7 +303,7 @@ export const PrescricaoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizar())
+        })
     }
 
     const LmeUpdate = async () => {
@@ -318,7 +315,7 @@ export const PrescricaoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizar())
+        })
     }
 
     const handleSubmit = event => {

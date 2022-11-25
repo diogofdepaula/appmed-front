@@ -36,7 +36,6 @@ const FastClienteEdit = ({ handleClose, open }) => {
                         })
                         return { ...data, lmes: lmes }
                     }).then(cliente => {
-                        console.log(cliente);
                         setClienteContext(cliente)
                     })
             }

@@ -26,7 +26,14 @@ const PrescricoesSet = () => {
 
     return (
         <>
-            <Box display='block'>
+            <Box 
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    p: 1,
+                    gap: 1,
+                }}
+            >
                 <FormControlLabel
                     disabled={local === 'consultorio' ? false : true}
                     control={
