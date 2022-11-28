@@ -31,7 +31,7 @@ const PrescricoesSet = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     p: 1,
-                    gap: 1,
+                    gap: 1
                 }}
             >
                 <FormControlLabel

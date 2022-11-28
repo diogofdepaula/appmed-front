@@ -562,29 +562,39 @@ export const AddNovoAtestado = () => {
 export const AtestadoSalvarBtn = () => {
 
     const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    const { atestadoEdit, setAtestadoEdit, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setAtestadoOnDuty } = useContext(AtendimentoContext)
+    const { atestadoEdit, setAtestadoEdit, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setAtestadoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
     const { setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
     if (!atestadoEdit) return <></>
 
     const fetchClienteIncludes = async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-        const json = await res.json()
-        if (res.ok) {
-            setClienteContext(json)
-        }
-    }
-
-    const finalizar = () => {
-        setStep(0)
-        setAtestadoEdit(null)
-        setPrescricaoEdit(null)
-        setLmeEdit(null)
-        setAtestadoOnDuty(null)
-        setMedicamentoEdit(null)
-        setPageAtendimento()
-        setArticleAtendimentoMain()
+        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+            }).then(data => {
+                // isso inclui os includes Prescricao nas LMES sem precisar
+                // fazer uma pesquisa duplicada no bando de dados
+                const lmes = data.lmes.map(l => {
+                    let n = data.prescricoes.filter(p => p.lmeId === l.id)
+                    return { ...l, prescricoes: n }
+                })
+                return { ...data, lmes: lmes }
+            }).then(cliente => {
+                setClienteContext(cliente)
+            }).then(() => {
+                setStep(0)
+                setPrescricaoEdit(null)
+                setPrescricaoOnDuty(null)
+                setAtestadoOnDuty(null)
+                setLmeEdit(null)
+                setAtestadoEdit(null)
+                setMedicamentoEdit(null)
+                setPageAtendimento()
+                setArticleAtendimentoMain()
+            })
     }
 
     const AtestadoInsert = async () => {
@@ -596,7 +606,7 @@ export const AtestadoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizar())
+        })
     }
 
     const AtestadoUpdate = async () => {
@@ -608,7 +618,7 @@ export const AtestadoSalvarBtn = () => {
             if (data.ok) {
                 fetchClienteIncludes()
             }
-        }).then(() => finalizar())
+        })
     }
 
     const handleSubmit = event => {
