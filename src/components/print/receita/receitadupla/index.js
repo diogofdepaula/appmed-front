@@ -13,29 +13,41 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
     const Inside = ({ mesmais }) => {
 
         return (
-            <Box width={1} height={1} display="block">
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "50%",
+                    width: '72%',
+                    transform: "rotate(270deg) translate(0px, 146px) scale(1, 1.355)",
+                    // WebkitTransformOrigin: "50.7% 36.3%"
+                }}
+            >
                 <Cabecalho tipo={tipo} dupla={dupla} />
                 <Box
-                    style={{
-                        height: 'calc(100% - 118px)', // se mudar o Cabecalho tem que ajustar aqui depois
-                        padding: 40,
-                        border: "0.2rem solid",
-                        borderColor: "black",
+                    sx={{
+                        height: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        border: 3,
+                        p: 4,
                     }}
                 >
                     <Box
-                        style={{
-                            display: "block",
-                            height: "100%",
+                        sx={{
+                            height: 1,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            textAlign: 'justify',
+                            typography: 'body1',
+                            fontSize: 22,
+                            p: 2,
                         }}
                     >
-                        <Box justifyContent="center">
-                            <Box display="block">
-                                <Via via={via} tipo={tipo} />
-                                <Identificacao tipo={tipo} />
-                                {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes + mesmais} tipo={tipo} /></div>)}
-                            </Box>
-                        </Box>
+                        <Via via={via} tipo={tipo} />
+                        <Identificacao tipo={tipo} />
+                        {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes + mesmais} tipo={tipo} /></div>)}
                     </Box>
                     <Data mes={mes + mesmais} tipo={tipo} />
                 </Box>
@@ -48,35 +60,14 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
         <>
             <PageA4>
                 <Box
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        display: "block",
-                        // backgroundColor: 'yellow',
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        height: 1,
                     }}
                 >
-                    <Box
-                        style={{
-                            width: '72%',
-                            height: '67.3%',
-                            // backgroundColor: 'red',
-                            transform: "rotate(270deg)",
-                            WebkitTransformOrigin: "50.7% 36.3%"
-                        }}
-                    >
-                        <Inside mesmais={1} />
-                    </Box>
-                    <Box
-                        style={{
-                            width: '72%',
-                            height: '67.3%',
-                            // backgroundColor: 'blue',
-                            transform: "rotate(270deg)",
-                            WebkitTransformOrigin: "33.4% 23.7%"
-                        }}
-                    >
-                        <Inside mesmais={0} />
-                    </Box>
+                    <Inside mesmais={1} />
+                    <Inside mesmais={0} />
                 </Box>
             </PageA4>
         </>
