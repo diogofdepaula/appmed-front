@@ -13,23 +13,13 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
     const Inside = ({ mesmais }) => {
 
         return (
-            <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "50%",
-                    width: '72%',
-                    transform: "rotate(270deg) translate(0px, 146px) scale(1, 1.355)",
-                    // WebkitTransformOrigin: "50.7% 36.3%"
-                }}
-            >
+            <>
                 <Cabecalho tipo={tipo} dupla={dupla} />
                 <Box
                     sx={{
-                        height: 1,
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        height: '915px',
                         border: 3,
                         p: 4,
                     }}
@@ -39,7 +29,6 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                             height: 1,
                             display: 'flex',
                             flexDirection: 'column',
-                            textAlign: 'justify',
                             typography: 'body1',
                             fontSize: 22,
                             p: 2,
@@ -52,7 +41,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                     <Data mes={mes + mesmais} tipo={tipo} />
                 </Box>
                 <Rodape />
-            </Box>
+            </>
         )
     }
 
@@ -64,10 +53,26 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                         display: "flex",
                         flexDirection: "column",
                         height: 1,
+                        alignItems: 'center',
+                        gap: 5,
                     }}
                 >
-                    <Inside mesmais={1} />
-                    <Inside mesmais={0} />
+                    <Box
+                        sx={{
+                            width: '760px',
+                            transform: "rotate(270deg) translate(140px, 0px)",
+                        }}
+                    >
+                        <Inside mesmais={1} />
+                    </Box>
+                    <Box
+                        sx={{
+                            width: '760px',
+                            transform: "rotate(270deg) translate(448px, 0px)",
+                        }}
+                    >
+                        <Inside mesmais={0} />
+                    </Box>
                 </Box>
             </PageA4>
         </>
