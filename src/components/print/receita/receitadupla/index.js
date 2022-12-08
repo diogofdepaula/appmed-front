@@ -50,17 +50,20 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
             <PageA4>
                 <Box
                     sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        height: 1,
-                        alignItems: 'center',
+                        display: 'inline-flex',
+                     //   flexWrap: 'nowrap',
+                      //  flexDirection: "column",
+                        height: '1535px',
+                       // width: '1043',
+                       // alignItems: 'center',
                         gap: 5,
+                       // bgcolor: 'red'
                     }}
                 >
                     <Box
                         sx={{
                             width: '760px',
-                            transform: "rotate(270deg) translate(140px, 0px)",
+                           transform: "rotate(270deg) translate(385px, 390px)",
                         }}
                     >
                         <Inside mesmais={1} />
@@ -68,7 +71,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                     <Box
                         sx={{
                             width: '760px',
-                            transform: "rotate(270deg) translate(448px, 0px)",
+                            transform: "rotate(270deg) translate(-385px, -410px)",
                         }}
                     >
                         <Inside mesmais={0} />
