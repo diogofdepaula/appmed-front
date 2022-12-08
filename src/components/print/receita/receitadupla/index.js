@@ -51,13 +51,8 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                 <Box
                     sx={{
                         display: 'inline-flex',
-                     //   flexWrap: 'nowrap',
-                      //  flexDirection: "column",
                         height: '1535px',
-                       // width: '1043',
-                       // alignItems: 'center',
                         gap: 5,
-                       // bgcolor: 'red'
                     }}
                 >
                     <Box
