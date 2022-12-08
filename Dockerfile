@@ -4,6 +4,8 @@ WORKDIR /usr/src/front
 
 COPY package*.json ./
 
+RUN npm install -g npm@9.2.0
+
 RUN npm install
 
 RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
