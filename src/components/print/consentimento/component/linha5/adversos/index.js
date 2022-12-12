@@ -302,6 +302,16 @@ const Tofacitinibe =
         lipídicos, elevação das enzimas hepáticas
     </>
 
+const Secuquinumabe =
+    <>
+        reações no local da aplicação (como dor e coceira), dor de
+        cabeça, tosse, náusea, vômitos, febre, cansaço, alteração na
+        pressão arterial até reações mais graves, que incluem 
+        infecções oportunístas fúngicas e bacterianas como 
+        tuberculose, histoplasmose, aspergilose e nocardiose, 
+        podendo, em casos raros, ser fatal
+    </>
+
 const Sulfassalazina =
     <>
         dores de cabeça, aumento da sensibilidade aos raios solares,
@@ -317,10 +327,10 @@ const Sulfassalazina =
 
 const Upadacitinibe =
     <>
-        aumento da taxa de infecções; reativação viral; neutropenia; 
-        linfopenia; anemia; aumentos nos parâmetros lipídicos; elevações 
-        de enzimas hepáticas; tromboembolismo venoso. O perfil de 
-        segurança em longo prazo do upadaci􀆟nibe ainda não está bem 
+        aumento da taxa de infecções; reativação viral; neutropenia;
+        linfopenia; anemia; aumentos nos parâmetros lipídicos; elevações
+        de enzimas hepáticas; tromboembolismo venoso. O perfil de
+        segurança em longo prazo do upadaci􀆟nibe ainda não está bem
         estabelecido.
     </>
 
@@ -358,6 +368,7 @@ const Meds = [
     ["Sildenafila", Sildenafila],
     ["Tocilizumabe", Tocilizumabe],
     ["Tofacitinibe", Tofacitinibe],
+    ["Secuquinumabe", Secuquinumabe],
     ["Sulfassalazina", Sulfassalazina],
     ["Upadacitinibe", Upadacitinibe],
 ]
