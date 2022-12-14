@@ -235,9 +235,9 @@ export const ProximoBtn = () => {
 
 export const PrescricaoSalvarBtn = () => {
 
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    const { prescricaoEdit, setPrescricaoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setAtestadoEdit } = useContext(AtendimentoContext)
-    const { step, setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { clienteContext, setClienteContext, setResetCliente } = useContext(ClienteContext)
+    const { prescricaoEdit, setPrescricaoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setAtestadoEdit, setResetAtendimento } = useContext(AtendimentoContext)
+    const { step, setStep, setArticleAtendimentoMain, setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
     if (!prescricaoEdit && !lmeEdit) return <></>
@@ -259,15 +259,22 @@ export const PrescricaoSalvarBtn = () => {
             }).then(cliente => {
                 setClienteContext(cliente)
             }).then(() => {
-                setStep(0)
                 setPrescricaoEdit(null)
                 setPrescricaoOnDuty(null)
                 setLmeEdit(null)
                 setAtestadoEdit(null)
                 setMedicamentoEdit(null)
-                setPageAtendimento()
+                setStep(0)
                 setArticleAtendimentoMain()
+                setPageAtendimento()
             })
+    }
+
+    const resetAll = () => {
+        setResetCliente()
+        setResetAtendimento()
+        setResetAtendimentoNavegate()
+        setPageAtendimento()
     }
 
     const PrescricaoInsert = async () => {
@@ -277,7 +284,7 @@ export const PrescricaoSalvarBtn = () => {
             body: JSON.stringify(prescricaoEdit)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes()
+                resetAll()
             }
         })
     }
@@ -289,7 +296,7 @@ export const PrescricaoSalvarBtn = () => {
             body: JSON.stringify(lmeEdit)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes()
+                resetAll()
             }
         })
     }
@@ -301,7 +308,7 @@ export const PrescricaoSalvarBtn = () => {
             body: JSON.stringify(prescricaoEdit)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes()
+                resetAll()
             }
         })
     }
@@ -313,7 +320,7 @@ export const PrescricaoSalvarBtn = () => {
             body: JSON.stringify(lmeEdit)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes()
+                resetAll()
             }
         })
     }

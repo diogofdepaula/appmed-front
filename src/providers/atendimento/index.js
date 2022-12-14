@@ -227,6 +227,13 @@ const AtendimentoProvider = () => {
             setLmeOnDuty(null)
             setPrescricaoOnDuty(null)
         },
+        setResetAtendimento: () => {
+            setPrescricaoEdit(null)
+            setPrescricaoOnDuty(null)
+            setLmeEdit(null)
+            setAtestadoEdit(null)
+            setMedicamentoEdit(null)
+        }
     }
 }
 

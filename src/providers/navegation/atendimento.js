@@ -99,6 +99,11 @@ const AtendimentoNavegateProvider = () => {
             setSection(SetSectionByStep(step + 10))
             setStep(step + 10)
         },
+        setResetAtendimentoNavegate: () => {
+            setStep(0)
+            setArticle(<AtendimentoMain />)
+            setPrint(false)
+        }
     }
 }
 
