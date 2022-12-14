@@ -146,14 +146,14 @@ const RemoverPrescricaoLME = ({ reiniciar }) => {
 
 const PrescricaoDelete = () => {
 
-    const { clienteContext, setClienteIncludes } = useContext(ClienteContext)
-    const { prescricaoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { clienteContext, setResetCliente } = useContext(ClienteContext)
+    const { prescricaoOnDuty, setResetAtendimento } = useContext(AtendimentoContext)
+    const { setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
 
-    const fetchClienteIncludes = async () => {
-        await setClienteIncludes(clienteContext.id)
-        setArticleAtendimentoMain()
-        setPrescricaoOnDuty(null)
+    const resetAll = () => {
+        setResetCliente()
+        setResetAtendimento()
+        setResetAtendimentoNavegate()
     }
 
     return (
@@ -221,9 +221,9 @@ const PrescricaoDelete = () => {
                     gap: 1,
                 }}
             >
-                <Interromper reiniciar={fetchClienteIncludes} />
-                <RemoverPrescricao reiniciar={fetchClienteIncludes} />
-                <RemoverPrescricaoLME reiniciar={fetchClienteIncludes} />
+                <Interromper reiniciar={resetAll} />
+                <RemoverPrescricao reiniciar={resetAll} />
+                <RemoverPrescricaoLME reiniciar={resetAll} />
             </Box>
         </>
     )

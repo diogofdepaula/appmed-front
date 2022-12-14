@@ -73,22 +73,14 @@ const RemoverLME = ({ reiniciar }) => {
 
 const LmeDelete = () => {
 
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    const { lmeOnDuty, setLmeOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { clienteContext, setResetCliente } = useContext(ClienteContext)
+    const { lmeOnDuty, setResetAtendimento } = useContext(AtendimentoContext)
+    const { setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
 
-    const fetchClienteIncludes = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                setClienteContext(data)
-            })
-        setArticleAtendimentoMain()
-        setPrescricaoOnDuty(null)
-        setLmeOnDuty(null)
+    const resetAll = () => {
+        setResetCliente()
+        setResetAtendimento()
+        setResetAtendimentoNavegate()
     }
 
     return (
@@ -141,7 +133,7 @@ const LmeDelete = () => {
                     gap: 1,
                 }}
             >
-                <RemoverLME reiniciar={fetchClienteIncludes} />
+                <RemoverLME reiniciar={resetAll} />
             </Box>
         </>
     )

@@ -235,40 +235,12 @@ export const ProximoBtn = () => {
 
 export const PrescricaoSalvarBtn = () => {
 
-    const { clienteContext, setClienteContext, setResetCliente } = useContext(ClienteContext)
-    const { prescricaoEdit, setPrescricaoEdit, setMedicamentoEdit, lmeEdit, setLmeEdit, setPrescricaoOnDuty, setAtestadoEdit, setResetAtendimento } = useContext(AtendimentoContext)
-    const { step, setStep, setArticleAtendimentoMain, setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
+    const {  setResetCliente } = useContext(ClienteContext)
+    const { prescricaoEdit, lmeEdit, setResetAtendimento } = useContext(AtendimentoContext)
+    const { step, setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
     if (!prescricaoEdit && !lmeEdit) return <></>
-
-    const fetchClienteIncludes = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                // isso inclui os includes Prescricao nas LMES sem precisar
-                // fazer uma pesquisa duplicada no bando de dados
-                const lmes = data.lmes.map(l => {
-                    let n = data.prescricoes.filter(p => p.lmeId === l.id)
-                    return { ...l, prescricoes: n }
-                })
-                return { ...data, lmes: lmes }
-            }).then(cliente => {
-                setClienteContext(cliente)
-            }).then(() => {
-                setPrescricaoEdit(null)
-                setPrescricaoOnDuty(null)
-                setLmeEdit(null)
-                setAtestadoEdit(null)
-                setMedicamentoEdit(null)
-                setStep(0)
-                setArticleAtendimentoMain()
-                setPageAtendimento()
-            })
-    }
 
     const resetAll = () => {
         setResetCliente()
@@ -568,40 +540,18 @@ export const AddNovoAtestado = () => {
 
 export const AtestadoSalvarBtn = () => {
 
-    const { clienteContext, setClienteContext } = useContext(ClienteContext)
-    const { atestadoEdit, setAtestadoEdit, setPrescricaoEdit, setMedicamentoEdit, setLmeEdit, setAtestadoOnDuty, setPrescricaoOnDuty } = useContext(AtendimentoContext)
-    const { setStep, setArticleAtendimentoMain } = useContext(AtendimentoNavigateContext)
+    const { setResetCliente} = useContext(ClienteContext)
+    const { atestadoEdit, setResetAtendimento } = useContext(AtendimentoContext)
+    const { setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
 
     if (!atestadoEdit) return <></>
 
-    const fetchClienteIncludes = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                // isso inclui os includes Prescricao nas LMES sem precisar
-                // fazer uma pesquisa duplicada no bando de dados
-                const lmes = data.lmes.map(l => {
-                    let n = data.prescricoes.filter(p => p.lmeId === l.id)
-                    return { ...l, prescricoes: n }
-                })
-                return { ...data, lmes: lmes }
-            }).then(cliente => {
-                setClienteContext(cliente)
-            }).then(() => {
-                setStep(0)
-                setPrescricaoEdit(null)
-                setPrescricaoOnDuty(null)
-                setAtestadoOnDuty(null)
-                setLmeEdit(null)
-                setAtestadoEdit(null)
-                setMedicamentoEdit(null)
-                setPageAtendimento()
-                setArticleAtendimentoMain()
-            })
+    const resetAll = () => {
+        setResetCliente()
+        setResetAtendimento()
+        setResetAtendimentoNavegate()
+        setPageAtendimento()
     }
 
     const AtestadoInsert = async () => {
@@ -611,7 +561,7 @@ export const AtestadoSalvarBtn = () => {
             body: JSON.stringify(atestadoEdit)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes()
+                resetAll()
             }
         })
     }
@@ -623,7 +573,7 @@ export const AtestadoSalvarBtn = () => {
             body: JSON.stringify(atestadoEdit)
         }).then(data => {
             if (data.ok) {
-                fetchClienteIncludes()
+                resetAll()
             }
         })
     }
