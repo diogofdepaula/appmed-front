@@ -36,7 +36,7 @@ const ListItems = memo(({ param, handle }) => {
                 </IconButton>
             </ListItemSecondaryAction>
         </ListItem>
-    </>;
+    </>
 })
 
 const AdicionadosItems = memo(({ param }) => {
