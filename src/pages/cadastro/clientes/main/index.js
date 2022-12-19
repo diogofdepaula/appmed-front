@@ -1,5 +1,6 @@
-import { Box, List, TextField } from '@mui/material';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import { Box, IconButton, List, TextField } from '@mui/material';
+import { useContext, useState } from 'react';
 import { ClienteCadastroContext, ClienteNavigateContext } from '..';
 import DataCharging from '../../../../components/datacharging';
 import ListItemsClientes from '../../../../components/listitemsclientes';
@@ -10,10 +11,10 @@ const ClienteMain = () => {
 	const { setPageForm } = useContext(ClienteNavigateContext)
 	const [clientes, setClientes] = useState([])
 	const [clientesfiltrados, setClientesFiltrados] = useState([])
-	const [dataCharging, setDataCharging] = useState(true)
+	const [dataCharging, setDataCharging] = useState(false)
 
-	const fetchData = useCallback(async () => {
-		const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/allfat`)
+	const fetchData = async () => {
+		const res = await fetch(process.env.REACT_APP_API_URL + `/clientes/allfit`)
 		const json = await res.json()
 		json.sort((a, b) => a.nome.localeCompare(b.nome))
 		if (res.ok) {
@@ -21,11 +22,7 @@ const ClienteMain = () => {
 		}
 		setClientes(json);
 		setClientesFiltrados(json)
-	}, [setClientes])
-
-	useEffect(() => {
-		fetchData();
-	}, [fetchData])
+	}
 
 	const filterClientes = event => {
 
@@ -71,12 +68,29 @@ const ClienteMain = () => {
 						flexGrow: 1,
 					}}
 				>
-					<TextField
-						fullWidth
-						label={dataCharging ? "Carregando dados" : "Procurar cliente"}
-						variant="outlined"
-						onChange={filterClientes}
-					/>
+					<Box
+						sx={{
+							display: 'flex',
+							width: 1,
+							gap: 1,
+						}}
+					>
+						<IconButton
+							color="inherit"
+							onClick={() => {
+								setDataCharging(true)
+								fetchData()}
+							}
+						>
+							<RefreshIcon />
+						</IconButton>
+						<TextField
+							fullWidth
+							label={dataCharging ? "Carregando dados" : "Procurar cliente"}
+							variant="outlined"
+							onChange={filterClientes}
+						/>
+					</Box>
 					<DataCharging charge={dataCharging} />
 					<List
 						component="nav"
