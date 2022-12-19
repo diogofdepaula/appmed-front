@@ -2,40 +2,38 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Box, IconButton, List, Paper } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, LoginContext, NavigateContext, PrintContext } from '../App';
+import { ClienteContext, NavigateContext, PrintContext } from '../App';
 import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
 
 const ClienteSet = () => {
 
-    const { setClienteContext } = useContext(ClienteContext)
+    const { setResetCliente } = useContext(ClienteContext)
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
-    const { login } = useContext(LoginContext)
     const { printReset } = useContext(PrintContext)
 
     const [clientes, setClientes] = useState([])
-    // tem que ter o clientes, setClientes porque senào na hora que corrige o Formcontrol para reescrever ele não zera a lista
-    // fica com um clientesinitial
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [inputvalue, setInputValue] = useState('')
     const [dataCharging, setDataCharging] = useState(true)
 
     const fetchData = useCallback(async () => {
-
         setInputValue('')
-        const res = await fetch(process.env.REACT_APP_API_URL + '/clientes/allfit')
-        const json = await res.json()
-        if (res.ok) {
-            setDataCharging(false)
-        }
-        setClientes(json)
+        await fetch(process.env.REACT_APP_API_URL + '/clientes/allfit')
+            .then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
+            }).then(data => {
+                setClientes(data)
+            }).then(() => {
+                setDataCharging(false)
+            })
     }, [])
 
     useEffect(() => {
-        if (login) {
-            fetchData()
-        }
-    }, [login, fetchData])
+        fetchData()
+    }, [fetchData])
 
     const filterClientes = (event) => {
         setInputValue(event.target.value)
@@ -64,33 +62,16 @@ const ClienteSet = () => {
         setInputValue('')
     }
 
-    const fetchClienteIncludes = async (param) => {
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + param)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                // isso inclui os includes Prescricao nas LMES sem precisar
-                // fazer uma pesquisa duplicada no bando de dados
-                const lmes = data.lmes.map(l => {
-                    let n = data.prescricoes.filter(p => p.lmeId === l.id)
-                    return { ...l, prescricoes: n }
-                })
-                return { ...data, lmes: lmes }
-            }).then(cliente => {
-                setClienteContext(cliente)
-            })
-            setPageReset()
-            printReset()
-            setPageAtendimento()
-            setClientesFiltrados([])
-            setDataCharging(false)
-    }
-
     const handleListItem = (param) => {
         setDataCharging(true)
-        fetchClienteIncludes(param.id)
+        setResetCliente(param.id)
+            .then(() => {
+                setPageReset()
+                printReset()
+                setPageAtendimento()
+                setClientesFiltrados([])
+                setDataCharging(false)
+            })
     }
 
     return (

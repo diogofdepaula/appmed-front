@@ -4,8 +4,9 @@ const ClienteProvider = () => {
 
     const [clienteContext, setClienteContext] = useState()
 
-    const fetchResetCliente = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + clienteContext.id)
+    const fetchResetCliente = async (param) => {
+        const id = param === undefined ? clienteContext.id : param
+        await fetch(process.env.REACT_APP_API_URL + '/clientes/' + id)
             .then(res => {
                 if (res.ok) {
                     return res.json()
@@ -26,7 +27,7 @@ const ClienteProvider = () => {
     return {
         clienteContext,
         setClienteContext,
-        setResetCliente: () => fetchResetCliente()
+        setResetCliente: (param) => fetchResetCliente(param)
     }
 }
 
