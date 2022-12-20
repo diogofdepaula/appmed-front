@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material'
 import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
+import { LMEPrintContext } from '../../../../../pages/print/printjob';
 
 const Linha6LME = () => {
 

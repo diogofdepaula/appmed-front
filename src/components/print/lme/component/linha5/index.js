@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
 import Reorder from '../../../../../pages/print/component/reorder'
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import Linha51LME from './linha51'
 import Linha5ExtraLME from './linha5extra'
 import Linha5xLME from './linha5x'

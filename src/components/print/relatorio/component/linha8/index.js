@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LMEPrintContext } from '../..';
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import Fence from '../../../fence';
 
 const Linha8Relatorio = () => {

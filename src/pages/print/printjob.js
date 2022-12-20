@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, createContext } from 'react';
 import { LoginContext, PrintContext } from '../../App';
 import Atestado from '../../components/print/atestado/index.js';
 import TermoConsentimento from '../../components/print/consentimento';
 import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
+
+export const LMEPrintContext = createContext(null)
 
 const PrintJob = () => {
 
@@ -20,28 +22,29 @@ const PrintJob = () => {
 
             return jobs.push(
                 <div key={l.id} >
-                    <FactoryLME lme={l} />
-                    {l.relatorio && <FactoryRelatorio lme={l} />}
+                    <LMEPrintContext.Provider value={l}>
+                        <FactoryLME />
+                        {l.relatorio && <FactoryRelatorio />}
 
-                    {/* Receitas */}
-                    {/* if para situação em que a LFN (ou GBP) esteja sozinha na LME, então não sairá a Receita (via) do Estado */}
-                    {!l.prescricoes.filter((p, i) => (p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida") && i === 0).length > 0 &&
-                        <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
-                    }
+                        {/* Receitas */}
+                        {/* if para situação em que a LFN (ou GBP) esteja sozinha na LME, então não sairá a Receita (via) do Estado */}
+                        {!l.prescricoes.filter((p, i) => (p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida") && i === 0).length > 0 &&
+                            <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
+                        }
 
-                    {l.prescricoes.filter(p => p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida").length > 0 &&
-                        [...Array(6).keys()].filter(e => e % 2 === 0).map(d =>
-                            <div key={d}>
-                                {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
-                                <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} tipo={"lme"} dupla={true} />
-                            </div>
-                        )
-                    }
+                        {l.prescricoes.filter(p => p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida").length > 0 &&
+                            [...Array(6).keys()].filter(e => e % 2 === 0).map(d =>
+                                <div key={d}>
+                                    {/* tem que passar o valor de cada mes da prescricao para cada receita de cada mês se não sai somente a soma */}
+                                    <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} mes={d} tipo={"lme"} dupla={true} />
+                                </div>
+                            )
+                        }
 
-                    {/* Medicamentos não controlados */}
-                    {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
-                    <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
-
+                        {/* Medicamentos não controlados */}
+                        {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
+                        <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
+                    </LMEPrintContext.Provider>
                 </div>
             )
         })

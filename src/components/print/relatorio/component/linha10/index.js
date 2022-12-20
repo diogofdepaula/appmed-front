@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
-import { LMEPrintContext } from '../..';
 import { ClienteContext } from '../../../../../App';
+import { LMEPrintContext } from '../../../../../pages/print/printjob';
 import { BoxCheckBox } from '../../../components';
 
 const Linha10Relatorio = () => {

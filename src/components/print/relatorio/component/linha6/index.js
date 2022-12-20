@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
-import { LMEPrintContext } from '../..';
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import FitText from '../../../../../pages/print/component/fittext';
 import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox } from '../../../components';
@@ -102,7 +102,7 @@ const Linha6LME = () => {
     const lme = useContext(LMEPrintContext)
     // na lógica colocar somente os medicamentos que tem data de início igual a new Date()
 
-    if (DoençaCID(lme.cid10) === 'aij' ) return <MedicamentosAIJ />
+    if (DoençaCID(lme.cid10) === 'aij') return <MedicamentosAIJ />
 
     const ar = [
         [

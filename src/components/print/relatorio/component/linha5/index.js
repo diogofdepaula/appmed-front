@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LMEPrintContext } from '../..';
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { DoençaCID } from '../../../../../utils/inquiries';
 import Fence from '../../../fence';
 import Field from '../../../field';

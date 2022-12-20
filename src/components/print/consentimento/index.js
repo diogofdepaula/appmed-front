@@ -1,23 +1,20 @@
 import { Box, Grid } from '@mui/material';
-import React, { createContext } from 'react';
+import React from 'react';
 import PageA4 from '../pagea4';
 import Linha1Termo from './component/linha1';
-import Linha7Termo from './component/linha7';
-import Linha8Termo from './component/linha8';
 import Linha2Termo from './component/linha2';
 import Linha3Termo from './component/linha3';
 import Linha4Termo from './component/linha4';
 import Linha5Termo from './component/linha5';
+import Linha7Termo from './component/linha7';
+import Linha8Termo from './component/linha8';
 import Linha9Termo from './component/linha9';
-
-export const LMEPrintContext = createContext(null)
 
 const TermoConsentimento = (props) => {
 
     return <>
         <PageA4>
             <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
-                <LMEPrintContext.Provider value={props.lme}>
                     <Grid container direction="column" justifyContent="space-between" style={{ height: "100%" }}>
                         <Grid container item>
                             <Linha1Termo />
@@ -34,7 +31,6 @@ const TermoConsentimento = (props) => {
                             <Linha9Termo />
                         </Grid>
                     </Grid>
-                </LMEPrintContext.Provider>
             </Box>
         </PageA4>
     </>;

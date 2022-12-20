@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LMEPrintContext } from '../..';
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import FitText from '../../../../../pages/print/component/fittext';
 import Fence from '../../../fence';
 

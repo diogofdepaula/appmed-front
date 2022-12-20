@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { useContext } from 'react';
-import { LMEPrintContext } from '../..';
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { BoxTitulo, Caixa } from '../../../components';
 
 const CriteriosAIJ = () => {

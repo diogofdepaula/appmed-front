@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
-import { LMEPrintContext } from '../..';
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { DoençaCID } from '../../../../../utils/inquiries';
 import { BoxCheckBox } from '../../../components';
 import Fence from '../../../fence';
@@ -19,27 +19,27 @@ const Linha7Relatorio = () => {
                         alinhamento: "left",
                         texto:
                             <>
-                            <Box
-                            sx={{
-                                gap: 1,
-                                display: 'inline-flex'
-                            }}
-                            >
-                                <BoxCheckBox
-                                    item={lme.relatorio.inducao === 'a'}
+                                <Box
+                                    sx={{
+                                        gap: 1,
+                                        display: 'inline-flex'
+                                    }}
                                 >
-                                    Sim
-                                </BoxCheckBox>
-                                <BoxCheckBox
-                                    item={lme.relatorio.inducao === 'b'}
-                                >
-                                    Não
-                                </BoxCheckBox>
-                                <BoxCheckBox
-                                    item={lme.relatorio.inducao === 'c'}
-                                >
-                                    Não se aplica
-                                </BoxCheckBox>
+                                    <BoxCheckBox
+                                        item={lme.relatorio.inducao === 'a'}
+                                    >
+                                        Sim
+                                    </BoxCheckBox>
+                                    <BoxCheckBox
+                                        item={lme.relatorio.inducao === 'b'}
+                                    >
+                                        Não
+                                    </BoxCheckBox>
+                                    <BoxCheckBox
+                                        item={lme.relatorio.inducao === 'c'}
+                                    >
+                                        Não se aplica
+                                    </BoxCheckBox>
                                 </Box>
                             </>
                     }}

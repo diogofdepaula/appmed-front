@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React, { createContext } from 'react';
+import React from 'react';
 import PageA4 from '../pagea4';
 import Linha1Relatorio from './component/linha1';
 import Linha10Relatorio from './component/linha10';
@@ -14,9 +14,7 @@ import Linha7Relatorio from './component/linha7';
 import Linha8Relatorio from './component/linha8';
 import Linha9Relatorio from './component/linha9';
 
-export const LMEPrintContext = createContext(null)
-
-const FactoryRelatorio = (props) => {
+const FactoryRelatorio = () => {
 
     return (
         <>
@@ -32,7 +30,7 @@ const FactoryRelatorio = (props) => {
                         width: "100%",
                     }}
                 >
-                    <LMEPrintContext.Provider value={props.lme}>
+                    {/* <LMEPrintContext.Provider value={lme}> */}
                         <Box
                             sx={{
                                 display: 'flex',
@@ -56,7 +54,7 @@ const FactoryRelatorio = (props) => {
                             <Linha11Relatorio />
                             <Linha12Relatorio />
                         </Box>
-                    </LMEPrintContext.Provider>
+                    {/* </LMEPrintContext.Provider> */}
                 </Box>
             </PageA4>
         </>

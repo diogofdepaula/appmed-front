@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import React, { useContext } from 'react'
-import { LMEPrintContext } from '../..'
+import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { BoxCheckBox } from '../../../components'
 import Fence from '../../../fence'
 
