@@ -47,7 +47,7 @@ const Fence = (props) => {
                         padding: "0.7rem 0.5rem 0.5rem 0.5rem",
                         borderBlockColor: "black",
                         borderStyle: "solid",
-                        borderWidth: "2px",
+                        borderWidth: "1px",
                         height: props.stretch,
                     }}
                 >

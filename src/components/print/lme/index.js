@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { createContext } from 'react';
 import PageA4 from '../pagea4';
 import Linha1LME from './component/linha1';
@@ -21,33 +21,46 @@ const FactoryLME = (props) => {
 
     return <>
         <PageA4>
-            <Box height={1} width={1} p={1} border={5} borderColor={"black"}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    borderBlockColor: "black",
+                    borderStyle: "solid",
+                    borderWidth: "5px",
+                    p: 1,
+                    height: "100%",
+                    width: "100%",
+                }}
+            >
                 <LMEPrintContext.Provider value={props.lme}>
-                    <Grid container direction="column" justifyContent="space-between" style={{ height: "100%" }}>
-                        <Grid item>
-                            <Linha1LME />
-                            <Linha2LME />
-                            <Linha3LME />
-                            <Linha4LME />
-                        </Grid>
-                        <Grid container item xs direction="column" alignItems="stretch">
-                            <Linha5LME />
-                            <Linha6LME />
-                            <Linha7LME />
-                        </Grid>
-                        <Grid item >
-                            <Linha9LME />
-                            <Linha10LME />
-                            <Linha11LME />
-                            <Linha12LME />
-                            <Linha13LME />
-                            <Linha14LME />
-                        </Grid>
-                    </Grid>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            height: "100%",
+                            width: "100%",
+                            gap: 0.2,
+                        }}
+                    >
+                        <Linha1LME />
+                        <Linha2LME />
+                        <Linha3LME />
+                        <Linha4LME />
+                        <Linha5LME />
+                        <Linha6LME />
+                        <Linha7LME />
+                        <Linha9LME />
+                        <Linha10LME />
+                        <Linha11LME />
+                        <Linha12LME />
+                        <Linha13LME />
+                        <Linha14LME />
+                    </Box>
                 </LMEPrintContext.Provider>
             </Box>
         </PageA4>
-    </>;
+    </>
 }
 
 export default FactoryLME
