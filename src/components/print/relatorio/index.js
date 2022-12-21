@@ -30,31 +30,29 @@ const FactoryRelatorio = () => {
                         width: "100%",
                     }}
                 >
-                    {/* <LMEPrintContext.Provider value={lme}> */}
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'space-between',
-                                height: "100%",
-                                width: "100%",
-                                gap: 0.2,
-                            }}
-                        >
-                            <Linha1Relatorio />
-                            <Linha2Relatorio />
-                            <Linha3Relatorio />
-                            <Linha4Relatorio />
-                            <Linha5Relatorio />
-                            <Linha6Relatorio />
-                            <Linha7Relatorio />
-                            <Linha8Relatorio />
-                            <Linha9Relatorio />
-                            <Linha10Relatorio />
-                            <Linha11Relatorio />
-                            <Linha12Relatorio />
-                        </Box>
-                    {/* </LMEPrintContext.Provider> */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            height: "100%",
+                            width: "100%",
+                            gap: 0.2,
+                        }}
+                    >
+                        <Linha1Relatorio />
+                        <Linha2Relatorio />
+                        <Linha3Relatorio />
+                        <Linha4Relatorio />
+                        <Linha5Relatorio />
+                        <Linha6Relatorio />
+                        <Linha7Relatorio />
+                        <Linha8Relatorio />
+                        <Linha9Relatorio />
+                        <Linha10Relatorio />
+                        <Linha11Relatorio />
+                        <Linha12Relatorio />
+                    </Box>
                 </Box>
             </PageA4>
         </>
