@@ -10,7 +10,7 @@ export const LMEPrintContext = createContext(null)
 
 const PrintJob = () => {
 
-    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -24,7 +24,7 @@ const PrintJob = () => {
                 <div key={l.id} >
                     <LMEPrintContext.Provider value={l}>
                         <FactoryLME />
-                        {l.relatorio && <FactoryRelatorio />}
+                        {(l.relatorio && !renovacao) && <FactoryRelatorio />}
 
                         {/* Receitas */}
                         {/* if para situação em que a LFN (ou GBP) esteja sozinha na LME, então não sairá a Receita (via) do Estado */}
@@ -43,7 +43,7 @@ const PrintJob = () => {
 
                         {/* Medicamentos não controlados */}
                         {/* não passar a variável mês, para dar undifined lá nos componentes internos e saber, saber que é via paciente (aí não precisa passar o via paciente) */}
-                        <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />
+                        {!renovacao && <FactoryReceitas listPresc={l.prescricoes} via={"paciente"} tipo={"lme"} />}
                     </LMEPrintContext.Provider>
                 </div>
             )

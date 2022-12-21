@@ -4,6 +4,33 @@ import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { CriteriosLme } from '../../../../../utils/criteriosdoencas';
 import { BoxCheckBox, BoxTitulo, Caixa } from '../../../components';
 
+export const ProvaAtividadeInflamatoria = () => {
+
+    const lme = useContext(LMEPrintContext)
+    
+    return (
+        <>
+            <BoxTitulo titulo={'Provas de Atividade Inflamatória'} />
+            <Box
+                sx={{
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                }}
+            >
+                <Box>
+                    VHS: {lme.relatorio.vhs}
+                </Box>
+                <Box>
+                    PCR: {lme.relatorio.pcr}
+                </Box>
+            </Box>
+        </>
+    )
+}
+
 const CriteriosAR = () => {
 
     const lme = useContext(LMEPrintContext)
@@ -106,29 +133,6 @@ const CriteriosAR = () => {
         )
     }
 
-    const ProvaAtividadeInflamatoria = () => {
-        return (
-            <>
-                <BoxTitulo titulo={'Provas de Atividade Inflamatória'} />
-                <Box
-                    sx={{
-                        height: '100%',
-                        display: 'flex',
-                        justifyContent: 'space-evenly',
-                        alignItems: 'center',
-                        flexDirection: 'column',
-                    }}
-                >
-                    <Box>
-                        VHS: {lme.relatorio.vhs}
-                    </Box>
-                    <Box>
-                        PCR: {lme.relatorio.pcr}
-                    </Box>
-                </Box>
-            </>
-        )
-    }
 
     return (
         <>

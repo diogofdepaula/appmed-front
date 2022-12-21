@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { useContext } from 'react';
+import { PrintContext } from '../../../../../App';
 import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { DoençaCID } from '../../../../../utils/inquiries';
 import Fence from '../../../fence';
@@ -10,12 +11,20 @@ import CriteriosAR from './ar';
 import CriteriosEA from './ea';
 
 export const ProvasAtividadeInflamatoria = () => {
+
+    const { renovacao } = useContext(PrintContext)
     const lme = useContext(LMEPrintContext)
-    if (DoençaCID(lme.cid10) !== 'ea') return <></>
+
+    if (DoençaCID(lme.cid10) !== 'ea' && !renovacao) return <></>
+
+    const titulo = renovacao ? "Últimas provas de atividade inflamatório disponíveis" : "2.1 - Provas de atividade inflamatória"
 
     return (
         <>
-            <Fence titulo="2.1 - Provas de atividade inflamatória">
+            <Fence
+                titulo={titulo}
+                stretch={1}
+            >
                 <Field
                     dados={{
                         titulo: "VHS",

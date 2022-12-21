@@ -30,7 +30,6 @@ const FactoryLME = () => {
                     width: "100%",
                 }}
             >
-                {/* <LMEPrintContext.Provider value={lme}> */}
                     <Box
                         sx={{
                             display: 'flex',
@@ -55,7 +54,6 @@ const FactoryLME = () => {
                         <Linha13LME />
                         <Linha14LME />
                     </Box>
-                {/* </LMEPrintContext.Provider> */}
             </Box>
         </PageA4>
     </>

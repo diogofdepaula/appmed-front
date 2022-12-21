@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { PrintContext } from '../../../../../App';
 import { LMEPrintContext } from '../../../../../pages/print/printjob'
 import { DoençaCID } from '../../../../../utils/inquiries';
 import Fence from '../../../fence';
@@ -6,6 +7,7 @@ import Field from '../../../field';
 
 const Linha5Relatorio = () => {
 
+    const { renovacao } = useContext(PrintContext)
     const lme = useContext(LMEPrintContext)
 
     const ar = [
@@ -103,9 +105,13 @@ const Linha5Relatorio = () => {
         return Indices[DoençaCID(lme.cid10)] || Indices.default
     }
 
+    const titulo = renovacao ? "Índices de atividade de doença" : "2.2 - Índices de atividade de doença"
+
     return (
         <>
-            <Fence titulo="2.2 - Índices de atividade de doença">
+            <Fence titulo={titulo}
+              stretch={1}
+            >
                 {SetIndices().map(c =>
                     <Field key={c.titulo} dados={c} />
                 )}
