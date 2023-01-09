@@ -5,7 +5,7 @@ import FitText from '../../../../../pages/print/component/fittext';
 import Fence from '../../../fence';
 import Linha5Relatorio from '../../../relatorio/component/linha5';
 import { PrintContext } from '../../../../../App';
-import {ProvasAtividadeInflamatoria} from '../../../relatorio/component/linha4';
+import { ProvasAtividadeInflamatoria } from '../../../relatorio/component/linha4';
 
 const Linha7LME = () => {
 
@@ -32,10 +32,14 @@ const Linha7LME = () => {
         )
     }
 
+    const titulo = renovacao ?
+        "11 e 12 - Relatório médico (Anamnese e tratamento prévio e dados pertinentes ao Relatório médico específico da doença"
+        :
+        "11 e 12 - Relatório médico (Anamnese e tratamento prévio"
 
     return (
         <>
-            <Fence titulo="11 e 12 - Relatório médico (Anamnese e tratamento prévio" stretch={1}>
+            <Fence titulo={titulo} stretch={1}>
                 <Box
                     sx={{
                         display: "flex",

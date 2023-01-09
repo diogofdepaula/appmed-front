@@ -84,6 +84,9 @@ const ICAD = () => {
         let texto8 = sjadas > 0 ? "JADAS-VHS de " + sjadas.toFixed(2) + " (" + index.edema + " + " + index.vhs + " + " + index.pga + " + " + index.ega + "); " : ''
         let textofinal = texto1 + texto2 + texto3 + texto4 + texto5 + texto6 + texto7 + texto8
 
+        //if (DoençaCID(lme.cid10) !== 'ea' && !renovacao) return <></>
+
+
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat(' ').concat(textofinal),

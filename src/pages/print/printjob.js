@@ -24,6 +24,7 @@ const PrintJob = () => {
                 <div key={l.id} >
                     <LMEPrintContext.Provider value={l}>
                         <FactoryLME />
+                        {(local === "cisgap" && renovacao) && <FactoryLME />}
                         {(l.relatorio && !renovacao) && <FactoryRelatorio />}
 
                         {/* Receitas */}
