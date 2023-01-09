@@ -6,6 +6,7 @@ import Fence from '../../../fence';
 import Linha5Relatorio from '../../../relatorio/component/linha5';
 import { PrintContext } from '../../../../../App';
 import { ProvasAtividadeInflamatoria } from '../../../relatorio/component/linha4';
+import { LmeComRelatorio } from '../../../../../utils/inquiries';
 
 const Linha7LME = () => {
 
@@ -13,7 +14,8 @@ const Linha7LME = () => {
     const lme = useContext(LMEPrintContext)
 
     const Renovacao = () => {
-        if (!renovacao) return <></>
+        if (!(renovacao && LmeComRelatorio(lme))) return <></>
+
         return (
             <>
                 <Box
@@ -32,7 +34,7 @@ const Linha7LME = () => {
         )
     }
 
-    const titulo = renovacao ?
+    const titulo = (renovacao && LmeComRelatorio(lme)) ?
         "11 e 12 - Relatório médico (Anamnese e tratamento prévio e dados pertinentes ao Relatório médico específico da doença"
         :
         "11 e 12 - Relatório médico (Anamnese e tratamento prévio"
