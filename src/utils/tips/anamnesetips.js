@@ -1,5 +1,4 @@
-import FormatTextdirectionLToRIcon from '@mui/icons-material/FormatTextdirectionLToR';
-import { Box, Chip, Divider, IconButton, Paper } from '@mui/material';
+import { Box, Chip, Divider, Paper } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
 import { CriteriosLme } from '../criteriosdoencas';
@@ -27,19 +26,6 @@ const AnamneseTips = () => {
         })
     }
 
-    const handleClickChip = param => () => {
-        setLmeEdit({
-            ...lmeEdit,
-            anamnese: lmeEdit.anamnese.concat('\n').concat(param[0]),
-            relatorio:
-                lmeEdit.relatorio === null
-                    ?
-                    null
-                    :
-                    { ...lmeEdit.relatorio, [param[1]]: true }
-        })
-    }
-
     const handleClickChipVirgula = param => () => {
         setLmeEdit({
             ...lmeEdit,
@@ -54,18 +40,6 @@ const AnamneseTips = () => {
     }
 
     const CriteriosAR2020 = () => {
-
-        const handleClickChip2020 = (paramA, paramB) => () => {
-            setLmeEdit({
-                ...lmeEdit,
-                anamnese: lmeEdit.anamnese.concat('\n').concat(paramB[0]),
-                relatorio: lmeEdit.relatorio === null
-                    ?
-                    null
-                    :
-                    { ...lmeEdit.relatorio, [paramA]: paramB[1] }
-            })
-        }
 
         const handleClickChipVirgula2020 = (paramA, paramB) => () => {
             setLmeEdit({
@@ -89,12 +63,6 @@ const AnamneseTips = () => {
                                 variant="outlined"
                                 onClick={handleClickChipVirgula2020(x[0][1], y)}
                             />
-                            <IconButton
-                                draggable
-                                onClick={handleClickChip2020(x[0][1], y)}
-                                size="small">
-                                <FormatTextdirectionLToRIcon />
-                            </IconButton>
                         </Box>
                     ))
                 }
@@ -105,12 +73,6 @@ const AnamneseTips = () => {
                             variant="outlined"
                             onClick={handleClickChipVirgula(p)}
                         />
-                        <IconButton
-                            draggable
-                            onClick={handleClickChip(p)}
-                            size="small">
-                            <FormatTextdirectionLToRIcon />
-                        </IconButton>
                     </Box>
                 )}
             </>
@@ -133,12 +95,6 @@ const AnamneseTips = () => {
                             variant="outlined"
                             onClick={handleClickChipVirgula(p)}
                         />
-                        <IconButton
-                            draggable
-                            onClick={handleClickChip(p)}
-                            size="small">
-                            <FormatTextdirectionLToRIcon />
-                        </IconButton>
                     </Box>
                 )}
             </>

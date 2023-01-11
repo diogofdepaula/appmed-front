@@ -3,6 +3,7 @@ import CallSplitIcon from '@mui/icons-material/CallSplit';
 import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 import React, { useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
+import { DoençaCID } from '../inquiries';
 
 const ICAD = () => {
 
@@ -80,49 +81,71 @@ const ICAD = () => {
         let texto4 = sdai > 0 ? "SDAI de " + sdai + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.pga + " + " + index.ega + "); " : ''
         let texto5 = index.eva > 0 ? "EVA de " + index.eva + "; " : ''
         let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.pcr + "); " : ''
-        let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "). " : '.'
+        let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "). " : ''
         let texto8 = sjadas > 0 ? "JADAS-VHS de " + sjadas.toFixed(2) + " (" + index.edema + " + " + index.vhs + " + " + index.pga + " + " + index.ega + "); " : ''
-        let textofinal = texto1 + texto2 + texto3 + texto4 + texto5 + texto6 + texto7 + texto8
 
-        //if (DoençaCID(lme.cid10) !== 'ea' && !renovacao) return <></>
+        let textofinal = texto1 + texto2 + texto3 + texto4 + texto6 + texto7
 
+        const doenca = DoençaCID(lmeEdit.cid10)
+
+        switch (doenca) {
+            case 'ar':
+                textofinal = texto1 + texto2 + texto3 + texto4
+                break;
+            case 'dor':
+                textofinal = texto5
+                break;
+            case 'ea':
+                textofinal = texto6 + texto7
+                break;
+            case 'ap':
+                textofinal = texto6 + texto7
+                break;
+            case 'aij':
+                textofinal = texto8
+                break;
+            default:
+        }
 
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese.concat(' ').concat(textofinal),
             relatorio: {
                 ...lmeEdit.relatorio,
-                das28: das28vhs.toFixed(1),
-                cdai: cdai,
-                sdai: sdai,
+                das28: doenca === "ar" ? das28vhs.toFixed(1) : '',
+                cdai: doenca === "ar" ? cdai : '',
+                sdai: doenca === "ar" ? sdai : '',
                 // basdai: '',
-                asdascrp: asdascrp.toFixed(1),
-                asdasesr: asdasesr.toFixed(1),
+                asdascrp: doenca === "ea" || doenca === "ap" ? asdascrp.toFixed(1) : '',
+                asdasesr: doenca === "ea" || doenca === "ap" ? asdasesr.toFixed(1) : '',
                 // sledai: '',
                 // essdai: '',
                 // mda: '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
                 pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
-                sjadas: sjadas,
+                sjadas: doenca === "aij" ? sjadas : '',
                 eva: index.eva,
             }
         })
     }
 
     const handleClickICAD = () => {
+
+        const doenca = DoençaCID(lmeEdit.cid10)
+
         setLmeEdit({
             ...lmeEdit,
             relatorio: {
                 ...lmeEdit.relatorio,
-                das28: das28vhs.toFixed(1),
-                cdai: cdai,
-                sdai: sdai,
+                das28: doenca === "ar" ? das28vhs.toFixed(1) : '',
+                cdai: doenca === "ar" ? cdai : '',
+                sdai: doenca === "ar" ? sdai : '',
                 // basdai: '',
-                asdascrp: asdascrp.toFixed(1),
-                asdasesr: asdasesr.toFixed(1),
+                asdascrp: doenca === "ea" || doenca === "ap" ? asdascrp.toFixed(1) : '',
+                asdasesr: doenca === "ea" || doenca === "ap" ? asdasesr.toFixed(1) : '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
                 pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
-                sjadas: sjadas.toFixed(2),
+                sjadas: doenca === "aij" ? sjadas : '',
                 eva: index.eva,
             }
         })
@@ -133,30 +156,40 @@ const ICAD = () => {
             <Box
                 sx={{
                     display: "flex",
-                    flexDirection: 'row',
-                    flexWrap: 'wrap',
+                    flexDirection: 'column',
+                    m: 1,
                     gap: 1,
                 }}
             >
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: 'row',
+                        gap: 1,
+                    }}
+                >
                     <IconButton
-                        draggable
-                        onDragEnd={() => handleClickAnamnese()}
                         onClick={() => handleClickAnamnese()}
                         size="large">
                         <LocalCafeIcon />
                     </IconButton>
                     <IconButton
-                        draggable
-                        onDragEnd={() => handleClickICAD()}
                         onClick={() => handleClickICAD()}
                         size="large">
                         <CallSplitIcon />
                     </IconButton>
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: 'row',
+                        gap: 1,
+                    }}
+                >
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="edema"
                         label="Edema"
@@ -165,7 +198,9 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="dor"
                         label="Dor"
@@ -173,10 +208,10 @@ const ICAD = () => {
                         helperText="0 a 28"
                         onChange={handleChange}
                     />
-                </Box>
-                <Box>
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="vhs"
                         label="VHS"
@@ -185,7 +220,9 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="pcr"
                         label="PCR"
@@ -194,9 +231,17 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: 'row',
+                        gap: 1,
+                    }}
+                >
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="eva"
                         label="EVA"
@@ -205,7 +250,9 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="pga"
                         label="PGA"
@@ -214,7 +261,9 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                     <TextField
-                        variant='outlined'
+                        sx={{
+                            width: '5rem'
+                        }}
                         size='small'
                         name="ega"
                         label="EGA"
@@ -223,9 +272,14 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: 'row',
+                        gap: 1,
+                    }}
+                >
                     <TextField
-                        variant='outlined'
                         size='small'
                         name="bp"
                         label="Back Pain"
@@ -234,7 +288,6 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                     <TextField
-                        variant='outlined'
                         size='small'
                         name="pp"
                         label="Peripheral Pain"
@@ -243,7 +296,6 @@ const ICAD = () => {
                         onChange={handleChange}
                     />
                     <TextField
-                        variant='outlined'
                         size='small'
                         name="ms"
                         label="Morning Stiffness"
