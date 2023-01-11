@@ -18,30 +18,27 @@ const Linha7LME = () => {
 
         return (
             <>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        gap: 1,
-                        width: 1,
-                    }}
-                >
-                    <Linha5Relatorio />
-                    <ProvasAtividadeInflamatoria />
-                </Box>
+                <Fence titulo="Dados pertinentes ao Relatório médico específico da doença solicitados na renovação" stretch={1}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            gap: 1,
+                            width: 1,
+                        }}
+                    >
+                        <Linha5Relatorio />
+                        <ProvasAtividadeInflamatoria />
+                    </Box>
+                </Fence>
             </>
         )
     }
 
-    const titulo = (renovacao && LmeComRelatorio(lme)) ?
-        "11 e 12 - Relatório médico (Anamnese e tratamento prévio e dados pertinentes ao Relatório médico específico da doença"
-        :
-        "11 e 12 - Relatório médico (Anamnese e tratamento prévio"
-
     return (
         <>
-            <Fence titulo={titulo} stretch={1}>
+            <Fence titulo="11 e 12 - Relatório médico (Anamnese e tratamento prévio)" stretch={1}>
                 <Box
                     sx={{
                         display: "flex",
