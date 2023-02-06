@@ -2,7 +2,7 @@ import { Box, Button, TextField, FormControlLabel, Checkbox } from '@mui/materia
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
-import { Clb2007d, DF7d } from './prescricoes';
+import { Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, GliCon, NslPtz, Pdn405d204d, Tmdsn } from './prescricoes';
 
 const PrescricaoBox = ({ prescricao }) => {
 
@@ -184,6 +184,46 @@ const Avulso = () => {
             title: "CLB 200 7D + DF 7D",
             prescricao: [Clb2007d, DF7d],
         },
+        {
+            title: "CLB 200 SN",
+            prescricao: [Clb200sn],
+        },
+        {
+            title: "CLB 100 10D",
+            prescricao: [Clb10010d],
+        },
+        {
+            title: "NslPtz",
+            prescricao: [NslPtz],
+        },
+        {
+            title: "Beta",
+            prescricao: [Beta],
+        },
+        {
+            title: "Beta",
+            prescricao: [Beta],
+        },
+        {
+            title: "Ax 90 7D",
+            prescricao: [Ax907d],
+        },
+        {
+            title: "Ax 60 7D",
+            prescricao: [Ax6010d],
+        },
+        {
+            title: "Tmd SN",
+            prescricao: [Tmdsn],
+        },
+        {
+            title: "GliCon",
+            prescricao: [GliCon],
+        },
+        {
+            title: "PDN 40 5D 20 4D",
+            prescricao: [Pdn405d204d],
+        },
     ]
 
     return (
@@ -245,7 +285,7 @@ const Avulso = () => {
                     <Box
                         sx={{
                             display: 'flex',
-                            flexDirection: 'row',
+                            flexDirection: 'column',
                         }}
                     >
                         {presc.map((p, i) =>

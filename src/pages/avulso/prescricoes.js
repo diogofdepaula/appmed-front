@@ -1,5 +1,5 @@
 export const Clb200sn = {
-    continuo: true,
+    continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
     orientacoes: "Tomar sempre de estômago cheio.",
@@ -29,7 +29,7 @@ export const Clb200sn = {
 }
 
 export const Clb2007d = {
-    continuo: true,
+    continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
     orientacoes: "Tomar sempre de estômago cheio.",
@@ -58,8 +58,8 @@ export const Clb2007d = {
     }
 }
 
-export const Clb1007d = {
-    continuo: true,
+export const Clb10010d = {
+    continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
     orientacoes: "Tomar sempre de estômago cheio.",
@@ -82,44 +82,14 @@ export const Clb1007d = {
         ]
     },
     posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
+        posologia: "Tomar 01 cápsula de 12 em 12 horas por 10 dias.",
         quantidade: "1",
         forma: "caixa",
     }
 }
 
-export const Clb10014d = {
-    continuo: true,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "Tomar sempre de estômago cheio.",
-    apresentaco: {
-        descricao: "100 mg Cap Dura",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Celecoxibe",
-        nomescomerciais: [
-            {
-                nomefantasia: "Celebra",
-            },
-            {
-                nomefantasia: "Dicoxibe",
-            },
-            {
-                nomefantasia: "Foxis",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
-        quantidade: "2",
-        forma: "caixas",
-    }
-}
-
 export const DF7d = {
-    continuo: true,
+    continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
     orientacoes: "",
@@ -170,8 +140,8 @@ export const NslPtz = {
 }
 
 export const Beta = {
-    continuo: true,
-    imprimirorientacoes: true,
+    continuo: false,
+    imprimirorientacoes: false,
     usoposologiapadrao: true,
     orientacoes: "",
     apresentaco: {
@@ -196,9 +166,9 @@ export const Beta = {
     }
 }
 
-export const Ax = {
-    continuo: true,
-    imprimirorientacoes: true,
+export const Ax907d = {
+    continuo: false,
+    imprimirorientacoes: false,
     usoposologiapadrao: true,
     orientacoes: "Tomar sempre de estômago cheio.",
     apresentaco: {
@@ -223,8 +193,35 @@ export const Ax = {
     }
 }
 
+export const Ax6010d = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "Tomar sempre de estômago cheio.",
+    apresentaco: {
+        descricao: "60mg Comp Rev",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Etoricoxibe",
+        nomescomerciais: [
+            {
+                nomefantasia: "Arcoxia",
+            },
+            {
+                nomefantasia: "Hetori",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 comprimido uma vez ao dia por 10 dias.",
+        quantidade: "2",
+        forma: "caixas",
+    }
+}
+
 export const Tmdsn = {
-    continuo: true,
+    continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
     orientacoes: "Essa medicação pode causar sonolência e diminuição dos reflexos.",
@@ -253,6 +250,56 @@ export const Tmdsn = {
     }
 }
 
+export const GliCon = {
+    continuo: true,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "1,5+1,2g Pó Sol",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Glicosamina + Condroitina",
+        nomescomerciais: [
+            {
+                nomefantasia: "CondroFlex",
+            },
+            {
+                nomefantasia: "Artrolive",
+            },
+           ]
+    },
+    posologia: {
+        posologia: "Colocar o conteúdo de um envelope em um copo de água (200 mL).\nAguardar 3 minutos, então mexer com um colher.\nTomar a mistura uma vez ao dia por 6 meses.",
+        quantidade: "180",
+        forma: "envelopes",
+    }
+}
+
+export const Pdn405d204d = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "40 mg Comp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Prednisolona",
+        nomescomerciais: [
+            {
+                nomefantasia: "Predsim",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tome 01 comprimido pela manhã por 5 dias, então\ntome 1/2 (meio) comprimido pela manhã por 4 dias, então pare.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
 
 // Albendazol
 // Codeina
@@ -260,8 +307,6 @@ export const Tmdsn = {
 // Colaten FORCE
 // Col HA
 // Dexacitoneurin NNF
-// DF CLB
-// DF NSL PTZ
 // Diacereina
 // DLX 30 -> 60
 // Gli_Con
