@@ -52,9 +52,9 @@ export const Clb2007d = {
         ]
     },
     posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
-        quantidade: "2",
-        forma: "caixas",
+        posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
+        quantidade: "1",
+        forma: "caixa",
     }
 }
 
