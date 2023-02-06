@@ -301,6 +301,35 @@ export const Pdn405d204d = {
     }
 }
 
+export const TmdPct = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "37,5mg+325mg Comp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Tramadol + Paracetamol",
+        nomescomerciais: [
+            {
+                nomefantasia: "Ultracet",
+            },
+            {
+                nomefantasia: "Novotram Par",
+            },
+            {
+                nomefantasia: "Revange",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tome 01 comprimido de 8 em 8 horas se dor",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
 // Albendazol
 // Codeina
 // TMD_PCT
@@ -309,7 +338,6 @@ export const Pdn405d204d = {
 // Dexacitoneurin NNF
 // Diacereina
 // DLX 30 -> 60
-// Gli_Con
 // Isoniazida
 // MPDN 1000mg/DU
 // MPDN 1000mg/DU/3D
