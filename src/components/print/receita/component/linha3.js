@@ -7,7 +7,7 @@ import { PrescricaoPrintContext } from './prescricao';
 const Linha3 = ({ mes, tipo }) => {
 
     const prescricao = useContext(PrescricaoPrintContext)
-    const { meses, continuo } = useContext(PrintContext)
+    const { meses, continuo, avulso } = useContext(PrintContext)
 
     const quantLME = () => {
 
@@ -165,9 +165,16 @@ const Linha3 = ({ mes, tipo }) => {
                     </TypoFarmPoso>
                 </Grid>
                 <Grid item container xs={3} justifyContent="flex-end">
-                    {continuo ?
-                        <Continuo /> :
-                        prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
+                    {avulso ?
+                        prescricao.continuo ?
+                            <Continuo />
+                            :
+                            prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
+                        :
+                        continuo ?
+                            <Continuo />
+                            :
+                            prescricao.usoposologiapadrao ? <Padrao /> : <NaoPadrao />
                     }
                 </Grid>
             </Grid>

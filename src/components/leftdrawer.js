@@ -1,16 +1,16 @@
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import CopyrightIcon from '@mui/icons-material/Copyright';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import GroupIcon from '@mui/icons-material/Group';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import StyleIcon from '@mui/icons-material/Style';
+import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import { Toolbar, Tooltip } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import React, { useContext } from 'react';
 import { ClienteContext, NavigateContext } from '../App';
 
@@ -59,22 +59,22 @@ const LeftDrawer = () => {
         {
             pagina: setPageCID,
             titulo: "CID10",
-            icone: <AutoStoriesIcon fontSize="large" />,
+            icone: <CopyrightIcon fontSize="large" />,
         },
         {
             pagina: setPageProcedimentos,
             titulo: "Procedimentos",
-            icone: <StyleIcon fontSize="large" />,
-        },
-        {
-            pagina: setPageEstatistica,
-            titulo: "Estatística",
-            icone: <EqualizerIcon fontSize="large" />,
+            icone: <LocalParkingIcon fontSize="large" />,
         },
         {
             pagina: setPageAvulso,
             titulo: "Documentos Rápidos",
             icone: <FlashOnIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageEstatistica,
+            titulo: "Estatística",
+            icone: <EqualizerIcon fontSize="large" />,
         },
     ]
 

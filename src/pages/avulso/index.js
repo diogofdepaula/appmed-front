@@ -285,26 +285,35 @@ const Avulso = () => {
                     <Box
                         sx={{
                             display: 'flex',
-                            flexDirection: 'column',
+                            flexDirection: 'row',
                         }}
                     >
-                        {presc.map((p, i) =>
-                            <Button
-                                key={i}
-                                onClick={() => handleClick(p.prescricao)}
-                            >
-                                {p.title}
-                            </Button>
-                        )}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-start',
+                                width: "20rem",
+                            }}
+                        >
+                            {presc.map((p, i) =>
+                                <Button
+                                    key={i}
+                                    onClick={() => handleClick(p.prescricao)}
+                                >
+                                    {p.title}
+                                </Button>
+                            )}
+                        </Box>
+                        <TextField
+                            fullWidth
+                            multiline
+                            rows={4}
+                            variant='outlined'
+                            label="Comentários"
+                            onChange={(e) => handleChangeComentarios(e)}
+                        />
                     </Box>
-                    <TextField
-                        fullWidth
-                        multiline
-                        rows={4}
-                        variant='outlined'
-                        label="Comentários"
-                        onChange={(e) => handleChangeComentarios(e)}
-                    />
                 </Box>
             </Box>
         </>

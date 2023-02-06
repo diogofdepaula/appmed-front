@@ -271,9 +271,9 @@ export const GliCon = {
            ]
     },
     posologia: {
-        posologia: "Colocar o conteúdo de um envelope em um copo de água (200 mL).\nAguardar 3 minutos, então mexer com um colher.\nTomar a mistura uma vez ao dia por 6 meses.",
+        posologia: "Colocar o conteúdo de um envelope em um copo de água.\nAguardar 3 minutos, então mexer com um colher.\nTomar a mistura uma vez ao dia por 6 meses.",
         quantidade: "",
-        forma: "uso contínuo",
+        forma: "",
     }
 }
 
