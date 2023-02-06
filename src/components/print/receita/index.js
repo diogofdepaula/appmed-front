@@ -6,13 +6,13 @@ import ReceitaA4 from './receitaa4';
 import ReceitaA5 from './receitaa5';
 import ReceitaDupla from './receitadupla';
 
-const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla }) => {
+const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla, last }) => {
 
     // variações conforme o local
-    let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
+    let receita = <ReceitaA4 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} last={last} />
 
     if (tipo === "consultorio") {
-        receita = <ReceitaA5 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} />
+        receita = <ReceitaA5 prescricoes={prescricoes} via={via} mes={mes} tipo={tipo} last={last} />
     } else if (dupla) {
         let a = prescricoes.filter(p => p.medicamento.farmaco === "Leflunomida")
         receita = <ReceitaDupla prescricoes={a.length > 0 ? a : prescricoes} via={via} mes={mes} tipo={tipo} dupla={dupla} />
@@ -23,7 +23,7 @@ const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla }) => {
 
 const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
 
-    const { somaheighta5, somaheighta4 } = useContext(PrintContext)
+    const { somaheighta5, somaheighta4, avulso } = useContext(PrintContext)
 
     const itemsRef = useRef([]);
 
@@ -54,22 +54,25 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
 
         let listReceitas = []
 
-        listOfListIndex.forEach(r => {
+        listOfListIndex.forEach((r, i) => {
             let grupoprescricoes = listPresc.slice(r[0], r[r.length - 1] + 1)
 
-            let grupoprescricoessort = Reorder(grupoprescricoes)
+            let grupoprescricoessort = avulso ? grupoprescricoes : Reorder(grupoprescricoes)
 
             listReceitas.push(
                 <div key={r}>
-                    {/* <ReceitaSUS prescricoes={grupoprescricoessort} via={props.via} mes={props.mes} /> */}
-                    <ReceitaPorTipo prescricoes={grupoprescricoessort} via={via} mes={mes} tipo={tipo} dupla={dupla} />
+                    <ReceitaPorTipo
+                        prescricoes={grupoprescricoessort}
+                        via={via} mes={mes} tipo={tipo} dupla={dupla}
+                        last={(listOfListIndex.length === (i + 1))}
+                    />
                 </div>
             )
         })
 
         setReceitas(listReceitas)
 
-    }, [somaheighta5, somaheighta4, listPresc, mes, tipo, via, dupla])
+    }, [somaheighta5, somaheighta4, listPresc, mes, tipo, via, dupla, avulso])
 
     useEffect(() => {
         if (itemsRef.current) {
@@ -82,9 +85,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
             {itemsRef.current.length === 0 &&
                 listPresc.map((p, i) =>
                     <div key={i} ref={el => itemsRef.current[i] = el} >
-                        {/* vai ter que mudar aqui depois */}
                         <Prescricao prescricao={p} />
-                        {/* {local === 'consultorio' ? <PrescricaoSUS prescricao={p} /> : <PrescricaoConsultorio prescricao={p} />} */}
                     </div>
                 )
             }

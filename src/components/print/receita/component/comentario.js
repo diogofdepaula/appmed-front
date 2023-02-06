@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React, { useContext } from 'react';
-import { PrintContext } from '../../../../pages/atendimento';
-import PageSize from '../../../component/pagesize';
+import { PrintContext } from '../../../../App';
+import PageSize from '../../../../pages/print/component/pagesize';
 
 const Comentario = ({ tipo }) => {
 
@@ -12,7 +12,7 @@ const Comentario = ({ tipo }) => {
         if (PageSize(tipo)) {
             return (
                 <Typography
-                variant='h6'
+                    variant='h6'
                     style={{
                         textAlign: 'justify'
                     }}
@@ -23,7 +23,7 @@ const Comentario = ({ tipo }) => {
         } else {
             return (
                 <Typography
-                variant='h5'
+                    variant='h5'
                     style={{
                         textAlign: 'justify'
                     }}
@@ -36,9 +36,13 @@ const Comentario = ({ tipo }) => {
 
     return (
         <>
-            <Box>
+            <Box
+                mt={2}
+            >
                 <Typo>
-                    {comentario}
+                    {comentario.split("\n").map((i, key) => {
+                        return <div key={key}>{i}</div>;
+                    })}
                 </Typo>
             </Box>
         </>

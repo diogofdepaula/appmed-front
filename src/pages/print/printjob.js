@@ -29,6 +29,8 @@ const PrintJob = () => {
 
                         {/* Receitas */}
                         {/* if para situação em que a LFN (ou GBP) esteja sozinha na LME, então não sairá a Receita (via) do Estado */}
+
+                        {/* JÇLKSAJDFÇLKADSJFÇL  TEM QUE REVER AQUI, POIS EM ALGUNS CASOS NÃO ESTÁ IMPRIMINDO A RECEITA QUANDO TEM LFN COM MAIS UM BIOLÓGICO */}
                         {!l.prescricoes.filter((p, i) => (p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida") && i === 0).length > 0 &&
                             <FactoryReceitas listPresc={l.prescricoes} via={"Estado"} tipo={"lme"} dupla={false} />
                         }

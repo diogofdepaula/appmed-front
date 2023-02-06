@@ -14,7 +14,8 @@ const Linha2 = ({ tipo }) => {
         let texto = ""
         if (local === 'consultorio' && tipo !== 'lme' && tipo !== undefined) {
             prescricao.medicamento.nomescomerciais?.sort().map((n, i) => {
-                if (n.id === prescricao.medicamento.nomescomerciais[0].id) {
+                if (i === 0) {
+                //if (n.id === prescricao.medicamento.nomescomerciais[0].id) {
                     return texto = texto.concat(n.nomefantasia)
                 } else if (i === prescricao.medicamento.nomescomerciais.length - 1) {
                     return texto = texto.concat(' ou ', n.nomefantasia)

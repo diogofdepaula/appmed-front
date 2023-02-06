@@ -17,6 +17,7 @@ const PrintProvider = () => {
     const [requisicoes, setRequisicoes] = useState([]) // { indice, justificativa, selecionados, convenio }
     const [database, setDatabase] = useState(new Date())
     const [renovacao, setRenovacao] = useState(false)
+    const [avulso, setAvulso] = useState(false)
     const somaheighta4 = 950 // 900, 
     const somaheighta5 = 440
 
@@ -51,6 +52,8 @@ const PrintProvider = () => {
         setDatabase,
         renovacao,
         setRenovacao,
+        avulso, 
+        setAvulso,
         somaheighta4,
         somaheighta5,
         printReset: () => {
@@ -69,6 +72,7 @@ const PrintProvider = () => {
             setRequisicoes([])
             setDatabase(new Date())
             setRenovacao(false)
+            setAvulso(false)
         }
     }
 }

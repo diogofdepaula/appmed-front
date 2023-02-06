@@ -1,11 +1,12 @@
 import { Box } from '@mui/material';
 import React from 'react';
 import PageA5 from '../../pagea5';
+import Comentario from '../component/comentario';
 import Data from '../component/data';
 import Identificacao from '../component/identificacao';
 import Prescricao from '../component/prescricao';
 
-const ReceitaA5 = ({ prescricoes, via, mes, tipo }) => {
+const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
 
     return (
         <>
@@ -16,16 +17,16 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo }) => {
                             <Box display="block">
                                 <Identificacao tipo={tipo} />
                                 {prescricoes?.map((p, i) =>
-                                    <div key={i}>
-                                        <Prescricao
-                                            prescricao={p}
-                                            mes={mes}
-                                            tipo={tipo}
-                                            previoususo={prescricoes[i -1]?.apresentaco.uso}
-                                        />
-                                    </div>
+                                    <Prescricao
+                                        key={i}
+                                        prescricao={p}
+                                        mes={mes}
+                                        tipo={tipo}
+                                        previoususo={prescricoes[i - 1]?.apresentaco.uso}
+                                    />
                                 )}
                             </Box>
+                            {last && <Comentario />}
                         </Box>
                     </Box>
                     <Data mes={mes} tipo={tipo} />

@@ -5,7 +5,7 @@ import { PrintContext } from '../../../../App';
 
 const TempoSet = () => {
 
-    const { setMeses, setDatabase } = useContext(PrintContext)
+    const { setMeses, setDatabase, setComentario } = useContext(PrintContext)
 
     const handleSliderChange = (event, newValue) => {
         setMeses(newValue)
@@ -13,6 +13,10 @@ const TempoSet = () => {
 
     const handleDateChange = (event) => {
         setDatabase(parseISO(event.target.value))
+    }
+
+    const handleChangeComentarios = event => {
+        setComentario(event.target.value)
     }
 
     return (
@@ -29,7 +33,6 @@ const TempoSet = () => {
                 onChange={handleSliderChange}
             />
             <TextField
-                mt={1}
                 type='date'
                 name='database'
                 label="Data base"
@@ -37,6 +40,14 @@ const TempoSet = () => {
                     shrink: true,
                 }}
                 onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
+            />
+            <TextField
+                fullWidth
+                multiline
+                rows={6}
+                variant='outlined'
+                label="Comentários"
+                onChange={(e) => handleChangeComentarios(e)}
             />
         </>
     )

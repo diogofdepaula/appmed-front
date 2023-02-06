@@ -2,13 +2,14 @@ import { Box } from '@mui/material'
 import React from 'react'
 import PageA4 from '../../pagea4'
 import Cabecalho from '../component/cabecalho'
+import Comentario from '../component/comentario'
 import Data from '../component/data'
 import Identificacao from '../component/identificacao'
 import Prescricao from '../component/prescricao'
 import Rodape from '../component/rodape'
 import Via from '../component/via'
 
-const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
+const ReceitaA4 = ({ prescricoes, via, mes, tipo, last }) => {
 
     return (
         <>
@@ -26,6 +27,7 @@ const ReceitaA4 = ({ prescricoes, via, mes, tipo }) => {
                                     {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} tipo={tipo} /></div>)}
                                 </Box>
                             </Box>
+                            {last && <Comentario />}
                         </Box>
                         <Data mes={mes} tipo={tipo} />
                     </Box>

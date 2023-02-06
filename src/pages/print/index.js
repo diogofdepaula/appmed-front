@@ -32,7 +32,14 @@ const Print = () => {
                 <Box>
                     <AtestadosSet />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                       // width: 1,
+                        gap: 2,
+                    }}
+                >
                     <TempoSet />
                 </Box>
             </Box>
