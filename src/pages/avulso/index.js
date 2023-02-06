@@ -201,10 +201,6 @@ const Avulso = () => {
             prescricao: [Beta],
         },
         {
-            title: "Beta",
-            prescricao: [Beta],
-        },
-        {
             title: "Ax 90 7D",
             prescricao: [Ax907d],
         },
