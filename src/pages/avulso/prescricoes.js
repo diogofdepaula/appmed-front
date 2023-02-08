@@ -277,6 +277,30 @@ export const GliCon = {
     }
 }
 
+export const UciiHaMsm = {
+    continuo: true,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "1,6mg + 150mg + 900mg Cáp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Colágeno tipo II não desnaturado + Ácido hialurônico + Metilsulfonilmetano",
+        nomescomerciais: [
+            {
+                nomefantasia: "Colatem FORCE",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 cápsula uma vez ao dia por 4 meses.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
 export const Pdn405d204d = {
     continuo: false,
     imprimirorientacoes: false,

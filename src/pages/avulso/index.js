@@ -2,7 +2,7 @@ import { Box, Button, TextField, FormControlLabel, Checkbox } from '@mui/materia
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
-import { Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn } from './prescricoes';
+import { Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
 
 const PrescricaoBox = ({ prescricao }) => {
 
@@ -219,6 +219,10 @@ const Avulso = () => {
         {
             title: "GliCon",
             prescricao: [GliCon],
+        },
+        {
+            title: "UCII-HA-MSM",
+            prescricao: [UciiHaMsm],
         },
         {
             title: "PDN 40 5D 20 4D",
