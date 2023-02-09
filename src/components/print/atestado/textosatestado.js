@@ -135,10 +135,10 @@ export const Prazo = () => {
     if (atestadosSelecionados[0].padrao === PadraoAtestado()[0]) return (
         <>
             Por fim, o tempo estimado de repouso necessário, levando
-            em consideraçãos as afirmativas anteriores para a sua recuperação,
+            em consideração as afirmativas anteriores para a sua recuperação,
             é de {atestadosSelecionados[0]?.prazo} meses. Salienta-se
             que esse prazo trata-se de uma estimativa, uma
-            vez que variáveis como responsibilidade, aderência e
+            vez que variáveis como responsabilidade, aderência e
             disponibilidade ao tratamento, assim como outros fatores
             ambientais e sociais podem influenciar na resposta ao tratamento,
             o que por vezes necessite ser revisto.
@@ -150,11 +150,11 @@ export const Prazo = () => {
     if (atestadosSelecionados[0].padrao === PadraoAtestado()[1]) return (
         <>
             Por fim, em relação ao tempo estimado de repouso necessário,
-            levando em consideraçãos as variáveis das afirmativas
+            levando em consideração as variáveis das afirmativas
             anteriores as quais influenciam na reabilitação, não é possível
             estabelecer com precisão o tempos estimado para melhora clínica. 
             Salienta-se que mesmo assim que outras variáveis como 
-            responsibilidade, aderência e disponibilidade ao tratamento, 
+            responsabilidade,, aderência e disponibilidade ao tratamento, 
             assim como outros fatores ambientais e sociais podem influenciar 
             na resposta ao tratamento, o que por vezes necessite ser revisto.
             <>{' '}</>
@@ -165,10 +165,10 @@ export const Prazo = () => {
     if (atestadosSelecionados[0].padrao === PadraoAtestado()[2]) return (
         <>
             Por fim, em relação ao tempo estimado de repouso necessário, levando
-            em consideraçãos as afirmativas anteriores para a sua recuperação,
+            em consideração as afirmativas anteriores para a sua recuperação,
             não há nenhum espectativa, mesmo a longo prazo, da reversão do
             estado atual de saúde. Salienta-se que esse prazo trata-se
-            de uma estimativa, uma vez que variáveis como responsibilidade,
+            de uma estimativa, uma vez que variáveis como responsabilidade,
             aderência e disponibilidade ao tratamento, assim como outros fatores
             ambientais e sociais podem influenciar na resposta ao tratamento,
             o que por vezes necessite ser revisto.
