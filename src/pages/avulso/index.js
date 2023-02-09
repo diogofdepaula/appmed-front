@@ -94,13 +94,90 @@ const Conteudo = ({ receita }) => {
     )
 }
 
+const PrescricaoLivre = () => {
 
-//  <Prescricao
-//             prescricao={p}
-//             mes={0}
-//             tipo='consultorio'
-//             previoususo={receita.prescricoes[i - 1]?.apresentaco.uso}
-//         /> 
+    // const [prescricao, setPrescricao] = useState({
+    //     continuo: false,
+    //     imprimirorientacoes: false,
+    //     usoposologiapadrao: true,
+    //     orientacoes: "",
+    //     apresentaco: {
+    //         descricao: "",
+    //         uso: "",
+    //     },
+    //     medicamento: {
+    //         farmaco: "",
+    //         nomescomerciais: [
+    //             {
+    //                 nomefantasia: "",
+    //             },
+    //         ]
+    //     },
+    //     posologia: {
+    //         posologia: "",
+    //         quantidade: "",
+    //         forma: "",
+    //     }
+    // })
+
+    return (
+        <>
+            <Box
+                sx={{
+                    width: 1,
+                }}
+            >
+                <Box>
+                    <TextField
+                        label="Uso"
+                    //  onChange={(e) => handleChange(e)}
+                    />
+                    <FormControlLabel
+                        //  disabled={local === 'consultorio' ? false : true}
+                        control={
+                            <Checkbox
+                                color='primary'
+                                name="continuo"
+                            // checked={continuo}
+                            //  onChange={handleChangeNomeComercial}
+                            />}
+                        label='Contínuo'
+                    />
+                </Box>
+                <Box>
+                    <TextField
+                        label="Nome comercial"
+                    //  onChange={(e) => handleChange(e)}
+                    />
+                </Box>
+                <Box>
+                    <TextField
+                        label="Farmaco"
+                    // onChange={(e) => handleChange(e)}
+                    />
+                    <TextField
+                        label="Apresentacao"
+                    //  onChange={(e) => handleChange(e)}
+                    />
+                    <TextField
+                        label="Quantidade"
+                    //  onChange={(e) => handleChange(e)}
+                    />
+                    <TextField
+                        label="Forma"
+                    //onChange={(e) => handleChange(e)}
+                    />
+                </Box>
+                <Box>
+                    <TextField
+                        label="Posologia"
+                    // onChange={(e) => handleChange(e)}
+                    />
+                </Box>
+            </Box>
+        </>
+    )
+}
 
 const Avulso = () => {
 
@@ -228,7 +305,7 @@ const Avulso = () => {
             title: "PDN 40 5D 20 4D",
             prescricao: [Pdn405d204d],
         },
-        
+
     ]
 
     return (
@@ -310,14 +387,23 @@ const Avulso = () => {
                                 </Button>
                             )}
                         </Box>
-                        <TextField
-                            fullWidth
-                            multiline
-                            rows={4}
-                            variant='outlined'
-                            label="Comentários"
-                            onChange={(e) => handleChangeComentarios(e)}
-                        />
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: 2
+                            }}
+                        >
+                            <TextField
+                                fullWidth
+                                multiline
+                                rows={4}
+                                variant='outlined'
+                                label="Comentários"
+                                onChange={(e) => handleChangeComentarios(e)}
+                            />
+                            <PrescricaoLivre />
+                        </Box>
                     </Box>
                 </Box>
             </Box>

@@ -37,7 +37,7 @@ const PrintDialog = ({ open, handleClose }) => {
                 )
         }
 
-        if (prescricoesSelecionadas.length > 0) {
+        if (prescricoesSelecionadas.length > 0 && prescricoesSelecionadas[0].id !== undefined) {
             await prescricoesSelecionadas
                 .map(novapresc => ({ ...novapresc, ultimaimpressao: format(new Date(), "yyyy-MM-dd") }))
                 .forEach(presc =>

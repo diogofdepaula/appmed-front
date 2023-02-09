@@ -357,8 +357,6 @@ export const TmdPct = {
 // Albendazol
 // Codeina
 // TMD_PCT
-// Colaten FORCE
-// Col HA
 // Dexacitoneurin NNF
 // Diacereina
 // DLX 30 -> 60
