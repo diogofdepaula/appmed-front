@@ -125,14 +125,26 @@ const PrescricaoLivre = () => {
             <Box
                 sx={{
                     width: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 0.5,
                 }}
             >
-                <Box>
+                <Box
+                    sx={{
+                        width: 1,
+                        display: "flex",
+                        flexDirection: "row",
+                        gap: 0.5,
+                    }}
+                >
                     <TextField
+                        size="small"
                         label="Uso"
                     //  onChange={(e) => handleChange(e)}
                     />
                     <FormControlLabel
+                        size="small"
                         //  disabled={local === 'consultorio' ? false : true}
                         control={
                             <Checkbox
@@ -144,36 +156,63 @@ const PrescricaoLivre = () => {
                         label='Contínuo'
                     />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        width: 1,
+                    }}
+                >
                     <TextField
-                        label="Nome comercial"
+                        fullWidth
+                        size="small"
+                        label="Nomes comerciais"
                     //  onChange={(e) => handleChange(e)}
                     />
                 </Box>
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 0.5,
+                    }}
+                >
                     <TextField
-                        label="Farmaco"
+                        fullWidth
+                        size="small"
+                        label="Fármaco"
                     // onChange={(e) => handleChange(e)}
                     />
-                    <TextField
-                        label="Apresentacao"
-                    //  onChange={(e) => handleChange(e)}
-                    />
-                    <TextField
-                        label="Quantidade"
-                    //  onChange={(e) => handleChange(e)}
-                    />
-                    <TextField
-                        label="Forma"
-                    //onChange={(e) => handleChange(e)}
-                    />
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            gap: 0.5,
+                        }}
+                    >
+                        <TextField
+                            fullWidth
+                            size="small"
+                            label="Apresentação"
+                        //  onChange={(e) => handleChange(e)}
+                        />
+                        <TextField
+                            size="small"
+                            label="Quantidade"
+                        //  onChange={(e) => handleChange(e)}
+                        />
+                        <TextField
+                            size="small"
+                            label="Forma"
+                        //onChange={(e) => handleChange(e)}
+                        />
+                    </Box>
                 </Box>
-                <Box>
-                    <TextField
-                        label="Posologia"
-                    // onChange={(e) => handleChange(e)}
-                    />
-                </Box>
+                <TextField
+                    fullWidth
+                    multiline
+                    rows={3}
+                    label="Posologia"
+                // onChange={(e) => handleChange(e)}
+                />
             </Box>
         </>
     )
