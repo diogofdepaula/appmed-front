@@ -120,7 +120,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                             <Checkbox
                                 color='primary'
                                 name="continuo"
-                                checked={prescricao.uso === true ? true : false}
+                                checked={prescricao.apresentaco.uso === true ? true : false}
                                 onChange={handleChangeContinuo}
                             />}
                         label='Contínuo'
