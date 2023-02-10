@@ -2,6 +2,7 @@ import { Box, Button, TextField, FormControlLabel, Checkbox } from '@mui/materia
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
+import PrescricaoLivre from './livre';
 import { Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
 
 const PrescricaoBox = ({ prescricao }) => {
@@ -51,7 +52,6 @@ const PrescricaoBox = ({ prescricao }) => {
     )
 }
 
-
 const Conteudo = ({ receita }) => {
 
     return (
@@ -94,130 +94,6 @@ const Conteudo = ({ receita }) => {
     )
 }
 
-const PrescricaoLivre = () => {
-
-    // const [prescricao, setPrescricao] = useState({
-    //     continuo: false,
-    //     imprimirorientacoes: false,
-    //     usoposologiapadrao: true,
-    //     orientacoes: "",
-    //     apresentaco: {
-    //         descricao: "",
-    //         uso: "",
-    //     },
-    //     medicamento: {
-    //         farmaco: "",
-    //         nomescomerciais: [
-    //             {
-    //                 nomefantasia: "",
-    //             },
-    //         ]
-    //     },
-    //     posologia: {
-    //         posologia: "",
-    //         quantidade: "",
-    //         forma: "",
-    //     }
-    // })
-
-    return (
-        <>
-            <Box
-                sx={{
-                    width: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 0.5,
-                }}
-            >
-                <Box
-                    sx={{
-                        width: 1,
-                        display: "flex",
-                        flexDirection: "row",
-                        gap: 0.5,
-                    }}
-                >
-                    <TextField
-                        size="small"
-                        label="Uso"
-                    //  onChange={(e) => handleChange(e)}
-                    />
-                    <FormControlLabel
-                        size="small"
-                        //  disabled={local === 'consultorio' ? false : true}
-                        control={
-                            <Checkbox
-                                color='primary'
-                                name="continuo"
-                            // checked={continuo}
-                            //  onChange={handleChangeNomeComercial}
-                            />}
-                        label='Contínuo'
-                    />
-                </Box>
-                <Box
-                    sx={{
-                        width: 1,
-                    }}
-                >
-                    <TextField
-                        fullWidth
-                        size="small"
-                        label="Nomes comerciais"
-                    //  onChange={(e) => handleChange(e)}
-                    />
-                </Box>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: 0.5,
-                    }}
-                >
-                    <TextField
-                        fullWidth
-                        size="small"
-                        label="Fármaco"
-                    // onChange={(e) => handleChange(e)}
-                    />
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            gap: 0.5,
-                        }}
-                    >
-                        <TextField
-                            fullWidth
-                            size="small"
-                            label="Apresentação"
-                        //  onChange={(e) => handleChange(e)}
-                        />
-                        <TextField
-                            size="small"
-                            label="Quantidade"
-                        //  onChange={(e) => handleChange(e)}
-                        />
-                        <TextField
-                            size="small"
-                            label="Forma"
-                        //onChange={(e) => handleChange(e)}
-                        />
-                    </Box>
-                </Box>
-                <TextField
-                    fullWidth
-                    multiline
-                    rows={3}
-                    label="Posologia"
-                // onChange={(e) => handleChange(e)}
-                />
-            </Box>
-        </>
-    )
-}
-
 const Avulso = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
@@ -234,7 +110,7 @@ const Avulso = () => {
         comentarios: '',
     })
 
-    const handleClick = (pres) => {
+    const handleClickAdicionar = (pres) => {
         setReceita({
             ...receita,
             prescricoes: receita.prescricoes.concat(pres)
@@ -250,6 +126,7 @@ const Avulso = () => {
             }
         })
     }
+    
     const handleChangeComentarios = event => {
         setReceita({
             ...receita,
@@ -420,7 +297,7 @@ const Avulso = () => {
                             {presc.map((p, i) =>
                                 <Button
                                     key={i}
-                                    onClick={() => handleClick(p.prescricao)}
+                                    onClick={() => handleClickAdicionar(p.prescricao)}
                                 >
                                     {p.title}
                                 </Button>
@@ -441,7 +318,9 @@ const Avulso = () => {
                                 label="Comentários"
                                 onChange={(e) => handleChangeComentarios(e)}
                             />
-                            <PrescricaoLivre />
+                            <PrescricaoLivre
+                                handleClickAdicionar={handleClickAdicionar}
+                            />
                         </Box>
                     </Box>
                 </Box>
