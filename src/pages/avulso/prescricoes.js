@@ -230,7 +230,7 @@ export const Tmdsn = {
         uso: "uso interno",
     },
     medicamento: {
-        farmaco: "Celecoxibe",
+        farmaco: "Tramadol",
         nomescomerciais: [
             {
                 nomefantasia: "Tramal",

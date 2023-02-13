@@ -152,7 +152,7 @@ const AnamneseTips = () => {
                     <Chip
                         label="Continuidade"
                         variant="outlined"
-                        onClick={handleClick("Continuidade de tratamento.")}
+                        onClick={handleClick("Continuidade de tratamento (renovação).")}
                     />
                 </Box>
                 <Box ml={1}>
