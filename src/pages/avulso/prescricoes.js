@@ -214,7 +214,7 @@ export const Ax6010d = {
         ]
     },
     posologia: {
-        posologia: "Tomar 01 comprimido uma vez ao dia por 10 dias.",
+        posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
         quantidade: "2",
         forma: "caixas",
     }
