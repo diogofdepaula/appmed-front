@@ -94,12 +94,37 @@ const Conteudo = ({ receita }) => {
     )
 }
 
+const prescricaolivreinicial = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "",
+        uso: "",
+    },
+    medicamento: {
+        farmaco: "",
+        nomescomerciais: [
+            {
+                nomefantasia: "",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "",
+        quantidade: "",
+        forma: "",
+    }
+}
+
 const Avulso = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
     const { local } = useContext(LoginContext)
     const { nomecomercial, setNomeComercial, setMeses, setAvulso, setPrescricoesSelecionadas, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
+    const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
 
     const [receita, setReceita] = useState({
         clienteContext: {
@@ -116,6 +141,7 @@ const Avulso = () => {
             prescricoes: receita.prescricoes.concat(pres)
 
         })
+        setPrescricaoLivre(prescricaolivreinicial)
     }
 
     const handleChange = event => {
@@ -126,7 +152,7 @@ const Avulso = () => {
             }
         })
     }
-    
+
     const handleChangeComentarios = event => {
         setReceita({
             ...receita,
@@ -160,6 +186,16 @@ const Avulso = () => {
             data: '',
             comentarios: '',
         })
+    }
+
+    const handleDrag = (param) => {
+        setPrescricaoLivre(param[0])
+    }
+
+
+    const handleDrop = (event) => {
+        // tem que ter, pois ele que permite do Drops Drag
+        event.preventDefault();
     }
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
@@ -296,8 +332,12 @@ const Avulso = () => {
                         >
                             {presc.map((p, i) =>
                                 <Button
+                                    id={i}
+                                    draggable
                                     key={i}
+                                    value="teste"
                                     onClick={() => handleClickAdicionar(p.prescricao)}
+                                    onDragOver={() => handleDrag(p.prescricao)}
                                 >
                                     {p.title}
                                 </Button>
@@ -309,6 +349,7 @@ const Avulso = () => {
                                 flexDirection: 'column',
                                 gap: 2
                             }}
+
                         >
                             <TextField
                                 fullWidth
@@ -317,10 +358,18 @@ const Avulso = () => {
                                 variant='outlined'
                                 label="Comentários"
                                 onChange={(e) => handleChangeComentarios(e)}
+
                             />
-                            <PrescricaoLivre
-                                handleClickAdicionar={handleClickAdicionar}
-                            />
+                            <Box
+                                onDragEnd={(e) => handleDrag(e)}
+                                onDrop={(e) => handleDrop(e)}
+                            >
+                                <PrescricaoLivre
+                                    handleClickAdicionar={handleClickAdicionar}
+                                    prescricaoLivre={prescricaoLivre}
+                                    setPrescricaoLivre={setPrescricaoLivre}
+                                />
+                            </Box>
                         </Box>
                     </Box>
                 </Box>

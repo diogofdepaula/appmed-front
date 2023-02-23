@@ -1,61 +1,35 @@
 import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 
-const prescricaolivreinicial = {
-    continuo: false,
-    imprimirorientacoes: false,
-    usoposologiapadrao: true,
-    orientacoes: "",
-    apresentaco: {
-        descricao: "",
-        uso: "",
-    },
-    medicamento: {
-        farmaco: "",
-        nomescomerciais: [
-            {
-                nomefantasia: "",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "",
-        quantidade: "",
-        forma: "",
-    }
-}
-
-const PrescricaoLivre = ({ handleClickAdicionar }) => {
-
-    const [prescricao, setPrescricao] = useState(prescricaolivreinicial)
+const PrescricaoLivre = ({ handleClickAdicionar, prescricaoLivre, setPrescricaoLivre }) => {
 
     const handleChangeApresentaco = event => {
-        setPrescricao({
-            ...prescricao,
+        setPrescricaoLivre({
+            ...prescricaoLivre,
             apresentaco: {
-                ...prescricao.apresentaco,
+                ...prescricaoLivre.apresentaco,
                 [event.target.name]: event.target.value
             }
         })
     }
 
     const handleChangeMedicamento = event => {
-        setPrescricao({
-            ...prescricao,
+        setPrescricaoLivre({
+            ...prescricaoLivre,
             medicamento: {
-                ...prescricao.medicamento,
+                ...prescricaoLivre.medicamento,
                 [event.target.name]: event.target.value
             }
         })
     }
 
     const handleChangeNomesComerciais = event => {
-        setPrescricao({
-            ...prescricao,
+        setPrescricaoLivre({
+            ...prescricaoLivre,
             medicamento: {
-                ...prescricao.medicamento,
+                ...prescricaoLivre.medicamento,
                 nomescomerciais: [{
-                    ...prescricao.medicamento.nomescomerciais[0],
+                    ...prescricaoLivre.medicamento.nomescomerciais[0],
                     [event.target.name]: event.target.value
                 }]
             }
@@ -64,25 +38,24 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
 
 
     const handleChangePosologia = event => {
-        setPrescricao({
-            ...prescricao,
+        setPrescricaoLivre({
+            ...prescricaoLivre,
             posologia: {
-                ...prescricao.posologia,
+                ...prescricaoLivre.posologia,
                 [event.target.name]: event.target.value
             }
         })
     }
 
     const handleChangeContinuo = (event) => {
-        setPrescricao({
-            ...prescricao,
+        setPrescricaoLivre({
+            ...prescricaoLivre,
             [event.target.name]: event.target.checked
         })
     }
 
     const handleAdicionar = () => {
-        handleClickAdicionar(prescricao)
-        setPrescricao(prescricaolivreinicial)
+        handleClickAdicionar(prescricaoLivre)
     }
 
     return (
@@ -98,7 +71,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                     borderRadius: 1,
                     borderColor: "#42a5f5"
                 }}
-            >
+                >
                 <Box
                     sx={{
                         width: 1,
@@ -111,7 +84,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                         size="small"
                         label="Uso"
                         name="uso"
-                        value={prescricao.apresentaco.uso}
+                        value={prescricaoLivre.apresentaco.uso}
                         onChange={handleChangeApresentaco}
                     />
                     <FormControlLabel
@@ -120,7 +93,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                             <Checkbox
                                 color='primary'
                                 name="continuo"
-                                checked={prescricao.apresentaco.uso === true ? true : false}
+                                checked={prescricaoLivre.continuo}
                                 onChange={handleChangeContinuo}
                             />}
                         label='Contínuo'
@@ -140,7 +113,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                         size="small"
                         label="Nomes comerciais"
                         name="nomefantasia"
-                        value={prescricao.medicamento.nomescomerciais[0].nomefantasia}
+                        value={prescricaoLivre.medicamento.nomescomerciais[0].nomefantasia}
                         onChange={handleChangeNomesComerciais}
                     />
                 </Box>
@@ -156,7 +129,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                         size="small"
                         label="Fármaco"
                         name="farmaco"
-                        value={prescricao.medicamento.farmaco}
+                        value={prescricaoLivre.medicamento.farmaco}
                         onChange={handleChangeMedicamento}
                     />
                     <Box
@@ -171,21 +144,21 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                             size="small"
                             label="Apresentação"
                             name="descricao"
-                            value={prescricao.apresentaco.descricao}
+                            value={prescricaoLivre.apresentaco.descricao}
                             onChange={(e) => handleChangeApresentaco(e)}
                         />
                         <TextField
                             size="small"
                             label="Quantidade"
                             name="quantidade"
-                            value={prescricao.posologia.quantidade}
+                            value={prescricaoLivre.posologia.quantidade}
                             onChange={handleChangePosologia}
                         />
                         <TextField
                             size="small"
                             label="Forma"
                             name="forma"
-                            value={prescricao.posologia.forma}
+                            value={prescricaoLivre.posologia.forma}
                             onChange={handleChangePosologia}
                         />
                     </Box>
@@ -196,7 +169,7 @@ const PrescricaoLivre = ({ handleClickAdicionar }) => {
                     rows={3}
                     label="Posologia"
                     name="posologia"
-                    value={prescricao.posologia.posologia}
+                    value={prescricaoLivre.posologia.posologia}
                     onChange={handleChangePosologia}
                 />
             </Box>
