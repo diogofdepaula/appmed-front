@@ -118,6 +118,73 @@ const prescricaolivreinicial = {
     }
 }
 
+    const presc = [
+        {
+            title: "CLB 200 7D",
+            prescricao: [Clb2007d],
+        },
+        {
+            title: "DF 7D",
+            prescricao: [DF7d],
+        },
+        {
+            title: "CLB 200 7D + DF 7D",
+            prescricao: [Clb2007d, DF7d],
+        },
+        {
+            title: "CLB 200 SN",
+            prescricao: [Clb200sn],
+        },
+        {
+            title: "CLB 100 10D",
+            prescricao: [Clb10010d],
+        },
+        {
+            title: "NslPtz",
+            prescricao: [NslPtz],
+        },
+        {
+            title: "Beta",
+            prescricao: [Beta],
+        },
+        {
+            title: "Ax 90 7D",
+            prescricao: [Ax907d],
+        },
+        {
+            title: "Ax 60 14D",
+            prescricao: [Ax6010d],
+        },
+        {
+            title: "Tmd SN",
+            prescricao: [Tmdsn],
+        },
+        {
+            title: "TmdPct SN",
+            prescricao: [TmdPct],
+        },
+        {
+            title: "GliCon",
+            prescricao: [GliCon],
+        },
+        {
+            title: "UCII-HA-MSM",
+            prescricao: [UciiHaMsm],
+        },
+        {
+            title: "PDN 40 5D 20 4D",
+            prescricao: [Pdn405d204d],
+        },
+        {
+            title: "Diacereina",
+            prescricao: [Diacereina],
+        },
+        {
+            title: "AINH Tópico",
+            prescricao: [AINHTopico],
+        },
+    ]
+
 const Avulso = () => {
 
     const { setClienteContext } = useContext(ClienteContext)
@@ -186,6 +253,7 @@ const Avulso = () => {
             data: '',
             comentarios: '',
         })
+        setPrescricaoLivre(prescricaolivreinicial)
     }
 
     const handleDrag = (param) => {
@@ -199,73 +267,6 @@ const Avulso = () => {
     }
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
-
-    const presc = [
-        {
-            title: "CLB 200 7D",
-            prescricao: [Clb2007d],
-        },
-        {
-            title: "DF 7D",
-            prescricao: [DF7d],
-        },
-        {
-            title: "CLB 200 7D + DF 7D",
-            prescricao: [Clb2007d, DF7d],
-        },
-        {
-            title: "CLB 200 SN",
-            prescricao: [Clb200sn],
-        },
-        {
-            title: "CLB 100 10D",
-            prescricao: [Clb10010d],
-        },
-        {
-            title: "NslPtz",
-            prescricao: [NslPtz],
-        },
-        {
-            title: "Beta",
-            prescricao: [Beta],
-        },
-        {
-            title: "Ax 90 7D",
-            prescricao: [Ax907d],
-        },
-        {
-            title: "Ax 60 14D",
-            prescricao: [Ax6010d],
-        },
-        {
-            title: "Tmd SN",
-            prescricao: [Tmdsn],
-        },
-        {
-            title: "TmdPct SN",
-            prescricao: [TmdPct],
-        },
-        {
-            title: "GliCon",
-            prescricao: [GliCon],
-        },
-        {
-            title: "UCII-HA-MSM",
-            prescricao: [UciiHaMsm],
-        },
-        {
-            title: "PDN 40 5D 20 4D",
-            prescricao: [Pdn405d204d],
-        },
-        {
-            title: "Diacereina",
-            prescricao: [Diacereina],
-        },
-        {
-            title: "AINH Tópico",
-            prescricao: [AINHTopico],
-        },
-    ]
 
     return (
         <>

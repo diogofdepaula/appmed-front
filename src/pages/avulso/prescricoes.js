@@ -406,13 +406,11 @@ export const AINHTopico = {
 // Albendazol
 // Codeina
 // Dexacitoneurin NNF
-// Diacereina
 // DLX 30 -> 60
 // Isoniazida
 // MPDN 1000mg/DU
 // MPDN 1000mg/DU/3D
 // Nistatina oral
-// PDLN
 // PBL
 // TMD Gt
 // VD padrao
