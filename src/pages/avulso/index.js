@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
 import PrescricaoLivre from './livre';
-import { Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
+import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
 
 const PrescricaoBox = ({ prescricao }) => {
 
@@ -257,7 +257,14 @@ const Avulso = () => {
             title: "PDN 40 5D 20 4D",
             prescricao: [Pdn405d204d],
         },
-
+        {
+            title: "Diacereina",
+            prescricao: [Diacereina],
+        },
+        {
+            title: "AINH Tópico",
+            prescricao: [AINHTopico],
+        },
     ]
 
     return (

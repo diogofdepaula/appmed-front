@@ -354,9 +354,57 @@ export const TmdPct = {
         forma: "caixa",
     }
 }
+
+export const Diacereina = {
+    continuo: true,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "Tomar sempre de estômago cheio.",
+    apresentaco: {
+        descricao: "50mg Comp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Diacereina",
+        nomescomerciais: [
+            {
+                nomefantasia: "Artrodar",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tome 01 comprimido uma vez ao dia por 20 dias, então \ntome 01 comprimido de 12 em 12 horas por 4 meses.",
+        quantidade: "1",
+        forma: "caixa",
+    } 
+}
+
+export const AINHTopico = {
+    continuo: false,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "Lave suas mãos após cada aplicação para evitar contatos acidentais com a boca e olhos, a menos que as mãos sejam a área em tratamento.",
+    apresentaco: {
+        descricao: "23,2 mg/g",
+        uso: "uso externo",
+    },
+    medicamento: {
+        farmaco: "Diclofenaco dietilamônio",
+        nomescomerciais: [
+            {
+                nomefantasia: "Cataflam XT Emulgel",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Aplique uma fina camada na região afetada de 12 em 12 horas por pelo menos três semanas.",
+        quantidade: "1",
+        forma: "Tubo",
+    }
+}
+
 // Albendazol
 // Codeina
-// TMD_PCT
 // Dexacitoneurin NNF
 // Diacereina
 // DLX 30 -> 60
