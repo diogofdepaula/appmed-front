@@ -4,7 +4,7 @@ WORKDIR /usr/src/front
 
 COPY package*.json ./
 
-RUN npm install -g npm@9.3.0
+RUN npm install -g npm@9.5.1
 
 RUN npm install
 

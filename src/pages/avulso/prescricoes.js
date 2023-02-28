@@ -88,6 +88,36 @@ export const Clb10010d = {
     }
 }
 
+export const Clb10014d = {
+    continuo: false,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "Tomar sempre de estômago cheio.",
+    apresentaco: {
+        descricao: "100 mg Cap Dura",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Celecoxibe",
+        nomescomerciais: [
+            {
+                nomefantasia: "Celebra",
+            },
+            {
+                nomefantasia: "Dicoxibe",
+            },
+            {
+                nomefantasia: "Foxis",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
 export const DF7d = {
     continuo: false,
     imprimirorientacoes: false,

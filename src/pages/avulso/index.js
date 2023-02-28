@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
 import PrescricaoLivre from './livre';
-import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
+import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
 
 const PrescricaoBox = ({ prescricao }) => {
 
@@ -138,6 +138,10 @@ const prescricaolivreinicial = {
         {
             title: "CLB 100 10D",
             prescricao: [Clb10010d],
+        },
+        {
+            title: "CLB 100 14D",
+            prescricao: [Clb10014d],
         },
         {
             title: "NslPtz",
