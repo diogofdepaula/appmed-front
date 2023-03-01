@@ -11,6 +11,7 @@ import React, { useContext, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
 import { LoginContext, PrintContext } from '../../../App';
 import PrintJob from '../printjob';
+import { Box } from '@mui/material'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />
@@ -100,7 +101,13 @@ const PrintDialog = ({ open, handleClose }) => {
                     </Toolbar>
                 </AppBar>
                 <div ref={componentRef}>
-                    <PrintJob />
+                    <Box
+                        sx={{
+                            color: "black"
+                        }}
+                    >
+                        <PrintJob />
+                    </Box>
                 </div>
             </Dialog>
         </>

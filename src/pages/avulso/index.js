@@ -1,4 +1,4 @@
-import { Box, Button, TextField, FormControlLabel, Checkbox } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
@@ -118,76 +118,76 @@ const prescricaolivreinicial = {
     }
 }
 
-    const presc = [
-        {
-            title: "CLB 200 7D",
-            prescricao: [Clb2007d],
-        },
-        {
-            title: "DF 7D",
-            prescricao: [DF7d],
-        },
-        {
-            title: "CLB 200 7D + DF 7D",
-            prescricao: [Clb2007d, DF7d],
-        },
-        {
-            title: "CLB 200 SN",
-            prescricao: [Clb200sn],
-        },
-        {
-            title: "CLB 100 10D",
-            prescricao: [Clb10010d],
-        },
-        {
-            title: "CLB 100 14D",
-            prescricao: [Clb10014d],
-        },
-        {
-            title: "NslPtz",
-            prescricao: [NslPtz],
-        },
-        {
-            title: "Beta",
-            prescricao: [Beta],
-        },
-        {
-            title: "Ax 90 7D",
-            prescricao: [Ax907d],
-        },
-        {
-            title: "Ax 60 14D",
-            prescricao: [Ax6010d],
-        },
-        {
-            title: "Tmd SN",
-            prescricao: [Tmdsn],
-        },
-        {
-            title: "TmdPct SN",
-            prescricao: [TmdPct],
-        },
-        {
-            title: "GliCon",
-            prescricao: [GliCon],
-        },
-        {
-            title: "UCII-HA-MSM",
-            prescricao: [UciiHaMsm],
-        },
-        {
-            title: "PDN 40 5D 20 4D",
-            prescricao: [Pdn405d204d],
-        },
-        {
-            title: "Diacereina",
-            prescricao: [Diacereina],
-        },
-        {
-            title: "AINH Tópico",
-            prescricao: [AINHTopico],
-        },
-    ]
+const presc = [
+    {
+        title: "CLB 200 7D",
+        prescricao: [Clb2007d],
+    },
+    {
+        title: "DF 7D",
+        prescricao: [DF7d],
+    },
+    {
+        title: "CLB 200 7D + DF 7D",
+        prescricao: [Clb2007d, DF7d],
+    },
+    {
+        title: "CLB 200 SN",
+        prescricao: [Clb200sn],
+    },
+    {
+        title: "CLB 100 10D",
+        prescricao: [Clb10010d],
+    },
+    {
+        title: "CLB 100 14D",
+        prescricao: [Clb10014d],
+    },
+    {
+        title: "NslPtz",
+        prescricao: [NslPtz],
+    },
+    {
+        title: "Beta",
+        prescricao: [Beta],
+    },
+    {
+        title: "Ax 90 7D",
+        prescricao: [Ax907d],
+    },
+    {
+        title: "Ax 60 14D",
+        prescricao: [Ax6010d],
+    },
+    {
+        title: "Tmd SN",
+        prescricao: [Tmdsn],
+    },
+    {
+        title: "TmdPct SN",
+        prescricao: [TmdPct],
+    },
+    {
+        title: "GliCon",
+        prescricao: [GliCon],
+    },
+    {
+        title: "UCII-HA-MSM",
+        prescricao: [UciiHaMsm],
+    },
+    {
+        title: "PDN 40 5D 20 4D",
+        prescricao: [Pdn405d204d],
+    },
+    {
+        title: "Diacereina",
+        prescricao: [Diacereina],
+    },
+    {
+        title: "AINH Tópico",
+        prescricao: [AINHTopico],
+    },
+]
 
 const Avulso = () => {
 
@@ -263,7 +263,6 @@ const Avulso = () => {
     const handleDrag = (param) => {
         setPrescricaoLivre(param[0])
     }
-
 
     const handleDrop = (event) => {
         // tem que ter, pois ele que permite do Drops Drag
@@ -347,7 +346,6 @@ const Avulso = () => {
                                     id={i}
                                     draggable
                                     key={i}
-                                    value="teste"
                                     onClick={() => handleClickAdicionar(p.prescricao)}
                                     onDragOver={() => handleDrag(p.prescricao)}
                                 >
