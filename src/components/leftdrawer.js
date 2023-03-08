@@ -12,7 +12,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import React, { useContext } from 'react';
-import { ClienteContext, NavigateContext } from '../App';
+import { ClienteContext, NavigateContext, PrintContext } from '../App';
 
 const Item = ({ pagina, titulo, icone }) => {
     return (
@@ -43,6 +43,7 @@ const Item = ({ pagina, titulo, icone }) => {
 const LeftDrawer = () => {
 
     const { setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageEstatistica, setPageAvulso } = useContext(NavigateContext)
+    const { printReset } = useContext(PrintContext)
     const { clienteContext } = useContext(ClienteContext)
 
     const itens = [
@@ -66,11 +67,11 @@ const LeftDrawer = () => {
             titulo: "Procedimentos",
             icone: <LocalParkingIcon fontSize="large" />,
         },
-        {
-            pagina: setPageAvulso,
-            titulo: "Documentos Rápidos",
-            icone: <FlashOnIcon fontSize="large" />,
-        },
+        // {
+        //     pagina: setPageAvulso,
+        //     titulo: "Documentos Rápidos",
+        //     icone: <FlashOnIcon fontSize="large" />,
+        // },
         {
             pagina: setPageEstatistica,
             titulo: "Estatística",
@@ -97,6 +98,28 @@ const LeftDrawer = () => {
                             icone={item.icone}
                         />
                     )}
+                    <ListItem
+                        disablePadding
+                        button
+                        onClick={() => {
+                            printReset()
+                            setPageAvulso()
+                        }}
+                    >
+                        <ListItemButton>
+                            <Tooltip title={"Documentos Rápidos"}>
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <FlashOnIcon fontSize="large" />
+                                </ListItemIcon>
+                            </Tooltip>
+                        </ListItemButton>
+                    </ListItem>
+
                     <ListItem
                         disabled={clienteContext ? false : true}
                         disablePadding
