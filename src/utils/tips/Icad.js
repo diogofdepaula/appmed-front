@@ -112,7 +112,7 @@ const ICAD = () => {
             anamnese: lmeEdit.anamnese.concat(' ').concat(textofinal),
             relatorio: {
                 ...lmeEdit.relatorio,
-                das28: doenca === "ar" ? das28vhs.toFixed(1) : '',
+                das28: doenca === "ar" || doenca === "aij" ? das28vhs.toFixed(1) : '',
                 cdai: doenca === "ar" ? cdai : '',
                 sdai: doenca === "ar" ? sdai : '',
                 // basdai: '',
@@ -123,7 +123,7 @@ const ICAD = () => {
                 // mda: '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
                 pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
-                sjadas: doenca === "aij" ? sjadas : '',
+                sjadas: doenca === "aij" ? sjadas.toFixed(1) : '',
                 eva: index.eva,
             }
         })
