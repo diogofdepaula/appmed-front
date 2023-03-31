@@ -1,9 +1,49 @@
-import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, Tab, Tabs, TextField } from '@mui/material';
+import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
-import PrescricaoLivre from './livre';
+import PrescricaoLivre from './prescricaolivre';
 import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
+import Requisicoes from './requisicoes';
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+        <div
+            role="tabpanel"
+            hidden={value !== index}
+            id={`simple-tabpanel-${index}`}
+            aria-labelledby={`simple-tab-${index}`}
+            {...other}
+        >
+            {value === index && (
+                <Box
+                    sx={{
+                        typography: 'body1',
+                        p: 3
+                    }}
+                >
+                    {children}
+                </Box>
+            )}
+        </div>
+    );
+}
+
+TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+}
+
+function a11yProps(index) {
+    return {
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    };
+}
 
 const PrescricaoBox = ({ prescricao }) => {
 
@@ -52,6 +92,56 @@ const PrescricaoBox = ({ prescricao }) => {
     )
 }
 
+const RequisicaoBox = ({ requisicao }) => {
+
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: "column",
+                    gap: 1,
+                    p: 1,
+                    m: 1,
+                    border: 0.5,
+                    borderRadius: 1,
+                    borderColor: "#42a5f5"
+                }}
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <Box
+                        sx={{
+                            fontSize: 10,
+                        }}
+                    >
+                        {requisicao.justificativa}
+                    </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            fontSize: 12,
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        {requisicao.selecionados.map((s, i) =>
+                            <Box key={i}>
+                                {s.mod}
+                            </Box>
+                        )}
+                    </Box>
+                </Box>
+            </Box>
+        </>
+    )
+}
+
 const Conteudo = ({ receita }) => {
 
     return (
@@ -60,7 +150,7 @@ const Conteudo = ({ receita }) => {
                 sx={{
                     border: 1,
                     borderColor: 'black',
-                    width: '30rem',
+                    width: '20rem',
                     height: '40rem',
                 }}
             >
@@ -80,6 +170,11 @@ const Conteudo = ({ receita }) => {
                         display: 'flex',
                         flexDirection: "column",
                         gap: 1,
+                        p: 1,
+                        m: 1,
+                        border: 0.5,
+                        borderRadius: 1,
+                        borderColor: "#42a5f5"
                     }}
                 >
                     {receita.prescricoes.map((p, i) =>
@@ -88,6 +183,11 @@ const Conteudo = ({ receita }) => {
                 </Box>
                 <Box>
                     {receita.comentarios}
+                </Box>
+                <Box>
+                    {receita.requisicoes.map((r, i) =>
+                        <RequisicaoBox requisicao={r} key={i} />
+                    )}
                 </Box>
             </Box>
         </>
@@ -118,6 +218,16 @@ const prescricaolivreinicial = {
     }
 }
 
+const receitainicial = {
+    clienteContext: {
+        nome: ''
+    },
+    prescricoes: [],
+    requisicoes: [],
+    data: '',
+    comentarios: '',
+}
+
 const presc = [
     {
         title: "CLB 200 7D",
@@ -128,7 +238,7 @@ const presc = [
         prescricao: [DF7d],
     },
     {
-        title: "CLB 200 7D + DF 7D",
+        title: "CLB2007D + DF7D",
         prescricao: [Clb2007d, DF7d],
     },
     {
@@ -191,22 +301,21 @@ const presc = [
 
 const Avulso = () => {
 
+    const [value, setValue] = React.useState(0);
     const { setClienteContext } = useContext(ClienteContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, setMeses, setAvulso, setPrescricoesSelecionadas, setComentario } = useContext(PrintContext)
+    const { nomecomercial, setNomeComercial, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
 
-    const [receita, setReceita] = useState({
-        clienteContext: {
-            nome: ''
-        },
-        prescricoes: [],
-        data: '',
-        comentarios: '',
-    })
+    // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
+    const [receita, setReceita] = useState(receitainicial)
 
-    const handleClickAdicionar = (pres) => {
+    const handleChangeTab = (event, newValue) => {
+        setValue(newValue)
+    }
+
+    const handleAdicionarPrescricao = (pres) => {
         setReceita({
             ...receita,
             prescricoes: receita.prescricoes.concat(pres)
@@ -236,6 +345,7 @@ const Avulso = () => {
         setMeses(1)
         setClienteContext(receita.clienteContext)
         setPrescricoesSelecionadas(receita.prescricoes)
+        setRequisicoes(receita.requisicoes)
         setComentario(receita.comentarios)
         setOpen(true)
     }
@@ -249,14 +359,7 @@ const Avulso = () => {
     }
 
     const handleClickReset = () => {
-        setReceita({
-            clienteContext: {
-                nome: ''
-            },
-            prescricoes: [],
-            data: '',
-            comentarios: '',
-        })
+        setReceita(receitainicial)
         setPrescricaoLivre(prescricaolivreinicial)
     }
 
@@ -267,6 +370,13 @@ const Avulso = () => {
     const handleDrop = (event) => {
         // tem que ter, pois ele que permite do Drops Drag
         event.preventDefault();
+    }
+
+    const handleAdicionarRequisicao = (req) => {
+        setReceita({
+            ...receita,
+            requisicoes: receita.requisicoes.concat(req)
+        })
     }
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
@@ -286,8 +396,8 @@ const Avulso = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
-                        flexGrow: 1,
                         gap: 2,
+                        width: 1,
                     }}
                 >
                     <Box
@@ -323,64 +433,103 @@ const Avulso = () => {
                     </Box>
                     <TextField
                         fullWidth
-                        variant='outlined'
                         label="Nome do paciente"
                         onChange={(e) => handleChange(e)}
                     />
                     <Box
                         sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
+                            width: '100%'
                         }}
                     >
                         <Box
                             sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'flex-start',
-                                width: "20rem",
+                                borderBottom: 1,
+                                borderColor: 'divider',
                             }}
                         >
-                            {presc.map((p, i) =>
-                                <Button
-                                    id={i}
-                                    draggable
-                                    key={i}
-                                    onClick={() => handleClickAdicionar(p.prescricao)}
-                                    onDragOver={() => handleDrag(p.prescricao)}
-                                >
-                                    {p.title}
-                                </Button>
-                            )}
+                            <Tabs value={value} onChange={handleChangeTab} aria-label="basic tabs example" >
+                                <Tab label="Prescrição" {...a11yProps(0)} />
+                                <Tab label="Requisição" {...a11yProps(1)} />
+                                <Tab label="Outros" {...a11yProps(2)} />
+                            </Tabs>
                         </Box>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: 2
-                            }}
-
+                        <TabPanel
+                            value={value}
+                            index={0}
                         >
-                            <TextField
-                                fullWidth
-                                multiline
-                                rows={4}
-                                variant='outlined'
-                                label="Comentários"
-                                onChange={(e) => handleChangeComentarios(e)}
-
-                            />
                             <Box
-                                onDragEnd={(e) => handleDrag(e)}
-                                onDrop={(e) => handleDrop(e)}
+                                sx={{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    width: 1,
+                                }}
                             >
-                                <PrescricaoLivre
-                                    handleClickAdicionar={handleClickAdicionar}
-                                    prescricaoLivre={prescricaoLivre}
-                                    setPrescricaoLivre={setPrescricaoLivre}
-                                />
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'flex-start',
+                                        width: '20rem',
+                                    }}
+                                >
+                                    {presc.map((p, i) =>
+                                        <Button
+                                            id={i}
+                                            size="small"
+                                            draggable
+                                            key={i}
+                                            onClick={() => handleAdicionarPrescricao(p.prescricao)}
+                                            onDragOver={() => handleDrag(p.prescricao)}
+                                        >
+                                            {p.title}
+                                        </Button>
+                                    )}
+                                </Box>
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        gap: 1,
+                                        width: 1,
+                                    }}
+
+                                >
+                                    <TextField
+                                        fullWidth
+                                        multiline
+                                        rows={4}
+                                        variant='outlined'
+                                        label="Comentários"
+                                        onChange={(e) => handleChangeComentarios(e)}
+
+                                    />
+                                    <Box
+                                        onDragEnd={(e) => handleDrag(e)}
+                                        onDrop={(e) => handleDrop(e)}
+                                    >
+                                        <PrescricaoLivre
+                                            handleAdicionarPrescricao={handleAdicionarPrescricao}
+                                            prescricaoLivre={prescricaoLivre}
+                                            setPrescricaoLivre={setPrescricaoLivre}
+                                        />
+                                    </Box>
+                                </Box>
                             </Box>
-                        </Box>
+                        </TabPanel>
+                        <TabPanel
+                            value={value}
+                            index={1}
+                        >
+                            <Requisicoes
+                                handleAdicionarRequisicao={handleAdicionarRequisicao}
+                            />
+                        </TabPanel>
+                        <TabPanel
+                            value={value}
+                            index={2}
+                        >
+                            Item Three
+                        </TabPanel>
                     </Box>
                 </Box>
             </Box>

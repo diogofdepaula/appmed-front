@@ -5,12 +5,13 @@ import TermoConsentimento from '../../components/print/consentimento';
 import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
+import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
 
 export const LMEPrintContext = createContext(null)
 
 const PrintJob = () => {
 
-    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -77,15 +78,15 @@ const PrintJob = () => {
             }
         }
 
-        // if (requisicao) {
-        //     requisicoes?.map((r, i) => 
-        //         jobs.push(
-        //             // deixei comentado só para saber com usar depois.
-        //             // <Sadt requisicao={r} tipo={local} />
-        //              <RequisicaoA5 key={i} requisicao={r} tipo={local} />
-        //         )
-        //     )
-        // }
+        if (requisicoes.length > 0) {
+            requisicoes?.map((r, i) => 
+                jobs.push(
+                    // deixei comentado só para saber com usar depois.
+                    // <Sadt requisicao={r} tipo={local} />
+                     <RequisicaoA5 key={i} requisicao={r} tipo={local} />
+                )
+            )
+        }
 
         if (atestadosSelecionados.length > 0) {
             jobs.push(

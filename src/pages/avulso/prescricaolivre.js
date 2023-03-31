@@ -1,7 +1,7 @@
 import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import React from 'react';
 
-const PrescricaoLivre = ({ handleClickAdicionar, prescricaoLivre, setPrescricaoLivre }) => {
+const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescricaoLivre }) => {
 
     const handleChangeApresentaco = event => {
         setPrescricaoLivre({
@@ -55,14 +55,14 @@ const PrescricaoLivre = ({ handleClickAdicionar, prescricaoLivre, setPrescricaoL
     }
 
     const handleAdicionar = () => {
-        handleClickAdicionar(prescricaoLivre)
+        handleAdicionarPrescricao(prescricaoLivre)
     }
 
     return (
         <>
             <Box
                 sx={{
-                    width: 1,
+                  
                     display: "flex",
                     flexDirection: "column",
                     gap: 0.5,

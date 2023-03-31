@@ -13,7 +13,7 @@ const PrintProvider = () => {
     const [comentario, setComentario] = useState('')
     const [nomecomercial, setNomeComercial] = useState(true)
     const [continuo, setContinuo] = useState(false)
-    const [requisicao, setRequisicao] = useState(true)
+    //const [requisicao, setRequisicao] = useState(true)
     const [requisicoes, setRequisicoes] = useState([]) // { indice, justificativa, selecionados, convenio }
     const [database, setDatabase] = useState(new Date())
     const [renovacao, setRenovacao] = useState(false)
@@ -44,8 +44,8 @@ const PrintProvider = () => {
         setNomeComercial,
         continuo,
         setContinuo,
-        requisicao,
-        setRequisicao,
+        // requisicao,
+        // setRequisicao,
         requisicoes,
         setRequisicoes,
         database,
@@ -68,7 +68,7 @@ const PrintProvider = () => {
             setComentario('')
             setNomeComercial(true)
             setContinuo(false)
-            setRequisicao(true)
+            //setRequisicao(true)
             setRequisicoes([])
             setDatabase(new Date())
             setRenovacao(false)
