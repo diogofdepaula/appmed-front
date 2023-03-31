@@ -79,6 +79,59 @@ const Interromper = ({ reiniciar }) => {
     )
 }
 
+const ZerarLME = ({ reiniciar }) => {
+
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+
+    if (!prescricaoOnDuty.emuso) return <></>
+
+    const PrescricaoInterrompida = {
+        ...prescricaoOnDuty,
+        usoposologiapadrao: false,
+        posologianaopadrao: 'Medicação interrompida. Deve-se parar o uso e fornecimento.',
+        quantidadenaopadrao: '',
+        formanaopadrao: '',
+        imprimirorientacoes: false,
+        orientacoes: '',
+        lmemes1: '0',
+        lmemes2: '0',
+        lmemes3: '0',
+        lmemes4: '0',
+        lmemes5: '0',
+        lmemes6: '0',
+        emuso: true,
+        termino: new Date().toISOString().slice(0, 10),
+    }
+
+    const handleClick = async () => {
+        await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(PrescricaoInterrompida)
+        })
+        await reiniciar()
+    }
+
+    return (
+        <>
+            <BoxExterno>
+                <Button
+                    variant="contained"
+                    color="warning"
+                    onClick={() => handleClick()}
+                >
+                    Zerar na LME e interromper a medicação.
+                </Button>
+                <TextoExplicativo
+                    texto={
+                        "Será zerada na LME, mas mantida ainda vinculada."
+                    }
+                />
+            </BoxExterno>
+        </>
+    )
+}
+
 const RemoverPrescricao = ({ reiniciar }) => {
 
     const { prescricaoOnDuty } = useContext(AtendimentoContext)
@@ -221,6 +274,7 @@ const PrescricaoDelete = () => {
                     gap: 1,
                 }}
             >
+                <ZerarLME reiniciar={resetAll} />
                 <Interromper reiniciar={resetAll} />
                 <RemoverPrescricao reiniciar={resetAll} />
                 <RemoverPrescricaoLME reiniciar={resetAll} />
