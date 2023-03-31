@@ -113,8 +113,8 @@ export const Clb10014d = {
     },
     posologia: {
         posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
-        quantidade: "1",
-        forma: "caixa",
+        quantidade: "2",
+        forma: "caixas",
     }
 }
 

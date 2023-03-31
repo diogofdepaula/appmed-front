@@ -166,7 +166,7 @@ const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescr
                 <TextField
                     fullWidth
                     multiline
-                    rows={3}
+                    rows={2}
                     label="Posologia"
                     name="posologia"
                     value={prescricaoLivre.posologia.posologia}

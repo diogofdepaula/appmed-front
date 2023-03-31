@@ -497,7 +497,7 @@ const Avulso = () => {
                                     <TextField
                                         fullWidth
                                         multiline
-                                        rows={4}
+                                        rows={2}
                                         variant='outlined'
                                         label="Comentários"
                                         onChange={(e) => handleChangeComentarios(e)}
