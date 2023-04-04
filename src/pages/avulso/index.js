@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
+import PrescricaoBanco from './prescricaobanco';
 import PrescricaoLivre from './prescricaolivre';
 import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
 import Requisicoes from './requisicoes';
@@ -503,6 +504,7 @@ const Avulso = () => {
                                         onChange={(e) => handleChangeComentarios(e)}
 
                                     />
+                                    <PrescricaoBanco />
                                     <Box
                                         onDragEnd={(e) => handleDrag(e)}
                                         onDrop={(e) => handleDrop(e)}
