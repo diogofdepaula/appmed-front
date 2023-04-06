@@ -1,7 +1,8 @@
-import { Box, Button, Divider, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField } from '@mui/material'
+import { Box, Button, Divider, TextField } from '@mui/material'
 import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext, AtendimentoNavigateContext } from '..'
 import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout'
+import ListMedicamentos from '../../../components/listmedicamento'
 
 const MedicamentoSet = () => {
 
@@ -62,29 +63,10 @@ const MedicamentoSet = () => {
                             label='Digite o nome do fármaco'
                             onChange={filterMedicamento}
                         />
-                        <TableContainer component={Paper}>
-                            <Table>
-                                <TableBody>
-                                    {medicamentosfiltrados
-                                    .sort((a, b) => a.farmaco - b.farmaco)
-                                    .map(medicamento =>
-                                        <TableRow
-                                            key={medicamento.id}
-                                            onClick={handleTableRow(medicamento)}
-                                        >
-                                            <TableCell component="th" scope="row">
-                                                {medicamento.abreviatura
-                                                    ?
-                                                    medicamento.farmaco + ' (' + medicamento.abreviatura + ')'
-                                                    :
-                                                    medicamento.farmaco
-                                                }
-                                            </TableCell>
-                                        </TableRow>
-                                    )}
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
+                        <ListMedicamentos
+                            medicamentosfiltrados={medicamentosfiltrados}
+                            handleTableRow={handleTableRow}
+                        />
                     </Box>
                 </AtendimentoLeft>
                 <Divider orientation="vertical" flexItem />

@@ -195,7 +195,7 @@ const Conteudo = ({ receita }) => {
     )
 }
 
-const prescricaolivreinicial = {
+export const prescricaolivreinicial = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -495,16 +495,11 @@ const Avulso = () => {
                                     }}
 
                                 >
-                                    <TextField
-                                        fullWidth
-                                        multiline
-                                        rows={2}
-                                        variant='outlined'
-                                        label="Comentários"
-                                        onChange={(e) => handleChangeComentarios(e)}
-
+                                    <PrescricaoBanco
+                                        handleAdicionarPrescricao={handleAdicionarPrescricao}
+                                        prescricaoLivre={prescricaoLivre}
+                                        setPrescricaoLivre={setPrescricaoLivre}
                                     />
-                                    <PrescricaoBanco />
                                     <Box
                                         onDragEnd={(e) => handleDrag(e)}
                                         onDrop={(e) => handleDrop(e)}
@@ -515,6 +510,15 @@ const Avulso = () => {
                                             setPrescricaoLivre={setPrescricaoLivre}
                                         />
                                     </Box>
+                                    <TextField
+                                        fullWidth
+                                        multiline
+                                        rows={2}
+                                        variant='outlined'
+                                        label="Comentários"
+                                        onChange={(e) => handleChangeComentarios(e)}
+
+                                    />
                                 </Box>
                             </Box>
                         </TabPanel>

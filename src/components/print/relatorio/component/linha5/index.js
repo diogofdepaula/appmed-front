@@ -54,8 +54,8 @@ const Linha5Relatorio = () => {
 
     const ap = [
         {
-            titulo: "DASPAI (artrite periférica)",
-            texto: lme.relatorio.sdai,
+            titulo: "DASPA (artrite periférica)",
+            texto: lme.relatorio.dapsa,
             alinhamento: "center",
             grow: "1",
         },

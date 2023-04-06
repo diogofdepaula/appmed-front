@@ -1,6 +1,6 @@
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material'
 import React, { useCallback, useContext, useEffect } from 'react'
 import { AtendimentoContext, AtendimentoNavigateContext } from '..'
+import ListApresentacoes from '../../../components/listapresentacao'
 
 const ApresentacaoSet = () => {
 
@@ -29,29 +29,15 @@ const ApresentacaoSet = () => {
 
     return (
         <>
-            <Box>
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableBody>
-                            {medicamentoEdit?.apresentacoes.map(apresentacao =>
-                                <TableRow
-                                    key={apresentacao.id}
-                                    onClick={handleTableRow(apresentacao)}
-                                >
-                                    <TableCell component="th" scope="row">
-                                        <div>
-                                            {prescricaoEdit.apresentacoId === apresentacao.id && <Typography>(opção atual)</Typography>}
-                                        </div>
-                                        {apresentacao.descricao}
-                                    </TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Box>
+            <ListApresentacoes
+                medicamentoEdit={medicamentoEdit}
+                handleTableRow={handleTableRow}
+                prescricaoEdit={prescricaoEdit}
+            />
         </>
     )
 }
 
 export default ApresentacaoSet
+
+

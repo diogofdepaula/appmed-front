@@ -1,7 +1,8 @@
 import TextRotationNoneIcon from '@mui/icons-material/TextRotationNone';
-import { Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
+import ListPosologia from '../../../components/listposologia';
 
 const PosologiaSet = () => {
 
@@ -24,27 +25,11 @@ const PosologiaSet = () => {
 
     return (
         <>
-            <Box>
-                <TableContainer component={Paper}>
-                    <Table>
-                        <TableBody>
-                            {medicamentoEdit?.posologias?.map(posologia =>
-                                <TableRow
-                                    key={posologia.id}
-                                    onClick={() => handleClickTable(posologia)}
-                                >
-                                    <TableCell component="th" scope="row">
-                                        <div>
-                                            {prescricaoEdit.posologiaId === posologia.id && <Typography>(opção atual)</Typography>}
-                                        </div>
-                                        {posologia.posologia}
-                                    </TableCell>
-                                </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-            </Box>
+            <ListPosologia
+                medicamentoEdit={medicamentoEdit}
+                handleClickTable={handleClickTable}
+                prescricaoEdit={prescricaoEdit}
+            />
             <Box mt={1}>
                 <Button
                     variant="contained"
