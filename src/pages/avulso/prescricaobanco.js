@@ -1,10 +1,9 @@
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import { Box, IconButton, TextField } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import React, { useCallback, useEffect, useState } from 'react';
+import { prescricaolivreinicial } from '.';
 import ListApresentacoes from '../../components/listapresentacao';
 import ListMedicamentos from '../../components/listmedicamento';
 import ListPosologia from '../../components/listposologia';
-import { prescricaolivreinicial } from '.';
 
 // const prescricaolivreinicial = {
 //     continuo: false,
@@ -92,7 +91,7 @@ const Apresentacao = ({ setStep, medicamento, prescricao, setPrescricao }) => {
     )
 }
 
-const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre }) => {
+const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre, setmedicamentosfiltrados }) => {
 
     const handleTableRow = (param) => {
         setPrescricaoLivre({
@@ -103,6 +102,7 @@ const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre }) => 
                 forma: param.forma,
             }
         })
+        setmedicamentosfiltrados([])
         setStep(0)
     }
 
@@ -116,9 +116,7 @@ const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre }) => 
     )
 }
 
-
-
-const PrescricaoBanco = ({ handleAdicionarPrescricao,  setPrescricaoLivre }) => {
+const PrescricaoBanco = ({ setPrescricaoLivre }) => {
 
     const [prescricao, setPrescricao] = useState(prescricaolivreinicial)
     const [medicamentos, setMedicamentos] = useState([])
@@ -151,15 +149,11 @@ const PrescricaoBanco = ({ handleAdicionarPrescricao,  setPrescricaoLivre }) => 
                 })
             }
             setmedicamentosfiltrados(filtro)
+            setStep(1)
         } else {
             setmedicamentosfiltrados([])
         }
     }
-
-    // const handleTableRow = param => () => {
-    //    //     handleAdicionarPrescricao({ ...prescricaoEdit, medicamentoId: param.id })
-    //         setStep(121)
-    // }
 
     const Conteudo = () => {
 
@@ -182,6 +176,7 @@ const PrescricaoBanco = ({ handleAdicionarPrescricao,  setPrescricaoLivre }) => 
             medicamento={medicamento}
             setPrescricaoLivre={setPrescricaoLivre}
             prescricao={prescricao}
+            setmedicamentosfiltrados={setmedicamentosfiltrados}
         />
     }
 
@@ -199,15 +194,6 @@ const PrescricaoBanco = ({ handleAdicionarPrescricao,  setPrescricaoLivre }) => 
                     label="Medicamento cadastrado do bando de dados"
                     variant="outlined"
                     onChange={filterMedicamento}
-                    InputProps={{
-                        startAdornment: (
-                            <IconButton
-                            //       onClick={() => enviarProcedimento()}
-                            >
-                                <PlaylistAddIcon />
-                            </IconButton>
-                        ),
-                    }}
                 />
                 {medicamentosfiltrados.length > 0 &&
                     <Box
