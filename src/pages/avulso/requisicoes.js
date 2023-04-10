@@ -45,6 +45,15 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
         ind.current = ind.current + 1
     }
 
+    const handleProcedimentoRemove = (param) => {
+        setRequisicao({
+            ...requisicao,
+            indice: ind.current,
+            selecionados: requisicao.selecionados.filter(w => w.original.toString().toLowerCase() !== param.original.toString().toLowerCase())
+        })
+
+    }
+
     return (
         <>
             <Box
@@ -111,7 +120,7 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
                                         <ListItemSecondaryAction>
                                             <IconButton
                                                 size='small'
-                                            //   onClick={() => handleProcedimentoRemove(s)}
+                                                onClick={() => handleProcedimentoRemove(s)}
                                             >
                                                 <DeleteIcon />
                                             </IconButton>
@@ -131,7 +140,7 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
                     }}
                 >
                     <RequisicaoLivre
-                        handleProcedimentoPush={handleProcedimentoPush} 
+                        handleProcedimentoPush={handleProcedimentoPush}
                     />
                     <ListProcedimentos
                         handleProcedimentoPush={handleProcedimentoPush}
