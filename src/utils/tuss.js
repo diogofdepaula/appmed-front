@@ -21306,14 +21306,14 @@ const Tuss = () => {
                         codigo: "40304361",
                         original: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
                         mod: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
-                        favorito: false,
+                        favorito: true,
                         aspecto: "",
                 },
                 {
                         codigo: "40304370",
                         original: "Hemossedimentação, (VHS) - pesquisa e/ou dosagem",
                         mod: "Hemossedimentação, (VHS)",
-                        favorito: false,
+                        favorito: true,
                         aspecto: "",
                 },
                 {

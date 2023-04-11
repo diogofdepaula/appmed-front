@@ -1,15 +1,114 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
-import { Box, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@mui/material";
-import { useState, useRef } from "react";
+import { Box, Button, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@mui/material";
+import { useRef, useState } from "react";
 import ListProcedimentos from '../../components/listprocedimentos';
 import RequisicaoLivre from './requisicaolivre';
+import Tuss from '../../utils/tuss';
 
 const requisicaoinicial = {
     indice: 0,
     justificativa: "",
     selecionados: [],
     convenio: "SUS",
+}
+
+const ListButtons = ({ list, sendParam }) => {
+
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    gap: 1,
+                }}
+            >
+                {list.map((p, i) =>
+                    <Button
+                        size="small"
+                        draggable
+                        key={i}
+                        onClick={() => sendParam(p)}
+                    >
+                        {p.titulo}
+                    </Button>
+                )}
+            </Box>
+        </>
+    )
+}
+
+const TipsUnitary = ({ handleProcedimentoPush }) => {
+
+    const unitaryTips = [
+        {
+            titulo: "US OD",
+            justificativa: "Investigação para SMR",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (ombro direito)",
+            },
+        },
+    ]
+
+    const sendParam = (param) => {
+        handleProcedimentoPush(param.unitary, param.justificativa)
+    }
+
+    return (
+        <>
+            <ListButtons
+                list={unitaryTips}
+                sendParam={sendParam}
+            />
+        </>
+    )
+}
+
+const TipsGroup = ({ handleProcedimentoPush }) => {
+
+    const grouptips = [
+        {
+            titulo: "HOPCT",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250"],
+        },
+        {
+            titulo: "HOPCTEFPPU",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017"],
+        },
+        {
+            titulo: "LES",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270"],
+        },
+        {
+            titulo: "LES24h",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712", "40311180"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270", "202050114",],
+        },
+    ]
+
+    const sendParam = (param) => {
+        let list = Tuss().filter(t => param.tuss.includes(t.codigo))
+        handleProcedimentoPush(list, param.justificativa)
+    }
+
+    return (
+        <>
+            <ListButtons
+                list={grouptips}
+                sendParam={sendParam}
+            />
+        </>
+    )
 }
 
 const Requisicoes = ({ handleAdicionarRequisicao }) => {
@@ -25,10 +124,11 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
         })
     }
 
-    const handleProcedimentoPush = (param) => {
+    const handleProcedimentoPush = (param, just) => {
         setRequisicao({
             ...requisicao,
             indice: ind.current,
+            justificativa: just === undefined ? requisicao.justificativa : just,
             selecionados: requisicao.selecionados.concat(param)
         })
     }
@@ -145,7 +245,14 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
                     <ListProcedimentos
                         handleProcedimentoPush={handleProcedimentoPush}
                     />
+                    <TipsGroup
+                        handleProcedimentoPush={handleProcedimentoPush}
+                    />
+                    <TipsUnitary
+                        handleProcedimentoPush={handleProcedimentoPush}
+                    />
                 </Box>
+
             </Box>
         </>
     )
