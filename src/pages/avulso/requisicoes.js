@@ -21,7 +21,7 @@ const ListButtons = ({ list, sendParam }) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
-                    gap: 1,
+                    gap: 0.5,
                 }}
             >
                 {list.map((p, i) =>
@@ -41,14 +41,190 @@ const ListButtons = ({ list, sendParam }) => {
 
 const TipsUnitary = ({ handleProcedimentoPush }) => {
 
-    const unitaryTips = [
+    const usmmss = [
         {
             titulo: "US OD",
-            justificativa: "Investigação para SMR",
+            justificativa:
+                "Paciente do dor e limitação em ombro direito.\n" +
+                "Investigação para Síndrome do manguito Rotador.",
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
                 mod: "US - Articular (ombro direito)",
+            },
+        },
+        {
+            titulo: "US OE",
+            justificativa:
+                "Paciente do dor e limitação em ombro esquerdo.\n" +
+                "Investigação para Síndrome do manguito Rotador.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (ombro esquerdo)",
+            },
+        },
+        {
+            titulo: "US CD",
+            justificativa:
+                "Paciente do dor em cotovelo direito com manobra de Cozen e Mill dolorosas.\n" +
+                "Investigação para Epincodilite.\n" +
+                "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (cotovelo direito)",
+            },
+        },
+        {
+            titulo: "US CE",
+            justificativa:
+                "Paciente do dor em cotovelo esquerdo com manobra de Cozen e Mill dolorosas.\n" +
+                "Investigação para Epincodilite.\n" +
+                "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (cotovelo esquerdo)",
+            },
+        },
+        {
+            titulo: "US PhD",
+            justificativa:
+                "Investigação de Síndrome de Túnel do Carpo.\n" +
+                "Atentar para outros achados, com cristais no ligamento" +
+                "triangular fibrocartilagenoso inflamatórios como" +
+                "derrame articular e sinovite.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (punho direito)",
+            },
+        },
+        {
+            titulo: "US PhE",
+            justificativa:
+                "Investigação de Síndrome de Túnel do Carpo.\n" +
+                "Atentar para outros achados, com cristais no ligamento" +
+                "triangular fibrocartilagenoso inflamatórios como" +
+                "derrame articular e sinovite.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (punho esquerdo)",
+            },
+        },
+        {
+            titulo: "US MD",
+            justificativa:
+                "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (mão direita)",
+            },
+        },
+        {
+            titulo: "US ME",
+            justificativa:
+                "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (mão esquerda)",
+            },
+        },
+    ]
+
+    const usmmii = [
+        {
+            titulo: "US QD",
+            justificativa:
+                "Paciente do dor e limitação em quadril direito.\n" +
+                "Atentar para achados inflamatórios articulares e extra-articulares.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (quadril direito)",
+            },
+        },
+        {
+            titulo: "US QE",
+            justificativa:
+                "Paciente do dor e limitação em quadril esquerdo.\n" +
+                "Atentar para achados inflamatórios articulares e extra-articulares.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (quadril esquerdo)",
+            },
+        },
+        {
+            titulo: "US JD",
+            justificativa:
+                "Paciente do dor e limitação em joelho direito.\n" +
+                "Atentar para achados inflamatórios articulares e extra-articulares, e," +
+                "dentro dos limites da capacidade do exame, alterações estruturais.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (joelho direito)",
+            },
+        },
+        {
+            titulo: "US JE",
+            justificativa:
+                "Paciente do dor e limitação em joelho esquerdo.\n" +
+                "Atentar para achados inflamatórios articulares e extra-articulares, e," +
+                "dentro dos limites da capacidade do exame, alterações estruturais.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (joelho esquerdo)",
+            },
+        },
+        {
+            titulo: "US TD",
+            justificativa:
+                "Paciente do dor e limitação em tornozelo direito.\n" +
+                "Atentar para achados inflamatórios articulares e extra-articulares.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (tornozelo direito)",
+            },
+        },
+        {
+            titulo: "US TE",
+            justificativa:
+                "Paciente do dor e limitação em tornozelo esquerdo.\n" +
+                "Atentar para achados inflamatórios articulares e extra-articulares.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (tornozelo esquerdo)",
+            },
+        },
+        {
+            titulo: "US PeD",
+            justificativa:
+                "Investigação de processos inflamatórios, especialmente em " + 
+                "tarso, MTF, IFP e IFD, além de fascia plantar.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (pé direito)",
+            },
+        },
+        {
+            titulo: "US PeE",
+            justificativa:
+                "Investigação de processos inflamatórios, especialmente em " + 
+                "tarso, MTF, IFP e IFD, além de fascia plantar.",
+            unitary: {
+                codigo: "40901220",
+                original: "US - Articular (por articulação)",
+                mod: "US - Articular (pé esquerdo)",
             },
         },
     ]
@@ -60,7 +236,11 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
     return (
         <>
             <ListButtons
-                list={unitaryTips}
+                list={usmmss}
+                sendParam={sendParam}
+            />
+            <ListButtons
+                list={usmmii}
                 sendParam={sendParam}
             />
         </>
@@ -70,6 +250,12 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
 const TipsGroup = ({ handleProcedimentoPush }) => {
 
     const grouptips = [
+        {
+            titulo: "LME",
+            justificativa: "Exames a serem anexos ao LME",
+            tuss: ["40304361", "40302504", "40302512", "40304370", "40308391"],
+            sigtap: ["202020380", "202010643", "202010651", "202020150", "202030083"],
+        },
         {
             titulo: "HOPCT",
             justificativa: "Exames de controle",
