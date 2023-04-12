@@ -206,6 +206,7 @@ export const prescricaolivreinicial = {
     },
     medicamento: {
         farmaco: "",
+        controlado: false,
         nomescomerciais: [
             {
                 nomefantasia: "",

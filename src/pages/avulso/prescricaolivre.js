@@ -54,6 +54,17 @@ const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescr
         })
     }
 
+    const handleChangeControlado = (event) => {
+        setPrescricaoLivre({
+            ...prescricaoLivre,
+            medicamento: {
+                ...prescricaoLivre.medicamento,
+                [event.target.name]: event.target.checked
+            }
+        })
+    }
+
+
     const handleAdicionar = () => {
         handleAdicionarPrescricao(prescricaoLivre)
     }
@@ -62,7 +73,7 @@ const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescr
         <>
             <Box
                 sx={{
-                  
+
                     display: "flex",
                     flexDirection: "column",
                     gap: 0.5,
@@ -71,7 +82,7 @@ const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescr
                     borderRadius: 1,
                     borderColor: "#42a5f5"
                 }}
-                >
+            >
                 <Box
                     sx={{
                         width: 1,
@@ -97,6 +108,17 @@ const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescr
                                 onChange={handleChangeContinuo}
                             />}
                         label='Contínuo'
+                    />
+                    <FormControlLabel
+                        size="small"
+                        control={
+                            <Checkbox
+                                color='primary'
+                                name="controlado"
+                                checked={prescricaoLivre.medicamento.controlado}
+                                onChange={handleChangeControlado}
+                            />}
+                        label='Controlado'
                     />
                     <Button
                         variant="outlined"

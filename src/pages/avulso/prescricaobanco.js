@@ -5,30 +5,6 @@ import ListApresentacoes from '../../components/listapresentacao';
 import ListMedicamentos from '../../components/listmedicamento';
 import ListPosologia from '../../components/listposologia';
 
-// const prescricaolivreinicial = {
-//     continuo: false,
-//     imprimirorientacoes: false,
-//     usoposologiapadrao: true,
-//     orientacoes: "",
-//     apresentaco: {
-//         descricao: "",
-//         uso: "",
-//     },
-//     medicamento: {
-//         farmaco: "",
-//         nomescomerciais: [
-//             {
-//                 nomefantasia: "",
-//             },
-//         ]
-//     },
-//     posologia: {
-//         posologia: "",
-//         quantidade: "",
-//         forma: "",
-//     }
-// }
-
 const Medicamento = ({ medicamentosfiltrados, setStep, setMedicamento, prescricao, setPrescricao }) => {
 
     const fetchData = useCallback(async (id) => {
@@ -44,6 +20,7 @@ const Medicamento = ({ medicamentosfiltrados, setStep, setMedicamento, prescrica
                     orientacoes: data.orientacoes,
                     medicamento: {
                         farmaco: data.farmaco,
+                        controlado: data.controlado,
                         nomescomerciais: data.nomescomerciais
                     },
                 })
