@@ -39,7 +39,40 @@ const ListButtons = ({ list, sendParam }) => {
     )
 }
 
-const TipsUnitary = ({ handleProcedimentoPush }) => {
+const Tips = ({ handleProcedimentoPush }) => {
+
+    const grouptips = [
+        {
+            titulo: "LME",
+            justificativa: "Exames a serem anexos ao LME",
+            tuss: ["40304361", "40302504", "40302512", "40304370", "40308391"],
+            sigtap: ["202020380", "202010643", "202010651", "202020150", "202030083"],
+        },
+        {
+            titulo: "HOPCT",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250"],
+        },
+        {
+            titulo: "HOPCTEFPPU",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017"],
+        },
+        {
+            titulo: "LES",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270"],
+        },
+        {
+            titulo: "LES24h",
+            justificativa: "Exames de controle",
+            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712", "40311180"],
+            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270", "202050114",],
+        },
+    ]
 
     const usmmss = [
         {
@@ -208,7 +241,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
         {
             titulo: "US PeD",
             justificativa:
-                "Investigação de processos inflamatórios, especialmente em " + 
+                "Investigação de processos inflamatórios, especialmente em " +
                 "tarso, MTF, IFP e IFD, além de fascia plantar.",
             unitary: {
                 codigo: "40901220",
@@ -219,7 +252,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
         {
             titulo: "US PeE",
             justificativa:
-                "Investigação de processos inflamatórios, especialmente em " + 
+                "Investigação de processos inflamatórios, especialmente em " +
                 "tarso, MTF, IFP e IFD, além de fascia plantar.",
             unitary: {
                 codigo: "40901220",
@@ -229,69 +262,29 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
         },
     ]
 
-    const sendParam = (param) => {
+    const sendParamGroup = (param) => {
+        let list = Tuss().filter(t => param.tuss.includes(t.codigo))
+        handleProcedimentoPush(list, param.justificativa)
+    }
+
+
+    const sendParamUnitary = (param) => {
         handleProcedimentoPush(param.unitary, param.justificativa)
     }
 
     return (
         <>
             <ListButtons
+                list={grouptips}
+                sendParam={sendParamGroup}
+            />
+            <ListButtons
                 list={usmmss}
-                sendParam={sendParam}
+                sendParam={sendParamUnitary}
             />
             <ListButtons
                 list={usmmii}
-                sendParam={sendParam}
-            />
-        </>
-    )
-}
-
-const TipsGroup = ({ handleProcedimentoPush }) => {
-
-    const grouptips = [
-        {
-            titulo: "LME",
-            justificativa: "Exames a serem anexos ao LME",
-            tuss: ["40304361", "40302504", "40302512", "40304370", "40308391"],
-            sigtap: ["202020380", "202010643", "202010651", "202020150", "202030083"],
-        },
-        {
-            titulo: "HOPCT",
-            justificativa: "Exames de controle",
-            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521"],
-            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250"],
-        },
-        {
-            titulo: "HOPCTEFPPU",
-            justificativa: "Exames de controle",
-            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761"],
-            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017"],
-        },
-        {
-            titulo: "LES",
-            justificativa: "Exames de controle",
-            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712"],
-            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270"],
-        },
-        {
-            titulo: "LES24h",
-            justificativa: "Exames de controle",
-            tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712", "40311180"],
-            sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270", "202050114",],
-        },
-    ]
-
-    const sendParam = (param) => {
-        let list = Tuss().filter(t => param.tuss.includes(t.codigo))
-        handleProcedimentoPush(list, param.justificativa)
-    }
-
-    return (
-        <>
-            <ListButtons
-                list={grouptips}
-                sendParam={sendParam}
+                sendParam={sendParamUnitary}
             />
         </>
     )
@@ -431,10 +424,7 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
                     <ListProcedimentos
                         handleProcedimentoPush={handleProcedimentoPush}
                     />
-                    <TipsGroup
-                        handleProcedimentoPush={handleProcedimentoPush}
-                    />
-                    <TipsUnitary
+                    <Tips
                         handleProcedimentoPush={handleProcedimentoPush}
                     />
                 </Box>
