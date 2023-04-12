@@ -50,7 +50,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (ombro direito)",
+                mod: "Ultrassonografia Articular (ombro direito)",
             },
         },
         {
@@ -61,7 +61,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (ombro esquerdo)",
+                mod: "Ultrassonografia Articular (ombro esquerdo)",
             },
         },
         {
@@ -73,7 +73,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (cotovelo direito)",
+                mod: "Ultrassonografia Articular (cotovelo direito)",
             },
         },
         {
@@ -85,7 +85,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (cotovelo esquerdo)",
+                mod: "Ultrassonografia Articular (cotovelo esquerdo)",
             },
         },
         {
@@ -98,7 +98,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (punho direito)",
+                mod: "Ultrassonografia Articular (punho direito)",
             },
         },
         {
@@ -111,7 +111,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (punho esquerdo)",
+                mod: "Ultrassonografia Articular (punho esquerdo)",
             },
         },
         {
@@ -121,7 +121,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (mão direita)",
+                mod: "Ultrassonografia Articular (mão direita)",
             },
         },
         {
@@ -131,7 +131,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (mão esquerda)",
+                mod: "Ultrassonografia Articular (mão esquerda)",
             },
         },
     ]
@@ -145,7 +145,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (quadril direito)",
+                mod: "Ultrassonografia Articular (quadril direito)",
             },
         },
         {
@@ -156,7 +156,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (quadril esquerdo)",
+                mod: "Ultrassonografia Articular (quadril esquerdo)",
             },
         },
         {
@@ -168,7 +168,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (joelho direito)",
+                mod: "Ultrassonografia Articular (joelho direito)",
             },
         },
         {
@@ -180,7 +180,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (joelho esquerdo)",
+                mod: "Ultrassonografia Articular (joelho esquerdo)",
             },
         },
         {
@@ -191,7 +191,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (tornozelo direito)",
+                mod: "Ultrassonografia Articular (tornozelo direito)",
             },
         },
         {
@@ -202,7 +202,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (tornozelo esquerdo)",
+                mod: "Ultrassonografia Articular (tornozelo esquerdo)",
             },
         },
         {
@@ -213,7 +213,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (pé direito)",
+                mod: "Ultrassonografia Articular (pé direito)",
             },
         },
         {
@@ -224,7 +224,7 @@ const TipsUnitary = ({ handleProcedimentoPush }) => {
             unitary: {
                 codigo: "40901220",
                 original: "US - Articular (por articulação)",
-                mod: "US - Articular (pé esquerdo)",
+                mod: "Ultrassonografia Articular (pé esquerdo)",
             },
         },
     ]
