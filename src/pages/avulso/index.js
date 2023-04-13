@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
-import PrescricaoBanco from './prescricaobanco';
-import PrescricaoLivre from './prescricaolivre';
-import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricoes';
-import Requisicoes from './requisicoes';
+import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricao/prescricoes';
+import PrescricaoBanco from './prescricao/prescricaobanco';
+import PrescricaoLivre from './prescricao/prescricaolivre';
+import Requisicoes from './requisicao/requisicoes';
+import Vacinacao from './vacinacao';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -143,6 +144,56 @@ const RequisicaoBox = ({ requisicao }) => {
     )
 }
 
+const VacinacaoBox = ({ vacinacao }) => {
+
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: "column",
+                    gap: 1,
+                    p: 1,
+                    m: 1,
+                    border: 0.5,
+                    borderRadius: 1,
+                    borderColor: "#42a5f5"
+                }}
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <Box
+                        sx={{
+                            fontSize: 10,
+                        }}
+                    >
+                        {vacinacao.indicacao}
+                    </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            fontSize: 12,
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        {vacinacao.selecionadas.map((s, i) =>
+                            <Box key={i}>
+                                {s.mod}
+                            </Box>
+                        )}
+                    </Box>
+                </Box>
+            </Box>
+        </>
+    )
+}
+
 const Conteudo = ({ receita }) => {
 
     return (
@@ -190,6 +241,12 @@ const Conteudo = ({ receita }) => {
                         <RequisicaoBox requisicao={r} key={i} />
                     )}
                 </Box>
+                <Box>
+                    {receita.vacinacao.map((r, i) =>
+                        <VacinacaoBox vacinacao={r} key={i} />
+                    )}
+                </Box>
+                
             </Box>
         </>
     )
@@ -226,6 +283,7 @@ const receitainicial = {
     },
     prescricoes: [],
     requisicoes: [],
+    vacinacao: [],
     data: '',
     comentarios: '',
 }
@@ -306,7 +364,7 @@ const Avulso = () => {
     const [value, setValue] = React.useState(0);
     const { setClienteContext } = useContext(ClienteContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setComentario } = useContext(PrintContext)
+    const { nomecomercial, setNomeComercial, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
 
@@ -348,6 +406,7 @@ const Avulso = () => {
         setClienteContext(receita.clienteContext)
         setPrescricoesSelecionadas(receita.prescricoes)
         setRequisicoes(receita.requisicoes)
+        setVacinacao(receita.vacinacao)
         setComentario(receita.comentarios)
         setOpen(true)
     }
@@ -378,6 +437,13 @@ const Avulso = () => {
         setReceita({
             ...receita,
             requisicoes: receita.requisicoes.concat(req)
+        })
+    }
+    
+    const handleAdicionarVacinacao = (vac) => {
+        setReceita({
+            ...receita,
+            vacinacao: receita.vacinacao.concat(vac)
         })
     }
 
@@ -452,7 +518,9 @@ const Avulso = () => {
                             <Tabs value={value} onChange={handleChangeTab} aria-label="basic tabs example" >
                                 <Tab label="Prescrição" {...a11yProps(0)} />
                                 <Tab label="Requisição" {...a11yProps(1)} />
-                                <Tab label="Outros" {...a11yProps(2)} />
+                                <Tab label="Vacinação" {...a11yProps(2)} />
+                                <Tab label="Atestado" {...a11yProps(4)} />
+                                <Tab label="Outros" {...a11yProps(5)} />
                             </Tabs>
                         </Box>
                         <TabPanel
@@ -535,7 +603,15 @@ const Avulso = () => {
                             value={value}
                             index={2}
                         >
-                            Item Three
+                            <Vacinacao
+                                handleAdicionarVacinacao={handleAdicionarVacinacao}
+                            />
+                        </TabPanel>
+                        <TabPanel
+                            value={value}
+                            index={3}
+                        >
+                            Item Four
                         </TabPanel>
                     </Box>
                 </Box>

@@ -2,9 +2,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Box, Button, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@mui/material";
 import { useRef, useState } from "react";
-import ListProcedimentos from '../../components/listprocedimentos';
 import RequisicaoLivre from './requisicaolivre';
-import Tuss from '../../utils/tuss';
+import Tuss from '../../../utils/tuss';
+import ListProcedimentos from '../../../components/listprocedimentos';
 
 const requisicaoinicial = {
     indice: 0,

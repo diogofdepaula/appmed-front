@@ -13,8 +13,8 @@ const PrintProvider = () => {
     const [comentario, setComentario] = useState('')
     const [nomecomercial, setNomeComercial] = useState(true)
     const [continuo, setContinuo] = useState(false)
-    //const [requisicao, setRequisicao] = useState(true)
-    const [requisicoes, setRequisicoes] = useState([]) // { indice, justificativa, selecionados, convenio }
+    const [requisicoes, setRequisicoes] = useState([])
+    const [vacinacao, setVacinacao] = useState([])
     const [database, setDatabase] = useState(new Date())
     const [renovacao, setRenovacao] = useState(false)
     const [avulso, setAvulso] = useState(false)
@@ -44,10 +44,10 @@ const PrintProvider = () => {
         setNomeComercial,
         continuo,
         setContinuo,
-        // requisicao,
-        // setRequisicao,
         requisicoes,
         setRequisicoes,
+        vacinacao,
+        setVacinacao,
         database,
         setDatabase,
         renovacao,
@@ -68,8 +68,8 @@ const PrintProvider = () => {
             setComentario('')
             setNomeComercial(true)
             setContinuo(false)
-            //setRequisicao(true)
             setRequisicoes([])
+            setVacinacao([])
             setDatabase(new Date())
             setRenovacao(false)
             setAvulso(false)

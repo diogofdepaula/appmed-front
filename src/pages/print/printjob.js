@@ -6,12 +6,13 @@ import FactoryLME from '../../components/print/lme';
 import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
 import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
+import VacinacaoA5 from '../../components/print/vacinacao/folhaa5';
 
 export const LMEPrintContext = createContext(null)
 
 const PrintJob = () => {
 
-    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const Factory = () => {
@@ -84,6 +85,14 @@ const PrintJob = () => {
                     // deixei comentado só para saber com usar depois.
                     // <Sadt requisicao={r} tipo={local} />
                      <RequisicaoA5 key={i} requisicao={r} tipo={local} />
+                )
+            )
+        }
+
+        if (vacinacao.length > 0) {
+            vacinacao?.map((r, i) => 
+                jobs.push(
+                     <VacinacaoA5 key={i} vacinacao={r} tipo={local} />
                 )
             )
         }
