@@ -90,6 +90,14 @@ const vacinas = [
             "mínimo de um mês. A partir de 50 anos rotina para imunocompetentes.",
         crie: false,
     },
+    {
+        original: "COVID19",
+        mod: "COVID19",
+        comentario:
+            "Seguir as recomendações do o Plano Nacional de Operacionalização da Campanha de Vacinação contra a covid-19 (PNO)" + 
+            "e outras Notas Técnicas e Informes Operacionais do ministério da saúde.",
+        crie: true,
+    },
 ]
 
 const ListVacinas = ({ handleVacinaPush }) => {

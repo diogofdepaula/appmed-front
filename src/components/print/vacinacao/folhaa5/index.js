@@ -66,7 +66,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                             m: "1.5rem 0.5rem 2rem 1rem",
                             minHeight: '10rem',
                             typography: 'h6',
-                            fontSize: 22,
+                            fontSize: 20,
                             textAlign: 'left',
                         }}
                     >
@@ -83,12 +83,21 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                                 </Box>
                                 <Box
                                     sx={{
-                                        fontSize: 10,
-                                        ml: 1,
+                                        fontSize: 9,
+                                        ml: 3,
                                         textAlign: 'justify',
                                     }}
                                 >
                                     {p.comentario}
+                                </Box>
+                                <Box
+                                    sx={{
+                                        fontSize: 9,
+                                        ml: 3,
+                                        textAlign: 'justify',
+                                    }}
+                                >
+                                    {p.crie ? "Disponível na saúde pública." : "Não está disponível na saúde publica, somente na particular."}
                                 </Box>
                             </Box>
                         )}
@@ -103,7 +112,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                     </Box>
                     <Box
                         sx={{
-                            m: "2rem 1rem 2rem 1rem",
+                            m: "1rem 1rem 1rem 1rem",
                             typography: 'h6',
                             textAlign: 'left',
                         }}
@@ -112,7 +121,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                     </Box>
                     <Box
                         sx={{
-                            m: "3rem 1rem 2rem 1rem",
+                            m: "1rem 1rem 2rem 1rem",
                             typography: 'h6',
                             fontSize: 10,
                             textAlign: 'justify',
