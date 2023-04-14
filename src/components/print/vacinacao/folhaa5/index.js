@@ -63,7 +63,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',
-                            m: "1.5rem 0.5rem 2rem 1rem",
+                            m: "1.5rem 0.5rem 0.5rem 1rem",
                             minHeight: '10rem',
                             typography: 'h6',
                             fontSize: 20,
@@ -112,7 +112,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                     </Box>
                     <Box
                         sx={{
-                            m: "1rem 1rem 1rem 1rem",
+                            m: "1rem 1rem 0.5rem 1rem",
                             typography: 'h6',
                             textAlign: 'left',
                         }}
@@ -121,9 +121,9 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                     </Box>
                     <Box
                         sx={{
-                            m: "1rem 1rem 2rem 1rem",
+                            m: "0rem 1rem 0rem 1rem",
                             typography: 'h6',
-                            fontSize: 10,
+                            fontSize: 9,
                             textAlign: 'justify',
                         }}
                     >
