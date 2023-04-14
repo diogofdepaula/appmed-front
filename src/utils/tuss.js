@@ -26022,8 +26022,8 @@ const Tuss = () => {
                 },
                 {
                         codigo: "40314430",
-                        original: "HLA B27, fenotipagem",
-                        mod: "HLA B27",
+                        original: "HLA-B27, fenotipagem",
+                        mod: "HLA-B27",
                         favorito: false,
                         aspecto: "",
                 },
