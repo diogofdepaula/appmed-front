@@ -104,7 +104,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                     </Box>
                     <Box
                         sx={{
-                            mt: 2,
+                            mt: 1,
                             typography: 'h6',
                         }}
                     >
@@ -128,8 +128,8 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                         }}
                     >
                         Revisar calendário vacinal (carterinha de vacinação) e completar
-                        vacinação faltante conforme necessidade.
-                        As vacinas vivas atenuadas estão contraindicadas em paciente com
+                        vacinação faltante conforme necessidade. Não refazer as que já foram
+                        feitas. As vacinas vivas atenuadas estão contraindicadas em paciente com
                         alteração da resposta imunológica: BCG, rotavírus, pólio oral (VOP),
                         febre amarela, SCR, varicela, SCR-V e dengue.
                         Caso há a imperativa necessidade de realizar, deve-se programar a
