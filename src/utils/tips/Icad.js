@@ -42,6 +42,11 @@ const ICAD = () => {
     }
     const [sdai, setSdai] = useState(0)
 
+    const calcdapsa = (dor, edema, pcr, pga, ega) => {
+        return (parseInt(dor) + parseInt(edema) + parseInt(pcr) + parseInt(pga) + parseInt(ega))
+    }
+    const [dapsa, setDapsa] = useState(0)
+
     const calcasdascrp = (bp, pp, ms, eva, pcr) => {
         return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt((eva / 10))) + (0.07 * parseInt(pp) + (0.58 * Math.log((pcr + 1)))))
     }
@@ -68,6 +73,7 @@ const ICAD = () => {
         setDas28pcr(calcdas28pcr(index.dor, index.edema, index.pcr, index.eva))
         setCdai(calccdai(index.dor, index.edema, index.pga, index.ega))
         setSdai(calcsdai(index.dor, index.edema, index.pcr, index.pga, index.ega))
+        setDapsa(calcdapsa(index.dor, index.edema, index.pcr, index.pga, index.ega))
         setAsdascrp(calcasdascrp(index.bp, index.pp, index.ms, index.eva, index.pcr))
         setAsdasesr(calcasdasesr(index.bp, index.pp, index.ms, index.eva, index.pcr))
         setSjadas(calcsjadas(index.edema, index.vhs, index.pga, index.ega))
@@ -83,8 +89,9 @@ const ICAD = () => {
         let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.pcr + "); " : ''
         let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "). " : ''
         let texto8 = sjadas > 0 ? "JADAS-VHS de " + sjadas.toFixed(2) + " (" + index.edema + " + " + index.vhs + " + " + index.pga + " + " + index.ega + "); " : ''
+        let texto9 = dapsa > 0 ? "DAPSAP de " + sdai + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.pga + " + " + index.ega + "); " : ''
 
-        let textofinal = texto1 + texto2 + texto3 + texto4 + texto6 + texto7
+        let textofinal = texto1 + texto2 + texto3 + texto4 + texto6 + texto7 + texto9
 
         const doenca = DoençaCID(lmeEdit.cid10)
 
@@ -99,7 +106,7 @@ const ICAD = () => {
                 textofinal = texto6 + texto7
                 break;
             case 'ap':
-                textofinal = texto6 + texto7
+                textofinal = texto6 + texto7 + texto9
                 break;
             case 'aij':
                 textofinal = texto8
@@ -116,6 +123,7 @@ const ICAD = () => {
                 cdai: doenca === "ar" ? cdai : '',
                 sdai: doenca === "ar" ? sdai : '',
                 // basdai: '',
+                dapsa: doenca === "ap" ? dapsa : '',
                 asdascrp: doenca === "ea" || doenca === "ap" ? asdascrp.toFixed(1) : '',
                 asdasesr: doenca === "ea" || doenca === "ap" ? asdasesr.toFixed(1) : '',
                 // sledai: '',
@@ -140,6 +148,7 @@ const ICAD = () => {
                 das28: doenca === "ar" ? das28vhs.toFixed(1) : '',
                 cdai: doenca === "ar" ? cdai : '',
                 sdai: doenca === "ar" ? sdai : '',
+                dapsa: doenca === "ap" ? dapsa : '',
                 // basdai: '',
                 asdascrp: doenca === "ea" || doenca === "ap" ? asdascrp.toFixed(1) : '',
                 asdasesr: doenca === "ea" || doenca === "ap" ? asdasesr.toFixed(1) : '',
