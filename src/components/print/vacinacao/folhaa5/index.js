@@ -97,7 +97,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                                         textAlign: 'justify',
                                     }}
                                 >
-                                    {p.crie ? "Disponível na saúde pública." : "Não está disponível na saúde publica, somente na particular."}
+                                    {p.crie ? "Disponível  na saúde pública e privada." : "Não está disponível na saúde publica, somente na particular."}
                                 </Box>
                             </Box>
                         )}

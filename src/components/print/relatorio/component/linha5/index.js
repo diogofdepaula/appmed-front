@@ -110,7 +110,7 @@ const Linha5Relatorio = () => {
     return (
         <>
             <Fence titulo={titulo}
-              stretch={1}
+             // stretch={1}
             >
                 {SetIndices().map(c =>
                     <Field key={c.titulo} dados={c} />
