@@ -2,6 +2,7 @@ import { Box, Button, Paper } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 import { ClienteContext } from '../../../App';
+import { MedicacaoInterropida } from '../../../utils/inquiries';
 
 const TextoExplicativo = ({ texto }) => {
     return (
@@ -88,7 +89,7 @@ const ZerarLME = ({ reiniciar }) => {
     const PrescricaoInterrompida = {
         ...prescricaoOnDuty,
         usoposologiapadrao: false,
-        posologianaopadrao: 'Medicação interrompida. Deve-se parar o uso e fornecimento.',
+        posologianaopadrao: MedicacaoInterropida,
         quantidadenaopadrao: '',
         formanaopadrao: '',
         imprimirorientacoes: false,

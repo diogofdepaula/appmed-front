@@ -30,3 +30,5 @@ export const NumeroAleatorio = (tamanho) => {
     const tam = tamanho ? tamanho : 0
     return Math.floor(Math.random() * tam)
 }
+
+export const MedicacaoInterropida = 'Medicação interrompida. Deve-se parar o uso e fornecimento.'

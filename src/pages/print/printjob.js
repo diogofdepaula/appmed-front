@@ -7,6 +7,7 @@ import FactoryReceitas from '../../components/print/receita';
 import FactoryRelatorio from '../../components/print/relatorio';
 import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
 import VacinacaoA5 from '../../components/print/vacinacao/folhaa5';
+import { MedicacaoInterropida } from '../../utils/inquiries';
 
 export const LMEPrintContext = createContext(null)
 
@@ -40,6 +41,11 @@ const PrintJob = () => {
             }
 
             const ReceitaControlados = () => {
+
+                if (l.prescricoes.filter(p => p.medicamento.farmaco === "Leflunomida")[0]?.posologianaopadrao
+                    === MedicacaoInterropida)
+                    return <></>
+
                 if (l.prescricoes.filter(p => p.medicamento.controlado || p.medicamento.farmaco === "Leflunomida").length > 0)
                     return [...Array(6).keys()].filter(e => e % 2 === 0).map((d, i) =>
                         <div key={i}>
