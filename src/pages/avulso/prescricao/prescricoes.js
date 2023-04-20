@@ -142,6 +142,30 @@ export const DF7d = {
     }
 }
 
+export const Cz7d = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "5mg mg Comp Rev",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Ciclobenzaprina com Lisina",
+        nomescomerciais: [
+            {
+                nomefantasia: "Dolamin Flex",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 comprimido a noite por 7 dias.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
 export const NslPtz = {
     continuo: true,
     imprimirorientacoes: true,

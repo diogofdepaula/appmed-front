@@ -13,13 +13,13 @@ const vacinas = [
     {
         original: "Vacina influenza quadrivalente (4V)",
         mod: "Influenza (4V)",
-        comentario: "Desde que disponível, a vacina influenza quadrivalente (4V) é preferível à vacina influenza trivalente (3V).",
+        comentario: "Se disponível, a vacina influenza quadrivalente (4V) é preferível à vacina influenza trivalente (3V).",
         crie: false
     },
     {
         original: "Vacina influenza trivalente (3V)",
         mod: "Influenza (3V)",
-        comentario: "Desde que disponível, a vacina influenza quadrivalente (4V) é preferível à vacina influenza trivalente (3V).",
+        comentario: "Se disponível, a vacina influenza quadrivalente (4V) é preferível à vacina influenza trivalente (3V).",
         crie: true
     },
     {

@@ -83,8 +83,8 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                                 </Box>
                                 <Box
                                     sx={{
-                                        fontSize: 9,
-                                        ml: 3,
+                                        fontSize: 10,
+                                        ml: 4,
                                         textAlign: 'justify',
                                     }}
                                 >
@@ -93,7 +93,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                                 <Box
                                     sx={{
                                         fontSize: 9,
-                                        ml: 3,
+                                        ml: 4,
                                         textAlign: 'justify',
                                     }}
                                 >
@@ -123,7 +123,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                         sx={{
                             m: "0rem 1rem 0rem 1rem",
                             typography: 'h6',
-                            fontSize: 9,
+                            fontSize: 10,
                             textAlign: 'justify',
                         }}
                     >
