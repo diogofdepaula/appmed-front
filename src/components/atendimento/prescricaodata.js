@@ -99,6 +99,7 @@ const PrescricaoData = ({prescricao}) => {
                 >
                     Início: {DataDDMMYYY(prescricao?.inicio)}
                 </Box>
+
                 <Box
                     sx={{
                         mt: 1,

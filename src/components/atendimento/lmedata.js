@@ -9,19 +9,6 @@ const LmeData = ({ lme }) => {
 
     if (!lme) return <div />
 
-
-    // const { lmeOnDuty, setPrescricaoEdit, setLmeEdit } = useContext(AtendimentoContext)
-    // const { setStep, setArticlePrescricoesMain } = useContext(AtendimentoNavigateContext)
-
-
-    // const handleEditarPrescricao = param => () => {
-    //     setLmeEdit(null)
-    //     setPrescricaoEdit(param)
-    //     setStep(321)
-    //     setArticlePrescricoesMain()
-    // }
-
-
     return (
         <>
             <Box

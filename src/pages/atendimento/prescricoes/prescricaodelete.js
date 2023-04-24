@@ -1,4 +1,5 @@
 import { Box, Button, Paper } from '@mui/material';
+import { format } from "date-fns";
 import React, { useContext } from 'react';
 import { AtendimentoContext, AtendimentoNavigateContext } from '..';
 import { ClienteContext } from '../../../App';
@@ -47,7 +48,7 @@ const Interromper = ({ reiniciar }) => {
     const PrescricaoInterrompida = {
         ...prescricaoOnDuty,
         emuso: false,
-        termino: new Date().toISOString().slice(0, 10),
+        termino:  format(new Date(), "yyyy-MM-dd"),
         lmeId: null,
     }
 
@@ -80,11 +81,54 @@ const Interromper = ({ reiniciar }) => {
     )
 }
 
+const Reativar = ({ reiniciar }) => {
+
+    const { prescricaoOnDuty } = useContext(AtendimentoContext)
+
+    if (prescricaoOnDuty.emuso) return <></>
+
+    const PrescricaoInterrompida = {
+        ...prescricaoOnDuty,
+        emuso: true,
+        inicio: format(new Date(), "yyyy-MM-dd"),
+        termino: null,
+        lmeId: null,
+    }
+
+    const handleClick = async () => {
+
+        await fetch(process.env.REACT_APP_API_URL + `/prescricoes/${prescricaoOnDuty.id}`, {
+            method: 'put',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(PrescricaoInterrompida)
+        })
+        await reiniciar()
+    }
+
+    return (
+        <>
+            <BoxExterno>
+                <Button
+                    variant="contained"
+                    onClick={() => handleClick()}
+                >
+                    Reativar
+                </Button>
+                <TextoExplicativo
+                    texto={
+                        "Será enviada para lista de 'em uso', mas sem vinculo a LME."
+                    }
+                />
+            </BoxExterno>
+        </>
+    )
+}
+
 const ZerarLME = ({ reiniciar }) => {
 
     const { prescricaoOnDuty } = useContext(AtendimentoContext)
 
-    if (!prescricaoOnDuty.emuso) return <></>
+    if (!prescricaoOnDuty.emuso && !prescricaoOnDuty.lmeId) return <></>
 
     const PrescricaoInterrompida = {
         ...prescricaoOnDuty,
@@ -277,6 +321,7 @@ const PrescricaoDelete = () => {
             >
                 <ZerarLME reiniciar={resetAll} />
                 <Interromper reiniciar={resetAll} />
+                <Reativar reiniciar={resetAll} />
                 <RemoverPrescricao reiniciar={resetAll} />
                 <RemoverPrescricaoLME reiniciar={resetAll} />
             </Box>
