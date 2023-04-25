@@ -87,17 +87,36 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
                     value={clienteEdit?.nascimento}
                     onChange={handleChange}
                 />
-                <ReactInputMask
-                    mask="999"
-                    value={clienteEdit?.peso}
-                    maskChar=" "
-                    onChange={handleChange}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: 1,
+                    }}
                 >
-                    {() => <TextField
-                        name="peso"
-                        label="Peso (Kg)"
-                    />}
-                </ReactInputMask>
+                    <ReactInputMask
+                        mask="999"
+                        value={clienteEdit?.peso}
+                        maskChar=" "
+                        onChange={handleChange}
+                    >
+                        {() => <TextField
+                            name="peso"
+                            label="Peso (Kg)"
+                        />}
+                    </ReactInputMask>
+                    <ReactInputMask
+                        mask="999"
+                        value={clienteEdit?.altura}
+                        maskChar=" "
+                        onChange={handleChange}
+                    >
+                        {() => <TextField
+                            name="altura"
+                            label="Altura (cm)"
+                        />}
+                    </ReactInputMask>
+                </Box>
                 <ReactInputMask
                     mask="999.999.999-99"
                     value={clienteEdit?.cpf}
@@ -136,17 +155,6 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
                         }}
                     >
 
-                        <ReactInputMask
-                            mask="999"
-                            value={clienteEdit?.altura}
-                            maskChar=" "
-                            onChange={handleChange}
-                        >
-                            {() => <TextField
-                                name="altura"
-                                label="Altura (cm)"
-                            />}
-                        </ReactInputMask>
                         <ReactInputMask
                             mask="(99)99999-9999"
                             value={clienteEdit?.telefone}

@@ -28,7 +28,9 @@ const ClienteForm = () => {
             const json = await res.json()
             setClienteEdit(json)
         }
-        fetchData()
+        if(clienteOnDuty !== null){
+            fetchData()
+        }
     }, [clienteOnDuty, setClienteEdit])
 
 
