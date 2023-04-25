@@ -21,10 +21,7 @@ export const ProvasAtividadeInflamatoria = () => {
 
     return (
         <>
-            <Fence
-                titulo={titulo}
-                stretch={1}
-            >
+            <Fence titulo={titulo}>
                 <Field
                     dados={{
                         titulo: "VHS",
