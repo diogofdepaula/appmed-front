@@ -1,6 +1,5 @@
-import { Box, IconButton, Paper, TextField } from '@mui/material';
 import CallSplitIcon from '@mui/icons-material/CallSplit';
-import LocalCafeIcon from '@mui/icons-material/LocalCafe';
+import { Box, IconButton, Paper, TextField } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
 import { DoençaCID } from '../inquiries';
@@ -19,18 +18,16 @@ const ICAD = () => {
         ega: '',
         bp: '', // Back Pain (BASDAI Question 2) [0-10]
         pp: '', // Peripheral Pain/Swelling (BASDAI Question 3) [0-10]
-        ms: '', // Duration Morning Stiffness (BASDAI Question 6) [0-10]
+        ms: '', // Level of morning stiffness (BASDAI Question 6) [0-10]
+        fg: '', // fadiga
+        td: '', // tender touch
+        tms: '', // Duration of morning stiffness
     })
 
     const calcdas28vhs = (dor, edema, vhs, eva) => {
         return ((0.56 * Math.sqrt(dor)) + (0.28 * Math.sqrt(edema)) + (0.70 * Math.log(vhs)) + (0.014 * eva))
     }
     const [das28vhs, setDas28vhs] = useState(0)
-
-    const calcdas28pcr = (dor, edema, pcr, eva) => {
-        return ((0.56 * Math.sqrt(dor)) + (0.28 * Math.sqrt(edema)) + (0.36 * Math.log(pcr + 1)) + (0.014 * eva))
-    }
-    const [das28pcr, setDas28pcr] = useState(0)
 
     const calccdai = (dor, edema, pga, ega) => {
         return (parseInt(dor) + parseInt(edema) + parseInt(pga) + parseInt(ega))
@@ -46,6 +43,13 @@ const ICAD = () => {
         return (parseInt(dor) + parseInt(edema) + parseInt(pcr) + parseInt(pga) + parseInt(ega))
     }
     const [dapsa, setDapsa] = useState(0)
+
+    const calcbasdai = (fg, bp, pp, td, ms, tms) => {
+        return (((parseInt(fg) + parseInt(bp) + parseInt(pp) + parseInt(td)) + ((parseInt(ms) + (parseInt(tms) / 12)) / 2)) / 5)
+    }
+    const [basdai, setBasdai] = useState(0)
+
+    console.log(basdai);
 
     const calcasdascrp = (bp, pp, ms, eva, pcr) => {
         return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt((eva / 10))) + (0.07 * parseInt(pp) + (0.58 * Math.log((pcr + 1)))))
@@ -70,86 +74,26 @@ const ICAD = () => {
 
     useEffect(() => {
         setDas28vhs(calcdas28vhs(index.dor, index.edema, index.vhs, index.eva))
-        setDas28pcr(calcdas28pcr(index.dor, index.edema, index.pcr, index.eva))
         setCdai(calccdai(index.dor, index.edema, index.pga, index.ega))
         setSdai(calcsdai(index.dor, index.edema, index.pcr, index.pga, index.ega))
         setDapsa(calcdapsa(index.dor, index.edema, index.pcr, index.pga, index.ega))
         setAsdascrp(calcasdascrp(index.bp, index.pp, index.ms, index.eva, index.pcr))
         setAsdasesr(calcasdasesr(index.bp, index.pp, index.ms, index.eva, index.pcr))
+        setBasdai(calcbasdai(index.fg, index.bp, index.pp, index.td, index.ms, index.tms))
         setSjadas(calcsjadas(index.edema, index.vhs, index.pga, index.ega))
     }, [index])
 
-    const handleClickAnamnese = () => {
-
-        let texto1 = das28vhs > 0 ? "DAS28-VHS de " + das28vhs.toFixed(2) + " (" + index.dor + " + " + index.edema + " + " + index.vhs + " + " + index.eva + "); " : ''
-        let texto2 = das28pcr > 0 ? "DAS28-PCR de " + das28pcr.toFixed(2) + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.eva + "); " : ''
-        let texto3 = cdai > 0 ? "CDAI de " + cdai + " (" + index.dor + " + " + index.edema + " + " + index.pga + " + " + index.ega + "); " : ''
-        let texto4 = sdai > 0 ? "SDAI de " + sdai + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.pga + " + " + index.ega + "); " : ''
-        let texto5 = index.eva > 0 ? "EVA de " + index.eva + "; " : ''
-        let texto6 = asdascrp > 0 ? "ASDAS-PCR de " + asdascrp.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.pcr + "); " : ''
-        let texto7 = asdasesr > 0 ? "ASDAS-VHS de " + asdasesr.toFixed(1) + " (" + index.bp + " + " + index.pp + " + " + index.ms + " + " + parseInt((index.eva / 10)) + " + " + index.vhs + "). " : ''
-        let texto8 = sjadas > 0 ? "JADAS-VHS de " + sjadas.toFixed(2) + " (" + index.edema + " + " + index.vhs + " + " + index.pga + " + " + index.ega + "); " : ''
-        let texto9 = dapsa > 0 ? "DAPSAP de " + sdai + " (" + index.dor + " + " + index.edema + " + " + index.pcr + " + " + index.pga + " + " + index.ega + "); " : ''
-
-        let textofinal = texto1 + texto2 + texto3 + texto4 + texto6 + texto7 + texto9
-
+    const handleClickICAD = () => {
         const doenca = DoençaCID(lmeEdit.cid10)
-
-        switch (doenca) {
-            case 'ar':
-                textofinal = texto1 + texto2 + texto3 + texto4
-                break;
-            case 'dor':
-                textofinal = texto5
-                break;
-            case 'ea':
-                textofinal = texto6 + texto7
-                break;
-            case 'ap':
-                textofinal = texto6 + texto7 + texto9
-                break;
-            case 'aij':
-                textofinal = texto8
-                break;
-            default:
-        }
-
         setLmeEdit({
             ...lmeEdit,
-            anamnese: lmeEdit.anamnese.concat(' ').concat(textofinal),
             relatorio: {
                 ...lmeEdit.relatorio,
                 das28: doenca === "ar" || doenca === "aij" ? das28vhs.toFixed(1) : '',
                 cdai: doenca === "ar" ? cdai : '',
                 sdai: doenca === "ar" ? sdai : '',
-                // basdai: '',
                 dapsa: doenca === "ap" ? dapsa : '',
-                asdascrp: doenca === "ea" || doenca === "ap" ? asdascrp.toFixed(1) : '',
-                asdasesr: doenca === "ea" || doenca === "ap" ? asdasesr.toFixed(1) : '',
-                // sledai: '',
-                // essdai: '',
-                // mda: '',
-                vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
-                pcr: index.pcr !== "" ? index.pcr : lmeEdit.relatorio.pcr,
-                sjadas: doenca === "aij" ? sjadas.toFixed(1) : '',
-                eva: index.eva,
-            }
-        })
-    }
-
-    const handleClickICAD = () => {
-
-        const doenca = DoençaCID(lmeEdit.cid10)
-
-        setLmeEdit({
-            ...lmeEdit,
-            relatorio: {
-                ...lmeEdit.relatorio,
-                das28: doenca === "ar" ? das28vhs.toFixed(1) : '',
-                cdai: doenca === "ar" ? cdai : '',
-                sdai: doenca === "ar" ? sdai : '',
-                dapsa: doenca === "ap" ? dapsa : '',
-                // basdai: '',
+                basdai: doenca === "ea" ? basdai.toFixed(1) : '',
                 asdascrp: doenca === "ea" || doenca === "ap" ? asdascrp.toFixed(1) : '',
                 asdasesr: doenca === "ea" || doenca === "ap" ? asdasesr.toFixed(1) : '',
                 vhs: index.vhs !== "" ? index.vhs : lmeEdit.relatorio.vhs,
@@ -177,11 +121,6 @@ const ICAD = () => {
                         gap: 1,
                     }}
                 >
-                    <IconButton
-                        onClick={() => handleClickAnamnese()}
-                        size="large">
-                        <LocalCafeIcon />
-                    </IconButton>
                     <IconButton
                         onClick={() => handleClickICAD()}
                         size="large">
@@ -284,34 +223,90 @@ const ICAD = () => {
                 <Box
                     sx={{
                         display: "flex",
-                        flexDirection: 'row',
+                        flexDirection: 'column',
                         gap: 1,
                     }}
                 >
-                    <TextField
-                        size='small'
-                        name="bp"
-                        label="Back Pain"
-                        helperText="0 a 10"
-                        value={index.bp}
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        size='small'
-                        name="pp"
-                        label="Peripheral Pain"
-                        helperText="0 a 10"
-                        value={index.pp}
-                        onChange={handleChange}
-                    />
-                    <TextField
-                        size='small'
-                        name="ms"
-                        label="Morning Stiffness"
-                        helperText="0 a 10"
-                        value={index.ms}
-                        onChange={handleChange}
-                    />
+                    <Box
+                        sx={{
+                            display: "flex",
+                            gap: 1,
+                        }}
+                    >
+                        <TextField
+                            sx={{
+                                width: '9rem'
+                            }}
+                            size='small'
+                            name="bp"
+                            label="Back Pain"
+                            helperText="0 a 10"
+                            value={index.bp}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            sx={{
+                                width: '9rem'
+                            }}
+                            size='small'
+                            name="pp"
+                            label="Peripheral Pain"
+                            helperText="0 a 10"
+                            value={index.pp}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            sx={{
+                                width: '9rem'
+                            }}
+                            size='small'
+                            name="fg"
+                            label="Fadiga"
+                            helperText="0 a 10"
+                            value={index.fg}
+                            onChange={handleChange}
+                        />
+                    </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            gap: 1,
+                        }}
+                    >
+                        <TextField
+                            sx={{
+                                width: '9rem'
+                            }}
+                            size='small'
+                            name="td"
+                            label="Toque"
+                            helperText="0 a 10"
+                            value={index.td}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            sx={{
+                                width: '9rem'
+                            }}
+                            size='small'
+                            name="ms"
+                            label="Intensidade RM"
+                            helperText="0 a 10"
+                            value={index.ms}
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            sx={{
+                                width: '9rem'
+                            }}
+                            size='small'
+                            name="tms"
+                            label="Tempo RM"
+                            helperText="0 a 120min"
+                            value={index.tms}
+                            onChange={handleChange}
+                        />
+                    </Box>
                 </Box>
             </Box>
         </Paper>

@@ -72,8 +72,7 @@ const LmeProximoBtnEdito = () => {
             <Tooltip title="Anterior">
                 <IconButton
                     component="span"
-                    disabled={step === 381}
-                    // disabled={(page === 'lmeinsert' && (step === 311 || step === 321 || step === 381)) || (page === 'lmeupdate' && step === 381)}
+                    disabled={step === 371}
                     onClick={nextStep}
                     size="large"
                 >

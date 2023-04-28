@@ -1,9 +1,8 @@
-import { Box, Chip, Divider, Paper } from '@mui/material';
+import { Box, Chip, Paper } from '@mui/material';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '../../pages/atendimento';
 import { CriteriosLme } from '../criteriosdoencas';
 import { DoençaCID, NumeroAleatorio } from '../inquiries';
-import ICAD from './Icad';
 
 const AnamneseTips = () => {
 
@@ -146,7 +145,6 @@ const AnamneseTips = () => {
 
     return (
         <>
-            <Divider />
             <Box py={2} display='flex'>
                 <Box ml={1}>
                     <Chip
@@ -183,7 +181,6 @@ const AnamneseTips = () => {
                     <Criterios />
                 </Box>
             </Paper>
-            <ICAD />
         </>
     )
 }

@@ -52,8 +52,8 @@ export const AtendimentoRight = (props) => {
             <Box
                 sx={{
                     ml: 1,
-                    width: '45rem',
-                    minWidth: '45rem',
+                    width: '30rem',
+                    minWidth: '30rem',
                     // maxWidth: '25rem',
                 }}
             >

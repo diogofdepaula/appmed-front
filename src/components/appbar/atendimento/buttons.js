@@ -219,7 +219,7 @@ export const ProximoBtn = () => {
         setStepNext()
     }
 
-    let disabled = step === 111 || step === 141 || step === 161 || step === 381
+    let disabled = step === 111 || step === 141 || step === 161 || step === 371
 
     return (
         <>
