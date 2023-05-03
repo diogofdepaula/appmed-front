@@ -1,5 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import React from 'react';
 
 const Linha11LME = () => {
@@ -19,7 +20,7 @@ const Linha11LME = () => {
                         <Grid container item xs direction="row" justifyContent="flex-start" alignItems="flex-start">
                             <Grid item xs>
                                 <Box ml={1} display="flex">
-                                    <CheckBoxOutlineBlankIcon />
+                                    <CheckBoxOutlinedIcon />
                                     <Typography component={'span'} variant={'body1'} align={'left'} >
                                         <Box>Paciente</Box>
                                     </Typography>
@@ -43,7 +44,7 @@ const Linha11LME = () => {
                             </Grid>
                             <Grid item xs>
                                 <Box ml={1} display="flex">
-                                    <CheckBoxOutlineBlankIcon />
+                                    <CheckBoxOutlinedIcon />
                                     <Typography component={'span'} variant={'body1'} align={'left'} >
                                         <Box>Médico</Box>
                                     </Typography>
