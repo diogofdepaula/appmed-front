@@ -22705,7 +22705,7 @@ const Tuss = () => {
                 {
                         codigo: "40307018",
                         original: "Hepatite B - HBSAG (AU, antígeno austrália) - pesquisa e/ou dosagem",
-                        mod: "Hepatite B - HBSAG (AU, antígeno austrália)",
+                        mod: "HBsAg",
                         favorito: false,
                         aspecto: "",
                 },
@@ -37776,21 +37776,14 @@ const Tuss = () => {
                 {
                         codigo: "50000160",
                         original: "Sessão para assistência fisioterapêutica ambulatorial ao paciente com disfunção decorrente de alterações do sistema músculo-esquelético",
-                        mod: "Sessão para assistência fisioterapêutica ambulatorial ao paciente com disfunção decorrente de alterações do sistema músculo-esquelético",
-                        favorito: false,
-                        aspecto: "",
-                },
-                {
-                        codigo: "50000160",
-                        original: "Atendimento fisioterapêutico ambulatorial ao paciente com disfunção decorrente de alterações do sistema músculo-esquelético",
-                        mod: "Atendimento fisioterapêutico ambulatorial ao paciente com disfunção decorrente de alterações do sistema músculo-esquelético",
+                        mod: "Fisioterapia motora",
                         favorito: false,
                         aspecto: "",
                 },
                 {
                         codigo: "50000179",
                         original: "Sessão para assistência fisioterapêutica ambulatorial ao paciente com disfunção decorrente de alterações no sistema respiratório",
-                        mod: "Sessão para assistência fisioterapêutica ambulatorial ao paciente com disfunção decorrente de alterações no sistema respiratório",
+                        mod: "Fisioterapia respiratória",
                         favorito: false,
                         aspecto: "",
                 },

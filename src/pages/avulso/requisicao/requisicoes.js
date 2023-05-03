@@ -268,11 +268,43 @@ const Tips = ({ handleProcedimentoPush }) => {
         },
     ]
 
+    const onetips = [
+        {
+            titulo: "FST",
+            justificativa:
+                "Paciente com Artrite reumatoide",
+            unitary: {
+                codigo: "50000160",
+                original: "Sessão para assistência fisioterapêutica ambulatorial ao paciente com disfunção decorrente de alterações do sistema músculo-esquelético",
+                mod: "Fisioterapia motora",
+            },
+        },
+        {
+            titulo: "NUT",
+            justificativa:
+                "Paciente com Gota",
+            unitary: {
+                codigo: "50000560",
+                original: "Consulta ambulatorial por nutricionista",
+                mod: "Consulta ambulatorial por nutricionista",
+            },
+        },
+        {
+            titulo: "PSC",
+            justificativa:
+                "Paciente com Fibromialgia",
+            unitary: {
+                codigo: "50000470",
+                original: "Sessão de psicoterapia individual por psicólogo",
+                mod: "Sessão de psicoterapia individual por psicólogo",
+            },
+        },
+    ]
+
     const sendParamGroup = (param) => {
         let list = Tuss().filter(t => param.tuss.includes(t.codigo))
         handleProcedimentoPush(list, param.justificativa)
     }
-
 
     const sendParamUnitary = (param) => {
         handleProcedimentoPush(param.unitary, param.justificativa)
@@ -280,6 +312,10 @@ const Tips = ({ handleProcedimentoPush }) => {
 
     return (
         <>
+            <ListButtons
+                list={onetips}
+                sendParam={sendParamUnitary}
+            />
             <ListButtons
                 list={grouptips}
                 sendParam={sendParamGroup}
@@ -291,6 +327,112 @@ const Tips = ({ handleProcedimentoPush }) => {
             <ListButtons
                 list={usmmii}
                 sendParam={sendParamUnitary}
+            />
+        </>
+    )
+}
+
+const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
+
+    const list = [
+        {
+            titulo: "Rotina BioL",
+            multi: [
+                {
+                    indice: ind,
+                    justificativa: "Exames de rotina antes de iniciar imunobiológico.",
+                    selecionados: [
+                        {
+                            codigo: "40304361",
+                            original: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
+                            mod: "Hemograma com contagem de plaquetas",
+                        },
+                        {
+                            codigo: "40304370",
+                            original: "Hemossedimentação, (VHS) - pesquisa e/ou dosagem",
+                            mod: "VHS",
+                        },
+                        {
+                            codigo: "40308383",
+                            original: "Proteína C reativa, qualitativa - pesquisa",
+                            mod: "Proteína C reativa, qualitativa",
+                        },
+                        {
+                            codigo: "40302504",
+                            original: "Transaminase oxalacética (amino transferase aspartato) - pesquisa e/ou dosagem",
+                            mod: "TGO",
+                        },
+                        {
+                            codigo: "40302512",
+                            original: "Transaminase pirúvica (amino transferase de alanina) - pesquisa e/ou dosagem",
+                            mod: "TGP",
+                        },
+                        {
+                            codigo: "40301630",
+                            original: "Creatinina - pesquisa e/ou dosagem",
+                            mod: "Creatinina",
+                        },
+                        {
+                            codigo: "40301630",
+                            original: "Creatinina - pesquisa e/ou dosagem",
+                            mod: "Creatinina",
+                        },
+                        {
+                            codigo: "40307018",
+                            original: "Hepatite B - HBSAG (AU, antígeno austrália) - pesquisa e/ou dosagem",
+                            mod: "HBsAg",
+                        },
+                    ],
+                    convenio: "SUS",
+                },
+                {
+                    indice: ind + 1,
+                    justificativa: "justificativa teste 1",
+                    selecionados: [
+                        {
+                            codigo: "50000560",
+                            original: "Consulta ambulatorial por nutricionista",
+                            mod: "Consulta 0001 ambulatorial por nutricionista",
+                        },
+                        {
+                            codigo: "50000560",
+                            original: "Consulta ambulatorial por nutricionista",
+                            mod: "Consulta 0002 ambulatorial por nutricionista",
+                        },
+                    ],
+                    convenio: "SUS",
+                },
+                {
+                    indice: ind + 2,
+                    justificativa: "justificativa teste 2",
+                    selecionados: [
+                        {
+                            codigo: "40304361",
+                            original: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
+                            mod: "Hemograma com contagem de plaquetas",
+                        },
+                        {
+                            codigo: "40304370",
+                            original: "Hemossedimentação, (VHS) - pesquisa e/ou dosagem",
+                            mod: "VHS",
+                        },
+                    ],
+                    convenio: "SUS",
+                }
+            ]
+
+        }
+    ]
+
+    const sendParamMultiple = (param) => {
+        handleAdicinarMultiplos(param.multi)
+    }
+
+    return (
+        <>
+            <ListButtons
+                list={list}
+                sendParam={sendParamMultiple}
             />
         </>
     )
@@ -318,6 +460,17 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
         })
     }
 
+    const handleAdicinarMultiplos = (req) =>  {
+        handleAdicionarRequisicao(req)
+        setRequisicao({
+            indice: ind.current + req.lenght,
+            justificativa: '',
+            selecionados: [],
+            convenio: "SUS",
+        })
+        ind.current = ind.current + req.lenght
+    }
+
     const handleAdicionar = () => {
         handleAdicionarRequisicao(requisicao)
         let just = requisicao.justificativa
@@ -336,7 +489,6 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
             indice: ind.current,
             selecionados: requisicao.selecionados.filter(w => w.original.toString().toLowerCase() !== param.original.toString().toLowerCase())
         })
-
     }
 
     return (
@@ -429,6 +581,10 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
                     />
                     <ListProcedimentos
                         handleProcedimentoPush={handleProcedimentoPush}
+                    />
+                    <MultiplesSimultaneos
+                        handleAdicinarMultiplos={handleAdicinarMultiplos}
+                        ind={ind}
                     />
                     <Tips
                         handleProcedimentoPush={handleProcedimentoPush}

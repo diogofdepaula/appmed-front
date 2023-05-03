@@ -439,7 +439,7 @@ const Avulso = () => {
             requisicoes: receita.requisicoes.concat(req)
         })
     }
-    
+
     const handleAdicionarVacinacao = (vac) => {
         setReceita({
             ...receita,
