@@ -49,8 +49,6 @@ const ICAD = () => {
     }
     const [basdai, setBasdai] = useState(0)
 
-    console.log(basdai);
-
     const calcasdascrp = (bp, pp, ms, eva, pcr) => {
         return ((0.12 * parseInt(bp)) + (0.06 * parseInt(ms)) + (0.11 * parseInt((eva / 10))) + (0.07 * parseInt(pp) + (0.58 * Math.log((pcr + 1)))))
     }
