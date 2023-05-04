@@ -57,7 +57,7 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                             typography: 'h6',
                         }}
                     >
-                        Indica-se vacinação, caso não tenham sido feitas, para:
+                        Recomenda-se vacinação, caso não tenham sido feitas, para:
                     </Box>
                     <Box
                         sx={{
