@@ -350,8 +350,8 @@ const presc = [
         prescricao: [Pdn405d204d],
     },
     {
-        title: "Diacereina",
-        prescricao: [Diacereina],
+        title: "Curcuma",
+        prescricao: [Curcuma],
     },
     {
         title: "AINH Tópico",

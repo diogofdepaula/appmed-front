@@ -409,27 +409,27 @@ export const TmdPct = {
     }
 }
 
-export const Diacereina = {
+export const Curcuma = {
     continuo: true,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
-    orientacoes: "Tomar sempre de estômago cheio.",
+    orientacoes: "",
     apresentaco: {
-        descricao: "50mg Comp",
+        descricao: "400mg Comp Rev",
         uso: "uso interno",
     },
     medicamento: {
-        farmaco: "Diacereina",
+        farmaco: "Curcuma longa",
         nomescomerciais: [
             {
-                nomefantasia: "Artrodar",
+                nomefantasia: "Curc",
             },
         ]
     },
     posologia: {
-        posologia: "Tome 01 comprimido uma vez ao dia por 20 dias, então \ntome 01 comprimido de 12 em 12 horas por 4 meses.",
-        quantidade: "1",
-        forma: "caixa",
+        posologia: "Tome 01 comprimido uma vez ao dia por 2 meses.",
+        quantidade: "2",
+        forma: "caixas",
     } 
 }
 
