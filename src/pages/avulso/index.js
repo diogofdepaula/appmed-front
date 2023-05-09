@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
-import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, DF7d, Diacereina, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricao/prescricoes';
 import PrescricaoBanco from './prescricao/prescricaobanco';
 import PrescricaoLivre from './prescricao/prescricaolivre';
+import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, Curcuma, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricao/prescricoes';
 import Requisicoes from './requisicao/requisicoes';
 import Vacinacao from './vacinacao';
 
@@ -350,7 +350,7 @@ const presc = [
         prescricao: [Pdn405d204d],
     },
     {
-        title: "Curcuma",
+        title: "Curcuma ",
         prescricao: [Curcuma],
     },
     {
