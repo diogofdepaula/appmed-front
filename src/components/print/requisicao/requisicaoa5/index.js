@@ -90,7 +90,9 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                             textAlign: 'left',
                         }}
                     >
-                        {requisicao.justificativa}
+                        {requisicao.justificativa.split("\n").map((i, key) => {
+                            return <div key={key}>{i}</div>;
+                        })}
                     </Box>
                 </Box>
             </PageA5 >
