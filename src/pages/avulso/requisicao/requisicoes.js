@@ -382,39 +382,49 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                             original: "Hepatite B - HBSAG (AU, antígeno austrália) - pesquisa e/ou dosagem",
                             mod: "HBsAg",
                         },
+                        {
+                            codigo: "40306992",
+                            original: "Hepatite B - HBSAC (anti-antígeno de superfície) - pesquisa e/ou dosagem",
+                            mod: "Hepatite B - HBSAC (anti-antígeno de superfície)",
+                        },
+                        {
+                            codigo: "40307026",
+                            original: "Hepatite C - anti-HCV - pesquisa e/ou dosagem",
+                            mod: "Hepatite C - anti-HCV",
+                        },
+                        {
+                            codigo: "40307760",
+                            original: "Sífilis - VDRL",
+                            mod: "Sífilis - VDRL",
+                        },
+                        {
+                            codigo: "40307182",
+                            original: "HIV1+ HIV2, (determinação conjunta), pesquisa de anticorpos",
+                            mod: "HIV1+ HIV2, (determinação conjunta), pesquisa de anticorpos",
+                        },
                     ],
                     convenio: "SUS",
                 },
                 {
                     indice: ind + 1,
-                    justificativa: "justificativa teste 1",
+                    justificativa: "Exame de rotina antes de iniciar imunobiológico.",
                     selecionados: [
                         {
-                            codigo: "50000560",
-                            original: "Consulta ambulatorial por nutricionista",
-                            mod: "Consulta 0001 ambulatorial por nutricionista",
-                        },
-                        {
-                            codigo: "50000560",
-                            original: "Consulta ambulatorial por nutricionista",
-                            mod: "Consulta 0002 ambulatorial por nutricionista",
+                            codigo: "40307638",
+                            original: "PPD (tuberculina), IDeR",
+                            mod: "PPD (teste tuberculínico)",
                         },
                     ],
                     convenio: "SUS",
                 },
                 {
                     indice: ind + 2,
-                    justificativa: "justificativa teste 2",
+                    justificativa: "Exame de rotina antes de iniciar imunobiológico.",
                     selecionados: [
                         {
-                            codigo: "40304361",
-                            original: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
-                            mod: "Hemograma com contagem de plaquetas",
-                        },
-                        {
-                            codigo: "40304370",
-                            original: "Hemossedimentação, (VHS) - pesquisa e/ou dosagem",
-                            mod: "VHS",
+                            codigo: "40805026",
+                            original: "RX - Tórax - 2 incidências",
+                            mod: "Radiografia de tórax - 2 incidências (PA e Perfil); ",
                         },
                     ],
                     convenio: "SUS",
@@ -460,7 +470,7 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
         })
     }
 
-    const handleAdicinarMultiplos = (req) =>  {
+    const handleAdicinarMultiplos = (req) => {
         handleAdicionarRequisicao(req)
         setRequisicao({
             indice: ind.current + req.lenght,
