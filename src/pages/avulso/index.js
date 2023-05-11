@@ -246,7 +246,7 @@ const Conteudo = ({ receita }) => {
                         <VacinacaoBox vacinacao={r} key={i} />
                     )}
                 </Box>
-                
+
             </Box>
         </>
     )
@@ -364,7 +364,7 @@ const Avulso = () => {
     const [value, setValue] = React.useState(0);
     const { setClienteContext } = useContext(ClienteContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
+    const { nomecomercial, setNomeComercial, convenio, setConvenio, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
 
@@ -417,6 +417,10 @@ const Avulso = () => {
 
     const handleChangeNomeComercial = (event) => {
         setNomeComercial(event.target.checked)
+    }
+
+    const handleChangeConvenio = (event) => {
+        setConvenio(event.target.checked)
     }
 
     const handleClickReset = () => {
@@ -491,6 +495,16 @@ const Avulso = () => {
                                     onChange={handleChangeNomeComercial}
                                 />}
                             label='Nome comercial'
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    color='primary'
+                                    name="convenio"
+                                    checked={convenio}
+                                    onChange={handleChangeConvenio}
+                                />}
+                            label='Convênio'
                         />
                         <Button
                             variant="outlined"

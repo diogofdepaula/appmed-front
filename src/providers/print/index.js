@@ -18,6 +18,7 @@ const PrintProvider = () => {
     const [database, setDatabase] = useState(new Date())
     const [renovacao, setRenovacao] = useState(false)
     const [avulso, setAvulso] = useState(false)
+    const [convenio, setConvenio] = useState(false) // pus assim, mas depois fazer com o nome do convênio
     const somaheighta4 = 950 // 900, 
     const somaheighta5 = 440
 
@@ -54,6 +55,8 @@ const PrintProvider = () => {
         setRenovacao,
         avulso, 
         setAvulso,
+        convenio, 
+        setConvenio,
         somaheighta4,
         somaheighta5,
         printReset: () => {
@@ -73,6 +76,7 @@ const PrintProvider = () => {
             setDatabase(new Date())
             setRenovacao(false)
             setAvulso(false)
+            setConvenio(false)
         }
     }
 }

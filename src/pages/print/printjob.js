@@ -8,6 +8,7 @@ import FactoryRelatorio from '../../components/print/relatorio';
 import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
 import VacinacaoA5 from '../../components/print/vacinacao/folhaa5';
 import { MedicacaoInterropida } from '../../utils/inquiries';
+import Sadt from '../../components/print/requisicao/sadt';
 
 export const LMEPrintContext = createContext(null)
 
@@ -15,7 +16,7 @@ export const LMEPrintContext = createContext(null)
 
 const PrintJob = () => {
 
-    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao, convenio } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const LMEs = () => {
@@ -112,7 +113,13 @@ const PrintJob = () => {
 
     const Requisicao = () => {
         if (requisicoes.length === 0) return <></>
-        return requisicoes?.map((r, i) => <RequisicaoA5 key={i} requisicao={r} tipo={local} />)
+        return requisicoes?.map((r, i) => {
+            if (convenio) {
+                return <Sadt key={i} requisicao={r} tipo={local} />
+            } else {
+                return <RequisicaoA5 key={i} requisicao={r} tipo={local} />
+            }
+        })
     }
 
     const Vacinacao = () => {
