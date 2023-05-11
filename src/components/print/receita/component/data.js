@@ -35,6 +35,8 @@ const Data = ({ mes, tipo }) => {
         }
     }
 
+    if (date === '01  de  janeiro  de  0001') return <></>
+
     return (
         <>
             <Box>
