@@ -18,7 +18,6 @@ import RelatorioSet2 from "../../pages/atendimento/prescricoes/relatorioset2"
 import RelatorioSet3 from "../../pages/atendimento/prescricoes/relatorioset3"
 import RelatorioSet4 from "../../pages/atendimento/prescricoes/relatorioset4"
 import RelatorioSet5 from "../../pages/atendimento/prescricoes/relatorioset5"
-import Requisicao from "../../pages/atendimento/requisicao"
 import Print from "../../pages/print"
 
 const AtendimentoNavegateProvider = () => {
@@ -81,9 +80,6 @@ const AtendimentoNavegateProvider = () => {
         setArticlePrint: () => {
             setArticle(<Print />)
             setPrint(true)
-        },
-        setArticleRequisicao: () => {
-            setArticle(<Requisicao />)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))

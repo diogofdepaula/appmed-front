@@ -5,40 +5,6 @@ import Identificacao from '../../receita/component/identificacao';
 
 const RequisicaoA5 = ({ requisicao, tipo }) => {
 
-
-    // const Convenio = () => {
-
-    //     let conv = <div />
-
-    //     if (requisicao.convenio[0] !== "") {
-    //         conv =
-    //             <>
-    //                 <Box
-    //                     style={{
-    //                         margin: "0 0 1rem 1rem",
-    //                         fontSize: 14,
-    //                         fontWeight: 'bold',
-    //                         textAlign: 'left',
-    //                         letterSpacing: 1,
-    //                     }}
-    //                 >
-    //                     <Box>
-    //                         Convênio:
-    //                     </Box>
-    //                     <Box
-    //                         style={{
-    //                             margin: "0 0 0 1rem",
-    //                         }}
-    //                     >
-    //                         {requisicao.convenio[0]} - {requisicao.convenio[1]}
-    //                     </Box>
-    //                 </Box>
-    //             </>
-    //     }
-
-    //     return conv
-    // }
-
     return (
         <>
             <PageA5>
