@@ -5,7 +5,7 @@ import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
 import PrescricaoBanco from './prescricao/prescricaobanco';
 import PrescricaoLivre from './prescricao/prescricaolivre';
-import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, Curcuma, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricao/prescricoes';
+import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, CurcumaUCII, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricao/prescricoes';
 import Requisicoes from './requisicao/requisicoes';
 import Vacinacao from './vacinacao';
 
@@ -350,8 +350,8 @@ const presc = [
         prescricao: [Pdn405d204d],
     },
     {
-        title: "Curcuma ",
-        prescricao: [Curcuma],
+        title: "CurcumaUCII ",
+        prescricao: [CurcumaUCII],
     },
     {
         title: "AINH Tópico",

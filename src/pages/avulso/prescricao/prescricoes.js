@@ -409,26 +409,26 @@ export const TmdPct = {
     }
 }
 
-export const Curcuma = {
+export const CurcumaUCII = {
     continuo: true,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
     orientacoes: "",
     apresentaco: {
-        descricao: "400mg Comp Rev",
+        descricao: "40mg + 400mg Comp Rev",
         uso: "uso interno",
     },
     medicamento: {
-        farmaco: "Curcuma longa",
+        farmaco: "Colágeno tipo II não desnaturado + Curcuma longa",
         nomescomerciais: [
             {
-                nomefantasia: "Curc",
+                nomefantasia: "Colfex Curcuma",
             },
         ]
     },
     posologia: {
-        posologia: "Tome 01 comprimido uma vez ao dia por 2 meses.",
-        quantidade: "2",
+        posologia: "Tome 01 comprimido uma vez ao dia por 3 meses.",
+        quantidade: "3",
         forma: "caixas",
     } 
 }
