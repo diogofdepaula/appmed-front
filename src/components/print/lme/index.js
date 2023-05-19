@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA4 from '../pagea4';
+import Page from '../page';
 import Linha1LME from './component/linha1';
 import Linha10LME from './component/linha10';
 import Linha11LME from './component/linha11';
@@ -18,7 +18,7 @@ import Linha9LME from './component/linha9';
 const FactoryLME = () => {
 
     return <>
-        <PageA4>
+        <Page size="a4">
             <Box
                 sx={{
                     display: 'flex',
@@ -55,7 +55,7 @@ const FactoryLME = () => {
                         <Linha14LME />
                     </Box>
             </Box>
-        </PageA4>
+        </Page>
     </>
 }
 

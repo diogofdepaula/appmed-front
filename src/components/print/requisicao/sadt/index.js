@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import PageA4 from "../../pagea4"
+import Page from "../../page"
 // import Linha1Sadt from "./component/linha1"
 // import Linha2Sadt from "./component/linha2"
 // import Linha3Sadt from "./component/linha3"
@@ -12,7 +12,7 @@ const Sadt = ({ requisicao }) => {
 
     return (
         <>
-            <PageA4>
+            <Page size="a4land">
                 <Box
                     sx={{
                         display: 'flex',
@@ -37,7 +37,7 @@ const Sadt = ({ requisicao }) => {
                     </Box>
                     <Linha6Sadt />
                     <Linha7Sadt /> */}
-            </PageA4 >
+            </Page >
         </>
 
     )

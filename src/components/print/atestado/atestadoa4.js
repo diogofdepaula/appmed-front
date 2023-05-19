@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA4 from '../pagea4';
+import Page from '../page';
 import Cabecalho from '../receita/component/cabecalho';
 import Data from '../receita/component/data';
 import Rodape from '../receita/component/rodape';
@@ -10,7 +10,7 @@ const AtestadoA4 = ({ tipo }) => {
 
     return (
         <>
-            <PageA4>
+            <Page size="a4">
                 <Box
                     sx={{
                         height: 1,
@@ -60,7 +60,7 @@ const AtestadoA4 = ({ tipo }) => {
                     </Box>
                     <Rodape />
                 </Box>
-            </PageA4>
+            </Page>
         </>
     )
 }

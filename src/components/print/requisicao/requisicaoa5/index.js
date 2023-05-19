@@ -1,13 +1,13 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA5 from '../../pagea5';
+import Page from '../../page';
 import Identificacao from '../../receita/component/identificacao';
 
 const RequisicaoA5 = ({ requisicao, tipo }) => {
 
     return (
         <>
-            <PageA5>
+            <Page size="a5">
                 <Box
                     sx={{
                         width: 1,
@@ -61,7 +61,7 @@ const RequisicaoA5 = ({ requisicao, tipo }) => {
                         })}
                     </Box>
                 </Box>
-            </PageA5 >
+            </Page >
         </>
     )
 }

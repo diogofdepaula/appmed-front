@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA4 from '../pagea4';
+import Page from '../page';
 import Linha1Relatorio from './component/linha1';
 import Linha10Relatorio from './component/linha10';
 import Linha11Relatorio from './component/linha11';
@@ -18,7 +18,7 @@ const FactoryRelatorio = () => {
 
     return (
         <>
-            <PageA4>
+            <Page size="a4">
                 <Box
                     sx={{
                         display: 'flex',
@@ -54,7 +54,7 @@ const FactoryRelatorio = () => {
                         <Linha12Relatorio />
                     </Box>
                 </Box>
-            </PageA4>
+            </Page>
         </>
     )
 }

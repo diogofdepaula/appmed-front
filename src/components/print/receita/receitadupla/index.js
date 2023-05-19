@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA4 from '../../pagea4';
+import Page from '../../page';
 import Cabecalho from '../component/cabecalho';
 import Data from '../component/data';
 import Identificacao from '../component/identificacao';
@@ -47,7 +47,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
 
     return (
         <>
-            <PageA4>
+            <Page size="a4">
                 <Box
                     sx={{
                         display: 'inline-flex',
@@ -72,7 +72,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                         <Inside mesmais={0} />
                     </Box>
                 </Box>
-            </PageA4>
+            </Page>
         </>
     )
 }

@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA5 from '../pagea5';
+import Page from '../page';
 import Data from '../receita/component/data';
 import { Comentario, Consequencia, Diagnostico, Estado, Inicio, Prazo, Prognostico, Titulo, Tratamento } from './textosatestado';
 
@@ -8,7 +8,7 @@ const AtestadoA5 = ({ tipo }) => {
 
     return (
         <>
-            <PageA5>
+            <Page size="a5">
                 <Box
                     sx={{
                         width: 1,
@@ -44,7 +44,7 @@ const AtestadoA5 = ({ tipo }) => {
                     </Box>
                     <Data tipo={tipo} />
                 </Box>
-            </PageA5>
+            </Page>
         </>
     )
 }

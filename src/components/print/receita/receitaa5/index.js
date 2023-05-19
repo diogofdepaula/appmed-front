@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import PageA5 from '../../pagea5';
+import Page from '../../page';
 import Comentario from '../component/comentario';
 import Data from '../component/data';
 import Identificacao from '../component/identificacao';
@@ -10,7 +10,7 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
 
     return (
         <>
-            <PageA5>
+            <Page size="a5">
                 <Box width={1} height={1} display="block">
                     <Box display="block" height={1}>
                         <Box justifyContent="center">
@@ -31,7 +31,7 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
                     </Box>
                     <Data mes={mes} tipo={tipo} />
                 </Box>
-            </PageA5>
+            </Page>
         </>
     )
 }
