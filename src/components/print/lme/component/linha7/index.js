@@ -18,18 +18,29 @@ const Linha7LME = () => {
 
         return (
             <>
-                <Fence titulo="Dados pertinentes ao Relatório médico específico da doença solicitados na renovação" stretch={1}>
+                <Fence titulo="Dados pertinentes ao Relatório médico específico da doença solicitados na renovação" >
                     <Box
                         sx={{
                             display: "flex",
-                            flexDirection: 'column',
-                            justifyContent: 'space-between',
+                            flexDirection: 'row',
                             gap: 1,
                             width: 1,
                         }}
                     >
-                        <Linha5Relatorio />
-                        <ProvasAtividadeInflamatoria />
+                        <Box
+                            sx={{
+                                flexGrow: 1
+                            }}
+                        >
+                            <Linha5Relatorio />
+                        </Box>
+                        <Box
+                            sx={{
+                                flexGrow: 1
+                            }}
+                        >
+                            <ProvasAtividadeInflamatoria />
+                        </Box>
                     </Box>
                 </Fence>
             </>
