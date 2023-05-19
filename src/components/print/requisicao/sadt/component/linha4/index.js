@@ -1,6 +1,6 @@
 import React from 'react'
-import Fence from '../../../../component/fence'
-import Field from '../../../../component/field'
+import Fence from '../../../../fence'
+import Field from '../../../../field'
 
 const Linha4Sadt = () => {
 
@@ -23,7 +23,7 @@ const Linha4Sadt = () => {
             grow: "1",
         },
         {
-            titulo: "16 - Conselho Profissional",
+            titulo: "16 - Conselho Prof",
             texto: "CRM",
             largura: "10.5rem",
             alinhamento: "center",
@@ -54,7 +54,7 @@ const Linha4Sadt = () => {
 
     return (
         <>
-            <Fence titulo="Dados do contratado solicitante">
+            <Fence titulo="Dados do Solicitante">
                 {dados.map(c =>
                     <Field key={c.titulo} dados={c} />
                 )}

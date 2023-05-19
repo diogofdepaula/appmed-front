@@ -1,6 +1,6 @@
 import React from 'react'
-import Fence from '../../../../component/fence'
-import Field from '../../../../component/field'
+import Fence from '../../../../fence'
+import Field from '../../../../field'
 
 const Linha6Sadt = () => {
 
