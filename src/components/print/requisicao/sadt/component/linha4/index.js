@@ -7,31 +7,32 @@ const Linha4Sadt = () => {
     const dados = [
         {
             titulo: "13 - Código na Operadora",
-            largura: "19rem",
+            largura: "11rem",
+            alinhamento: "center",
         },
         {
             titulo: "14 - Nome do Contratado",
-            texto: "Clinica Médica Diéguez de Paula (Diogo Ferreira de Paula)",
-            largura: "40rem",
-            grow: "1",
+            texto: "Diogo Ferreira de Paula",
+            largura: "12rem",
+            alinhamento: "center",
         },
         {
             titulo: "15 - Nome do Profissional Solicitante",
             texto: "Dr. Diogo Ferreira de Paula",
-            alinhamento: "left",
+            alinhamento: "center",
             negrito: "bold",
             grow: "1",
         },
         {
-            titulo: "16 - Conselho Prof",
+            titulo: "16 - Conselho",
             texto: "CRM",
-            largura: "10.5rem",
+            largura: "6.7rem",
             alinhamento: "center",
         },
         {
             titulo: "17 - Número no Conselho",
             texto: "23.838",
-            largura: "10.5rem",
+            largura: "11rem",
             alinhamento: "center",
         },
         {
@@ -43,12 +44,12 @@ const Linha4Sadt = () => {
         {
             titulo: "19 - Código CBO",
             texto: "225136",
-            largura: "7.5rem",
+            largura: "8rem",
             alinhamento: "center",
         },
         {
             titulo: "20 - Assinatura do Profissional Solicitante",
-            largura: "16rem",
+            largura: "18rem",
         },
     ]
 

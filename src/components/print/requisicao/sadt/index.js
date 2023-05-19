@@ -29,9 +29,7 @@ const Sadt = ({ requisicao }) => {
                     <Linha2Sadt requisicao={requisicao} />
                     <Linha3Sadt />
                     <Linha4Sadt />
-                    <Box>
-                        <Linha5Sadt />
-                    </Box>
+                    <Linha5Sadt />
                     <Linha6Sadt />
                     <Linha7Sadt />
                 </Box>
