@@ -7,20 +7,27 @@ const Linha7Sadt = () => {
     const dados = [
         {
             titulo: "32 - Tipo de Atendimento",
+            largura: "13rem",
+        },
+        {
+            titulo: "33 - Indicação de acidente",
+            largura: "13rem",
+        },
+        {
+            titulo: "34 - Tipo de consulta",
             largura: "12rem",
         },
         {
-            titulo: "33 - Indicação de acidente (acidente ou doença relacionada)",
-            largura: "22rem",
+            titulo: "35 - Motivo do encerramento do atendimento",
+            largura: "20rem",
         },
         {
-            titulo: "34 - Tipo de doença",
-            largura: "9rem",
-            grow: "1"
+            titulo: "91 - Regime de atendimento",
+            largura: "12rem",
         },
         {
-            titulo: "35 - Motivo de encerramento do atendimento",
-            largura: "17rem",
+            titulo: "92 - Saúde Ocupacional",
+            largura: "12rem",
         },
     ]
 

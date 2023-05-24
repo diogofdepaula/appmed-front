@@ -3,29 +3,72 @@ import React from 'react'
 import Fence from '../../../../fence'
 import Field from '../../../../field'
 
-const Linha5Sadt = () => {
+const Procedimentos = () => {
 
-    // const dados = [
-    //     {
-    //         titulo: "21 - Caráter",
-    //         texto: 'U',
-    //         largura: "6rem",
-    //         alinhamento: "center",
-    //     },
-    //     {
-    //         titulo: "22 - Data da Solicitação",
-    //         texto: '22/22/2222',
-    //         largura: "11rem",
-    //         alinhamento: "center",
-    //     },
-    //     ,
-    // {
-    //     titulo: "23 - Indicação Clínica",
-    //     alinhamento: "left",
-    //     largura: "30rem",
-    //     grow: "1",
-    // },
-    // ]
+    const itens = [
+        {
+            codigo: "alsdfjlçksajf",
+            descricao: "dddddddddd",
+        },
+        {
+            codigo: "CCCCCCC",
+            descricao: "dsça.fkljççsad",
+        },
+        {
+            codigo: "oepidruopwieur",
+            descricao: "83pojsdlkjrf",
+        },
+        {
+            codigo: "-09sdaufjlk",
+            descricao: "s.a,djfpoidsaj",
+        },
+    ]
+
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    width: 1,
+                    gap: 2,
+                }}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}
+                >
+                    {itens.map(t =>
+                        <Box
+                            key={t.codigo}
+                        >
+                            {"(" + t.codigo + ") " + t.descricao}
+                        </Box>
+                    )}
+                </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                    }}
+                >
+                    {itens.map(t =>
+                        <Box
+                            key={t.codigo}
+                        >
+                            {"(" + t.codigo + ") " + t.descricao}
+                        </Box>
+                    )}
+                </Box>
+            </Box>
+        </>
+    )
+}
+
+
+const Linha5Sadt = () => {
 
     return (
         <>
@@ -34,13 +77,15 @@ const Linha5Sadt = () => {
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
+                        width: 1,
                     }}
                 >
                     <Box
                         sx={{
                             display: 'flex',
                             flexDirection: 'row',
-
+                            width: 1,
+                            gap: 1,
                         }}
                     >
                         <Box
@@ -48,7 +93,6 @@ const Linha5Sadt = () => {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 gap: 1,
-                                bgcolor: 'red',
                             }}
                         >
                             <Box
@@ -79,18 +123,22 @@ const Linha5Sadt = () => {
                                 <Field
                                     dados={{
                                         titulo: "90 - Indicador de Cobertura Especial",
-                                        largura: "15rem",
                                         alinhamento: "center",
+                                        grow: "1",
                                     }}
                                 />
                             </Box>
                         </Box>
-                        <Box>
+                        <Box
+                            sx={{
+                                width: 1,
+                            }}
+                        >
                             <Field
                                 dados={{
                                     titulo: "23 - Indicação Clínica",
                                     alinhamento: "left",
-                                    largura: "30rem",
+                                    altura: "100%",
                                     grow: "1",
                                 }}
                             />
@@ -98,18 +146,16 @@ const Linha5Sadt = () => {
                         </Box>
                     </Box>
                     <Box>
-                        <Field
-                            dados={{
-                                titulo: "Procedimentos",
-                                texto: "Aqui vai os exames a serem pedidos",
-                                largura: "50rem",
-                                grow: 1,
-                                alinhamento: "center",
-                            }}
-                        />
+                        <Fence
+
+                            titulo="Procedimentos"
+                            grow="1"
+                        >
+                            <Procedimentos />
+                        </Fence>
                     </Box>
                 </Box>
-            </Fence>
+            </Fence >
         </>
     )
 }

@@ -7,6 +7,9 @@ import Linha4Sadt from "./component/linha4"
 import Linha5Sadt from "./component/linha5"
 import Linha6Sadt from "./component/linha6"
 import Linha7Sadt from "./component/linha7"
+import Linha8Sadt from "./component/linha8"
+import Linha9Sadt from "./component/linha9"
+import Linha10Sadt from "./component/linha10"
 
 const Sadt = ({ requisicao }) => {
 
@@ -32,6 +35,9 @@ const Sadt = ({ requisicao }) => {
                     <Linha5Sadt />
                     <Linha6Sadt />
                     <Linha7Sadt />
+                    <Linha8Sadt />
+                    <Linha9Sadt />
+                    <Linha10Sadt />
                 </Box>
             </Page >
         </>

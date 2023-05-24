@@ -22,7 +22,7 @@ const Linha6Sadt = () => {
 
     return (
         <>
-            <Fence titulo="Dados do contratado solicitante">
+            <Fence titulo="Dados do executante">
                 {dados.map(c =>
                     <Field key={c.titulo} dados={c} />
                 )}

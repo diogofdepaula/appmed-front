@@ -1,12 +1,13 @@
 import { Box } from '@mui/material'
 import React from 'react'
 
-const Field = ({ dados }) => {
+const Field = ({ dados, children }) => {
 
     // {
     //     titulo: "xxxx",
     //     texto: "yyy", 
     //     largura: "12rem", 
+    //      altura: "100%"
     //     alinhamento: undefined,
     //      negrito: undefined,
     //     grow: "1",
@@ -18,6 +19,7 @@ const Field = ({ dados }) => {
                 sx={{
                     flexGrow: dados.grow,
                     width: dados.largura,
+                    height: dados.altura,
                     display: 'flex',
                     flexDirection: 'column',
                 }}
@@ -61,6 +63,7 @@ const Field = ({ dados }) => {
                         }}
                     >
                         {dados.texto !== undefined ? dados.texto : <div>&nbsp;</div>}
+                        {children}
                     </Box>
                 </Box>
             </Box>
