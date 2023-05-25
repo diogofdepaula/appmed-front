@@ -96,6 +96,8 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                         A vacinação não é essencial para o início ou manutenção do tratamento. 
                         Trata-se de uma medida profilática com a mesma importância de outras medidas,
                         como higiene pessoal, boa alimentação e uso de álcool nas mãos.
+                        As vacinas não precisam ser feitas simultaneamente e devem ser feitas conforme
+                        as possibilidade e realidade do paciente.
                         Revisar calendário vacinal (carterinha de vacinação) e completar
                         vacinação faltante conforme necessidade. Não refazer as que já foram
                         feitas. As vacinas vivas atenuadas estão contraindicadas em paciente com
