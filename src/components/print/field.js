@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import React from 'react'
 
-const Field = ({ dados, children }) => {
+const Field = ({ dados }) => {
 
     // {
     //     titulo: "xxxx",
@@ -63,7 +63,6 @@ const Field = ({ dados, children }) => {
                         }}
                     >
                         {dados.texto !== undefined ? dados.texto : <div>&nbsp;</div>}
-                        {children}
                     </Box>
                 </Box>
             </Box>

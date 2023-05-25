@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
+import Operadoras from '../../../../../../utils/operadoras'
 
 const Linha1Sadt = ({ requisicao }) => {
 
@@ -22,7 +23,7 @@ const Linha1Sadt = ({ requisicao }) => {
                         width: '30rem',
                     }}
                 >
-                    {requisicao.convenio}
+                    {Operadoras().filter(o => o.razao === requisicao.convenio)[0]?.abreviatura}
                 </Box>
                 <Box
                     sx={{
@@ -46,7 +47,6 @@ const Linha1Sadt = ({ requisicao }) => {
                         typography: 'body2',
                         alignItems: 'center',
                         alignContent: 'flex-start',
-                        bgcolor: 'red',
                         width: '30rem',
                         pl: 3
                     }}

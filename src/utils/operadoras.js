@@ -3,7 +3,7 @@ const Operadoras = () => {
     return [
         {
             registro: "",
-            razao: "nenhum",
+            razao: "",
             abreviatura: "nenhum",
         },
         {
