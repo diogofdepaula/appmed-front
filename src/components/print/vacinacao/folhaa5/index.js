@@ -5,40 +5,6 @@ import Identificacao from '../../receita/component/identificacao';
 
 const VacinacaoA5 = ({ vacinacao, tipo }) => {
 
-
-    // const Convenio = () => {
-
-    //     let conv = <div />
-
-    //     if (requisicao.convenio[0] !== "") {
-    //         conv =
-    //             <>
-    //                 <Box
-    //                     style={{
-    //                         margin: "0 0 1rem 1rem",
-    //                         fontSize: 14,
-    //                         fontWeight: 'bold',
-    //                         textAlign: 'left',
-    //                         letterSpacing: 1,
-    //                     }}
-    //                 >
-    //                     <Box>
-    //                         Convênio:
-    //                     </Box>
-    //                     <Box
-    //                         style={{
-    //                             margin: "0 0 0 1rem",
-    //                         }}
-    //                     >
-    //                         {requisicao.convenio[0]} - {requisicao.convenio[1]}
-    //                     </Box>
-    //                 </Box>
-    //             </>
-    //     }
-
-    //     return conv
-    // }
-
     return (
         <>
             <Page size="a5">
@@ -127,6 +93,9 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                             textAlign: 'justify',
                         }}
                     >
+                        A vacinação não é essencial para o início ou manutenção do tratamento. 
+                        Trata-se de uma medida profilática com a mesma importância de outras medidas,
+                        como higiene pessoal, boa alimentação e uso de álcool nas mãos.
                         Revisar calendário vacinal (carterinha de vacinação) e completar
                         vacinação faltante conforme necessidade. Não refazer as que já foram
                         feitas. As vacinas vivas atenuadas estão contraindicadas em paciente com
