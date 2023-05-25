@@ -10,6 +10,7 @@ import Linha7Sadt from "./component/linha7"
 import Linha8Sadt from "./component/linha8"
 import Linha9Sadt from "./component/linha9"
 import Linha10Sadt from "./component/linha10"
+import Linha11Sadt from "./component/linha11"
 
 const Sadt = ({ requisicao }) => {
 
@@ -38,6 +39,7 @@ const Sadt = ({ requisicao }) => {
                     <Linha8Sadt />
                     <Linha9Sadt />
                     <Linha10Sadt />
+                    <Linha11Sadt />
                 </Box>
             </Page >
         </>

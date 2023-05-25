@@ -6,20 +6,20 @@ import Field from '../../../../field'
 const Linha9Sadt = () => {
 
     const dadoA = {
-        titulo: "48 - Seq. Ref \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "49 - Frau Part \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "50 - Códido na Operadora/CPF \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "51 - Nome do Profissional \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "52 - Conselho Profissional \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "53 - Número no Conselho \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "54 - UF \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
+        titulo: "48 - Seq. Ref " +
+            "49 - Frau Part " +
+            "50 - Códido na Operadora/CPF " +
+            "51 - Nome do Profissional " +
+            "52 - Conselho Profissional " +
+            "53 - Número no Conselho " +
+            "54 - UF " +
             "55 - Código CBO",
         grow: "1",
     }
 
     const dadoB = {
-        titulo: "58 - Data de Realização de Procedimento em Série \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-            "57 - Assinatura do Beneficiário ou Responsável \xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0",
+        titulo: "58 - Data de Realização de Procedimento em Série " +
+            "57 - Assinatura do Beneficiário ou Responsável ",
         grow: "1",
     }
 
@@ -29,7 +29,7 @@ const Linha9Sadt = () => {
                 <Box
                     sx={{
                         display: 'flex',
-                        flexDirection: 'column',
+                        flexDirection: 'row',
                         width: 1,
                         gap: 0.5,
                     }}

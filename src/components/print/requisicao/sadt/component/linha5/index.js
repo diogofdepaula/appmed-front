@@ -72,7 +72,7 @@ const Linha5Sadt = () => {
 
     return (
         <>
-            <Fence titulo="Dados da Solicitação / Procedimento ou Itens Assitenciais Solicitados">
+            <Fence titulo="Dados da Solicitação / Procedimento ou Itens Assitenciais Solicitados" stretch={1}>
                 <Box
                     sx={{
                         display: 'flex',
@@ -145,11 +145,15 @@ const Linha5Sadt = () => {
 
                         </Box>
                     </Box>
-                    <Box>
+                    <Box
+                        sx={{
+                            width: 1,
+                            height: 1,
+                        }}
+                    >
                         <Fence
-
                             titulo="Procedimentos"
-                            grow="1"
+                            stretch={1}
                         >
                             <Procedimentos />
                         </Fence>
