@@ -1,4 +1,4 @@
-export const Clb200sn = {
+const Clb200sn = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -28,7 +28,7 @@ export const Clb200sn = {
     }
 }
 
-export const Clb2007d = {
+const Clb2007d = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -58,7 +58,7 @@ export const Clb2007d = {
     }
 }
 
-export const Clb10010d = {
+const Clb10010d = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -88,7 +88,7 @@ export const Clb10010d = {
     }
 }
 
-export const Clb10014d = {
+const Clb10014d = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -118,7 +118,7 @@ export const Clb10014d = {
     }
 }
 
-export const DF7d = {
+const DF7d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -142,7 +142,7 @@ export const DF7d = {
     }
 }
 
-export const Cz7d = {
+const Cz7d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -166,7 +166,7 @@ export const Cz7d = {
     }
 }
 
-export const NslPtz = {
+const NslPtz = {
     continuo: true,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -193,7 +193,7 @@ export const NslPtz = {
     }
 }
 
-export const Beta = {
+const Beta = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -220,7 +220,7 @@ export const Beta = {
     }
 }
 
-export const Ax907d = {
+const Ax907d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -247,7 +247,7 @@ export const Ax907d = {
     }
 }
 
-export const Ax6010d = {
+const Ax6010d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -274,7 +274,7 @@ export const Ax6010d = {
     }
 }
 
-export const Tmdsn = {
+const Tmdsn = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -304,7 +304,7 @@ export const Tmdsn = {
     }
 }
 
-export const GliCon = {
+const GliCon = {
     continuo: true,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -322,7 +322,7 @@ export const GliCon = {
             {
                 nomefantasia: "Artrolive",
             },
-           ]
+        ]
     },
     posologia: {
         posologia: "Colocar o conteúdo de um envelope em um copo de água.\nAguardar 3 minutos, então mexer com um colher.\nTomar a mistura uma vez ao dia por 6 meses.",
@@ -331,7 +331,7 @@ export const GliCon = {
     }
 }
 
-export const UciiHaMsm = {
+const UciiHaMsm = {
     continuo: true,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -355,7 +355,7 @@ export const UciiHaMsm = {
     }
 }
 
-export const Pdn405d204d = {
+const Pdn405d204d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -379,7 +379,7 @@ export const Pdn405d204d = {
     }
 }
 
-export const TmdPct = {
+const TmdPct = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -409,7 +409,7 @@ export const TmdPct = {
     }
 }
 
-export const CurcumaUCII = {
+const CurcumaUCII = {
     continuo: true,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -430,10 +430,10 @@ export const CurcumaUCII = {
         posologia: "Tome 01 comprimido uma vez ao dia por 3 meses.",
         quantidade: "3",
         forma: "caixas",
-    } 
+    }
 }
 
-export const AINHTopico = {
+const AINHTopico = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
@@ -457,16 +457,27 @@ export const AINHTopico = {
     }
 }
 
-// Albendazol
-// Codeina
-// Dexacitoneurin NNF
-// DLX 30 -> 60
-// Isoniazida
-// MPDN 1000mg/DU
-// MPDN 1000mg/DU/3D
-// Nistatina oral
-// PBL
-// TMD Gt
-// VD padrao
-// Cataflan topico
+export const prescricoeslist = {
+    Clb2007d: Clb2007d,
+    DF7d: DF7d,
+    Cz7d: Cz7d,
+    Clb200sn: Clb200sn,
+    Clb10010d: Clb10010d,
+    Clb10014d: Clb10014d,
+    NslPtz: NslPtz,
+    Beta: Beta,
+    Ax907d: Ax907d,
+    Ax6010d: Ax6010d,
+    TmdPct: TmdPct,
+    Tmdsn: Tmdsn,
+    GliCon: GliCon,
+    UciiHaMsm: UciiHaMsm,
+    Pdn405d204d: Pdn405d204d,
+    CurcumaUCII: CurcumaUCII,
+    AINHTopico: AINHTopico,
+    default: {}
+}
 
+export const Prescricoes = ( presc ) => {
+    return prescricoeslist[presc] || prescricoeslist.default
+}

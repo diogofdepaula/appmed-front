@@ -1,5 +1,5 @@
 import { Box, TextField } from "@mui/material";
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { prescricaolivreinicial } from '..';
 import ListApresentacoes from '../../../components/listapresentacao';
 import ListMedicamentos from '../../../components/listmedicamento';
@@ -93,24 +93,12 @@ const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre, setme
     )
 }
 
-const PrescricaoBanco = ({ setPrescricaoLivre }) => {
+const PrescricaoBanco = ({ setPrescricaoLivre, medicamentos }) => {
 
     const [prescricao, setPrescricao] = useState(prescricaolivreinicial)
-    const [medicamentos, setMedicamentos] = useState([])
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
     const [medicamento, setMedicamento] = useState()
     const [step, setStep] = useState(1)
-
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + '/medicamentos/short')
-        const json = await res.json()
-        setMedicamentos(json)
-        setStep(1)
-    }, [])
-
-    useEffect(() => {
-        fetchData()
-    }, [fetchData])
 
     const filterMedicamento = event => {
 

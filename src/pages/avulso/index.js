@@ -1,16 +1,16 @@
 import { Box, Button, Checkbox, FormControlLabel, Tab, Tabs, TextField } from '@mui/material';
 import PropTypes from 'prop-types';
-import React, { useContext, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
+import Ditame from './ditame';
 import PrescricaoBanco from './prescricao/prescricaobanco';
 import PrescricaoLivre from './prescricao/prescricaolivre';
-import { AINHTopico, Ax6010d, Ax907d, Beta, Clb10010d, Clb10014d, Clb2007d, Clb200sn, CurcumaUCII, DF7d, GliCon, NslPtz, Pdn405d204d, TmdPct, Tmdsn, UciiHaMsm } from './prescricao/prescricoes';
+import { Prescricoes, prescricoeslist } from './prescricao/prescricoes';
 import Requisicoes from './requisicao/requisicoes';
 import Vacinacao from './vacinacao';
 
-function TabPanel(props) {
-    const { children, value, index, ...other } = props;
+const TabPanel = ({ children, value, index, ...other }) => {
 
     return (
         <div
@@ -31,7 +31,7 @@ function TabPanel(props) {
                 </Box>
             )}
         </div>
-    );
+    )
 }
 
 TabPanel.propTypes = {
@@ -40,216 +40,11 @@ TabPanel.propTypes = {
     value: PropTypes.number.isRequired,
 }
 
-function a11yProps(index) {
+const a11yProps = (index) => {
     return {
         id: `simple-tab-${index}`,
         'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
-
-const PrescricaoBox = ({ prescricao }) => {
-
-    return (
-        <>
-            <Box>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Box
-                        sx={{
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
-                    </Box>
-                    <Box
-                        sx={{
-                            fontSize: 10,
-                        }}
-                    >
-                        {prescricao.posologia.quantidade + ' ' + prescricao.posologia.forma}
-                    </Box>
-                </Box>
-                <Box
-                    sx={{
-                        fontSize: 12,
-                    }}
-                >
-                    {prescricao.posologia.posologia}
-                </Box>
-                <Box
-                    sx={{
-                        fontSize: 8,
-                    }}
-                >
-                    {prescricao.imprimirorientacoes ? "com orientações" : ''}
-                </Box>
-            </Box>
-        </>
-    )
-}
-
-const RequisicaoBox = ({ requisicao }) => {
-
-    return (
-        <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: "column",
-                    gap: 1,
-                    p: 1,
-                    m: 1,
-                    border: 0.5,
-                    borderRadius: 1,
-                    borderColor: "#42a5f5"
-                }}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Box
-                        sx={{
-                            fontSize: 10,
-                        }}
-                    >
-                        {requisicao.justificativa}
-                    </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        {requisicao.selecionados.map((s, i) =>
-                            <Box key={i}>
-                                {s.mod}
-                            </Box>
-                        )}
-                    </Box>
-                </Box>
-            </Box>
-        </>
-    )
-}
-
-const VacinacaoBox = ({ vacinacao }) => {
-
-    return (
-        <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: "column",
-                    gap: 1,
-                    p: 1,
-                    m: 1,
-                    border: 0.5,
-                    borderRadius: 1,
-                    borderColor: "#42a5f5"
-                }}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Box
-                        sx={{
-                            fontSize: 10,
-                        }}
-                    >
-                        {vacinacao.indicacao}
-                    </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        {vacinacao.selecionadas.map((s, i) =>
-                            <Box key={i}>
-                                {s.mod}
-                            </Box>
-                        )}
-                    </Box>
-                </Box>
-            </Box>
-        </>
-    )
-}
-
-const Conteudo = ({ receita }) => {
-
-    return (
-        <>
-            <Box
-                sx={{
-                    border: 1,
-                    borderColor: 'black',
-                    width: '20rem',
-                    height: '40rem',
-                }}
-            >
-                <Box
-                    sx={{
-                        flexGrow: 1,
-                        textAlign: 'center',
-                        fontWeight: 'bold',
-                        fontSize: 24,
-                        m: 1
-                    }}
-                >
-                    {receita.clienteContext.nome}
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: "column",
-                        gap: 1,
-                        p: 1,
-                        m: 1,
-                        border: 0.5,
-                        borderRadius: 1,
-                        borderColor: "#42a5f5"
-                    }}
-                >
-                    {receita.prescricoes.map((p, i) =>
-                        <PrescricaoBox prescricao={p} key={i} />
-                    )}
-                </Box>
-                <Box>
-                    {receita.comentarios}
-                </Box>
-                <Box>
-                    {receita.requisicoes.map((r, i) =>
-                        <RequisicaoBox requisicao={r} key={i} />
-                    )}
-                </Box>
-                <Box>
-                    {receita.vacinacao.map((r, i) =>
-                        <VacinacaoBox vacinacao={r} key={i} />
-                    )}
-                </Box>
-
-            </Box>
-        </>
-    )
+    }
 }
 
 export const prescricaolivreinicial = {
@@ -288,77 +83,6 @@ const receitainicial = {
     comentarios: '',
 }
 
-const presc = [
-    {
-        title: "CLB 200 7D",
-        prescricao: [Clb2007d],
-    },
-    {
-        title: "DF 7D",
-        prescricao: [DF7d],
-    },
-    {
-        title: "CLB2007D + DF7D",
-        prescricao: [Clb2007d, DF7d],
-    },
-    {
-        title: "CLB 200 SN",
-        prescricao: [Clb200sn],
-    },
-    {
-        title: "CLB 100 10D",
-        prescricao: [Clb10010d],
-    },
-    {
-        title: "CLB 100 14D",
-        prescricao: [Clb10014d],
-    },
-    {
-        title: "NslPtz",
-        prescricao: [NslPtz],
-    },
-    {
-        title: "Beta",
-        prescricao: [Beta],
-    },
-    {
-        title: "Ax 90 7D",
-        prescricao: [Ax907d],
-    },
-    {
-        title: "Ax 60 14D",
-        prescricao: [Ax6010d],
-    },
-    {
-        title: "Tmd SN",
-        prescricao: [Tmdsn],
-    },
-    {
-        title: "TmdPct SN",
-        prescricao: [TmdPct],
-    },
-    {
-        title: "GliCon",
-        prescricao: [GliCon],
-    },
-    {
-        title: "UCII-HA-MSM",
-        prescricao: [UciiHaMsm],
-    },
-    {
-        title: "PDN 40 5D 20 4D",
-        prescricao: [Pdn405d204d],
-    },
-    {
-        title: "CurcumaUCII ",
-        prescricao: [CurcumaUCII],
-    },
-    {
-        title: "AINH Tópico",
-        prescricao: [AINHTopico],
-    },
-]
-
 const Avulso = () => {
 
     const [value, setValue] = React.useState(0);
@@ -367,19 +91,29 @@ const Avulso = () => {
     const { nomecomercial, setNomeComercial, convenio, setConvenio, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
+    const [medicamentos, setMedicamentos] = useState([])
 
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
     const [receita, setReceita] = useState(receitainicial)
+
+    const fetchData = useCallback(async () => {
+        const res = await fetch(process.env.REACT_APP_API_URL + '/medicamentos/short')
+        const json = await res.json()
+        setMedicamentos(json)
+    }, [])
+
+    useEffect(() => {
+        fetchData()
+    }, [fetchData])
 
     const handleChangeTab = (event, newValue) => {
         setValue(newValue)
     }
 
-    const handleAdicionarPrescricao = (pres) => {
+    const handleAdicionarPrescricao = (presc) => {
         setReceita({
             ...receita,
-            prescricoes: receita.prescricoes.concat(pres)
-
+            prescricoes: receita.prescricoes.concat(presc)
         })
         setPrescricaoLivre(prescricaolivreinicial)
     }
@@ -428,8 +162,8 @@ const Avulso = () => {
         setPrescricaoLivre(prescricaolivreinicial)
     }
 
-    const handleDrag = (param) => {
-        setPrescricaoLivre(param[0])
+    const handleDrag = (presc) => {
+        setPrescricaoLivre(presc)
     }
 
     const handleDrop = (event) => {
@@ -463,7 +197,7 @@ const Avulso = () => {
                     gap: 2,
                 }}
             >
-                <Conteudo receita={receita} />
+                <Ditame receita={receita} />
                 <Box
                     sx={{
                         display: 'flex',
@@ -556,16 +290,16 @@ const Avulso = () => {
                                         width: '20rem',
                                     }}
                                 >
-                                    {presc.map((p, i) =>
+                                    {Object.keys(prescricoeslist).map((p, i) =>
                                         <Button
                                             id={i}
                                             size="small"
                                             draggable
                                             key={i}
-                                            onClick={() => handleAdicionarPrescricao(p.prescricao)}
-                                            onDragOver={() => handleDrag(p.prescricao)}
+                                            onClick={() => handleAdicionarPrescricao(Prescricoes(p))}
+                                            onDragOver={() => handleDrag(Prescricoes(p))}
                                         >
-                                            {p.title}
+                                            {p}
                                         </Button>
                                     )}
                                 </Box>
@@ -582,6 +316,7 @@ const Avulso = () => {
                                         handleAdicionarPrescricao={handleAdicionarPrescricao}
                                         prescricaoLivre={prescricaoLivre}
                                         setPrescricaoLivre={setPrescricaoLivre}
+                                        medicamentos={medicamentos}
                                     />
                                     <Box
                                         onDragEnd={(e) => handleDrag(e)}
