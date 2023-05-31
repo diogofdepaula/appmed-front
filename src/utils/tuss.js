@@ -22607,7 +22607,7 @@ const Tuss = () => {
                 {
                         codigo: "40306860",
                         original: "Fator reumatóide, quantitativo - pesquisa e/ou dosagem",
-                        mod: "Fator reumatóide, quantitativo",
+                        mod: "Fator reumatóide, quantitativo (por Nefelometria ou turbidimetria)",
                         favorito: false,
                         aspecto: "",
                 },
