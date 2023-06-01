@@ -20079,8 +20079,8 @@ const Tuss = () => {
                 },
                 {
                         codigo: "40301907",
-                        original: "Fosfatase alcalina fração óssea - Elisa - pesquisa e/ou dosagem",
-                        mod: "Fosfatase alcalina fração óssea - Elisa",
+                        original: "Fosfatase alcalina fração óssea - pesquisa e/ou dosagem",
+                        mod: "Fosfatase alcalina fração óssea",
                         favorito: false,
                         aspecto: "",
                 },
