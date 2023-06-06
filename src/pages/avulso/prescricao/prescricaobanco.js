@@ -1,9 +1,9 @@
 import { Box, TextField } from "@mui/material";
 import React, { useCallback, useState } from 'react';
-import { prescricaolivreinicial } from '..';
 import ListApresentacoes from '../../../components/listapresentacao';
 import ListMedicamentos from '../../../components/listmedicamento';
 import ListPosologia from '../../../components/listposologia';
+import { prescricaolivreinicial } from ".";
 
 const Medicamento = ({ medicamentosfiltrados, setStep, setMedicamento, prescricao, setPrescricao }) => {
 

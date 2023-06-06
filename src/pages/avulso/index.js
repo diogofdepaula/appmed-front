@@ -4,11 +4,12 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
 import Ditame from './ditame';
-import PrescricaoBanco from './prescricao/prescricaobanco';
-import PrescricaoLivre from './prescricao/prescricaolivre';
-import { Prescricoes, prescricoeslist } from './prescricao/prescricoes';
-import Requisicoes from './requisicao/requisicoes';
+// import PrescricaoBanco from './prescricao/prescricaobanco';
+// import PrescricaoLivre from './prescricao/prescricaolivre';
+// import { PrescricoesList, prescricoeslist } from './prescricao/prescricoeslist';
+import Requisicoes from './requisicao';
 import Vacinacao from './vacinacao';
+import Prescricoes from './prescricao';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -47,31 +48,6 @@ const a11yProps = (index) => {
     }
 }
 
-export const prescricaolivreinicial = {
-    continuo: false,
-    imprimirorientacoes: false,
-    usoposologiapadrao: true,
-    orientacoes: "",
-    apresentaco: {
-        descricao: "",
-        uso: "",
-    },
-    medicamento: {
-        farmaco: "",
-        controlado: false,
-        nomescomerciais: [
-            {
-                nomefantasia: "",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "",
-        quantidade: "",
-        forma: "",
-    }
-}
-
 const receitainicial = {
     clienteContext: {
         nome: ''
@@ -90,7 +66,6 @@ const Avulso = () => {
     const { local } = useContext(LoginContext)
     const { nomecomercial, setNomeComercial, convenio, setConvenio, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
-    const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
     const [medicamentos, setMedicamentos] = useState([])
 
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
@@ -115,7 +90,6 @@ const Avulso = () => {
             ...receita,
             prescricoes: receita.prescricoes.concat(presc)
         })
-        setPrescricaoLivre(prescricaolivreinicial)
     }
 
     const handleChange = event => {
@@ -159,17 +133,17 @@ const Avulso = () => {
 
     const handleClickReset = () => {
         setReceita(receitainicial)
-        setPrescricaoLivre(prescricaolivreinicial)
+        //setPrescricaoLivre(prescricaolivreinicial)
     }
 
-    const handleDrag = (presc) => {
-        setPrescricaoLivre(presc)
-    }
+    // const handleDrag = (presc) => {
+    //     setPrescricaoLivre(presc)
+    // }
 
-    const handleDrop = (event) => {
-        // tem que ter, pois ele que permite do Drops Drag
-        event.preventDefault();
-    }
+    // const handleDrop = (event) => {
+    //     // tem que ter, pois ele que permite do Drops Drag
+    //     event.preventDefault();
+    // }
 
     const handleAdicionarRequisicao = (req) => {
         setReceita({
@@ -275,7 +249,12 @@ const Avulso = () => {
                             value={value}
                             index={0}
                         >
-                            <Box
+                            <Prescricoes
+                                handleAdicionarPrescricao={handleAdicionarPrescricao}
+                                handleChangeComentarios={handleChangeComentarios}
+                                medicamentos={medicamentos}
+                            />
+                            {/* <Box
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'row',
@@ -296,8 +275,8 @@ const Avulso = () => {
                                             size="small"
                                             draggable
                                             key={i}
-                                            onClick={() => handleAdicionarPrescricao(Prescricoes(p))}
-                                            onDragOver={() => handleDrag(Prescricoes(p))}
+                                            onClick={() => handleAdicionarPrescricao(PrescricoesList(p))}
+                                            onDragOver={() => handleDrag(PrescricoesList(p))}
                                         >
                                             {p}
                                         </Button>
@@ -335,10 +314,9 @@ const Avulso = () => {
                                         variant='outlined'
                                         label="Comentários"
                                         onChange={(e) => handleChangeComentarios(e)}
-
                                     />
                                 </Box>
-                            </Box>
+                            </Box> */}
                         </TabPanel>
                         <TabPanel
                             value={value}

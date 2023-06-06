@@ -478,6 +478,6 @@ export const prescricoeslist = {
     default: {}
 }
 
-export const Prescricoes = ( presc ) => {
+export const PrescricoesList = ( presc ) => {
     return prescricoeslist[presc] || prescricoeslist.default
 }

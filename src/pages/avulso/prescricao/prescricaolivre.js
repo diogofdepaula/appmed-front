@@ -1,5 +1,6 @@
 import { Box, Button, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import React from 'react';
+import { prescricaolivreinicial } from '.';
 
 const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescricaoLivre }) => {
 
@@ -67,6 +68,7 @@ const PrescricaoLivre = ({ handleAdicionarPrescricao, prescricaoLivre, setPrescr
 
     const handleAdicionar = () => {
         handleAdicionarPrescricao(prescricaoLivre)
+        setPrescricaoLivre(prescricaolivreinicial)
     }
 
     return (
