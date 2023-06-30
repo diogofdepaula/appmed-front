@@ -18,7 +18,7 @@ const IndicesAtividade = () => {
         if (DoençaCID(lmeEdit.cid10) === 'ar') return [
             ['das28', lmeEdit.relatorio.das28, "9,9"],
             ['cdai', lmeEdit.relatorio.cdai, "99"],
-            ['sdai', lmeEdit.relatorio.sdai, "99"],
+            ['sdai', lmeEdit.relatorio.sdai, "999"],
         ]
         if (DoençaCID(lmeEdit.cid10) === 'ap') return [
             ['asdascrp', lmeEdit.relatorio.asdascrp, "9.9"],
