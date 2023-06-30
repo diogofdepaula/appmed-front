@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Operadoras } from "../../utils/operadoras"
 
 const PrintProvider = () => {
 
@@ -18,7 +19,7 @@ const PrintProvider = () => {
     const [database, setDatabase] = useState(new Date())
     const [renovacao, setRenovacao] = useState(false)
     const [avulso, setAvulso] = useState(false)
-    const [convenio, setConvenio] = useState(false) // pus assim, mas depois fazer com o nome do convênio -- talvez faze uma para SADT
+    const [operadora, setOperadora] = useState(Operadoras[0])
     const somaheighta4 = 950 // 900, 
     const somaheighta5 = 440
 
@@ -55,8 +56,8 @@ const PrintProvider = () => {
         setRenovacao,
         avulso, 
         setAvulso,
-        convenio, 
-        setConvenio,
+        operadora, 
+        setOperadora,
         somaheighta4,
         somaheighta5,
         printReset: () => {
@@ -76,7 +77,7 @@ const PrintProvider = () => {
             setDatabase(new Date())
             setRenovacao(false)
             setAvulso(false)
-            setConvenio(false)
+            setOperadora(Operadoras[0])
         }
     }
 }

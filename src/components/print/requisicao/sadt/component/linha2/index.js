@@ -1,15 +1,13 @@
 import React from 'react'
 import Fence from '../../../../fence'
 import Field from '../../../../field'
-import Operadoras from '../../../../../../utils/operadoras'
-//import Operadoras from '../../../../../../utils/operadoras'
 
 const Linha2Sadt = ({ requisicao }) => {
 
     const dados = [
         {
             titulo: "1 - Registro ANS",
-            texto: Operadoras().filter(o => o.razao === requisicao.convenio)[0].registro,
+          //  texto: Operadoras().filter(o => o.razao === requisicao.convenio)[0].registro,
             largura: "8rem",
             alinhamento: "center",
         },

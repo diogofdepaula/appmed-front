@@ -20,7 +20,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const PrintDialog = ({ open, handleClose }) => {
 
     const { local } = useContext(LoginContext)
-    const { prescricoesSelecionadas, lmesSelecionadas, convenio } = useContext(PrintContext)
+    const { prescricoesSelecionadas, lmesSelecionadas, operadora } = useContext(PrintContext)
 
     const componentRef = useRef()
 
@@ -53,7 +53,7 @@ const PrintDialog = ({ open, handleClose }) => {
 
     const page = () => {
         if (lmesSelecionadas.length > 0) return '@page { size: A4 }'
-        if (convenio) return '@page { size: A4 lanscape }'
+        if (operadora.razao !== '') return '@page { size: A4 lanscape }'
         if (local === 'consultorio') return '@page { size: A5 }'
         return '@page { size: A4 }'
     }

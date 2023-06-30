@@ -12,11 +12,9 @@ import Sadt from '../../components/print/requisicao/sadt';
 
 export const LMEPrintContext = createContext(null)
 
-
-
 const PrintJob = () => {
 
-    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao, convenio } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao, operadora } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const LMEs = () => {
@@ -114,7 +112,7 @@ const PrintJob = () => {
     const Requisicao = () => {
         if (requisicoes.length === 0) return <></>
         return requisicoes?.map((r, i) => {
-            if (convenio) {
+            if (operadora.registro !== '') {
                 return <Sadt key={i} requisicao={r} tipo={local} />
             } else {
                 return <RequisicaoA5 key={i} requisicao={r} tipo={local} />

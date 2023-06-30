@@ -1,15 +1,13 @@
-import { Box, Button, Checkbox, FormControlLabel, Tab, Tabs, TextField } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, MenuItem, Select, Tab, Tabs, TextField, } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { ClienteContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
 import Ditame from './ditame';
-// import PrescricaoBanco from './prescricao/prescricaobanco';
-// import PrescricaoLivre from './prescricao/prescricaolivre';
-// import { PrescricoesList, prescricoeslist } from './prescricao/prescricoeslist';
+import Prescricoes from './prescricao';
 import Requisicoes from './requisicao';
 import Vacinacao from './vacinacao';
-import Prescricoes from './prescricao';
+import { Operadoras } from '../../utils/operadoras';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -64,7 +62,7 @@ const Avulso = () => {
     const [value, setValue] = React.useState(0);
     const { setClienteContext } = useContext(ClienteContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, convenio, setConvenio, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
+    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [medicamentos, setMedicamentos] = useState([])
 
@@ -127,23 +125,14 @@ const Avulso = () => {
         setNomeComercial(event.target.checked)
     }
 
-    const handleChangeConvenio = (event) => {
-        setConvenio(event.target.checked)
+    const handleChangeOperadora = (event) => {
+        setOperadora(event.target.value)
     }
 
     const handleClickReset = () => {
         setReceita(receitainicial)
-        //setPrescricaoLivre(prescricaolivreinicial)
+        setOperadora(Operadoras[0])
     }
-
-    // const handleDrag = (presc) => {
-    //     setPrescricaoLivre(presc)
-    // }
-
-    // const handleDrop = (event) => {
-    //     // tem que ter, pois ele que permite do Drops Drag
-    //     event.preventDefault();
-    // }
 
     const handleAdicionarRequisicao = (req) => {
         setReceita({
@@ -204,16 +193,21 @@ const Avulso = () => {
                                 />}
                             label='Nome comercial'
                         />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    color='primary'
-                                    name="convenio"
-                                    checked={convenio}
-                                    onChange={handleChangeConvenio}
-                                />}
-                            label='Convênio'
-                        />
+                        <Select
+                            label='Convênios'
+                            name='operadora'
+                            value={operadora}
+                            onChange={handleChangeOperadora}
+                        >
+                            <MenuItem value=''></MenuItem>
+                            {Operadoras.map((o, i) =>
+                                <MenuItem
+                                    key={i}
+                                    value={o}
+                                >{o.abreviatura}
+                                </MenuItem>
+                            )}
+                        </Select>
                         <Button
                             variant="outlined"
                             onClick={() => handleClickReset()}
@@ -254,69 +248,6 @@ const Avulso = () => {
                                 handleChangeComentarios={handleChangeComentarios}
                                 medicamentos={medicamentos}
                             />
-                            {/* <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    width: 1,
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'flex-start',
-                                        width: '20rem',
-                                    }}
-                                >
-                                    {Object.keys(prescricoeslist).map((p, i) =>
-                                        <Button
-                                            id={i}
-                                            size="small"
-                                            draggable
-                                            key={i}
-                                            onClick={() => handleAdicionarPrescricao(PrescricoesList(p))}
-                                            onDragOver={() => handleDrag(PrescricoesList(p))}
-                                        >
-                                            {p}
-                                        </Button>
-                                    )}
-                                </Box>
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        gap: 1,
-                                        width: 1,
-                                    }}
-
-                                >
-                                    <PrescricaoBanco
-                                        handleAdicionarPrescricao={handleAdicionarPrescricao}
-                                        prescricaoLivre={prescricaoLivre}
-                                        setPrescricaoLivre={setPrescricaoLivre}
-                                        medicamentos={medicamentos}
-                                    />
-                                    <Box
-                                        onDragEnd={(e) => handleDrag(e)}
-                                        onDrop={(e) => handleDrop(e)}
-                                    >
-                                        <PrescricaoLivre
-                                            handleAdicionarPrescricao={handleAdicionarPrescricao}
-                                            prescricaoLivre={prescricaoLivre}
-                                            setPrescricaoLivre={setPrescricaoLivre}
-                                        />
-                                    </Box>
-                                    <TextField
-                                        fullWidth
-                                        multiline
-                                        rows={2}
-                                        variant='outlined'
-                                        label="Comentários"
-                                        onChange={(e) => handleChangeComentarios(e)}
-                                    />
-                                </Box>
-                            </Box> */}
                         </TabPanel>
                         <TabPanel
                             value={value}

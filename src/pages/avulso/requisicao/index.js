@@ -10,7 +10,6 @@ const requisicaoinicial = {
     indice: 0,
     justificativa: "",
     selecionados: [],
-    convenio: "SUS",
 }
 
 const ListButtons = ({ list, sendParam }) => {
@@ -403,7 +402,6 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                             mod: "HIV1+ HIV2, (determinação conjunta), pesquisa de anticorpos",
                         },
                     ],
-                    convenio: "SUS",
                 },
                 {
                     indice: ind + 1,
@@ -415,7 +413,6 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                             mod: "PPD (teste tuberculínico)",
                         },
                     ],
-                    convenio: "SUS",
                 },
                 {
                     indice: ind + 2,
@@ -427,7 +424,6 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                             mod: "Radiografia de tórax - 2 incidências (PA e Perfil); ",
                         },
                     ],
-                    convenio: "SUS",
                 }
             ]
 
@@ -476,7 +472,6 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
             indice: ind.current + req.lenght,
             justificativa: '',
             selecionados: [],
-            convenio: "SUS",
         })
         ind.current = ind.current + req.lenght
     }
@@ -488,7 +483,6 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
             indice: ind.current + 1,
             justificativa: just,
             selecionados: [],
-            convenio: "SUS",
         })
         ind.current = ind.current + 1
     }
