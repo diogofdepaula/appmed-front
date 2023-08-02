@@ -29,7 +29,7 @@ export const prescricaolivreinicial = {
     }
 }
 
-const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios, medicamentos }) => {
+const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios }) => {
 
     const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
 
@@ -90,7 +90,6 @@ const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios, medic
                         handleAdicionarPrescricao={handleAdicionarPrescricao}
                         prescricaoLivre={prescricaoLivre}
                         setPrescricaoLivre={setPrescricaoLivre}
-                        medicamentos={medicamentos}
                     />
                     <Box
                         onDragEnd={(e) => handleDrag(e)}

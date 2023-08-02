@@ -9,7 +9,9 @@ import ClienteProvider from './providers/cliente';
 import LoginProvider from './providers/login';
 import NavigateProvider from './providers/navegation';
 import PrintProvider from './providers/print'
+import DataProvider from './providers/data';
 
+export const DataContext = createContext()
 export const ClienteContext = createContext()
 export const LoginContext = createContext()
 export const NavigateContext = createContext()
@@ -36,9 +38,9 @@ const Conteudo = () => {
             <LeftDrawer />
             <Box
                 component="main"
-                sx={{ 
+                sx={{
                     flexGrow: 1,
-                 }}
+                }}
             >
                 <Toolbar />
                 <MainContent />
@@ -53,15 +55,17 @@ const App = () => {
         <>
             <Box sx={{ display: "flex" }} >
                 <CssBaseline />
-                <ClienteContext.Provider value={ClienteProvider()} >
-                    <NavigateContext.Provider value={NavigateProvider()} >
-                        <LoginContext.Provider value={LoginProvider()} >
-                            <PrintContext.Provider value={PrintProvider()}>
-                                <Conteudo />
-                            </PrintContext.Provider>
-                        </LoginContext.Provider>
-                    </NavigateContext.Provider>
-                </ClienteContext.Provider>
+                <DataContext.Provider value={DataProvider()} >
+                    <ClienteContext.Provider value={ClienteProvider()} >
+                        <NavigateContext.Provider value={NavigateProvider()} >
+                            <LoginContext.Provider value={LoginProvider()} >
+                                <PrintContext.Provider value={PrintProvider()}>
+                                    <Conteudo />
+                                </PrintContext.Provider>
+                            </LoginContext.Provider>
+                        </NavigateContext.Provider>
+                    </ClienteContext.Provider>
+                </DataContext.Provider>
             </Box>
         </>
     )

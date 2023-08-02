@@ -1,7 +1,7 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Select, Tab, Tabs, TextField, } from '@mui/material';
 import PropTypes from 'prop-types';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, LoginContext, PrintContext } from '../../App';
+import React, { useContext, useEffect, useState } from 'react';
+import { ClienteContext, DataContext, LoginContext, PrintContext } from '../../App';
 import PrintDialog from '../print/component/printdialog';
 import Ditame from './ditame';
 import Prescricoes from './prescricao';
@@ -59,25 +59,21 @@ const receitainicial = {
 
 const Avulso = () => {
 
-    const [value, setValue] = React.useState(0);
     const { setClienteContext } = useContext(ClienteContext)
+    const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
     const { local } = useContext(LoginContext)
     const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
-    const [medicamentos, setMedicamentos] = useState([])
+    const [value, setValue] = React.useState(0);
 
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
     const [receita, setReceita] = useState(receitainicial)
 
-    const fetchData = useCallback(async () => {
-        const res = await fetch(process.env.REACT_APP_API_URL + '/medicamentos/short')
-        const json = await res.json()
-        setMedicamentos(json)
-    }, [])
-
     useEffect(() => {
-        fetchData()
-    }, [fetchData])
+     if (!dataMedUpdate) {
+        setFetchAllMedicamentos()
+     }
+    }, [dataMedUpdate, setFetchAllMedicamentos])
 
     const handleChangeTab = (event, newValue) => {
         setValue(newValue)
@@ -246,7 +242,6 @@ const Avulso = () => {
                             <Prescricoes
                                 handleAdicionarPrescricao={handleAdicionarPrescricao}
                                 handleChangeComentarios={handleChangeComentarios}
-                                medicamentos={medicamentos}
                             />
                         </TabPanel>
                         <TabPanel

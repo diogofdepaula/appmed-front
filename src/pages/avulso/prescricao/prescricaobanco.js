@@ -1,37 +1,25 @@
 import { Box, TextField } from "@mui/material";
-import React, { useCallback, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ListApresentacoes from '../../../components/listapresentacao';
 import ListMedicamentos from '../../../components/listmedicamento';
 import ListPosologia from '../../../components/listposologia';
 import { prescricaolivreinicial } from ".";
+import { DataContext } from "../../../App";
 
 const Medicamento = ({ medicamentosfiltrados, setStep, setMedicamento, prescricao, setPrescricao }) => {
 
-    const fetchData = useCallback(async (id) => {
-        await fetch(process.env.REACT_APP_API_URL + '/medicamentos/' + id)
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                setMedicamento(data)
-                setPrescricao({
-                    ...prescricao,
-                    orientacoes: data.orientacoes,
-                    medicamento: {
-                        farmaco: data.farmaco,
-                        controlado: data.controlado,
-                        nomescomerciais: data.nomescomerciais
-                    },
-                })
-            }).then(() => {
-                setStep(2)
-            })
-    }, [setMedicamento, setStep, prescricao, setPrescricao])
-
-
-    const handleTableRow = param => async () => {
-        fetchData(param.id)
+    const handleTableRow = param => () => {
+        setMedicamento(param)
+        setPrescricao({
+            ...prescricao,
+            orientacoes: param.orientacoes,
+            medicamento: {
+                farmaco: param.farmaco,
+                controlado: param.controlado,
+                nomescomerciais: param.nomescomerciais
+            },
+        })
+        setStep(2)
     }
 
     return (
@@ -93,8 +81,9 @@ const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre, setme
     )
 }
 
-const PrescricaoBanco = ({ setPrescricaoLivre, medicamentos }) => {
+const PrescricaoBanco = ({ setPrescricaoLivre }) => {
 
+    const { allMedicamentos } = useContext(DataContext)
     const [prescricao, setPrescricao] = useState(prescricaolivreinicial)
     const [medicamentosfiltrados, setmedicamentosfiltrados] = useState([])
     const [medicamento, setMedicamento] = useState()
@@ -103,7 +92,7 @@ const PrescricaoBanco = ({ setPrescricaoLivre, medicamentos }) => {
     const filterMedicamento = event => {
 
         if (event.target.value.length >= 2) {
-            let filtro = [...medicamentos].filter(w =>
+            let filtro = [...allMedicamentos].filter(w =>
                 w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
                 w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
             )
