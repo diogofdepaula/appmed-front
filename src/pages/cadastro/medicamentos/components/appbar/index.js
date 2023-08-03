@@ -9,7 +9,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '../..';
 import InitialMedicamento from '../initialmedicamento';
-import DataContext from '../../../../../providers/data'
+import { DataContext } from '../../../../../App';
 
 const MedicamentosAppBar = () => {
 
