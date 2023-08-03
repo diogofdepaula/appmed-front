@@ -236,7 +236,7 @@ const Ax907d = {
                 nomefantasia: "Arcoxia",
             },
             {
-                nomefantasia: "Hetori",
+                nomefantasia: "Ecoxe",
             },
         ]
     },
@@ -263,7 +263,7 @@ const Ax6010d = {
                 nomefantasia: "Arcoxia",
             },
             {
-                nomefantasia: "Hetori",
+                nomefantasia: "Ecoxe",
             },
         ]
     },
