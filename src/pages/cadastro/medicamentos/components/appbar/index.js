@@ -9,10 +9,12 @@ import SaveIcon from '@mui/icons-material/Save';
 import React, { useContext } from 'react';
 import { MedicamentosContext } from '../..';
 import InitialMedicamento from '../initialmedicamento';
+import DataContext from '../../../../../providers/data'
 
 const MedicamentosAppBar = () => {
 
     const { updatePage, medicamentoOnDuty, setMedicamentoOnDuty, medicamentoEdit, setMedicamentoEdit, page, setPage } = useContext(MedicamentosContext)
+    const { setDataMedUpdate } = useContext(DataContext)
 
     const handleBack = () => {
         setMedicamentoEdit(null)
@@ -27,6 +29,7 @@ const MedicamentosAppBar = () => {
         setMedicamentoOnDuty(null)
         setMedicamentoEdit(newmedicamento)
         setPage('medicamentoinsert')
+        setDataMedUpdate(false)
     }
 
     const handleUpdate = () => {
@@ -34,6 +37,7 @@ const MedicamentosAppBar = () => {
         // setMedicamentoEdit(medicamentoOnDuty)
         setMedicamentoOnDuty(null)
         setPage('medicamentoupdate')
+        setDataMedUpdate(false)
     }
 
     const handleSubmit = event => {

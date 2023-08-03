@@ -2,7 +2,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Box, IconButton, List, Paper } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { ClienteContext, NavigateContext, PrintContext } from '../App';
+import { ClienteContext, DataContext, NavigateContext, PrintContext } from '../App';
 import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
 
@@ -11,6 +11,7 @@ const ClienteSet = () => {
     const { setResetCliente } = useContext(ClienteContext)
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { printReset } = useContext(PrintContext)
+    const { setFetchAllMedicamentos } = useContext(DataContext)
 
     const [clientes, setClientes] = useState([])
     const [clientesfiltrados, setClientesFiltrados] = useState([])
@@ -33,6 +34,7 @@ const ClienteSet = () => {
 
     useEffect(() => {
         fetchData()
+        setFetchAllMedicamentos()
     }, [fetchData])
 
     const filterClientes = (event) => {
