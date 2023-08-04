@@ -152,10 +152,13 @@ const Cz7d = {
         uso: "uso interno",
     },
     medicamento: {
-        farmaco: "Ciclobenzaprina com Lisina",
+        farmaco: "Ciclobenzaprina",
         nomescomerciais: [
             {
-                nomefantasia: "Dolamin Flex",
+                nomefantasia: "Miosan",
+            },
+            {
+                nomefantasia: "Cizax",
             },
         ]
     },
@@ -220,7 +223,7 @@ const Beta = {
     }
 }
 
-const Ax907d = {
+const ETC907d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -247,7 +250,7 @@ const Ax907d = {
     }
 }
 
-const Ax6010d = {
+const ETC6010d = {
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -268,7 +271,7 @@ const Ax6010d = {
         ]
     },
     posologia: {
-        posologia: "Tomar 01 comprimido uma vez ao dia por 14 dias.",
+        posologia: "Tomar 01 comprimido uma vez ao dia por 10 dias.",
         quantidade: "2",
         forma: "caixas",
     }
