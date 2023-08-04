@@ -461,11 +461,11 @@ const AINHTopico = {
 }
 
 export const prescricoeslist = {
-    Clb2007d: Clb2007d,
     DF7d: DF7d,
     Cz7d: Cz7d,
     Ax907d: ETC907d,
     Ax6010d: ETC6010d,
+    Clb2007d: Clb2007d,
     Clb200sn: Clb200sn,
     Clb10010d: Clb10010d,
     Clb10014d: Clb10014d,
