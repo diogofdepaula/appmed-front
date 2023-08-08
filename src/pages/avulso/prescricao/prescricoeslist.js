@@ -223,6 +223,33 @@ const Beta = {
     }
 }
 
+const ETC90SN = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "Tomar sempre de estômago cheio.",
+    apresentaco: {
+        descricao: "90mg Comp Rev",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Etoricoxibe",
+        nomescomerciais: [
+            {
+                nomefantasia: "Arcoxia",
+            },
+            {
+                nomefantasia: "Ecoxe",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 comprimido uma vez ao dia se dor.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
 const ETC907d = {
     continuo: false,
     imprimirorientacoes: false,
@@ -463,8 +490,9 @@ const AINHTopico = {
 export const prescricoeslist = {
     DF7d: DF7d,
     Cz7d: Cz7d,
-    Ax907d: ETC907d,
-    Ax6010d: ETC6010d,
+    ETC90SN: ETC90SN,
+    ETC907d: ETC907d,
+    ETC6010d: ETC6010d,
     Clb2007d: Clb2007d,
     Clb200sn: Clb200sn,
     Clb10010d: Clb10010d,
