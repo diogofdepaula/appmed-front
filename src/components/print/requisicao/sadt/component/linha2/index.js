@@ -1,13 +1,16 @@
-import React from 'react'
-import Fence from '../../../../fence'
-import Field from '../../../../field'
+import React, { useContext } from 'react';
+import { PrintContext } from '../../../../../../App';
+import Fence from '../../../../fence';
+import Field from '../../../../field';
 
-const Linha2Sadt = ({ requisicao }) => {
+const Linha2Sadt = () => {
+
+    const { operadora } = useContext(PrintContext)
 
     const dados = [
         {
             titulo: "1 - Registro ANS",
-          //  texto: Operadoras().filter(o => o.razao === requisicao.convenio)[0].registro,
+            texto: operadora.registro,
             largura: "8rem",
             alinhamento: "center",
         },

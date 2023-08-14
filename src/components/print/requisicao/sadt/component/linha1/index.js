@@ -1,8 +1,10 @@
 import { Box } from '@mui/material'
-import React from 'react'
-//import Operadoras from '../../../../../../utils/operadoras'
+import React, { useContext} from 'react';
+import { PrintContext } from '../../../../../../App';
 
-const Linha1Sadt = ({ requisicao }) => {
+const Linha1Sadt = () => {
+
+    const { operadora } = useContext(PrintContext)
 
     return (
         <>
@@ -23,7 +25,7 @@ const Linha1Sadt = ({ requisicao }) => {
                         width: '30rem',
                     }}
                 >
-                    {/* {Operadoras().filter(o => o.razao === requisicao.convenio)[0]?.abreviatura} */}
+                    {operadora.abreviatura}
                 </Box>
                 <Box
                     sx={{

@@ -21305,7 +21305,7 @@ const Tuss = () => {
                 {
                         codigo: "40304361",
                         original: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
-                        mod: "Hemograma com contagem de plaquetas",
+                        mod: "Hemograma",
                         favorito: true,
                         aspecto: "",
                 },

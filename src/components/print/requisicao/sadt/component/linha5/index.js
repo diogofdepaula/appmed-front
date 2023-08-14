@@ -1,7 +1,10 @@
-import { Box } from "@mui/material"
-import React from 'react'
-import Fence from '../../../../fence'
-import Field from '../../../../field'
+import { Box } from "@mui/material";
+import { format } from 'date-fns';
+import { ptBR } from "date-fns/locale";
+import React, { useContext } from 'react';
+import Fence from '../../../../fence';
+import Field from '../../../../field';
+import { PrintContext } from "../../../../../../App";
 
 const Procedimentos = () => {
 
@@ -68,7 +71,10 @@ const Procedimentos = () => {
 }
 
 
-const Linha5Sadt = () => {
+const Linha5Sadt = ({ requisicao }) => {
+
+    const { database } = useContext(PrintContext)
+    const date = format(database, "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return (
         <>
@@ -105,7 +111,6 @@ const Linha5Sadt = () => {
                                 <Field
                                     dados={{
                                         titulo: "21 - Caráter",
-                                        texto: 'U',
                                         largura: "6rem",
                                         alinhamento: "center",
                                     }}
@@ -113,7 +118,7 @@ const Linha5Sadt = () => {
                                 <Field
                                     dados={{
                                         titulo: "22 - Data da Solicitação",
-                                        texto: '22/22/2222',
+                                        texto: date ? date : '',
                                         largura: "11rem",
                                         alinhamento: "center",
                                     }}
@@ -137,6 +142,7 @@ const Linha5Sadt = () => {
                             <Field
                                 dados={{
                                     titulo: "23 - Indicação Clínica",
+                                    texto: requisicao.justificativa,
                                     alinhamento: "left",
                                     altura: "100%",
                                     grow: "1",

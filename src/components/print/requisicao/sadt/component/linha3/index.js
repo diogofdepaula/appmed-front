@@ -1,26 +1,25 @@
-import Fence from '../../../../fence'
-import Field from '../../../../field'
+import React, { useContext } from 'react';
+import { ClienteContext } from '../../../../../../App';
+import Fence from '../../../../fence';
+import Field from '../../../../field';
 
 const Linha3Sadt = () => {
 
-    //  const { clienteContext } = useContext(clienteContext)
+    const { clienteContext } = useContext(ClienteContext)
 
     const dados = [
         {
             titulo: "8 - Número da Carteira",
-            texto: "88888888888888888888",
             largura: "13rem",
             alinhamento: "center",
         },
         {
             titulo: "9 - Validade da Carteira",
-            texto: "22/22/2222",
             largura: "10rem",
             alinhamento: "center",
         },
         {
             titulo: "89 - Nome Social",
-            texto: "Joaquim José da Silva Xavier",
             alinhamento: "left",
             largura: "10rem",
             grow: "1",
@@ -31,7 +30,7 @@ const Linha3Sadt = () => {
         },
         {
             titulo: "10 - Nome",
-            texto: "Joaquim José da Silva Xavier",
+            texto: clienteContext.nome,
             alinhamento: "left",
             negrito: "bold",
             largura: "30rem",

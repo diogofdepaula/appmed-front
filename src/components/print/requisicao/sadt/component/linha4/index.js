@@ -44,12 +44,12 @@ const Linha4Sadt = () => {
         {
             titulo: "19 - Código CBO",
             texto: "225136",
-            largura: "8rem",
+            largura: "7.5rem",
             alinhamento: "center",
         },
         {
             titulo: "20 - Assinatura do Profissional Solicitante",
-            largura: "18rem",
+            largura: "20rem",
         },
     ]
 

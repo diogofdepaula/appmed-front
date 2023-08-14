@@ -54,12 +54,13 @@ const Field = ({ dados }) => {
                 >
                     <Box
                         sx={{
-                            splay: "flex",
-                            flexWrap: "wrap",
-                            fontWeight: dados.negrito,
                             display: "flex",
+                            flexWrap: "wrap",
+                            height: "100%",/// tem que ficar atento se isso não vai interferir nos outros
+                            fontWeight: dados.negrito,
                             justifyContent: dados.alinhamento,
                             alignItems: "end",
+                            bgcolor: "red"
                         }}
                     >
                         {dados.texto !== undefined ? dados.texto : <div>&nbsp;</div>}
