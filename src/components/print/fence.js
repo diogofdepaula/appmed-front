@@ -23,6 +23,7 @@ const Fence = (props) => {
                             padding: "0 0.3rem 0 0.3rem",
                             backgroundColor: 'white',
                             fontSize: 12,
+                            fontWeight: 500
                         }}
                     >
                         {props.titulo}
@@ -44,7 +45,7 @@ const Fence = (props) => {
                 <Titulo />
                 <Box
                     sx={{
-                        padding: "0.7rem 0.5rem 0.5rem 0.5rem",
+                        padding: "0.5rem 0.5rem 0.5rem 0.5rem",
                         borderBlockColor: "black",
                         borderStyle: "solid",
                         borderWidth: "1px",

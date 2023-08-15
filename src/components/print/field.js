@@ -56,7 +56,7 @@ const Field = ({ dados, children }) => {
                         sx={{
                             display: "flex",
                             flexWrap: "wrap",
-                            height: "100%",/// tem que ficar atento se isso não vai interferir nos outros
+                           // height: "100%",/// tem que ficar atento se isso não vai interferir nos outros
                             fontWeight: dados.negrito,
                             justifyContent: dados.alinhamento,
                             alignItems: "end",

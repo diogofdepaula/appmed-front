@@ -6,48 +6,46 @@ import Fence from '../../../../fence';
 import Field from '../../../../field';
 import { PrintContext } from "../../../../../../App";
 
-const Procedimentos = () => {
+const ProcedColumn = ({ children }) => {
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexGrow: 1,
+                    fontSize: 14.5,
+                }}
+            >
+                {children}
+            </Box>
+        </>
+    )
+}
 
-    const itens = [
-        {
-            codigo: "40302075",
-            descricao: "Hemoglobina glicada (A1 total); ",
-        },
-        {
-            codigo: "40302075",
-            descricao: "Hemoglobina glicada (A1 total); ",
-        },
-        {
-            codigo: "40302075",
-            descricao: "Hemoglobina glicada (A1 total); ",
-        },
-        {
-            codigo: "40302075",
-            descricao: "Hemoglobina glicada (A1 total); ",
-        },
-        {
-            codigo: "40302075",
-            descricao: "Hemoglobina glicada (A1 total); ",
-        },
-    ]
+const ProcedItem = ({ item }) => {
+    return (
+        <>
+            <Box>
+                {"[ " + item.codigo + " ] " + item.mod}
+            </Box>
+        </>
+    )
+}
 
-    const BoxColum = ({ children }) => {
-        return (
-            <>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        border: 1,
-                        flexGrow: 1
-                    }}
-                >
-                    {children}
-                </Box>
-            </>
-        )
-    }
+const Procedimentos = ({ requisicao }) => {
 
+    const list = 
+        requisicao.selecionados
+        // coloca em ordem de tamanho
+        .sort((a, b) => a.mod.length - b.mod.length)
+        // divide a lista em tamanhos iguais 
+        // (6 é o número de itens na coluna)
+        .reduce((all, one, i) => {
+        const ch = Math.floor(i / 6);
+        all[ch] = [].concat((all[ch] || []), one);
+        return all
+    }, [])
 
     return (
         <>
@@ -59,51 +57,16 @@ const Procedimentos = () => {
                     gap: 1,
                 }}
             >
-                <BoxColum>
-                    {itens.map(t =>
-                        <Box
-                            key={t.codigo}
-                        >
-                            {"(" + t.codigo + ") " + t.descricao}
-                        </Box>
-                    )}
-                </BoxColum>
-                <BoxColum>
-                    {itens.map(t =>
-                        <Box
-                            key={t.codigo}
-                        >
-                            {"(" + t.codigo + ") " + t.descricao}
-                        </Box>
-                    )}
-                </BoxColum>
-                <BoxColum>
-                    {itens.map(t =>
-                        <Box
-                            key={t.codigo}
-                        >
-                            {"(" + t.codigo + ") " + t.descricao}
-                        </Box>
-                    )}
-                </BoxColum>
-                <BoxColum>
-                    {itens.map(t =>
-                        <Box
-                            key={t.codigo}
-                        >
-                            {"(" + t.codigo + ") " + t.descricao}
-                        </Box>
-                    )}
-                </BoxColum>
-                <BoxColum>
-                    {itens.map(t =>
-                        <Box
-                            key={t.codigo}
-                        >
-                            {"(" + t.codigo + ") " + t.descricao}
-                        </Box>
-                    )}
-                </BoxColum>
+                {list.map((l, i) =>
+                    <ProcedColumn key={i} >
+                        {l.map((item, y) =>
+                            <ProcedItem
+                                key={y + 1000}
+                                item={item}
+                            />
+                        )}
+                    </ProcedColumn>
+                )}
             </Box>
         </>
     )
@@ -204,7 +167,7 @@ const Linha5Sadt = ({ requisicao }) => {
                             titulo="Procedimentos"
                             stretch={1}
                         >
-                            <Procedimentos />
+                            <Procedimentos requisicao={requisicao} />
                         </Fence>
                     </Box>
                 </Box>
