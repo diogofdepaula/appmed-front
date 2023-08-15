@@ -10,22 +10,44 @@ const Procedimentos = () => {
 
     const itens = [
         {
-            codigo: "alsdfjlçksajf",
-            descricao: "dddddddddd",
+            codigo: "40302075",
+            descricao: "Hemoglobina glicada (A1 total); ",
         },
         {
-            codigo: "CCCCCCC",
-            descricao: "dsça.fkljççsad",
+            codigo: "40302075",
+            descricao: "Hemoglobina glicada (A1 total); ",
         },
         {
-            codigo: "oepidruopwieur",
-            descricao: "83pojsdlkjrf",
+            codigo: "40302075",
+            descricao: "Hemoglobina glicada (A1 total); ",
         },
         {
-            codigo: "-09sdaufjlk",
-            descricao: "s.a,djfpoidsaj",
+            codigo: "40302075",
+            descricao: "Hemoglobina glicada (A1 total); ",
+        },
+        {
+            codigo: "40302075",
+            descricao: "Hemoglobina glicada (A1 total); ",
         },
     ]
+
+    const BoxColum = ({ children }) => {
+        return (
+            <>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        border: 1,
+                        flexGrow: 1
+                    }}
+                >
+                    {children}
+                </Box>
+            </>
+        )
+    }
+
 
     return (
         <>
@@ -34,15 +56,10 @@ const Procedimentos = () => {
                     display: 'flex',
                     flexDirection: 'row',
                     width: 1,
-                    gap: 2,
+                    gap: 1,
                 }}
             >
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}
-                >
+                <BoxColum>
                     {itens.map(t =>
                         <Box
                             key={t.codigo}
@@ -50,13 +67,8 @@ const Procedimentos = () => {
                             {"(" + t.codigo + ") " + t.descricao}
                         </Box>
                     )}
-                </Box>
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}
-                >
+                </BoxColum>
+                <BoxColum>
                     {itens.map(t =>
                         <Box
                             key={t.codigo}
@@ -64,7 +76,34 @@ const Procedimentos = () => {
                             {"(" + t.codigo + ") " + t.descricao}
                         </Box>
                     )}
-                </Box>
+                </BoxColum>
+                <BoxColum>
+                    {itens.map(t =>
+                        <Box
+                            key={t.codigo}
+                        >
+                            {"(" + t.codigo + ") " + t.descricao}
+                        </Box>
+                    )}
+                </BoxColum>
+                <BoxColum>
+                    {itens.map(t =>
+                        <Box
+                            key={t.codigo}
+                        >
+                            {"(" + t.codigo + ") " + t.descricao}
+                        </Box>
+                    )}
+                </BoxColum>
+                <BoxColum>
+                    {itens.map(t =>
+                        <Box
+                            key={t.codigo}
+                        >
+                            {"(" + t.codigo + ") " + t.descricao}
+                        </Box>
+                    )}
+                </BoxColum>
             </Box>
         </>
     )
@@ -142,13 +181,17 @@ const Linha5Sadt = ({ requisicao }) => {
                             <Field
                                 dados={{
                                     titulo: "23 - Indicação Clínica",
-                                    texto: requisicao.justificativa,
-                                    alinhamento: "left",
+                                    //    texto: requisicao.justificativa,
                                     altura: "100%",
                                     grow: "1",
                                 }}
-                            />
-
+                            >
+                                <Box>
+                                    {requisicao.justificativa.split("\n").map((i, key) => {
+                                        return <div key={key}>{i}</div>;
+                                    })}
+                                </Box>
+                            </Field>
                         </Box>
                     </Box>
                     <Box
