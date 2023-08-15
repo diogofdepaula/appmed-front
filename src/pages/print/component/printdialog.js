@@ -53,7 +53,7 @@ const PrintDialog = ({ open, handleClose }) => {
 
     const page = () => {
         if (lmesSelecionadas.length > 0) return '@page { size: A4 }'
-        if (operadora.razao !== '') return '@page { size: A4 lanscape }'
+        if (operadora.razao !== '') return '@page { size: A4 landscape }'
         if (local === 'consultorio') return '@page { size: A5 }'
         return '@page { size: A4 }'
     }
@@ -99,7 +99,7 @@ const PrintDialog = ({ open, handleClose }) => {
                 <div ref={componentRef}>
                     <Box
                         sx={{
-                            color: "black"
+                            color: "black",
                         }}
                     >
                         <PrintJob />

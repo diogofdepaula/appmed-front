@@ -40,7 +40,7 @@ const Procedimentos = ({ requisicao }) => {
         // coloca em ordem de tamanho
         .sort((a, b) => a.mod.length - b.mod.length)
         // divide a lista em tamanhos iguais 
-        // (6 é o número de itens na coluna)
+        // (6 é o número de itens)
         .reduce((all, one, i) => {
         const ch = Math.floor(i / 6);
         all[ch] = [].concat((all[ch] || []), one);
