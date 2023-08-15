@@ -24938,7 +24938,7 @@ const Tuss = () => {
                 {
                         codigo: "40311210",
                         original: "Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)",
-                        mod: "Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)",
+                        mod: "Rotina de urina",
                         favorito: false,
                         aspecto: "",
                 },
