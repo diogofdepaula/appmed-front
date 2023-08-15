@@ -27,7 +27,7 @@ const Sadt = ({ requisicao }) => {
                         p: 1,
                         height: 1,
                         width: 1,
-                        // se optar por desfazer a rotação, então lá no
+                        // se optar por desfazer a rotação,  então lá no 
                         // PrintDialog.js colocar '@page { size: A4 landscape }'
                         transform: "rotate(270deg) translate(-250px, -240px)",
                     }}
