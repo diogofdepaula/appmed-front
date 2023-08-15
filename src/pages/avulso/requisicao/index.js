@@ -372,11 +372,6 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                             mod: "Creatinina",
                         },
                         {
-                            codigo: "40301630",
-                            original: "Creatinina - pesquisa e/ou dosagem",
-                            mod: "Creatinina",
-                        },
-                        {
                             codigo: "40307018",
                             original: "Hepatite B - HBSAG (AU, antígeno austrália) - pesquisa e/ou dosagem",
                             mod: "HBsAg",
