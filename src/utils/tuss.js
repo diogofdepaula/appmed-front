@@ -22600,7 +22600,7 @@ const Tuss = () => {
                 {
                         codigo: "40306852",
                         original: "Fator antinúcleo, (FAN) - pesquisa e/ou dosagem",
-                        mod: "Fator antinúcleo, (FAN)",
+                        mod: "Fator Antinuclear (FAN)",
                         favorito: false,
                         aspecto: "",
                 },
@@ -26478,7 +26478,7 @@ const Tuss = () => {
                 {
                         codigo: "40316521",
                         original: "Tireoestimulante, hormônio (TSH) - pesquisa e/ou dosagem",
-                        mod: "Tireoestimulante, hormônio (TSH)",
+                        mod: "TSH",
                         favorito: false,
                         aspecto: "",
                 },
