@@ -22,7 +22,7 @@ export const Operadoras = [
     {
         registro: "420930",
         razao: "HOSPITAL DE CARIDADE SÃO VICENTE DE PAULO",
-        abreviatura: "HOSP SÃO VICENTE",
+        abreviatura: "H SÃO VICENTE",
     },
     {
         registro: "338648",
