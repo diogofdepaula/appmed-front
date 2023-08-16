@@ -3,6 +3,24 @@ import { parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { PrintContext } from '../../../../App';
 
+export const DataBase = ({ handleDateChange }) => {
+
+    return (
+        <>
+            <TextField
+                type='date'
+                name='database'
+                label="Data base"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
+            />
+        </>
+    )
+}
+
+
 const TempoSet = () => {
 
     const { setMeses, setDatabase, setComentario } = useContext(PrintContext)
@@ -32,14 +50,8 @@ const TempoSet = () => {
                 max={6}
                 onChange={handleSliderChange}
             />
-            <TextField
-                type='date'
-                name='database'
-                label="Data base"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                onBlur={handleDateChange} //Não deixei onchange se não ele fica travando
+            <DataBase
+                handleDateChange={handleDateChange}
             />
             <TextField
                 fullWidth

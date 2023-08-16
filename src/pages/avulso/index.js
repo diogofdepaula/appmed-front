@@ -8,6 +8,8 @@ import Prescricoes from './prescricao';
 import Requisicoes from './requisicao';
 import Vacinacao from './vacinacao';
 import { Operadoras } from '../../utils/operadoras';
+import { parseISO } from 'date-fns';
+import { DataBase } from '../print/component/impressaoset/temposet';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -62,7 +64,7 @@ const Avulso = () => {
     const { setClienteContext } = useContext(ClienteContext)
     const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
+    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [value, setValue] = React.useState(0);
 
@@ -144,6 +146,10 @@ const Avulso = () => {
         })
     }
 
+    const handleDateChange = (event) => {
+        setDatabase(parseISO(event.target.value))
+    }
+
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 
     return (
@@ -195,7 +201,7 @@ const Avulso = () => {
                             value={operadora}
                             onChange={handleChangeOperadora}
                         >
-                            <MenuItem value=''></MenuItem>
+                            <MenuItem value='nenhum'></MenuItem>
                             {Operadoras.map((o, i) =>
                                 <MenuItem
                                     key={i}
@@ -210,6 +216,9 @@ const Avulso = () => {
                         >
                             Reset
                         </Button>
+                        <DataBase
+                                handleDateChange={handleDateChange}
+                        />
                     </Box>
                     <TextField
                         fullWidth
