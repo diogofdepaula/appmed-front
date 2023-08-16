@@ -1,10 +1,7 @@
 import { Box } from "@mui/material";
-import { format } from 'date-fns';
-import { ptBR } from "date-fns/locale";
-import React, { useContext } from 'react';
+import React from 'react';
 import Fence from '../../../../fence';
 import Field from '../../../../field';
-import { PrintContext } from "../../../../../../App";
 
 const ProcedColumn = ({ children }) => {
     return (
@@ -14,7 +11,6 @@ const ProcedColumn = ({ children }) => {
                     display: 'flex',
                     flexDirection: 'column',
                     flexGrow: 1,
-                    fontSize: 14.5,
                 }}
             >
                 {children}
@@ -47,6 +43,8 @@ const Procedimentos = ({ requisicao }) => {
         return all
     }, [])
 
+    const tam = requisicao.selecionados.length < 3 ? 18 : 14.5
+
     return (
         <>
             <Box
@@ -55,6 +53,7 @@ const Procedimentos = ({ requisicao }) => {
                     flexDirection: 'row',
                     width: 1,
                     gap: 1,
+                    fontSize: tam,
                 }}
             >
                 {list.map((l, i) =>
@@ -74,9 +73,6 @@ const Procedimentos = ({ requisicao }) => {
 
 
 const Linha5Sadt = ({ requisicao }) => {
-
-    const { database } = useContext(PrintContext)
-    const date = format(database, "dd '/' MM '/' yyyy", { locale: ptBR })
 
     return (
         <>
@@ -120,7 +116,6 @@ const Linha5Sadt = ({ requisicao }) => {
                                 <Field
                                     dados={{
                                         titulo: "22 - Data da Solicitação",
-                                        texto: date ? date : '',
                                         largura: "11rem",
                                         alinhamento: "center",
                                     }}
