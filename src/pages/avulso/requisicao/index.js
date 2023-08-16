@@ -1,7 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Box, Button, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RequisicaoLivre from './requisicaolivre';
 import Tuss from '../../../utils/tuss';
 import ListProcedimentos from '../../../components/listprocedimentos';
@@ -442,6 +442,12 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
 const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => {
 
     const [requisicao, setRequisicao] = useState(itemEdit === null ? requisicaoinicial : itemEdit)
+
+    useEffect(() => {
+       if(itemEdit !== null) {
+        setRequisicao(itemEdit)
+       }
+    }, [itemEdit])
 
     const handleJustificativa = (event) => {
         setRequisicao({
