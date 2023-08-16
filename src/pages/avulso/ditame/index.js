@@ -1,4 +1,5 @@
-import { Box } from '@mui/material';
+import { Box, IconButton, Tooltip } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 
 const PrescricaoBox = ({ prescricao }) => {
 
@@ -47,7 +48,7 @@ const PrescricaoBox = ({ prescricao }) => {
     )
 }
 
-const RequisicaoBox = ({ requisicao }) => {
+const RequisicaoBox = ({ requisicao, handleRequisicaoEdit }) => {
 
     return (
         <>
@@ -72,10 +73,27 @@ const RequisicaoBox = ({ requisicao }) => {
                 >
                     <Box
                         sx={{
-                            fontSize: 10,
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: 'space-between',
                         }}
                     >
-                        {requisicao.justificativa}
+                        <Box
+                            sx={{
+                                fontSize: 10,
+                                flexGrow: 1,
+                            }}
+                        >
+                            {requisicao.justificativa}
+                        </Box>
+                        <Tooltip title="Editar" >
+                            <IconButton
+                                onClick={() => handleRequisicaoEdit(requisicao)}
+                                size="small"
+                            >
+                                <EditIcon />
+                            </IconButton>
+                        </Tooltip>
                     </Box>
                     <Box
                         sx={{
@@ -91,6 +109,7 @@ const RequisicaoBox = ({ requisicao }) => {
                             </Box>
                         )}
                     </Box>
+
                 </Box>
             </Box>
         </>
@@ -147,7 +166,7 @@ const VacinacaoBox = ({ vacinacao }) => {
     )
 }
 
-const Ditame = ({ receita }) => {
+const Ditame = ({ receita, handleRequisicaoEdit }) => {
 
     return (
         <>
@@ -191,7 +210,11 @@ const Ditame = ({ receita }) => {
                 </Box>
                 <Box>
                     {receita.requisicoes.map((r, i) =>
-                        <RequisicaoBox requisicao={r} key={i} />
+                        <RequisicaoBox
+                            requisicao={r}
+                            key={i}
+                            handleRequisicaoEdit={handleRequisicaoEdit}
+                        />
                     )}
                 </Box>
                 <Box>

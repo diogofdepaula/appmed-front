@@ -1,15 +1,15 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Select, Tab, Tabs, TextField, } from '@mui/material';
+import { parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { ClienteContext, DataContext, LoginContext, PrintContext } from '../../App';
+import { Operadoras } from '../../utils/operadoras';
+import { DataBase } from '../print/component/impressaoset/temposet';
 import PrintDialog from '../print/component/printdialog';
 import Ditame from './ditame';
 import Prescricoes from './prescricao';
 import Requisicoes from './requisicao';
 import Vacinacao from './vacinacao';
-import { Operadoras } from '../../utils/operadoras';
-import { parseISO } from 'date-fns';
-import { DataBase } from '../print/component/impressaoset/temposet';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -66,15 +66,17 @@ const Avulso = () => {
     const { local } = useContext(LoginContext)
     const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = useState(0);
+    const [itemEdit, setItemEdit] = useState(null);
+    const indRequisicao = useRef(1)
 
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
     const [receita, setReceita] = useState(receitainicial)
 
     useEffect(() => {
-     if (!dataMedUpdate) {
-        setFetchAllMedicamentos()
-     }
+        if (!dataMedUpdate) {
+            setFetchAllMedicamentos()
+        }
     }, [dataMedUpdate, setFetchAllMedicamentos])
 
     const handleChangeTab = (event, newValue) => {
@@ -137,6 +139,8 @@ const Avulso = () => {
             ...receita,
             requisicoes: receita.requisicoes.concat(req)
         })
+        setItemEdit(null)
+        indRequisicao.current = indRequisicao.current + 1
     }
 
     const handleAdicionarVacinacao = (vac) => {
@@ -148,6 +152,18 @@ const Avulso = () => {
 
     const handleDateChange = (event) => {
         setDatabase(parseISO(event.target.value))
+    }
+
+    const handleRequisicaoEdit = (requisicao) => {
+        setItemEdit({
+            ...requisicao,
+            indice: indRequisicao.current,
+        })
+        setValue(1)
+        setReceita({
+            ...receita,
+            requisicoes: receita.requisicoes.filter(r => r.indice !== requisicao.indice)
+        })
     }
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
@@ -162,7 +178,10 @@ const Avulso = () => {
                     gap: 2,
                 }}
             >
-                <Ditame receita={receita} />
+                <Ditame
+                    receita={receita}
+                    handleRequisicaoEdit={handleRequisicaoEdit}
+                />
                 <Box
                     sx={{
                         display: 'flex',
@@ -217,7 +236,7 @@ const Avulso = () => {
                             Reset
                         </Button>
                         <DataBase
-                                handleDateChange={handleDateChange}
+                            handleDateChange={handleDateChange}
                         />
                     </Box>
                     <TextField
@@ -258,7 +277,9 @@ const Avulso = () => {
                             index={1}
                         >
                             <Requisicoes
+                                indRequisicao={indRequisicao}
                                 handleAdicionarRequisicao={handleAdicionarRequisicao}
+                                itemEdit={itemEdit}
                             />
                         </TabPanel>
                         <TabPanel

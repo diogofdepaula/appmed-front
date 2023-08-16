@@ -1,7 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import { Box, Button, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@mui/material";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import RequisicaoLivre from './requisicaolivre';
 import Tuss from '../../../utils/tuss';
 import ListProcedimentos from '../../../components/listprocedimentos';
@@ -439,15 +439,14 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
     )
 }
 
-const Requisicoes = ({ handleAdicionarRequisicao }) => {
+const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => {
 
-    const [requisicao, setRequisicao] = useState(requisicaoinicial)
-    const ind = useRef(1)
+    const [requisicao, setRequisicao] = useState(itemEdit === null ? requisicaoinicial : itemEdit)
 
     const handleJustificativa = (event) => {
         setRequisicao({
             ...requisicao,
-            indice: ind.current,
+            indice: indRequisicao.current,
             justificativa: event.target.value
         })
     }
@@ -455,7 +454,7 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
     const handleProcedimentoPush = (param, just) => {
         setRequisicao({
             ...requisicao,
-            indice: ind.current,
+            indice: indRequisicao.current,
             justificativa: just === undefined ? requisicao.justificativa : just,
             selecionados: requisicao.selecionados.concat(param)
         })
@@ -464,28 +463,26 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
     const handleAdicinarMultiplos = (req) => {
         handleAdicionarRequisicao(req)
         setRequisicao({
-            indice: ind.current + req.lenght,
+            indice: indRequisicao.current + req.lenght,
             justificativa: '',
             selecionados: [],
         })
-        ind.current = ind.current + req.lenght
     }
 
     const handleAdicionar = () => {
         handleAdicionarRequisicao(requisicao)
         let just = requisicao.justificativa
         setRequisicao({
-            indice: ind.current + 1,
+            indice: indRequisicao.current + 1,
             justificativa: just,
             selecionados: [],
         })
-        ind.current = ind.current + 1
     }
 
     const handleProcedimentoRemove = (param) => {
         setRequisicao({
             ...requisicao,
-            indice: ind.current,
+            indice: indRequisicao.current,
             selecionados: requisicao.selecionados.filter(w => w.original.toString().toLowerCase() !== param.original.toString().toLowerCase())
         })
     }
@@ -583,7 +580,7 @@ const Requisicoes = ({ handleAdicionarRequisicao }) => {
                     />
                     <MultiplesSimultaneos
                         handleAdicinarMultiplos={handleAdicinarMultiplos}
-                        ind={ind}
+                        ind={indRequisicao}
                     />
                     <Tips
                         handleProcedimentoPush={handleProcedimentoPush}
