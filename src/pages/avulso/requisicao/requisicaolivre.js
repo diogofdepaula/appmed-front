@@ -2,7 +2,7 @@ import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import { Box, IconButton, TextField } from "@mui/material";
 import { useState } from "react";
 
-const procedimentoinicial = {
+export const procedimentoinicial = {
     codigo: "0000000",
     original: "",
     mod: "",
@@ -11,7 +11,6 @@ const procedimentoinicial = {
 }
 
 const RequisicaoLivre = ({ handleProcedimentoPush }) => {
-
 
     const [procedimento, setProcedimento] = useState(procedimentoinicial)
 
