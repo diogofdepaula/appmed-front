@@ -441,10 +441,10 @@ const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
 
 const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => {
 
-    const [requisicao, setRequisicao] = useState(itemEdit === null ? requisicaoinicial : itemEdit)
+    const [requisicao, setRequisicao] = useState(itemEdit || requisicaoinicial)
 
     useEffect(() => {
-       if(itemEdit !== null) {
+       if(itemEdit) {
         setRequisicao(itemEdit)
        }
     }, [itemEdit])
