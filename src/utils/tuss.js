@@ -23872,13 +23872,6 @@ const Tuss = () => {
                         aspecto: "",
                 },
                 {
-                        codigo: "40308804",
-                        original: "Anticorpos anti peptídeo cíclico citrulinado - IgG",
-                        mod: "Anticorpos anti peptídeo cíclico citrulinado - IgG (justificativa no campo 23 da própria SADT)",
-                        favorito: false,
-                        aspecto: "",
-                },
-                {
                         codigo: "40308812",
                         original: "Anticorpos anti PM1",
                         mod: "Anticorpos anti PM1",
@@ -24945,7 +24938,7 @@ const Tuss = () => {
                 {
                         codigo: "40311210",
                         original: "Rotina de urina (caracteres físicos, elementos anormais e sedimentoscopia)",
-                        mod: "Rotina de urina",
+                        mod: "Rotina de urina (com sedimento urinário)",
                         favorito: false,
                         aspecto: "",
                 },
@@ -26031,13 +26024,6 @@ const Tuss = () => {
                         codigo: "40314430",
                         original: "HLA-B27, fenotipagem",
                         mod: "HLA-B27",
-                        favorito: false,
-                        aspecto: "",
-                },
-                {
-                        codigo: "40314430",
-                        original: "HLA-B27, fenotipagem",
-                        mod: "HLA-B27  (justificativa no campo 23 da própria SADT)",
                         favorito: false,
                         aspecto: "",
                 },

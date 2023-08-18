@@ -166,6 +166,13 @@ const Avulso = () => {
         })
     }
 
+    const handlePrescricaoDelete = (prescricao) => {
+        setReceita({
+            ...receita,
+            prescricoes: receita.prescricoes.filter(p => p.medicamento.farmaco !== prescricao.medicamento.farmaco)
+        })
+    }
+
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 
     return (
@@ -181,6 +188,7 @@ const Avulso = () => {
                 <Ditame
                     receita={receita}
                     handleRequisicaoEdit={handleRequisicaoEdit}
+                    handlePrescricaoDelete={handlePrescricaoDelete}
                 />
                 <Box
                     sx={{

@@ -1,7 +1,8 @@
 import { Box, IconButton, Tooltip } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-const PrescricaoBox = ({ prescricao }) => {
+const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
 
     return (
         <>
@@ -43,6 +44,14 @@ const PrescricaoBox = ({ prescricao }) => {
                 >
                     {prescricao.imprimirorientacoes ? "com orientações" : ''}
                 </Box>
+                <Tooltip title="Editar" >
+                    <IconButton
+                        onClick={() => handlePrescricaoDelete(prescricao)}
+                        size="small"
+                    >
+                        <DeleteIcon />
+                    </IconButton>
+                </Tooltip>
             </Box>
         </>
     )
@@ -166,7 +175,7 @@ const VacinacaoBox = ({ vacinacao }) => {
     )
 }
 
-const Ditame = ({ receita, handleRequisicaoEdit }) => {
+const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete }) => {
 
     return (
         <>
@@ -202,7 +211,11 @@ const Ditame = ({ receita, handleRequisicaoEdit }) => {
                     }}
                 >
                     {receita.prescricoes.map((p, i) =>
-                        <PrescricaoBox prescricao={p} key={i} />
+                        <PrescricaoBox
+                            key={i}
+                            prescricao={p}
+                            handlePrescricaoDelete={handlePrescricaoDelete}
+                        />
                     )}
                 </Box>
                 <Box>
