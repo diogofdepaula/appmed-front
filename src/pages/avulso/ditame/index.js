@@ -6,52 +6,61 @@ const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
 
     return (
         <>
-            <Box>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: 'space-between',
-                    }}
-                >
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: "row",
+                }}
+            >
+                <Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: 'space-between',
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                fontSize: 12,
+                                fontWeight: 'bold',
+                            }}
+                        >
+                            {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
+                        </Box>
+                        <Box
+                            sx={{
+                                fontSize: 10,
+                            }}
+                        >
+                            {prescricao.posologia.quantidade + ' ' + prescricao.posologia.forma}
+                        </Box>
+                    </Box>
                     <Box
                         sx={{
                             fontSize: 12,
-                            fontWeight: 'bold',
                         }}
                     >
-                        {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
+                        {prescricao.posologia.posologia}
                     </Box>
                     <Box
                         sx={{
-                            fontSize: 10,
+                            fontSize: 8,
                         }}
                     >
-                        {prescricao.posologia.quantidade + ' ' + prescricao.posologia.forma}
+                        {prescricao.imprimirorientacoes ? "com orientações" : ''}
                     </Box>
                 </Box>
-                <Box
-                    sx={{
-                        fontSize: 12,
-                    }}
-                >
-                    {prescricao.posologia.posologia}
+                <Box>
+                    <Tooltip title="Editar" >
+                        <IconButton
+                            onClick={() => handlePrescricaoDelete(prescricao)}
+                            size="small"
+                        >
+                            <DeleteIcon />
+                        </IconButton>
+                    </Tooltip>
                 </Box>
-                <Box
-                    sx={{
-                        fontSize: 8,
-                    }}
-                >
-                    {prescricao.imprimirorientacoes ? "com orientações" : ''}
-                </Box>
-                <Tooltip title="Editar" >
-                    <IconButton
-                        onClick={() => handlePrescricaoDelete(prescricao)}
-                        size="small"
-                    >
-                        <DeleteIcon />
-                    </IconButton>
-                </Tooltip>
             </Box>
         </>
     )
