@@ -16,6 +16,7 @@ const PrintProvider = () => {
     const [continuo, setContinuo] = useState(false)
     const [requisicoes, setRequisicoes] = useState([])
     const [vacinacao, setVacinacao] = useState([])
+    const [emBranco, setEmBranco] = useState([])
     const [database, setDatabase] = useState(new Date())
     const [renovacao, setRenovacao] = useState(false)
     const [avulso, setAvulso] = useState(false)
@@ -50,6 +51,8 @@ const PrintProvider = () => {
         setRequisicoes,
         vacinacao,
         setVacinacao,
+        emBranco,
+        setEmBranco,
         database,
         setDatabase,
         renovacao,
@@ -74,6 +77,7 @@ const PrintProvider = () => {
             setContinuo(false)
             setRequisicoes([])
             setVacinacao([])
+            setEmBranco([])
             setDatabase(new Date())
             setRenovacao(false)
             setAvulso(false)

@@ -20668,7 +20668,7 @@ const Tuss = () => {
                 {
                         codigo: "40302750",
                         original: "Perfil lipídico / lipidograma (lípidios totais, colesterol, triglicerídios e eletroforese lipoproteínas) - pesquisa e/ou dosagem",
-                        mod: "Perfil lipídico / lipidograma (lípidios totais, colesterol, triglicerídios e eletroforese lipoproteínas)",
+                        mod: "Lipidograma (colesterol total, triglicerídios e HDL)",
                         favorito: false,
                         aspecto: "",
                 },

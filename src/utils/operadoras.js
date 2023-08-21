@@ -25,6 +25,11 @@ export const Operadoras = [
         abreviatura: "H SÃO VICENTE",
     },
     {
+        registro: "005711",
+        razao: "BRADESCO SAÚDE",
+        abreviatura: "BRADESCO",
+    },
+    {
         registro: "338648",
         razao: "FUNDAÇÃO SANEPAR DE ASSISTÊNCIA SOCIAL",
         abreviatura: "FUNDAÇÃO SANEPAR",

@@ -10,6 +10,7 @@ import Ditame from './ditame';
 import Prescricoes from './prescricao';
 import Requisicoes from './requisicao';
 import Vacinacao from './vacinacao';
+import EmBranco from './embranco';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -55,6 +56,7 @@ const receitainicial = {
     prescricoes: [],
     requisicoes: [],
     vacinacao: [],
+    embranco: [],
     data: '',
     comentarios: '',
 }
@@ -64,7 +66,7 @@ const Avulso = () => {
     const { setClienteContext } = useContext(ClienteContext)
     const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario } = useContext(PrintContext)
+    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario, setEmBranco } = useContext(PrintContext)
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState(0);
     const [itemEdit, setItemEdit] = useState(null);
@@ -87,6 +89,13 @@ const Avulso = () => {
         setReceita({
             ...receita,
             prescricoes: receita.prescricoes.concat(presc)
+        })
+    }
+
+    const handleAdicionarEmbranco = (param) => {
+        setReceita({
+            ...receita,
+            embranco: receita.embranco.concat(param)
         })
     }
 
@@ -113,6 +122,7 @@ const Avulso = () => {
         setPrescricoesSelecionadas(receita.prescricoes)
         setRequisicoes(receita.requisicoes)
         setVacinacao(receita.vacinacao)
+        setEmBranco(receita.embranco)
         setComentario(receita.comentarios)
         setOpen(true)
     }
@@ -267,8 +277,8 @@ const Avulso = () => {
                                 <Tab label="Prescrição" {...a11yProps(0)} />
                                 <Tab label="Requisição" {...a11yProps(1)} />
                                 <Tab label="Vacinação" {...a11yProps(2)} />
-                                <Tab label="Atestado" {...a11yProps(4)} />
-                                <Tab label="Outros" {...a11yProps(5)} />
+                                <Tab label="Atestado" {...a11yProps(3)} />
+                                <Tab label="Em Branco" {...a11yProps(4)} />
                             </Tabs>
                         </Box>
                         <TabPanel
@@ -300,9 +310,11 @@ const Avulso = () => {
                         </TabPanel>
                         <TabPanel
                             value={value}
-                            index={3}
+                            index={4}
                         >
-                            Item Four
+                            <EmBranco
+                                handleAdicionarEmbranco={handleAdicionarEmbranco}
+                            />
                         </TabPanel>
                     </Box>
                 </Box>

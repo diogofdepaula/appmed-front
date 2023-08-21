@@ -9,12 +9,13 @@ import RequisicaoA5 from '../../components/print/requisicao/requisicaoa5';
 import VacinacaoA5 from '../../components/print/vacinacao/folhaa5';
 import { MedicacaoInterropida } from '../../utils/inquiries';
 import Sadt from '../../components/print/requisicao/sadt';
+import EmBrancoA5 from '../../components/print/embranco';
 
 export const LMEPrintContext = createContext(null)
 
 const PrintJob = () => {
 
-    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao, operadora } = useContext(PrintContext)
+    const { atestadosSelecionados, termosSelecionados, lmesSelecionadas, prescricoesSelecionadas, renovacao, requisicoes, vacinacao, emBranco, operadora } = useContext(PrintContext)
     const { local } = useContext(LoginContext)
 
     const LMEs = () => {
@@ -130,6 +131,11 @@ const PrintJob = () => {
         return <Atestado atestado={atestadosSelecionados[0]} tipo={local} />
     }
 
+    const EmBrancos = () => {
+        if (emBranco.length === 0) return <></>
+        return emBranco?.map((r, i) => <EmBrancoA5 key={i} embranco={r} tipo={local} />)
+    }
+
     return (
         <>
             <LMEs />
@@ -138,6 +144,7 @@ const PrintJob = () => {
             <Requisicao />
             <Vacinacao />
             <Atestados />
+            <EmBrancos />
         </>
     )
 }

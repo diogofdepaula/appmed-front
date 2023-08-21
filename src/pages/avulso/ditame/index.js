@@ -184,6 +184,33 @@ const VacinacaoBox = ({ vacinacao }) => {
     )
 }
 
+const EmBranco = ({ embranco }) => {
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: "column",
+                    gap: 1,
+                    p: 1,
+                    m: 1,
+                    border: 0.5,
+                    borderRadius: 1,
+                    borderColor: "#42a5f5"
+                }}
+            >
+                <Box
+                    sx={{
+                        fontSize: 10,
+                    }}
+                >
+                    {embranco.titulo}
+                </Box>
+            </Box>
+        </>
+    )
+}
+
 const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete }) => {
 
     return (
@@ -242,6 +269,11 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete }) => {
                 <Box>
                     {receita.vacinacao.map((r, i) =>
                         <VacinacaoBox vacinacao={r} key={i} />
+                    )}
+                </Box>
+                <Box>
+                    {receita.embranco.map((r, i) =>
+                        <EmBranco embranco={r} key={i} />
                     )}
                 </Box>
 
