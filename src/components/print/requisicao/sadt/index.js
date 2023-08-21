@@ -23,7 +23,7 @@ const Sadt = ({ requisicao }) => {
                         flexDirection: 'column',
                         borderBlockColor: "black",
                         borderStyle: "solid",
-                        borderWidth: "5px",
+                        borderWidth: "3px",
                         p: 1,
                         height: 1,
                         width: 1,
