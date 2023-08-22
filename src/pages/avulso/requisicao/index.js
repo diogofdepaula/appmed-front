@@ -12,7 +12,7 @@ const requisicaoinicial = {
     selecionados: [],
 }
 
-const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => {
+const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, ind }) => {
 
     const [requisicao, setRequisicao] = useState(itemEdit || requisicaoinicial)
 
@@ -25,7 +25,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => 
     const handleJustificativa = (event) => {
         setRequisicao({
             ...requisicao,
-            indice: indRequisicao.current,
+            indice: ind.current,
             justificativa: event.target.value
         })
     }
@@ -33,7 +33,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => 
     const handleProcedimentoPush = (param, just) => {
         setRequisicao({
             ...requisicao,
-            indice: indRequisicao.current,
+            indice: ind.current,
             justificativa: requisicao.justificativa
                 .concat(requisicao.justificativa === "" ? "" : "\n")
                 .concat(just || ""),
@@ -44,7 +44,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => 
     const handleAdicinarMultiplos = (req) => {
         handleAdicionarRequisicao(req)
         setRequisicao({
-            indice: indRequisicao.current + req.lenght,
+            indice: ind.current + req.lenght,
             justificativa: '',
             selecionados: [],
         })
@@ -54,7 +54,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => 
         handleAdicionarRequisicao(requisicao)
         let just = requisicao.justificativa
         setRequisicao({
-            indice: indRequisicao.current + 1,
+            indice: ind.current + 1,
             justificativa: just,
             selecionados: [],
         })
@@ -63,7 +63,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => 
     const handleProcedimentoRemove = (param) => {
         setRequisicao({
             ...requisicao,
-            indice: indRequisicao.current,
+            indice: ind.current,
             selecionados: requisicao.selecionados.filter(w => w.original.toString().toLowerCase() !== param.original.toString().toLowerCase())
         })
     }
@@ -161,7 +161,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, indRequisicao }) => 
                     />
                     <MultiplesSimultaneos
                         handleAdicinarMultiplos={handleAdicinarMultiplos}
-                        ind={indRequisicao}
+                        ind={ind}
                     />
                     <Tips
                         handleProcedimentoPush={handleProcedimentoPush}

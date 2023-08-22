@@ -5,6 +5,7 @@ import PrescricaoBanco from './prescricaobanco';
 import PrescricaoLivre from './prescricaolivre';
 
 export const prescricaolivreinicial = {
+    indice: 0,
     continuo: false,
     imprimirorientacoes: false,
     usoposologiapadrao: true,
@@ -29,7 +30,7 @@ export const prescricaolivreinicial = {
     }
 }
 
-const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios }) => {
+const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios, ind }) => {
 
     const [prescricaoLivre, setPrescricaoLivre] = useState(prescricaolivreinicial)
 
@@ -43,7 +44,10 @@ const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios }) => 
     }
 
     const AddPresc = (param) => {
-        handleAdicionarPrescricao(param)
+        handleAdicionarPrescricao({
+            ...param,
+            indice: ind.current
+        })
         setPrescricaoLivre(prescricaolivreinicial)
     }
 
@@ -87,6 +91,7 @@ const Prescricoes = ({ handleAdicionarPrescricao, handleChangeComentarios }) => 
 
                 >
                     <PrescricaoBanco
+                        ind={ind}
                         handleAdicionarPrescricao={handleAdicionarPrescricao}
                         prescricaoLivre={prescricaoLivre}
                         setPrescricaoLivre={setPrescricaoLivre}

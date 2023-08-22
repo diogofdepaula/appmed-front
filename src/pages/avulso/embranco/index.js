@@ -3,24 +3,30 @@ import { Box, IconButton, TextField } from '@mui/material';
 import React, { useState } from 'react';
 
 export const embrancoinicial = {
+    indice: 0,
     titulo: "",
     texto: "",
 }
 
-const EmBranco = ({ handleAdicionarEmbranco }) => {
+const EmBranco = ({ handleAdicionarEmbranco, ind }) => {
 
     const [emBranco, setEmBranco] = useState(embrancoinicial)
 
     const handleChange = event => {
         setEmBranco({
             ...emBranco,
+            indice: ind.current,
             [event.target.name]: event.target.value
         })
     }
     
     const AddEmBranco = () => {
         handleAdicionarEmbranco(emBranco)
-        setEmBranco(embrancoinicial)
+        setEmBranco({
+            indice: ind.current + 1,
+            titulo: "",
+            texto: "",
+        })
     }
 
     return (

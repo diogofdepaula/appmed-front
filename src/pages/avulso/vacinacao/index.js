@@ -5,6 +5,7 @@ import { useState } from "react";
 import RequisicaoLivre from '../requisicao/requisicaolivre';
 
 const vacinacaoinicial = {
+    indice: 0,
     indicacao: "Paciente com doença autoimune em uso de medicamento modificador de resposta imunológica.",
     selecionadas: [],
 }
@@ -121,7 +122,7 @@ const ListVacinas = ({ handleVacinaPush }) => {
     )
 }
 
-const Vacinacao = ({ handleAdicionarVacinacao }) => {
+const Vacinacao = ({ handleAdicionarVacinacao, ind }) => {
 
     const [vacinacao, setVacinacao] = useState(vacinacaoinicial)
 
@@ -135,6 +136,7 @@ const Vacinacao = ({ handleAdicionarVacinacao }) => {
     const handleVacinaPush = (param, indic) => {
         setVacinacao({
             ...vacinacao,
+            indice: ind.current,
             indicacao: indic === undefined ? vacinacao.indicacao : indic,
             selecionadas: vacinacao.selecionadas.concat(param)
         })
@@ -144,6 +146,7 @@ const Vacinacao = ({ handleAdicionarVacinacao }) => {
         handleAdicionarVacinacao(vacinacao)
         let indic = vacinacao.indicacao
         setVacinacao({
+            indice: ind.current + 1,
             indicacao: indic,
             selecionadas: [],
         })

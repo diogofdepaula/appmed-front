@@ -70,7 +70,7 @@ const Avulso = () => {
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState(0);
     const [itemEdit, setItemEdit] = useState(null);
-    const indRequisicao = useRef(1)
+    const ind = useRef(1)
 
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
     const [receita, setReceita] = useState(receitainicial)
@@ -90,6 +90,7 @@ const Avulso = () => {
             ...receita,
             prescricoes: receita.prescricoes.concat(presc)
         })
+        ind.current = ind.current + 1
     }
 
     const handleAdicionarEmbranco = (param) => {
@@ -97,6 +98,8 @@ const Avulso = () => {
             ...receita,
             embranco: receita.embranco.concat(param)
         })
+        setItemEdit(null)
+        ind.current = ind.current + 1
     }
 
     const handleChange = event => {
@@ -150,7 +153,7 @@ const Avulso = () => {
             requisicoes: receita.requisicoes.concat(req)
         })
         setItemEdit(null)
-        indRequisicao.current = indRequisicao.current + 1
+        ind.current = ind.current + 1
     }
 
     const handleAdicionarVacinacao = (vac) => {
@@ -158,6 +161,7 @@ const Avulso = () => {
             ...receita,
             vacinacao: receita.vacinacao.concat(vac)
         })
+        ind.current = ind.current + 1
     }
 
     const handleDateChange = (event) => {
@@ -167,7 +171,7 @@ const Avulso = () => {
     const handleRequisicaoEdit = (requisicao) => {
         setItemEdit({
             ...requisicao,
-            indice: indRequisicao.current,
+            indice: ind.current,
         })
         setValue(1)
         setReceita({
@@ -179,7 +183,7 @@ const Avulso = () => {
     const handlePrescricaoDelete = (prescricao) => {
         setReceita({
             ...receita,
-            prescricoes: receita.prescricoes.filter(p => p.medicamento.farmaco !== prescricao.medicamento.farmaco)
+            prescricoes: receita.prescricoes.filter(p => p.indice !== prescricao.indice)
         })
     }
 
@@ -286,6 +290,7 @@ const Avulso = () => {
                             index={0}
                         >
                             <Prescricoes
+                                ind={ind}
                                 handleAdicionarPrescricao={handleAdicionarPrescricao}
                                 handleChangeComentarios={handleChangeComentarios}
                             />
@@ -295,7 +300,7 @@ const Avulso = () => {
                             index={1}
                         >
                             <Requisicoes
-                                indRequisicao={indRequisicao}
+                                ind={ind}
                                 handleAdicionarRequisicao={handleAdicionarRequisicao}
                                 itemEdit={itemEdit}
                             />
@@ -305,6 +310,7 @@ const Avulso = () => {
                             index={2}
                         >
                             <Vacinacao
+                                ind={ind}
                                 handleAdicionarVacinacao={handleAdicionarVacinacao}
                             />
                         </TabPanel>
@@ -313,6 +319,8 @@ const Avulso = () => {
                             index={4}
                         >
                             <EmBranco
+                                ind={ind}
+                                itemEdit={itemEdit}
                                 handleAdicionarEmbranco={handleAdicionarEmbranco}
                             />
                         </TabPanel>

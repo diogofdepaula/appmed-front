@@ -81,7 +81,7 @@ const Posologia = ({ setStep, medicamento, prescricao, setPrescricaoLivre, setme
     )
 }
 
-const PrescricaoBanco = ({ setPrescricaoLivre }) => {
+const PrescricaoBanco = ({ setPrescricaoLivre, ind }) => {
 
     const { allMedicamentos } = useContext(DataContext)
     const [prescricao, setPrescricao] = useState(prescricaolivreinicial)
