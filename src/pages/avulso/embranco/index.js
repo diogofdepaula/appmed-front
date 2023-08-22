@@ -35,6 +35,23 @@ const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
         })
     }
 
+    const Tips = () => {
+
+        return (
+            <>
+                <Box
+                    id="tips"
+                    sx={{
+
+                    }}
+                >
+                    texto teste
+                </Box>
+            </>
+        )
+    }
+
+
     return (
         <>
             <Box
@@ -63,6 +80,7 @@ const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
                     }}
                     onChange={(e) => handleChange(e)}
                 />
+                <Tips />
                 <TextField
                     fullWidth
                     multiline

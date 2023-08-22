@@ -126,7 +126,7 @@ const Avulso = () => {
         setPrescricoesSelecionadas(receita.prescricoes)
         setRequisicoes(receita.requisicoes)
         setVacinacao(receita.vacinacao)
-        setEmBranco(receita.embranco)
+        setEmBranco(receita.emBrancos)
         setComentario(receita.comentarios)
         setOpen(true)
     }
