@@ -12,7 +12,6 @@ const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
                     flexDirection: "row",
                 }}
             >
-                {prescricao.indice}
                 <Box>
                     <Box
                         sx={{
@@ -83,7 +82,6 @@ const RequisicaoBox = ({ requisicao, handleRequisicaoEdit }) => {
                     borderColor: "#42a5f5"
                 }}
             >
-                {requisicao.indice}
                 <Box
                     sx={{
                         display: "flex",
@@ -202,7 +200,6 @@ const EmBranco = ({ embranco, handleEmBrancoEdit }) => {
                     borderColor: "#42a5f5"
                 }}
             >
-                {embranco.indice}
                 <Box
                     sx={{
                         display: "flex",

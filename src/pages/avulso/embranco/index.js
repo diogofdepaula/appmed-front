@@ -1,6 +1,6 @@
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import { Box, IconButton, TextField } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const embrancoinicial = {
     indice: 0,
@@ -10,7 +10,7 @@ export const embrancoinicial = {
 
 const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
 
-    const [emBranco, setEmBranco] =  useState(itemEdit || embrancoinicial) 
+    const [emBranco, setEmBranco] = useState(itemEdit || embrancoinicial)
 
     useEffect(() => {
         if (itemEdit) {
@@ -25,7 +25,7 @@ const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
             [event.target.name]: event.target.value
         })
     }
-    
+
     const AddEmBranco = () => {
         handleAdicionarEmBranco(emBranco)
         setEmBranco({
