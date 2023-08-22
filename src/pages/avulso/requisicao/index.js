@@ -124,7 +124,7 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, ind }) => {
                             <List
                                 dense={true}
                             >
-                                {requisicao.selecionados.map((s, i) =>
+                                {requisicao.selecionados?.map((s, i) =>
                                     <ListItem
                                         key={i}
                                     >

@@ -1,6 +1,6 @@
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
 import { Box, IconButton, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const embrancoinicial = {
     indice: 0,
@@ -8,9 +8,15 @@ export const embrancoinicial = {
     texto: "",
 }
 
-const EmBranco = ({ handleAdicionarEmbranco, ind }) => {
+const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
 
-    const [emBranco, setEmBranco] = useState(embrancoinicial)
+    const [emBranco, setEmBranco] =  useState(itemEdit || embrancoinicial) 
+
+    useEffect(() => {
+        if (itemEdit) {
+            setEmBranco(itemEdit)
+        }
+    }, [itemEdit])
 
     const handleChange = event => {
         setEmBranco({
@@ -21,7 +27,7 @@ const EmBranco = ({ handleAdicionarEmbranco, ind }) => {
     }
     
     const AddEmBranco = () => {
-        handleAdicionarEmbranco(emBranco)
+        handleAdicionarEmBranco(emBranco)
         setEmBranco({
             indice: ind.current + 1,
             titulo: "",
@@ -45,6 +51,7 @@ const EmBranco = ({ handleAdicionarEmbranco, ind }) => {
                     variant='outlined'
                     name='titulo'
                     label="Título"
+                    value={emBranco.titulo}
                     InputProps={{
                         startAdornment: (
                             <IconButton
@@ -62,6 +69,7 @@ const EmBranco = ({ handleAdicionarEmbranco, ind }) => {
                     rows={15}
                     variant='outlined'
                     name='texto'
+                    value={emBranco.texto}
                     label="Texto"
                     onChange={(e) => handleChange(e)}
                 />

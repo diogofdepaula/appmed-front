@@ -56,7 +56,7 @@ const receitainicial = {
     prescricoes: [],
     requisicoes: [],
     vacinacao: [],
-    embranco: [],
+    emBrancos: [],
     data: '',
     comentarios: '',
 }
@@ -83,6 +83,7 @@ const Avulso = () => {
 
     const handleChangeTab = (event, newValue) => {
         setValue(newValue)
+        setItemEdit(null)
     }
 
     const handleAdicionarPrescricao = (presc) => {
@@ -93,10 +94,10 @@ const Avulso = () => {
         ind.current = ind.current + 1
     }
 
-    const handleAdicionarEmbranco = (param) => {
+    const handleAdicionarEmBranco = (param) => {
         setReceita({
             ...receita,
-            embranco: receita.embranco.concat(param)
+            emBrancos: receita.emBrancos.concat(param)
         })
         setItemEdit(null)
         ind.current = ind.current + 1
@@ -180,6 +181,19 @@ const Avulso = () => {
         })
     }
 
+    const handleEmBrancoEdit = (embranco) => {
+        setItemEdit({
+            ...embranco,
+            indice: ind.current,
+        })
+        setValue(4)
+        setReceita({
+            ...receita,
+            emBrancos: receita.emBrancos.filter(r => r.indice !== embranco.indice)
+        })
+    }
+    
+
     const handlePrescricaoDelete = (prescricao) => {
         setReceita({
             ...receita,
@@ -202,6 +216,7 @@ const Avulso = () => {
                 <Ditame
                     receita={receita}
                     handleRequisicaoEdit={handleRequisicaoEdit}
+                    handleEmBrancoEdit={handleEmBrancoEdit}
                     handlePrescricaoDelete={handlePrescricaoDelete}
                 />
                 <Box
@@ -321,7 +336,7 @@ const Avulso = () => {
                             <EmBranco
                                 ind={ind}
                                 itemEdit={itemEdit}
-                                handleAdicionarEmbranco={handleAdicionarEmbranco}
+                                handleAdicionarEmBranco={handleAdicionarEmBranco}
                             />
                         </TabPanel>
                     </Box>

@@ -187,7 +187,7 @@ const VacinacaoBox = ({ vacinacao }) => {
     )
 }
 
-const EmBranco = ({ embranco }) => {
+const EmBranco = ({ embranco, handleEmBrancoEdit }) => {
     return (
         <>
             <Box
@@ -205,17 +205,35 @@ const EmBranco = ({ embranco }) => {
                 {embranco.indice}
                 <Box
                     sx={{
-                        fontSize: 10,
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: 'space-between',
                     }}
                 >
-                    {embranco.titulo}
+                    <Box
+                        sx={{
+                            fontSize: 10,
+                        }}
+                    >
+                        {embranco.titulo}
+                    </Box>
+                    <Box>
+                        <Tooltip title="Editar" >
+                            <IconButton
+                                onClick={() => handleEmBrancoEdit(embranco)}
+                                size="small"
+                            >
+                                <EditIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
                 </Box>
             </Box>
         </>
     )
 }
 
-const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete }) => {
+const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEdit }) => {
 
     return (
         <>
@@ -250,9 +268,9 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete }) => {
                         borderColor: "#42a5f5"
                     }}
                 >
-                    {receita.prescricoes.map((p, i) =>
+                    {receita.prescricoes.map(p =>
                         <PrescricaoBox
-                            key={i}
+                            key={p.indice}
                             prescricao={p}
                             handlePrescricaoDelete={handlePrescricaoDelete}
                         />
@@ -262,22 +280,29 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete }) => {
                     {receita.comentarios}
                 </Box>
                 <Box>
-                    {receita.requisicoes.map((r, i) =>
+                    {receita.requisicoes.map(r =>
                         <RequisicaoBox
                             requisicao={r}
-                            key={i}
                             handleRequisicaoEdit={handleRequisicaoEdit}
+                            key={r.indice}
                         />
                     )}
                 </Box>
                 <Box>
-                    {receita.vacinacao.map((r, i) =>
-                        <VacinacaoBox vacinacao={r} key={i} />
+                    {receita.vacinacao.map(r =>
+                        <VacinacaoBox
+                            vacinacao={r}
+                            key={r.indice}
+                        />
                     )}
                 </Box>
                 <Box>
-                    {receita.embranco.map((r, i) =>
-                        <EmBranco embranco={r} key={i} />
+                    {receita.emBrancos.map(r =>
+                        <EmBranco
+                            embranco={r}
+                            handleEmBrancoEdit={handleEmBrancoEdit}
+                            key={r.indice}
+                        />
                     )}
                 </Box>
 
