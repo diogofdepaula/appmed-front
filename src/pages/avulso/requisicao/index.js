@@ -61,9 +61,6 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, ind }) => {
     }
 
     const handleProcedimentoRemove = (param) => {
-
-        console.log(        requisicao.selecionados
-            );
         setRequisicao({
             ...requisicao,
             indice: ind.current,
