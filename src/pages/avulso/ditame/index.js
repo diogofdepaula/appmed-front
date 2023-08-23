@@ -150,7 +150,6 @@ const VacinacaoBox = ({ vacinacao }) => {
                     borderColor: "#42a5f5"
                 }}
             >
-                {vacinacao.indice}
                 <Box
                     sx={{
                         display: "flex",
