@@ -17,7 +17,7 @@ export const Operadoras = [
     {
         registro: "355151",
         razao: "FUNDAÇÃO COPEL DE PREVIDÊNCIA E ASSISTÊNCIA SOCIAL",
-        abreviatura: "FUNDAÇÃO COPEL",
+        abreviatura: "FUND COPEL",
     },
     {
         registro: "420930",
