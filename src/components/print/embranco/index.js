@@ -115,11 +115,17 @@ const EmBrancoA5 = ({ embranco, tipo }) => {
                         flexDirection: 'column',
                     }}
                 >
-                    <Titulo
-                        embranco={embranco}
-                        tipo={tipo}
-                    />
+                    <Box
+                        sx={{
+                            mb: 3,
+                        }}
+                    >
 
+                        <Titulo
+                            embranco={embranco}
+                            tipo={tipo}
+                        />
+                    </Box>
                     <FitText
                         texto={embranco.texto}
                         inicial={8}
