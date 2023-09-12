@@ -11,7 +11,7 @@ const ClienteSet = () => {
     const { setResetCliente } = useContext(ClienteContext)
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { printReset } = useContext(PrintContext)
-    const { setFetchAllMedicamentos } = useContext(DataContext)
+    const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
 
     const [clientes, setClientes] = useState([])
     const [clientesfiltrados, setClientesFiltrados] = useState([])
@@ -34,8 +34,10 @@ const ClienteSet = () => {
 
     useEffect(() => {
         fetchData()
-        setFetchAllMedicamentos()
-    }, [fetchData])
+        if (!dataMedUpdate) {
+            setFetchAllMedicamentos()
+        }
+    }, [fetchData, dataMedUpdate, setFetchAllMedicamentos])
 
     const filterClientes = (event) => {
         setInputValue(event.target.value)

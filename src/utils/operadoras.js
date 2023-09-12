@@ -32,7 +32,7 @@ export const Operadoras = [
     {
         registro: "338648",
         razao: "FUNDAÇÃO SANEPAR DE ASSISTÊNCIA SOCIAL",
-        abreviatura: "FUNDAÇÃO SANEPAR",
+        abreviatura: "FUND SANEPAR",
     },
     {
         registro: "416584",
