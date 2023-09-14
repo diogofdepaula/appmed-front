@@ -1,11 +1,11 @@
-import { ListItemButton, Paper } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Box, TextField, Paper, ListItemButton } from '@mui/material';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ListaOpcoes = [
     {
         texto: 'Solicito encarecidamente auxílio no manejo ',
         remove: 'aux',
-        trigger: '',
+        trigger: 'aux',
     },
     {
         texto: 'Segunda opção',
@@ -24,7 +24,7 @@ const ListaOpcoes = [
     },
 ]
 
-export const SuperTips = ({ input, handleChangeTips, open }) => {
+const SuperTips = ({ input, handleChangeTips, open }) => {
 
     // baseado nesse https://jh3y.medium.com/how-to-where-s-the-caret-getting-the-xy-position-of-the-caret-a24ba372990a
     const [tab, setTab] = useState(0)
@@ -124,3 +124,77 @@ export const SuperTips = ({ input, handleChangeTips, open }) => {
         </>
     )
 }
+
+export const TextTips = ({ handleChange, state, name, rows, label }) => {
+
+    const [open, setOpen] = useState(false)
+    const ref = useRef()
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'F9') {
+            setOpen(true)
+        }
+        if (event.key === 'Escape') {
+            setOpen(false)
+        }
+    }
+
+    const handleChangeTips = (param, start) => {
+        const texto = state[name]
+            // separa o que tem antes
+            .slice(0,
+                (
+                    state[name].includes("#")
+                        ? (start - param.remove.length - 1)
+                        : start
+                )
+            )
+            // adiciona o texto selecionado
+            .concat(param.texto)
+            // uni com o que vem depois.
+            .concat(state[name].slice(start))
+
+        // nesse formato envia o texto inteiro para só inserir na TextField
+        handleChange(undefined, texto, name)
+        setOpen(false)
+        ref.current.focus()
+    }
+
+    // modelo de hangleChange
+    // const handleChange = (event, tips, name) => {
+    //     tem que ficar no local que chama o TextTips
+    //     por causa das adaptações da mudanda do Objeto.
+    //     setEmBranco({
+    //         ...emBranco,
+    //         // esse indice está aqui só por causa do EmBranco
+    //         indice: ind.current,
+    //         [event?.target.name ?? name] : event?.target.value ?? tips
+    //     })
+    // }
+
+    return (
+        <>
+            <Box>
+                <SuperTips
+                    input={ref.current}
+                    open={open}
+                    handleChangeTips={handleChangeTips}
+                />
+                <TextField
+                    inputRef={ref}
+                    fullWidth
+                    multiline
+                    rows={rows}
+                    variant='outlined'
+                    name={name}
+                    value={state[name]}
+                    label={label}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                />
+            </Box>
+        </>
+    )
+}
+
+export default TextTips
