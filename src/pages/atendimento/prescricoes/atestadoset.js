@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
 import { Consequencia, Diagnostico, Estado, Prognostico, Tratamento } from '../../../components/print/atestado/textosatestado';
 import { PadraoAtestado } from '../../../utils/listas';
+import TextTips from '../../../utils/tips/texttips';
 
 const AtestadoSet = () => {
 
@@ -15,6 +16,13 @@ const AtestadoSet = () => {
 
     const handleData = (event) => {
         setAtestadoEdit({ ...atestadoEdit, data: format(parseISO(event.target.value), "yyyy-MM-dd") })
+    }
+
+    const handleChangeText = (event, tips, name) => {
+        setAtestadoEdit({
+            ...atestadoEdit,
+            [event?.target.name ?? name] : event?.target.value ?? tips
+        })
     }
 
     return (
@@ -38,7 +46,16 @@ const AtestadoSet = () => {
                     onChange={handleChange}
                 />
                 <Tratamento />
-                <TextField
+                <TextTips
+                    handleChange={handleChangeText}
+                    // é o estado que será alterado
+                    state={atestadoEdit}
+                    // nome (Object.key) do estado que será alterado
+                    name='tratamento'
+                    label="Tratamento (com ponto final)"
+                    rows={3}
+                />
+                {/* <TextField
                     fullWidth
                     multiline
                     rows={3}
@@ -46,7 +63,7 @@ const AtestadoSet = () => {
                     label="Tratamento (com ponto final)"
                     value={atestadoEdit.tratamento}
                     onChange={handleChange}
-                />
+                /> */}
                 <Estado />
                 <TextField
                     fullWidth
@@ -58,7 +75,16 @@ const AtestadoSet = () => {
                     onChange={handleChange}
                 />
                 <Prognostico />
-                <TextField
+                <TextTips
+                    handleChange={handleChangeText}
+                    // é o estado que será alterado
+                    state={atestadoEdit}
+                    // nome (Object.key) do estado que será alterado
+                    name='prognostico'
+                    label="Prognóstico"
+                    rows={3}
+                />
+                {/* <TextField
                     fullWidth
                     multiline
                     rows={3}
@@ -66,9 +92,18 @@ const AtestadoSet = () => {
                     label="Prognóstico"
                     value={atestadoEdit.prognostico}
                     onChange={handleChange}
-                />
+                /> */}
                 <Consequencia />
-                <TextField
+                <TextTips
+                    handleChange={handleChangeText}
+                    // é o estado que será alterado
+                    state={atestadoEdit}
+                    // nome (Object.key) do estado que será alterado
+                    name='consequencia'
+                    label="Consequência (com ponto final)"
+                    rows={3}
+                />
+                {/* <TextField
                     fullWidth
                     multiline
                     rows={3}
@@ -76,7 +111,7 @@ const AtestadoSet = () => {
                     label="Consequência (com ponto final)"
                     value={atestadoEdit.consequencia}
                     onChange={handleChange}
-                />
+                /> */}
                 <Box
                     sx={{
                         display: 'inline-flex',

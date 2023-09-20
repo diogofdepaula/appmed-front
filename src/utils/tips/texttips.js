@@ -1,33 +1,33 @@
 import { Box, TextField, Paper, ListItemButton } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 
-const ListaOpcoes = [
-    {
-        texto: 'Solicito encarecidamente auxílio no manejo ',
-        remove: 'aux',
-        trigger: 'aux',
-    },
-    {
-        texto: 'Segunda opção',
-        remove: '',
-        trigger: '',
-    },
-    {
-        texto: 'Tereceira opção',
-        remove: '',
-        trigger: '',
-    },
-    {
-        texto: 'Quarta opção',
-        remove: '',
-        trigger: '',
-    },
-]
+const ListaOpcoes = (param) => {
+    const list = [
+        {
+            texto: 'Solicito encarecidamente auxílio no manejo ',
+            remove: 'aux',
+            trigger: 'aux',
+        },
+        {
+            texto: 'Além disso, medidas não farmacológicas e de proteção articular.',
+            remove: 'med',
+            trigger: 'med',
+        },
+    ]
+
+    if (!param.includes("#")) return list
+
+    // .slice(0, -1) remove the "#"
+    const listfiltred = list.filter(p => p.trigger === param.slice(0, -1))
+
+    return listfiltred
+}
 
 const SuperTips = ({ input, handleChangeTips, open }) => {
 
     // baseado nesse https://jh3y.medium.com/how-to-where-s-the-caret-getting-the-xy-position-of-the-caret-a24ba372990a
     const [tab, setTab] = useState(0)
+    const refSpanYBounding = useRef(0)
 
     useEffect(() => {
         document.getElementById(tab.toString())?.focus()
@@ -55,11 +55,43 @@ const SuperTips = ({ input, handleChangeTips, open }) => {
     span.textContent = inputValue.substr(start) || '.'
     div.appendChild(span)
     document.body.appendChild(div)
-    const { offsetLeft: spanX, offsetTop: spanY } = span
+    const {
+        offsetLeft: spanX,
+        offsetTop: spanY,
+    } = span
+    // não sei porque, mas tem que subtrair o valor inicial do spanY
+    // ou seja, tem que somar e depois subtrair o valor. o resultado
+    // é o mesmo valor de valor da linha (lineHeight) vezes o número de
+    // linhas (paragrafos / nova linhas) do texto
+    // deixar aqui antes de ser removido
+    refSpanYBounding.current = refSpanYBounding.current === 0 ? span.getBoundingClientRect().y : refSpanYBounding.current
     document.body.removeChild(div)
     const newLeft = (spanX + input.getBoundingClientRect().x)
-    const newTop = (inputY + spanY - (input.getBoundingClientRect().y + 24))
-    // 24 é o tamanho da linha acredito
+
+    const newTop =
+        input.getBoundingClientRect().y
+        + document.documentElement.scrollTop
+        + inputY / 3 // o /3 foi para dar ajuste, mas esse é um valor constante.
+        + spanY // vai mudando (aumentando) conforme adiciona-se uma nova linha no texto 
+        - refSpanYBounding.current
+
+    // console.log('newTop :>> ', newTop);
+    // console.log('refSpanYBounding ', refSpanYBounding.current);
+    // console.log('inputY :>> ', inputY);
+    // console.log('spanY :>> ', spanY);
+    // console.log('correção :>> ', "40");
+    // console.log('input.getBoundingClientRect() :>> ', input.getBoundingClientRect());
+    // console.log('document.documentElement.scrollTop :>> ', document.documentElement.scrollTop);
+    // console.log('offsetTop :>> ', offsetTop);
+    // console.log('offsetHeight :>> ', offsetHeight);
+    // console.log('lineHeight :>> ', window
+    // .getComputedStyle(input, null)
+    // .getPropertyValue("line-height"));
+
+    //   const newTop = Math.min(
+    //     y - scrollTop,
+    //     (offsetTop + offsetHeight) - parseInt(lineHeight, 10)
+    //   )
 
     const handleClick = (param) => {
         handleChangeTips(param, start)
@@ -88,6 +120,8 @@ const SuperTips = ({ input, handleChangeTips, open }) => {
         }
     }
 
+    const trigger = textContent?.split(' ').pop()
+
     if (!open) return <></>
 
     return (
@@ -103,7 +137,7 @@ const SuperTips = ({ input, handleChangeTips, open }) => {
                     mt: 2
                 }}
             >
-                {ListaOpcoes.map((x, i) =>
+                {ListaOpcoes(trigger).map((x, i) =>
                     <ListItemButton
                         component="a"
                         dense
@@ -160,14 +194,22 @@ export const TextTips = ({ handleChange, state, name, rows, label }) => {
         ref.current.focus()
     }
 
-    // modelo de hangleChange
-    // const handleChange = (event, tips, name) => {
+    // modelo de Invocação e hangleChange
+    //       <TextTips
+    //        handleChange={handleChangeText}
+    //        // é o estado que será alterado
+    //        state={emBranco}
+    //        // nome (Object.key) do estado que será alterado
+    //        name='texto'
+    //        label="Texto"
+    //        rows={15}
+    //        /> 
+
+    // const handleChangeText = (event, tips, name) => {
     //     tem que ficar no local que chama o TextTips
     //     por causa das adaptações da mudanda do Objeto.
     //     setEmBranco({
     //         ...emBranco,
-    //         // esse indice está aqui só por causa do EmBranco
-    //         indice: ind.current,
     //         [event?.target.name ?? name] : event?.target.value ?? tips
     //     })
     // }
