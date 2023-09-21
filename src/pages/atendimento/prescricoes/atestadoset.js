@@ -55,24 +55,15 @@ const AtestadoSet = () => {
                     label="Tratamento (com ponto final)"
                     rows={3}
                 />
-                {/* <TextField
-                    fullWidth
-                    multiline
-                    rows={3}
-                    name="tratamento"
-                    label="Tratamento (com ponto final)"
-                    value={atestadoEdit.tratamento}
-                    onChange={handleChange}
-                /> */}
                 <Estado />
-                <TextField
-                    fullWidth
-                    multiline
-                    rows={3}
-                    name="estado"
+                <TextTips
+                    handleChange={handleChangeText}
+                    // é o estado que será alterado
+                    state={atestadoEdit}
+                    // nome (Object.key) do estado que será alterado
+                    name='estado'
                     label="Estado atual (iniciar com letra minuscula e incluir exames)"
-                    value={atestadoEdit.estado}
-                    onChange={handleChange}
+                    rows={3}
                 />
                 <Prognostico />
                 <TextTips
@@ -84,15 +75,6 @@ const AtestadoSet = () => {
                     label="Prognóstico"
                     rows={3}
                 />
-                {/* <TextField
-                    fullWidth
-                    multiline
-                    rows={3}
-                    name="prognostico"
-                    label="Prognóstico"
-                    value={atestadoEdit.prognostico}
-                    onChange={handleChange}
-                /> */}
                 <Consequencia />
                 <TextTips
                     handleChange={handleChangeText}
@@ -103,15 +85,6 @@ const AtestadoSet = () => {
                     label="Consequência (com ponto final)"
                     rows={3}
                 />
-                {/* <TextField
-                    fullWidth
-                    multiline
-                    rows={3}
-                    name="consequencia"
-                    label="Consequência (com ponto final)"
-                    value={atestadoEdit.consequencia}
-                    onChange={handleChange}
-                /> */}
                 <Box
                     sx={{
                         display: 'inline-flex',
