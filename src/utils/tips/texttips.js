@@ -226,7 +226,6 @@ export const TextTips = ({ handleChange, state, name, rows, label }) => {
 
     const handleChangeTips = (param, start, trigger) => {
 
-        console.log(trigger);
         const texto = state[name]
             // separa o que tem antes
             .slice(0,
