@@ -14,14 +14,12 @@ const ListaOpcoes = (param) => {
             trigger: 'med',
         },
         {
-            texto: [
-                'a intensificação das dores ',
-                'com esforço físico ',
-                'sobre as estruturas envolvidas '
-            ].sort(() => Math.random() - 0.5)
-                .join('')
-                .trim()
-            ,
+            texto: 'Aguardo os resultados dos novos exames para avaliar possível comorbidades e então definir conduta.',
+            remove: 'aguardo',
+            trigger: 'aguardo',
+        },
+        {
+            texto: "intensificação das dores com esforço físico sobre as estruturas envolvidas",
             remove: 'piora',
             trigger: 'piora',
         },
@@ -48,7 +46,7 @@ const ListaOpcoes = (param) => {
                     .concat(
                         [
                             'fadiga', 'sono não reparador',
-                            'problemas com memória', 'insonia'
+                            'problemas com memória', 'insônia'
                         ].sort(() => Math.random() - 0.5)
                             .join(', ')
                     ).concat(", ")
@@ -64,11 +62,9 @@ const ListaOpcoes = (param) => {
                     )
                     .trim()
             ,
-            remove: 'piora',
-            trigger: 'piora',
+            remove: 'fmg',
+            trigger: 'fmg',
         },
-        // sintomas da FMG e random
-
     ]
 
     if (!param.includes("#")) return list
