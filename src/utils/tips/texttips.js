@@ -13,6 +13,62 @@ const ListaOpcoes = (param) => {
             remove: 'med',
             trigger: 'med',
         },
+        {
+            texto: [
+                'a intensificação das dores ',
+                'com esforço físico ',
+                'sobre as estruturas envolvidas '
+            ].sort(() => Math.random() - 0.5)
+                .join('')
+                .trim()
+            ,
+            remove: 'piora',
+            trigger: 'piora',
+        },
+        {
+            texto: "não se vislumbra melhora a curto e médio prazo de melhora o quadro.",
+            remove: 'prog',
+            trigger: 'prog',
+        },
+        {
+            texto: "Mesmo a longo prazo, caso não haja aderência " +
+                "as medidas não farmacológicas, não se tem expectativa de melhora.",
+            remove: 'prog',
+            trigger: 'prog',
+        },
+        {
+            texto: "Além disso, observa-se que problemas relacionados ao eixo IV da antiga "
+                + "abordagem Multiaxial influenciam negativamente tanto eixo I como eixo III.",
+            remove: 'eixo',
+            trigger: 'eixo',
+        },
+        {
+            texto:
+                "alodinia, mialgia, "
+                    .concat(
+                        [
+                            'fadiga', 'sono não reparador',
+                            'problemas com memória', 'insonia'
+                        ].sort(() => Math.random() - 0.5)
+                            .join(', ')
+                    ).concat(", ")
+                    .concat(
+                        [
+                            'ansiedade', 'nervosismo',
+                            'irritabilidade', 'apreensão', 'melancolia', 'anedonia'
+                        ].sort(() => Math.random() - 0.5)
+                            .join(', ')
+                    ).concat(", ")
+                    .concat(
+                        'entretanto, mantendo cuidados de higiene e aparência.'
+                    )
+                    .trim()
+            ,
+            remove: 'piora',
+            trigger: 'piora',
+        },
+        // sintomas da FMG e random
+
     ]
 
     if (!param.includes("#")) return list
