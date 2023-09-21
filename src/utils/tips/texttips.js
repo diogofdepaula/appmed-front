@@ -67,10 +67,9 @@ const ListaOpcoes = (param) => {
         },
     ]
 
-    if (!param.includes("#")) return list
+    if (param === "") return list
 
-    // .slice(0, -1) remove the "#"
-    const listfiltred = list.filter(p => p.trigger === param.slice(0, -1))
+    const listfiltred = list.filter(p => p.trigger === param)
 
     return listfiltred
 }
@@ -145,20 +144,22 @@ const SuperTips = ({ input, handleChangeTips, open }) => {
     //     (offsetTop + offsetHeight) - parseInt(lineHeight, 10)
     //   )
 
+    const trigger = textContent?.split(' ').pop()
+
     const handleClick = (param) => {
-        handleChangeTips(param, start)
+        handleChangeTips(param, start, trigger)
         setTab(0)
     }
 
     const handleKeyDown = param => (event) => {
         if (event.key === 'Enter') {
-            handleChangeTips(param, start)
+            handleChangeTips(param, start, trigger)
             setTab(0)
         }
         if (event.key === 'Escape') {
             handleChangeTips({
                 texto: '',
-                remove: '',
+                trigger: trigger,
             })
             setTab(0)
         }
@@ -171,8 +172,6 @@ const SuperTips = ({ input, handleChangeTips, open }) => {
             setTab(n)
         }
     }
-
-    const trigger = textContent?.split(' ').pop()
 
     if (!open) return <></>
 
@@ -225,14 +224,16 @@ export const TextTips = ({ handleChange, state, name, rows, label }) => {
         }
     }
 
-    const handleChangeTips = (param, start) => {
+    const handleChangeTips = (param, start, trigger) => {
+
+        console.log(trigger);
         const texto = state[name]
             // separa o que tem antes
             .slice(0,
                 (
-                    state[name].includes("#")
-                        ? (start - param.remove.length - 1)
-                        : start
+                    trigger === ''
+                        ? start
+                        : (start - param.trigger.length)
                 )
             )
             // adiciona o texto selecionado
