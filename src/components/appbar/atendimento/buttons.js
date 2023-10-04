@@ -21,7 +21,7 @@ import PrintDialog from '../../../pages/print/component/printdialog';
 import { NovoRelatorio } from '../../../providers/atendimento';
 import { LmeComRelatorio } from '../../../utils/inquiries';
 
-const DefaultButton = ({ title, click, icon, disabled, color }) => {
+export const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
     return (
         <>
@@ -31,6 +31,7 @@ const DefaultButton = ({ title, click, icon, disabled, color }) => {
                     disabled={disabled}
                     onClick={click}
                     color={color}
+                    size="large"
                 >
                     {icon}
                 </IconButton>

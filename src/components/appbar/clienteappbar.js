@@ -3,25 +3,20 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import SaveIcon from '@mui/icons-material/Save';
-import { Box, Divider, IconButton, Tooltip } from '@mui/material';
+import { Box, Divider } from '@mui/material';
 import React, { useContext } from 'react';
 import { ClienteCadastroContext, ClienteNavigateContext } from '../../pages/cadastro/clientes';
 import { InitialCliente } from '../../providers/cliente/cadastro';
+import { DefaultButton } from './atendimento/buttons';
+import { ClienteContext, NavigateContext, PrintContext } from '../../App';
 
 const ClientesAppBar = () => {
 
-    const {
-        clienteOnDuty,
-        setClienteOnDuty,
-        clienteEdit,
-        setClienteEdit,
-    } = useContext(ClienteCadastroContext)
-
-    const {
-        page,
-        setPageMain,
-        setPageForm,
-    } = useContext(ClienteNavigateContext)
+    const { setClienteContext } = useContext(ClienteContext)
+    const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
+    const { printReset } = useContext(PrintContext)
+    const { clienteOnDuty, setClienteOnDuty, clienteEdit, setClienteEdit } = useContext(ClienteCadastroContext)
+    const { page, setPageMain, setPageForm } = useContext(ClienteNavigateContext)
 
     const handleBack = () => {
         setClienteEdit(null)
@@ -30,9 +25,8 @@ const ClientesAppBar = () => {
     }
 
     const handleInsert = () => {
-        const newcliente = InitialCliente
+        setClienteEdit(InitialCliente())
         setClienteOnDuty(null)
-        setClienteEdit(newcliente)
         setPageForm()
     }
 
@@ -42,13 +36,14 @@ const ClientesAppBar = () => {
         setPageForm()
     }
 
-    const handleSubmit = event => {
+    const handleSubmit = async () => {
 
         // submit do insert e update , da prescricoes e lme juntos
 
         if (clienteEdit.id) {
             // update
-            event.preventDefault();
+            //event.preventDefault();
+            // não quiz mudar aqui, pois é só edit o que mas se convir então mudar
             fetch(process.env.REACT_APP_API_URL + `/clientes/${clienteEdit.id}`, {
                 method: 'put',
                 headers: { 'Content-Type': 'application/json' },
@@ -60,29 +55,29 @@ const ClientesAppBar = () => {
                     setClienteOnDuty(null)
                 }
             })
-
         } else {
             // insert
-            event.preventDefault();
-            fetch(process.env.REACT_APP_API_URL + `/clientes`, {
+            const result = await fetch(process.env.REACT_APP_API_URL + `/clientes`, {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(clienteEdit)
-            }).then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-
-                console.log("novo cliente ", data);
-
-                if (data.ok) {
-                    setPageMain()
-                    setClienteEdit(null)
-                    setClienteOnDuty(null)
-                }
             })
+            const data = await result.json()
 
+            // não faz sentido fazer uma busca de um paciente que acabou de cadastrar
+            // ele não tem atestado, lme ou prescricao
+            // mas se não tiver essas classes, dá erro lá na frente.
+            await setClienteContext({
+                ...data,
+                atestados: [],
+                lmes: [],
+                prescricoes: [],
+            })
+            setClienteEdit(null)
+            setClienteOnDuty(null)
+            setPageReset()
+            printReset()
+            setPageAtendimento()
         }
     }
 
@@ -102,51 +97,39 @@ const ClientesAppBar = () => {
     }
 
     return (
-        <div>
+        <>
             <Box>
-                <Tooltip title="Voltar">
-                    <span>
-                        <IconButton
-                            //disabled={!clienteOnDuty}
-                            onClick={handleBack} 
-                            size="large"
-                            >
-                            <ArrowUpwardIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Novo cliente">
-                    <IconButton onClick={handleInsert} size="large">
-                        <PersonAddIcon />
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Editar">
-                    <span>
-                        <IconButton disabled={!clienteOnDuty} onClick={handleUpdate} size="large">
-                            <EditIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Salvar">
-                    <span>
-                        <IconButton
-                            disabled={page === 'clienteinsert' ? (clienteEdit.nome !== "" ? false : true) : false}
-                            onClick={handleSubmit}
-                            size="large">
-                            <SaveIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
-                <Tooltip title="Excluir">
-                    <span>
-                        <IconButton disabled={!clienteOnDuty} onClick={handleDelete} size="large">
-                            <DeleteIcon />
-                        </IconButton>
-                    </span>
-                </Tooltip>
+                <DefaultButton
+                    title={'Voltar'}
+                    click={handleBack}
+                    icon={<ArrowUpwardIcon />}
+                />
+                <DefaultButton
+                    title={'Novo cliente'}
+                    click={handleInsert}
+                    icon={<PersonAddIcon />}
+                />
+                <DefaultButton
+                    title={"Editar"}
+                    disabled={!clienteOnDuty}
+                    click={handleUpdate}
+                    icon={<EditIcon />}
+                />
+                <DefaultButton
+                    title={"Salvar"}
+                    disabled={page === 'clienteinsert' ? (clienteEdit.nome !== "" ? false : true) : false}
+                    click={handleSubmit}
+                    icon={<SaveIcon />}
+                />
+                <DefaultButton
+                    title={"Excluir"}
+                    disabled={!clienteOnDuty}
+                    click={handleDelete}
+                    icon={<DeleteIcon />}
+                />
             </Box >
             <Divider />
-        </div >
+        </>
     )
 }
 

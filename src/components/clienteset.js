@@ -21,11 +21,11 @@ const ClienteSet = () => {
         await setFetchAllMedicamentos()
         await setFetchAllClientes()
         setDataCharging(false)
-    },[setFetchAllMedicamentos, setFetchAllClientes])
+    }, [setFetchAllMedicamentos, setFetchAllClientes])
 
     useEffect(() => {
         if (!dataMedUpdate) {
-            fetchData() 
+            fetchData()
         }
     }, [dataMedUpdate, fetchData])
 
@@ -46,9 +46,12 @@ const ClienteSet = () => {
         setClientesFiltrados(filtro)
     }
 
-    const handleRefresh = () => {
+    const handleRefresh = async () => {
         setDataCharging(true)
         setFetchAllClientes()
+            .then(() => {
+                setDataCharging(false)
+            })
     }
 
     const handleMouseLeave = () => {
