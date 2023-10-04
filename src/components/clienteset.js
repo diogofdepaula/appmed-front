@@ -1,7 +1,7 @@
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Box, IconButton, List, Paper } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { ClienteContext, DataContext, NavigateContext, PrintContext } from '../App';
 import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
@@ -11,37 +11,27 @@ const ClienteSet = () => {
     const { setResetCliente } = useContext(ClienteContext)
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { printReset } = useContext(PrintContext)
-    const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
+    const { dataMedUpdate, allClientes, setFetchAllMedicamentos, setFetchAllClientes } = useContext(DataContext)
 
-    const [clientes, setClientes] = useState([])
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [inputvalue, setInputValue] = useState('')
     const [dataCharging, setDataCharging] = useState(true)
 
     const fetchData = useCallback(async () => {
-        setInputValue('')
-        await fetch(process.env.REACT_APP_API_URL + '/clientes/allfit')
-            .then(res => {
-                if (res.ok) {
-                    return res.json()
-                }
-            }).then(data => {
-                setClientes(data)
-            }).then(() => {
-                setDataCharging(false)
-            })
-    }, [])
+        await setFetchAllMedicamentos()
+        await setFetchAllClientes()
+        setDataCharging(false)
+    },[setFetchAllMedicamentos, setFetchAllClientes])
 
     useEffect(() => {
-        fetchData()
         if (!dataMedUpdate) {
-            setFetchAllMedicamentos()
+            fetchData() 
         }
-    }, [fetchData, dataMedUpdate, setFetchAllMedicamentos])
+    }, [dataMedUpdate, fetchData])
 
     const filterClientes = (event) => {
         setInputValue(event.target.value)
-        let filtro = [...clientes].filter(w =>
+        let filtro = [...allClientes].filter(w =>
             w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
         )
         if (filtro.length === 0) {
@@ -58,7 +48,7 @@ const ClienteSet = () => {
 
     const handleRefresh = () => {
         setDataCharging(true)
-        fetchData()
+        setFetchAllClientes()
     }
 
     const handleMouseLeave = () => {

@@ -68,7 +68,14 @@ const ClientesAppBar = () => {
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(clienteEdit)
+            }).then(res => {
+                if (res.ok) {
+                    return res.json()
+                }
             }).then(data => {
+
+                console.log("novo cliente ", data);
+
                 if (data.ok) {
                     setPageMain()
                     setClienteEdit(null)
