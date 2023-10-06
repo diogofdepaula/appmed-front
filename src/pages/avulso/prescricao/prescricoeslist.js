@@ -439,30 +439,6 @@ const TmdPct = {
     }
 }
 
-const CurcumaUCII = {
-    continuo: true,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "",
-    apresentaco: {
-        descricao: "40mg + 400mg Comp Rev",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Colágeno tipo II não desnaturado + Curcuma longa",
-        nomescomerciais: [
-            {
-                nomefantasia: "Colfex Curcuma",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tome 01 comprimido uma vez ao dia por 3 meses.",
-        quantidade: "3",
-        forma: "caixas",
-    }
-}
-
 const AINHTopico = {
     continuo: false,
     imprimirorientacoes: true,
@@ -504,7 +480,6 @@ export const prescricoeslist = {
     GliCon: GliCon,
     UciiHaMsm: UciiHaMsm,
     Pdn405d204d: Pdn405d204d,
-    CurcumaUCII: CurcumaUCII,
     AINHTopico: AINHTopico,
     default: {}
 }
