@@ -63,6 +63,12 @@ const grouptips = [
         tuss: ["40304361", "40302504", "40302512", "40301630", "40304370", "40308391", "40316521", "40311210", "40301761", "40306062", "40306704", "40306712", "40311180"],
         sigtap: ["202020380", "202010643", "202010651", "202010317", "202020150", "202030083", "202060250", "202010724", "202050017", "202030121", "202030130", "202030270", "202050114",],
     },
+    {
+        titulo: "Anticorpos",
+        justificativa: "Investigação de colagenose",
+        tuss: ["40306860", "40306852", "40316106", "40316157", "40306062", "40306062", "40306119", "40306089", "40306100", "40306127", "40306143", "40306151", "40304019", "40306160", "40306291", "40306356", "40306402", "40306410", "40306445",],
+        sigtap: [],
+    },
 ]
 
 const usmmss = [
@@ -331,13 +337,81 @@ const usde = [
     },
 ]
 
+const rx = [
+    {
+        titulo: "Rx M",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40803120",
+            mod: "Radiografia de mãos - AP e Obliqua",
+        },
+    },
+    {
+        titulo: "Rx B",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40804011",
+            mod: "Radiografia de bacia - AP somente",
+        },
+    },
+    {
+        titulo: "Rx CC",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40802019",
+            mod: "Radiografia de coluna cervical - AP e Perfil",
+        },
+    },
+    {
+        titulo: "Rx CL",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40802051",
+            mod: "Radiografia de coluna lombo-sacra - AP e Perfil",
+        },
+    },
+    {
+        titulo: "Rx J",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40802051",
+            mod: "Radiografia de joelhos - AP com carga",
+        },
+    },
+]
 
-
-// const rxmmss = []
-
-// const rxmmii = []
-
-// const lab = []
+const lab = [
+    {
+        titulo: "Anti-CCP",
+        justificativa:
+            "Paciente com comprometimento articular " +
+            "sugestivo de Artrite reumatoide. O fator " +
+            "reumatoide foi solicitado em outra requisição " +
+            "afim de otimiza a logística, uma vez que ambos " +
+            "os exames são impontantes na investigação.",
+        unitary: {
+            codigo: "40308804",
+            mod: "Anticorpos anti peptídeo cíclico " +
+                "citrulinado - IgG (*** justificativa está " +
+                "no campo 23 (Indicação clínica) dessa requisião.",
+        },
+    },
+    {
+        titulo: "HLA-B27",
+        justificativa:
+            "Paciente com comprometimento lombar axial " +
+            "sugestivo de Espondilite Anquilosante. A " +
+            "ressonância de sacroilíacas foi solicitado " +
+            "em outra requisição afim de otimiza a " +
+            "logística, uma vez que ambos os exames são " +
+            "impontantes na investigação.",
+        unitary: {
+            codigo: "40314430",
+            mod: "HLA-B27 (*** justificativa está " +
+                "no campo 23 (Indicação clínica) dessa requisião.",
+        },
+    },
+]
 
 const onetips = [
     {
@@ -389,6 +463,14 @@ export const Tips = ({ handleProcedimentoPush }) => {
             <ListButtons
                 list={grouptips}
                 sendParam={sendParamGroup}
+            />
+            <ListButtons
+                list={lab}
+                sendParam={sendParamUnitary}
+            />
+            <ListButtons
+                list={rx}
+                sendParam={sendParamUnitary}
             />
             <ListButtons
                 list={usde}
