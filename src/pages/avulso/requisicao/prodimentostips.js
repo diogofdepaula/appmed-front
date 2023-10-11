@@ -9,13 +9,12 @@ const ListButtons = ({ list, sendParam }) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
-                    gap: 0.2,
+                    // gap: 0.2,
                 }}
             >
                 {list.map((p, i) =>
                     <Button
                         size="small"
-                        draggable
                         key={i}
                         onClick={() => sendParam(p)}
                     >
@@ -88,17 +87,6 @@ const usmmss = [
         },
     },
     {
-        titulo: "US ODouE",
-        justificativa:
-            "Paciente do dor e limitação em ombros.\n" +
-            "Investigação para Síndrome do Manguito Rotador.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (ombro direito ou " +
-                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
-        },
-    },
-    {
         titulo: "US CD",
         justificativa:
             "Paciente do dor em cotovelo direito.\n" +
@@ -118,18 +106,6 @@ const usmmss = [
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (cotovelo esquerdo)",
-        },
-    },
-    {
-        titulo: "US CDouE",
-        justificativa:
-            "Paciente do dor em cotovelos.\n" +
-            "Investigação para Epincodilite.\n" +
-            "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (cotovelo direito ou " +
-            "esquerdo -- fazer do lado que estiver pior no dia do exame)",
         },
     },
     {
@@ -157,19 +133,6 @@ const usmmss = [
         },
     },
     {
-        titulo: "US PhDouE",
-        justificativa:
-            "Investigação de Síndrome de Túnel do Carpo.\n" +
-            "Atentar para outros achados, com cristais no ligamento " +
-            "triangular fibro cartilagenoso inflamatórios como " +
-            "derrame articular e sinovite.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (punho direito ou " +
-            "esquerdo -- fazer do lado que estiver pior no dia do exame)",
-        },
-    },
-    {
         titulo: "US MD",
         justificativa:
             "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
@@ -185,16 +148,6 @@ const usmmss = [
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (mão esquerda)",
-        },
-    },
-    {
-        titulo: "US MDouE",
-        justificativa:
-            "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (mão direita ou " +
-            "esquerda -- fazer do lado que estiver pior no dia do exame)",
         },
     },
 ]
@@ -221,17 +174,6 @@ const usmmii = [
         },
     },
     {
-        titulo: "US QDouE",
-        justificativa:
-            "Paciente do dor e limitação em quadris.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (quadril direito ou " +
-            "esquerdo -- fazer do lado que estiver pior no dia do exame)",
-        },
-    },
-    {
         titulo: "US JD",
         justificativa:
             "Paciente do dor e limitação em joelho direito.\n" +
@@ -251,18 +193,6 @@ const usmmii = [
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (joelho esquerdo)",
-        },
-    },
-    {
-        titulo: "US JDouE",
-        justificativa:
-            "Paciente do dor e limitação em joelhos.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares, e," +
-            "dentro dos limites da capacidade do exame, alterações estruturais.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (joelho direito ou " +
-            "esquerdo -- fazer do lado que estiver pior no dia do exame)",
         },
     },
     {
@@ -286,17 +216,6 @@ const usmmii = [
         },
     },
     {
-        titulo: "US TDouE",
-        justificativa:
-            "Paciente do dor e limitação em tornozelos.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
-        unitary: {
-            codigo: "40901220",
-            mod: "Ultrassonografia Articular (tornozelo direito ou " +
-            "esquerdo -- fazer do lado que estiver pior no dia do exame)",
-        },
-    },
-    {
         titulo: "US PeD",
         justificativa:
             "Investigação de processos inflamatórios, especialmente em " +
@@ -316,18 +235,103 @@ const usmmii = [
             mod: "Ultrassonografia Articular (pé esquerdo)",
         },
     },
+]
+
+const usde = [
     {
-        titulo: "US PeDouE",
+        titulo: "US O",
+        justificativa:
+            "Paciente do dor e limitação em ombros.\n" +
+            "Investigação para Síndrome do Manguito Rotador.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (ombro direito ou " +
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US C",
+        justificativa:
+            "Paciente do dor em cotovelos.\n" +
+            "Investigação para Epincodilite.\n" +
+            "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (cotovelo direito ou " +
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US Ph",
+        justificativa:
+            "Investigação de Síndrome de Túnel do Carpo.\n" +
+            "Atentar para outros achados, com cristais no ligamento " +
+            "triangular fibro cartilagenoso inflamatórios como " +
+            "derrame articular e sinovite.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (punho direito ou " +
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US M",
+        justificativa:
+            "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (mão direita ou " +
+                "esquerda -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US Q",
+        justificativa:
+            "Paciente do dor e limitação em quadris.\n" +
+            "Atentar para achados inflamatórios articulares e extra-articulares.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (quadril direito ou " +
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US J",
+        justificativa:
+            "Paciente do dor e limitação em joelhos.\n" +
+            "Atentar para achados inflamatórios articulares e extra-articulares, e," +
+            "dentro dos limites da capacidade do exame, alterações estruturais.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (joelho direito ou " +
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US T",
+        justificativa:
+            "Paciente do dor e limitação em tornozelos.\n" +
+            "Atentar para achados inflamatórios articulares e extra-articulares.",
+        unitary: {
+            codigo: "40901220",
+            mod: "Ultrassonografia Articular (tornozelo direito ou " +
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+        },
+    },
+    {
+        titulo: "US Pe",
         justificativa:
             "Investigação de processos inflamatórios, especialmente em " +
             "tarso, MTF, IFP e IFD, além de fascia plantar.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (pé direito ou " +
-            "esquerdo -- fazer do lado que estiver pior no dia do exame)",
+                "esquerdo -- fazer do lado que estiver pior no dia do exame)",
         },
     },
 ]
+
+
 
 // const rxmmss = []
 
@@ -385,6 +389,10 @@ export const Tips = ({ handleProcedimentoPush }) => {
             <ListButtons
                 list={grouptips}
                 sendParam={sendParamGroup}
+            />
+            <ListButtons
+                list={usde}
+                sendParam={sendParamUnitary}
             />
             <ListButtons
                 list={usmmss}
