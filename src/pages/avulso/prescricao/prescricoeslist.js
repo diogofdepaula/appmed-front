@@ -374,7 +374,7 @@ const UciiHaMsm = {
         farmaco: "Colágeno tipo II não desnaturado + Ácido hialurônico + Metilsulfonilmetano",
         nomescomerciais: [
             {
-                nomefantasia: "Colatem FORCE",
+                nomefantasia: "Colatem FORCE ou Colflex Hialu",
             },
         ]
     },
