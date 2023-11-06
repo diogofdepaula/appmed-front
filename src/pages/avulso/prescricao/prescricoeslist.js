@@ -443,7 +443,10 @@ const AINHTopico = {
     continuo: false,
     imprimirorientacoes: true,
     usoposologiapadrao: true,
-    orientacoes: "Lave suas mãos após cada aplicação para evitar contatos acidentais com a boca e olhos, a menos que as mãos sejam a área em tratamento.",
+    orientacoes:
+        "Lave suas mãos após cada aplicação para evitar " +
+        "contatos acidentais com a boca e olhos, a menos que as mãos " +
+        "sejam a área em tratamento.",
     apresentaco: {
         descricao: "23,2 mg/g",
         uso: "uso externo",
@@ -460,6 +463,35 @@ const AINHTopico = {
         posologia: "Aplique uma fina camada na região afetada de 12 em 12 horas por pelo menos três semanas.",
         quantidade: "1",
         forma: "Tubo",
+    }
+}
+
+const DexaCitoNFF = {
+    continuo: false,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "100mg + 100mg + 5mg + 437mg",
+        uso: "uso externo",
+    },
+    medicamento: {
+        farmaco: "Dexametasona + Tiamina + Piridoxina + Cianocobalamina",
+        nomescomerciais: [
+            {
+                nomefantasia: "Dexa-Citoneurin NFF",
+            },
+        ]
+    },
+    posologia: {
+        posologia:
+            "A posologia usual é de uma injeção a cada dois ou três dias. " +
+            "Aspirar, para uma seringa com capacidade mínima de 3 ml, os " +
+            "conteúdos das ampolas I e II, injetando a mistura lentamente" +
+            "por via intramuscular profunda, de preferência nas nádegas." +
+            "Aplique uma dose a cada 3 dias por 6 dias (total de 3 doses).",
+        quantidade: "1",
+        forma: "Caixa",
     }
 }
 
@@ -481,9 +513,10 @@ export const prescricoeslist = {
     UciiHaMsm: UciiHaMsm,
     Pdn405d204d: Pdn405d204d,
     AINHTopico: AINHTopico,
+    DexCitoNFF: DexaCitoNFF,
     default: {}
 }
 
-export const PrescricoesList = ( presc ) => {
+export const PrescricoesList = (presc) => {
     return prescricoeslist[presc] || prescricoeslist.default
 }

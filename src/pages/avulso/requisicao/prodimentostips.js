@@ -67,7 +67,7 @@ const grouptips = [
         titulo: "Anticorpos",
         justificativa: "Investigação de colagenose",
         tuss: ["40306860", "40306852", "40316106", "40316157", "40306062", "40306062", "40306119", "40306089", "40306100", "40306127", "40306143", "40306151", "40304019", "40306160", "40306291", "40306356", "40306402", "40306410", "40306445",],
-        sigtap: [],
+        sigtap: ["202030075", "202030598", "202030270", "202030350", "202030369", "202030342", "202030628", "202030563", "202030326", "202030245", "202030261"],
     },
 ]
 
@@ -380,6 +380,35 @@ const rx = [
     },
 ]
 
+const tc = [
+    {
+        titulo: "TC Tx",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "41001079",
+            mod: "Tomografia computadorizada de Tórax",
+        },
+    },
+    {
+        titulo: "TC CC",
+        justificativa: "Investigação de cervicobraquialgia",
+        unitary: {
+            codigo: "41001125",
+            mod: "Tomografia computadorizada de Coluna cervical",
+        },
+    },
+    {
+        titulo: "TC CLS",
+        justificativa: "Investigação de lombalgia",
+        unitary: {
+            codigo: "41001125",
+            mod: "Tomografia computadorizada de Coluna lombo-sacra",
+        },
+    },
+
+
+]
+
 const lab = [
     {
         titulo: "Anti-CCP",
@@ -404,7 +433,7 @@ const lab = [
             "ressonância de sacroilíacas foi solicitado " +
             "em outra requisição afim de otimiza a " +
             "logística, uma vez que ambos os exames são " +
-            "impontantes na investigação.",
+            "importantes na investigação.",
         unitary: {
             codigo: "40314430",
             mod: "HLA-B27 (*** justificativa está " +
@@ -470,6 +499,10 @@ export const Tips = ({ handleProcedimentoPush }) => {
             />
             <ListButtons
                 list={rx}
+                sendParam={sendParamUnitary}
+            />
+            <ListButtons
+                list={tc}
                 sendParam={sendParamUnitary}
             />
             <ListButtons

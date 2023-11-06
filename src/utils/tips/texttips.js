@@ -1,7 +1,137 @@
-import { Box, TextField, Paper, ListItemButton } from '@mui/material';
+import { Box, ListItemButton, Paper, TextField } from '@mui/material';
 import React, { useEffect, useRef, useState } from 'react';
 
+// const ListaCurtas = (param) => {
+//     const list = [
+//         {
+//             texto: 'Ressonância de coluna cervical lauda-se ',
+//             remove: 'RNM CC',
+//             trigger: 'RNM CC',
+//         },
+//         {
+//             texto: 'Ressonância de coluna lombo-sacra lauda-se ',
+//             remove: 'RNM CLS',
+//             trigger: 'RNM CLS',
+//         },
+//         {
+//             texto: 'Tomografia de coluna cervical lauda-se ',
+//             remove: 'TC CC',
+//             trigger: 'TC CC',
+//         },
+//         {
+//             texto: 'Tomografia de coluna lombo-sacra lauda-se ',
+//             remove: 'RNM CLS',
+//             trigger: 'RNM CLS',
+//         },
+//         {
+//             texto: 'Ultrassonografia de ombro direito lauda-se ',
+//             remove: 'US OD',
+//             trigger: 'US OD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de ombro esquerdo lauda-se ',
+//             remove: 'US OE',
+//             trigger: 'US OE',
+//         },
+//         {
+//             texto: 'Ultrassonografia de cotovelo direito lauda-se ',
+//             remove: 'US CD',
+//             trigger: 'US CD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de cotovelo esquerdo lauda-se ',
+//             remove: 'US CE',
+//             trigger: 'US CE',
+//         },
+//         {
+//             texto: 'Ultrassonografia de punho direito lauda-se ',
+//             remove: 'US PhD',
+//             trigger: 'US PhD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de punho esquerdo lauda-se ',
+//             remove: 'US PhE',
+//             trigger: 'US PhE',
+//         },
+//         {
+//             texto: 'Ultrassonografia de mão direita lauda-se ',
+//             remove: 'US MD',
+//             trigger: 'US MD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de quadril direito lauda-se ',
+//             remove: 'US QD',
+//             trigger: 'US QD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de quadril esquerdo lauda-se ',
+//             remove: 'US QE',
+//             trigger: 'US QE',
+//         },
+//         {
+//             texto: 'Ultrassonografia de joelho direito lauda-se ',
+//             remove: 'US JD',
+//             trigger: 'US JD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de joelho esquerdo lauda-se ',
+//             remove: 'US JE',
+//             trigger: 'US JE',
+//         },
+//         {
+//             texto: 'Ultrassonografia de tornozelo direito lauda-se ',
+//             remove: 'US TD',
+//             trigger: 'US TD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de tornozelo esquerdo lauda-se ',
+//             remove: 'US TE',
+//             trigger: 'US TE',
+//         },
+//         {
+//             texto: 'Ultrassonografia de pé direito lauda-se ',
+//             remove: 'US PeD',
+//             trigger: 'US PeD',
+//         },
+//         {
+//             texto: 'Ultrassonografia de pé esquerdo lauda-se ',
+//             remove: 'US PeE',
+//             trigger: 'US PeE',
+//         },
+//     ]
+//     if (param === "") return list
+
+//     const listfiltred = list
+//         .filter(p => p.trigger === param)
+
+//     return listfiltred
+// }
+
+// const ListaMed = (param) => {
+    
+//     const { allMedicamentos } = useContext(DataContext)
+
+//     NÁO DÁ PARA INVOCAR CONTTEXT AQUI
+
+//     const list = allMedicamentos.filter(m => m.abreviatura !== "").map(n => {
+//         return {
+//             texto: n.farmaco,
+//             remove: n.medicamento,
+//             trigger: n.medicamento,
+//         }
+//     })
+
+//     if (param === "") return list
+
+//     const listfiltred = list
+//         .filter(p => p.trigger === param)
+
+
+//     return listfiltred
+// }
+
 const ListaOpcoes = (param) => {
+
     const list = [
         {
             texto: 'Solicito encarecidamente auxílio no manejo ',
@@ -69,7 +199,10 @@ const ListaOpcoes = (param) => {
 
     if (param === "") return list
 
-    const listfiltred = list.filter(p => p.trigger === param)
+    const listfiltred = list
+        .filter(p => p.trigger === param)
+        //.concat(ListaCurtas(param))
+       // .concat(ListaMed(param))
 
     return listfiltred
 }
