@@ -11,7 +11,6 @@ const a4 = {
     style: {
         height: 1,
         p: 2,
-      //  bgcolor: 'blue'
     }
 }
 
@@ -29,7 +28,6 @@ const a5 = {
         pl: 21,
         pb: 9,
         pr: 1,
-       // bgcolor: 'blue'
     }
 }
 
@@ -63,7 +61,6 @@ const Page = ({ size, children }) => {
                 sx={{
                     width: type.width,
                     height: type.height,
-                //    bgcolor: 'red'
                 }}
             >
                 <Box
