@@ -7,10 +7,11 @@ const a4 = {
     // a4 em 150ppi = 1240 x 1754 px
 
     width: 1075,// 1190, // (-50)
-    height: 1567,  // 1680, // (-74)
+    height: 1565,  // 1680, // (-74)
     style: {
         height: 1,
         p: 2,
+      //  bgcolor: 'blue'
     }
 }
 
@@ -28,6 +29,7 @@ const a5 = {
         pl: 21,
         pb: 9,
         pr: 1,
+       // bgcolor: 'blue'
     }
 }
 
@@ -60,7 +62,8 @@ const Page = ({ size, children }) => {
             <Box
                 sx={{
                     width: type.width,
-                    height: type.height
+                    height: type.height,
+                //    bgcolor: 'red'
                 }}
             >
                 <Box
