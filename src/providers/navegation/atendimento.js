@@ -19,6 +19,7 @@ import RelatorioSet3 from "../../pages/atendimento/prescricoes/relatorioset3"
 import RelatorioSet4 from "../../pages/atendimento/prescricoes/relatorioset4"
 import RelatorioSet5 from "../../pages/atendimento/prescricoes/relatorioset5"
 import Print from "../../pages/print"
+import Avulso from "../../pages/avulso"
 
 const AtendimentoNavegateProvider = () => {
 
@@ -80,6 +81,9 @@ const AtendimentoNavegateProvider = () => {
         setArticlePrint: () => {
             setArticle(<Print />)
             setPrint(true)
+        },
+        setArticleRequisicao: () => {
+            setArticle(<Avulso />)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))

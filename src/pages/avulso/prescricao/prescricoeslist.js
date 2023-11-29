@@ -1,122 +1,122 @@
-const Clb200sn = {
-    continuo: false,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "Tomar sempre de estômago cheio.",
-    apresentaco: {
-        descricao: "200 mg Cap Dura",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Celecoxibe",
-        nomescomerciais: [
-            {
-                nomefantasia: "Celebra",
-            },
-            {
-                nomefantasia: "Dicoxibe",
-            },
-            {
-                nomefantasia: "Foxis",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas se dor.",
-        quantidade: "1",
-        forma: "caixa",
-    }
-}
+// const Clb200sn = {
+//     continuo: false,
+//     imprimirorientacoes: true,
+//     usoposologiapadrao: true,
+//     orientacoes: "Tomar sempre de estômago cheio.",
+//     apresentaco: {
+//         descricao: "200 mg Cap Dura",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Celecoxibe",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "Celebra",
+//             },
+//             {
+//                 nomefantasia: "Dicoxibe",
+//             },
+//             {
+//                 nomefantasia: "Foxis",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Tomar 01 cápsula de 12 em 12 horas se dor.",
+//         quantidade: "1",
+//         forma: "caixa",
+//     }
+// }
 
-const Clb2007d = {
-    continuo: false,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "Tomar sempre de estômago cheio.",
-    apresentaco: {
-        descricao: "200 mg Cap Dura",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Celecoxibe",
-        nomescomerciais: [
-            {
-                nomefantasia: "Celebra",
-            },
-            {
-                nomefantasia: "Dicoxibe",
-            },
-            {
-                nomefantasia: "Foxis",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
-        quantidade: "1",
-        forma: "caixa",
-    }
-}
+// const Clb2007d = {
+//     continuo: false,
+//     imprimirorientacoes: true,
+//     usoposologiapadrao: true,
+//     orientacoes: "Tomar sempre de estômago cheio.",
+//     apresentaco: {
+//         descricao: "200 mg Cap Dura",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Celecoxibe",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "Celebra",
+//             },
+//             {
+//                 nomefantasia: "Dicoxibe",
+//             },
+//             {
+//                 nomefantasia: "Foxis",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
+//         quantidade: "1",
+//         forma: "caixa",
+//     }
+// }
 
-const Clb10010d = {
-    continuo: false,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "Tomar sempre de estômago cheio.",
-    apresentaco: {
-        descricao: "100 mg Cap Dura",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Celecoxibe",
-        nomescomerciais: [
-            {
-                nomefantasia: "Celebra",
-            },
-            {
-                nomefantasia: "Dicoxibe",
-            },
-            {
-                nomefantasia: "Foxis",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas por 10 dias.",
-        quantidade: "1",
-        forma: "caixa",
-    }
-}
+// const Clb10010d = {
+//     continuo: false,
+//     imprimirorientacoes: true,
+//     usoposologiapadrao: true,
+//     orientacoes: "Tomar sempre de estômago cheio.",
+//     apresentaco: {
+//         descricao: "100 mg Cap Dura",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Celecoxibe",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "Celebra",
+//             },
+//             {
+//                 nomefantasia: "Dicoxibe",
+//             },
+//             {
+//                 nomefantasia: "Foxis",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Tomar 01 cápsula de 12 em 12 horas por 10 dias.",
+//         quantidade: "1",
+//         forma: "caixa",
+//     }
+// }
 
-const Clb10014d = {
-    continuo: false,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "Tomar sempre de estômago cheio.",
-    apresentaco: {
-        descricao: "100 mg Cap Dura",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Celecoxibe",
-        nomescomerciais: [
-            {
-                nomefantasia: "Celebra",
-            },
-            {
-                nomefantasia: "Dicoxibe",
-            },
-            {
-                nomefantasia: "Foxis",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
-        quantidade: "2",
-        forma: "caixas",
-    }
-}
+// const Clb10014d = {
+//     continuo: false,
+//     imprimirorientacoes: true,
+//     usoposologiapadrao: true,
+//     orientacoes: "Tomar sempre de estômago cheio.",
+//     apresentaco: {
+//         descricao: "100 mg Cap Dura",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Celecoxibe",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "Celebra",
+//             },
+//             {
+//                 nomefantasia: "Dicoxibe",
+//             },
+//             {
+//                 nomefantasia: "Foxis",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Tomar 01 cápsula de 12 em 12 horas por 14 dias.",
+//         quantidade: "2",
+//         forma: "caixas",
+//     }
+// }
 
 const DF7d = {
     continuo: false,
@@ -142,59 +142,59 @@ const DF7d = {
     }
 }
 
-const Cz7d = {
-    continuo: false,
-    imprimirorientacoes: false,
-    usoposologiapadrao: true,
-    orientacoes: "",
-    apresentaco: {
-        descricao: "5mg mg Comp Rev",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Ciclobenzaprina",
-        nomescomerciais: [
-            {
-                nomefantasia: "Miosan",
-            },
-            {
-                nomefantasia: "Cizax",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 comprimido a noite por 7 dias.",
-        quantidade: "1",
-        forma: "caixa",
-    }
-}
+// const Cz7d = {
+//     continuo: false,
+//     imprimirorientacoes: false,
+//     usoposologiapadrao: true,
+//     orientacoes: "",
+//     apresentaco: {
+//         descricao: "5mg mg Comp Rev",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Ciclobenzaprina",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "Miosan",
+//             },
+//             {
+//                 nomefantasia: "Cizax",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Tomar 01 comprimido a noite por 7 dias.",
+//         quantidade: "1",
+//         forma: "caixa",
+//     }
+// }
 
-const NslPtz = {
-    continuo: true,
-    imprimirorientacoes: true,
-    usoposologiapadrao: true,
-    orientacoes: "",
-    apresentaco: {
-        descricao: "100 mg + 20mg Comp",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Nimesulina + Pantoprazol",
-        nomescomerciais: [
-            {
-                nomefantasia: "Nivux",
-            },
-            {
-                nomefantasia: "Nidue",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
-        quantidade: "1",
-        forma: "caixa",
-    }
-}
+// const NslPtz = {
+//     continuo: true,
+//     imprimirorientacoes: true,
+//     usoposologiapadrao: true,
+//     orientacoes: "",
+//     apresentaco: {
+//         descricao: "100 mg + 20mg Comp",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Nimesulina + Pantoprazol",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "Nivux",
+//             },
+//             {
+//                 nomefantasia: "Nidue",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Tomar 01 comprimido de 12 em 12 horas por 7 dias.",
+//         quantidade: "1",
+//         forma: "caixa",
+//     }
+// }
 
 const Beta = {
     continuo: false,
@@ -367,19 +367,43 @@ const UciiHaMsm = {
     usoposologiapadrao: true,
     orientacoes: "",
     apresentaco: {
-        descricao: "1,6mg + 150mg + 900mg Cáp",
+        descricao: "40mg + 150mg + 900mg Cáp",
         uso: "uso interno",
     },
     medicamento: {
         farmaco: "Colágeno tipo II não desnaturado + Ácido hialurônico + Metilsulfonilmetano",
         nomescomerciais: [
             {
-                nomefantasia: "Colatem FORCE ou Colflex Hialu",
+                nomefantasia: "Colaten FORCE ou Colflex Hialu",
             },
         ]
     },
     posologia: {
         posologia: "Tomar 01 cápsula uma vez ao dia por 4 meses.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
+const UciiArtro = {
+    continuo: true,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "1,7g Comp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Colágeno tipo II não desnaturado + Glicosamina + Curcumina + Vitaminas",
+        nomescomerciais: [
+            {
+                nomefantasia: "Colaten Artro",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 comprimido uma vez ao dia por 4 meses.",
         quantidade: "1",
         forma: "caixa",
     }
@@ -497,20 +521,15 @@ const DexaCitoNFF = {
 
 export const prescricoeslist = {
     DF7d: DF7d,
-    Cz7d: Cz7d,
     ETC90SN: ETC90SN,
     ETC907d: ETC907d,
     ETC6010d: ETC6010d,
-    Clb2007d: Clb2007d,
-    Clb200sn: Clb200sn,
-    Clb10010d: Clb10010d,
-    Clb10014d: Clb10014d,
-    NslPtz: NslPtz,
     Beta: Beta,
     TmdPct: TmdPct,
     Tmdsn: Tmdsn,
     GliCon: GliCon,
     UciiHaMsm: UciiHaMsm,
+    UciiArtro: UciiArtro,
     Pdn405d204d: Pdn405d204d,
     AINHTopico: AINHTopico,
     DexCitoNFF: DexaCitoNFF,

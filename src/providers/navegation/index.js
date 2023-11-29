@@ -11,7 +11,7 @@ import Avulso from "../../pages/avulso"
 const NavigateProvider = () => {
 
     const [page, setPage] = useState(<div />)
-    
+
     return {
         page,
         setPage,

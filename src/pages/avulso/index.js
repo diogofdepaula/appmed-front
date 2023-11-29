@@ -1,8 +1,8 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Select, Tab, Tabs, TextField, } from '@mui/material';
 import { parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { ClienteContext, DataContext, LoginContext, PrintContext } from '../../App';
+import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
+import { ClienteContext, DataContext, LoginContext, NavigateContext, PrintContext } from '../../App';
 import { Operadoras } from '../../utils/operadoras';
 import { DataBase } from '../print/component/impressaoset/temposet';
 import PrintDialog from '../print/component/printdialog';
@@ -51,7 +51,8 @@ const a11yProps = (index) => {
 
 const receitainicial = {
     clienteContext: {
-        nome: ''
+        nome: '',
+        id: null
     },
     prescricoes: [],
     requisicoes: [],
@@ -63,7 +64,8 @@ const receitainicial = {
 
 const Avulso = () => {
 
-    const { setClienteContext } = useContext(ClienteContext)
+    const { page } = useContext(NavigateContext)
+    const { setClienteContext, clienteContext } = useContext(ClienteContext)
     const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
     const { local } = useContext(LoginContext)
     const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario, setEmBranco } = useContext(PrintContext)
@@ -75,11 +77,22 @@ const Avulso = () => {
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
     const [receita, setReceita] = useState(receitainicial)
 
+    const clienteAvulsoXAtendimento = useCallback(() => {
+        setClienteContext({
+            nome: '',
+        })
+
+    }, [setClienteContext])
+
     useEffect(() => {
         if (!dataMedUpdate) {
             setFetchAllMedicamentos()
         }
-    }, [dataMedUpdate, setFetchAllMedicamentos])
+
+        // if (page.type.name === "Avulso") {
+        //     clienteAvulsoXAtendimento()
+        // }
+    }, [dataMedUpdate, setFetchAllMedicamentos, page.type.name, clienteAvulsoXAtendimento])
 
     const handleChangeTab = (event, newValue) => {
         setValue(newValue)
@@ -122,7 +135,9 @@ const Avulso = () => {
     const handleClickPrint = () => {
         setAvulso(true)
         setMeses(1)
-        setClienteContext(receita.clienteContext)
+                 if (page.type.name === "Avulso") {
+                    setClienteContext(receita.clienteContext)
+         }
         setPrescricoesSelecionadas(receita.prescricoes)
         setRequisicoes(receita.requisicoes)
         setVacinacao(receita.vacinacao)
@@ -192,7 +207,6 @@ const Avulso = () => {
             emBrancos: receita.emBrancos.filter(r => r.indice !== embranco.indice)
         })
     }
-    
 
     const handlePrescricaoDelete = (prescricao) => {
         setReceita({
@@ -202,6 +216,8 @@ const Avulso = () => {
     }
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
+
+    console.log(clienteContext);
 
     return (
         <>
@@ -276,11 +292,14 @@ const Avulso = () => {
                             handleDateChange={handleDateChange}
                         />
                     </Box>
-                    <TextField
-                        fullWidth
-                        label="Nome do paciente"
-                        onChange={(e) => handleChange(e)}
-                    />
+                    {
+                        page.type.name === "Avulso" &&
+                        <TextField
+                            fullWidth
+                            label="Nome do paciente"
+                            onChange={(e) => handleChange(e)}
+                        />
+                    }
                     <Box
                         sx={{
                             width: '100%'
