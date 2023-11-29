@@ -22,7 +22,9 @@ const NavigateProvider = () => {
         setPageCID: () => setPage(<CID10 />),
         setPageProcedimentos: () => setPage(<Procedimentos />),
         setPageEstatistica: () => setPage(<Estatistica />),
-        setPageAvulso: () => setPage(<Avulso />),
+        setPageAvulso: () => setPage(<Avulso
+            setter={"avulso"}
+        />),
         setPageReset: () => setPage(<div />),
     }
 }

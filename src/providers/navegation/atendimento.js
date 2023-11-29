@@ -63,7 +63,7 @@ const AtendimentoNavegateProvider = () => {
         article,
         step,
         section,
-        print, 
+        print,
         setPrint,
         setArticleAtendimentoMain: () => {
             setArticle(<AtendimentoMain />)
@@ -83,7 +83,9 @@ const AtendimentoNavegateProvider = () => {
             setPrint(true)
         },
         setArticleRequisicao: () => {
-            setArticle(<Avulso />)
+            setArticle(<Avulso
+                setter={"atendimento"}
+            />)
         },
         setStep: (param) => {
             setSection(SetSectionByStep(param))

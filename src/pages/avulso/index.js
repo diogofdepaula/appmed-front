@@ -62,7 +62,7 @@ const receitainicial = {
     comentarios: '',
 }
 
-const Avulso = () => {
+const Avulso = ({ setter }) => {
 
     const { setClienteContext } = useContext(ClienteContext)
     const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
@@ -124,7 +124,7 @@ const Avulso = () => {
     const handleClickPrint = () => {
         setAvulso(true)
         setMeses(1)
-        if (receita.clienteContext.id !== null) {
+        if (setter === "avulso") {
             setClienteContext(receita.clienteContext)
         }
         setPrescricoesSelecionadas(receita.prescricoes)
@@ -206,7 +206,7 @@ const Avulso = () => {
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 
- //   console.log("na receita avulso ", receita.clienteContext.id, "  na context ", clienteContext.id);
+    //   console.log("na receita avulso ", receita.clienteContext.id, "  na context ", clienteContext.id);
 
     return (
         <>
@@ -281,14 +281,14 @@ const Avulso = () => {
                             handleDateChange={handleDateChange}
                         />
                     </Box>
-                    {/* {
-                        receita.clienteContext.id === null && */}
+                    {
+                        setter === "avulso" &&
                         <TextField
                             fullWidth
                             label="Nome do paciente"
                             onChange={(e) => handleChange(e)}
                         />
-                    {/* } */}
+                    }
                     <Box
                         sx={{
                             width: '100%'
