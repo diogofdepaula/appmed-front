@@ -217,7 +217,7 @@ const Avulso = () => {
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 
-    console.log(clienteContext);
+    console.log(page.type.name);
 
     return (
         <>
