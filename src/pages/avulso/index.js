@@ -1,16 +1,16 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Select, Tab, Tabs, TextField, } from '@mui/material';
 import { parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
-import { ClienteContext, DataContext, LoginContext, NavigateContext, PrintContext } from '../../App';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { ClienteContext, DataContext, LoginContext, PrintContext } from '../../App';
 import { Operadoras } from '../../utils/operadoras';
 import { DataBase } from '../print/component/impressaoset/temposet';
 import PrintDialog from '../print/component/printdialog';
 import Ditame from './ditame';
+import EmBranco from './embranco';
 import Prescricoes from './prescricao';
 import Requisicoes from './requisicao';
 import Vacinacao from './vacinacao';
-import EmBranco from './embranco';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -64,8 +64,7 @@ const receitainicial = {
 
 const Avulso = () => {
 
-    const { page } = useContext(NavigateContext)
-    const { setClienteContext, clienteContext } = useContext(ClienteContext)
+    const { setClienteContext } = useContext(ClienteContext)
     const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
     const { local } = useContext(LoginContext)
     const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario, setEmBranco } = useContext(PrintContext)
@@ -77,22 +76,11 @@ const Avulso = () => {
     // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
     const [receita, setReceita] = useState(receitainicial)
 
-    const clienteAvulsoXAtendimento = useCallback(() => {
-        setClienteContext({
-            nome: '',
-        })
-
-    }, [setClienteContext])
-
     useEffect(() => {
         if (!dataMedUpdate) {
             setFetchAllMedicamentos()
         }
-
-        // if (page.type.name === "Avulso") {
-        //     clienteAvulsoXAtendimento()
-        // }
-    }, [dataMedUpdate, setFetchAllMedicamentos, page.type.name, clienteAvulsoXAtendimento])
+    }, [dataMedUpdate, setFetchAllMedicamentos])
 
     const handleChangeTab = (event, newValue) => {
         setValue(newValue)
@@ -120,7 +108,8 @@ const Avulso = () => {
         setReceita({
             ...receita,
             clienteContext: {
-                nome: event.target.value
+                nome: event.target.value,
+                id: null
             }
         })
     }
@@ -135,9 +124,9 @@ const Avulso = () => {
     const handleClickPrint = () => {
         setAvulso(true)
         setMeses(1)
-                 if (page.type.name === "Avulso") {
-                    setClienteContext(receita.clienteContext)
-         }
+        if (receita.clienteContext.id !== null) {
+            setClienteContext(receita.clienteContext)
+        }
         setPrescricoesSelecionadas(receita.prescricoes)
         setRequisicoes(receita.requisicoes)
         setVacinacao(receita.vacinacao)
@@ -217,7 +206,7 @@ const Avulso = () => {
 
     if (open) return <PrintDialog open={open} handleClose={handleClose} />
 
-    console.log(page.type.name);
+ //   console.log("na receita avulso ", receita.clienteContext.id, "  na context ", clienteContext.id);
 
     return (
         <>
@@ -292,14 +281,14 @@ const Avulso = () => {
                             handleDateChange={handleDateChange}
                         />
                     </Box>
-                    {
-                        page.type.name === "Avulso" &&
+                    {/* {
+                        receita.clienteContext.id === null && */}
                         <TextField
                             fullWidth
                             label="Nome do paciente"
                             onChange={(e) => handleChange(e)}
                         />
-                    }
+                    {/* } */}
                     <Box
                         sx={{
                             width: '100%'
