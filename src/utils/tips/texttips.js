@@ -122,7 +122,7 @@ const ListaOpcoes = (param) => {
             trigger: 'med',
         },
         {
-            texto: 'Aguardo os resultados dos novos exames para avaliar possível comorbidades e então definir conduta.',
+            texto: 'Aguardo os resultados dos novos exames para avaliar possíveis comorbidades e então definir conduta.',
             remove: 'aguardo',
             trigger: 'aguardo',
         },
@@ -132,7 +132,15 @@ const ListaOpcoes = (param) => {
             trigger: 'piora',
         },
         {
-            texto: "não se vislumbra melhora a curto e médio prazo de melhora o quadro.",
+            texto: ""
+                .concat(
+                    [
+                        "não se tem expectativa de melhora",
+                        "em relação ao curto e mesmo ao médio prazo"
+                    ].sort(() => Math.random() - 0.5)
+                        .join(', ')
+                ).concat(".")
+                .trim(),
             remove: 'prog',
             trigger: 'prog',
         },
