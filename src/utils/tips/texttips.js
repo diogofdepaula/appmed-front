@@ -136,7 +136,7 @@ const ListaOpcoes = (param) => {
                 .concat(
                     [
                         "não se tem expectativa de melhora",
-                        "em relação ao curto e mesmo ao médio prazo"
+                        "ao curto e mesmo ao médio prazo"
                     ].sort(() => Math.random() - 0.5)
                         .join(', ')
                 ).concat(".")
