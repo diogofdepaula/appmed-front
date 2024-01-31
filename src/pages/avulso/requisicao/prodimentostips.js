@@ -374,7 +374,7 @@ const rx = [
         titulo: "Rx J",
         justificativa: "Investigação de comprometimento reumatológico",
         unitary: {
-            codigo: "40802051",
+            codigo: "40804054",
             mod: "Radiografia de joelhos - AP com carga",
         },
     },
