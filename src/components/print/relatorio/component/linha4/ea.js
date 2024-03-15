@@ -48,12 +48,12 @@ const CriteriosEA = () => {
                     }}
                 >
                     <BoxCheckBox
-                        item={lme.relatorio.eaab}
+                        item={lme.relatorio.eaac}
                     >
                         Sacroileíte em exames de imagem e, pelo menos 1 característica de Espondiloartrite
                     </BoxCheckBox>
                     <BoxCheckBox
-                        item={lme.relatorio.eaac}
+                        item={lme.relatorio.eaab}
                     >
                         HLA-B27 e 2 ou mais características de espondiloartrite
                     </BoxCheckBox>
