@@ -63,7 +63,7 @@ const AtestadoSet = () => {
                     // nome (Object.key) do estado que será alterado
                     name='estado'
                     label="Estado atual (iniciar com letra minuscula e incluir exames)"
-                    rows={3}
+                    rows={7}
                 />
                 <Prognostico />
                 <TextTips
@@ -73,7 +73,7 @@ const AtestadoSet = () => {
                     // nome (Object.key) do estado que será alterado
                     name='prognostico'
                     label="Prognóstico"
-                    rows={3}
+                    rows={2}
                 />
                 <Consequencia />
                 <TextTips
@@ -83,7 +83,7 @@ const AtestadoSet = () => {
                     // nome (Object.key) do estado que será alterado
                     name='consequencia'
                     label="Consequência (com ponto final)"
-                    rows={3}
+                    rows={2}
                 />
                 <Box
                     sx={{
