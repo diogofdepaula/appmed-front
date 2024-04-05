@@ -9,13 +9,14 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
 import React, { useContext } from 'react';
 import { LoginContext } from '../App';
+import { Locais } from '../utils/locais';
 
 const Login = ({ open, handleClose }) => {
 
-    const { setLocal, locais } = useContext(LoginContext)
+    const { setLocal } = useContext(LoginContext)
 
     const handleListItem = (param) => {
-        setLocal(param[1])
+        setLocal(param)
         handleClose(false)
     }
 
@@ -27,18 +28,18 @@ const Login = ({ open, handleClose }) => {
                 </DialogContent>
                 <DialogContent dividers>
                     <List>
-                        {locais.map(local => (
+                        {Locais("todos").map(local => (
                             <ListItem
-                                key={local}
+                                key={local.cod}
                                 button
-                                onClick={() => handleListItem(local)}
+                                onClick={() => handleListItem(local.cod)}
                             >
                                 <ListItemAvatar>
                                     <Avatar>
                                         <AccountBalanceIcon />
                                     </Avatar>
                                 </ListItemAvatar>
-                                <ListItemText primary={local[0]} />
+                                <ListItemText primary={local.dados.abreviatura} />
                             </ListItem>
                         ))}
                     </List>

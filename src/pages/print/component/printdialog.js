@@ -56,7 +56,7 @@ const PrintDialog = ({ open, handleClose }) => {
         // Achei que dá menos trabalho virar a pagina e usar A4 em retrato
         // Se não teria que mudar para paisagem e para A4 toda hora
         if (operadora.razao !== '') return '@page { size: A4 }'  //'@page { size: A4 landscape }'
-        if (local === 'consultorio') return '@page { size: A5 }'
+        if (local.cod === 'consultorio') return '@page { size: A5 }'
         return '@page { size: A4 }'
     }
 

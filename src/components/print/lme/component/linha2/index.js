@@ -6,11 +6,6 @@ const Linha2LME = () => {
 
     const { local } = useContext(LoginContext)
 
-    const estabelecimento = {
-        cnes: local === "cisgap" ? "3634949" : local === "cisco" ? "2741687" : "7275714",
-        nome: local === "cisgap" ? "Consórcio Intermunicipal de Saúde - CISGAP" : local === "cisco" ? "Consórcio Intermunicipal de Saúde Centro Oeste - CISCO" : "CLINICA MEDICA DIEGUEZ DE PAULA",
-    }
-
     return (
         <>
             <Box mt={2}>
@@ -28,7 +23,7 @@ const Linha2LME = () => {
                                 <Grid item>
                                     <Box ml={1}>
                                         <Typography component={'span'} variant={'h6'} align={'center'}>
-                                            {estabelecimento.cnes ? <Box>{estabelecimento.cnes}</Box> : <Box style={{ color: "white" }}>-</Box>}
+                                            {local.dados.cnes ? <Box>{local.dados.cnes}</Box> : <Box style={{ color: "white" }}>-</Box>}
                                         </Typography>
                                     </Box>
                                 </Grid>
@@ -48,7 +43,7 @@ const Linha2LME = () => {
                                 <Grid item>
                                     <Box ml={1}>
                                         <Typography component={'span'} variant={'h6'} align={'left'}>
-                                            <Box>{estabelecimento.nome}</Box>
+                                            <Box>{local.dados.razaosocial}</Box>
                                         </Typography>
                                     </Box>
                                 </Grid>

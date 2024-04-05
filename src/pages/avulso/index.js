@@ -246,7 +246,7 @@ const Avulso = ({ setter }) => {
                             Print
                         </Button>
                         <FormControlLabel
-                            disabled={local === 'consultorio' ? false : true}
+                            disabled={local.cod === 'consultorio' ? false : true}
                             control={
                                 <Checkbox
                                     color='primary'

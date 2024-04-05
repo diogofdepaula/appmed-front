@@ -12,7 +12,7 @@ const Linha2 = ({ tipo }) => {
 
     const texto = () => {
         let texto = ""
-        if (local === 'consultorio' && tipo !== 'lme' && tipo !== undefined) {
+        if (local.cod === 'consultorio' && tipo !== 'lme' && tipo !== undefined) {
             prescricao.medicamento.nomescomerciais?.sort().map((n, i) => {
                 if (i === 0) {
                 //if (n.id === prescricao.medicamento.nomescomerciais[0].id) {

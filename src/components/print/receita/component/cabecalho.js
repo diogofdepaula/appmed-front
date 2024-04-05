@@ -2,8 +2,7 @@ import { Box, CardMedia, Grid, Typography } from '@mui/material'
 import React, { useContext } from 'react'
 import { LoginContext } from '../../../../App'
 import Branco1px from '../../../../utils/imagens/branco1px.png'
-import LogoCISCO from '../../../../utils/imagens/ciscologo.png'
-import LogoCISGAP from '../../../../utils/imagens/cisgaplogo.png'
+import LogoAME from '../../../../utils/imagens/amelogo.png';
 import LogoSUS from '../../../../utils/imagens/logosus.png'
 
 const Cabecalho = ({ tipo, dupla }) => {
@@ -20,7 +19,7 @@ const Cabecalho = ({ tipo, dupla }) => {
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
                             <CardMedia
                                 style={{ width: dupla ? "76%" : "54%", height: "100%" }}
-                                image={local !== 'consultorio' ? LogoSUS : Branco1px}
+                                image={local.cod !== 'consultorio' ? LogoSUS : Branco1px}
                             />
                         </Grid>
                         <Grid item container xs={6} style={{ height: "72px" }} direction="row" justifyContent="center" alignItems="center"  >
@@ -38,14 +37,14 @@ const Cabecalho = ({ tipo, dupla }) => {
                             }
                         </Grid>
                         <Grid container item xs direction="column" justifyContent="center" alignItems="center">
-                            {local === "" ?
+                            {local.cod === "" ?
                                 <Box
                                     style={{ width: direita, height: "100%" }}
                                 />
                                 :
                                 <CardMedia
                                     style={{ width: direita, height: "100%" }}
-                                    image={local === 'consultorio' ? Branco1px : (local === "cisgap" ? LogoCISGAP : LogoCISCO)}
+                                    image={local.cod === 'consultorio' ? Branco1px : LogoAME }
                                 />
                             }
                         </Grid>
