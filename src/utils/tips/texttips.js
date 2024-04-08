@@ -132,26 +132,41 @@ const ListaOpcoes = (param) => {
             trigger: 'aguardo',
         },
         {
-            texto: "intensificação das dores com esforço físico sobre as estruturas envolvidas",
+            texto: "Alega piora das dores com esforço físico e pouca melhora ao repouso.",
             remove: 'piora',
             trigger: 'piora',
         },
         {
-            texto: ""
-                .concat(
-                    [
-                        "não se tem expectativa de melhora",
-                        "ao curto e mesmo ao médio prazo"
-                    ].sort(() => Math.random() - 0.5)
-                        .join(', ')
-                ).concat(".")
-                .trim(),
+            texto:
+                "intensificação das dores "
+                    .concat(
+                        [
+                            "com esforço físico ",
+                            "sobre as estruturas envolvidas "
+                        ].sort(() => Math.random() - 0.5)
+                            .join(', ')
+                    ).concat(".")
+                    .trim(),
+            remove: 'piora',
+            trigger: 'piora',
+        },
+        {
+            texto:
+                ""
+                    .concat(
+                        [
+                            "não se tem expectativa de melhora",
+                            "ao curto e mesmo ao médio prazo"
+                        ].sort(() => Math.random() - 0.5)
+                            .join(', ')
+                    ).concat(".")
+                    .trim(),
             remove: 'prog',
             trigger: 'prog',
         },
         {
             texto: "Mesmo a longo prazo, caso não haja aderência " +
-                "as medidas não farmacológicas e as orientações " + 
+                "as medidas não farmacológicas e as orientações " +
                 "de proteção articular, não se tem expectativa de melhora.",
             remove: 'prog',
             trigger: 'prog',
