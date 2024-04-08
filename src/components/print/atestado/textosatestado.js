@@ -209,7 +209,6 @@ export const Prazo = () => {
         </>
     )
 
-
     // Nada
     if (atestadosSelecionados[0].padrao === PadraoAtestado()[5])
         return <>{' '}</>

@@ -241,6 +241,9 @@ const ETC90SN = {
             {
                 nomefantasia: "Ecoxe",
             },
+            {
+                nomefantasia: "Xumer",
+            },
         ]
     },
     posologia: {
@@ -268,6 +271,9 @@ const ETC907d = {
             {
                 nomefantasia: "Ecoxe",
             },
+            {
+                nomefantasia: "Xumer",
+            },
         ]
     },
     posologia: {
@@ -294,6 +300,9 @@ const ETC6010d = {
             },
             {
                 nomefantasia: "Ecoxe",
+            },
+            {
+                nomefantasia: "Xumer",
             },
         ]
     },
