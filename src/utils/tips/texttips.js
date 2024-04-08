@@ -16,6 +16,11 @@ const ListaCurtas = (param) => {
             trigger: 'RNM CLS',
         },
         {
+            texto: 'Ressonância de sacroilíacas lauda-se ',
+            remove: 'RNM SI',
+            trigger: 'RNM SI',
+        },
+        {
             texto: 'Tomografia de coluna cervical lauda-se ',
             remove: 'TC CC',
             trigger: 'TC CC',
@@ -122,7 +127,7 @@ const ListaOpcoes = (param) => {
             trigger: 'med',
         },
         {
-            texto: 'Aguardo os resultados dos novos exames para avaliar possíveis comorbidades e então definir conduta.',
+            texto: 'Aguardo os resultados dos novos exames para então definir conduta.',
             remove: 'aguardo',
             trigger: 'aguardo',
         },
@@ -146,7 +151,8 @@ const ListaOpcoes = (param) => {
         },
         {
             texto: "Mesmo a longo prazo, caso não haja aderência " +
-                "as medidas não farmacológicas, não se tem expectativa de melhora.",
+                "as medidas não farmacológicas e as orientações " + 
+                "de proteção articular, não se tem expectativa de melhora.",
             remove: 'prog',
             trigger: 'prog',
         },

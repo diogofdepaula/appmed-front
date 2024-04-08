@@ -4,6 +4,7 @@ export const PadraoAtestado = () => {
         'Indeterminado',
         'Definitivo',
         'Mudança',
+        'Indeter -> Determ',
         'Nada',
     ]
 }

@@ -153,10 +153,10 @@ export const Prazo = () => {
             levando em consideração as variáveis das afirmativas
             anteriores as quais influenciam na reabilitação, não é possível
             estabelecer com precisão o tempos estimado para melhora clínica,
-            definindo-se como indeterminado. Salienta-se que mesmo assim 
-            que outras variáveis como responsabilidade, aderência e 
-            disponibilidade ao tratamento, assim como outros fatores ambientais 
-            e sociais podem influenciar na resposta ao tratamento, o que por 
+            definindo-se como indeterminado. Salienta-se que mesmo assim
+            que outras variáveis como responsabilidade, aderência e
+            disponibilidade ao tratamento, assim como outros fatores ambientais
+            e sociais podem influenciar na resposta ao tratamento, o que por
             vezes necessite ser revisto.
             <>{' '}</>
         </>
@@ -190,8 +190,28 @@ export const Prazo = () => {
         </>
     )
 
+    // Indeter -> Determ
+    if (atestadosSelecionados[0].padrao === PadraoAtestado()[4]) return (
+        <>
+            Por fim, em relação ao tempo estimado de repouso necessário,
+            levando em consideração as variáveis das afirmativas
+            anteriores as quais influenciam na reabilitação, não é possível
+            estabelecer com precisão o tempos estimado para melhora clínica,
+            definindo-se como indeterminado. Caso seja imprescindível aos 
+            ritos processuais o estabelecimento desse prazo, considerando 
+            somente as variáveis ponderáveis, não se vislumbra melhora 
+            antes de três a seis meses. Salienta-se que mesmo assim
+            que outras variáveis como responsabilidade, aderência e
+            disponibilidade ao tratamento, assim como outros fatores ambientais
+            e sociais podem influenciar na resposta ao tratamento, o que por
+            vezes necessite ser revisto.
+            <>{' '}</>
+        </>
+    )
+
+
     // Nada
-    if (atestadosSelecionados[0].padrao === PadraoAtestado()[4])
+    if (atestadosSelecionados[0].padrao === PadraoAtestado()[5])
         return <>{' '}</>
 
     return <></>
