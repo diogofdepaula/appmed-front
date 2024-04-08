@@ -16,7 +16,10 @@ const AnamneseTips = () => {
         setLmeEdit({
             ...lmeEdit,
             anamnese: lmeEdit.anamnese
+                .trim()
+                .replace(/.$/, ".")
                 .concat(' ')
+                .replace(/,(?=[^,]+$)/, ' e')
                 .concat(
                     "Solicito o fornecimento de " +
                     medicamentoEdit?.farmaco +
@@ -43,7 +46,9 @@ const AnamneseTips = () => {
         const handleClickChipVirgula2020 = (paramA, paramB) => () => {
             setLmeEdit({
                 ...lmeEdit,
-                anamnese: lmeEdit.anamnese.concat(paramB[0]).concat(', '),
+                anamnese: lmeEdit.anamnese
+                    .concat(paramB[0])
+                    .concat(', '),
                 relatorio: lmeEdit.relatorio === null
                     ?
                     null
@@ -106,7 +111,7 @@ const AnamneseTips = () => {
 
         const Texto = (cid) => {
 
-            const cid10 = cid = "M15" ? "M15" : "M79.7"
+            const cid10 = cid === "M15" ? "M15" : "M79.7"
 
             const eva = ["4", "6", "8", "10"][NumeroAleatorio(4)]
 
