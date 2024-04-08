@@ -17,8 +17,10 @@ const AnamneseTips = () => {
             ...lmeEdit,
             anamnese: lmeEdit.anamnese
                 .trim()
+                // troca a ultima virgula por ponto
                 .replace(/.$/, ".")
                 .concat(' ')
+                // troca a penultima virgula por "e"
                 .replace(/,(?=[^,]+$)/, ' e')
                 .concat(
                     "Solicito o fornecimento de " +

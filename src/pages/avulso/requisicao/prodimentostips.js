@@ -440,6 +440,15 @@ const lab = [
                 "no campo 23 (Indicação clínica) dessa requisião.",
         },
     },
+    {
+        titulo: "DXA",
+        justificativa:
+            "Investigação de Osteoporose.",
+        unitary: {
+            codigo: "40808130",
+            mod: "Densitometria óssea - rotina: coluna e fêmur (ou dois segmentos)",
+        },
+    },
 ]
 
 const onetips = [
