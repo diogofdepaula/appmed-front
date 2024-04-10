@@ -24432,6 +24432,13 @@ const Tuss = () => {
                         aspecto: "",
                 },
                 {
+                        codigo: "40324648",
+                        original: "Ensaio para dosagem da liberação de interferon gama",
+                        mod: "Ensaio para dosagem da liberação de interferon gama",
+                        favorito: false,
+                        aspecto: "",
+                },
+                {
                         codigo: "40310230",
                         original: "Fungos, pesquisa de (a fresco lactofenol, tinta da China)",
                         mod: "Fungos, pesquisa de (a fresco lactofenol, tinta da China)",
