@@ -73,7 +73,7 @@ export const ExecPrint = () => {
             <div ref={componentRef}>
                 <Box
                     sx={{
-                        display: 'none',
+                        // display: 'none',
                         displayPrint: 'block',
                         color: "black",
                     }}

@@ -7,11 +7,11 @@ export default function FitText({ texto, inicial, maxfont, erro, padding, align 
     const outsideRef = useRef(null);
     const [fontsize, setFontSize] = useState(inicial)
 
-    // useEffect(() => {
-    //     if ((insideRef.current?.offsetHeight + erro) < outsideRef.current?.offsetHeight && fontsize < maxfont) {
-    //         setFontSize(fontsize + 1)
-    //     }
-    // }, [erro, fontsize, maxfont]);
+    useEffect(() => {
+        if ((insideRef.current?.offsetHeight + erro) < outsideRef.current?.offsetHeight && fontsize < maxfont) {
+            setFontSize(fontsize + 1)
+        }
+    }, [erro, fontsize, maxfont]);
 
     return (
         <>
@@ -23,8 +23,7 @@ export default function FitText({ texto, inicial, maxfont, erro, padding, align 
                 ref={outsideRef}
             >
                 <Box
-                    // fontSize={fontsize}
-                    fontSize={14}
+                    fontSize={fontsize}
                     ref={insideRef}
                 >
                     {texto}
