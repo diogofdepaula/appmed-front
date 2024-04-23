@@ -28,7 +28,7 @@ const AtendimentoNavegateProvider = () => {
     const [step, setStep] = useState(111)
     // utilizado no botão que manda imprimir
     // quando puder, bolar algo para não precisar disso
-    const [print, setPrint] = useState(false)
+    // const [print, setPrint] = useState(false)
 
     // definição do step
     // 1º número:   1 - prescricao  3 - LME 5 - Alguma outra coisa  7 - Atestados     == optei por pular um, pois se precisar encaixar alguma coisa fica mais fácil
@@ -63,11 +63,11 @@ const AtendimentoNavegateProvider = () => {
         article,
         step,
         section,
-        print,
-        setPrint,
+        // print,
+        // setPrint,
         setArticleAtendimentoMain: () => {
             setArticle(<AtendimentoMain />)
-            setPrint(false)
+            // setPrint(false)
         },
         setArticlePrescricoesMain: () => {
             setArticle(<PrescricoesMain />)
@@ -80,7 +80,7 @@ const AtendimentoNavegateProvider = () => {
         },
         setArticlePrint: () => {
             setArticle(<Print />)
-            setPrint(true)
+            // setPrint(true)
         },
         setArticleRequisicao: () => {
             setArticle(<Avulso
@@ -102,7 +102,7 @@ const AtendimentoNavegateProvider = () => {
         setResetAtendimentoNavegate: () => {
             setStep(0)
             setArticle(<AtendimentoMain />)
-            setPrint(false)
+            // setPrint(false)
         }
     }
 }

@@ -1,11 +1,11 @@
 import { Box, Button, Checkbox, FormControlLabel, MenuItem, Select, Tab, Tabs, TextField, } from '@mui/material';
 import { parseISO } from 'date-fns';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
 import { ClienteContext, DataContext, LoginContext, PrintContext } from '../../App';
 import { Operadoras } from '../../utils/operadoras';
+import { ExecPrint } from '../print/component/execprint';
 import { DataBase } from '../print/component/impressaoset/temposet';
-import PrintDialog from '../print/component/printdialog';
 import Ditame from './ditame';
 import EmBranco from './embranco';
 import Prescricoes from './prescricao';
@@ -49,38 +49,37 @@ const a11yProps = (index) => {
     }
 }
 
-const receitainicial = {
-    clienteContext: {
-        nome: '',
-        id: null
-    },
-    prescricoes: [],
-    requisicoes: [],
-    vacinacao: [],
-    emBrancos: [],
-    data: '',
-    comentarios: '',
-}
-
 const Avulso = ({ setter }) => {
 
-    const { setClienteContext } = useContext(ClienteContext)
+    const { clienteContext, setClienteContext } = useContext(ClienteContext)
     const { setFetchAllMedicamentos, dataMedUpdate } = useContext(DataContext)
     const { local } = useContext(LoginContext)
-    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario, setEmBranco } = useContext(PrintContext)
-    const [open, setOpen] = useState(false)
+    const { nomecomercial, setNomeComercial, operadora, setOperadora, setMeses, setAvulso, setDatabase, setPrescricoesSelecionadas, setRequisicoes, setVacinacao, setComentario, setEmBranco, printReset } = useContext(PrintContext)
     const [value, setValue] = useState(0);
     const [itemEdit, setItemEdit] = useState(null);
     const ind = useRef(1)
+    const [init, setInit] = useState(true)
 
-    // acho que tem passar de receita para documentos mas vai dar um trabalho miserável
-    const [receita, setReceita] = useState(receitainicial)
+    const firstData = useCallback(() => {
+        setAvulso(true)
+        setMeses(1)
+        if (setter === "avulso") {
+            setClienteContext({
+                nome: '',
+                id: null
+            })
+        }
+    }, [setAvulso, setMeses, setter, setClienteContext])
 
     useEffect(() => {
         if (!dataMedUpdate) {
             setFetchAllMedicamentos()
         }
-    }, [dataMedUpdate, setFetchAllMedicamentos])
+        if (init) {
+            firstData()
+            setInit(false)
+        }
+    }, [dataMedUpdate, setFetchAllMedicamentos, init, firstData])
 
     const handleChangeTab = (event, newValue) => {
         setValue(newValue)
@@ -88,55 +87,31 @@ const Avulso = ({ setter }) => {
     }
 
     const handleAdicionarPrescricao = (presc) => {
-        setReceita({
-            ...receita,
-            prescricoes: receita.prescricoes.concat(presc)
-        })
+        setPrescricoesSelecionadas(prevState => prevState.concat(presc))
         ind.current = ind.current + 1
     }
 
+    const handlePrescricaoDelete = (prescricao) => {
+        setPrescricoesSelecionadas(prevState => prevState.filter(p => p.indice !== prescricao.indice))
+    }
+
     const handleAdicionarEmBranco = (param) => {
-        setReceita({
-            ...receita,
-            emBrancos: receita.emBrancos.concat(param)
-        })
+        setEmBranco(prevState => prevState.concat(param))
         setItemEdit(null)
         ind.current = ind.current + 1
     }
 
     const handleChange = event => {
-        setReceita({
-            ...receita,
-            clienteContext: {
-                nome: event.target.value,
-                id: null
-            }
+        setClienteContext({
+            ...clienteContext,
+            nome: event.target.value,
+            id: null
+
         })
     }
 
     const handleChangeComentarios = event => {
-        setReceita({
-            ...receita,
-            comentarios: event.target.value
-        })
-    }
-
-    const handleClickPrint = () => {
-        setAvulso(true)
-        setMeses(1)
-        if (setter === "avulso") {
-            setClienteContext(receita.clienteContext)
-        }
-        setPrescricoesSelecionadas(receita.prescricoes)
-        setRequisicoes(receita.requisicoes)
-        setVacinacao(receita.vacinacao)
-        setEmBranco(receita.emBrancos)
-        setComentario(receita.comentarios)
-        setOpen(true)
-    }
-
-    const handleClose = () => {
-        setOpen(false)
+        setComentario(event.target.value)
     }
 
     const handleChangeNomeComercial = (event) => {
@@ -148,24 +123,28 @@ const Avulso = ({ setter }) => {
     }
 
     const handleClickReset = () => {
-        setReceita(receitainicial)
+        printReset()
+        // não tirar esse setAvulso daqui porque dá erro
+        // lá no Factory devido lista vazia no Reorder
+        ///       let grupoprescricoessort = avulso ? grupoprescricoes : Reorder(grupoprescricoes)
+        setAvulso(true)
+        if (setter === "avulso") {
+            setClienteContext({
+                nome: '',
+                id: null
+            })
+        }
         setOperadora(Operadoras[0])
     }
 
     const handleAdicionarRequisicao = (req) => {
-        setReceita({
-            ...receita,
-            requisicoes: receita.requisicoes.concat(req)
-        })
+        setRequisicoes(prevState => prevState.concat(req))
         setItemEdit(null)
         ind.current = ind.current + 1
     }
 
     const handleAdicionarVacinacao = (vac) => {
-        setReceita({
-            ...receita,
-            vacinacao: receita.vacinacao.concat(vac)
-        })
+        setVacinacao(prevState => prevState.concat(vac))
         ind.current = ind.current + 1
     }
 
@@ -179,10 +158,7 @@ const Avulso = ({ setter }) => {
             indice: ind.current,
         })
         setValue(1)
-        setReceita({
-            ...receita,
-            requisicoes: receita.requisicoes.filter(r => r.indice !== requisicao.indice)
-        })
+        setRequisicoes(prevState => prevState.filter(r => r.indice !== requisicao.indice))
     }
 
     const handleEmBrancoEdit = (embranco) => {
@@ -191,22 +167,8 @@ const Avulso = ({ setter }) => {
             indice: ind.current,
         })
         setValue(4)
-        setReceita({
-            ...receita,
-            emBrancos: receita.emBrancos.filter(r => r.indice !== embranco.indice)
-        })
+        setEmBranco(prevState => prevState.filter(r => r.indice !== embranco.indice))
     }
-
-    const handlePrescricaoDelete = (prescricao) => {
-        setReceita({
-            ...receita,
-            prescricoes: receita.prescricoes.filter(p => p.indice !== prescricao.indice)
-        })
-    }
-
-    if (open) return <PrintDialog open={open} handleClose={handleClose} />
-
-    //   console.log("na receita avulso ", receita.clienteContext.id, "  na context ", clienteContext.id);
 
     return (
         <>
@@ -219,7 +181,6 @@ const Avulso = ({ setter }) => {
                 }}
             >
                 <Ditame
-                    receita={receita}
                     handleRequisicaoEdit={handleRequisicaoEdit}
                     handleEmBrancoEdit={handleEmBrancoEdit}
                     handlePrescricaoDelete={handlePrescricaoDelete}
@@ -239,12 +200,9 @@ const Avulso = ({ setter }) => {
                             gap: 1,
                         }}
                     >
-                        <Button
-                            variant="outlined"
-                            onClick={() => handleClickPrint()}
-                        >
-                            Print
-                        </Button>
+                        {setter === "avulso" &&
+                            <ExecPrint />
+                        }
                         <FormControlLabel
                             disabled={local.cod === 'consultorio' ? false : true}
                             control={

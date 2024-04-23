@@ -56,7 +56,6 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
 
         listOfListIndex.forEach((r, i) => {
             let grupoprescricoes = listPresc.slice(r[0], r[r.length - 1] + 1)
-
             let grupoprescricoessort = avulso ? grupoprescricoes : Reorder(grupoprescricoes)
 
             listReceitas.push(

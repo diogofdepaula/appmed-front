@@ -3,7 +3,6 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import DnsIcon from '@mui/icons-material/Dns';
 import EditIcon from '@mui/icons-material/Edit';
-import FlashOnIcon from '@mui/icons-material/FlashOn';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import KeyboardAltIcon from '@mui/icons-material/KeyboardAlt';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -14,10 +13,9 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import SaveIcon from '@mui/icons-material/Save';
 import StartIcon from '@mui/icons-material/Start';
 import { IconButton, Tooltip } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
-import PrintDialog from '../../../pages/print/component/printdialog';
 import { NovoRelatorio } from '../../../providers/atendimento';
 import { LmeComRelatorio } from '../../../utils/inquiries';
 
@@ -459,34 +457,6 @@ export const LmePararBtn = () => {
                 title={'Parar'}
                 click={handleClick}
                 icon={<CancelPresentationIcon />}
-            />
-        </>
-    )
-}
-
-export const PrintBtn = () => {
-
-    const { print } = useContext(AtendimentoNavigateContext)
-    const [open, setOpen] = useState(false)
-
-    const handleClick = () => {
-        setOpen(true)
-    }
-
-    const handleClose = () => {
-        setOpen(false)
-    }
-
-    if (!print) return <></>
-
-    if (open) return <PrintDialog open={open} handleClose={handleClose} />
-
-    return (
-        <>
-            <DefaultButton
-                title={'Enviar impressão'}
-                click={handleClick}
-                icon={<FlashOnIcon />}
             />
         </>
     )

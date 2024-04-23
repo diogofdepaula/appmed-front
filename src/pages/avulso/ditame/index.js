@@ -1,6 +1,8 @@
-import { Box, IconButton, Tooltip } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import { Box, IconButton, Tooltip } from '@mui/material';
+import React, { useContext } from 'react';
+import { ClienteContext, PrintContext } from '../../../App';
 
 const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
 
@@ -185,6 +187,7 @@ const VacinacaoBox = ({ vacinacao }) => {
 }
 
 const EmBranco = ({ embranco, handleEmBrancoEdit }) => {
+
     return (
         <>
             <Box
@@ -229,7 +232,10 @@ const EmBranco = ({ embranco, handleEmBrancoEdit }) => {
     )
 }
 
-const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEdit }) => {
+const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEdit }) => {
+
+    const { clienteContext } = useContext(ClienteContext)
+    const { prescricoesSelecionadas, requisicoes, comentario, vacinacao, emBranco } = useContext(PrintContext)
 
     return (
         <>
@@ -250,7 +256,7 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleE
                         m: 1
                     }}
                 >
-                    {receita.clienteContext.nome}
+                    {clienteContext?.nome}
                 </Box>
                 <Box
                     sx={{
@@ -264,7 +270,7 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleE
                         borderColor: "#42a5f5"
                     }}
                 >
-                    {receita.prescricoes.map(p =>
+                    {prescricoesSelecionadas?.map(p =>
                         <PrescricaoBox
                             key={p.indice}
                             prescricao={p}
@@ -273,10 +279,10 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleE
                     )}
                 </Box>
                 <Box>
-                    {receita.comentarios}
+                    {comentario}
                 </Box>
                 <Box>
-                    {receita.requisicoes.map(r =>
+                    {requisicoes?.map(r =>
                         <RequisicaoBox
                             requisicao={r}
                             handleRequisicaoEdit={handleRequisicaoEdit}
@@ -285,7 +291,7 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleE
                     )}
                 </Box>
                 <Box>
-                    {receita.vacinacao.map(r =>
+                    {vacinacao?.map(r =>
                         <VacinacaoBox
                             vacinacao={r}
                             key={r.indice}
@@ -293,7 +299,7 @@ const Ditame = ({ receita, handleRequisicaoEdit, handlePrescricaoDelete, handleE
                     )}
                 </Box>
                 <Box>
-                    {receita.emBrancos.map(r =>
+                    {emBranco?.map(r =>
                         <EmBranco
                             embranco={r}
                             handleEmBrancoEdit={handleEmBrancoEdit}
