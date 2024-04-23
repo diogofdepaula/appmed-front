@@ -128,6 +128,7 @@ const Avulso = ({ setter }) => {
         // lá no Factory devido lista vazia no Reorder
         ///       let grupoprescricoessort = avulso ? grupoprescricoes : Reorder(grupoprescricoes)
         setAvulso(true)
+        setMeses(1)
         if (setter === "avulso") {
             setClienteContext({
                 nome: '',
