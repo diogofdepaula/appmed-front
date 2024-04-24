@@ -19953,8 +19953,8 @@ const Tuss = () => {
                 },
                 {
                         codigo: "40301729",
-                        original: "Desidrogenase láctica - pesquisa e/ou dosagem",
-                        mod: "Desidrogenase láctica",
+                        original: "Desidrogenase láctica (LDH) - pesquisa e/ou dosagem",
+                        mod: "Desidrogenase láctica (LDH)",
                         favorito: false,
                         aspecto: "",
                 },
