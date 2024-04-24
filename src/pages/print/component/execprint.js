@@ -70,17 +70,26 @@ export const ExecPrint = () => {
                 click={handleClick}
                 icon={<ElectricBoltIcon />}
             />
-            <div ref={componentRef}>
-                <Box
-                    sx={{
-                        // display: 'none',
-                        displayPrint: 'block',
-                        color: "black",
-                    }}
-                >
-                    <PrintJob />
-                </Box>
-            </div>
+            <Box
+                sx={{
+                    // display: 'none', 
+                    // displayPrint: 'block',
+                    position: "absolute",
+                    top: "-1000000000px",
+                }}
+            >
+                <div ref={componentRef}>
+                    <Box
+                        sx={{
+                             display: 'block',
+                            displayPrint: 'block',
+                            color: "black",
+                        }}
+                    >
+                        <PrintJob />
+                    </Box>
+                </div>
+            </Box>
         </>
     )
 }
