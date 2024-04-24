@@ -184,7 +184,7 @@ export const Prazo = () => {
             administrativas, a avaliação da viabilidade, conforme análise
             de nexo causal e interpretação do avaliado, de recolocação em
             outra função ou em condições mais favoráveis para situação de saúde,
-            uma vez que observa-se repetidas referia de piora dos sintomas com as
+            uma vez que observa-se repetidas referências de piora dos sintomas com as
             atividades laborais atuais.
             <>{' '}</>
         </>
