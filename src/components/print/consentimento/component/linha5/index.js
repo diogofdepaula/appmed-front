@@ -87,7 +87,7 @@ const Linha5Termo = () => {
                 <FitText
                     texto={conteudo}
                     inicial={4}
-                    maxfont={24}
+                    maxfont={26}
                     erro={190}
                     padding={2}
                     align='justify'

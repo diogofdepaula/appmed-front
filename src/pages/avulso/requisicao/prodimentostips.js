@@ -417,7 +417,7 @@ const lab = [
             "sugestivo de Artrite reumatoide. O fator " +
             "reumatoide foi solicitado em outra requisição " +
             "afim de otimiza a logística, uma vez que ambos " +
-            "os exames são impontantes na investigação.",
+            "os exames são importantes na investigação.",
         unitary: {
             codigo: "40308804",
             mod: "Anticorpos anti peptídeo cíclico " +
