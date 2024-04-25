@@ -16,33 +16,39 @@ const Sadt = ({ requisicao }) => {
 
     return (
         <>
-            <Page size="a4land">
+            <Page size="a4">
                 <Box
                     sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        borderBlockColor: "black",
-                        borderStyle: "solid",
-                        borderWidth: "3px",
-                        p: 1,
                         height: 1,
-                        width: 1,
-                        // se optar por desfazer a rotação,  então lá no 
-                        // PrintDialog.js colocar '@page { size: A4 landscape }'
-                        transform: "rotate(270deg) translate(-250px, -240px)",
                     }}
                 >
-                    <Linha1Sadt />
-                    <Linha2Sadt />
-                    <Linha3Sadt />
-                    <Linha4Sadt />
-                    <Linha5Sadt requisicao={requisicao} />
-                    <Linha6Sadt />
-                    <Linha7Sadt />
-                    <Linha8Sadt />
-                    <Linha9Sadt />
-                    <Linha10Sadt />
-                    <Linha11Sadt />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            borderBlockColor: "black",
+                            borderStyle: "solid",
+                            borderWidth: "3px",
+                            p: 1,
+                            height: '1037px',
+                            width: '1532px',
+                            // se optar por desfazer a rotação,  então lá no 
+                            // PrintDialog.js colocar '@page { size: A4 landscape }'
+                            transform: "rotate(270deg) translate(-247px, -244px) ",
+                        }}
+                    >
+                        <Linha1Sadt />
+                        <Linha2Sadt />
+                        <Linha3Sadt />
+                        <Linha4Sadt />
+                        <Linha5Sadt requisicao={requisicao} />
+                        <Linha6Sadt />
+                        <Linha7Sadt />
+                        <Linha8Sadt />
+                        <Linha9Sadt />
+                        <Linha10Sadt />
+                        <Linha11Sadt />
+                    </Box>
                 </Box>
             </Page >
         </>
