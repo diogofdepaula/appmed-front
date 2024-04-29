@@ -5,6 +5,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
+import CalculateIcon from '@mui/icons-material/Calculate';
 import { Toolbar, Tooltip } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -42,7 +43,7 @@ const Item = ({ pagina, titulo, icone }) => {
 
 const LeftDrawer = () => {
 
-    const { setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageEstatistica, setPageAvulso } = useContext(NavigateContext)
+    const { setPageAtendimento, setPageClientes, setPageMedicamentos, setPageCID, setPageProcedimentos, setPageCalculadoras, setPageEstatistica, setPageAvulso } = useContext(NavigateContext)
     const { printReset } = useContext(PrintContext)
     const { clienteContext } = useContext(ClienteContext)
 
@@ -66,6 +67,11 @@ const LeftDrawer = () => {
             pagina: setPageProcedimentos,
             titulo: "Procedimentos",
             icone: <LocalParkingIcon fontSize="large" />,
+        },
+        {
+            pagina: setPageCalculadoras,
+            titulo: "Calculadoras",
+            icone: <CalculateIcon fontSize="large" />,
         },
         // {
         //     pagina: setPageAvulso,

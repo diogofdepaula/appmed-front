@@ -7,6 +7,7 @@ import Print from "../../pages/print"
 import Procedimentos from "../../pages/procedimentos"
 import Estatistica from "../../pages/estastistica"
 import Avulso from "../../pages/avulso"
+import { Calculadoras } from "../../pages/calculadoras"
 
 const NavigateProvider = () => {
 
@@ -21,6 +22,7 @@ const NavigateProvider = () => {
         setPagePrint: () => setPage(<Print />),
         setPageCID: () => setPage(<CID10 />),
         setPageProcedimentos: () => setPage(<Procedimentos />),
+        setPageCalculadoras: () => setPage(<Calculadoras />),
         setPageEstatistica: () => setPage(<Estatistica />),
         setPageAvulso: () => setPage(<Avulso
             setter={"avulso"}
