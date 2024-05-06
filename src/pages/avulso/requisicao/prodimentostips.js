@@ -612,12 +612,22 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                 },
                 {
                     indice: ind + 1,
-                    justificativa: "Exame de rotina antes de iniciar imunobiológico.",
+                    justificativa: 
+                    "Exame de rotina antes de iniciar imunobiológico. " + 
+                    "Exame para investigação de tuberculose latente. Fazer" +
+                    "somente um dos dois exames conforme disponibilidade" +
+                    "Não precisa fazer os dois."
+                    ,
                     selecionados: [
                         {
                             codigo: "40307638",
                             original: "PPD (tuberculina), IDeR",
                             mod: "PPD (teste tuberculínico)",
+                        },
+                        {
+                            codigo: "40324648",
+                            original: "Ensaio para dosagem da liberação de interferon gama",
+                            mod: "Ensaio para dosagem da liberação de interferon gama",
                         },
                     ],
                 },
