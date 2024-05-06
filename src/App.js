@@ -11,6 +11,7 @@ import DataProvider from './providers/data';
 import LoginProvider from './providers/login';
 import NavigateProvider from './providers/navegation';
 import PrintProvider from './providers/print';
+import { blue, grey } from '@mui/material/colors';
 
 export const DataContext = createContext()
 export const ClienteContext = createContext()
@@ -27,32 +28,6 @@ const MainContent = () => {
 const Conteudo = () => {
 
     const [openDialog, setOpenDialog] = useState(true);
-
-    const handleClose = () => {
-        setOpenDialog(false)
-    }
-
-    if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
-
-    return (
-        <>
-            <PrimaryAppBar />
-            <LeftDrawer />
-            <Box
-                component="main"
-                sx={{
-                    flexGrow: 1,
-                }}
-            >
-                <Toolbar />
-                <MainContent />
-            </Box>
-        </>
-    )
-}
-
-const App = () => {
-
     const [mode, setMode] = useState('light');
     const colorMode = useMemo(
         () => ({
@@ -68,10 +43,34 @@ const App = () => {
             createTheme({
                 palette: {
                     mode,
+                    ...(mode === 'light'
+                        ? {
+                            // palette values for light mode
+                        }
+                        : {
+                            // palette values for dark mode
+                            primary: {
+                                main: blue.A400,
+                                light: blue[200],
+                                dark: blue.A700,
+                            },
+                              text: {
+                                primary: grey.A200,
+                             },
+                             action: {
+                                active: grey.A200,
+                             }
+                        }),
                 },
             }),
         [mode],
     )
+
+    const handleClose = () => {
+        setOpenDialog(false)
+    }
+
+    if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
 
     return (
         <>
@@ -82,22 +81,40 @@ const App = () => {
                         bgcolor: 'background.default',
                     }} >
                         <CssBaseline />
-                        <DataContext.Provider value={DataProvider()} >
-                            <ClienteContext.Provider value={ClienteProvider()} >
-                                <NavigateContext.Provider value={NavigateProvider()} >
-                                    <LoginContext.Provider value={LoginProvider()} >
-                                        <PrintContext.Provider value={PrintProvider()}>
-
-                                            <Conteudo />
-
-                                        </PrintContext.Provider>
-                                    </LoginContext.Provider>
-                                </NavigateContext.Provider>
-                            </ClienteContext.Provider>
-                        </DataContext.Provider>
+                        <PrimaryAppBar />
+                        <LeftDrawer />
+                        <Box
+                            component="main"
+                            sx={{
+                                flexGrow: 1,
+                            }}
+                        >
+                            <Toolbar />
+                            <MainContent />
+                        </Box>
                     </Box>
                 </ThemeProvider>
             </ColorModeContext.Provider>
+        </>
+    )
+}
+
+const App = () => {
+
+
+    return (
+        <>
+            <DataContext.Provider value={DataProvider()} >
+                <ClienteContext.Provider value={ClienteProvider()} >
+                    <NavigateContext.Provider value={NavigateProvider()} >
+                        <LoginContext.Provider value={LoginProvider()} >
+                            <PrintContext.Provider value={PrintProvider()}>
+                                <Conteudo />
+                            </PrintContext.Provider>
+                        </LoginContext.Provider>
+                    </NavigateContext.Provider>
+                </ClienteContext.Provider>
+            </DataContext.Provider>
         </>
     )
 }
