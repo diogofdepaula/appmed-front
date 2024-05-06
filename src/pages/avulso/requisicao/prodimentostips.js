@@ -625,9 +625,9 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                             mod: "PPD (teste tuberculínico)",
                         },
                         {
-                            codigo: "40324648",
-                            original: "Ensaio para dosagem da liberação de interferon gama",
-                            mod: "Ensaio para dosagem da liberação de interferon gama",
+                            codigo: "40323056",
+                            original: "Anticorpos neutralizado do interferon",
+                            mod: "Anticorpos neutralizado do interferon",
                         },
                     ],
                 },
