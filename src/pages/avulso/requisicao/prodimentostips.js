@@ -453,6 +453,15 @@ const lab = [
             mod: "Densitometria óssea - rotina: coluna e fêmur (ou dois segmentos)",
         },
     },
+    {
+        titulo: "Ecocardio",
+        justificativa:
+            "Investigação de comprometimento cardíaco em paciente com ->->-> .",
+        unitary: {
+            codigo: "40901106",
+            mod: "Ecodopplercardiograma transtorácico",
+        },
+    },
 ]
 
 const onetips = [
@@ -624,6 +633,38 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                     ],
                 }
             ]
+
+        },
+        {
+            titulo: "Invest Não Conv",
+            multi: [
+                {
+                    indice: ind,
+                    justificativa: "Investigação de comprometimento reumatógico.",
+                    selecionados: [
+                        {
+                            codigo: "0000000",
+                            original: "Hemograma VHS PCR TSH",
+                            mod: "Hemograma VHS PCR TSH",
+                        },
+                        {
+                            codigo: "00000000",
+                            original: "Fator reumatóide, quantitativo",
+                            mod: "Fator reumatóide, quantitativo",
+                        },
+                        {
+                            codigo: "0000000",
+                            original: "Fator Antinuclear (FAN)",
+                            mod: "Fator Antinuclear (FAN)",
+                        },
+                        {
+                            codigo: "0000000",
+                            original: "Anti-CCP  Anti-RO  Anti-LA",
+                            mod: "Anti-CCP Anti-RO  Anti-LA",
+                        },
+                    ],
+                },
+                      ]
 
         }
     ]

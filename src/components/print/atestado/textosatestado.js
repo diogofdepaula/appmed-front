@@ -65,7 +65,7 @@ export const Diagnostico = () => {
 
     return (
         <>
-            possui: <>{' '}</>
+            possui <>{' '}</>
             {atestadosSelecionados[0]?.diagnostico}
             . <>{' '}</>
         </>
