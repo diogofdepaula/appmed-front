@@ -640,7 +640,7 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
             multi: [
                 {
                     indice: ind,
-                    justificativa: "Investigação de comprometimento reumatógico.",
+                    justificativa: "Investigação de comprometimento reumatológico.",
                     selecionados: [
                         {
                             codigo: "0000000",
