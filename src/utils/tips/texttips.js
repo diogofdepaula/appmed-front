@@ -138,11 +138,11 @@ const ListaOpcoes = (param) => {
         },
         {
             texto:
-                "intensificação das dores "
+                "intensificação das dores"
                     .concat(
                         [
-                            "com esforço físico ",
-                            "sobre as estruturas envolvidas "
+                            "com esforço físico",
+                            "sobre as estruturas envolvidas"
                         ].sort(() => Math.random() - 0.5)
                             .join(', ')
                     ).concat(".")
