@@ -141,7 +141,9 @@ const usmmss = [
     {
         titulo: "US MD",
         justificativa:
-            "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
+            "Investigação de processos inflamatórios, especialmente " + 
+            "em carpo, MCF, IFP e IFD. Além disso, dentro das limitações " +
+            "do método, avaliar alterações degenerativas em IF.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (mão direita)",
@@ -150,7 +152,9 @@ const usmmss = [
     {
         titulo: "US ME",
         justificativa:
-            "Investigação de processos inflamatórios, especialmente em carpo, MCF, IFP e IFD.",
+            "Investigação de processos inflamatórios, especialmente " + 
+            "em carpo, MCF, IFP e IFD. Além disso, dentro das limitações " +
+            "do método, avaliar alterações degenerativas em IF.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (mão esquerda)",
