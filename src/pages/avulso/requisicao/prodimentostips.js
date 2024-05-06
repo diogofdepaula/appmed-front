@@ -167,7 +167,7 @@ const usmmii = [
         titulo: "US QD",
         justificativa:
             "Paciente do dor e limitação em quadril direito.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
+            "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (quadril direito)",
@@ -177,7 +177,7 @@ const usmmii = [
         titulo: "US QE",
         justificativa:
             "Paciente do dor e limitação em quadril esquerdo.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
+            "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (quadril esquerdo)",
@@ -187,7 +187,7 @@ const usmmii = [
         titulo: "US JD",
         justificativa:
             "Paciente do dor e limitação em joelho direito.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares, e," +
+            "Atentar para achados inflamatórios intra e extra-articulares, e," +
             "dentro dos limites da capacidade do exame, alterações estruturais.",
         unitary: {
             codigo: "40901220",
@@ -198,7 +198,7 @@ const usmmii = [
         titulo: "US JE",
         justificativa:
             "Paciente do dor e limitação em joelho esquerdo.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares, e," +
+            "Atentar para achados inflamatórios intra e extra-articulares, e," +
             "dentro dos limites da capacidade do exame, alterações estruturais.",
         unitary: {
             codigo: "40901220",
@@ -209,7 +209,7 @@ const usmmii = [
         titulo: "US TD",
         justificativa:
             "Paciente do dor e limitação em tornozelo direito.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
+            "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (tornozelo direito)",
@@ -219,7 +219,7 @@ const usmmii = [
         titulo: "US TE",
         justificativa:
             "Paciente do dor e limitação em tornozelo esquerdo.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
+            "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (tornozelo esquerdo)",
@@ -298,7 +298,7 @@ const usde = [
         titulo: "US Q",
         justificativa:
             "Paciente do dor e limitação em quadris.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
+            "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (quadril direito ou " +
@@ -309,7 +309,7 @@ const usde = [
         titulo: "US J",
         justificativa:
             "Paciente do dor e limitação em joelhos.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares, e," +
+            "Atentar para achados inflamatórios intra e extra-articulares, e," +
             "dentro dos limites da capacidade do exame, alterações estruturais.",
         unitary: {
             codigo: "40901220",
@@ -321,7 +321,7 @@ const usde = [
         titulo: "US T",
         justificativa:
             "Paciente do dor e limitação em tornozelos.\n" +
-            "Atentar para achados inflamatórios articulares e extra-articulares.",
+            "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (tornozelo direito ou " +
