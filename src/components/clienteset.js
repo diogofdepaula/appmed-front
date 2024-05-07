@@ -5,6 +5,7 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { ClienteContext, DataContext, NavigateContext, PrintContext } from '../App';
 import DataCharging from './datacharging';
 import ListItemsClientes from './listitemsclientes';
+import { TextClean } from '../utils/textclean';
 
 const ClienteSet = () => {
 
@@ -33,7 +34,7 @@ const ClienteSet = () => {
     const filterClientes = (event) => {
         setInputValue(event.target.value)
         let filtro = [...allClientes].filter(w =>
-            w.nome.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
+            TextClean(w.nome).toLowerCase().indexOf(TextClean(event.target.value).toLowerCase()) !== -1
         )
         if (filtro.length === 0) {
             filtro.push({
