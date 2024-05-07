@@ -114,7 +114,7 @@ const ClienteSet = () => {
                                 component="nav"
                                 sx={{
                                     width: '100%',
-                                    backgroundColor: "#fff",
+                                    bgcolor: 'background.paper',
                                     borderRadius: 4,
                                 }}
                                 onMouseLeave={() => handleMouseLeave()}

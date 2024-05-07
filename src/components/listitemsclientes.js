@@ -20,7 +20,6 @@ const ClienteItem = memo(({ cliente, handleListItem }) => {
                         <Box
                             sx={{
                                 typography: 'body1',
-                                color: 'black',
                             }}
                         >
                             {cliente.nome}
