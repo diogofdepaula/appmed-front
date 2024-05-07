@@ -12,6 +12,7 @@ const ClienteSet = () => {
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { printReset } = useContext(PrintContext)
     const { dataMedUpdate, allClientes, setFetchAllMedicamentos, setFetchAllClientes } = useContext(DataContext)
+    const [selectedIndex, setSelectedIndex] = useState(-1);
 
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [inputvalue, setInputValue] = useState('')
@@ -44,6 +45,7 @@ const ClienteSet = () => {
             filtro.length = 0
         }
         setClientesFiltrados(filtro)
+        setSelectedIndex(-1)
     }
 
     const handleRefresh = async () => {
@@ -54,9 +56,10 @@ const ClienteSet = () => {
             })
     }
 
-    const handleMouseLeave = () => {
+    const handleLeave = () => {
         setClientesFiltrados([])
         setInputValue('')
+        setSelectedIndex(-1)
     }
 
     const handleListItem = (param) => {
@@ -69,6 +72,22 @@ const ClienteSet = () => {
                 setClientesFiltrados([])
                 setDataCharging(false)
             })
+        setInputValue('')
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === "ArrowDown") {
+            setSelectedIndex(prev => prev === clientesfiltrados.length - 1 ? 0 : prev + 1)
+        }
+        if (event.key === "ArrowUp") {
+            setSelectedIndex(prev => prev === 0 ? clientesfiltrados.length - 1 : prev - 1)
+        }
+        if (event.key === "Enter") {
+            handleListItem(clientesfiltrados[selectedIndex])
+        }
+        if (event.key === "Escape") {
+            handleLeave()
+        }
     }
 
     return (
@@ -98,6 +117,7 @@ const ClienteSet = () => {
                     value={inputvalue}
                     onChange={(e) => filterClientes(e)}
                     onBlur={() => setInputValue('')}
+                    onKeyDown={(e) => handleKeyDown(e)}
                 />
                 <Box
                     sx={{
@@ -117,9 +137,9 @@ const ClienteSet = () => {
                                     bgcolor: 'background.paper',
                                     borderRadius: 4,
                                 }}
-                                onMouseLeave={() => handleMouseLeave()}
                             >
                                 <ListItemsClientes
+                                    selectedIndex={selectedIndex}
                                     clientesfiltrados={clientesfiltrados}
                                     handleListItem={handleListItem}
                                 />

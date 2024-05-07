@@ -1,15 +1,14 @@
 import PersonIcon from '@mui/icons-material/Person';
-import { Box, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Box, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import React, { memo } from 'react';
 import { CalcIdade } from '../utils/tempo';
 
-const ClienteItem = memo(({ cliente, handleListItem }) => {
+const ClienteItem = ({ cliente, handleListItem, selectedIndex, index }) => {
     return (
         <>
-            <ListItem
-                button
+            <ListItemButton
+                selected={selectedIndex === index}
                 onClick={() => handleListItem(cliente)}
             >
                 <ListItemIcon>
@@ -35,12 +34,12 @@ const ClienteItem = memo(({ cliente, handleListItem }) => {
                             ''
                     }
                 />
-            </ListItem>
+            </ListItemButton>
         </>
     )
-})
+}
 
-const ListItemsClientes = memo(({ clientesfiltrados, handleListItem, }) => {
+const ListItemsClientes = ({ clientesfiltrados, handleListItem, selectedIndex }) => {
 
     return (
         <>
@@ -50,8 +49,10 @@ const ListItemsClientes = memo(({ clientesfiltrados, handleListItem, }) => {
                     let b = y.nome.toUpperCase()
                     return a === b ? 0 : a > b ? 1 : -1
                 })
-                .map(cliente =>
+                .map((cliente, i) =>
                     <ClienteItem
+                        index={i}
+                        selectedIndex={selectedIndex}
                         key={cliente.id}
                         cliente={cliente}
                         handleListItem={handleListItem}
@@ -59,7 +60,7 @@ const ListItemsClientes = memo(({ clientesfiltrados, handleListItem, }) => {
                 )}
         </>
     )
-})
+}
 
 export default ListItemsClientes
 
