@@ -13,7 +13,7 @@ const ClienteSet = () => {
     const { setPageAtendimento, setPageReset } = useContext(NavigateContext)
     const { printReset } = useContext(PrintContext)
     const { dataMedUpdate, allClientes, setFetchAllMedicamentos, setFetchAllClientes } = useContext(DataContext)
-    const [selectedIndex, setSelectedIndex] = useState(-1);
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
     const [clientesfiltrados, setClientesFiltrados] = useState([])
     const [inputvalue, setInputValue] = useState('')
@@ -34,7 +34,7 @@ const ClienteSet = () => {
     const filterClientes = (event) => {
         setInputValue(event.target.value)
         let filtro = [...allClientes].filter(w =>
-            TextClean(w.nome).toLowerCase().indexOf(TextClean(event.target.value).toLowerCase()) !== -1
+            TextClean(w.nome).toLowerCase().indexOf(TextClean(event.target.value).trim().toLowerCase()) !== -1
         )
         if (filtro.length === 0) {
             filtro.push({
@@ -46,7 +46,7 @@ const ClienteSet = () => {
             filtro.length = 0
         }
         setClientesFiltrados(filtro)
-        setSelectedIndex(-1)
+        setSelectedIndex(0)
     }
 
     const handleRefresh = async () => {
