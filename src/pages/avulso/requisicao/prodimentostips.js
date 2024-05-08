@@ -141,7 +141,7 @@ const usmmss = [
     {
         titulo: "US MD",
         justificativa:
-            "Investigação de processos inflamatórios, especialmente " + 
+            "Investigação de processos inflamatórios, especialmente " +
             "em carpo, MCF, IFP e IFD. Além disso, dentro das limitações " +
             "do método, avaliar alterações degenerativas em IF.",
         unitary: {
@@ -152,7 +152,7 @@ const usmmss = [
     {
         titulo: "US ME",
         justificativa:
-            "Investigação de processos inflamatórios, especialmente " + 
+            "Investigação de processos inflamatórios, especialmente " +
             "em carpo, MCF, IFP e IFD. Além disso, dentro das limitações " +
             "do método, avaliar alterações degenerativas em IF.",
         unitary: {
@@ -612,11 +612,11 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                 },
                 {
                     indice: ind + 1,
-                    justificativa: 
-                    "Exame de rotina antes de iniciar imunobiológico. " + 
-                    "Exame para investigação de tuberculose latente. Fazer" +
-                    "somente um dos dois exames conforme disponibilidade" +
-                    "Não precisa fazer os dois."
+                    justificativa:
+                        "Exame de rotina antes de iniciar imunobiológico. " +
+                        "Exame para investigação de tuberculose latente. Fazer" +
+                        "somente um dos dois exames conforme disponibilidade" +
+                        "Não precisa fazer os dois."
                     ,
                     selecionados: [
                         {
@@ -643,7 +643,6 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                     ],
                 }
             ]
-
         },
         {
             titulo: "Invest Não Conv",
@@ -674,9 +673,87 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         },
                     ],
                 },
-                      ]
-
+            ]
+        },
+        {
+            titulo: "US-PD MD",
+            multi: [
+                {
+                    indice: ind,
+                    justificativa: 
+                        "Paciente com dor em mão e dedos sugestivo " +
+                        "de doença reumatológica. Exames para investigação " +
+                        "de processo inflamatório intra e extra articulares, " + 
+                        "especialmente em MCF, IFP e IFD. Ao power doppler " +
+                        "atentar para sinovite com invasão da microcirculação " +
+                        "e aumento do fluxo intra-articular.",
+                    selecionados: [
+                        {
+                            codigo: "40901220",
+                            mod: "Ultrassonografia Articular (mão direita)",
+                        },
+                        {
+                            codigo: "40901548",
+                            original: "Doppler convencional órgão/estrutura isolada (mão direita)",
+                            mod: "Doppler convencional órgão/estrutura isolada (mão direita)",
+                        },
+                    ],
+                },
+            ]
+        },
+        {
+            titulo: "US-PD ME",
+            multi: [
+                {
+                    indice: ind,
+                    justificativa: 
+                        "Paciente com dor em mão e dedos sugestivo " +
+                        "de doença reumatológica. Exames para investigação " +
+                        "de processo inflamatório intra e extra articulares, " + 
+                        "especialmente em MCF, IFP e IFD. Ao power doppler " +
+                        "atentar para sinovite com invasão da microcirculação " +
+                        "e aumento do fluxo intra-articular.",
+                    selecionados: [
+                        {
+                            codigo: "40901220",
+                            mod: "Ultrassonografia Articular (mão esquerda)",
+                        },
+                        {
+                            codigo: "40901548",
+                            original: "Doppler convencional órgão/estrutura isolada (mão esquerda)",
+                            mod: "Doppler convencional órgão/estrutura isolada (mão esquerda)",
+                        },
+                    ],
+                },
+            ]
+        },
+        {
+            titulo: "US-PD MEouMD",
+            multi: [
+                {
+                    indice: ind,
+                    justificativa: 
+                        "Paciente com dor em mão e dedos sugestivo " +
+                        "de doença reumatológica. Exames para investigação " +
+                        "de processo inflamatório intra e extra articulares, " + 
+                        "especialmente em MCF, IFP e IFD. Ao power doppler " +
+                        "atentar para sinovite com invasão da microcirculação " +
+                        "e aumento do fluxo intra-articular.",
+                    selecionados: [
+                        {
+                            codigo: "40901220",
+                            mod: "Ultrassonografia Articular (mão direita ou esquerda -- fazer do lado que estiver pior no dia do exame)",
+                        },
+                        {
+                            codigo: "40901548",
+                            original: "Doppler convencional órgão/estrutura isolada",
+                            mod: "Doppler convencional órgão/estrutura isolada (mão direita ou esquerda -- fazer do lado que for realizado a ultrassonografia)",
+                        },
+                    ],
+                },
+            ]
         }
+
     ]
 
     const sendParamMultiple = (param) => {
