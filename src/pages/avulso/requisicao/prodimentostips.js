@@ -614,8 +614,8 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                     indice: ind + 1,
                     justificativa:
                         "Exame de rotina antes de iniciar imunobiológico. " +
-                        "Exame para investigação de tuberculose latente. Fazer" +
-                        "somente um dos dois exames conforme disponibilidade" +
+                        "Exame para investigação de tuberculose latente.\nFazer " +
+                        "somente um dos dois exames conforme disponibilidade.\n" +
                         "Não precisa fazer os dois."
                     ,
                     selecionados: [
