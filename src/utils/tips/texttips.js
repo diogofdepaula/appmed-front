@@ -138,7 +138,7 @@ const ListaOpcoes = (param) => {
         },
         {
             texto:
-                "intensificação das dores"
+                "intensificação das dores, "
                     .concat(
                         [
                             "com esforço físico",
