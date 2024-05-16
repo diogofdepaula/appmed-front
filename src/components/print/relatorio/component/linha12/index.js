@@ -16,7 +16,7 @@ const Linha12Relatorio = () => {
                 }}
             >
                 <>
-                    Referência: arquivo disponibilizado no http://www.cmde.parana.pr.gov.br/ em 04/2022.
+                    Referência: arquivo disponibilizado no http://www.cmde.parana.pr.gov.br/ em 05/2024.
                     Modificado SOMENTE o layout do documento, sendo preservado TODAS as informações 
                     pertinentes. Para maiores esclarecimentos: diogofdepaula@gmail.com .
                 </>
