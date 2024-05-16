@@ -22,7 +22,7 @@ const Linha12Relatorio = () => {
                 </>
                 <>
                     . Referência original:
-                    PORTARIA CONJUNTA nº 16 de 03/09/2021 - PCDT de Artrite Reumatoide e da Artrite Idiopática Juvenil (AIJ),
+                    PORTARIA CONJUNTA nº 16 de 03/09/2021 - v3 - PCDT de Artrite Reumatoide e da Artrite Idiopática Juvenil (AIJ),
                     PORTARIA CONJUNTA nº 09 de 21/05/2021 - PCDT de Artrite PsorÍaca,
                     PORTARIA CONJUNTA nº 25 de 20/04/2021 - PCDT de Espondilite Ancilosante.
                 </>

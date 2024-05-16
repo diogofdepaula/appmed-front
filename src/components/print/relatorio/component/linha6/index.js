@@ -389,7 +389,7 @@ const Linha6LME = () => {
                                 }}
                             >
                                 Possui contraindicação absoluta, toxicidade ou falha
-                                terapêutica a todos os MMCD biológicos anti-TNF e não
+                                terapêutica aos MMCD biológicos anti-TNF e não
                                 anti-TNF e MMDC alvo-específico ( X ) Sim (   ) Não
                             </Box>
                         }
