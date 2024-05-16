@@ -96,7 +96,7 @@ const usmmss = [
         titulo: "US CD",
         justificativa:
             "Paciente do dor em cotovelo direito.\n" +
-            "Investigação para Epincodilite.\n" +
+            "Investigação para Epicondilite.\n" +
             "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
         unitary: {
             codigo: "40901220",
@@ -107,7 +107,7 @@ const usmmss = [
         titulo: "US CE",
         justificativa:
             "Paciente do dor em cotovelo esquerdo.\n" +
-            "Investigação para Epincodilite.\n" +
+            "Investigação para Epicondilite.\n" +
             "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
         unitary: {
             codigo: "40901220",
@@ -263,7 +263,7 @@ const usde = [
         titulo: "US C",
         justificativa:
             "Paciente do dor em cotovelos.\n" +
-            "Investigação para Epincodilite.\n" +
+            "Investigação para Epicondilite.\n" +
             "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
         unitary: {
             codigo: "40901220",
