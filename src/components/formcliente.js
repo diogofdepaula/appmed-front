@@ -1,11 +1,19 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Accordion, AccordionSummary, FormControlLabel, Radio, RadioGroup, TextField, Divider } from "@mui/material";
+import { Accordion, AccordionSummary, Divider, FormControlLabel, Radio, RadioGroup, TextField } from "@mui/material";
 import { Box } from "@mui/system";
-import { format } from "date-fns";
-import { useState } from "react";
+import { format, parseISO } from "date-fns";
+import { ptBR } from 'date-fns/locale';
+import { useContext, useState } from "react";
 import ReactInputMask from "react-input-mask";
+import { DataContext } from '../App';
+import { TextClean } from '../utils/textclean';
 
 const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
+
+    const { allClientes } = useContext(DataContext)
+    const [error, setError] = useState(false)
+    const [errorText, setErrorText] = useState("")
+    const [expanded, setExpanded] = useState(false)
 
     const handleChangeNascimento = event => {
 
@@ -18,7 +26,7 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
         }
     }
 
-    const handleNome = event => {
+    const handleNomeCaixaAlta = event => {
 
         const str = event.target.value
             .toLowerCase()
@@ -28,17 +36,36 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
         setClienteEdit({ ...clienteEdit, [event.target.name]: str })
     }
 
-    const [expanded, setExpanded] = useState(false)
+    const handleErrorNome = (event) => {
+        if (clienteEdit.id >= 0) return
+
+        let cliente = [...allClientes].filter(w =>
+            TextClean(w.nome).toLowerCase()
+                .indexOf(TextClean(event.target.value.trim())
+                    .trim().toLowerCase()) !== -1)
+
+        if (cliente.length !== 1) return setError(false)
+
+        if (cliente[0].nome.length !== event.target.value.trim().length) return setError(false)
+
+        setError(true)
+        setErrorText(format(parseISO(cliente[0].nascimento), "dd'/'MM'/'yyyy", { locale: ptBR }))
+    }
 
     return (
         <>
             <TextField
                 autoFocus
                 fullWidth
+                error={error}
                 name="nome"
                 label="Nome completo"
                 value={clienteEdit?.nome}
-                onChange={handleChange}
+                onChange={(e) => {
+                    handleErrorNome(e)
+                    handleChange(e)
+                }}
+                helperText={error ? "já existe um paciente cadastrado com esse nome nascido em " + errorText : ""}
             />
             <Box
                 sx={{
@@ -216,7 +243,7 @@ const FormCliente = ({ clienteEdit, handleChange, setClienteEdit }) => {
                     fullWidth
                     name="nome"
                     label="Cole nome em caixa alta"
-                    onChange={(e) => handleNome(e)}
+                    onChange={(e) => handleNomeCaixaAlta(e)}
                 />
             </Box>
         </>
