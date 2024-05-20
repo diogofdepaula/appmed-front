@@ -33,8 +33,12 @@ const ClienteSet = () => {
 
     const filterClientes = (event) => {
         setInputValue(event.target.value)
-        let filtro = [...allClientes].filter(w =>
-            TextClean(w.nome).toLowerCase().indexOf(TextClean(event.target.value).trim().toLowerCase()) !== -1
+        const listClientes = [...allClientes].map(x => ({
+            ...x,
+            nome: TextClean(x.nome).toLowerCase()
+        }))
+        let filtro = listClientes.filter(w =>
+            w.nome.indexOf(TextClean(event.target.value).trim().toLowerCase()) !== -1
         )
         if (filtro.length === 0) {
             filtro.push({

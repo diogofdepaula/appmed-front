@@ -1,5 +1,6 @@
 export const TextClean = (param) => {
     let value = param
+        .replace(/á/g, 'a')
         .replace(/ã/g, 'a')
         .replace(/à/g, 'a')
         .replace(/â/g, 'a')
@@ -9,6 +10,7 @@ export const TextClean = (param) => {
         .replace(/õ/g, 'o')
         .replace(/ó/g, 'o')
         .replace(/ô/g, 'o')
+        .replace(/ö/g, 'o')
         .replace(/ú/g, 'u')
         .replace(/ç/g, 'c')
     return value
