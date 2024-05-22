@@ -64,10 +64,10 @@ const ClienteSet = () => {
     }
 
     const handleListItem = (param) => {
+        setPageReset()
         setDataCharging(true)
         setResetCliente(param.id)
-            .then(() => {
-                setPageReset()
+        .then(() => {
                 printReset()
                 setPageAtendimento()
                 setClientesFiltrados([])
