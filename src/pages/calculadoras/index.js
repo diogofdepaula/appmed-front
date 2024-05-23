@@ -5,6 +5,7 @@ import { CalcAR } from './doencas/calcar';
 import { CalcEA } from './doencas/calcea';
 import { CalcAPso } from './doencas/calcap';
 import { CalcPso } from './doencas/calcpso';
+import { CalcLes } from './doencas/calcles';
 
 const TabPanel = ({ children, value, index, ...other }) => {
 
@@ -69,6 +70,7 @@ export const Calculadoras = () => {
                         <Tab label="EA" {...a11yProps(1)} />
                         <Tab label="APso" {...a11yProps(2)} />
                         <Tab label="Pso" {...a11yProps(3)} />
+                        <Tab label="LES" {...a11yProps(4)} />
                         {/*     <Tab label="Atestado" {...a11yProps(3)} />
                                 <Tab label="Em Branco" {...a11yProps(4)} /> */}
                     </Tabs>
@@ -97,7 +99,12 @@ export const Calculadoras = () => {
                 >
                     <CalcPso />
                 </TabPanel>
-             
+                <TabPanel
+                    value={value}
+                    index={4}
+                >
+                    <CalcLes />
+                </TabPanel>
             </Box>
         </>
     )
