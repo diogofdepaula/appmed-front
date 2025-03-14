@@ -591,22 +591,22 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         {
                             codigo: "40306992",
                             original: "Hepatite B - HBSAC (anti-antígeno de superfície) - pesquisa e/ou dosagem",
-                            mod: "Hepatite B - HBSAC (anti-antígeno de superfície)",
+                            mod: "Anti-HBsAg",
                         },
                         {
                             codigo: "40307026",
                             original: "Hepatite C - anti-HCV - pesquisa e/ou dosagem",
-                            mod: "Hepatite C - anti-HCV",
+                            mod: "Anti-HCV",
                         },
                         {
                             codigo: "40307760",
                             original: "Sífilis - VDRL",
-                            mod: "Sífilis - VDRL",
+                            mod: "VDRL",
                         },
                         {
                             codigo: "40307182",
                             original: "HIV1+ HIV2, (determinação conjunta), pesquisa de anticorpos",
-                            mod: "HIV1+ HIV2, (determinação conjunta), pesquisa de anticorpos",
+                            mod: "Anti-HIV",
                         },
                     ],
                 },
@@ -638,7 +638,7 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         {
                             codigo: "40805026",
                             original: "RX - Tórax - 2 incidências",
-                            mod: "Radiografia de tórax - 2 incidências (PA e Perfil); ",
+                            mod: "Radiografia de tórax (PA e Perfil)",
                         },
                     ],
                 }
