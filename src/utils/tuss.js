@@ -26191,7 +26191,7 @@ const Tuss = () => {
                 {
                         codigo: "40316106",
                         original: "Anticorpos antitireóide (tireoglobulina) - pesquisa e/ou dosagem",
-                        mod: "Anticorpos antitireóide (tireoglobulina)",
+                        mod: "Anticorpos tireoglobulina (Anti-TGB)",
                         favorito: false,
                         aspecto: "",
                 },
@@ -26226,7 +26226,7 @@ const Tuss = () => {
                 {
                         codigo: "40316157",
                         original: "Anti-TPO - pesquisa e/ou dosagem",
-                        mod: "Anti-Tireoperoxidase (TPO)",
+                        mod: "Anti-Tireoperoxidase (Anti-TPO)",
                         favorito: false,
                         aspecto: "",
                 },
