@@ -425,7 +425,7 @@ const lab = [
         unitary: {
             codigo: "40308804",
             mod: "Anticorpos anti peptídeo cíclico " +
-                "citrulinado - IgG (*** justificativa está " +
+                "citrulinado (Anti-CCP) (*** justificativa está " +
                 "no campo 23 (Indicação clínica) dessa requisião.",
         },
     },
