@@ -62,7 +62,7 @@ export const CalcEA = () => {
                 >
                     <Box>BASDAI {"de " + basdai}</Box>
                     <Box>ASDAS-PCR {"de " + asdascrp}</Box>
-                    <Box>ASDAS-VHD {"de " + asdasesr}</Box>
+                    <Box>ASDAS-VHS {"de " + asdasesr}</Box>
                 </Box>
                 <Box
                     sx={{
