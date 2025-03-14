@@ -383,7 +383,7 @@ const UciiHaMsm = {
         farmaco: "Colágeno tipo II não desnaturado + Ácido hialurônico + Metilsulfonilmetano",
         nomescomerciais: [
             {
-                nomefantasia: "Colaten FORCE ou Motilex HA",
+                nomefantasia: "Colaten FORCE, Motilex HA ou Colflex HIALU",
             },
         ]
     },
