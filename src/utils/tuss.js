@@ -23867,7 +23867,7 @@ const Tuss = () => {
                 {
                         codigo: "40308804",
                         original: "Anticorpos anti peptídeo cíclico citrulinado - IgG",
-                        mod: "Anticorpos anti peptídeo cíclico citrulinado - IgG",
+                        mod: "Anticorpos anti peptídeo cíclico citrulinado (Anti-CCP)",
                         favorito: false,
                         aspecto: "",
                 },
