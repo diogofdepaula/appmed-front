@@ -167,7 +167,7 @@ export const Prazo = () => {
         <>
             Por fim, em relação ao tempo estimado de repouso necessário, levando
             em consideração as afirmativas anteriores para a sua recuperação,
-            não há nenhum espectativa, mesmo a longo prazo, da reversão do
+            não há nenhum expectativa, mesmo a longo prazo, da reversão do
             estado atual de saúde. Salienta-se que esse prazo trata-se
             de uma estimativa, uma vez que variáveis como responsabilidade,
             aderência e disponibilidade ao tratamento, assim como outros fatores
