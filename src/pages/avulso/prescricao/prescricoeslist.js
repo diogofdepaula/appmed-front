@@ -308,8 +308,8 @@ const ETC6010d = {
     },
     posologia: {
         posologia: "Tomar 01 comprimido uma vez ao dia por 10 dias.",
-        quantidade: "2",
-        forma: "caixas",
+        quantidade: "1",
+        forma: "caixa",
     }
 }
 
@@ -388,7 +388,7 @@ const UciiHaMsm = {
         ]
     },
     posologia: {
-        posologia: "Tomar 01 cápsula uma vez ao dia por 4 meses.",
+        posologia: "Tomar 01 cápsula uma vez ao dia por 6 meses.",
         quantidade: "1",
         forma: "caixa",
     }
@@ -412,7 +412,7 @@ const UciiArtro = {
         ]
     },
     posologia: {
-        posologia: "Tomar 01 comprimido uma vez ao dia por 4 meses.",
+        posologia: "Tomar 01 comprimido uma vez ao dia por 6 meses.",
         quantidade: "1",
         forma: "caixa",
     }
