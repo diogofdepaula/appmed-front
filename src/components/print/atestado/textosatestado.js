@@ -41,7 +41,7 @@ export const Inicio = () => {
                     textAlign: 'justify',
                 }}
             >
-                Venho por meio deste documento, para fins de perícia médica,
+                Venho por meio deste documento, para os devidos fins,
                 conforme normatiza a Resolução do CFM nº 1.851/2008,
                 atestar que {pronome}
                 <Box
@@ -228,8 +228,8 @@ export const Comentario = () => {
             <Box>
                 Ressalto que deve-se respeitar, contudo, a competência do médico
                 perito, a quem, conforme a supracitada resolução, compete
-                determinar capacidade laborativa do paciente e legalmente
-                a decisão do benefício previdenciário.
+                determinar capacidade do paciente e legalmente
+                a decisão do benefício previstos em lei.
 
             </Box>
             <Box>
