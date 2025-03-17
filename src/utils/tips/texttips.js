@@ -165,6 +165,36 @@ const ListaOpcoes = (param) => {
             trigger: 'prog',
         },
         {
+            texto:
+                ""
+                    .concat(
+                        [
+                            "não é possível no momento de ser estabelecido " +
+                            "considerando a variáveis indefinidas a serem " +
+                            "esclarecidas pelos novos exames solicitados",
+                        ].sort(() => Math.random() - 0.5)
+                            .join(', ')
+                    ).concat(".")
+                    .trim(),
+            remove: 'prog',
+            trigger: 'prog',
+        },
+        {
+            texto:
+                ""
+                    .concat(
+                        [
+                            "difíceis de serem estabelecidas uma vez " +
+                            "que ainda há hipóteses diagnósticas para " +
+                            "serem avaliadas",
+                        ].sort(() => Math.random() - 0.5)
+                            .join(', ')
+                    ).concat(".")
+                    .trim(),
+            remove: 'prog',
+            trigger: 'prog',
+        },
+        {
             texto: "Mesmo a longo prazo, caso não haja aderência " +
                 "as medidas não farmacológicas e as orientações " +
                 "de proteção articular, não se tem expectativa de melhora.",
@@ -176,6 +206,12 @@ const ListaOpcoes = (param) => {
                 + "abordagem Multiaxial influenciam negativamente tanto eixo I como eixo III.",
             remove: 'eixo',
             trigger: 'eixo',
+        },
+        {
+            texto: "NÃO RECOMENDA-SE ARMAZENAMENTO DOMÉSTICO. DENTRO DO POSSÍVEL "
+                + "ADMINISTRAR A MEDICAÇÃO NO DIA DA ENTREGA DA MEDICAÇÃO.",
+            remove: 'med',
+            trigger: 'med',
         },
         {
             texto:
