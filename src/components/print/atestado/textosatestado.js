@@ -200,7 +200,7 @@ export const Prazo = () => {
             definindo-se como indeterminado. Caso seja imprescindível aos 
             ritos processuais o estabelecimento desse prazo, considerando 
             somente as variáveis ponderáveis, não se vislumbra melhora 
-            antes de três a seis meses. Salienta-se que mesmo assim
+            antes de seis meses. Salienta-se que mesmo assim
             que outras variáveis como responsabilidade, aderência e
             disponibilidade ao tratamento, assim como outros fatores ambientais
             e sociais podem influenciar na resposta ao tratamento, o que por
