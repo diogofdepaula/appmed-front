@@ -22670,14 +22670,14 @@ const Tuss = () => {
                 {
                         codigo: "40306950",
                         original: "Hepatite B - HBCAC - IgG (anti-core IgG ou Acoreg) - pesquisa e/ou dosagem",
-                        mod: "Hepatite B - HBCAC - IgG (anti-core IgG ou Acoreg)",
+                        mod: "Anti-HBcAg IgG",
                         favorito: false,
                         aspecto: "",
                 },
                 {
                         codigo: "40306968",
                         original: "Hepatite B - HBCAC - IgM (anti-core IgM ou Acorem) - pesquisa e/ou dosagem",
-                        mod: "Hepatite B - HBCAC - IgM (anti-core IgM ou Acorem)",
+                        mod: "Anti-HBcAg IgM",
                         favorito: false,
                         aspecto: "",
                 },
