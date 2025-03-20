@@ -133,6 +133,9 @@ const DF7d = {
             {
                 nomefantasia: "Dolamin Flex",
             },
+            {
+                nomefantasia: "MiogesicLis",
+            },
         ]
     },
     posologia: {
