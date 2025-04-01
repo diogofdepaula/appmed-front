@@ -19,7 +19,7 @@ const Data = ({ mes, tipo }) => {
             return (
                 <Typography variant="h6"
                     sx={{
-                        fontSize: 16
+                        fontSize: 18
                     }}
                 >
                     {prop.children}
