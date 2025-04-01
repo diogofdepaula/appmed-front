@@ -133,7 +133,41 @@ const PrintJob = () => {
 
     const EmBrancos = () => {
         if (emBranco.length === 0) return <></>
-        return emBranco?.map((r, i) => <EmBrancoA5 key={i} embranco={r} tipo={local.cod} />)
+
+        const divisor = 1000
+
+        const novoemBranco = []
+
+        emBranco?.forEach((x, i) => {
+
+            if (x.texto.length > divisor) {
+                let listIndex = []
+                // define a primeira página até o espaço depois da 1000 (divisor) caracter
+                const primeiroindex = x.texto.indexOf(" ", divisor)
+                listIndex.push(primeiroindex)
+                while (listIndex[listIndex.length - 1] < x.texto.length) {
+                    let novoindex = x.texto.indexOf(" ", listIndex[listIndex.length - 1] + divisor);
+                    if (novoindex === -1) break
+                    listIndex.push(novoindex)
+                }
+                //isso adiciona as últimas frases que ficaram de fora
+                listIndex.push(x.texto.length)
+                let prim = 0
+                listIndex.forEach(n => {
+                    const pag = x.texto.slice(prim, n)
+                    const novapagina = {
+                        ...x,
+                        indice: x.indice + n,
+                        texto: pag.trimStart()
+                    }
+                    prim = n
+                    novoemBranco.push(novapagina)
+                })
+            } else {
+                novoemBranco.push(x)
+            }
+        })
+        return novoemBranco?.map((r, i) => <EmBrancoA5 key={i} embranco={r} tipo={local.cod} />)
     }
 
     return (
