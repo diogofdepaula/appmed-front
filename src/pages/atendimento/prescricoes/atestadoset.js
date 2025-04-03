@@ -2,7 +2,6 @@ import { Box, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { AtendimentoContext } from '..';
-import { Consequencia, Diagnostico, Estado, Prognostico, Tratamento } from '../../../components/print/atestado/textosatestado';
 import { PadraoAtestado } from '../../../utils/listas';
 import TextTips from '../../../utils/tips/texttips';
 
@@ -21,7 +20,7 @@ const AtestadoSet = () => {
     const handleChangeText = (event, tips, name) => {
         setAtestadoEdit({
             ...atestadoEdit,
-            [event?.target.name ?? name] : event?.target.value ?? tips
+            [event?.target.name ?? name]: event?.target.value ?? tips
         })
     }
 
@@ -35,54 +34,43 @@ const AtestadoSet = () => {
                     gap: 1,
                 }}
             >
-                <Diagnostico />
                 <TextField
                     fullWidth
                     multiline
-                    rows={3}
+                    rows={2}
                     name="diagnostico"
-                    label="Diagnóstico"
+                    label="possui (Diagnóstico)"
                     value={atestadoEdit.diagnostico}
                     onChange={handleChange}
                 />
-                <Tratamento />
                 <TextTips
                     handleChange={handleChangeText}
-                    // é o estado que será alterado
                     state={atestadoEdit}
-                    // nome (Object.key) do estado que será alterado
                     name='tratamento'
-                    label="Tratamento (com ponto final)"
-                    rows={3}
+                    label="No que tange a conduta terapêutica atual (Tratamento - com ponto final)"
+                    rows={2}
                 />
-                <Estado />
                 <TextTips
                     handleChange={handleChangeText}
                     // é o estado que será alterado
                     state={atestadoEdit}
                     // nome (Object.key) do estado que será alterado
                     name='estado'
-                    label="Estado atual (iniciar com letra minuscula e incluir exames)"
-                    rows={7}
+                    label="Na última consulta paciente se apresentava (Estado atual (iniciar com letra minuscula))"
+                    rows={10}
                 />
-                <Prognostico />
                 <TextTips
                     handleChange={handleChangeText}
-                    // é o estado que será alterado
                     state={atestadoEdit}
-                    // nome (Object.key) do estado que será alterado
                     name='prognostico'
-                    label="Prognóstico"
+                    label="Em relação ao prognóstico (Prognóstico)"
                     rows={2}
                 />
-                <Consequencia />
                 <TextTips
                     handleChange={handleChangeText}
-                    // é o estado que será alterado
                     state={atestadoEdit}
-                    // nome (Object.key) do estado que será alterado
                     name='consequencia'
-                    label="Consequência (com ponto final)"
+                    label="As consequências à saúde são (com ponto final)"
                     rows={2}
                 />
                 <Box
@@ -92,7 +80,7 @@ const AtestadoSet = () => {
                     }}
                 >
                     <FormControl fullWidth >
-                        <InputLabel id="label">Padrão</InputLabel>
+                        <InputLabel id="label">Prazo de afastamento</InputLabel>
                         <Select
                             labelId="label"
                             autoWidth
@@ -121,26 +109,35 @@ const AtestadoSet = () => {
                         />
                     }
                 </Box>
-                <TextField
-                    fullWidth
-                    multiline
-                    rows={4}
-                    name="comentario"
-                    label="Comentário"
-                    value={atestadoEdit.comentario}
-                    onChange={handleChange}
-                />
-                <TextField
-                    name="data"
-                    label="Data"
-                    type="date"
-                    variant="outlined"
-                    InputLabelProps={{
-                        shrink: true,
+                <Box
+                    sx={{
+                        display: 'flex',
+                        gap: 1,
+                        flexDirection: 'row',
+                        flexGrow: 1,
                     }}
-                    value={atestadoEdit.data}
-                    onChange={(e) => handleData(e)}
-                />
+                >
+                    <TextField
+                        fullWidth
+                        multiline
+                        rows={1}
+                        name="comentario"
+                        label="Comentário"
+                        value={atestadoEdit.comentario}
+                        onChange={handleChange}
+                    />
+                    <TextField
+                        name="data"
+                        label="Data"
+                        type="date"
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        value={atestadoEdit.data}
+                        onChange={(e) => handleData(e)}
+                    />
+                </Box>
             </Box>
         </>
     )

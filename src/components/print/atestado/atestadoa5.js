@@ -2,9 +2,10 @@ import { Box } from '@mui/material';
 import React from 'react';
 import Page from '../page';
 import Data from '../receita/component/data';
-import { Comentario, Consequencia, Diagnostico, Estado, Inicio, Prazo, Prognostico, Titulo, Tratamento } from './textosatestado';
+import FitText from '../../../pages/print/component/fittext';
+import { Titulo } from './textosatestado';
 
-const AtestadoA5 = ({ tipo }) => {
+const AtestadoA5 = ({ texto, tipo }) => {
 
     return (
         <>
@@ -13,37 +14,35 @@ const AtestadoA5 = ({ tipo }) => {
                     sx={{
                         width: 1,
                         height: 1,
-                        display: 'block',
+                        display: 'flex',
+                        flexDirection: 'column',
                     }}
                 >
                     <Box
                         sx={{
-                            height: 1,
-                            display: 'block',
+                            mb: 1,
                         }}
                     >
-                        <Titulo />
                         <Box
                             sx={{
-                                justifyContent: 'space-around',
                                 display: 'block',
-                                textAlign: 'justify',
-                                typography: 'body1',
-                                fontSize: 15,
+                                paddingTop: 3,
+                                paddingBottom: 7,
                             }}
                         >
-                            <Inicio />
-                            <Diagnostico />
-                            <Tratamento />
-                            <Estado />
-                            <Prognostico />
-                            <Consequencia />
-                            <Prazo />
-                            <Comentario />
+                            <Titulo />
                         </Box>
                     </Box>
-                    <Data tipo={tipo} />
+                    <FitText
+                        texto={texto}
+                        inicial={8}
+                        maxfont={22}
+                        erro={50}
+                        padding={1}
+                        align='justify'
+                    />
                 </Box>
+                <Data tipo={tipo} />
             </Page>
         </>
     )

@@ -10,6 +10,7 @@ import VacinacaoA5 from '../../components/print/vacinacao/folhaa5';
 import { MedicacaoInterropida } from '../../utils/inquiries';
 import Sadt from '../../components/print/requisicao/sadt';
 import EmBrancoA5 from '../../components/print/embranco';
+import { Comentario, Consequencia, Diagnostico, Estado, Inicio, Prazo, Prognostico, Tratamento } from '../../components/print/atestado/textosatestado.js';
 
 export const LMEPrintContext = createContext(null)
 
@@ -128,7 +129,40 @@ const PrintJob = () => {
 
     const Atestados = () => {
         if (atestadosSelecionados.length === 0) return <></>
-        return <Atestado atestado={atestadosSelecionados[0]} tipo={local.cod} />
+
+        const texto = Inicio() +
+            Diagnostico() +
+            Tratamento() +
+            Estado() +
+            Prognostico() +
+            Consequencia() +
+            Prazo() +
+            Comentario()
+
+            const divisor = 1000
+
+        const textodividido = []
+
+        if (texto.length > divisor) {
+            let listIndex = []
+            // define a primeira página até o espaço depois da 1000 (divisor) caracter
+            const primeiroindex = texto.indexOf(" ", divisor)
+            listIndex.push(primeiroindex)
+            while (listIndex[listIndex.length - 1] < texto.length) {
+                let novoindex = texto.indexOf(" ", listIndex[listIndex.length - 1] + divisor);
+                if (novoindex === -1) break
+                listIndex.push(novoindex)
+            }
+            //isso adiciona as últimas frases que ficaram de fora
+            listIndex.push(texto.length)
+            let prim = 0
+            listIndex.forEach(n => {
+                const pag = texto.slice(prim, n).trimStart()
+                prim = n
+                textodividido.push(pag)
+            })
+        }
+        return textodividido?.map((r, i) => <Atestado key={i} texto={r} tipo={local.cod} />)
     }
 
     const EmBrancos = () => {

@@ -134,8 +134,8 @@ const EmBrancoA5 = ({ embranco, tipo }) => {
                         padding={1}
                         align='justify'
                     />
-                    <Data tipo={tipo} />
                 </Box>
+                <Data tipo={tipo} />
             </Page >
         </>
     )
