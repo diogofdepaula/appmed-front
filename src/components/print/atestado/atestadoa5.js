@@ -5,7 +5,7 @@ import Data from '../receita/component/data';
 import FitText from '../../../pages/print/component/fittext';
 import { Titulo } from './textosatestado';
 
-const AtestadoA5 = ({ texto, tipo }) => {
+const AtestadoA5 = ({ texto, tipo, pagina }) => {
 
     return (
         <>
@@ -32,6 +32,7 @@ const AtestadoA5 = ({ texto, tipo }) => {
                         >
                             <Titulo />
                         </Box>
+
                     </Box>
                     <FitText
                         texto={texto}
@@ -42,7 +43,20 @@ const AtestadoA5 = ({ texto, tipo }) => {
                         align='justify'
                     />
                 </Box>
-                <Data tipo={tipo} />
+                <Box
+                    sx={{
+                        display: 'flex'
+                    }}
+                >
+                    <Box
+                        sx={{ flexGrow: 1 }}
+                    >
+                        <Data tipo={tipo} />
+                    </Box>
+                    <Box>
+                        {pagina + 1}
+                    </Box>
+                </Box>
             </Page>
         </>
     )

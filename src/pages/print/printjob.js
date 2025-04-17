@@ -130,39 +130,52 @@ const PrintJob = () => {
     const Atestados = () => {
         if (atestadosSelecionados.length === 0) return <></>
 
-        const texto = Inicio() +
-            Diagnostico() +
-            Tratamento() +
-            Estado() +
-            Prognostico() +
-            Consequencia() +
-            Prazo() +
-            Comentario()
+        return atestadosSelecionados?.map(a => {
 
-            const divisor = 1000
+            const texto = Inicio() +
+                Diagnostico(a) +
+                Tratamento(a) +
+                Estado(a) +
+                Prognostico(a) +
+                Consequencia(a) +
+                Prazo(a) +
+                Comentario(a)
 
-        const textodividido = []
+            let divisor = 1000
 
-        if (texto.length > divisor) {
-            let listIndex = []
-            // define a primeira página até o espaço depois da 1000 (divisor) caracter
-            const primeiroindex = texto.indexOf(" ", divisor)
-            listIndex.push(primeiroindex)
-            while (listIndex[listIndex.length - 1] < texto.length) {
-                let novoindex = texto.indexOf(" ", listIndex[listIndex.length - 1] + divisor);
-                if (novoindex === -1) break
-                listIndex.push(novoindex)
+            const textodividido = []
+
+            // calcular o resto do texto
+            const resto = texto.length - (divisor * Math.trunc(texto.length / divisor))
+            if (resto < 400) {
+                // distribui o resto que for pequeno (<400), entre as outras páginas
+                divisor = divisor + Math.ceil(resto / Math.trunc(texto.length / divisor))
             }
-            //isso adiciona as últimas frases que ficaram de fora
-            listIndex.push(texto.length)
-            let prim = 0
-            listIndex.forEach(n => {
-                const pag = texto.slice(prim, n).trimStart()
-                prim = n
-                textodividido.push(pag)
-            })
-        }
-        return textodividido?.map((r, i) => <Atestado key={i} texto={r} tipo={local.cod} />)
+
+            if (texto.length > divisor) {
+                let listIndex = []
+                // define a primeira página até o espaço depois da 1000 (divisor) caracter
+                const primeiroindex = texto.indexOf(" ", divisor)
+                listIndex.push(primeiroindex)
+                while (listIndex[listIndex.length - 1] < texto.length) {
+                    let novoindex = texto.indexOf(" ", listIndex[listIndex.length - 1] + divisor);
+                    if (novoindex === -1) break
+                    listIndex.push(novoindex)
+                }
+                //isso adiciona as últimas frases que ficaram de fora
+                listIndex.push(texto.length)
+                let prim = 0
+                listIndex.forEach(n => {
+                    const pag = texto.slice(prim, n).trimStart()
+                    prim = n
+                    textodividido.push(pag)
+                })
+            } else {
+                textodividido.push(texto)
+            }
+            return textodividido?.map((r, i) => <Atestado key={i} texto={r} tipo={local.cod} pagina={i}/>)
+
+        })
     }
 
     const EmBrancos = () => {
