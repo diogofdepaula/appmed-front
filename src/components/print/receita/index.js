@@ -27,9 +27,9 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
 
     const itemsRef = useRef([]);
 
-    useEffect(() => {
-        itemsRef.current = itemsRef.current.slice(0, listPresc.length);
-    }, [listPresc]);
+    // useEffect(() => {
+    //     itemsRef.current = itemsRef.current.slice(0, listPresc.length);
+    // }, [listPresc]);
 
     const [listReceitas, setReceitas] = useState([])
 
@@ -38,28 +38,38 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
         let listIndex = []
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
-            if (soma <= (tipo === "consultorio" ? somaheighta5 : somaheighta4)) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
-                soma = soma + w.offsetHeight
-                listIndex.push(index)
-            } else {
-                listOfListIndex.push(listIndex)
-                listIndex = []
-                soma = w.offsetHeight // recomeça a contagem
-                listIndex.push(index)
-            }
+            if (w.offsetHeight > 700) {
+                // 700 é um valor abitrário.É porque trata-se de uma prescrição grande
+                // como a do Rituximabe. E está aqui para ficar uma receita sozinha.
+                let unico = []
+                unico.push(index)
+                listOfListIndex.unshift(unico)
+            }  else {
+                if (soma <= (tipo === "consultorio" ? somaheighta5 : somaheighta4)) {  ///(a4size.height - 1000)  // fazer a definição em breve heightbloco no index.js do sus
+                    // adiciono a prescrição na lista
+                    soma = soma + w.offsetHeight
+                    listIndex.push(index)
+                } else {
+                    listOfListIndex.push(listIndex)
+                    listIndex = []
+                    soma = w.offsetHeight // recomeça a contagem
+                    listIndex.push(index)
+                }
+             }
             if (index === itemsRef.current.length - 1 && listIndex.length > 0) {
+                // adiciona a última prescrição que sobrou
                 listOfListIndex.push(listIndex)
             }
         })
+        let listReceitasFinal = []
 
-        let listReceitas = []
-
-        listOfListIndex.forEach((r, i) => {
-            let grupoprescricoes = listPresc.slice(r[0], r[r.length - 1] + 1)
+        listOfListIndex.forEach((list, i) => {
+            let grupoprescricoes = list.map( p => listPresc[p])
+            // let grupoprescricoes = listPresc.slice(r[0], r[r.length - 1] + 1)
+            // metodo antigo
             let grupoprescricoessort = avulso ? grupoprescricoes : Reorder(grupoprescricoes)
-
-            listReceitas.push(
-                <div key={r}>
+            listReceitasFinal.push(
+                <div key={i}>
                     <ReceitaPorTipo
                         prescricoes={grupoprescricoessort}
                         via={via} mes={mes} tipo={tipo} dupla={dupla}
@@ -69,7 +79,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
             )
         })
 
-        setReceitas(listReceitas)
+        setReceitas(listReceitasFinal)
 
     }, [somaheighta5, somaheighta4, listPresc, mes, tipo, via, dupla, avulso])
 
