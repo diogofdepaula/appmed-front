@@ -109,7 +109,7 @@ const ClienteSet = () => {
                     <RefreshIcon />
                 </IconButton>
                 <InputBase
-                    placeholder={dataCharging ? "Carregando dados" : "Procurar cliente"}
+                    placeholder={dataCharging ? "Carregando dados" : "Procurar cliente teste"}
                     sx={{
                         color: 'inherit',
                         flexGrow: 1,

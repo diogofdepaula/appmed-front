@@ -86,7 +86,7 @@ const ClienteMain = () => {
 						</IconButton>
 						<TextField
 							fullWidth
-							label={dataCharging ? "Carregando dados" : "Procurar cliente"}
+							label={dataCharging ? "Carregando dados" : "Procurar cliente teste"}
 							variant="outlined"
 							onChange={filterClientes}
 						/>
