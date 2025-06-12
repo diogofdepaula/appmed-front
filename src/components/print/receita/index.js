@@ -31,6 +31,8 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
     //     itemsRef.current = itemsRef.current.slice(0, listPresc.length);
     // }, [listPresc]);
 
+    console.log("teste ");
+
     const [listReceitas, setReceitas] = useState([])
 
     const divide = useCallback(() => {
