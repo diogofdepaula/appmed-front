@@ -38,8 +38,7 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
         let listIndex = []
         let listOfListIndex = []
         itemsRef.current.forEach((w, index) => {
-            console.log(w.offsetHeight);
-            if (w.offsetHeight > 700) {
+            if (w.offsetHeight > 600) {
                 // 700 é um valor abitrário.É porque trata-se de uma prescrição grande
                 // como a do Rituximabe. E está aqui para ficar uma receita sozinha.
                 let unico = []
@@ -63,8 +62,6 @@ const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
             }
         })
         let listReceitasFinal = []
-
-        console.log(listOfListIndex);
 
         listOfListIndex.forEach((list, i) => {
             let grupoprescricoes = list.map( p => listPresc[p])
