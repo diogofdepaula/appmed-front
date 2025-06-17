@@ -32,7 +32,7 @@ export const Inicio = () => {
 
     const cpf = clienteContext.cpf === "" ? "" : (idade === "" ? (", CPF " + clienteContext.cpf + ", ") : (" CPF " + clienteContext.cpf + ", "))
 
-    return "Venho por meio deste documento, para os devidos fins," +
+    return "Venho por meio deste documento, para os devidos fins, " +
         "conforme normatiza a Resolução do CFM nº 1.851/2008, " +
         "atestar que" + pronome + " " + clienteContext.nome +
         idade + cpf
@@ -142,7 +142,7 @@ export const Comentario = (atestado) => {
 
     return atestado?.comentario + "\nRessalto que " +
         "deve-se respeitar, contudo, a competência do médico " +
-        "perito, a quem, conforme a supracitada resolução, compete  " +
+        "perito, a quem, conforme a supracitada resolução, compete " +
         "determinar capacidade do paciente e legalmente a decisão do " +
         "benefício previstos em lei.\nS.m.j."
 }
