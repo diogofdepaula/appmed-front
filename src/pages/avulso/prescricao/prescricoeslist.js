@@ -521,13 +521,36 @@ const DexaCitoNFF = {
     },
     posologia: {
         posologia:
-            "A posologia usual é de uma injeção a cada dois ou três dias. " +
-            "Aspirar, para uma seringa com capacidade mínima de 3 ml, os " +
-            "conteúdos das ampolas I e II, injetando a mistura lentamente" +
-            "por via intramuscular profunda, de preferência nas nádegas." +
-            "Aplique uma dose a cada 3 dias por 6 dias (total de 3 doses).",
+            "Aplicar um dose (ampola I e II) por via intramuscular profunda (glúteo) " +
+            "uma vez por semana por três semanas consecutivas.",
         quantidade: "1",
-        forma: "Caixa",
+        forma: "caixa",
+    }
+}
+
+const Cito5000 = {
+    continuo: false,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "100mg + 100mg + 5000mcg ",
+        uso: "uso externo",
+    },
+    medicamento: {
+        farmaco: "Tiamina + Piridoxina + Cianocobalamina",
+        nomescomerciais: [
+            {
+                nomefantasia: "Citoneurin 5000",
+            },
+        ]
+    },
+    posologia: {
+        posologia:
+            "Aplicar um dose (ampola I e II) por via intramuscular profunda (glúteo) " +
+            "uma vez por semana por três semanas consecutivas.",
+        quantidade: "1",
+        forma: "caixa",
     }
 }
 
@@ -545,6 +568,7 @@ export const prescricoeslist = {
     Pdn405d204d: Pdn405d204d,
     AINHTopico: AINHTopico,
     DexCitoNFF: DexaCitoNFF,
+    Cito5000: Cito5000,
     default: {}
 }
 
