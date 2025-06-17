@@ -22,7 +22,7 @@ const PrintProvider = () => {
     const [avulso, setAvulso] = useState(false)
     const [operadora, setOperadora] = useState(Operadoras[0])
     const somaheighta4 = 950 // 900, 
-    const somaheighta5 = 440
+    const somaheighta5 = 500 // estava 440
 
     return {
         prescricoesSelecionadas,

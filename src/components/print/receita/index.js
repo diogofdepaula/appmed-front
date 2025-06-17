@@ -24,22 +24,18 @@ const ReceitaPorTipo = ({ prescricoes, via, mes, tipo, dupla, last }) => {
 const FactoryReceitas = ({ listPresc, via, mes, tipo, dupla }) => {
 
     const { somaheighta5, somaheighta4, avulso } = useContext(PrintContext)
-
     const itemsRef = useRef([]);
-
-    // useEffect(() => {
-    //     itemsRef.current = itemsRef.current.slice(0, listPresc.length);
-    // }, [listPresc]);
-
     const [listReceitas, setReceitas] = useState([])
 
     const divide = useCallback(() => {
         let soma = 0
         let listIndex = []
         let listOfListIndex = []
+
         itemsRef.current.forEach((w, index) => {
             if (w.offsetHeight > 600) {
-                // 700 é um valor abitrário.É porque trata-se de uma prescrição grande
+                // 600 é um valor abitrário. Valores de 700 deu erro no Brave
+                // É porque trata-se de uma prescrição grande
                 // como a do Rituximabe. E está aqui para ficar uma receita sozinha.
                 let unico = []
                 unico.push(index)
