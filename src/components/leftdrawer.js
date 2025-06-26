@@ -108,7 +108,7 @@ const LeftDrawer = () => {
                         disablePadding
                         button
                         onClick={() => {
-                            printReset()
+                            printReset('avulso')
                             setPageAvulso()
                         }}
                     >

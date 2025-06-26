@@ -63,7 +63,7 @@ const PrintProvider = () => {
         setOperadora,
         somaheighta4,
         somaheighta5,
-        printReset: () => {
+        printReset: (param) => {
             setPrescricoesSelecionadas([])
             setTipo('simples')
             setMeses(6)
@@ -80,7 +80,13 @@ const PrintProvider = () => {
             setEmBranco([])
             setDatabase(new Date())
             setRenovacao(false)
-            setAvulso(false)
+            // tive que setar avulso aqui, pois o melhor era no setPage, mas não tem como 
+            // chamar um usoContexto dentro de um useContext
+            // se não deixar isso, irá causar erro na reordenação do listgroup no FatoryPrint
+            // especialmente quando está no avulso e clica de novo no avulso no botão lateral
+            // deselegante, mas funcionou. Se for refatorar, mudar isso.
+            // isso se dá por ser um parametro de navegação dentro do useContext Print e no no Navegarion
+            setAvulso(param === 'avulso' ? true : false)
             setOperadora(Operadoras[0])
         }
     }

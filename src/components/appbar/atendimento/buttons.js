@@ -72,7 +72,7 @@ export const RequisicoesBtn = () => {
     const { printReset } = useContext(PrintContext)
 
     const handleClick = () => {
-        printReset()
+        printReset('avulso')
         setArticleRequisicao()
     }
 

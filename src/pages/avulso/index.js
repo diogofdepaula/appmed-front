@@ -61,7 +61,6 @@ const Avulso = ({ setter }) => {
     const [init, setInit] = useState(true)
 
     const firstData = useCallback(() => {
-        setAvulso(true)
         setMeses(1)
         if (setter === "avulso") {
             setClienteContext({
@@ -69,7 +68,7 @@ const Avulso = ({ setter }) => {
                 id: null
             })
         }
-    }, [setAvulso, setMeses, setter, setClienteContext])
+    }, [setMeses, setter, setClienteContext])
 
     useEffect(() => {
         if (!dataMedUpdate) {
