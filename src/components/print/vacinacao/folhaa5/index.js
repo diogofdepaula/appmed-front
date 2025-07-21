@@ -94,16 +94,13 @@ const VacinacaoA5 = ({ vacinacao, tipo }) => {
                         }}
                     >
                         A vacinação não é essencial para o início ou manutenção do tratamento. 
-                        Trata-se de uma medida profilática com a mesma importância de outras medidas,
-                        como higiene pessoal, boa alimentação e uso de álcool nas mãos.
-                        As vacinas não precisam ser feitas simultaneamente e devem ser feitas conforme
-                        as possibilidade e realidade do paciente.
-                        Revisar calendário vacinal (carterinha de vacinação) e completar
-                        vacinação faltante conforme necessidade. Não refazer as que já foram
-                        feitas. As vacinas vivas atenuadas estão contraindicadas em paciente com
+                        Avaliar antes de realizar a vacinação se o paciente já realizou as vacinas
+                        anteriormente, pois a carterira de vacinação não está disponível no momento.
+                        Não refazer as que já foram feitas. 
+                        As vacinas vivas atenuadas estão contraindicadas em paciente com
                         alteração da resposta imunológica: BCG, rotavírus, pólio oral (VOP),
                         febre amarela, SCR, varicela, SCR-V e dengue.
-                        Caso há a imperativa necessidade de realizar, deve-se programar a
+                        Caso haja imperativa necessidade de realizá-las, deve-se programar a
                         suspensão dos medicamentos com antecedência.
                     </Box>
                 </Box>
