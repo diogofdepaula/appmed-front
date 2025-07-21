@@ -122,9 +122,9 @@ const ListaOpcoes = (param) => {
             trigger: 'aux',
         },
         {
-            texto: 'Além disso, medidas não farmacológicas e de proteção articular, assim como ' + 
-                   'medidas gerais em visando de uma vida mais saudável as quais nessa situação ' + 
-                   'são fundamentais considerando o comprometimento osteocondromuscular.',
+            texto: 'Além disso, oriento medidas não farmacológicas e de proteção articular, assim como ' + 
+                   'medidas gerais em visando uma vida mais saudável as quais nessa situação ' + 
+                   'são fundamentais considerando o comprometimento aricular e osteomuscular.',
             remove: 'med',
             trigger: 'med',
         },
@@ -134,7 +134,7 @@ const ListaOpcoes = (param) => {
             trigger: 'aguardo',
         },
         {
-            texto: 'Aguardo os resultados dos novos exame para análise de hipóteses diagnósticas, para então definir conduta.',
+            texto: 'Aguardo os resultados dos novos exame para análise de hipóteses diagnósticas e então definir conduta.',
             remove: 'aguardo',
             trigger: 'aguardo',
         },
