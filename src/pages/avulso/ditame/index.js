@@ -1,8 +1,39 @@
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, IconButton, Tooltip } from '@mui/material';
-import React, { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { ClienteContext, PrintContext } from '../../../App';
+
+
+const BoxExterna = ({ children }) => {
+
+    return (
+        <>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: "column",
+                    gap: 1,
+                    p: 1,
+                    border: 0.5,
+                    borderRadius: 1,
+                    borderColor: "#42a5f5"
+                }}
+            >
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    {children}
+                </Box>
+            </Box>
+        </>
+    )
+}
 
 const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
 
@@ -12,6 +43,7 @@ const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
                 sx={{
                     display: 'flex',
                     flexDirection: "row",
+                    justifyContent: 'space-between'
                 }}
             >
                 <Box>
@@ -72,66 +104,45 @@ const RequisicaoBox = ({ requisicao, handleRequisicaoEdit }) => {
 
     return (
         <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: "column",
-                    gap: 1,
-                    p: 1,
-                    m: 1,
-                    border: 0.5,
-                    borderRadius: 1,
-                    borderColor: "#42a5f5"
-                }}
-            >
+            <BoxExterna>
                 <Box
                     sx={{
                         display: "flex",
-                        flexDirection: "column",
+                        flexDirection: "row",
                         justifyContent: 'space-between',
                     }}
                 >
                     <Box
                         sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: 'space-between',
+                            fontSize: 10,
                         }}
                     >
-                        <Box
-                            sx={{
-                                fontSize: 10,
-                                flexGrow: 1,
-                            }}
+                        {requisicao.justificativa}
+                    </Box>
+                    <Tooltip title="Editar" >
+                        <IconButton
+                            onClick={() => handleRequisicaoEdit(requisicao)}
+                            size="small"
                         >
-                            {requisicao.justificativa}
-                        </Box>
-                        <Tooltip title="Editar" >
-                            <IconButton
-                                onClick={() => handleRequisicaoEdit(requisicao)}
-                                size="small"
-                            >
-                                <EditIcon />
-                            </IconButton>
-                        </Tooltip>
-                    </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        {requisicao.selecionados.map((s, i) =>
-                            <Box key={i}>
-                                {s.mod}
-                            </Box>
-                        )}
-                    </Box>
-
+                            <EditIcon />
+                        </IconButton>
+                    </Tooltip>
                 </Box>
-            </Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {requisicao.selecionados.map((s, i) =>
+                        <Box key={i}>
+                            {s.mod}
+                        </Box>
+                    )}
+                </Box>
+            </BoxExterna >
         </>
     )
 }
@@ -140,22 +151,11 @@ const VacinacaoBox = ({ vacinacao }) => {
 
     return (
         <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: "column",
-                    gap: 1,
-                    p: 1,
-                    m: 1,
-                    border: 0.5,
-                    borderRadius: 1,
-                    borderColor: "#42a5f5"
-                }}
-            >
+            <BoxExterna>
                 <Box
                     sx={{
                         display: "flex",
-                        flexDirection: "column",
+                        flexDirection: "row",
                         justifyContent: 'space-between',
                     }}
                 >
@@ -166,22 +166,30 @@ const VacinacaoBox = ({ vacinacao }) => {
                     >
                         {vacinacao.indicacao}
                     </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            fontSize: 12,
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        {vacinacao.selecionadas.map((s, i) =>
-                            <Box key={i}>
-                                {s.mod}
-                            </Box>
-                        )}
-                    </Box>
+                    <Tooltip title="Editar" >
+                        <IconButton
+                            //onClick={() => handleRequisicaoEdit(requisicao)}
+                            size="small"
+                        >
+                            <EditIcon />
+                        </IconButton>
+                    </Tooltip>
                 </Box>
-            </Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {vacinacao.selecionadas.map((s, i) =>
+                        <Box key={i}>
+                            {s.mod}
+                        </Box>
+                    )}
+                </Box>
+            </BoxExterna>
         </>
     )
 }
@@ -190,18 +198,7 @@ const EmBranco = ({ embranco, handleEmBrancoEdit }) => {
 
     return (
         <>
-            <Box
-                sx={{
-                    display: 'flex',
-                    flexDirection: "column",
-                    gap: 1,
-                    p: 1,
-                    m: 1,
-                    border: 0.5,
-                    borderRadius: 1,
-                    borderColor: "#42a5f5"
-                }}
-            >
+            <BoxExterna>
                 <Box
                     sx={{
                         display: "flex",
@@ -227,15 +224,40 @@ const EmBranco = ({ embranco, handleEmBrancoEdit }) => {
                         </Tooltip>
                     </Box>
                 </Box>
-            </Box>
+            </BoxExterna>
         </>
     )
 }
+
+
 
 const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEdit }) => {
 
     const { clienteContext } = useContext(ClienteContext)
     const { prescricoesSelecionadas, requisicoes, comentario, vacinacao, emBranco } = useContext(PrintContext)
+
+    const contentToCopyRef = useRef(null);
+
+    const copyRichTextFromDOM = () => {
+
+        const elementToCopy = contentToCopyRef.current;
+
+        if (elementToCopy) {
+            const tempElement = document.createElement('div');
+            tempElement.appendChild(elementToCopy.cloneNode(true));
+            tempElement.innerHTML += `<p><span style="font-family: Tahoma; font-size: 10pt">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+</span></p>`;
+            document.body.appendChild(tempElement);
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(tempElement);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.execCommand('copy');
+            selection.removeAllRanges();
+            document.body.removeChild(tempElement);
+        }
+    }
 
     return (
         <>
@@ -243,8 +265,8 @@ const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEd
                 sx={{
                     border: 1,
                     borderColor: 'black',
-                    width: '20rem',
-                    height: '40rem',
+                    width: '35rem',
+                    height: '45rem',
                 }}
             >
                 <Box
@@ -262,52 +284,95 @@ const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEd
                     sx={{
                         display: 'flex',
                         flexDirection: "column",
-                        gap: 1,
-                        p: 1,
-                        m: 1,
+                        gap: 0.5,
+                        p: 0.5,
+                        m: 0.5,
                         border: 0.5,
                         borderRadius: 1,
                         borderColor: "#42a5f5"
                     }}
                 >
-                    {prescricoesSelecionadas?.map(p =>
-                        <PrescricaoBox
-                            key={p.indice}
-                            prescricao={p}
-                            handlePrescricaoDelete={handlePrescricaoDelete}
-                        />
-                    )}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: 'flex-end',
+                        }}
+                    >
+                        <Tooltip title="Copiar" >
+                            <IconButton
+                                onClick={() => copyRichTextFromDOM()}
+                                size="small"
+                            >
+                                <ContentCopyIcon />
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
+                    <Box ref={contentToCopyRef}>
+                        <BoxExterna>
+                            {prescricoesSelecionadas?.map(p =>
+                                <PrescricaoBox
+                                    key={p.indice}
+                                    prescricao={p}
+                                    handlePrescricaoDelete={handlePrescricaoDelete}
+                                />
+                            )}
+                        </BoxExterna>
+                        {comentario && (
+                            <BoxExterna>
+                                {comentario}
+                            </BoxExterna>
+                        )}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: "column",
+                                gap: 0.5
+                            }}
+                        >
+                            {requisicoes?.map(r =>
+                                <RequisicaoBox
+                                    requisicao={r}
+                                    handleRequisicaoEdit={handleRequisicaoEdit}
+                                    key={r.indice}
+                                />
+                            )}
+                        </Box>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: "column",
+                                gap: 0.5
+                            }}
+                        >
+                            {vacinacao?.map(r =>
+                                <VacinacaoBox
+                                    vacinacao={r}
+                                    key={r.indice}
+                                />
+                            )}
+                        </Box>
+                        <Box>
+                            {emBranco?.map(r =>
+                                <EmBranco
+                                    embranco={r}
+                                    handleEmBrancoEdit={handleEmBrancoEdit}
+                                    key={r.indice}
+                                />
+                            )}
+                        </Box>
+                        <Box
+                            sx={{
+                                fontSize: 14,
+                                height: '0rem',
+                                fontFamily: "Tahoma",
+                                visibility: 'hidden',
+                            }}
+                        >
+                            Esse é um texto padrão
+                        </Box>
+                    </Box>
                 </Box>
-                <Box>
-                    {comentario}
-                </Box>
-                <Box>
-                    {requisicoes?.map(r =>
-                        <RequisicaoBox
-                            requisicao={r}
-                            handleRequisicaoEdit={handleRequisicaoEdit}
-                            key={r.indice}
-                        />
-                    )}
-                </Box>
-                <Box>
-                    {vacinacao?.map(r =>
-                        <VacinacaoBox
-                            vacinacao={r}
-                            key={r.indice}
-                        />
-                    )}
-                </Box>
-                <Box>
-                    {emBranco?.map(r =>
-                        <EmBranco
-                            embranco={r}
-                            handleEmBrancoEdit={handleEmBrancoEdit}
-                            key={r.indice}
-                        />
-                    )}
-                </Box>
-
             </Box>
         </>
     )
