@@ -43,21 +43,26 @@ const PrescricaoBox = ({ prescricao, handlePrescricaoDelete }) => {
                 sx={{
                     display: 'flex',
                     flexDirection: "row",
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
                 }}
             >
-                <Box>
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                    }}
+                >
                     <Box
                         sx={{
                             display: "flex",
                             flexDirection: "row",
-                            justifyContent: 'space-between',
+                            flexGrow: 1,
                         }}
                     >
                         <Box
                             sx={{
                                 fontSize: 12,
                                 fontWeight: 'bold',
+                                flexGrow: 1,
                             }}
                         >
                             {prescricao.medicamento.farmaco + ' (' + prescricao.apresentaco.descricao + ')'}
@@ -245,8 +250,10 @@ const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEd
         if (elementToCopy) {
             const tempElement = document.createElement('div');
             tempElement.appendChild(elementToCopy.cloneNode(true));
-            tempElement.innerHTML += `<p><span style="font-family: Tahoma; font-size: 10pt">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-</span></p>`;
+            tempElement.innerHTML +=
+                `<p><span style="font-family: Tahoma; font-size: 10pt">+++++
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            </span></p>`;
             document.body.appendChild(tempElement);
             const selection = window.getSelection();
             const range = document.createRange();
@@ -308,16 +315,25 @@ const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEd
                             </IconButton>
                         </Tooltip>
                     </Box>
-                    <Box ref={contentToCopyRef}>
-                        <BoxExterna>
-                            {prescricoesSelecionadas?.map(p =>
-                                <PrescricaoBox
-                                    key={p.indice}
-                                    prescricao={p}
-                                    handlePrescricaoDelete={handlePrescricaoDelete}
-                                />
-                            )}
-                        </BoxExterna>
+                    <Box
+                        ref={contentToCopyRef}
+                        sx={{
+                            display: 'flex',
+                            flexDirection: "column",
+                            gap: 0.5
+                        }}
+                    >
+                        {prescricoesSelecionadas.length > 0 && (
+                            <BoxExterna>
+                                {prescricoesSelecionadas?.map(p =>
+                                    <PrescricaoBox
+                                        key={p.indice}
+                                        prescricao={p}
+                                        handlePrescricaoDelete={handlePrescricaoDelete}
+                                    />
+                                )}
+                            </BoxExterna>
+                        )}
                         {comentario && (
                             <BoxExterna>
                                 {comentario}
