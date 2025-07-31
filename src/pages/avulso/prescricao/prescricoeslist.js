@@ -28,65 +28,65 @@
 //     }
 // }
 
-// const Clb2007d = {
-//     continuo: false,
-//     imprimirorientacoes: true,
-//     usoposologiapadrao: true,
-//     orientacoes: "Tomar sempre de estômago cheio.",
-//     apresentaco: {
-//         descricao: "200 mg Cap Dura",
-//         uso: "uso interno",
-//     },
-//     medicamento: {
-//         farmaco: "Celecoxibe",
-//         nomescomerciais: [
-//             {
-//                 nomefantasia: "Celebra",
-//             },
-//             {
-//                 nomefantasia: "Dicoxibe",
-//             },
-//             {
-//                 nomefantasia: "Foxis",
-//             },
-//         ]
-//     },
-//     posologia: {
-//         posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
-//         quantidade: "1",
-//         forma: "caixa",
-//     }
-// }
+const Clb2007d = {
+    continuo: false,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "Tomar sempre de estômago cheio.",
+    apresentaco: {
+        descricao: "200 mg Cap Dura",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Celecoxibe",
+        nomescomerciais: [
+            {
+                nomefantasia: "Celebra",
+            },
+            {
+                nomefantasia: "Dicoxibe",
+            },
+            {
+                nomefantasia: "Foxis",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 cápsula de 12 em 12 horas por 7 dias.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
 
-// const Clb10010d = {
-//     continuo: false,
-//     imprimirorientacoes: true,
-//     usoposologiapadrao: true,
-//     orientacoes: "Tomar sempre de estômago cheio.",
-//     apresentaco: {
-//         descricao: "100 mg Cap Dura",
-//         uso: "uso interno",
-//     },
-//     medicamento: {
-//         farmaco: "Celecoxibe",
-//         nomescomerciais: [
-//             {
-//                 nomefantasia: "Celebra",
-//             },
-//             {
-//                 nomefantasia: "Dicoxibe",
-//             },
-//             {
-//                 nomefantasia: "Foxis",
-//             },
-//         ]
-//     },
-//     posologia: {
-//         posologia: "Tomar 01 cápsula de 12 em 12 horas por 10 dias.",
-//         quantidade: "1",
-//         forma: "caixa",
-//     }
-// }
+const Clb10010d = {
+    continuo: false,
+    imprimirorientacoes: true,
+    usoposologiapadrao: true,
+    orientacoes: "Tomar sempre de estômago cheio.",
+    apresentaco: {
+        descricao: "100 mg Cap Dura",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Celecoxibe",
+        nomescomerciais: [
+            {
+                nomefantasia: "Celebra",
+            },
+            {
+                nomefantasia: "Dicoxibe",
+            },
+            {
+                nomefantasia: "Foxis",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 cápsula de 12 em 12 horas por 10 dias.",
+        quantidade: "2",
+        forma: "caixas",
+    }
+}
 
 // const Clb10014d = {
 //     continuo: false,
@@ -556,6 +556,8 @@ const Cito5000 = {
 
 export const prescricoeslist = {
     DF7d: DF7d,
+    Clb2007d: Clb2007d,
+    Clb10010d: Clb10010d,
     ETC90SN: ETC90SN,
     ETC907d: ETC907d,
     ETC6010d: ETC6010d,
