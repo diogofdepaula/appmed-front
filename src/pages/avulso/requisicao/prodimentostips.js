@@ -229,7 +229,7 @@ const usmmii = [
         titulo: "US PeD",
         justificativa:
             "Investigação de processos inflamatórios, especialmente em " +
-            "tarso, MTF, IFP e IFD, além de fascia plantar.",
+            "tarso, MTF, IFP e IFD, além de fáscia plantar.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (pé direito)",
@@ -239,7 +239,7 @@ const usmmii = [
         titulo: "US PeE",
         justificativa:
             "Investigação de processos inflamatórios, especialmente em " +
-            "tarso, MTF, IFP e IFD, além de fascia plantar.",
+            "tarso, MTF, IFP e IFD, além de fáscia plantar.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (pé esquerdo)",
@@ -332,7 +332,7 @@ const usde = [
         titulo: "US Pe",
         justificativa:
             "Investigação de processos inflamatórios, especialmente em " +
-            "tarso, MTF, IFP e IFD, além de fascia plantar.",
+            "tarso, MTF, IFP e IFD, além de fáscia plantar.",
         unitary: {
             codigo: "40901220",
             mod: "Ultrassonografia Articular (pé direito ou " +
