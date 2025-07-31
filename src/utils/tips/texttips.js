@@ -122,9 +122,9 @@ const ListaOpcoes = (param) => {
             trigger: 'aux',
         },
         {
-            texto: 'Além disso, oriento medidas não farmacológicas e de proteção articular, assim como ' + 
-                   'medidas gerais em visando uma vida mais saudável as quais nessa situação ' + 
-                   'são fundamentais considerando o comprometimento aricular e osteomuscular.',
+            texto: 'Além disso, oriento medidas não farmacológicas e de proteção articular, assim como ' +
+                'medidas gerais em visando uma vida mais saudável as quais nessa situação ' +
+                'são fundamentais considerando o aspecto articular e osteomuscular.',
             remove: 'med',
             trigger: 'med',
         },
@@ -139,19 +139,37 @@ const ListaOpcoes = (param) => {
             trigger: 'aguardo',
         },
         {
-            texto: "Alega piora das dores com esforço físico e pouca melhora ao repouso.",
+            texto: 
+                [
+                "Alega piora das dores com esforço físico e pouca melhora ao repouso.",
+                "Refere intensificação da dor com atividades físicas e alívio mínimo com o descanso.",
+                "Alega que a dor acentua-se durante o esforço e não cede significativamente em repouso.",
+                "Refere que a dor agrava-se ao realizar movimentos e persiste mesmo em inatividade.",
+                "Refere aumento da intensidade da dor com qualquer tipo de esforço e pouca ou nenhuma remissão com o repouso.",
+                "Relata exacerbação da dor com exercícios e baixa resposta ao repouso.",
+                "Relata que com o esforço, a dor torna-se mais forte, e o repouso não proporciona alívio considerável.",
+                "Alega que a dor manifesta-se com maior intensidade ao esforço e melhora pouco com o repouso.",
+                ][Math.floor(Math.random() * 8)], // sorteia uma das opções e 8 é o numero de item da listas
             remove: 'piora',
             trigger: 'piora',
         },
         {
             texto:
-                "intensificação das dores, "
-                    .concat(
+            "".concat(
+                [
+                    "recrudescimento da dor ",
+                    "aumento da intensidade da dor ",
+                    "piora da dor ",
+                    "exacerbação da dor ",
+                    "ascensão da dor ",
+                    "acentuação da dor ",
+                ][Math.floor(Math.random() * 6)] // sorteia uma das opções e 6 é o numero de item da listas
+            ).concat(
                         [
                             "com esforço físico",
                             "sobre as estruturas envolvidas"
                         ].sort(() => Math.random() - 0.5)
-                            .join(', ')
+                         .join(' ')
                     ).concat(".")
                     .trim(),
             remove: 'piora',

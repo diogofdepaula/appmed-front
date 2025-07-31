@@ -251,8 +251,8 @@ const Ditame = ({ handleRequisicaoEdit, handlePrescricaoDelete, handleEmBrancoEd
             const tempElement = document.createElement('div');
             tempElement.appendChild(elementToCopy.cloneNode(true));
             tempElement.innerHTML +=
-                `<p><span style="font-family: Tahoma; font-size: 10pt">+++++
-            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                `<p><span style="font-family: Tahoma; font-size: 10pt
+                ">+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             </span></p>`;
             document.body.appendChild(tempElement);
             const selection = window.getSelection();
