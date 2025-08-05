@@ -135,7 +135,23 @@ export const Prazo = (atestado) => {
     if (atestado.padrao === PadraoAtestado()[5])
         return ""
 
-    return ""
+    // Fibromialgia
+    if (atestado.padrao === PadraoAtestado()[6]) return "" +
+        "Por fim, em relação ao tempo estimado de repouso necessário, " +
+        "levando em consideração as variáveis das afirmativas " +
+        "anteriores as quais influenciam na reabilitação, não é possível " +
+        "estabelecer com precisão o tempos estimado para melhora clínica, " +
+        "definindo-se como indeterminado. Caso seja imprescindível aos " +
+        "ritos processuais o estabelecimento desse prazo, considerando " +
+        "somente as variáveis ponderáveis, não se vislumbra melhora " +
+        "antes de seis meses. Por outro lado, todavia, recomenda-se a " +
+        "adequada avaliação pericial a quem cabe a prerrogativa da " +
+        " definição da presença de deficiência e incapacidade, sendo que " +
+        "no caso da Fibromialgia, conforme a recente Lei nº 15.176/2025, " +
+        "dever-se-á o paciente passar por uma avaliação multiprofissional e " +
+        "interdisciplinar para tal, não cabendo ao médico assistente declarar " +
+        "se o paciente é ou não deficiente." 
+           return ""
 }
 
 export const Comentario = (atestado) => {
