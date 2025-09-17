@@ -694,8 +694,8 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         },
                         {
                             codigo: "40901548",
-                            original: "Doppler convencional órgão/estrutura isolada (mão direita)",
-                            mod: "Doppler convencional órgão/estrutura isolada (mão direita)",
+                            original: "Doppler convencional órgão/estrutura isolada (utilizar o power doppler para avaliar hipervascularização sinovial em articulações da mão direita)",
+                            mod: "Doppler convencional órgão/estrutura isolada (utilizar o power doppler para avaliar hipervascularização sinovial em articulações da mão direita)",
                         },
                     ],
                 },
@@ -720,8 +720,8 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         },
                         {
                             codigo: "40901548",
-                            original: "Doppler convencional órgão/estrutura isolada (mão esquerda)",
-                            mod: "Doppler convencional órgão/estrutura isolada (mão esquerda)",
+                            original: "Doppler convencional órgão/estrutura isolada (utilizar o power doppler para avaliar hipervascularização sinovial em articulações da mão esquerda)",
+                            mod: "Doppler convencional órgão/estrutura isolada (utilizar o power doppler para avaliar hipervascularização sinovial em articulações da mão esquerda)",
                         },
                     ],
                 },
@@ -747,7 +747,7 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         {
                             codigo: "40901548",
                             original: "Doppler convencional órgão/estrutura isolada",
-                            mod: "Doppler convencional órgão/estrutura isolada (mão direita ou esquerda -- fazer do lado que for realizado a ultrassonografia)",
+                            mod: "Doppler convencional órgão/estrutura isolada (utilizar o power doppler para avaliar hipervascularização sinovial em articulações da mão direita ou esquerda -- fazer do lado que for realizado a ultrassonografia)",
                         },
                     ],
                 },
