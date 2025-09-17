@@ -29,8 +29,6 @@ const MedicamentoMain = () => {
 
     let filtro = [...medicamentos].filter(w =>
       TextClean(w.farmaco.toLowerCase()).indexOf(TextClean(event.target.value.toLowerCase())) !== -1 ||
-                      
-      // w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
       w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
     )
 
