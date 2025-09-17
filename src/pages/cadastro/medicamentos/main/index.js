@@ -2,6 +2,7 @@ import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableRow
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { MedicamentosContext } from '..';
 import MedicamentoData from '../components/medicamentodata';
+import { TextClean } from '../../../../utils/textclean';
 
 const MedicamentoMain = () => {
 
@@ -27,7 +28,9 @@ const MedicamentoMain = () => {
   const filterMedicamentos = event => {
 
     let filtro = [...medicamentos].filter(w =>
-      w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
+      TextClean(w.farmaco.toLowerCase()).indexOf(TextClean(event.target.value.toLowerCase())) !== -1 ||
+                      
+      // w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
       w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
     )
 

@@ -1,33 +1,3 @@
-// const Clb200sn = {
-//     continuo: false,
-//     imprimirorientacoes: true,
-//     usoposologiapadrao: true,
-//     orientacoes: "Tomar sempre de estômago cheio.",
-//     apresentaco: {
-//         descricao: "200 mg Cap Dura",
-//         uso: "uso interno",
-//     },
-//     medicamento: {
-//         farmaco: "Celecoxibe",
-//         nomescomerciais: [
-//             {
-//                 nomefantasia: "Celebra",
-//             },
-//             {
-//                 nomefantasia: "Dicoxibe",
-//             },
-//             {
-//                 nomefantasia: "Foxis",
-//             },
-//         ]
-//     },
-//     posologia: {
-//         posologia: "Tomar 01 cápsula de 12 em 12 horas se dor.",
-//         quantidade: "1",
-//         forma: "caixa",
-//     }
-// }
-
 const Clb2007d = {
     continuo: false,
     imprimirorientacoes: true,

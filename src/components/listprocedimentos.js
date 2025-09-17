@@ -42,7 +42,6 @@ const ListProcedimentos = ({ handleProcedimentoPush }) => {
     const filterProcedimentos = useMemo(() => {
         if (!search || search.length <= 2) return []
         return tuss.current.filter(w =>
-            // w.original.toString().toLowerCase().includes(search.toLowerCase())
             TextClean(w.original.toLowerCase()).indexOf(TextClean(search.toLowerCase()).trim()) !== -1
         )
         

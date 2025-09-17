@@ -3,6 +3,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AtendimentoContext, AtendimentoNavigateContext } from '..'
 import { AtendimentoLeft, AtendimentoOutside, AtendimentoRight } from '../../../components/atendimento/layout'
 import ListMedicamentos from '../../../components/listmedicamento'
+import { TextClean } from '../../../utils/textclean'
 
 const MedicamentoSet = () => {
 
@@ -26,7 +27,9 @@ const MedicamentoSet = () => {
 
         if (event.target.value.length >= 2) {
             let filtro = [...medicamentos].filter(w =>
-                w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
+                TextClean(w.farmaco.toLowerCase()).indexOf(TextClean(event.target.value.toLowerCase())) !== -1 ||
+                                
+                // w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
                 w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
             )
             if (filtro.length === 0) {

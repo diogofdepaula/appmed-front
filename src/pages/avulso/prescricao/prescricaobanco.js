@@ -5,6 +5,7 @@ import ListMedicamentos from '../../../components/listmedicamento';
 import ListPosologia from '../../../components/listposologia';
 import { prescricaolivreinicial } from ".";
 import { DataContext } from "../../../App";
+import { TextClean } from "../../../utils/textclean";
 
 const Medicamento = ({ medicamentosfiltrados, setStep, setMedicamento, prescricao, setPrescricao }) => {
 
@@ -93,7 +94,7 @@ const PrescricaoBanco = ({ setPrescricaoLivre, ind }) => {
 
         if (event.target.value.length >= 2) {
             let filtro = [...allMedicamentos].filter(w =>
-                w.farmaco.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1 ||
+                TextClean(w.farmaco.toLowerCase()).indexOf(TextClean(event.target.value.toLowerCase())) !== -1 ||
                 w.abreviatura.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1
             )
             if (filtro.length === 0) {
