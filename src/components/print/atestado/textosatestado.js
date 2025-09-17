@@ -41,7 +41,7 @@ export const Inicio = () => {
 
 export const Diagnostico = (atestado) => {
 
-    return " possui " + atestado?.diagnostico + ". "
+    return " possui " + atestado?.diagnostico + (atestado?.diagnostico.endsWith('.') ? " " : ". ")
 }
 
 export const Tratamento = (atestado) => {
