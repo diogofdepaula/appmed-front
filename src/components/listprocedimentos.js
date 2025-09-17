@@ -43,7 +43,7 @@ const ListProcedimentos = ({ handleProcedimentoPush }) => {
         if (!search || search.length <= 2) return []
         return tuss.current.filter(w =>
             // w.original.toString().toLowerCase().includes(search.toLowerCase())
-            TextClean(w.original.toLowerCase()).indexOf(TextClean(search.toLowerCase()).trim().toLowerCase()) !== -1
+            TextClean(w.original.toLowerCase()).indexOf(TextClean(search.toLowerCase()).trim()) !== -1
         )
         
 }, [search])
