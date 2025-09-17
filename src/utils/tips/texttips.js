@@ -26,6 +26,16 @@ const ListaCurtas = (param) => {
             trigger: 'TC CC',
         },
         {
+            texto: 'Tomografia de coluna lombar aponta ',
+            remove: 'TC CL',
+            trigger: 'TC CL',
+        },
+        {
+            texto: 'Tomografia de coluna lombo-sacra aponta ',
+            remove: 'TC CLS',
+            trigger: 'TC CLS',
+        },
+        {
             texto: 'Tomografia de coluna lombo-sacra aponta ',
             remove: 'RNM CLS',
             trigger: 'RNM CLS',
@@ -117,6 +127,11 @@ const ListaOpcoes = (param) => {
 
     const list = [
         {
+            texto: 'Paciente consulta comigo hoje pela primeira vez.',
+            remove: 'consul',
+            trigger: 'consul',
+        },
+        {
             texto: 'Solicito encarecidamente auxílio no manejo ',
             remove: 'aux',
             trigger: 'aux',
@@ -139,38 +154,38 @@ const ListaOpcoes = (param) => {
             trigger: 'aguardo',
         },
         {
-            texto: 
+            texto:
                 [
-                "Alega piora das dores com esforço físico e pouca melhora ao repouso.",
-                "Refere intensificação da dor com atividades físicas e alívio mínimo com o descanso.",
-                "Alega que a dor acentua-se durante o esforço e não cede significativamente em repouso.",
-                "Refere que a dor agrava-se ao realizar movimentos e persiste mesmo em inatividade.",
-                "Refere aumento da intensidade da dor com qualquer tipo de esforço e pouca ou nenhuma remissão com o repouso.",
-                "Relata exacerbação da dor com exercícios e baixa resposta ao repouso.",
-                "Relata que com o esforço, a dor torna-se mais forte, e o repouso não proporciona alívio considerável.",
-                "Alega que a dor manifesta-se com maior intensidade ao esforço e melhora pouco com o repouso.",
+                    "Alega piora das dores com esforço físico e pouca melhora ao repouso.",
+                    "Refere intensificação da dor com atividades físicas e alívio mínimo com o descanso.",
+                    "Alega que a dor acentua-se durante o esforço e não cede significativamente em repouso.",
+                    "Refere que a dor agrava-se ao realizar movimentos e persiste mesmo em inatividade.",
+                    "Refere aumento da intensidade da dor com qualquer tipo de esforço e pouca ou nenhuma remissão com o repouso.",
+                    "Relata exacerbação da dor com exercícios e baixa resposta ao repouso.",
+                    "Relata que com o esforço, a dor torna-se mais forte, e o repouso não proporciona alívio considerável.",
+                    "Alega que a dor manifesta-se com maior intensidade ao esforço e melhora pouco com o repouso.",
                 ][Math.floor(Math.random() * 8)], // sorteia uma das opções e 8 é o numero de item da listas
             remove: 'piora',
             trigger: 'piora',
         },
         {
             texto:
-            "".concat(
-                [
-                    "recrudescimento da dor ",
-                    "aumento da intensidade da dor ",
-                    "piora da dor ",
-                    "exacerbação da dor ",
-                    "ascensão da dor ",
-                    "acentuação da dor ",
-                ][Math.floor(Math.random() * 6)] // sorteia uma das opções e 6 é o numero de item da listas
-            ).concat(
-                        [
-                            "com esforço físico",
-                            "sobre as estruturas envolvidas"
-                        ].sort(() => Math.random() - 0.5)
-                         .join(' ')
-                    ).concat(".")
+                "".concat(
+                    [
+                        "recrudescimento da dor ",
+                        "aumento da intensidade da dor ",
+                        "piora da dor ",
+                        "exacerbação da dor ",
+                        "ascensão da dor ",
+                        "acentuação da dor ",
+                    ][Math.floor(Math.random() * 6)] // sorteia uma das opções e 6 é o numero de item da listas
+                ).concat(
+                    [
+                        "com esforço físico",
+                        "sobre as estruturas envolvidas"
+                    ].sort(() => Math.random() - 0.5)
+                        .join(' ')
+                ).concat(".")
                     .trim(),
             remove: 'piora',
             trigger: 'piora',
