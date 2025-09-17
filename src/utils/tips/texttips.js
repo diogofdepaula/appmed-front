@@ -240,7 +240,7 @@ const ListaOpcoes = (param) => {
         },
         {
             texto:
-                "alodinia, mialgia, "
+                "alodínia, mialgia, "
                     .concat(
                         [
                             'fadiga', 'sono não reparador',
