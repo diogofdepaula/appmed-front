@@ -7,7 +7,8 @@ export const procedimentoinicial = {
     original: "",
     mod: "",
     favorito: false,
-    aspecto: "",
+    grupo: 99,
+    abv: "",
 }
 
 const RequisicaoLivre = ({ handleProcedimentoPush }) => {
@@ -31,7 +32,7 @@ const RequisicaoLivre = ({ handleProcedimentoPush }) => {
         if (event.key === 'Enter') {
             enviarProcedimento()
         }
-      }
+    }
 
     return (
         <>
@@ -47,7 +48,7 @@ const RequisicaoLivre = ({ handleProcedimentoPush }) => {
                     label="Procedimentos a ser adicionado"
                     variant="outlined"
                     onChange={e => handleChange(e)}
-                    onKeyDown={handleKeyDown} 
+                    onKeyDown={handleKeyDown}
                     value={procedimento.mod}
                     InputProps={{
                         startAdornment: (

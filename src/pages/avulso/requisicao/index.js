@@ -1,9 +1,10 @@
 import DeleteIcon from '@mui/icons-material/Delete';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 import ReadMoreIcon from '@mui/icons-material/ReadMore';
-import { Box, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, TextField } from "@mui/material";
+import { Box, IconButton, List, ListItem, ListItemSecondaryAction, ListItemText, Paper, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import ListProcedimentos from '../../../components/listprocedimentos';
-import { MultiplesSimultaneos, Tips } from './prodimentostips';
+import { FavoritosProcedimentos, MultiplesSimultaneos, Tips } from './prodimentostips';
 import RequisicaoLivre from './requisicaolivre';
 
 const requisicaoinicial = {
@@ -15,6 +16,7 @@ const requisicaoinicial = {
 const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, ind }) => {
 
     const [requisicao, setRequisicao] = useState(itemEdit || requisicaoinicial)
+    const [showPaper, setShowPaper] = useState(false)
 
     useEffect(() => {
         if (itemEdit) {
@@ -159,10 +161,44 @@ const Requisicoes = ({ handleAdicionarRequisicao, itemEdit, ind }) => {
                     <ListProcedimentos
                         handleProcedimentoPush={handleProcedimentoPush}
                     />
-                    <MultiplesSimultaneos
-                        handleAdicinarMultiplos={handleAdicinarMultiplos}
-                        ind={ind}
-                    />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: 1
+                        }}
+                    >
+                        {showPaper
+                            ?
+                            <Paper
+                                onMouseLeave={() => setShowPaper(false)}
+                                elevation={10}
+                            >
+                                <Box
+                                    sx={{
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                    }}
+                                >
+                                    <FavoritosProcedimentos
+                                        handleProcedimentoPush={handleProcedimentoPush}
+                                    />
+                                </Box>
+
+                            </Paper>
+                            :
+                            <MultiplesSimultaneos
+                                handleAdicinarMultiplos={handleAdicinarMultiplos}
+                                ind={ind}
+                            />
+                        }
+                        <IconButton
+                            onMouseOver={() => setShowPaper(true)}
+                            size="small"
+                        >
+                            <FlashOnIcon fontSize="small" />
+                        </IconButton>
+                    </Box>
                     <Tips
                         handleProcedimentoPush={handleProcedimentoPush}
                     />

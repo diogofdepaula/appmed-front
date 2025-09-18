@@ -9,7 +9,8 @@ const ListButtons = ({ list, sendParam }) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
-                    // gap: 0.2,
+                    flexWrap: 'wrap',
+                    gap: 0.5,
                 }}
             >
                 {list.map((p, i) =>
@@ -680,10 +681,10 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
             multi: [
                 {
                     indice: ind,
-                    justificativa: 
+                    justificativa:
                         "Paciente com dor em mão e dedos sugestivo " +
                         "de doença reumatológica. Exames para investigação " +
-                        "de processo inflamatório intra e extra articulares, " + 
+                        "de processo inflamatório intra e extra articulares, " +
                         "especialmente em MCF, IFP e IFD. Ao power doppler " +
                         "atentar para sinovite com invasão da microcirculação " +
                         "e aumento do fluxo intra-articular.",
@@ -706,10 +707,10 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
             multi: [
                 {
                     indice: ind,
-                    justificativa: 
+                    justificativa:
                         "Paciente com dor em mão e dedos sugestivo " +
                         "de doença reumatológica. Exames para investigação " +
-                        "de processo inflamatório intra e extra articulares, " + 
+                        "de processo inflamatório intra e extra articulares, " +
                         "especialmente em MCF, IFP e IFD. Ao power doppler " +
                         "atentar para sinovite com invasão da microcirculação " +
                         "e aumento do fluxo intra-articular.",
@@ -732,10 +733,10 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
             multi: [
                 {
                     indice: ind,
-                    justificativa: 
+                    justificativa:
                         "Paciente com dor em mão e dedos sugestivo " +
                         "de doença reumatológica. Exames para investigação " +
-                        "de processo inflamatório intra e extra articulares, " + 
+                        "de processo inflamatório intra e extra articulares, " +
                         "especialmente em MCF, IFP e IFD. Ao power doppler " +
                         "atentar para sinovite com invasão da microcirculação " +
                         "e aumento do fluxo intra-articular.",
@@ -766,6 +767,48 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                 list={list}
                 sendParam={sendParamMultiple}
             />
+        </>
+    )
+}
+
+const favoriteproc = Object.values(Tuss()
+    .filter(p => p.favorito)
+    .reduce((acc, item) => {
+        if (!acc[item.grupo]) {
+            acc[item.grupo] = []
+        }
+        acc[item.grupo].push(item)
+        return acc
+    }, {}))
+    .map(e => {
+        return e.map(n => {
+            return {
+                titulo: n.abv,
+                justificativa: "",
+                unitary: {
+                    codigo: n.favorito,
+                    mod: n.mod,
+                }
+            }
+        })
+    })
+
+export const FavoritosProcedimentos = ({ handleProcedimentoPush }) => {
+
+    const sendParamUnitary = (param) => {
+        handleProcedimentoPush(param.unitary, param.justificativa)
+    }
+
+    return (
+        <>
+            <Box>
+                {favoriteproc.map(m =>
+                    <ListButtons
+                        list={m}
+                        sendParam={sendParamUnitary}
+                    />
+                )}
+            </Box>
         </>
     )
 }
