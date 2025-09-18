@@ -11,18 +11,26 @@ import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import { useTheme } from '@mui/material/styles';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ColorModeContext } from '../../App';
 import ClienteSet from '../clienteset';
+import Login from '../login';
 
 const PrimaryAppBar = () => {
 
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
+    const [showLogin, setShowLogin] = useState(false);
 
     const handleHome = () => {
         window.location.reload()
     }
+
+    const handleClose = () => {
+        setShowLogin(false)
+    }
+
+    // if (showLogin) return <Login open={showLogin} handleClose={handleClose} />
 
     return (
         <>
@@ -32,6 +40,7 @@ const PrimaryAppBar = () => {
                     zIndex: 1251,
                 }}
             >
+                <Login open={showLogin} handleClose={handleClose} />
                 <Toolbar>
                     <Box
                         sx={{
@@ -65,7 +74,10 @@ const PrimaryAppBar = () => {
                         <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
                             {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                         </IconButton>
-                        <IconButton edge="end" color="inherit" size="large">
+                        <IconButton
+                            onClick={() => setShowLogin(true)}
+                            edge="end" color="inherit" size="large"
+                        >
                             <AccountCircle />
                         </IconButton>
                         <IconButton color="inherit" size="large">

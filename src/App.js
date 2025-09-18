@@ -5,7 +5,6 @@ import 'fontsource-roboto';
 import { createContext, useContext, useMemo, useState } from 'react';
 import PrimaryAppBar from './components/appbar/primaryappbar';
 import LeftDrawer from './components/leftdrawer';
-import Login from './components/login';
 import ClienteProvider from './providers/cliente';
 import DataProvider from './providers/data';
 import LoginProvider from './providers/login';
@@ -27,8 +26,9 @@ const MainContent = () => {
 
 const Conteudo = () => {
 
-    const [openDialog, setOpenDialog] = useState(true);
+    // const [openDialog, setOpenDialog] = useState(true);
     const [mode, setMode] = useState('light');
+   
     const colorMode = useMemo(
         () => ({
             toggleColorMode: () => {
@@ -66,11 +66,11 @@ const Conteudo = () => {
         [mode],
     )
 
-    const handleClose = () => {
-        setOpenDialog(false)
-    }
+    // const handleClose = () => {
+    //     setOpenDialog(false)
+    // }
 
-    if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
+    // if (openDialog) return <Login open={openDialog} handleClose={handleClose} />
 
     return (
         <>

@@ -2,7 +2,7 @@ import CopyrightIcon from '@mui/icons-material/Copyright';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
 import GroupIcon from '@mui/icons-material/Group';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import VaccinesIcon from '@mui/icons-material/Vaccines';
 import LocalParkingIcon from '@mui/icons-material/LocalParking';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
 import CalculateIcon from '@mui/icons-material/Calculate';
@@ -56,7 +56,7 @@ const LeftDrawer = () => {
         {
             pagina: setPageMedicamentos,
             titulo: "Medicamentos",
-            icone: <LocalHospitalIcon fontSize="large" />,
+            icone: <VaccinesIcon fontSize="large" />,
         },
         {
             pagina: setPageCID,

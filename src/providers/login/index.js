@@ -12,7 +12,7 @@ const LoginProvider = () => {
         nome: "Dr. Diogo Ferreira de Paula",
         crm: "23838"
     })
-    const [local, setLocal] = useState('nada')
+    const [local, setLocal] = useState(Locais('consultorio'))
 
     return {
         login,
