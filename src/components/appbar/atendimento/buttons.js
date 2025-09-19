@@ -92,10 +92,12 @@ export const RequisicoesBtn = () => {
 export const ImprimirNavBtn = () => {
 
     const { setArticlePrint } = useContext(AtendimentoNavigateContext)
+    const { setResetAtendimento } = useContext(AtendimentoContext)
     const { printReset } = useContext(PrintContext)
 
     const handleClick = () => {
         printReset()
+        setResetAtendimento()
         setArticlePrint()
     }
 

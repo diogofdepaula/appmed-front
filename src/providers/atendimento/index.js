@@ -221,7 +221,7 @@ const AtendimentoProvider = () => {
         },
         atestadoEdit,
         setAtestadoEdit,
-        atestadoOnDuty, 
+        atestadoOnDuty,
         setAtestadoOnDuty: (atestado) => {
             setAtestadoOnDuty(atestado)
             setLmeOnDuty(null)
@@ -233,6 +233,8 @@ const AtendimentoProvider = () => {
             setLmeEdit(null)
             setAtestadoEdit(null)
             setMedicamentoEdit(null)
+            setLmeOnDuty(null)
+            setAtestadoOnDuty(null)
         }
     }
 }
