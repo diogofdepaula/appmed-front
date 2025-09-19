@@ -11,7 +11,7 @@ export const ExecPrint = () => {
 
     // const { print } = useContext(AtendimentoNavigateContext)
     const { local } = useContext(LoginContext)
-    const { prescricoesSelecionadas, lmesSelecionadas, operadora } = useContext(PrintContext)
+    const { prescricoesSelecionadas, lmesSelecionadas, atestadosSelecionados, operadora } = useContext(PrintContext)
 
     const componentRef = useRef()
 
@@ -37,6 +37,18 @@ export const ExecPrint = () => {
                         method: 'put',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(presc)
+                    })
+                )
+        }
+
+        if (atestadosSelecionados.length > 0) {
+            await atestadosSelecionados
+                .map(novaatestado => ({ ...novaatestado, ultimaimpressao: format(new Date(), "yyyy-MM-dd") }))
+                .forEach(atestado =>
+                    fetch(process.env.REACT_APP_API_URL + `/atestados/${atestado.id}`, {
+                        method: 'put',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(atestado)
                     })
                 )
         }
@@ -81,7 +93,7 @@ export const ExecPrint = () => {
                 <div ref={componentRef}>
                     <Box
                         sx={{
-                             display: 'block',
+                            display: 'block',
                             displayPrint: 'block',
                             color: "black",
                         }}

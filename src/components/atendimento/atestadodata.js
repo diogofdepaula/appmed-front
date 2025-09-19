@@ -1,9 +1,11 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import { DataDDMMYYY, DateDifferenceToday } from '../../utils/tempo';
 
 const AtestadoData = ({ atestadoOnDuty }) => {
 
     if (!atestadoOnDuty) return <></>
+
+    console.log(atestadoOnDuty);
 
     return (
         <>
@@ -62,6 +64,28 @@ const AtestadoData = ({ atestadoOnDuty }) => {
                     }}
                 >
                     {atestadoOnDuty.data}
+                </Box>
+                 <Box
+                    sx={{
+                        typography: 'body1',
+                        fontWeight: 'bold',
+                    }}
+                >
+                    {"Última edição:  "}
+                    {DataDDMMYYY(atestadoOnDuty?.updatedAt) + " (" + DateDifferenceToday(atestadoOnDuty?.updatedAt) + " meses )"}
+                </Box>
+                <Box
+                    sx={{
+                        mt: 1,
+                    }}
+                >
+                    {"Última impressão:  "}
+                    {atestadoOnDuty?.ultimaimpressao
+                        ?
+                        DataDDMMYYY(atestadoOnDuty?.ultimaimpressao) + " (" + DateDifferenceToday(atestadoOnDuty?.ultimaimpressao) + " meses )"
+                        :
+                        'Indefinido'
+                    }
                 </Box>
             </Box>
         </>
