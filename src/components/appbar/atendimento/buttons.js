@@ -1,5 +1,6 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 import CancelPresentationIcon from '@mui/icons-material/CancelPresentation';
 import DnsIcon from '@mui/icons-material/Dns';
 import EditIcon from '@mui/icons-material/Edit';
@@ -13,6 +14,7 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import SaveIcon from '@mui/icons-material/Save';
 import StartIcon from '@mui/icons-material/Start';
 import { IconButton, Tooltip } from "@mui/material";
+import { format } from "date-fns";
 import { useContext } from "react";
 import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
@@ -236,7 +238,7 @@ export const ProximoBtn = () => {
 
 export const PrescricaoSalvarBtn = () => {
 
-    const {  setResetCliente } = useContext(ClienteContext)
+    const { setResetCliente } = useContext(ClienteContext)
     const { prescricaoEdit, lmeEdit, setResetAtendimento } = useContext(AtendimentoContext)
     const { step, setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
@@ -413,7 +415,6 @@ export const SendToRelatorio = () => {
     )
 }
 
-
 export const LmeEditarBtn = () => {
 
     const { lmeOnDuty, setLmeEdit, setLmeOnDuty, setAtestadoEdit } = useContext(AtendimentoContext)
@@ -513,7 +514,7 @@ export const AddNovoAtestado = () => {
 
 export const AtestadoSalvarBtn = () => {
 
-    const { setResetCliente} = useContext(ClienteContext)
+    const { setResetCliente } = useContext(ClienteContext)
     const { atestadoEdit, setResetAtendimento } = useContext(AtendimentoContext)
     const { setResetAtendimentoNavegate } = useContext(AtendimentoNavigateContext)
     const { setPageAtendimento } = useContext(NavigateContext)
@@ -592,3 +593,35 @@ export const AtestadoEditarBtn = () => {
         </>
     )
 }
+
+export const AtestadoCopyBtn = () => {
+
+    const { clienteContext } = useContext(ClienteContext)
+    const { atestadoOnDuty, setAtestadoEdit } = useContext(AtendimentoContext)
+    const { setArticlePrescricoesMain, setStep, } = useContext(AtendimentoNavigateContext)
+
+    if (!atestadoOnDuty) return <></>
+
+    const handleClick = () => {
+        const { id, ...atestadoWithoutId } = atestadoOnDuty;
+        setAtestadoEdit({
+            ...atestadoWithoutId,
+            clienteId: clienteContext.id,
+            data: format(new Date(), "yyyy-MM-dd"), //new Date(),
+            ultimaimpressao: undefined,
+        })
+        setArticlePrescricoesMain()
+        setStep(711)
+    }
+
+    return (
+        <>
+            <DefaultButton
+                title={'Editar'}
+                click={handleClick}
+                icon={<AutorenewIcon />}
+            />
+        </>
+    )
+}
+

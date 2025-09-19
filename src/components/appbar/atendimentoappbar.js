@@ -1,7 +1,7 @@
 import { Box, Divider } from '@mui/material';
 import React from 'react';
 import { ExecPrint } from '../../pages/print/component/execprint';
-import { AddNovoAtestado, AddRelatorio, AnteriorBtn, AtestadoEditarBtn, AtestadoSalvarBtn, ImprimirNavBtn, LmeEditarBtn, LmePararBtn, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, ProximoBtn, RequisicoesBtn, SendToRelatorio } from './atendimento/buttons';
+import { AddNovoAtestado, AddRelatorio, AnteriorBtn, AtestadoCopyBtn, AtestadoEditarBtn, AtestadoSalvarBtn, ImprimirNavBtn, LmeEditarBtn, LmePararBtn, NovaPrescricaoBtn, PrescricaoEditarBtn, PrescricaoPararBtn, PrescricaoSalvarBtn, PrescricaoSendForkBtn, PrescricaoToLmeBtn, PrincipalBtn, ProximoBtn, RequisicoesBtn, SendToRelatorio } from './atendimento/buttons';
 
 const AtendimentoAppBar = () => {
 
@@ -28,6 +28,7 @@ const AtendimentoAppBar = () => {
                 <PrescricaoEditarBtn />
                 <LmeEditarBtn />
                 <AtestadoEditarBtn />
+                <AtestadoCopyBtn />
                 <PrescricaoPararBtn />
                 <LmePararBtn />
                 <AnteriorBtn />
