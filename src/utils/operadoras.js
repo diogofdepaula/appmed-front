@@ -5,6 +5,11 @@ export const Operadoras = [
         abreviatura: "nenhum",
     },
     {
+        registro: "-",
+        razao: "-",
+        abreviatura: "-       -",
+    },
+    {
         registro: "000000",
         razao: "SISTEMA ÚNICO DE SAÚDE",
         abreviatura: "SUS",
@@ -48,5 +53,10 @@ export const Operadoras = [
         registro: "326305",
         razao: "AMIL ASSISTÊNCIA MÉDICA INTERNACIONAL S.A.",
         abreviatura: "AMIL",
+    },
+        {
+        registro: "346659",
+        razao: "CAIXA DE ASSISTÊNCIA DOS FUNCIONÁRIOS DO BANCO DO BRASIL",
+        abreviatura: "CASSI",
     },
 ]
