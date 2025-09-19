@@ -1,5 +1,6 @@
 import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-import { Box, IconButton, TextField } from '@mui/material';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { Box, IconButton, TextField, Tooltip } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import TextTips from '../../../utils/tips/texttips';
 
@@ -26,7 +27,7 @@ const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
             ...emBranco,
             // esse indice está aqui só por causa do EmBranco
             indice: ind.current,
-            [event?.target.name ?? name] : event?.target.value ?? tips
+            [event?.target.name ?? name]: event?.target.value ?? tips
         })
     }
 
@@ -39,6 +40,10 @@ const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
         })
     }
 
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(emBranco.titulo + "\n" + emBranco.texto)
+    }
+
     return (
         <>
             <Box
@@ -49,24 +54,52 @@ const EmBranco = ({ handleAdicionarEmBranco, itemEdit, ind }) => {
                     gap: 1,
                 }}
             >
-                <TextField
-                    fullWidth
-                    multiline
-                    variant='outlined'
-                    name='titulo'
-                    label="Título"
-                    value={emBranco.titulo}
-                    InputProps={{
-                        startAdornment: (
-                            <IconButton
-                                onClick={() => AddEmBranco()}
-                            >
-                                <PlaylistAddIcon />
-                            </IconButton>
-                        ),
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        width: 1,
+                        gap: 1,
                     }}
-                    onChange={(e) => handleChange(e)}
-                />
+                >
+                    <TextField
+                        fullWidth
+                        multiline
+                        variant='outlined'
+                        name='titulo'
+                        label="Título"
+                        value={emBranco.titulo}
+                        InputProps={{
+                            startAdornment: (
+                                <IconButton
+                                    onClick={() => AddEmBranco()}
+                                >
+                                    <PlaylistAddIcon />
+                                </IconButton>
+                            ),
+                        }}
+                        onChange={(e) => handleChange(e)}
+                    />
+                    <Box
+                        sx={{
+                            border: 1,
+                            borderRadius: 1,
+                            borderColor: "#42a5f5",
+                            alignContent: 'center',
+                            p: 1
+                        }}
+                    >
+                        {emBranco.texto.length}
+                    </Box>
+                    <Tooltip title="Copiar" >
+                        <IconButton
+                            onClick={() => copyToClipboard()}
+                            size="small"
+                        >
+                            <ContentCopyIcon />
+                        </IconButton>
+                    </Tooltip>
+                </Box>
                 <TextTips
                     handleChange={handleChange}
                     // é o estado que será alterado

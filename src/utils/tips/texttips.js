@@ -144,12 +144,17 @@ const ListaOpcoes = (param) => {
             trigger: 'med',
         },
         {
-            texto: 'Aguardo os resultados dos novos exame para, então, definir conduta.',
+            texto: 'Referente aos exames complementares, tem-se o seguinte: ',
+            remove: 'exms',
+            trigger: 'exms',
+        },
+        {
+            texto: 'Aguardo os resultados dos novos exames para, então, definir conduta.',
             remove: 'aguardo',
             trigger: 'aguardo',
         },
         {
-            texto: 'Aguardo os resultados dos novos exame para análise de hipóteses diagnósticas e então definir conduta.',
+            texto: 'Aguardo os resultados dos novos exames para análise de hipóteses diagnósticas e então definir conduta.',
             remove: 'aguardo',
             trigger: 'aguardo',
         },
