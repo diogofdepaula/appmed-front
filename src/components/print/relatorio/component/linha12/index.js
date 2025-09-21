@@ -21,10 +21,10 @@ const Linha12Relatorio = () => {
                     pertinentes. Para maiores esclarecimentos: diogofdepaula@gmail.com .
                 </>
                 <>
-                    . Referência original:
+                    {/* . Referência original:
                     PORTARIA CONJUNTA nº 16 de 03/09/2021 - v3 - PCDT de Artrite Reumatoide e da Artrite Idiopática Juvenil (AIJ),
                     PORTARIA CONJUNTA nº 09 de 21/05/2021 - PCDT de Artrite PsorÍaca,
-                    PORTARIA CONJUNTA nº 25 de 20/04/2021 - PCDT de Espondilite Ancilosante.
+                    PORTARIA CONJUNTA nº 25 de 20/04/2021 - PCDT de Espondilite Ancilosante. */}
                 </>
             </Box>
             {/* Referência: arquivo disponibilizado no http://www.cmde.parana.pr.gov.br/ . Modificado somente o layout do documento, sendo preservado todas as informações pertinentes ao caso, mas somente da medicação solicitada. versão 10/2020. Para maiores esclarecimentos: diogofdepaula@gmail.com

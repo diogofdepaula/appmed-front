@@ -15,6 +15,7 @@ const Linha1Relatorio = () => {
             'ea': 'Espondilite Anquilosante',
             'ap': 'Artrite psoriásica',
             'aij': 'Artrite Idiopática Juvenil',
+            'op' : 'Osteoporose',
             default: <div />
         }
         return Name[DoençaCID(lme.cid10)] || Name.default

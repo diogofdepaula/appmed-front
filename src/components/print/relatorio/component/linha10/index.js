@@ -16,6 +16,7 @@ const Linha10Relatorio = () => {
                     flexGrown: 1,
                     border: 1,
                     px: 1,
+                    mt: 1,
                 }}
             >
                 <BoxCheckBox

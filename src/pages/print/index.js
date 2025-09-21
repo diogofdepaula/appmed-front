@@ -51,7 +51,7 @@ const Print = () => {
                         width: '70%',
                         m: 4,
                         gap: 4,
-                        zoom: "10%",
+                        zoom: "200%",
                         alignContent: 'flex-start',
                     }}
                 >

@@ -19,7 +19,7 @@ import { useContext } from "react";
 import { ClienteContext, NavigateContext, PrintContext } from '../../../App';
 import { AtendimentoContext, AtendimentoNavigateContext } from "../../../pages/atendimento";
 import { NovoRelatorio } from '../../../providers/atendimento';
-import { LmeComRelatorio } from '../../../utils/inquiries';
+import { DoençaCID, LmeComRelatorio } from '../../../utils/inquiries';
 
 export const DefaultButton = ({ title, click, icon, disabled, color }) => {
 
@@ -393,18 +393,22 @@ export const PrescricaoSendForkBtn = () => {
 export const SendToRelatorio = () => {
 
     const { lmeEdit } = useContext(AtendimentoContext)
-    const { step, setStepNext } = useContext(AtendimentoNavigateContext)
+    const { step, setStepNext, setStep } = useContext(AtendimentoNavigateContext)
 
     if (!(LmeComRelatorio(lmeEdit) && step === 321)) return <></>
-
+    
     const handleClick = () => {
-        setStepNext()
+        if (DoençaCID(lmeEdit?.cid10) === 'op') {
+            setStep(431)
+        } else {
+            setStepNext()
+        }
     }
 
     return (
         <>
             <DefaultButton
-                title={'Editar Relatório'}
+                title={'Editar Relatórioxxx'}
                 click={handleClick}
                 icon={
                     <>

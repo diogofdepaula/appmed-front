@@ -20,6 +20,7 @@ import RelatorioSet4 from "../../pages/atendimento/prescricoes/relatorioset4"
 import RelatorioSet5 from "../../pages/atendimento/prescricoes/relatorioset5"
 import Print from "../../pages/print"
 import Avulso from "../../pages/avulso"
+import RelatorioSetOp from "../../pages/atendimento/prescricoes/relatoriosetop"
 
 const AtendimentoNavegateProvider = () => {
 
@@ -53,6 +54,7 @@ const AtendimentoNavegateProvider = () => {
             351: <RelatorioSet3 />,
             361: <RelatorioSet4 />,
             371: <RelatorioSet5 />,
+            431: <RelatorioSetOp />,
             711: <AtestadoSet />,
             default: <div />
         }
@@ -99,11 +101,12 @@ const AtendimentoNavegateProvider = () => {
             setSection(SetSectionByStep(step + 10))
             setStep(step + 10)
         },
+       
         setResetAtendimentoNavegate: () => {
             setStep(0)
             setArticle(<AtendimentoMain />)
             // setPrint(false)
-        }
+        },
     }
 }
 

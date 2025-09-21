@@ -15,7 +15,7 @@ const Linha3Relatorio = () => {
             texto: clienteContext.nome,
             alinhamento: "left",
             negrito: "bold",
-            largura: "44rem",
+            largura: "30rem",
             grow: "1",
         },
         {
@@ -23,6 +23,12 @@ const Linha3Relatorio = () => {
             largura: "12rem",
             alinhamento: "center",
             texto: clienteContext.peso,
+        },
+                {
+            titulo: "Altura",
+            largura: "12rem",
+            alinhamento: "center",
+            texto: clienteContext.altura,
         },
         {
             titulo: "CNS",

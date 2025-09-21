@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react'
 import Page from '../page';
 import Linha1Relatorio from './component/linha1';
 import Linha10Relatorio from './component/linha10';
@@ -13,8 +13,13 @@ import Linha6Relatorio from './component/linha6';
 import Linha7Relatorio from './component/linha7';
 import Linha8Relatorio from './component/linha8';
 import Linha9Relatorio from './component/linha9';
+import { DoençaCID } from '../../../utils/inquiries';
+import { LMEPrintContext } from '../../../pages/print/printjob';
+import RelatorioOp from './component/op';
 
-const FactoryRelatorio = () => {
+// DEPOIS PASSAR ELE PARA UM ARQUIVO INDEX DENTRO DE UMA PASTA AR, EA, APSO E AIJ
+// O PROBLEMA É QUE ISSO VAI FAZER DAR PROBLEMA EM TODAS AS IMPORTAÇÕES DOS ARQUIVOS USADOS
+const RelatorioAREAAPAIJ = () => {
 
     return (
         <>
@@ -57,6 +62,17 @@ const FactoryRelatorio = () => {
             </Page>
         </>
     )
+}
+
+
+
+const FactoryRelatorio = () => {
+
+    const lme = useContext(LMEPrintContext)
+
+    if (DoençaCID(lme.cid10) === 'op') return <RelatorioOp />
+
+    return <RelatorioAREAAPAIJ />
 }
 
 export default FactoryRelatorio

@@ -23,7 +23,7 @@ export const DoençaCID = (param) => {
 
 export const LmeComRelatorio = (lme) => {
     const doenca = DoençaCID(lme?.cid10)
-    return (doenca === 'ar' || doenca === 'ea' || doenca === 'ap' || doenca === 'aij')
+    return (doenca === 'ar' || doenca === 'ea' || doenca === 'ap' || doenca === 'aij' || doenca === 'op')
 }
 
 export const NumeroAleatorio = (tamanho) => {
