@@ -6,7 +6,7 @@ import Fence from '../../../fence';
 import Linha5Relatorio from '../../../relatorio/component/linha5';
 import { PrintContext } from '../../../../../App';
 import { ProvasAtividadeInflamatoria } from '../../../relatorio/component/linha4';
-import { LmeComRelatorio } from '../../../../../utils/inquiries';
+import { DoençaCID, LmeComRelatorio } from '../../../../../utils/inquiries';
 
 const Linha7LME = () => {
 
@@ -15,6 +15,7 @@ const Linha7LME = () => {
 
     const Renovacao = () => {
         if (!(renovacao && LmeComRelatorio(lme))) return <></>
+        if (DoençaCID(lme.cid10) === 'op' && renovacao) return <></>
 
         return (
             <>
