@@ -786,7 +786,7 @@ const favoriteproc = Object.values(Tuss()
                 titulo: n.abv,
                 justificativa: "",
                 unitary: {
-                    codigo: n.favorito,
+                    codigo: n.codigo,
                     mod: n.mod,
                 }
             }
