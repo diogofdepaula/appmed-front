@@ -33,7 +33,7 @@ export const Inicio = () => {
     const cpf = clienteContext.cpf === "" ? "" : (idade === "" ? (", CPF " + clienteContext.cpf + ", ") : (" CPF " + clienteContext.cpf + ", "))
 
     return "Venho por meio deste documento, para os devidos fins, " +
-        "conforme normatiza a Resolução do CFM nº 1.851/2008, " +
+        "conforme normatiza a Resolução do CFM nº 2.381/2024, " +
         "atestar que" + pronome + " " + clienteContext.nome +
         idade + cpf
 
