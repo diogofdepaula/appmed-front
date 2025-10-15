@@ -25,9 +25,9 @@ export const Operadoras = [
         abreviatura: "FUND COPEL",
     },
     {
-        registro: "420930",
-        razao: "HOSPITAL DE CARIDADE SÃO VICENTE DE PAULO",
-        abreviatura: "H SÃO VICENTE",
+        registro: "372609",
+        razao: "NOSSA SAÚDE ASSISTÊNCIA MÉDICA LTDA",
+        abreviatura: "NOSSA SAÚDE",
     },
     {
         registro: "005711",
