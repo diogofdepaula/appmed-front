@@ -2,7 +2,7 @@ export const Operadoras = [
     {
         registro: "",
         razao: "",
-        abreviatura: "nenhum",
+        abreviatura: "A5",
     },
     {
         registro: "-",

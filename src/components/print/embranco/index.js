@@ -129,7 +129,7 @@ const EmBrancoA5 = ({ embranco, tipo }) => {
                     <FitText
                         texto={embranco.texto}
                         inicial={8}
-                        maxfont={24}
+                        maxfont={22}
                         erro={50}
                         padding={1}
                         align='justify'
