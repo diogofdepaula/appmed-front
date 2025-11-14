@@ -7,10 +7,9 @@ const ItemsCID = memo(({ cid }) => {
     return (
         <>
             <Box
-               // key={i}
-                display='flex'
-                onClick={() => { navigator.clipboard.writeText(cid.cid10) }}
                 sx={{
+                    display: 'flex',
+                    alignItems: 'center',
                     p: 1,
                     '&:hover': {
                         border: 3,
@@ -20,13 +19,26 @@ const ItemsCID = memo(({ cid }) => {
                 }}
             >
                 <Box
+                    onClick={() => { navigator.clipboard.writeText("(" + cid.cid10 + ")") }}
                     sx={{
-                        width: 50
+                        width: 50,
+                        '&:hover': {
+                            fontWeight: 'bold'
+                        },
                     }}
                 >
                     {cid.cid10}
                 </Box>
-                <Box>{cid.descricao}</Box>
+                <Box
+                    onClick={() => { navigator.clipboard.writeText(cid.descricao + " (" + cid.cid10 + ")") }}
+                    sx={{
+                        '&:hover': {
+                            fontWeight: 'bold'
+                        },
+                    }}
+                >
+                    {cid.descricao}
+                </Box>
             </Box>
         </>
     )
@@ -37,7 +49,7 @@ const ListItemsCID = ({ cidsfiltrados }) => {
     return (
         <>
             {cidsfiltrados.map((cid, i) => (
-                <ItemsCID cid={cid} key={i}/>
+                <ItemsCID cid={cid} key={i} />
             ))}
         </>
     )
