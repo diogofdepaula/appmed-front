@@ -44,9 +44,6 @@ const Clb10010d = {
                 nomefantasia: "Celebra",
             },
             {
-                nomefantasia: "Dicoxibe",
-            },
-            {
                 nomefantasia: "Foxis",
             },
         ]
@@ -511,13 +508,13 @@ const Cito5000 = {
         farmaco: "Tiamina + Piridoxina + Cianocobalamina",
         nomescomerciais: [
             {
-                nomefantasia: "Citoneurin 5000",
+                nomefantasia: "Cronobê Complex",
             },
         ]
     },
     posologia: {
         posologia:
-            "Aplicar um dose (ampola I e II) por via intramuscular profunda (glúteo) " +
+            "Aplicar um dose (ampola) por via intramuscular profunda (glúteo) " +
             "uma vez por semana por três semanas consecutivas.",
         quantidade: "1",
         forma: "caixa",
