@@ -36,9 +36,9 @@ const TablePrescricoes = memo(({ prescricoes, setPrescricaoOnDuty, uso }) => {
                                     >
                                         {uso
                                             ?
-                                            prescricao.medicamento.farmaco + " - " + prescricao.apresentaco.descricao
+                                            prescricao.medicamento?.farmaco + " - " + prescricao.apresentaco?.descricao
                                             :
-                                            prescricao.medicamento.farmaco + " - interrompido"
+                                            prescricao.medicamento?.farmaco + " - interrompido"
                                         }
                                     </Box>
                                 </TableCell>

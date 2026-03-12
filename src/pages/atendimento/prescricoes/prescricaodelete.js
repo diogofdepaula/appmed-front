@@ -271,7 +271,7 @@ const PrescricaoDelete = () => {
                             p: 2,
                         }}
                     >
-                        {prescricaoOnDuty.medicamento.farmaco} ({prescricaoOnDuty.apresentaco.descricao})
+                        {prescricaoOnDuty?.medicamento?.farmaco} ({prescricaoOnDuty?.apresentaco?.descricao})
                     </Box>
 
                     <Box
@@ -302,7 +302,7 @@ const PrescricaoDelete = () => {
                                                 ml: 2,
                                             }}
                                         >
-                                            {p.medicamento.farmaco}
+                                            {p?.medicamento?.farmaco}
                                         </Box>
                                     )}
                                 </Box>

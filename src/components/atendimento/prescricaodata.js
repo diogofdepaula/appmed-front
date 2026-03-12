@@ -25,7 +25,7 @@ const PrescricaoData = ({prescricao}) => {
                         textAlign: 'center',
                     }}
                 >
-                    {prescricao?.medicamento.farmaco}
+                    {prescricao?.medicamento?.farmaco}
                 </Box>
                 <Box
                     sx={{
@@ -33,7 +33,7 @@ const PrescricaoData = ({prescricao}) => {
                         typography: 'body1',
                     }}
                 >
-                    {prescricao?.apresentaco.descricao}
+                    {prescricao?.apresentaco?.descricao}
                 </Box>
                 <Box
                     sx={{
@@ -43,7 +43,7 @@ const PrescricaoData = ({prescricao}) => {
                         textAlign: 'justify',
                     }}
                 >
-                    {prescricao?.usoposologiapadrao ? prescricao?.posologia.posologia : prescricao?.posologianaopadrao}
+                    {prescricao?.usoposologiapadrao ? prescricao?.posologia?.posologia : prescricao?.posologianaopadrao}
                 </Box>
                 <Box
                     sx={{
