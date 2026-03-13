@@ -433,8 +433,8 @@ const lab = [
     {
         titulo: "HLA-B27",
         justificativa:
-            "Paciente com comprometimento lombar axial " +
-            "sugestivo de Espondilite Anquilosante. A " +
+            "Paciente com comprometimento lombar " +
+            "sugestivo de Espondiloartrite. A " +
             "ressonância de sacroilíacas foi solicitado " +
             "em outra requisição afim de otimiza a " +
             "logística, uma vez que ambos os exames são " +
