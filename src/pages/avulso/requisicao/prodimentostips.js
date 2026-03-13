@@ -427,7 +427,7 @@ const lab = [
             codigo: "40308804",
             mod: "Anticorpos anti peptídeo cíclico " +
                 "citrulinado (Anti-CCP) (*** justificativa está " +
-                "no campo 23 (Indicação clínica) dessa requisião.",
+                "no campo 23 (Indicação clínica) dessa requisião)",
         },
     },
     {
@@ -442,7 +442,7 @@ const lab = [
         unitary: {
             codigo: "40314430",
             mod: "HLA-B27 (*** justificativa está " +
-                "no campo 23 (Indicação clínica) dessa requisião.",
+                "no campo 23 (Indicação clínica) dessa requisião)",
         },
     },
     {
