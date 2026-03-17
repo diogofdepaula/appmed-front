@@ -43,8 +43,8 @@ const Estatistica = () => {
     dados
         .filter(y => todos ? y : MedicamentoRelatorio(y.medicamento))
         .forEach(w => {
-            if (!fila.includes(w.medicamento.farmaco)) {
-                fila.push(w.medicamento.farmaco)
+            if (!fila.includes(w?.medicamento?.farmaco)) {
+                fila.push(w?.medicamento?.farmaco)
             }
         })
 
