@@ -80,7 +80,7 @@ const Estatistica = () => {
                                 <Box>
                                     {dados
                                         .filter(y => y.emuso)
-                                        .filter(y => y.medicamento.farmaco === w).length
+                                        .filter(y => y?.medicamento?.farmaco === w).length
                                     }
                                 </Box>
                             </Box>
