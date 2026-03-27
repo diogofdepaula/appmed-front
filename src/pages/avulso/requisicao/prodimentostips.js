@@ -669,8 +669,13 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         },
                         {
                             codigo: "0000000",
-                            original: "Anti-CCP  Anti-RO  Anti-LA",
-                            mod: "Anti-CCP Anti-RO  Anti-LA",
+                            original: "Anticorpos anti peptídeo cíclico citrulinado(Anti - CCP)",
+                            mod: "Anticorpos anti peptídeo cíclico citrulinado(Anti - CCP)",
+                        },
+                        {
+                            codigo: "0000000",
+                            original: "HLA-B27 Anti-RO Anti-LA",
+                            mod: "HLA-B27 Anti-RO Anti-LA",
                         },
                     ],
                 },
