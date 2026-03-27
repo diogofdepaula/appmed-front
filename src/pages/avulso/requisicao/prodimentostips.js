@@ -669,8 +669,8 @@ export const MultiplesSimultaneos = ({ handleAdicinarMultiplos, ind }) => {
                         },
                         {
                             codigo: "0000000",
-                            original: "Anticorpos anti peptídeo cíclico citrulinado(Anti - CCP)",
-                            mod: "Anticorpos anti peptídeo cíclico citrulinado(Anti - CCP)",
+                            original: "Anticorpos anti peptídeo cíclico citrulinado(Anti-CCP)",
+                            mod: "Anticorpos anti peptídeo cíclico citrulinado(Anti-CCP)",
                         },
                         {
                             codigo: "0000000",
