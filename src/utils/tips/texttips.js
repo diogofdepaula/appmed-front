@@ -137,7 +137,7 @@ const ListaOpcoes = (param) => {
             trigger: 'aux',
         },
         {
-            texto: 'Além disso, oriento medidas não farmacológicas e de proteção articular, assim como ' +
+            texto: 'Além disso, oriento medidas não farmacológicas, assim como ' +
                 'medidas gerais em visando uma vida mais saudável as quais nessa situação ' +
                 'são fundamentais considerando o aspecto articular e osteomuscular.',
             remove: 'med',
@@ -241,8 +241,8 @@ const ListaOpcoes = (param) => {
         },
         {
             texto: "Mesmo a longo prazo, caso não haja aderência " +
-                "as medidas não farmacológicas e as orientações " +
-                "de proteção articular, não se tem expectativa de melhora.",
+                "as medidas não farmacológicas " +
+                "não se tem expectativa de melhora.",
             remove: 'prog',
             trigger: 'prog',
         },
