@@ -76,7 +76,7 @@ const usmmss = [
     {
         titulo: "US OD",
         justificativa:
-            "Paciente do dor e limitação em ombro direito.\n" +
+            "Paciente com dor e limitação em ombro direito.\n" +
             "Investigação para Síndrome do Manguito Rotador.",
         unitary: {
             codigo: "40901220",
@@ -86,7 +86,7 @@ const usmmss = [
     {
         titulo: "US OE",
         justificativa:
-            "Paciente do dor e limitação em ombro esquerdo.\n" +
+            "Paciente com dor e limitação em ombro esquerdo.\n" +
             "Investigação para Síndrome do Manguito Rotador.",
         unitary: {
             codigo: "40901220",
@@ -96,7 +96,7 @@ const usmmss = [
     {
         titulo: "US CD",
         justificativa:
-            "Paciente do dor em cotovelo direito.\n" +
+            "Paciente com dor em cotovelo direito.\n" +
             "Investigação para Epicondilite.\n" +
             "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
         unitary: {
@@ -107,7 +107,7 @@ const usmmss = [
     {
         titulo: "US CE",
         justificativa:
-            "Paciente do dor em cotovelo esquerdo.\n" +
+            "Paciente com dor em cotovelo esquerdo.\n" +
             "Investigação para Epicondilite.\n" +
             "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
         unitary: {
@@ -167,7 +167,7 @@ const usmmii = [
     {
         titulo: "US QD",
         justificativa:
-            "Paciente do dor e limitação em quadril direito.\n" +
+            "Paciente com dor e limitação em quadril direito.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
@@ -177,7 +177,7 @@ const usmmii = [
     {
         titulo: "US QE",
         justificativa:
-            "Paciente do dor e limitação em quadril esquerdo.\n" +
+            "Paciente com dor e limitação em quadril esquerdo.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
@@ -187,7 +187,7 @@ const usmmii = [
     {
         titulo: "US JD",
         justificativa:
-            "Paciente do dor e limitação em joelho direito.\n" +
+            "Paciente com dor e limitação em joelho direito.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares, e," +
             "dentro dos limites da capacidade do exame, alterações estruturais.",
         unitary: {
@@ -198,7 +198,7 @@ const usmmii = [
     {
         titulo: "US JE",
         justificativa:
-            "Paciente do dor e limitação em joelho esquerdo.\n" +
+            "Paciente com dor e limitação em joelho esquerdo.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares, e," +
             "dentro dos limites da capacidade do exame, alterações estruturais.",
         unitary: {
@@ -209,7 +209,7 @@ const usmmii = [
     {
         titulo: "US TD",
         justificativa:
-            "Paciente do dor e limitação em tornozelo direito.\n" +
+            "Paciente com dor e limitação em tornozelo direito.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
@@ -219,7 +219,7 @@ const usmmii = [
     {
         titulo: "US TE",
         justificativa:
-            "Paciente do dor e limitação em tornozelo esquerdo.\n" +
+            "Paciente com dor e limitação em tornozelo esquerdo.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
@@ -252,7 +252,7 @@ const usde = [
     {
         titulo: "US O",
         justificativa:
-            "Paciente do dor e limitação em ombros.\n" +
+            "Paciente com dor e limitação em ombros.\n" +
             "Investigação para Síndrome do Manguito Rotador.",
         unitary: {
             codigo: "40901220",
@@ -263,7 +263,7 @@ const usde = [
     {
         titulo: "US C",
         justificativa:
-            "Paciente do dor em cotovelos.\n" +
+            "Paciente com dor em cotovelos.\n" +
             "Investigação para Epicondilite.\n" +
             "Atentar para outros achados inflamatórios como derrame articular e sinovite.",
         unitary: {
@@ -298,7 +298,7 @@ const usde = [
     {
         titulo: "US Q",
         justificativa:
-            "Paciente do dor e limitação em quadris.\n" +
+            "Paciente com dor e limitação em quadris.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
@@ -309,7 +309,7 @@ const usde = [
     {
         titulo: "US J",
         justificativa:
-            "Paciente do dor e limitação em joelhos.\n" +
+            "Paciente com dor e limitação em joelhos.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares, e," +
             "dentro dos limites da capacidade do exame, alterações estruturais.",
         unitary: {
@@ -321,7 +321,7 @@ const usde = [
     {
         titulo: "US T",
         justificativa:
-            "Paciente do dor e limitação em tornozelos.\n" +
+            "Paciente com dor e limitação em tornozelos.\n" +
             "Atentar para achados inflamatórios intra e extra-articulares.",
         unitary: {
             codigo: "40901220",
