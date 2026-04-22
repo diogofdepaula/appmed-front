@@ -37,7 +37,7 @@ const AtestadoSet = () => {
                 <TextField
                     fullWidth
                     multiline
-                    rows={2}
+                    rows={4}
                     name="diagnostico"
                     label="possui (Diagnóstico)"
                     value={atestadoEdit.diagnostico}
@@ -57,7 +57,7 @@ const AtestadoSet = () => {
                     // nome (Object.key) do estado que será alterado
                     name='estado'
                     label="Na última consulta paciente se apresentava (Estado atual (iniciar com letra minuscula))"
-                    rows={10}
+                    rows={8}
                 />
                 <TextTips
                     handleChange={handleChangeText}
