@@ -5,8 +5,6 @@ const AtestadoData = ({ atestadoOnDuty }) => {
 
     if (!atestadoOnDuty) return <></>
 
-    console.log(atestadoOnDuty);
-
     return (
         <>
             <Box
