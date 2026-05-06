@@ -274,6 +274,15 @@ const Rituximabe =
         de IgG; angina pectoris, fibrilação e flutter atrial.
     </>
 
+const Romosozumabe =
+    <>
+        hipocalcemia transitória, muito comumente pode ocorrer infecção viral
+        do trato respiratório superior e artralgia. Comumente, podem ocorrer
+        reações de hipersensibilidade (com erupções cutâneas, dermatite ou
+        urticária), dor de cabeça, tosse, dor no pescoço, espasmos musculares,
+        edema periférico e reações no local da injeção.
+    </>
+
 const Sildenafila =
     <>
         vermelhidão, dores de cabeça, dificuldade de digestão, diarreia
@@ -306,9 +315,9 @@ const Secuquinumabe =
     <>
         reações no local da aplicação (como dor e coceira), dor de
         cabeça, tosse, náusea, vômitos, febre, cansaço, alteração na
-        pressão arterial até reações mais graves, que incluem 
-        infecções oportunístas fúngicas e bacterianas como 
-        tuberculose, histoplasmose, aspergilose e nocardiose, 
+        pressão arterial até reações mais graves, que incluem
+        infecções oportunístas fúngicas e bacterianas como
+        tuberculose, histoplasmose, aspergilose e nocardiose,
         podendo, em casos raros, ser fatal
     </>
 
@@ -325,6 +334,21 @@ const Sulfassalazina =
         dores articulares, cansaço e reações alérgicas.
     </>
 
+const Tacrolimus =
+    <>
+        tremores, dor de cabeça, diarreia, pressão alta, náusea e disfunção renal,
+        podendo também ocorrer dor no peito, pressão baixa, palpitações, formigamentos, falta de ar, colangite,
+        amarelão, diarreia, prisão de ventre, vômitos, diminuição do apetite, azia e dor no estômago, gases, hemorragia,
+        dano hepático, agitação, ansiedade, convulsão, depressão, tontura, alucinações, incoordenação, psicose,
+        sonolência, neuropatia, queda de cabelo, aumento da quantidade de pelos no corpo, vermelhidão de pele,
+        coceiras, anemia, aumento ou diminuição das células brancas do sangue, diminuição das plaquetas do sangue,
+        desordens na coagulação, síndrome hemolítico-urêmica, edema periférico, alterações metabólicas
+        (hipo/hiperpotassemia, hiperglicemia, hipomagnesemia, hiperuricemia), diabetes melito, elevação de enzimas
+        hepáticas, toxicidade renal, diminuição importante do volume da urina, febre, acúmulo de líquido no abdômen e
+        na pleura, fraqueza, dor lombar, atelectasias, osteoporose, dores no corpo, peritonite, fotossensibilidade,
+        alterações visuais;
+    </>
+
 const Upadacitinibe =
     <>
         aumento da taxa de infecções; reativação viral; neutropenia;
@@ -334,52 +358,65 @@ const Upadacitinibe =
         estabelecido.
     </>
 
-const Meds = [
-    ["Abatacepte", Abatacepte],
-    ["Adalimumabe", Adalimumabe],
-    ["Azatioprina", Azatioprina],
-    ["Baricitinibe", Baricitinibe],
-    ["Bosentana", Bosentana],
-    ["Certolizumabe", Certolizumabe],
-    ["Ciclofosfamida", Ciclofosfamida],
-    ["Ciclosporina", Ciclosporina],
-    ["Clobetasol", Clobetasol],
-    ["Codeína", Codeina],
-    ["Danazol", Danazol],
-    ["Etanercepte", Etanercepte],
-    ["Gabapentina", Gabapentina],
-    ["Golimumabe", Golimumabe],
-    ["Imunoglobulina Humana", Imunoglobulina],
-    ["Infliximabe", Infliximabe],
-    ["Leflunomida", Leflunomida],
-    ["Mesalazina", Mesalazina],
-    ["Metilprednisolona", Metilprednisolona],
-    ["Micofenolato de mofetila", Micofenolato],
-    ["Naproxeno", Naproxeno],
-    ["Metotrexato", Metotrexato],
-    ["Hidroxicloroquina", Hidroxicloroquina],
-    ["Natalizumabe", Natalizumabe],
-    ["Pamidronato", Pamidronato],
-    ["Prednisona", Prednisona],
-    ["Prednisolona", Prednisolona],
-    ["Raloxifeno", Raloxifeno],
-    ["Risedronato", Risedronato],
-    ["Rituximabe", Rituximabe],
-    ["Sildenafila", Sildenafila],
-    ["Tocilizumabe", Tocilizumabe],
-    ["Tofacitinibe", Tofacitinibe],
-    ["Secuquinumabe", Secuquinumabe],
-    ["Sulfassalazina", Sulfassalazina],
-    ["Upadacitinibe", Upadacitinibe],
-]
+const Zolendronico =
+    <>
+        dores de cabeça, musculares e nas juntas, febre, cansaço,
+        fraqueza, sonolência ou insônia, náusea, perda do apetite,
+        aumento dos batimentos do coração, aumento da pressão
+        arterial, tonturas, formigamentos, prisão de ventre, aftas,
+        dor no local da aplicação, diminuição das células do sangue
+        (células brancas e plaquetas);
+    </>
+
+const Meds = {
+    "Abatacepte": Abatacepte,
+    "Adalimumabe": Adalimumabe,
+    "Azatioprina": Azatioprina,
+    "Baricitinibe": Baricitinibe,
+    "Bosentana": Bosentana,
+    "Certolizumabe": Certolizumabe,
+    "Ciclofosfamida": Ciclofosfamida,
+    "Ciclosporina": Ciclosporina,
+    "Clobetasol": Clobetasol,
+    "Codeína": Codeina,
+    "Danazol": Danazol,
+    "Etanercepte": Etanercepte,
+    "Gabapentina": Gabapentina,
+    "Golimumabe": Golimumabe,
+    "Imunoglobulina Humana": Imunoglobulina,
+    "Infliximabe": Infliximabe,
+    "Leflunomida": Leflunomida,
+    "Mesalazina": Mesalazina,
+    "Metilprednisolona": Metilprednisolona,
+    "Micofenolato de mofetila": Micofenolato,
+    "Naproxeno": Naproxeno,
+    "Metotrexato": Metotrexato,
+    "Hidroxicloroquina": Hidroxicloroquina,
+    "Natalizumabe": Natalizumabe,
+    "Pamidronato": Pamidronato,
+    "Prednisona": Prednisona,
+    "Prednisolona": Prednisolona,
+    "Raloxifeno": Raloxifeno,
+    "Risedronato": Risedronato,
+    "Rituximabe": Rituximabe,
+    "Romosozumabe": Romosozumabe,
+    "Sildenafila": Sildenafila,
+    "Tocilizumabe": Tocilizumabe,
+    "Tofacitinibe": Tofacitinibe,
+    "Secuquinumabe": Secuquinumabe,
+    "Sulfassalazina": Sulfassalazina,
+    "Tacrolimus": Tacrolimus,
+    "Upadacitinibe": Upadacitinibe,
+    "Ácido Zoledrônico": Zolendronico,
+}
 
 const Adverso = ({ medicamentos }) => {
 
     const Conteudo = ({ medicamento }) => {
 
-        let inicio = <>Estou ciente sobre o <strong>efeitos adversos</strong> do {medicamento} são: </>
+        let inicio = <>Estou ciente de que os <strong>efeitos adversos</strong> do {medicamento} são:</>;
 
-        let texto = Meds.filter(m => m[0] === medicamento).map(x => x[1])
+        let texto = Meds[medicamento] || <>Efeitos adversos não encontrados para {medicamento}.</>;
 
         return <>{inicio}<br />{texto}</>
     }
