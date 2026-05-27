@@ -283,6 +283,63 @@ const ETC6010d = {
     }
 }
 
+const DFZ30 = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "30mg Comp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Deflazacorte",
+        nomescomerciais: [
+            {
+                nomefantasia: "Calcort",
+            },
+            {
+                nomefantasia: "Deflanil",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 01 comprimido pela manhã por 7 dias, então\n" +
+            "tome 1/2 (meio) comprimido pela manhã mais 7 dias, então pare.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
+const DFZ75 = {
+    continuo: false,
+    imprimirorientacoes: false,
+    usoposologiapadrao: true,
+    orientacoes: "",
+    apresentaco: {
+        descricao: "7,5mg Comp",
+        uso: "uso interno",
+    },
+    medicamento: {
+        farmaco: "Deflazacorte",
+        nomescomerciais: [
+            {
+                nomefantasia: "Calcort",
+            },
+            {
+                nomefantasia: "Deflanil",
+            },
+        ]
+    },
+    posologia: {
+        posologia: "Tomar 02 comprimidos pela manhã por 7 dias, então\n" +
+            "tome 1 comprimido pela manhã por mais 7 dias, então PARE.\n" +
+            "Caso não encontre de 7,5mg (preferível), então usar o de 6mg.",
+        quantidade: "1",
+        forma: "caixa",
+    }
+}
+
 const Tmdsn = {
     continuo: false,
     imprimirorientacoes: true,
@@ -313,32 +370,32 @@ const Tmdsn = {
     }
 }
 
-const GliCon = {
-    continuo: true,
-    imprimirorientacoes: false,
-    usoposologiapadrao: true,
-    orientacoes: "",
-    apresentaco: {
-        descricao: "1,5+1,2g Pó Sol",
-        uso: "uso interno",
-    },
-    medicamento: {
-        farmaco: "Glicosamina + Condroitina",
-        nomescomerciais: [
-            {
-                nomefantasia: "CondroFlex",
-            },
-            {
-                nomefantasia: "Artrolive",
-            },
-        ]
-    },
-    posologia: {
-        posologia: "Colocar o conteúdo de um envelope em um copo de água.\nAguardar 3 minutos, então mexer com um colher.\nTomar a mistura uma vez ao dia por 6 meses.",
-        quantidade: "",
-        forma: "",
-    }
-}
+// const GliCon = {
+//     continuo: true,
+//     imprimirorientacoes: false,
+//     usoposologiapadrao: true,
+//     orientacoes: "",
+//     apresentaco: {
+//         descricao: "1,5+1,2g Pó Sol",
+//         uso: "uso interno",
+//     },
+//     medicamento: {
+//         farmaco: "Glicosamina + Condroitina",
+//         nomescomerciais: [
+//             {
+//                 nomefantasia: "CondroFlex",
+//             },
+//             {
+//                 nomefantasia: "Artrolive",
+//             },
+//         ]
+//     },
+//     posologia: {
+//         posologia: "Colocar o conteúdo de um envelope em um copo de água.\nAguardar 3 minutos, então mexer com um colher.\nTomar a mistura uma vez ao dia por 6 meses.",
+//         quantidade: "",
+//         forma: "",
+//     }
+// }
 
 const UciiHaMsm = {
     continuo: true,
@@ -528,10 +585,11 @@ export const prescricoeslist = {
     ETC90SN: ETC90SN,
     ETC907d: ETC907d,
     ETC6010d: ETC6010d,
+    DFZ75: DFZ75,
+    DFZ30: DFZ30,
     Beta: Beta,
     TmdPct: TmdPct,
     Tmdsn: Tmdsn,
-    GliCon: GliCon,
     UciiHaMsm: UciiHaMsm,
     UciiArtro: UciiArtro,
     Pdn405d204d: Pdn405d204d,
