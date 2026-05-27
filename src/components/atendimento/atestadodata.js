@@ -77,7 +77,7 @@ const AtestadoData = ({ atestadoOnDuty }) => {
                         mt: 1,
                     }}
                 >
-                    {"Última impressão:  "}
+                    {"Última impressão: "}
                     {atestadoOnDuty?.ultimaimpressao
                         ?
                         DataDDMMYYY(atestadoOnDuty?.ultimaimpressao) + " (" + DateDifferenceToday(atestadoOnDuty?.ultimaimpressao) + " meses )"
