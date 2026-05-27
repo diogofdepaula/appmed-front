@@ -493,7 +493,7 @@ const TmdPct = {
         ]
     },
     posologia: {
-        posologia: "Tome 01 comprimido de 8 em 8 horas se dor",
+        posologia: "Tome 01 comprimido de 8 em 8 horas se dor.",
         quantidade: "1",
         forma: "caixa",
     }
