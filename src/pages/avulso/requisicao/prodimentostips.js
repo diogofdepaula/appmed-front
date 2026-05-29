@@ -352,6 +352,14 @@ const rx = [
         },
     },
     {
+        titulo: "Rx Pe",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40804097",
+            mod: "Radiografia de pés - AP e Obliqua",
+        },
+    },
+    {
         titulo: "Rx B",
         justificativa: "Investigação de comprometimento reumatológico",
         unitary: {
@@ -381,6 +389,14 @@ const rx = [
         unitary: {
             codigo: "40804054",
             mod: "Radiografia de joelhos - AP com carga",
+        },
+    },
+    {
+        titulo: "Rx Tx",
+        justificativa: "Investigação de comprometimento reumatológico",
+        unitary: {
+            codigo: "40805026",
+            mod: "Radiografia de tórax - 2 incidências (PA e Perfil)",
         },
     },
 ]
@@ -416,7 +432,7 @@ const tc = [
 
 const lab = [
     {
-        titulo: "Anti-CCP",
+        titulo: "CCP",
         justificativa:
             "Paciente com comprometimento articular " +
             "sugestivo de Artrite reumatoide. O fator " +
@@ -431,7 +447,7 @@ const lab = [
         },
     },
     {
-        titulo: "HLA-B27",
+        titulo: "B27",
         justificativa:
             "Paciente com comprometimento lombar " +
             "sugestivo de Espondiloartrite. A " +
@@ -448,7 +464,7 @@ const lab = [
     {
         titulo: "DXA",
         justificativa:
-            "Investigação de Osteoporose.",
+            "Exame para Osteoporose.",
         unitary: {
             codigo: "40808130",
             mod: "Densitometria óssea - rotina: coluna e fêmur (ou dois segmentos)",

@@ -14,7 +14,7 @@ export const AijMedicamentos = () => {
                 ],
                 // Segunda opção
                 [
-                    'Metotrexate',
+                    'Metotrexato',
                     'Etanercepte',
                     'Adalimumabe',
                     'Abatacepte',
@@ -69,7 +69,7 @@ export const AijMedicamentos = () => {
                 ],
                 // Segunda opção
                 [
-                    'Metotrexate',
+                    'Metotrexato',
                 ],
                 // Terceira opção
                 [
@@ -95,7 +95,7 @@ export const AijMedicamentos = () => {
                 [
                     'Prednisona',
                     'Naproxeno',
-                    'Metotrexate',
+                    'Metotrexato',
                 ],
                 // Segunda opção
                 [
@@ -131,7 +131,7 @@ export const AijMedicamentos = () => {
                 ],
                 // Segunda opção
                 [
-                    'Metotrexate',
+                    'Metotrexato',
                     'Sulfassalazina',
                 ],
                 // Terceira opção
@@ -161,7 +161,7 @@ export const AijMedicamentos = () => {
                 ],
                 // Segunda opção
                 [
-                    'Metotrexate',
+                    'Metotrexato',
                     'Sulfassalazina',
                 ],
                 // Terceira opção
