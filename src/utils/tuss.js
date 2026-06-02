@@ -23633,7 +23633,7 @@ const Tuss = () => {
                         original: "Perfil lipídico / lipidograma (lípidios totais, colesterol, triglicerídios e eletroforese lipoproteínas) - pesquisa e/ou dosagem",
                         mod: "Lipidograma (colesterol total, triglicerídios e HDL)",
                         favorito: true,
-                        grupo: 99,
+                        grupo: 1,
                         abv: "LPD",
                 },
                 {
