@@ -8,8 +8,11 @@ import Identificacao from '../component/identificacao'
 import Prescricao from '../component/prescricao'
 import Rodape from '../component/rodape'
 import Via from '../component/via'
+import Especial from '../component/especial'
 
 const ReceitaA4 = ({ prescricoes, via, mes, tipo, last }) => {
+
+    const controlado = prescricoes?.some(p => p.medicamento.controlado)
 
     return (
         <>
@@ -23,6 +26,7 @@ const ReceitaA4 = ({ prescricoes, via, mes, tipo, last }) => {
                             <Box justifyContent="center">
                                 <Box display="block">
                                     <Via via={via} tipo={tipo} />
+                                    <Especial controlado={controlado} />
                                     <Identificacao tipo={tipo} />
                                     {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes} tipo={tipo} /></div>)}
                                 </Box>

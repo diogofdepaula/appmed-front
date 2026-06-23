@@ -7,8 +7,11 @@ import Identificacao from '../component/identificacao';
 import Prescricao from '../component/prescricao';
 import Rodape from '../component/rodape';
 import Via from '../component/via';
+import Especial from '../component/especial';
 
 const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
+
+    const controlado = prescricoes?.some(p => p.medicamento.controlado)
 
     const Inside = ({ mesmais }) => {
 
@@ -35,6 +38,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                         }}
                     >
                         <Via via={via} tipo={tipo} />
+                        <Especial controlado={controlado} />
                         <Identificacao tipo={tipo} />
                         {prescricoes?.map((p, i) => <div key={i}><Prescricao prescricao={p} mes={mes + mesmais} tipo={tipo} /></div>)}
                     </Box>
@@ -58,7 +62,7 @@ const ReceitaDupla = ({ prescricoes, via, mes, tipo, dupla }) => {
                     <Box
                         sx={{
                             width: '760px',
-                           transform: "rotate(270deg) translate(385px, 390px)",
+                            transform: "rotate(270deg) translate(385px, 390px)",
                         }}
                     >
                         <Inside mesmais={1} />

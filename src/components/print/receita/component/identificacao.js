@@ -96,7 +96,9 @@ const Identificacao = ({ tipo }) => {
             return (
                 <Typography
                     style={{
-                        display: 'none'
+                        //display: 'none'
+                        fontVariant: 'subtitle3',
+                        textAlign: 'center'
                     }}
                 >
                     {prop.children}

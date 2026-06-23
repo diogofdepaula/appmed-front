@@ -9,12 +9,8 @@ import Especial from '../component/especial';
 
 const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
 
-    //const controlado = prescricoes?.filter(p => p.medicamento.controlado).length > 0
-    
     const controlado = prescricoes?.some(p => p.medicamento.controlado)
 
-    console.log('controlado', controlado)
-    
     return (
         <>
             <Page size="a5">
