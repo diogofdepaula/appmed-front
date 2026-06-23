@@ -5,9 +5,16 @@ import Comentario from '../component/comentario';
 import Data from '../component/data';
 import Identificacao from '../component/identificacao';
 import Prescricao from '../component/prescricao';
+import Especial from '../component/especial';
 
 const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
 
+    //const controlado = prescricoes?.filter(p => p.medicamento.controlado).length > 0
+    
+    const controlado = prescricoes?.some(p => p.medicamento.controlado)
+
+    console.log('controlado', controlado)
+    
     return (
         <>
             <Page size="a5">
@@ -15,6 +22,7 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
                     <Box display="block" height={1}>
                         <Box justifyContent="center">
                             <Box display="block">
+                                <Especial controlado={controlado} />
                                 <Identificacao tipo={tipo} />
                                 {prescricoes?.map((p, i) =>
                                     <Prescricao
