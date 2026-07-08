@@ -7,8 +7,8 @@ const Especial = ({ controlado, tipo }) => {
     const isA5 = !!PageSize(tipo);
 
     const boxSx = isA5
-        ? { display: 'block', pt: 3, pb: 4 }
-        : { display: 'block', pt: 5, pb: 1 };
+        ? { display: 'block', pt: 0, pb: 4 }
+        : { display: 'block', pt: 0, pb: 1 };
 
     const titleSx = isA5
         ? { fontSize: 32, fontWeight: 'bold', textAlign: 'center' }

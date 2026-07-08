@@ -36,19 +36,16 @@ const vacinas = [
         crie: true,
     },
     {
-        original: "Pneumocócicas conjugadas (VPC13)",
-        mod: "Pneumo13 (VPC13)",
+        original: "Pneumocócicas conjugadas (VPC20)",
+        mod: "Pneumo20 (VPC20)",
         comentario:
-            "Sempre iniciar esquema com a vacina conjugada (VPC13), seguida pela aplicação " +
-            "da vacina VPP23, respeitando o intervalo mínimo de dois meses entre elas. " +
-            "Para indivíduos que já receberam a VPP23 e não anteriormente vacinados com VPC13, " +
-            "recomenda-se um intervalo de 12 meses para a aplicação de VPC13 e de cinco anos " +
-            "para a aplicação da segunda dose da VPP23, com intervalo mínimo de dois meses " +
-            "entre as vacinas conjugada e polissacarídica.",
-        crie: false,
+            "Caso tenha realizado a Pneumo23, aguardar um ano para realizar a Pneumo20. " +
+            "Caso tenha realizado a Pneumo13, aguardar dois meses para realizar a Pneumo20." +
+            "Aplicar dose única.",
+        crie: true,
     },
     {
-        original: "Meningocócicas conjugadas (MenACWY)",
+        original: "Meningocócicas conjugadas (MenACWY)",
         mod: "Meningo ACWY (MenACWY)",
         comentario:
             "Em vigência e enquanto perdurar a imunossupressão: uma dose de reforço a cada cinco anos.",
