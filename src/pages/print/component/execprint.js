@@ -95,6 +95,7 @@ export const ExecPrint = () => {
                         sx={{
                             display: 'block',
                             displayPrint: 'block',
+                                // esse color está aqui para deixar os caracteres pretos, pois o react-to-print está imprimindo cinza;
                             color: "black",
                         }}
                     >

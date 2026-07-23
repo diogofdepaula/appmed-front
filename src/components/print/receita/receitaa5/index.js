@@ -14,7 +14,13 @@ const ReceitaA5 = ({ prescricoes, via, mes, tipo, last }) => {
     return (
         <>
             <Page size="a5">
-                <Box width={1} height={1} display="block">
+                <Box 
+                    sx={{
+                        width: 1,
+                        height: 1,
+                        display: 'block',
+                    }}
+                >
                     <Box display="block" height={1}>
                         <Box justifyContent="center">
                             <Box display="block">

@@ -24,9 +24,9 @@ const a5 = {
     style: {
         height: 1,
         width: 1,
-        pt: 20,
+        pt: 18,
         pl: 21,
-        pb: 9,
+        pb: 11,
         pr: 1,
     }
 }
