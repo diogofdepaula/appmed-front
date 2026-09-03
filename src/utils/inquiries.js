@@ -10,7 +10,7 @@ export const MedicamentoRelatorio = (medicamento) => {
 
 export const DoençaCID = (param) => {
     if (['M050', 'M051', 'M052', 'M053', 'M058', 'M060', 'M068'].includes(param)) return "ar"
-    if (['M800', 'M801', 'M802', 'M803', 'M804', 'M805', 'M810', 'M811', 'M812', 'M813', 'M814', 'M815', 'M816', 'M818', 'M820', 'M821', 'M828' ].includes(param)) return "op"
+    if (['M800', 'M801', 'M802', 'M803', 'M804', 'M805', 'M810', 'M811', 'M812', 'M813', 'M814', 'M815', 'M816', 'M818', 'M820', 'M821', 'M828', 'M850'].includes(param)) return "op"
     if (['R521', 'R522'].includes(param)) return "dor"
     if (['M45', 'M468'].includes(param)) return "ea"
     if (['M321', 'M328'].includes(param)) return "les"
