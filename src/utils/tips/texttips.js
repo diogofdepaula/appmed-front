@@ -138,7 +138,7 @@ const ListaOpcoes = (param) => {
         },
         {
             texto: 'Além disso, oriento medidas não farmacológicas, assim como ' +
-                'medidas gerais em visando uma vida mais saudável as quais nessa situação ' +
+                'medidas gerais visando uma vida mais saudável as quais nessa situação ' +
                 'são fundamentais considerando o aspecto articular e osteomuscular.',
             remove: 'med',
             trigger: 'med',
