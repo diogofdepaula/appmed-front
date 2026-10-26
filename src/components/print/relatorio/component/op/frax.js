@@ -1,8 +1,6 @@
-
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../../../../../pages/print/printjob';
-import { BoxTitulo } from '../../../components';
 import Fence from '../../../fence';
 
 const BoxLinha = (props) => {
@@ -12,6 +10,8 @@ const BoxLinha = (props) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
+                    width: 1,
+                    fontSize: 15
                 }}
             >
                 {props.children}
@@ -25,11 +25,11 @@ const BoxColunaA = (props) => {
         <>
             <Box
                 sx={{
-                    width: '50rem',
+                    width: '1',
+                    pl: 1,
                     borderRight: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    fontSize: 15
                 }}
             >
                 {props.children}
@@ -50,7 +50,6 @@ const BoxColunaB = (props) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    fontSize: 15
                 }}
             >
                 {props.children}
@@ -58,7 +57,6 @@ const BoxColunaB = (props) => {
         </>
     )
 }
-
 
 const BoxColunaC = (props) => {
     return (
@@ -69,7 +67,6 @@ const BoxColunaC = (props) => {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    fontSize: 15
                 }}
             >
                 {props.children}
@@ -84,7 +81,7 @@ const Frax = () => {
 
     return (
         <>
-            <Fence titulo="6.2 - Risco de fratura (FRAX)">
+            <Fence titulo="5.2 - Risco de fratura (FRAX)">
                 <Box
                     sx={{
                         height: "100%",
@@ -105,48 +102,36 @@ const Frax = () => {
                         <BoxLinha>
                             <Box
                                 sx={{
-                                    width: '50rem',
+                                    width: '30rem',
                                     borderRight: 1,
+                                    pl: 1,
+                                    display: 'flex',
+                                    textAlign: 'center',
+                                    fontWeight: 'bold',
                                 }}
                             >
-                                <BoxTitulo titulo={'Risco de fratura'} />
+                                Risco de fratura FRAX
                             </Box>
-                            <Box
-                                sx={{
-                                    width: 1,
-                                    borderRight: 1,
-                                }}
-                            >
-                                <BoxTitulo titulo={'Fratura maior (%)'} />
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: 1,
-                                }}
-                            >
-                                <BoxTitulo titulo={'Fratura menor (%)'} />
-                            </Box>
-                        </BoxLinha>
-                        <BoxLinha>
-                            <BoxColunaA>
-                                <Box
-                                    sx={{
-                                        pl: 1,
-                                    }}
-                                >
-                                    FRAX
-                                </Box>
-                            </BoxColunaA>
-                            <BoxColunaB>
-                                <React.Fragment>
-                                    {lme.relatorio.fraxm}
-                                </React.Fragment>
-                            </BoxColunaB>
-                            <BoxColunaC>
-                                <React.Fragment>
-                                    {lme.relatorio.fraxq}
-                                </React.Fragment>
-                            </BoxColunaC>
+                            <BoxLinha>
+                                <BoxColunaA>
+                                    Fratura maior (%)
+                                </BoxColunaA>
+                                <BoxColunaB>
+                                    <React.Fragment>
+                                        {lme.relatorio.fraxm}
+                                    </React.Fragment>
+                                </BoxColunaB>
+                            </BoxLinha>
+                            <BoxLinha>
+                                <BoxColunaA>
+                                    Fratura menor (%)
+                                </BoxColunaA>
+                                <BoxColunaC>
+                                    <React.Fragment>
+                                        {lme.relatorio.fraxq}
+                                    </React.Fragment>
+                                </BoxColunaC>
+                            </BoxLinha>
                         </BoxLinha>
                     </Box>
                 </Box>

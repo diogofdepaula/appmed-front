@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import Page from '../../../page';
 import Linha1Relatorio from '../linha1';
-import Linha2Relatorio from '../linha2';
 import Linha3Relatorio from '../linha3';
 import MedicamentoRelatorio from '../medicamento';
 import RiscoFratura from './risco';
@@ -37,12 +36,11 @@ const RelatorioOp = () => {
                             justifyContent: 'space-between',
                             height: "100%",
                             width: "100%",
-                            gap: 1,
+                            gap: 0.5,
                         }}
                     >
                         <Linha1Relatorio />
                         <Linha3Relatorio />
-                        <Linha2Relatorio />
                         <MedicamentoRelatorio />
                         <HxFratura />
                         <Dxa />

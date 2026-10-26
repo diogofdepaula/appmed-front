@@ -1,4 +1,3 @@
-
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../../../../../pages/print/printjob';
@@ -65,7 +64,7 @@ const Dxa = () => {
 
     return (
         <>
-            <Fence titulo="5 - Densitometria óssea">
+            <Fence titulo="4 - Densitometria óssea">
                 <Box
                     sx={{
                         height: "100%",
@@ -111,9 +110,17 @@ const Dxa = () => {
                             <Box
                                 sx={{
                                     width: 1,
+                                    borderRight: 1,
                                 }}
                             >
                                 <BoxTitulo titulo={'FT'} />
+                            </Box>
+                            <Box
+                                sx={{
+                                    width: 1,
+                                }}
+                            >
+                                <BoxTitulo titulo={'Rádio 33%'} />
                             </Box>
                         </BoxLinha>
                         <BoxLinha>
@@ -131,7 +138,7 @@ const Dxa = () => {
                                         pl: 1,
                                     }}
                                 >
-                                    T-escore (desvio-padrão)
+                                    T-escore
                                 </Box>
                             </Box>
                             <BoxColunaB>
@@ -144,11 +151,45 @@ const Dxa = () => {
                                     {lme.relatorio.cf}
                                 </React.Fragment>
                             </BoxColunaB>
-                            <BoxColunaC>
+                            <BoxColunaB>
                                 <React.Fragment>
                                     {lme.relatorio.ft}
                                 </React.Fragment>
+                            </BoxColunaB>
+                            <BoxColunaC>
+                                <React.Fragment>
+                                    {lme.relatorio.rd}
+                                </React.Fragment>
                             </BoxColunaC>
+                        </BoxLinha>
+                        <BoxLinha>
+                            <Box
+                                sx={{
+                                    width: '17rem',
+                                    borderRight: 1,
+                                    borderTop: 1,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    fontSize: 15
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        pl: 1,
+                                    }}
+                                >
+                                    Justificativa se não realizado
+                                </Box>
+                            </Box>
+                            <Box
+                                sx={{
+                                    width: 1,
+                                    borderTop: 1,
+                                    pl: 1,
+                                }}
+                            >
+                                {lme.relatorio.justifmenopausa}
+                            </Box>
                         </BoxLinha>
                     </Box>
                 </Box>

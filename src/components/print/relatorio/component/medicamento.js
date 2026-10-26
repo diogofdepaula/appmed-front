@@ -1,41 +1,52 @@
-import { Box, Grid, Typography } from '@mui/material';
 import React, { useContext } from 'react';
+import { Box, Typography } from '@mui/material';
 import { LMEPrintContext } from '../../../../pages/print/printjob';
 
-// essse arquivo foi baseado no const Linha4Termo = () => {
-// depois dá um outro nome para que possa ser usado no termo de consentimento no lugar da Linha4Termo
+// Sugestão de novo nome futuro: MedicamentoTermoConsentimento (conforme comentário original)
 const MedicamentoRelatorio = () => {
-
-    const lme = useContext(LMEPrintContext)
+    const lme = useContext(LMEPrintContext);
 
     return (
-        <>
-            <Grid container>
-                <Grid container item>
-                    <Box mt={1} width={1} border={1} borderColor="black">
-                        <Grid container direction="column" justifyContent="flex-end" alignItems="stretch">
-                            <Grid item>
-                                <Box mt={-1} ml={2} display="flex" >
-                                    <Typography component={'span'} variant="caption" noWrap={true} >
-                                        <Box bgcolor="white" px={1}>3 - Medicamento</Box>
-                                    </Typography>
-                                </Box>
-                            </Grid>
-                            <Grid item>
-                                <Box ml={1} display="flex" justifyContent="center">
-                                    {lme.prescricoes.map((t, i) =>
-                                        <Typography component={'span'} variant={'h6'} align={'center'} key={i}>
-                                            <Box ml={2} fontWeight="fontWeightBold">{t.medicamento.farmaco}</Box>
-                                        </Typography>
-                                    )}
-                                </Box>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Grid>
-            </Grid>
-        </>
-    )
-}
+        <Box
+            sx={{
+                display: 'flex',
+                width: '100%'
+            }}
+        >
+            <Box
+                sx={{
+                    width: '100%',
+                    mt: 1,
+                    border: 1,
+                    borderColor: 'black',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    alignItems: 'stretch'
+                }}
+            >
+                {/* Título da Seção */}
+                <Box sx={{ mt: -1, ml: 2, display: 'flex' }}>
+                    <Typography component="span" variant="caption" noWrap>
+                        <Box component="span" sx={{ bgcolor: 'white', px: 1 }}>
+                            2 - Medicamento
+                        </Box>
+                    </Typography>
+                </Box>
 
-export default MedicamentoRelatorio
+                {/* Lista de Medicamentos */}
+                <Box sx={{ ml: 1, display: 'flex', justifyContent: 'center' }}>
+                    {lme.prescricoes.map((t, i) => (
+                        <Typography component="span" variant="h6" align="center" key={i}>
+                            <Box component="span" sx={{ ml: 2, fontWeight: 'bold' }}>
+                                {t.medicamento.farmaco}
+                            </Box>
+                        </Typography>
+                    ))}
+                </Box>
+            </Box>
+        </Box>
+    );
+};
+
+export default MedicamentoRelatorio;

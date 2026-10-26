@@ -11,6 +11,7 @@ const BoxLinha = (props) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
+                    width: 1,
                 }}
             >
                 {props.children}
@@ -24,7 +25,8 @@ const BoxColunaA = (props) => {
         <>
             <Box
                 sx={{
-                    width: '11rem',
+                    width: '12rem',
+                    pl: 1,
                     borderRight: 1,
                     borderBottom: 1,
                     display: 'flex',
@@ -37,6 +39,30 @@ const BoxColunaA = (props) => {
         </>
     )
 }
+
+
+const BoxColunaB = (props) => {
+
+    return (
+        <>
+            <Box
+                sx={{
+                    width: 1,
+
+                    borderRight: 1,
+                    borderBottom: 1,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    fontSize: 15
+                }}
+            >
+                {props.children}
+            </Box>
+        </>
+    )
+}
+
 
 const BoxColunaC = (props) => {
     return (
@@ -63,7 +89,7 @@ const HxFratura = () => {
 
     return (
         <>
-            <Fence titulo="4 - Histórico de fraturas Osteoporóticas">
+            <Fence titulo="3 - Histórico de fraturas Osteoporóticas">
                 <Box
                     sx={{
                         height: "100%",
@@ -85,14 +111,6 @@ const HxFratura = () => {
                         <BoxLinha>
                             <Box
                                 sx={{
-                                    width: '11rem',
-                                    borderRight: 1,
-                                }}
-                            >
-                                <BoxTitulo titulo={'Tipo'} />
-                            </Box>
-                            <Box
-                                sx={{
                                     width: 1,
                                 }}
                             >
@@ -100,40 +118,30 @@ const HxFratura = () => {
                             </Box>
                         </BoxLinha>
                         <BoxLinha>
-                            <BoxColunaA>
-                                <Box
-                                    sx={{
-                                        pl: 1,
-                                    }}
-                                >
+                            <BoxLinha>
+                                <BoxColunaA>
                                     Fraturas maiores
-                                </Box>
-                            </BoxColunaA>
-                            <BoxColunaC>
-                                <React.Fragment>
-                                    {lme.relatorio.fxmaiores}
-                                </React.Fragment>
-                            </BoxColunaC>
-                        </BoxLinha>
-                        <BoxLinha>
-                            <BoxColunaA>
-                                <Box
-                                    sx={{
-                                        pl: 1,
-                                    }}
-                                >
+                                </BoxColunaA>
+                                <BoxColunaB>
+                                    <React.Fragment>
+                                        {lme.relatorio.fxmaiores}
+                                    </React.Fragment>
+                                </BoxColunaB>
+                            </BoxLinha>
+                            <BoxLinha>
+                                <BoxColunaA>
                                     Fraturas menores
-                                </Box>
-                            </BoxColunaA>
-                            <BoxColunaC>
-                                <React.Fragment>
-                                    {lme.relatorio.fxmenores}
-                                </React.Fragment>
-                            </BoxColunaC>
+                                </BoxColunaA>
+                                <BoxColunaC>
+                                    <React.Fragment>
+                                        {lme.relatorio.fxmenores}
+                                    </React.Fragment>
+                                </BoxColunaC>
+                            </BoxLinha>
                         </BoxLinha>
                     </Box>
-                </Box>
-            </Fence>
+                </Box >
+            </Fence >
         </>
     )
 }

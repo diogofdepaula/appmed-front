@@ -1,4 +1,3 @@
-
 import { Box } from '@mui/material';
 import React, { useContext } from 'react';
 import { LMEPrintContext } from '../../../../../pages/print/printjob';
@@ -12,6 +11,7 @@ const BoxLinha = (props) => {
                 sx={{
                     display: 'flex',
                     flexDirection: 'row',
+                    fontSize: 14,
                 }}
             >
                 {props.children}
@@ -30,7 +30,6 @@ const BoxColunaA = (props) => {
                     borderRight: 1,
                     display: 'flex',
                     alignItems: 'center',
-                    fontSize: 15,
                     p: 1
                 }}
             >
@@ -49,9 +48,7 @@ const BoxColunaC = (props) => {
                     borderTop: 1,
                     display: 'flex',
                     flexDirection: 'column',
-                    pl: 1,
-                    fontSize: 15,
-                    p: 1,
+                    p: 0.5,
                     gap: 0.5
                 }}
             >
@@ -67,7 +64,7 @@ const RiscoFratura = () => {
 
     const riscos = [
         [
-            'Baixo',
+            'Baixo e Moderado',
             [
                 [
                     'a',
@@ -75,15 +72,15 @@ const RiscoFratura = () => {
                 ],
             ],
         ],
-        [
-            'Moderado',
-            [
-                [
-                    'b',
-                    'Osteopenia e sem fraturas osteoporóticas prévias',
-                ]
-            ]
-        ],
+        // [
+        //     'Moderado',
+        //     [
+        //         [
+        //             'b',
+        //             'Osteopenia e sem fraturas osteoporóticas prévias',
+        //         ]
+        //     ]
+        // ],
         [
             'Alto',
             [
@@ -138,7 +135,7 @@ const RiscoFratura = () => {
 
     return (
         <>
-            <Fence titulo="6.1 - Risco de fratura">
+            <Fence titulo="5.1 - Risco de fratura">
                 <Box
                     sx={{
                         height: "100%",

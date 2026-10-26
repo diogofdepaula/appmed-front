@@ -9,7 +9,7 @@ const TtoAnterior = () => {
     return (
         <>
             <Fence
-                titulo={'8 - Tratamentos anteriores (informar medicamentos, tempo de uso e efeito)'}
+                titulo={'7 - Tratamentos anteriores (informar medicamentos, tempo de uso e efeito)'}
                 stretch={1}
             >
                 {lme.relatorio.ttoanterior}
