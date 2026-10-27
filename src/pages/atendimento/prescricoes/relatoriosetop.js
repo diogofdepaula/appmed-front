@@ -433,10 +433,7 @@ const RelatorioSetOp = () => {
                             />
                         </Box>
                     </FenceStyle>
-                    <BoxStyle>
-                        <Box>
-                            Calcitonina
-                        </Box>
+                    <FenceStyle titulo={'Calcitonina'}>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -449,7 +446,7 @@ const RelatorioSetOp = () => {
                                 name='clinicaop'
                                 value="e"
                                 control={<Radio />}
-                                label="'Osteonecrose de mandíbula."
+                                label="Osteonecrose de mandíbula."
                                 checked={lmeEdit.relatorio?.clinicaop === "e" || false}
                                 onChange={handleChange}
                             />
@@ -470,11 +467,8 @@ const RelatorioSetOp = () => {
                                 onChange={handleChange}
                             />
                         </Box>
-                    </BoxStyle>
-                    <BoxStyle>
-                        <Box>
-                            Calcitriol
-                        </Box>
+                    </FenceStyle>
+                    <FenceStyle titulo={'Calcitriol'}>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -492,11 +486,8 @@ const RelatorioSetOp = () => {
                                 onChange={handleChange}
                             />
                         </Box>
-                    </BoxStyle>
-                    <BoxStyle>
-                        <Box>
-                            Raloxifeno
-                        </Box>
+                    </FenceStyle>
+                    <FenceStyle titulo={'Raloxifeno'}>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -538,11 +529,8 @@ const RelatorioSetOp = () => {
                                 onChange={handleChange}
                             />
                         </Box>
-                    </BoxStyle>
-                    <BoxStyle>
-                        <Box>
-                            Romosozumabe
-                        </Box>
+                    </FenceStyle>
+                    <FenceStyle titulo={'Romosozumabe'}>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -568,7 +556,7 @@ const RelatorioSetOp = () => {
                                 onChange={handleChange}
                             />
                         </Box>
-                    </BoxStyle>
+                    </FenceStyle>
                 </Box>
             </Box>
         </>
